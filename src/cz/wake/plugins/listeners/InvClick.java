@@ -242,6 +242,9 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 39){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
         	if(event.getSlot() == 10){
         		this.sc.activateSanta(player);
         		player.closeInventory();
@@ -335,10 +338,16 @@ public class InvClick implements Listener{
         		AngelWings aw = new AngelWings();
         		aw.activateWings(player);
         	}
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
         }
       //**************************** MOUNT MENU ****************************//
         if(event.getInventory().getTitle().equals("Mounts")){
         	if(event.getSlot() == 39){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
+        	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
         }
@@ -368,6 +377,9 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 15){
         		IronGolemNormal.actiavteGolem(player);
         	}
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
         }
       //**************************** MORPHS MENU ****************************//
         if (event.getInventory().getTitle().equals("Morphs")) {
@@ -392,6 +404,9 @@ public class InvClick implements Listener{
         		player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Pig Morph.");
         		player.closeInventory();
         	}
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
             event.setCancelled(true);
             player.updateInventory();                   
         }
@@ -618,12 +633,18 @@ public class InvClick implements Listener{
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BatBlaster.");
             	player.closeInventory();
             }
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
         }
       //**************************** HATS MENU ****************************//
         if(event.getInventory().getTitle().equals("Heads (1 z 3 stran)")){
         	event.setCancelled(true);
             player.updateInventory();
             if(event.getSlot() == 39){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
+        	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
             if(event.getSlot() == 40){
@@ -1039,6 +1060,9 @@ public class InvClick implements Listener{
             if(event.getSlot() == 39){
             	this.hatsMenu.openHatsMenu(player);
             }
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
             if(event.getSlot() == 40){
             	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
             	player.getInventory().setHelmet(null);
@@ -1450,6 +1474,9 @@ public class InvClick implements Listener{
             player.updateInventory();
             if(event.getSlot() == 39){
             	this.headsMenu2.openHeadsMenu2(player);
+            }
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
             }
             if(event.getSlot() == 40){
             	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);

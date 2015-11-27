@@ -12,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import cz.wake.plugins.Main;
+
 public class MorphsMenu implements Listener{
 	
 	
@@ -106,13 +108,13 @@ public class MorphsMenu implements Listener{
 		
 		ItemStack shopItem = new ItemStack(Material.CHEST,1);
 		ItemMeta shopItemMeta = shopItem.getItemMeta();
-		shopItemMeta.setDisplayName(ChatColor.GREEN + "Shop");
+		shopItemMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Gadgets");
 		ArrayList<String> shopLore = new ArrayList<String>();
-		shopLore.add(ChatColor.GRAY + "Kliknutim si otevres shop");
-		shopLore.add(ChatColor.GRAY + "kde si muzes nakoupit za CC");
-		shopLore.add(ChatColor.GRAY + "nove hats, gadgets, trails atd.");
+		shopLore.add(ChatColor.GRAY + "Gadgety jsou doplnky do lobby");
+		shopLore.add(ChatColor.GRAY + "daji se ziskat z CraftBoxu nebo na");
+		shopLore.add(ChatColor.GRAY + "specialnich eventech.");
 		shopLore.add("");
-		shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.YELLOW + "0 CC");
+		shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getAPI().getCraftCoins(p) + " CC");
 		shopItemMeta.setLore(shopLore);
 		shopItem.setItemMeta(shopItemMeta);
 		
