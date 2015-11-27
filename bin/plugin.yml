@@ -1,0 +1,12 @@
+name: WakesLobby	
+main: cz.wake.plugins.Main
+version: 0.2.0
+author: MrWakeCZ
+commands:
+  wlobby:
+    description: Info o profilu!
+  wl:
+    description: Info o profilu!
+permissions:
+  craftlobby.pristup:
+    description: Beta test

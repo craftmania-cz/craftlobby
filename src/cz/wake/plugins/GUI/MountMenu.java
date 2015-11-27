@@ -1,0 +1,66 @@
+package cz.wake.plugins.GUI;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import cz.wake.plugins.Main;
+
+public class MountMenu implements Listener{
+	
+	public void openMount(Player p){
+		
+		Inventory mountMenu = Bukkit.createInventory(null, 54, "Mounts");
+		
+		ItemStack mountoffire = new ItemStack(Material.BLAZE_ROD);
+		ItemMeta mofMeta = mountoffire.getItemMeta();
+		mofMeta.setDisplayName(ChatColor.GREEN + "MountOfFire");
+		ArrayList<String> mofLore = new ArrayList<String>();
+		mofLore.add(ChatColor.GRAY + "Kliknutim si nasadis na hlavu!");
+		mofMeta.setLore(mofLore);
+		mountoffire.setItemMeta(mofMeta);
+		mountMenu.setItem(10, mountoffire);
+		
+		ItemStack zpet = new ItemStack(Material.ARROW);
+		ItemMeta zpetMeta = zpet.getItemMeta();
+		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do Gadgets menu");
+		zpet.setItemMeta(zpetMeta);
+		
+		ItemStack deaktivace = new ItemStack(Material.BARRIER);
+		ItemMeta deaktivaceMeta = deaktivace.getItemMeta();
+		deaktivaceMeta.setDisplayName(ChatColor.RED + "✖ Sundat blok z hlavy ✖");
+		ArrayList<String> deaktivaceLore = new ArrayList<String>();
+		deaktivaceLore.add(ChatColor.GRAY + "Kliknutim sundas nasazeny blok.");
+		deaktivaceMeta.setLore(deaktivaceLore);
+		deaktivace.setItemMeta(deaktivaceMeta);
+		
+		ItemStack shopItem = new ItemStack(Material.CHEST,1);
+		ItemMeta shopItemMeta = shopItem.getItemMeta();
+		shopItemMeta.setDisplayName(ChatColor.GREEN + "Shop");
+		ArrayList<String> shopLore = new ArrayList<String>();
+		shopLore.add(ChatColor.GRAY + "Kliknutim si otevres shop");
+		shopLore.add(ChatColor.GRAY + "kde si muzes nakoupit za CC");
+		shopLore.add(ChatColor.GRAY + "nove hats, gadgets, trails atd.");
+		shopLore.add("");
+		shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.YELLOW + "0 CC");
+		shopItemMeta.setLore(shopLore);
+		shopItem.setItemMeta(shopItemMeta);
+		
+		mountMenu.setItem(49, shopItem);
+		mountMenu.setItem(40, deaktivace);
+		mountMenu.setItem(39, zpet);
+		
+		p.openInventory(mountMenu);
+	}
+
+}

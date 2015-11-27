@@ -1,0 +1,7 @@
+- Práva na morphs
+- Enchant použití v menu
+- Zmìnit text u MobGun
+- Pozmìnit polohy u TNTFountain
+- Zmìnit zprávy
+- Ukonèit tasky
+- QuitEventy
