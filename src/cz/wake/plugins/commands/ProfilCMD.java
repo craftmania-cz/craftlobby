@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import cz.wake.plugins.Main;
 import cz.wake.plugins.GUI.GadgetsMenu;
 import cz.wake.plugins.GUI.HeadsMenu;
 import cz.wake.plugins.GUI.Menu;
@@ -23,26 +24,28 @@ public class ProfilCMD implements CommandExecutor{
 			Player player = (Player)Sender;
 			if((Command.getName().equalsIgnoreCase("wlobby")) || (Command.getName().equalsIgnoreCase("wl"))){
 				if(ArrayOfString.length == 0){
-					player.sendMessage("  ");
+					player.sendMessage("");
 					player.sendMessage(ChatColor.YELLOW + "Pouzij nasledujici prikazy:");
-					player.sendMessage(ChatColor.AQUA + "/wlobby menu" + ChatColor.GRAY + " - Otevre hlavni menu");
-					player.sendMessage(ChatColor.AQUA + "/wlobby minigames" + ChatColor.GRAY + " - Otevre minigames menu");
-					player.sendMessage("" );
+					player.sendMessage(ChatColor.AQUA + "/wlobby debug" + ChatColor.GRAY + " - Aktivuje debug rezim");
+					player.sendMessage("");
 					return true;
 				}
-				else if(ArrayOfString[0].equalsIgnoreCase("menu")){
-					if(((Player) Sender).getPlayer().hasPermission("craftlobby.beta")){
-						this.menu.openMenu(player);
+				else if(ArrayOfString[0].equalsIgnoreCase("debug")){
+					if(((Player) Sender).getPlayer().hasPermission("craftlobby.admin")){
+						if(Main.getInstance().isDebug()){
+							Main.getInstance().activeteDebug();
+							player.sendMessage("§2[DEBUG] §7- §fByl aktivovan.");
+						} else {
+							Main.getInstance().deactivateDebug();
+							player.sendMessage("§2[DEBUG] §7- §fByl deaktivovan.");
+						}
 						return true;
 					}
-				}
-				else if(ArrayOfString[0].equalsIgnoreCase("minigames")){
-					this.minigamesMenu.openMinigamesMenu(player);
-					return true;
-				}
 				return true;
+				}
 			}
+			return false;
 		}
 		return false;
-	}
+	}	
 }

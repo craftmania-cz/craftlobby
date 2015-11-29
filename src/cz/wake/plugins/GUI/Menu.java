@@ -31,7 +31,7 @@ public class Menu {
 		headLore.add(ChatColor.GRAY + "Level: " + ChatColor.GOLD + FetchData.getPlayerLevel(p));
 		headLore.add(ChatColor.GRAY + "Zkusenosti do dalsiho levlu: " + ChatColor.GOLD + FetchData.getPlayerExp(p) + "/" + FetchData.getExpToLevel(FetchData.getPlayerLevel(p)) + " XP");
 		headLore.add(ChatColor.GRAY + "Odehrana doba: " + ChatColor.YELLOW + "Nedostupne...");
-		headLore.add(ChatColor.GRAY + "CraftCoiny: " + ChatColor.AQUA + "0");
+		headLore.add(ChatColor.GRAY + "CraftCoiny: " + ChatColor.AQUA + Main.getInstance().getAPI().getCraftCoins(p));
 		headItemMeta.setLore(headLore);
 		headItem.setItemMeta(headItemMeta);
 		

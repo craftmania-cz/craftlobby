@@ -206,6 +206,18 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		return this.api;
 	}
 	
+	public void activeteDebug(){
+		this.debug = true;
+	}
+	
+	public boolean isDebug(){
+		return this.debug;
+	}
+	
+	public void deactivateDebug(){
+		this.debug = false;
+	}
+	
 	public static Plugin getPlugin() {
         return Bukkit.getPluginManager().getPlugin("WakesLobby");
     }

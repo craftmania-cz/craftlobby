@@ -12,6 +12,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -117,12 +118,23 @@ public class PlayerListener implements Listener{
 	}
 	
 	@EventHandler
-	public void onPlaceItem(BlockPlaceEvent e){
+	public void onPlaceBlock(BlockPlaceEvent e){
 		Player p = e.getPlayer();
-		if(p.isOp()){
+		if(Main.getInstance().isDebug() && p.hasPermission("craftlobby.admin")){
 			e.setCancelled(false);
+		} else {
+			e.setCancelled(true);
 		}
-		e.setCancelled(true);
+	}
+	
+	@EventHandler
+	public void onBreakBlock(BlockBreakEvent e){
+		Player p = e.getPlayer();
+		if(Main.getInstance().isDebug() && p.hasPermission("craftlobby.admin")){
+			e.setCancelled(false);
+		} else {
+			e.setCancelled(true);
+		}
 	}
 	
 	@EventHandler
