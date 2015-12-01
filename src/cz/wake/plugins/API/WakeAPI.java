@@ -165,5 +165,21 @@ public class WakeAPI {
 	public int getCraftCoins(Player p){
 		return Main.getInstance().fetchData().getCraftCoins(p);
 	}
+	
+	public int getSkyWarsWins(Player p){
+		return Main.getInstance().fetchData().getSkyWarsWins(p);
+	}
+	
+	public int getSkyWarsKills(Player p){
+		return Main.getInstance().fetchData().getSkyWarsKills(p);
+	}
+	
+	public int getSkyWarsDeaths(Player p){
+		return Main.getInstance().fetchData().getSkyWarsDeaths(p);
+	}
+	
+	public int getSkyWarsPlayed(Player p){
+		return Main.getInstance().fetchData().getSkyWarsPlayed(p);
+	}
 
 }

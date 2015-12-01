@@ -18,7 +18,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedwarsWins(Player p){
@@ -32,7 +32,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedwarsScore(Player p){
@@ -46,7 +46,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedwarsLoses(Player p){
@@ -60,7 +60,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedwarsDeaths(Player p){
@@ -74,7 +74,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedwarsDestroyed(Player p){
@@ -88,7 +88,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedwarsPlayed(Player p){
@@ -102,7 +102,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBedWarsTime(Player p){
@@ -116,7 +116,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawitScore(Player p){
@@ -130,7 +130,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawitWins(Player p){
@@ -144,7 +144,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawitLoses(Player p){
@@ -158,7 +158,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawitRightGuess(Player p){
@@ -172,7 +172,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawitWrongGuess(Player p){
@@ -186,7 +186,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawitPlayed(Player p){
@@ -200,7 +200,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getUHCKills(Player p){
@@ -214,7 +214,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getUHCDeaths(Player p){
@@ -228,7 +228,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getUHCKillstreak(Player p){
@@ -242,7 +242,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getUHCBlocksBroken(Player p){
@@ -256,7 +256,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getUHCBlocksPlaced(Player p){
@@ -270,7 +270,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getUHCTime(Player p){
@@ -284,7 +284,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public static int getPlayerLevel(Player player)
@@ -425,7 +425,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getAnnihilationDeaths(Player p){
@@ -439,7 +439,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getAnnihilationWins(Player p){
@@ -453,7 +453,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getAnnihilationLosses(Player p){
@@ -467,7 +467,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getAnnihilationNexusDamage(Player p){
@@ -481,7 +481,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getAnnihilationTime(Player p){
@@ -495,7 +495,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattleWins(Player p){
@@ -509,7 +509,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattleLoses(Player p){
@@ -523,7 +523,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattleBestScore(Player p){
@@ -537,7 +537,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattlePlayedGames(Player p){
@@ -551,7 +551,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattleBrokenBlocks(Player p){
@@ -565,7 +565,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattlePlacedBlocks(Player p){
@@ -579,7 +579,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getBuildBattleParticles(Player p){
@@ -593,7 +593,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getDrawItTime(Player p){
@@ -607,7 +607,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getVanillaKills(Player p){
@@ -621,7 +621,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getVanillaDeaths(Player p){
@@ -635,7 +635,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getVanillaBlockBroken(Player p){
@@ -649,7 +649,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getVanillaBlockPlaced(Player p){
@@ -663,7 +663,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getVanillaTime(Player p){
@@ -677,7 +677,7 @@ public class FetchData {
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
 		}
-		return -1;
+		return 0;
 	}
 	
 	public synchronized int getCraftCoins(Player p){
@@ -686,6 +686,62 @@ public class FetchData {
 			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT balance FROM CraftCoins WHERE uuid = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
 				return localResultSet.getInt("balance");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public synchronized int getSkyWarsKills(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT kills FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("kills");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public synchronized int getSkyWarsWins(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("wins");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public synchronized int getSkyWarsDeaths(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT deaths FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("deaths");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public synchronized int getSkyWarsPlayed(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT played FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("played");
 			}
 			localResultSet.close();
 		} catch(SQLException localSQLException){

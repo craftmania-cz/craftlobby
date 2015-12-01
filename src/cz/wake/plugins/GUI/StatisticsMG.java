@@ -17,7 +17,7 @@ public class StatisticsMG {
 	
 	public void openMinigamesMenu(Player p){
 		
-		Inventory minigamesMenu = Bukkit.createInventory(null, 36,"Statistiky pro " + p.getName());
+		Inventory minigamesMenu = Bukkit.createInventory(null, 45,"Statistiky pro " + p.getName());
 		
 		ItemStack bedwars = new ItemStack(Material.BED);
 		ItemMeta bedwarsMeta = bedwars.getItemMeta();
@@ -107,6 +107,19 @@ public class StatisticsMG {
 		vanMeta.setLore(vanLore);
 		vanilla.setItemMeta(vanMeta);
 		
+		ItemStack skywars = new ItemStack(Material.EYE_OF_ENDER);
+		ItemMeta swMeta = skywars.getItemMeta();
+		swMeta.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "SkyWars");
+		ArrayList<String> swLore = new ArrayList<String>();
+		swLore.add("");
+		swLore.add(ChatColor.YELLOW + "Zabiti: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsKills(p));
+		swLore.add(ChatColor.YELLOW + "Smrti: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsDeaths(p));
+		swLore.add(ChatColor.YELLOW + "Vitezstvi: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsWins(p));
+		swLore.add(ChatColor.YELLOW + "Odehrano her: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsPlayed(p));
+		swLore.add(ChatColor.YELLOW + "Odehrany cas: §cNenalezeno...");
+		swMeta.setLore(swLore);
+		skywars.setItemMeta(swMeta);
+		
 		ItemStack zpet = new ItemStack(Material.WOOD_DOOR);
 		ItemMeta zpetMeta = zpet.getItemMeta();
 		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");
@@ -121,7 +134,8 @@ public class StatisticsMG {
 		minigamesMenu.setItem(22, uhc);
 		minigamesMenu.setItem(23, anni);
 		minigamesMenu.setItem(24, buildbattle);
-		minigamesMenu.setItem(35, zpet);
+		minigamesMenu.setItem(31, skywars);
+		minigamesMenu.setItem(44, zpet);
 		
 		
 		p.openInventory(minigamesMenu);
