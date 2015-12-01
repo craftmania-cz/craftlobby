@@ -115,7 +115,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		registerGlow();
 		loadListeners();
 		loadCommands();
-		debug = getConfig().getBoolean("debug");
+		debug = false;
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 	}
@@ -207,15 +207,15 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	}
 	
 	public void activeteDebug(){
-		this.debug = true;
+		debug = true;
 	}
 	
 	public boolean isDebug(){
-		return this.debug;
+		return debug;
 	}
 	
 	public void deactivateDebug(){
-		this.debug = false;
+		debug = false;
 	}
 	
 	public static Plugin getPlugin() {

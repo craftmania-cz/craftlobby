@@ -32,12 +32,12 @@ public class ProfilCMD implements CommandExecutor{
 				}
 				else if(ArrayOfString[0].equalsIgnoreCase("debug")){
 					if(((Player) Sender).getPlayer().hasPermission("craftlobby.admin")){
-						if(Main.getInstance().isDebug()){
-							Main.getInstance().activeteDebug();
-							player.sendMessage("§2[DEBUG] §7- §fByl aktivovan.");
-						} else {
-							Main.getInstance().deactivateDebug();
+						if(Main.getInstance().debug){
+							Main.getInstance().debug = false;
 							player.sendMessage("§2[DEBUG] §7- §fByl deaktivovan.");
+						} else {
+							Main.getInstance().debug = true;
+							player.sendMessage("§2[DEBUG] §7- §fByl aktivovan.");
 						}
 						return true;
 					}

@@ -139,7 +139,12 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler
 	public void onItemMove(InventoryClickEvent e){
-		e.setCancelled(true);
+		Player p = (Player) e.getInventory().getHolder();
+		if(Main.getInstance().isDebug() && p.hasPermission("craftlobby.admin")){
+			e.setCancelled(false);
+		} else {
+			e.setCancelled(true);
+		}
 	}
 	
 	@EventHandler
