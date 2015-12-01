@@ -93,12 +93,63 @@ public class InvClick implements Listener{
             event.setCancelled(true);
             player.updateInventory();                   
         }
+      //**************************** MiniGames VIP MENU ****************************//
+        if(event.getInventory().getTitle().equals("§lSMS > MiniGames VIP")){
+        	if(event.getSlot() == 26){
+        		this.vMenu.openMenuSMS(player);
+        	}
+        }
       //**************************** SMS SERVERS MENU ****************************//
         if(event.getInventory().getTitle().equals("§lSMS > Vyber serveru")){
         	event.setCancelled(true);
             player.updateInventory();
             if(event.getSlot() == 26){
             	this.vMenu.openVIPMenu(player);
+            }
+            if(event.getSlot() == 15){
+            	this.vMenu.openMinigamesSMS(player);
+            }
+            if(event.getSlot() == 11){
+            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
+            	player.sendMessage("");
+            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+            	player.sendMessage("");
+            	player.sendMessage("");
+            	player.sendMessage("§eNakup pomoci SMS provedes na serveru pomoci:");
+            	player.sendMessage("§b/vip");
+            	player.sendMessage("");
+            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+            	player.sendMessage("");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 12){
+            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
+            	player.sendMessage("");
+            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+            	player.sendMessage("");
+            	player.sendMessage("");
+            	player.sendMessage("§eNakup pomoci SMS provedes na serveru pomoci:");
+            	player.sendMessage("§b/vip");
+            	player.sendMessage("");
+            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+            	player.sendMessage("");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 13){
+            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
+            	player.sendMessage("");
+            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+            	player.sendMessage("");
+            	player.sendMessage("");
+            	player.sendMessage("§eNakup pomoci SMS provedes na serveru pomoci:");
+            	player.sendMessage("§b/vip");
+            	player.sendMessage("");
+            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+            	player.sendMessage("");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 14){
+            	player.sendMessage("§cV soucasne dobe nedostupne!");
             }
             
         }
@@ -107,17 +158,7 @@ public class InvClick implements Listener{
         	event.setCancelled(true);
             player.updateInventory();
             if(event.getSlot() == 11){
-            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
-            	player.sendMessage("");
-            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-            	player.sendMessage("");
-            	player.sendMessage("");
-            	player.sendMessage("§eNakup pomoci SMS provedes na kazdem serveru pomoci:");
-            	player.sendMessage("§b/vip");
-            	player.sendMessage("");
-            	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-            	player.sendMessage("");
-            	player.closeInventory();
+            	this.vMenu.openMenuSMS(player);
             }
             if(event.getSlot() == 15){
             	player.playSound(player.getLocation(), Sound.COW_HURT, 13.0F, 1.0F);
