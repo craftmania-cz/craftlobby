@@ -23,7 +23,7 @@ public class HeadsMenu implements Listener{
 	
 	public void openHatsMenu(Player p){
 		
-		Inventory hatsMenu = Bukkit.createInventory(null, 54, "Heads (1 z 3 stran)");
+		Inventory hatsMenu = Bukkit.createInventory(null, 54, "Heads (1 z 4 stran)");
 		
 		//ItemStack skull = ItemFactory.createHead("MrWakeCZ", "43d05dab-2dbc-418b-9e6f-dc73ab916dbc", "eyJ0aW1lc3RhbXAiOjE0NDM4MTEyMzg1OTgsInByb2ZpbGVJZCI6IjQzZDA1ZGFiMmRiYzQxOGI5ZTZmZGM3M2FiOTE2ZGJjIiwicHJvZmlsZU5hbWUiOiJNcldha2VDWiIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzQ5ODM2MDliYjY2ZTBmNDY3ZmEzYmYyNmQ5NzBkOWI1OWYyODdjZDhiYTk0MWU4ZWE4NTliZTgwNmM5MCJ9fX0=");
 		

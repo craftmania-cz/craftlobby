@@ -138,7 +138,7 @@ public class GadgetsMenu implements Listener{
 	
 	public String countHeads(Player p){
 		int heads = getHeadsCount(p);
-		int sum = 105;
+		int sum = 120;
 		int prc = (heads*100/sum);
 		
 		return "§7Odemknuto: §f" + heads + "/" + sum + " §8(" + prc + "%)";
@@ -539,6 +539,51 @@ public class GadgetsMenu implements Listener{
 			c++;
 		}
 		if(p.hasPermission("craftlobby.heads.xero2000")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.candle")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.candycane")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.starbucks")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.snowhead")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.rudolf")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.snowman")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.snowglobe")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.present1")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.present2")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.present3")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.present4")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.santa")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.santa2")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.elf")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.heads.elf2")){
 			c++;
 		}
 		return c;

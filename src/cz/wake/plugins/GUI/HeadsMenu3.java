@@ -17,7 +17,7 @@ public class HeadsMenu3 {
 	
 	public void openHeadsMenu3(Player p){
 		
-		Inventory hm = Bukkit.createInventory(null, 54, "Heads (3 z 3 stran)");
+		Inventory hm = Bukkit.createInventory(null, 54, "Heads (3 z 4 stran)");
 		
 		/*if(p.hasPermission("craftlobby.heads.")){
 		ItemStack skull = ItemFactory.createHead("", "", "");
@@ -666,6 +666,63 @@ public class HeadsMenu3 {
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(32, noPerm);
 		}
+		if(p.hasPermission("craftlobby.heads.candle")){
+			ItemStack skull = ItemFactory.createHead("Candle", "fcc307c9-5dcd-461f-b2be-978246755e65", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjlkNWYyNWNlOWE4YmZmNWJhZDBmNTZiYjUxYjUyZmQ2MjM0NjM5NWQ2ZWM3YzY0NzE0ODRlYzdlYWJhZiJ9fX0=");
+			ItemMeta sMeta = skull.getItemMeta();
+			sMeta.setDisplayName(ChatColor.GREEN + "Candle");
+			ArrayList<String> sLore = new ArrayList<String>();
+			sLore.add(ChatColor.GRAY + "Ziskano z Vanocniho CraftBoxu.");
+			sMeta.setLore(sLore);
+			skull.setItemMeta(sMeta);
+			hm.setItem(33, skull);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Candle");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve Vanocnim CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			hm.setItem(33, noPerm);
+		}
+		if(p.hasPermission("craftlobby.heads.candycane")){
+			ItemStack skull = ItemFactory.createHead("Candycane", "e2c883e6-2812-448c-bd9e-cc7e91d72913", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZiMzJiNmViYWE3MzczZWY3NDQ3Mzg1ZTBiOTYxNmI2N2VmOTgyZjY5MzQxMzcxNDI5MWZmMzVlYjAyM2MifX19");
+			ItemMeta sMeta = skull.getItemMeta();
+			sMeta.setDisplayName(ChatColor.GREEN + "Candycane");
+			ArrayList<String> sLore = new ArrayList<String>();
+			sLore.add(ChatColor.GRAY + "Ziskano z Vanocniho CraftBoxu.");
+			sMeta.setLore(sLore);
+			skull.setItemMeta(sMeta);
+			hm.setItem(34, skull);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Candycane");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve Vanocnim CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			hm.setItem(34, noPerm);
+		}
+		if(p.hasPermission("craftlobby.heads.starbucks")){
+			ItemStack skull = ItemFactory.createHead("Starbucks", "c7884dcf-5b70-4ffb-be14-7e3442fb9275", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjVmZTEzMjJjYWQ5ODM4NWE4YjdmMTFmMjdmY2ZjNTMzZThmNjQ1NWFkYjIwN2I3MGU4ODliYjIzYzYyMzdmIn19fQ==");
+			ItemMeta sMeta = skull.getItemMeta();
+			sMeta.setDisplayName(ChatColor.GREEN + "Starbucks");
+			ArrayList<String> sLore = new ArrayList<String>();
+			sLore.add(ChatColor.GRAY + "Ziskano z Vanocniho CraftBoxu.");
+			sMeta.setLore(sLore);
+			skull.setItemMeta(sMeta);
+			hm.setItem(35, skull);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Starbucks");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve Vanocnim CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			hm.setItem(35, noPerm);
+		}
 		
 		ItemStack zpet = new ItemStack(Material.ARROW);
 		ItemMeta zpetMeta = zpet.getItemMeta();
@@ -699,6 +756,7 @@ public class HeadsMenu3 {
 		
 		hm.setItem(49, shopItem);
 		hm.setItem(40, deaktivace);
+		hm.setItem(41, dalsi);
 		hm.setItem(39, zpet);
 		
 		p.openInventory(hm);

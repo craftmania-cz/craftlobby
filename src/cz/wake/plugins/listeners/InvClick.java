@@ -22,6 +22,7 @@ import cz.wake.plugins.GUI.GadgetsMenu;
 import cz.wake.plugins.GUI.HeadsMenu;
 import cz.wake.plugins.GUI.HeadsMenu2;
 import cz.wake.plugins.GUI.HeadsMenu3;
+import cz.wake.plugins.GUI.HeadsMenu4;
 import cz.wake.plugins.GUI.Menu;
 import cz.wake.plugins.GUI.StatisticsMG;
 import cz.wake.plugins.GUI.MorphsMenu;
@@ -92,6 +93,7 @@ public class InvClick implements Listener{
 	MobSpell sp = new MobSpell();
 	FrozenWalk fw = new FrozenWalk();
 	Lily lil = new Lily();
+	HeadsMenu4 headsMenu4 = new HeadsMenu4();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -744,7 +746,7 @@ public class InvClick implements Listener{
             }
         }
       //**************************** HATS MENU ****************************//
-        if(event.getInventory().getTitle().equals("Heads (1 z 3 stran)")){
+        if(event.getInventory().getTitle().equals("Heads (1 z 4 stran)")){
         	event.setCancelled(true);
             player.updateInventory();
             if(event.getSlot() == 39){
@@ -1160,7 +1162,7 @@ public class InvClick implements Listener{
         		
         }
       //**************************** HEADS MENU 2 ****************************//
-        if(event.getInventory().getTitle().equals("Heads (2 z 3 stran)")){
+        if(event.getInventory().getTitle().equals("Heads (2 z 4 stran)")){
         	event.setCancelled(true);
             player.updateInventory();
             if(event.getSlot() == 39){
@@ -1575,7 +1577,7 @@ public class InvClick implements Listener{
             }
         }
       //**************************** HEADS MENU 3 ****************************//
-        if(event.getInventory().getTitle().equals("Heads (3 z 3 stran)")){
+        if(event.getInventory().getTitle().equals("Heads (3 z 4 stran)")){
         	event.setCancelled(true);
             player.updateInventory();
             if(event.getSlot() == 39){
@@ -1583,6 +1585,9 @@ public class InvClick implements Listener{
             }
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
+            }
+        	if(event.getSlot() == 41){
+            	this.headsMenu4.openHeadsMenu4(player);
             }
             if(event.getSlot() == 40){
             	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
@@ -1953,7 +1958,187 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "xero2000 Head");
             	}
             }
-            
+            if(event.getSlot() == 33){
+            	if(player.hasPermission("craftlobby.heads.candle")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Candle", "fcc307c9-5dcd-461f-b2be-978246755e65", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjlkNWYyNWNlOWE4YmZmNWJhZDBmNTZiYjUxYjUyZmQ2MjM0NjM5NWQ2ZWM3YzY0NzE0ODRlYzdlYWJhZiJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Candle Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Candle Head");
+            	}
+            }
+            if(event.getSlot() == 34){
+            	if(player.hasPermission("craftlobby.heads.candycane")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Candycane", "e2c883e6-2812-448c-bd9e-cc7e91d72913", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZiMzJiNmViYWE3MzczZWY3NDQ3Mzg1ZTBiOTYxNmI2N2VmOTgyZjY5MzQxMzcxNDI5MWZmMzVlYjAyM2MifX19");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Candycane Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Candycane Head");
+            	}
+            }
+            if(event.getSlot() == 35){
+            	if(player.hasPermission("craftlobby.heads.starbucks")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Starbucks", "c7884dcf-5b70-4ffb-be14-7e3442fb9275", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjVmZTEzMjJjYWQ5ODM4NWE4YjdmMTFmMjdmY2ZjNTMzZThmNjQ1NWFkYjIwN2I3MGU4ODliYjIzYzYyMzdmIn19fQ==");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Starbucks Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Starbucks Head");
+            	}
+            }
+        }
+      //**************************** HEADS MENU 4 ****************************//
+        if(event.getInventory().getTitle().equals("Heads (4 z 4 stran)")){
+        	event.setCancelled(true);
+            player.updateInventory();
+            if(event.getSlot() == 39){
+            	this.headsMenu3.openHeadsMenu3(player);
+            }
+        	if(event.getSlot() == 49){
+            	this.gadgetsMenu.openGadgetsMenu(player);
+            }
+            if(event.getSlot() == 40){
+            	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+            	player.getInventory().setHelmet(null);
+        		player.closeInventory();
+            }
+            if(event.getSlot() == 0){
+            	if(player.hasPermission("craftlobby.heads.snowhead")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Snowhead", "da2407bc-43b4-4bbd-bd19-020258f61009", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjY4MTI5NjIzZmZkZTIyY2JjNTM0OTE1YWUzOGE1ZDYwZjMyZGFlZGJjNGZkNWQyYzMxMGZlYTUzN2VkIn19fQ==");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowhead Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Snowhead Head");
+            	}
+            }
+            if(event.getSlot() == 1){
+            	if(player.hasPermission("craftlobby.heads.rudolf")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Rudolf", "4cf3986b-2ec9-41cf-a976-01335a6266c3", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWJkNDZiMzhiMjFiMzQyY2FmOTE3YWQ5Y2E0MmFmYjY4Mzg4YTU1OTFiY2M5YWRlZDFlOGUzNDZlMTg4OTAifX19");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Rudolf Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Rudolf Head");
+            	}
+            }
+            if(event.getSlot() == 2){
+            	if(player.hasPermission("craftlobby.heads.snowman")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Snowman", "cac3fe21-e50a-413e-a3b4-fda3fd396034", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOThlMzM0ZTRiZWUwNDI2NDc1OWE3NjZiYzE5NTVjZmFmM2Y1NjIwMTQyOGZhZmVjOGQ0YmYxYmIzNmFlNiJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowman Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Snowman Head");
+            	}
+            }
+            if(event.getSlot() == 3){
+            	if(player.hasPermission("craftlobby.heads.snowglobe")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Snowglobe", "be6b6cbc-223a-4c98-b205-b00b7c545579", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRkNjYzMTM2Y2FmYTExODA2ZmRiY2E2YjU5NmFmZDg1MTY2YjRlYzAyMTQyYzhkNWFjODk0MWQ4OWFiNyJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowglobe Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Snowglobe Head");
+            	}
+            }
+            if(event.getSlot() == 4){
+            	if(player.hasPermission("craftlobby.heads.present1")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("BluePresent", "9e7cfed7-6eab-419e-ade9-dcdd59c3949d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTEyZTk0NTFjZGIxOTZiNzgxOTVhOGYwYTRiOWMxYzBhMDRmNTgyNzg4NzkyN2I2YTgyYWFkMzljYWIyZjQzMCJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "BluePresent Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "BluePresent Head");
+            	}
+            }
+            if(event.getSlot() == 5){
+            	if(player.hasPermission("craftlobby.heads.present2")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("GoldPresent", "d8b36e98-b8ee-4cdc-ac57-f4ef5a6e74b1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmI0Y2RlMTZhNDAxNGRlMGE3NjUxZjYwNjdmMTI2OTViYjVmZWQ2ZmVhZWMxZTk0MTNjYTQyNzFlN2M4MTkifX19");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "GoldPresent Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "GoldPresent Head");
+            	}
+            }
+            if(event.getSlot() == 6){
+            	if(player.hasPermission("craftlobby.heads.present3")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("GreenPresent", "4fabccc8-0092-49b6-b010-689e521857a0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDA4Y2U3ZGViYTU2YjcyNmE4MzJiNjExMTVjYTE2MzM2MTM1OWMzMDQzNGY3ZDVlM2MzZmFhNmZlNDA1MiJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "GreenPresent Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "GreenPresent Head");
+            	}
+            }
+            if(event.getSlot() == 7){
+            	if(player.hasPermission("craftlobby.heads.present4")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("RedPresent", "dca29a3a-76d3-4979-88a2-2da034b99212", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlZjlhYTE0ZTg4NDc3M2VhYzEzNGE0ZWU4OTcyMDYzZjQ2NmRlNjc4MzYzY2Y3YjFhMjFhODViNyJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "RedPresent Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "RedPresent Head");
+            	}
+            }
+            if(event.getSlot() == 8){
+            	if(player.hasPermission("craftlobby.heads.santa")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Santa", "f4b89f66-750d-4ffb-8002-90a097de4b9b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGExNTkyMzZkNzUxMmJkYjQzMjZhMjRlMTQ1MDIxNjdiNzZiY2Q4NWMwNDE5MzFjMjE5NDIwMWIxN2Y1ZTcifX19");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Santa Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Santa Head");
+            	}
+            }
+            if(event.getSlot() == 9){
+            	if(player.hasPermission("craftlobby.heads.santa2")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+        			ItemStack skull = ItemFactory.createHead("Santa", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Santa Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Santa Head");
+            	}
+            }
+            if(event.getSlot() == 10){
+            	if(player.hasPermission("craftlobby.heads.elf")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Elf", "203a3caa-9053-468d-9b82-a5e143e54c74", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU3YmU0N2JlNmY0YjI2YjA3OWM3NzU4YjY2Y2E4ODhiOWMzNGVhZWQ3MmU2ZTU4YjEzZDg3ZmZkYTBiMyJ9fX0=");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Elf Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Elf Head");
+            	}
+            }
+            if(event.getSlot() == 11){
+            	if(player.hasPermission("craftlobby.heads.elf2")){
+            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		ItemStack skull = ItemFactory.createHead("Elf", "f879b9f5-ec53-472b-8626-a0b98b6bd153", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmM2ZTc5ZDE3MTc5MDJmNzFkYzU1M2M1MzczZmYyZTE3YmFlNjE5YjM5ZjhkZGJkZDIzMzgzZGQ1NWIzOTYifX19");
+            		player.getInventory().setHelmet(skull);
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Elf Head.");
+            		player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Elf Head");
+            	}
+            }
         }
         return;
     }

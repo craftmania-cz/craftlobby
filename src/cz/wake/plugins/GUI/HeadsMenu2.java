@@ -18,7 +18,7 @@ public class HeadsMenu2 implements Listener{
 	
 	public void openHeadsMenu2(Player p){
 		
-		Inventory headsMenu = Bukkit.createInventory(null, 54, "Heads (2 z 3 stran)");
+		Inventory headsMenu = Bukkit.createInventory(null, 54, "Heads (2 z 4 stran)");
 		
 		if(p.hasPermission("craftlobby.heads.a")){
 			ItemStack skull = ItemFactory.createHead("A", "d9e6ae1b-8e1d-4ae7-8f5b-b581b1771d40", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM2MGRhMjk0NGExNzdkZDA4MjY4ZmJlYzA0ZTQwODEyZDFkOTI5NjUwYmU2NjUyOWIxZWU1ZTFlN2VjYSJ9fX0=");
