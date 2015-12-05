@@ -1,40 +1,41 @@
 package cz.wake.plugins.particles;
 
-import java.util.ArrayList;
-import java.util.Random;
-
+import java.util.HashSet;
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.ParticleEffect;
-import cz.wake.plugins.utils.UtilParticles;
 
-public class ColoredDust implements Listener{
+public class ColoredDust{
 	
-	public static ArrayList<Player> dustPlayers = new ArrayList();
+	public HashSet<Player> cd = new HashSet<Player>();
+	int task;
 	
-	public static void activateDust(Player p){
-		if(!dustPlayers.contains(p)){
-			ColoredDust.dustPlayers.add(p);
-		} else {
-			return;
-		}
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), new Runnable(){
-			@Override
-			public void run(){
-				if(dustPlayers.contains(p)){
-					ParticleEffect.REDSTONE.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), 15.0D);
+	@SuppressWarnings("deprecation")
+	public void activateDust(Player p){
+		if(!this.cd.contains(p)){
+			this.cd.add(p);
+			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+				@Override
+				public void run() {
+					if(cd.contains(p) && p.isOnline()){
+						ParticleEffect.REDSTONE.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), 15.0D);
+					} else {
+						Bukkit.getScheduler().cancelTask(task);
+						cd.remove(p);
+					}
+					
 				}
-			}
-		}, 0L, 4L);
-		
+				
+			}, 0L, 4L).getTaskId();
+		} 
 	}
 	
-	public static void deactivateClouds(Player p){
-		ColoredDust.dustPlayers.remove(p);
+	public void deactivateClouds(Player p){
+		Bukkit.getScheduler().cancelTask(task);
+		cd.remove(p);
 	}
 
 }

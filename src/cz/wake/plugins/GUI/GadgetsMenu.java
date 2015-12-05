@@ -70,6 +70,7 @@ public class GadgetsMenu implements Listener{
 		particlesLore.add(ChatColor.GRAY + "Kliknutim si vyberes efekt, ktery bude");
 		particlesLore.add(ChatColor.GRAY + "poletovat kolem tebe!");
 		particlesLore.add("");
+		particlesLore.add(countParticles(p));
 		particlesLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
 		particlesItemMeta.setLore(particlesLore);
 		particlesItem.setItemMeta(particlesItemMeta);
@@ -117,6 +118,7 @@ public class GadgetsMenu implements Listener{
 		cLore.add(ChatColor.GRAY + "jednom co ti dodaji pravy");
 		cLore.add(ChatColor.GRAY + "SWAG!");
 		cLore.add("");
+		cLore.add(countCloaks(p));
 		cLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
 		cMeta.setLore(cLore);
 		cloaks.setItemMeta(cMeta);
@@ -140,6 +142,86 @@ public class GadgetsMenu implements Listener{
 		int prc = (heads*100/sum);
 		
 		return "§7Odemknuto: §f" + heads + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public String countCloaks(Player p){
+		int cloaks = getCoaksCount(p);
+		int sum = 1;
+		int prc = (cloaks*100/sum);
+		
+		return "§7Odemknuto: §f" + cloaks + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public String countParticles(Player p){
+		int part = getParticlesCount(p);
+		int sum = 17;
+		int prc = (part*100/sum);
+		
+		return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public int getParticlesCount(Player p){
+		int c = 0;
+		if(p.hasPermission("craftlobby.particles.frostlord")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.flamerings")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.snowclouds")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.rainclouds")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.bloodhelix")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.greensparks")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.endersignal")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.enchanted")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.love")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.notes")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.clouds")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.coloreddust")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.lavapop")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.portal")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.spell")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.frozenwalk")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.lilly")){
+			c++;
+		}
+		return c;
+	}
+	
+	public int getCoaksCount(Player p){
+		int c = 0;
+		if(p.hasPermission("craftlobby.cloaks.santa")){
+			c++;
+		}
+		return c;
 	}
 	
 	public int getHeadsCount(Player p){

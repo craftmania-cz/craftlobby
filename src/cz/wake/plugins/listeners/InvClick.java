@@ -15,9 +15,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-
 import cz.wake.plugins.Main;
 import cz.wake.plugins.GUI.Cloaks;
 import cz.wake.plugins.GUI.GadgetsItemsMenu;
@@ -36,7 +33,6 @@ import cz.wake.plugins.cloaks.SantaCloak;
 import cz.wake.plugins.gadgets.PortalGun;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
-import cz.wake.plugins.particles.AngelWings;
 import cz.wake.plugins.particles.BloodHelix;
 import cz.wake.plugins.particles.Clouds;
 import cz.wake.plugins.particles.ColoredDust;
@@ -54,7 +50,6 @@ import cz.wake.plugins.particles.Notes;
 import cz.wake.plugins.particles.Portal;
 import cz.wake.plugins.particles.RainCloud;
 import cz.wake.plugins.particles.SnowCloud;
-import cz.wake.plugins.particles.SuperHero;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowNormal;
 import cz.wake.plugins.pets.IronGolemNormal;
@@ -81,6 +76,22 @@ public class InvClick implements Listener{
 	GreenSparks gs = new GreenSparks();
 	Cloaks cl = new Cloaks();
 	SantaCloak sc = new SantaCloak();
+	FrostLord fl = new FrostLord();
+	FlameRings fr = new FlameRings();
+	SnowCloud ss = new SnowCloud();
+	RainCloud rc = new RainCloud();
+	BloodHelix bh = new BloodHelix();
+	Portal p = new Portal();
+	EnderSignal es = new EnderSignal();
+	Enchanted e = new Enchanted();
+	Love l = new Love();
+	Notes n = new Notes();
+	Clouds c = new Clouds();
+	ColoredDust cd = new ColoredDust();
+	LavaPop lp = new LavaPop();
+	MobSpell sp = new MobSpell();
+	FrozenWalk fw = new FrozenWalk();
+	Lily lil = new Lily();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -243,11 +254,7 @@ public class InvClick implements Listener{
 	        	}
 	        }
 	        if(event.getSlot() == 34){
-	        	if(player.hasPermission("craftlobby.pristup")){
-	        		this.pMenu.openParticles(player);
-	        	} else {
-	        		MessagesListener.messageNoPerm(player, "Particles Menu");
-	        	}
+	        	this.pMenu.openParticles(player);
 	        }
 	        if(event.getSlot() == 13){
 	        	if(player.hasPermission("craftlobby.pristup")){
@@ -264,11 +271,7 @@ public class InvClick implements Listener{
 	        	}
 	        }
 	        if(event.getSlot() == 15){
-	        	if(player.hasPermission("craftlobby.pristup")){
-	        		this.cl.openCloaks(player);
-	        	} else {
-	        		MessagesListener.messageNoPerm(player, "Cloaks Menu");
-	        	}
+	        	this.cl.openCloaks(player);
 	        }
             event.setCancelled(true);
             player.updateInventory();                   
@@ -287,8 +290,12 @@ public class InvClick implements Listener{
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
         	if(event.getSlot() == 10){
-        		this.sc.activateSanta(player);
-        		player.closeInventory();
+        		if(player.hasPermission("craftlobby.cloaks.santa")){
+        			this.sc.activateSanta(player);
+            		player.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Santa Cloak");
+        		}
         	}
         }
       //**************************** PARTICLES MENU ****************************//
@@ -302,82 +309,140 @@ public class InvClick implements Listener{
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
         	if(event.getSlot() == 10){
-        		deactivateParticles(player);
-        		FrostLord.activateFrost(player);
+        		if(player.hasPermission("craftlobby.particles.frostlord")){
+        			deactivateParticles(player);
+            		fl.activateFrost(player);;
+        		} else {
+        			MessagesListener.messageNoPerm(player, "FrostLord");
+        		}
         	}
         	if(event.getSlot() == 11){
-        		deactivateParticles(player);
-        		FlameRings.activateFlame(player);
+        		if(player.hasPermission("craftlobby.particles.flamerings")){
+        			deactivateParticles(player);
+            		fr.activateFlame(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "FlameRings");
+        		}	
         	}
         	if(event.getSlot() == 12){
-        		deactivateParticles(player);
-        		SnowCloud.activateSnowCloud(player);
+        		if(player.hasPermission("craftlobby.particles.snowclouds")){
+        			deactivateParticles(player);
+            		ss.activateSnowCloud(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "SnowClouds");
+        		}
         	}
         	if(event.getSlot() == 13){
-        		deactivateParticles(player);
-        		RainCloud.activateRainCloud(player);
+        		if(player.hasPermission("craftlobby.particles.rainclouds")){
+        			deactivateParticles(player);
+            		rc.activateRainCloud(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "RainClouds");
+        		}
         	}
         	if(event.getSlot() == 14){
-        		deactivateParticles(player);
-        		BloodHelix.activateHelix(player);
+        		if(player.hasPermission("craftlobby.particles.bloodhelix")){
+        			deactivateParticles(player);
+            		bh.activateHelix(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "BloodHelix");
+        		}
         	}
         	if(event.getSlot() == 15){
-        		deactivateParticles(player);
-        		gs.activateGreenSparks(player);
+        		if(player.hasPermission("craftlobby.particles.greensparks")){
+        			deactivateParticles(player);
+            		gs.activateGreenSparks(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "GreenSparks");
+        		}
         	}
         	if(event.getSlot() == 16){
-        		deactivateParticles(player);
-        		EnderSignal.activateSignal(player);
+        		if(player.hasPermission("craftlobby.particles.endersignal")){
+        			deactivateParticles(player);
+            		es.activateSignal(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "EnderSignal");	
+        		}
         	}
         	if(event.getSlot() == 19){
-        		deactivateParticles(player);
-        		Enchanted.activateEnchanted(player);
+        		if(player.hasPermission("craftlobby.particles.enchanted")){
+        			deactivateParticles(player);
+            		e.activateEnchanted(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Enchanted");
+        		}
         	}
         	if(event.getSlot() == 20){
-        		deactivateParticles(player);
-        		Love.activateLove(player);
+        		if(player.hasPermission("craftlobby.particles.love")){
+        			deactivateParticles(player);
+            		l.activateLove(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Love");
+        		}
         	}
         	if(event.getSlot() == 21){
-        		deactivateParticles(player);
-        		Notes.activateNotes(player);
+        		if(player.hasPermission("craftlobby.particles.notes")){
+        			deactivateParticles(player);
+            		n.activateNotes(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Notes");
+        		}
         	}
         	if(event.getSlot() == 22){
-        		deactivateParticles(player);
-        		Clouds.activateClouds(player);
+        		if(player.hasPermission("craftlobby.particles.clouds")){
+        			deactivateParticles(player);
+            		c.activateClouds(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Clouds");
+        		}
         	}
         	if(event.getSlot() == 23){
-        		deactivateParticles(player);
-        		ColoredDust.activateDust(player);
+        		if(player.hasPermission("craftlobby.particles.coloreddust")){
+        			deactivateParticles(player);
+            		cd.activateDust(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "ColoredDust");
+        		}
         	}
         	if(event.getSlot() == 24){
-        		deactivateParticles(player);
-        		LavaPop.activateDust(player);
+        		if(player.hasPermission("craftlobby.particles.lavapop")){
+        			deactivateParticles(player);
+            		lp.activateDust(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "LavaPop");
+        		}
         	}
         	if(event.getSlot() == 25){
-        		deactivateParticles(player);
-        		Portal.activatePortal(player);
+        		if(player.hasPermission("craftlobby.particles.portal")){
+        			deactivateParticles(player);
+            		p.activatePortal(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Portal");
+        		}
         	}
         	if(event.getSlot() == 28){
-        		deactivateParticles(player);
-        		MobSpell.activateSpell(player);
+        		if(player.hasPermission("craftlobby.particles.spell")){
+        			deactivateParticles(player);
+            		sp.activateSpell(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Spell");
+        		}
         	}
         	if(event.getSlot() == 29){
-        		deactivateParticles(player);
-        		FrozenWalk.activateFrozen(player);
+        		if(player.hasPermission("craftlobby.particles.frozenwalk")){
+        			deactivateParticles(player);
+            		fw.activateFrozen(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "FrozenWalk");
+        		}
         	}
         	if(event.getSlot() == 30){
-        		deactivateParticles(player);
-        		Lily.activateSignal(player);
-        	}
-        	if(event.getSlot() == 31){
-        		deactivateParticles(player);
-        		SuperHero sh = new SuperHero();
-        		sh.activateHero(player);
-        	}
-        	if(event.getSlot() == 32){
-        		deactivateParticles(player);
-        		AngelWings aw = new AngelWings();
-        		aw.activateWings(player);
+        		if(player.hasPermission("craftlobby.particles.lilly")){
+        			deactivateParticles(player);
+            		lil.activateSignal(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Lilly");
+        		}
         	}
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
@@ -1907,25 +1972,23 @@ public class InvClick implements Listener{
     }
 	
 	private void deactivateParticles(Player player){
-		BloodHelix.deactivateHelix(player);
-		RainCloud.deactivateRainCloud(player);
-		FrostLord.deactivateFrost(player);
-		FlameRings.deactivateFlame(player);
-		SnowCloud.deactivateSnowCloud(player);
+		bh.deactivateHelix(player);
+		rc.deactivateRainCloud(player);
+		fl.deactivateFrost(player);
+		fr.deactivateFlame(player);
+		ss.deactivateSnowCloud(player);
 		gs.deaktivateGreenSparks(player);
-		EnderSignal.deaktivateSignal(player);
-		Enchanted.deactivateEnchanted(player);
-		Love.deaktivateLove(player);
-		Notes.deactivateNotes(player);
-		Clouds.deactivateClouds(player);
-		ColoredDust.deactivateClouds(player);
-		LavaPop.deactivateDust(player);
-		Portal.deactivatePortal(player);
-		MobSpell.deactivateSpell(player);
-		FrozenWalk.deactivateFrozen(player);
-		Lily.deaktivateSignal(player);
-		SuperHero.deactivateHero(player);
-		AngelWings.deactivateWings(player);
+		es.deaktivateSignal(player);
+		e.deactivateEnchanted(player);
+		l.deaktivateLove(player);
+		n.deactivateNotes(player);
+		c.deactivateClouds(player);
+		cd.deactivateClouds(player);
+		lp.deactivateDust(player);
+		p.deactivatePortal(player);
+		sp.deactivateSpell(player);
+		fw.deactivateFrozen(player);
+		lil.deaktivateSignal(player);
 		player.closeInventory();
 	}
 	

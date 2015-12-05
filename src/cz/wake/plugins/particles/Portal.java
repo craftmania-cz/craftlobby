@@ -1,36 +1,42 @@
 package cz.wake.plugins.particles;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.ParticleEffect;
 
-public class Portal implements Listener{
+public class Portal{
 	
-	public static ArrayList<Player> portalPlayers = new ArrayList();
+	public HashSet<Player> port = new HashSet<Player>();
+	int task;
 	
-	public static void activatePortal(Player p){
-		if(!Portal.portalPlayers.contains(p)){
-			Portal.portalPlayers.add(p);
-		} else {
-			return;
-		}
-		Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable(){
-			@Override
-			public void run(){
-				if(Portal.portalPlayers.contains(p)){
-					ParticleEffect.PORTAL.display(1.0F, 1.0F, 1.0F, 0.0F, 20, p.getLocation(), 15.0D);
+	@SuppressWarnings("deprecation")
+	public void activatePortal(Player p){
+		if(!this.port.contains(p)){
+			this.port.add(p);
+			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+				@Override
+				public void run() {
+					if(port.contains(p) && p.isOnline()){
+						ParticleEffect.PORTAL.display(1.0F, 1.0F, 1.0F, 0.0F, 20, p.getLocation(), 15.0D);
+					} else {
+						Bukkit.getScheduler().cancelTask(task);
+						port.remove(p);
+					}
+					
 				}
-			}
-		}, 0L, 4L);
+				
+			}, 0L, 4L).getTaskId();
+		} 
 	}
 
-	public static void deactivatePortal(Player p){
-		Portal.portalPlayers.remove(p);
+	public void deactivatePortal(Player p){
+		Bukkit.getScheduler().cancelTask(task);
+		port.remove(p);
 	}
 
 }

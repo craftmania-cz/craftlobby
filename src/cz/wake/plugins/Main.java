@@ -145,19 +145,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new BlizzardBlaster(this), this);
 		pm.registerEvents(new AntiGravity(this), this);
 		pm.registerEvents(new SmashDown(this), this);
-		pm.registerEvents(new ParticlesMenu(), this);
-		pm.registerEvents(new FrostLord(), this);
-		pm.registerEvents(new FlameRings(), this);
-		pm.registerEvents(new SnowCloud(), this);
-		pm.registerEvents(new RainCloud(), this);
-		pm.registerEvents(new BloodHelix(), this);
-		pm.registerEvents(new EnderSignal(), this);
-		pm.registerEvents(new Love(), this);
-		pm.registerEvents(new Notes(), this);
-		pm.registerEvents(new Clouds(), this);
-		pm.registerEvents(new ColoredDust(), this);
-		pm.registerEvents(new LavaPop(), this);
-		pm.registerEvents(new Portal(), this);
 		pm.registerEvents(new Servers(), this);
 		pm.registerEvents(new Trampoline(this), this);
 		pm.registerEvents(new MountMenu(), this);
@@ -177,7 +164,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new FlowerPopper(this), this);
 		pm.registerEvents(new EtherealPearl(this), this);
 		pm.registerEvents(new BlackHole(this), this);
-		pm.registerEvents(new MobSpell(), this);
 		pm.registerEvents(new HeadsMenu2(), this);
 		pm.registerEvents(new BatBlaster(this), this);
 		pm.registerEvents(new ColorBomb(this), this);

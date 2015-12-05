@@ -1,41 +1,40 @@
 package cz.wake.plugins.particles;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Effect;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
-import org.bukkit.util.Vector;
-
+import org.bukkit.scheduler.BukkitRunnable;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.ParticleEffect;
-import cz.wake.plugins.utils.UtilMath;
-import cz.wake.plugins.utils.UtilParticles;
 
-public class MobSpell implements Listener{
+public class MobSpell{
 	
-	public static ArrayList<Player> mobSpells = new ArrayList();
+	public HashSet<Player> ms = new HashSet<Player>();
+	int task;
 	
-	public static void activateSpell(Player p){
-		if(!MobSpell.mobSpells.contains(p)){
-			MobSpell.mobSpells.add(p);
-		} else {
-			return;
-		}
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), new Runnable(){
-			@Override
-			public void run(){
-				if(MobSpell.mobSpells.contains(p)){
-					ParticleEffect.SPELL_MOB.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), 15.0D);
+	@SuppressWarnings("deprecation")
+	public void activateSpell(Player p){
+		if(!this.ms.contains(p)){
+			this.ms.add(p);
+			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+
+				@Override
+				public void run() {
+					if(ms.contains(p) && p.isOnline()){
+						ParticleEffect.SPELL_MOB.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), 15.0D);
+					} else {
+						Bukkit.getScheduler().cancelTask(task);
+						ms.remove(p);
+					}
 				}
-			}
-		}, 0L, 1L);
-		
+			}, 0L, 1L).getTaskId();
+		} 
 	}
 	
-	public static void deactivateSpell(Player p){
-		MobSpell.mobSpells.remove(p);
+	public void deactivateSpell(Player p){
+		Bukkit.getScheduler().cancelTask(task);
+		ms.remove(p);
 	}
 
 }

@@ -1,38 +1,42 @@
 package cz.wake.plugins.particles;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.UtilParticles;
 
-public class LavaPop implements Listener{
+public class LavaPop{
 	
-	public static ArrayList<Player> lavaPlayers = new ArrayList();
+	public HashSet<Player> lp = new HashSet<Player>();
+	int task;
 	
-	public static void activateDust(Player p){
-		if(!lavaPlayers.contains(p)){
-			LavaPop.lavaPlayers.add(p);
-		} else {
-			return;
-		}
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), new Runnable(){
-			@Override
-			public void run(){
-				if(lavaPlayers.contains(p)){
-					UtilParticles.play(p.getLocation().add(0, 1, 0), Effect.LAVA_POP, 0, 0, 0.5f, 0.5f, 0.5f, 0, 4);
+	@SuppressWarnings("deprecation")
+	public void activateDust(Player p){
+		if(!this.lp.contains(p)){
+			this.lp.add(p);
+			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+				@Override
+				public void run() {
+					if(lp.contains(p) && p.isOnline()){
+						UtilParticles.play(p.getLocation().add(0, 1, 0), Effect.LAVA_POP, 0, 0, 0.5f, 0.5f, 0.5f, 0, 4);
+					} else {
+						Bukkit.getScheduler().cancelTask(task);
+						lp.remove(p);
+					}
 				}
-			}
-		}, 0L, 4L);
-		
+				
+			}, 0L, 4L).getTaskId();
+		} 
 	}
 	
-	public static void deactivateDust(Player p){
-		LavaPop.lavaPlayers.remove(p);
+	public void deactivateDust(Player p){
+		Bukkit.getScheduler().cancelTask(task);
+		lp.remove(p);
 	}
 
 }

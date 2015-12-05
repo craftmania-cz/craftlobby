@@ -1,38 +1,43 @@
 package cz.wake.plugins.particles;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.UtilParticles;
 
-public class Clouds implements Listener{
+public class Clouds{
 	
-	public static ArrayList<Player> cloudsPlayers = new ArrayList();
+	public HashSet<Player> c = new HashSet<Player>();
+	int task;
 	
-	public static void activateClouds(Player p){
-		if(!cloudsPlayers.contains(p)){
-			Clouds.cloudsPlayers.add(p);
-		} else {
-			return;
-		}
-		Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getPlugin(), new Runnable(){
-			@Override
-			public void run(){
-				if(cloudsPlayers.contains(p)){
-					UtilParticles.play(p.getLocation().add(0, 1, 0), Effect.CLOUD, 0, 0, 0.7f, 1f, 0.7f, 0, 5);
+	@SuppressWarnings("deprecation")
+	public void activateClouds(Player p){
+		if(!this.c.contains(p)){
+			this.c.add(p);
+			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+				@Override
+				public void run() {
+					if(c.contains(p) && p.isOnline()){
+						UtilParticles.play(p.getLocation().add(0, 1, 0), Effect.CLOUD, 0, 0, 0.7f, 1f, 0.7f, 0, 5);
+					} else {
+						Bukkit.getScheduler().cancelTask(task);
+						c.remove(p);
+					}
+					
 				}
-			}
-		}, 0L, 4L);
-		
+				
+			}, 0L, 4L).getTaskId();
+		} 
 	}
 	
-	public static void deactivateClouds(Player p){
-		Clouds.cloudsPlayers.remove(p);
+	public void deactivateClouds(Player p){
+		Bukkit.getScheduler().cancelTask(task);
+		c.remove(p);
 	}
 
 }
