@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -12,32 +13,22 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class Clouds{
 	
-	public HashSet<Player> c = new HashSet<Player>();
-	int task;
+	public static final HashMap<String, Integer> c = new HashMap();
+	public static int task11;
 	
 	@SuppressWarnings("deprecation")
 	public void activateClouds(Player p){
-		if(!this.c.contains(p)){
-			this.c.add(p);
-			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!c.containsKey(p.getName())){
+			task11 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				@Override
 				public void run() {
-					if(c.contains(p) && p.isOnline()){
+					if(c.containsKey(p.getName()) && p.isOnline()){
 						UtilParticles.play(p.getLocation().add(0, 1, 0), Effect.CLOUD, 0, 0, 0.7f, 1f, 0.7f, 0, 5);
-					} else {
-						Bukkit.getScheduler().cancelTask(task);
-						c.remove(p);
-					}
-					
+					} 
 				}
 				
 			}, 0L, 4L).getTaskId();
+			c.put(p.getName(),Integer.valueOf(task11));
 		} 
 	}
-	
-	public void deactivateClouds(Player p){
-		Bukkit.getScheduler().cancelTask(task);
-		c.remove(p);
-	}
-
 }

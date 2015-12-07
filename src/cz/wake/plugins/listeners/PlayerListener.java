@@ -21,6 +21,8 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.help.HelpTopic;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -37,6 +39,7 @@ import cz.wake.plugins.GUI.StatisticsMG;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.gadgets.TNTFountain;
+import cz.wake.plugins.particles.FrozenWalk;
 
 public class PlayerListener implements Listener{
 
@@ -53,6 +56,8 @@ public class PlayerListener implements Listener{
 	GadgetsMenu gadgetsMenu = new GadgetsMenu();
 	Servers servers = new Servers();
 	VIPMenu vmenu = new VIPMenu();
+	InvClick ic = new InvClick();
+	FrozenWalk fw = new FrozenWalk();
 	
 	@EventHandler(priority=EventPriority.LOWEST)
 	public void onPlayerJoin(PlayerJoinEvent e){
@@ -239,6 +244,24 @@ public class PlayerListener implements Listener{
 				}
 			}
 		}
+	}
+	
+	@EventHandler(priority = EventPriority.LOW)
+	public void onLeave(final PlayerQuitEvent e){
+		Player p = e.getPlayer();
+		String name = p.getName();
+		
+		//Deaktivace particles
+		ic.deactivateParticles(p);
+	}
+	
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void onKick(PlayerKickEvent e){
+		Player p = e.getPlayer();
+		
+		//Deaktivace particles
+		System.out.println("Leave kick");
+		ic.deactivateParticles(p);
 	}
 	
 	@EventHandler

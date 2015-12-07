@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -12,31 +13,22 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class LavaPop{
 	
-	public HashSet<Player> lp = new HashSet<Player>();
-	int task;
+	public static final HashMap<String,Integer> lp = new HashMap();
+	public static int task13;
 	
 	@SuppressWarnings("deprecation")
 	public void activateDust(Player p){
-		if(!this.lp.contains(p)){
-			this.lp.add(p);
-			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!lp.containsKey(p.getName())){
+			task13 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				@Override
 				public void run() {
-					if(lp.contains(p) && p.isOnline()){
+					if(lp.containsKey(p.getName()) && p.isOnline()){
 						UtilParticles.play(p.getLocation().add(0, 1, 0), Effect.LAVA_POP, 0, 0, 0.5f, 0.5f, 0.5f, 0, 4);
-					} else {
-						Bukkit.getScheduler().cancelTask(task);
-						lp.remove(p);
-					}
+					} 
 				}
 				
 			}, 0L, 4L).getTaskId();
+			lp.put(p.getName(), Integer.valueOf(task13));
 		} 
 	}
-	
-	public void deactivateDust(Player p){
-		Bukkit.getScheduler().cancelTask(task);
-		lp.remove(p);
-	}
-
 }

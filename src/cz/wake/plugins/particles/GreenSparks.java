@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -14,20 +15,21 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class GreenSparks{
 	
-	public HashSet<Player> greenSparksPlayers = new HashSet<Player>();
-	int task1;
+	public static final HashMap<String, Integer> greenPlayers = new HashMap();
+	public static int task1;
+	
+	//Poslední úprava 7.12.2015
 	
 	@SuppressWarnings("deprecation")
 	public void activateGreenSparks(Player p){
-		if(!this.greenSparksPlayers.contains(p)){
-			this.greenSparksPlayers.add(p); 
+		if(!greenPlayers.containsKey(p.getName())){
 			task1 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				boolean up;
 				float height;
 				int step;
 				@Override
 				public void run(){
-					if(greenSparksPlayers.contains(p) && p.isOnline()){
+					if(greenPlayers.containsKey(p.getName()) && p.isOnline()){
 						if(up) {
 							if(height < 2)
 								height += 0.05;
@@ -46,20 +48,11 @@ public class GreenSparks{
 					        v.setZ(Math.sin(angle) * 1.1);
 					        UtilParticles.play(p.getLocation().clone().add(v).add(0, height, 0), Effect.HAPPY_VILLAGER);
 					        step += 4;
-						} else {
-							Bukkit.getScheduler().cancelTask(task1);
-							greenSparksPlayers.remove(p);
-						}
+						} 
 					}
 				}, 0L, 1L).getTaskId();
-		} else {
-			MessagesListener.messageOfActive(p, "GreenSparks");
+			greenPlayers.put(p.getName(), Integer.valueOf(task1)); 
 		}
-	}
-	
-	public void deaktivateGreenSparks(Player p){
-		this.greenSparksPlayers.remove(p);
-		Bukkit.getScheduler().cancelTask(task1);
 	}
 
 }

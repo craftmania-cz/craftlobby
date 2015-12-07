@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -17,20 +18,19 @@ import cz.wake.plugins.utils.UtilVelocity;
 
 public class Lily {
 	
-	public HashSet<Player> li = new HashSet<Player>();
+	public static final HashMap<String,Integer> li = new HashMap();
 	public int step = 0;
-	int task;
+	public static int task17;
 	
 	@SuppressWarnings("deprecation")
 	public void activateSignal(Player p){
-		if(!this.li.contains(p)){
-			this.li.add(p);
-			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!li.containsKey(p.getName())){
+			task17 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				double radius = 0.1D;
 				double angularVelocityX = 0.08975979010256552D;
 				@Override
 				public void run() {
-					if(li.contains(p) && p.isOnline()){
+					if(li.containsKey(p.getName()) && p.isOnline()){
 						Location location = p.getLocation();
 			            Location location2 = p.getLocation();
 			            step += 1;
@@ -84,19 +84,12 @@ public class Lily {
 			                location.subtract(v);
 			                location2.subtract(v2);
 			              }
-					} else {
-						Bukkit.getScheduler().cancelTask(task);
-						li.remove(p);
-					}
+					} 
 				}
 				
 			}, 0L, 1L).getTaskId();
+			li.put(p.getName(), Integer.valueOf(task17));
 		}
-	}
-	
-	public void deaktivateSignal(Player p){
-		Bukkit.getScheduler().cancelTask(task);
-		li.remove(p);
 	}
 
 }

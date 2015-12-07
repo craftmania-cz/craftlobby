@@ -73,6 +73,7 @@ import cz.wake.plugins.particles.ColoredDust;
 import cz.wake.plugins.particles.EnderSignal;
 import cz.wake.plugins.particles.FlameRings;
 import cz.wake.plugins.particles.FrostLord;
+import cz.wake.plugins.particles.FrozenWalk;
 import cz.wake.plugins.particles.GreenSparks;
 import cz.wake.plugins.particles.LavaPop;
 import cz.wake.plugins.particles.Love;

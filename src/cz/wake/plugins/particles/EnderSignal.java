@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -12,30 +13,21 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class EnderSignal{
 	
-	public HashSet<Player> es = new HashSet<Player>();
-	int task;
+	public static final HashMap<String, Integer> es = new HashMap();
+	public static int task7;
 	
 	@SuppressWarnings("deprecation")
 	public void activateSignal(Player p){
-		if(!this.es.contains(p)){
-			this.es.add(p);
-			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!es.containsKey(p.getName())){
+			task7 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				@Override
 				public void run() {
-					if(es.contains(p) && p.isOnline()){
+					if(es.containsKey(p.getName()) && p.isOnline()){
 						UtilParticles.play(p.getLocation().add(0,1.5,0), Effect.ENDER_SIGNAL);
-					} else {
-						Bukkit.getScheduler().cancelTask(task);
-						es.remove(p);
 					}
 				}
 			}, 0L, 1L).getTaskId();
+			es.put(p.getName(), Integer.valueOf(task7));
 		} 	
 	}
-	
-	public void deaktivateSignal(Player p){
-		Bukkit.getScheduler().cancelTask(task);
-		es.remove(p);
-	}
-
 }

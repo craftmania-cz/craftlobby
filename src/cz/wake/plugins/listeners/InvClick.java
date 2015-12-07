@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 
 import me.libraryaddict.disguise.DisguiseAPI;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -313,7 +314,8 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 10){
         		if(player.hasPermission("craftlobby.particles.frostlord")){
         			deactivateParticles(player);
-            		fl.activateFrost(player);;
+            		fl.activateFrost(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "FrostLord");
         		}
@@ -322,6 +324,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.flamerings")){
         			deactivateParticles(player);
             		fr.activateFlame(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "FlameRings");
         		}	
@@ -330,6 +333,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.snowclouds")){
         			deactivateParticles(player);
             		ss.activateSnowCloud(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "SnowClouds");
         		}
@@ -338,6 +342,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.rainclouds")){
         			deactivateParticles(player);
             		rc.activateRainCloud(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "RainClouds");
         		}
@@ -346,6 +351,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.bloodhelix")){
         			deactivateParticles(player);
             		bh.activateHelix(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "BloodHelix");
         		}
@@ -354,6 +360,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.greensparks")){
         			deactivateParticles(player);
             		gs.activateGreenSparks(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "GreenSparks");
         		}
@@ -362,6 +369,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.endersignal")){
         			deactivateParticles(player);
             		es.activateSignal(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "EnderSignal");	
         		}
@@ -370,6 +378,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.enchanted")){
         			deactivateParticles(player);
             		e.activateEnchanted(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Enchanted");
         		}
@@ -378,6 +387,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.love")){
         			deactivateParticles(player);
             		l.activateLove(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Love");
         		}
@@ -386,6 +396,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.notes")){
         			deactivateParticles(player);
             		n.activateNotes(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Notes");
         		}
@@ -394,6 +405,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.clouds")){
         			deactivateParticles(player);
             		c.activateClouds(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Clouds");
         		}
@@ -402,6 +414,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.coloreddust")){
         			deactivateParticles(player);
             		cd.activateDust(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "ColoredDust");
         		}
@@ -410,6 +423,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.lavapop")){
         			deactivateParticles(player);
             		lp.activateDust(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "LavaPop");
         		}
@@ -418,6 +432,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.portal")){
         			deactivateParticles(player);
             		p.activatePortal(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Portal");
         		}
@@ -426,6 +441,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.spell")){
         			deactivateParticles(player);
             		sp.activateSpell(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Spell");
         		}
@@ -434,6 +450,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.frozenwalk")){
         			deactivateParticles(player);
             		fw.activateFrozen(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "FrozenWalk");
         		}
@@ -442,6 +459,7 @@ public class InvClick implements Listener{
         		if(player.hasPermission("craftlobby.particles.lilly")){
         			deactivateParticles(player);
             		lil.activateSignal(player);
+            		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Lilly");
         		}
@@ -2156,25 +2174,92 @@ public class InvClick implements Listener{
         player.sendPluginMessage(Main.getPlugin(), "BungeeCord", b.toByteArray());
     }
 	
-	private void deactivateParticles(Player player){
-		bh.deactivateHelix(player);
-		rc.deactivateRainCloud(player);
-		fl.deactivateFrost(player);
-		fr.deactivateFlame(player);
-		ss.deactivateSnowCloud(player);
-		gs.deaktivateGreenSparks(player);
-		es.deaktivateSignal(player);
-		e.deactivateEnchanted(player);
-		l.deaktivateLove(player);
-		n.deactivateNotes(player);
-		c.deactivateClouds(player);
-		cd.deactivateClouds(player);
-		lp.deactivateDust(player);
-		p.deactivatePortal(player);
-		sp.deactivateSpell(player);
-		fw.deactivateFrozen(player);
-		lil.deaktivateSignal(player);
-		player.closeInventory();
+	public void deactivateParticles(Player player){
+		if(GreenSparks.greenPlayers.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)GreenSparks.greenPlayers.get(player.getName())).intValue());
+			GreenSparks.greenPlayers.remove(player.getName());
+			player.closeInventory();
+		}
+		if(BloodHelix.bh.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)BloodHelix.bh.get(player.getName())).intValue());
+			BloodHelix.bh.remove(player.getName());
+			player.closeInventory();
+		}
+		if(RainCloud.rc.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)RainCloud.rc.get(player.getName())).intValue());
+			RainCloud.rc.remove(player.getName());
+			player.closeInventory();
+		}
+		if(FrostLord.fl.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)FrostLord.fl.get(player.getName())).intValue());
+			FrostLord.fl.remove(player.getName());
+			player.closeInventory();
+		}
+		if(FlameRings.fr.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)FlameRings.fr.get(player.getName())).intValue());
+			FlameRings.fr.remove(player.getName());
+			player.closeInventory();
+		}
+		if(SnowCloud.sc.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)SnowCloud.sc.get(player.getName())).intValue());
+			SnowCloud.sc.remove(player.getName());
+			player.closeInventory();
+		}
+		if(EnderSignal.es.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)EnderSignal.es.get(player.getName())).intValue());
+			EnderSignal.es.remove(player.getName());
+			player.closeInventory();
+		}
+		if(Enchanted.e.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Enchanted.e.get(player.getName())).intValue());
+			Enchanted.e.remove(player.getName());
+			player.closeInventory();
+		}
+		if(Love.l.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Love.l.get(player.getName())).intValue());
+			Love.l.remove(player.getName());
+			player.closeInventory();
+		}
+		if(Notes.no.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Notes.no.get(player.getName())).intValue());
+			Notes.no.remove(player.getName());
+			player.closeInventory();
+		}
+		if(Clouds.c.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Clouds.c.get(player.getName())).intValue());
+			Clouds.c.remove(player.getName());
+			player.closeInventory();
+		}
+		if(ColoredDust.cd.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)ColoredDust.cd.get(player.getName())).intValue());
+			ColoredDust.cd.remove(player.getName());
+			player.closeInventory();
+		}
+		if(LavaPop.lp.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)LavaPop.lp.get(player.getName())).intValue());
+			LavaPop.lp.remove(player.getName());
+			player.closeInventory();
+		}
+		if(Portal.port.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Portal.port.get(player.getName())).intValue());
+			Portal.port.remove(player.getName());
+			player.closeInventory();
+		}
+		if(MobSpell.ms.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)MobSpell.ms.get(player.getName())).intValue());
+			MobSpell.ms.remove(player.getName());
+			player.closeInventory();
+		}
+		if(FrozenWalk.fw.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)FrozenWalk.fw.get(player.getName())).intValue());
+			FrozenWalk.fw.remove(player.getName());
+			player.closeInventory();
+		}
+		if(Lily.li.containsKey(player)){
+			Bukkit.getScheduler().cancelTask(((Integer)Lily.li.get(player.getName())).intValue());
+			Lily.li.remove(player.getName());
+			player.closeInventory();
+		}
 	}
 	
 	private void deactivateCloaks(Player p){

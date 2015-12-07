@@ -1,11 +1,13 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -14,17 +16,14 @@ import cz.wake.plugins.utils.ParticleEffect;
 
 public class FrozenWalk{
 	
-	public HashSet<Player> fw = new HashSet<Player>();
-	int task;
+	public static final HashMap<String,Integer> fw = new HashMap<String,Integer>();
 	
 	@SuppressWarnings("deprecation")
-	public void activateFrozen(Player p){
-		if(!this.fw.contains(p)){
-			this.fw.add(p);
-			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
-				@Override
+	public void activateFrozen(final Player p){
+		if(!fw.containsKey(p.getName())){
+			final int task20 = Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.getInstance(), new BukkitRunnable(){
 				public void run() {
-					if(fw.contains(p) && p.isOnline()){
+					if(fw.containsKey(p.getName())){
 						Vector vectorLeft = getLeftVector(p.getLocation()).normalize().multiply(0.15);
 				        Vector vectorRight = getRightVector(p.getLocation()).normalize().multiply(0.15);
 				        Location locationLeft = p.getLocation().add(vectorLeft);
@@ -34,19 +33,11 @@ public class FrozenWalk{
 				        
 				        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.SNOW, (byte) 0), 0, 0, 0, 0f, 0, locationLeft, 32);
 				        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.SNOW, (byte)0), 0, 0, 0, 0f, 0, locationRight, 32);
-					} else {
-						Bukkit.getScheduler().cancelTask(task);
-						fw.remove(p);
-					}
 				}
 				
-			}, 0L, 1L).getTaskId();
+			}}, 0L, 1L);
+			fw.put(p.getName(), Integer.valueOf(task20));
 		} 
-	}
-	
-	public void deactivateFrozen(Player p){
-		Bukkit.getScheduler().cancelTask(task);
-		fw.remove(p);
 	}
 	
 	public static Vector getLeftVector(Location loc) {

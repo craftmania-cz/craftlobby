@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -16,20 +17,19 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class FrostLord{
 	
-	public HashSet<Player> fl = new HashSet<Player>();
-	int task1;
+	public static final HashMap<String, Integer> fl = new HashMap();
+	public static int task4;
 	
 	@SuppressWarnings("deprecation")
 	public void activateFrost(Player p){
-		if(!this.fl.contains(p)){
-			this.fl.add(p);
-			task1 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!fl.containsKey(p.getName())){
+			task4 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				int step = 0;
 			    float stepY = 0;
 			    float radius = 1.5f;
 				@Override
 				public void run() {
-					if(fl.contains(p) && p.isOnline()){
+					if(fl.containsKey(p.getName()) && p.isOnline()){
 						for (int i = 0; i < 6; i++) {
 				            Location location = p.getLocation();
 				            double inc = (2 * Math.PI) / 100;
@@ -50,22 +50,13 @@ public class FrostLord{
 				                UtilParticles.play(location.clone().add(0, 3, 0), Effect.SNOW_SHOVEL, 0, 0, 0, 0, 0, 0.3f, 40);
 				            }
 				        }
-					} else {
-						Bukkit.getScheduler().cancelTask(task1);
-						fl.remove(p);
-					}
+					} 
 					
 				}
 				
-			}, 0L, 3L).getTaskId();;
-		} else {
-			MessagesListener.messageOfActive(p, "FrostLord");
-		}
-	}
-	
-	public void deactivateFrost(Player p){
-		this.fl.remove(p);
-		Bukkit.getScheduler().cancelTask(task1);
+			}, 0L, 3L).getTaskId();
+			fl.put(p.getName(),Integer.valueOf(task4));
+		} 
 	}
 
 }

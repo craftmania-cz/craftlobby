@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -14,18 +15,19 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class BloodHelix{
 	
-	public HashSet<Player> bh = new HashSet<Player>();
-	int task;
+	public static final HashMap<String, Integer> bh = new HashMap();
+	public static int task2;
+	
+	//Posledni uprava 7.12.2015
 	
 	@SuppressWarnings("deprecation")
 	public void activateHelix(Player p){
-		if(!this.bh.contains(p)){
-			this.bh.add(p);
-			task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!bh.containsKey(p.getName())){
+			task2 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				double i = 0;
 				@Override
 				public void run() {
-					if(bh.contains(p) && p.isOnline()){
+					if(bh.containsKey(p.getName()) && p.isOnline()){
 						Location location = p.getLocation();
 				        Location location2 = p.getLocation().clone();
 				        double radius = 1.1d;
@@ -55,18 +57,10 @@ public class BloodHelix{
 				            radius2 -= 0.044f;
 				        }
 				        i += 0.05;
-					} else {
-						Bukkit.getScheduler().cancelTask(task);
-						bh.remove(p);
 					}
 				}
 			}, 0L, 2L).getTaskId();
+			bh.put(p.getName(), Integer.valueOf(task2));
 		} 
 	}
-	
-	public void deactivateHelix(Player p){
-		Bukkit.getScheduler().cancelTask(task);
-		bh.remove(p);
-	}
-
 }

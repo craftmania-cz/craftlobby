@@ -1,5 +1,6 @@
 package cz.wake.plugins.particles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -14,18 +15,17 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class FlameRings{
 	
-	public HashSet<Player> fr = new HashSet<Player>();
-	int task1;
+	public static final HashMap<String, Integer> fr = new HashMap();
+	public static int task5;
 	
 	@SuppressWarnings("deprecation")
 	public void activateFlame(Player p){
-		if(!this.fr.contains(p)){
-			this.fr.add(p);
-			task1 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+		if(!fr.containsKey(p.getName())){
+			task5 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				float step = 0;
 				@Override
 				public void run() {
-					if(fr.contains(p) && p.isOnline()){
+					if(fr.containsKey(p.getName()) && p.isOnline()){
 						for (int i = 0; i < 2; i++) {
 				            double inc = (2 * Math.PI) / 100;
 				            double toAdd = 0;
@@ -43,18 +43,11 @@ public class FlameRings{
 				            UtilParticles.play(p.getLocation().clone().add(0, 1, 0).add(v), Effect.FLAME);
 				        }
 				        step += 3;
-					} else {
-						Bukkit.getScheduler().cancelTask(task1);
-						fr.remove(p);
-					}
+					} 
 				}
 			}, 0L, 1L).getTaskId();
+			fr.put(p.getName(),Integer.valueOf(task5));
 		}
-	}
-	
-	public void deactivateFlame(Player p){
-		Bukkit.getScheduler().cancelTask(task1);
-		fr.remove(p);
 	}
 
 }
