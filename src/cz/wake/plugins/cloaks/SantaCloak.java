@@ -1,5 +1,6 @@
 package cz.wake.plugins.cloaks;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.bukkit.Bukkit;
@@ -19,15 +20,14 @@ import cz.wake.plugins.utils.ParticleEffect;
 import cz.wake.plugins.utils.UtilMath;
 import cz.wake.plugins.utils.UtilParticles;
 
-public class SantaCloak implements Listener{
+public class SantaCloak{
 	
-	public HashSet<Player> santaCloaks = new HashSet<Player>();
+	public static final HashMap<String, Integer> santaCloaks = new HashMap();
 	int particles;
 	
 	@SuppressWarnings("deprecation")
 	public void activateSanta(Player p){
-		if(!this.santaCloaks.contains(p)){
-			this.santaCloaks.add(p);
+		if(!santaCloaks.containsKey(p.getName())){
 			
 			ItemStack skull = ItemFactory.createHead("§fSanta", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");
 			p.getInventory().setHelmet(skull);
@@ -54,7 +54,7 @@ public class SantaCloak implements Listener{
 				float step = 0;
 				@Override
 				public void run() {
-					if(santaCloaks.contains(p) && p.isOnline()){
+					if(santaCloaks.containsKey(p.getName())){
 						for (int i = 0; i < 2; i++) {
 				            double inc = (2 * Math.PI) / 100;
 				            double toAdd = 0;
@@ -73,21 +73,11 @@ public class SantaCloak implements Listener{
 				            ParticleEffect.SNOW_SHOVEL.display(1.0f, 1.0f, 1.0f, 0, 3, p.getLocation(), 30.0D);
 				        }
 				        step += 3;
-					} else {
-						Bukkit.getScheduler().cancelTask(particles);
-						santaCloaks.remove(p);
-					}
+					} 
 				}	
-			}, 0L, 1L).getTaskId();	
+			}, 0L, 1L).getTaskId();
+			santaCloaks.put(p.getName(),Integer.valueOf(particles));
 		}
 	}
-	
-	
-	public void deaktivateSanda(Player p){
-		Bukkit.getScheduler().cancelTask(particles);
-		santaCloaks.remove(p);
-	}
-	
-	
 
 }

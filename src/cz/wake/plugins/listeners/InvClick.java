@@ -2262,9 +2262,13 @@ public class InvClick implements Listener{
 		}
 	}
 	
-	private void deactivateCloaks(Player p){
-		sc.deaktivateSanda(p);
-		p.getInventory().setArmorContents(null);
+	public void deactivateCloaks(Player p){
+		if(SantaCloak.santaCloaks.containsKey(p.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)SantaCloak.santaCloaks.get(p.getName())).intValue());
+			SantaCloak.santaCloaks.remove(p.getName());
+			p.getInventory().setArmorContents(null);
+			p.closeInventory();
+		}
 	}
 
 }

@@ -246,13 +246,15 @@ public class PlayerListener implements Listener{
 		}
 	}
 	
-	@EventHandler(priority = EventPriority.LOW)
+	@EventHandler(priority = EventPriority.NORMAL)
 	public void onLeave(final PlayerQuitEvent e){
 		Player p = e.getPlayer();
-		String name = p.getName();
 		
 		//Deaktivace particles
 		ic.deactivateParticles(p);
+		
+		//Deaktivace cloaks
+		ic.deactivateCloaks(p);
 	}
 	
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -260,8 +262,10 @@ public class PlayerListener implements Listener{
 		Player p = e.getPlayer();
 		
 		//Deaktivace particles
-		System.out.println("Leave kick");
 		ic.deactivateParticles(p);
+		
+		//Deaktivace cloaks
+		ic.deactivateCloaks(p);
 	}
 	
 	@EventHandler
