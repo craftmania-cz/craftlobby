@@ -2255,7 +2255,7 @@ public class InvClick implements Listener{
 			FrozenWalk.fw.remove(player.getName());
 			player.closeInventory();
 		}
-		if(Lily.li.containsKey(player)){
+		if(Lily.li.containsKey(player.getName())){
 			Bukkit.getScheduler().cancelTask(((Integer)Lily.li.get(player.getName())).intValue());
 			Lily.li.remove(player.getName());
 			player.closeInventory();
