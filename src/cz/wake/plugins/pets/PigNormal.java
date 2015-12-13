@@ -26,10 +26,9 @@ public class PigNormal implements Listener{
 		final Pig pig = (Pig) p.getWorld().spawnEntity(p.getLocation(), EntityType.PIG);
 	    PetManager.PetFollow(p, (CraftEntity)pig, 0.16D, 1.0D);
 	    setMetadata((Pig)pig, "Pet", "Pet", Main.getInstance());
-	    ((Pig)pig).setBaby();
 	    ((Pig)pig).setAgeLock(true);
 	    ((Pig)pig).setCustomNameVisible(true);
-	    ((Pig)pig).setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + p.getName());
+	    ((Pig)pig).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) pig);
 		
 	}

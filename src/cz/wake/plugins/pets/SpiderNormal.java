@@ -28,7 +28,7 @@ public class SpiderNormal implements Listener{
 		PetManager.PetFollow(p, (CraftEntity)spider, 0.16D, 1.5D);
 	    setMetadata((Spider)spider, "Pet", "Pet", Main.getInstance());
 	    ((Spider)spider).setCustomNameVisible(true);
-	    ((Spider)spider).setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + p.getName());
+	    ((Spider)spider).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) spider);
 	}
 	

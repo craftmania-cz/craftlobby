@@ -27,10 +27,9 @@ public class CowNormal implements Listener{
 		final Cow cow = (Cow) p.getWorld().spawnEntity(p.getLocation(), EntityType.COW);
 	    PetManager.PetFollow(p, (CraftEntity)cow, 0.16D, 1.5D);
 	    setMetadata((Cow)cow, "Pet", "Pet", Main.getInstance());
-	    ((Cow)cow).setBaby();
 	    ((Cow)cow).setAgeLock(true);
 	    ((Cow)cow).setCustomNameVisible(true);
-	    ((Cow)cow).setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + p.getName());
+	    ((Cow)cow).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) cow);
 		
 	}

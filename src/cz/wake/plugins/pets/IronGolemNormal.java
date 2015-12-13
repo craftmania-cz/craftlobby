@@ -28,7 +28,7 @@ public class IronGolemNormal implements Listener{
 		PetManager.PetFollow(p, (CraftEntity)irongolem, 0.16D, 2.0D);
 		setMetadata((IronGolem)irongolem, "Pet", "Pet", Main.getInstance());
 		((IronGolem)irongolem).setCustomNameVisible(true);
-		((IronGolem)irongolem).setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + p.getName());
+		((IronGolem)irongolem).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
 		PetManager.pet.put(p, (CraftEntity)irongolem);
 	}
 	

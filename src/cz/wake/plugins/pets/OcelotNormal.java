@@ -29,7 +29,7 @@ public class OcelotNormal implements Listener{
 	    setMetadata((Ocelot)ocelot, "Pet", "Pet", Main.getInstance());
 	    ((Ocelot)ocelot).setAgeLock(true);
 	    ((Ocelot)ocelot).setCustomNameVisible(true);
-	    ((Ocelot)ocelot).setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + p.getName());
+	    ((Ocelot)ocelot).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) ocelot);
 		
 	}

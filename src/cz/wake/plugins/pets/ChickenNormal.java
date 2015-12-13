@@ -27,10 +27,9 @@ public class ChickenNormal implements Listener{
 		final Chicken chicken = (Chicken) p.getWorld().spawnEntity(p.getLocation(), EntityType.CHICKEN);
 	    PetManager.PetFollow(p, (CraftEntity)chicken, 0.16D, 2D);
 	    setMetadata((Chicken)chicken, "Pet", "Pet", Main.getInstance());
-	    ((Chicken)chicken).setBaby();
 	    ((Chicken)chicken).setAgeLock(true);
 	    ((Chicken)chicken).setCustomNameVisible(true);
-	    ((Chicken)chicken).setCustomName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + p.getName());
+	    ((Chicken)chicken).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) chicken);
 		
 	}
