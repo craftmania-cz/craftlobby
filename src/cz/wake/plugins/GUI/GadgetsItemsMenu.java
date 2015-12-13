@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
 
-public class GadgetsItemsMenu implements Listener{
+public class GadgetsItemsMenu{
 	
 	
 	public void openInventory(Player p){
@@ -227,29 +227,35 @@ public class GadgetsItemsMenu implements Listener{
 		gadgetsInv.setItem(40, deaktivace);
 		gadgetsInv.setItem(39, zpet);
 		
-		gadgetsInv.setItem(10, wizardGun);
-		gadgetsInv.setItem(11, mobgun);
-		gadgetsInv.setItem(12, funcannon);
-		gadgetsInv.setItem(13, paintgun);
-		gadgetsInv.setItem(14, tnt);
-		gadgetsInv.setItem(15, fountain);
-		gadgetsInv.setItem(16, peee);
-		gadgetsInv.setItem(19, firework);
-		gadgetsInv.setItem(20, blizzard);
-		gadgetsInv.setItem(21, gravity);
-		gadgetsInv.setItem(22, smash);
-		gadgetsInv.setItem(23, trampoline);
-		gadgetsInv.setItem(24, portalgun);
-		gadgetsInv.setItem(25, chickenator);
-		gadgetsInv.setItem(28, tsunami);
-		gadgetsInv.setItem(29, exsheep);
-		gadgetsInv.setItem(30, slimeHat);
-		gadgetsInv.setItem(31, flowerpop);
-		gadgetsInv.setItem(32, pearl);
-		gadgetsInv.setItem(33, blackhole);
-		gadgetsInv.setItem(34, batblaster);
+		gadgetsInv.setItem(0, wizardGun);
+		gadgetsInv.setItem(1, mobgun);
+		gadgetsInv.setItem(2, funcannon);
+		gadgetsInv.setItem(3, paintgun);
+		gadgetsInv.setItem(4, tnt);
+		gadgetsInv.setItem(5, fountain);
+		gadgetsInv.setItem(6, peee);
+		gadgetsInv.setItem(7, firework);
+		gadgetsInv.setItem(8, blizzard);
+		gadgetsInv.setItem(9, gravity);
+		gadgetsInv.setItem(10, smash);
+		gadgetsInv.setItem(11, trampoline);
+		gadgetsInv.setItem(12, portalgun);
+		gadgetsInv.setItem(13, chickenator);
+		gadgetsInv.setItem(14, tsunami);
+		gadgetsInv.setItem(15, exsheep);
+		gadgetsInv.setItem(16, slimeHat);
+		gadgetsInv.setItem(17, flowerpop);
+		gadgetsInv.setItem(18, pearl);
+		gadgetsInv.setItem(19, blackhole);
+		gadgetsInv.setItem(20, batblaster);
 		
 		p.openInventory(gadgetsInv);
+	}
+	
+	public void openInventory2(Player p){
+		
+		Inventory giv = Bukkit.createInventory(null, 54, "Gadgets ");
+		
 	}
 
 }

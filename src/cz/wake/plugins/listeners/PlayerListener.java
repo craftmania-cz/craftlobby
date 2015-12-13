@@ -159,7 +159,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent e){
-		Player p = e.getPlayer();
+		final Player p = e.getPlayer();
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
 				(e.getPlayer().getItemInHand().getType() == Material.SKULL_ITEM) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))){
 			this.hlavniMenu.openMenu(p);
