@@ -17,7 +17,7 @@ public class StatisticsMG {
 	
 	public void openMinigamesMenu(Player p){
 		
-		Inventory minigamesMenu = Bukkit.createInventory(null, 45,"Statistiky pro " + p.getName());
+		Inventory minigamesMenu = Bukkit.createInventory(null, 45, p.getName());
 		
 		ItemStack bedwars = new ItemStack(Material.BED);
 		ItemMeta bedwarsMeta = bedwars.getItemMeta();

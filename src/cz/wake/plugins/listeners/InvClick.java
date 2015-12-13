@@ -189,7 +189,7 @@ public class InvClick implements Listener{
             }
         }
       //**************************** MINIGAMES STATS ****************************//  
-        if(event.getInventory().getTitle().equals("Statistiky pro " + player.getName())){
+        if(event.getInventory().getTitle().equals(player.getName())){
         	if(event.getCurrentItem().getType() == Material.AIR)
         		return;
         	if(event.getSlot() == 35){
@@ -757,6 +757,36 @@ public class InvClick implements Listener{
             	fc.setItemMeta(fcMeta);
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BatBlaster.");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 21){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.COAL);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "WitherCatapult");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "WitherCatapult.");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 22){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.WOOL);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "ColorBomb");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "ColorBomb.");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 23){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.FEATHER);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "Ghosts");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Ghosts.");
             	player.closeInventory();
             }
         	if(event.getSlot() == 49){

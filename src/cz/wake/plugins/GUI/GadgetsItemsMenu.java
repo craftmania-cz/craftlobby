@@ -198,6 +198,30 @@ public class GadgetsItemsMenu{
 		baMeta.setLore(baLore);
 		batblaster.setItemMeta(baMeta);
 		
+		ItemStack wither = new ItemStack(Material.COAL);
+		ItemMeta wMeta = wither.getItemMeta();
+		wMeta.setDisplayName(ChatColor.RED + "WitherCatapult");
+		ArrayList<String> wLore = new ArrayList<String>();
+		wLore.add(ChatColor.GRAY + "To bude rev :D");
+		wMeta.setLore(wLore);
+		wither.setItemMeta(wMeta);
+		
+		ItemStack colorbomb = new ItemStack(Material.WOOL);
+		ItemMeta cbMeta = colorbomb.getItemMeta();
+		cbMeta.setDisplayName(ChatColor.RED + "ColorBomb");
+		ArrayList<String> cbLore = new ArrayList<String>();
+		cbLore.add(ChatColor.GRAY + "Vsude jenom vlna...");
+		cbMeta.setLore(cbLore);
+		colorbomb.setItemMeta(cbMeta);
+		
+		ItemStack ghosts = new ItemStack(Material.FEATHER);
+		ItemMeta ghMeta = ghosts.getItemMeta();
+		ghMeta.setDisplayName(ChatColor.RED + "Ghosts");
+		ArrayList<String> ghLore = new ArrayList<String>();
+		ghLore.add(ChatColor.GRAY + "Duchove jsou vsude, tak bacha na ne!");
+		ghMeta.setLore(ghLore);
+		ghosts.setItemMeta(ghMeta);
+		
 		ItemStack zpet = new ItemStack(Material.ARROW);
 		ItemMeta zpetMeta = zpet.getItemMeta();
 		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");
@@ -248,14 +272,11 @@ public class GadgetsItemsMenu{
 		gadgetsInv.setItem(18, pearl);
 		gadgetsInv.setItem(19, blackhole);
 		gadgetsInv.setItem(20, batblaster);
+		gadgetsInv.setItem(21, wither);
+		gadgetsInv.setItem(22, colorbomb);
+		gadgetsInv.setItem(23, ghosts);
 		
 		p.openInventory(gadgetsInv);
-	}
-	
-	public void openInventory2(Player p){
-		
-		Inventory giv = Bukkit.createInventory(null, 54, "Gadgets ");
-		
 	}
 
 }

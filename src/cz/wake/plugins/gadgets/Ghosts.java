@@ -95,6 +95,19 @@ public class Ghosts implements Listener{
 	                Bukkit.getScheduler().cancelTask(i);
 	            }
 	        }, 160);
+	        
+	        this._cdRunnable.put(player, new BukkitRunnable(){
+	    		@Override
+	    		public void run(){
+	    			Ghosts.this._time.put(player, Double.valueOf(((Double)Ghosts.this._time.get(player)).doubleValue() - 0.1D));
+	      			if (((Double)Ghosts.this._time.get(player)).doubleValue() < 0.01D){
+	      				Ghosts.this._time.remove(player);
+	      				Ghosts.this._cdRunnable.remove(player);
+	      				cancel();
+	    		}
+	    		
+	    	}
+	    });((BukkitRunnable)this._cdRunnable.get(player)).runTaskTimer(plugin, 2L, 2L); 
 	    }
 	}
 	
