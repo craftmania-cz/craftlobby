@@ -45,6 +45,7 @@ import cz.wake.plugins.gadgets.BlackHole;
 import cz.wake.plugins.gadgets.BlizzardBlaster;
 import cz.wake.plugins.gadgets.Chickenator;
 import cz.wake.plugins.gadgets.ColorBomb;
+import cz.wake.plugins.gadgets.CookieFountain;
 import cz.wake.plugins.gadgets.EtherealPearl;
 import cz.wake.plugins.gadgets.ExplosiveSheep;
 import cz.wake.plugins.gadgets.Fireworks;
@@ -55,6 +56,8 @@ import cz.wake.plugins.gadgets.Guns;
 import cz.wake.plugins.gadgets.MobGun;
 import cz.wake.plugins.gadgets.PaintballGun;
 import cz.wake.plugins.gadgets.Pee;
+import cz.wake.plugins.gadgets.PigFly;
+import cz.wake.plugins.gadgets.PoopBomb;
 import cz.wake.plugins.gadgets.PortalGun;
 import cz.wake.plugins.gadgets.SlimeHat;
 import cz.wake.plugins.gadgets.SmashDown;
@@ -170,6 +173,9 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new ColorBomb(this), this);
 		pm.registerEvents(new WitherCatapult(this), this);
 		pm.registerEvents(new Ghosts(this), this);
+		pm.registerEvents(new PoopBomb(this), this);
+		pm.registerEvents(new CookieFountain(this), this);
+		pm.registerEvents(new PigFly(this), this);
 	}
 	
 	private void loadCommands(){

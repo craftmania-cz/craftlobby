@@ -222,6 +222,30 @@ public class GadgetsItemsMenu{
 		ghMeta.setLore(ghLore);
 		ghosts.setItemMeta(ghMeta);
 		
+		ItemStack poop = new ItemStack(Material.MELON_SEEDS);
+		ItemMeta poMeta = poop.getItemMeta();
+		poMeta.setDisplayName(ChatColor.RED + "PoopBomb");
+		ArrayList<String> poLore = new ArrayList<String>();
+		poLore.add(ChatColor.GRAY + "Bobiky vsude :O");
+		poMeta.setLore(poLore);
+		poop.setItemMeta(poMeta);
+		
+		ItemStack cookie = new ItemStack(Material.COOKIE);
+		ItemMeta cooMeta = cookie.getItemMeta();
+		cooMeta.setDisplayName(ChatColor.RED + "CookieFountain");
+		ArrayList<String> cooLore = new ArrayList<String>();
+		cooLore.add(ChatColor.GRAY + "Susenky!");
+		cooMeta.setLore(cooLore);
+		cookie.setItemMeta(cooMeta);
+		
+		ItemStack pig = new ItemStack(Material.SADDLE);
+		ItemMeta pigMeta = pig.getItemMeta();
+		pigMeta.setDisplayName(ChatColor.RED + "PigFly");
+		ArrayList<String> pigLore = new ArrayList<String>();
+		pigLore.add(ChatColor.GRAY + "Litajici prase... :O");
+		pigMeta.setLore(pigLore);
+		pig.setItemMeta(pigMeta);
+		
 		ItemStack zpet = new ItemStack(Material.ARROW);
 		ItemMeta zpetMeta = zpet.getItemMeta();
 		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");
@@ -275,6 +299,9 @@ public class GadgetsItemsMenu{
 		gadgetsInv.setItem(21, wither);
 		gadgetsInv.setItem(22, colorbomb);
 		gadgetsInv.setItem(23, ghosts);
+		gadgetsInv.setItem(24, poop);
+		gadgetsInv.setItem(25, cookie);
+		gadgetsInv.setItem(26, pig);
 		
 		p.openInventory(gadgetsInv);
 	}

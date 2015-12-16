@@ -127,10 +127,6 @@ public class Pee implements Listener{
 			potionEffect.apply(p);
 			e.setCancelled(true);
 			e.getItem().remove();
-			
 		}
 	}
-	
-	
-
 }

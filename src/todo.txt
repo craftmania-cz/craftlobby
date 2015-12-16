@@ -5,3 +5,4 @@
 - Zmìnit zprávy
 - Ukonèit tasky
 - QuitEventy
+- Kontrola nad hráèem jestli je volno

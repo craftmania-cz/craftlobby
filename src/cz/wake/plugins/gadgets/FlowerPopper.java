@@ -80,7 +80,7 @@ public class FlowerPopper implements Listener{
 	    		public void run(){
 	    			Location location = new Location(player.getWorld(),player.getLocation().getX(),player.getLocation().getY() + 2.0D,player.getLocation().getZ());
 	    			
-	    			Entity localEntity = location.getWorld().dropItem(location, ItemFactory.create(Material.RED_ROSE, (byte)UtilMath.randomRange(1, 8), "flower"));
+	    			Entity localEntity = location.getWorld().dropItem(location, ItemFactory.create(Material.RED_ROSE, (byte)UtilMath.randomRange(1, 8), "nopickup"));
 	    			localEntity.setVelocity(new Vector(UtilMath.randomRange(-0.5D,0.5D),  UtilMath.randomRange(0.20000000298023224D, 0.5D), UtilMath.randomRange(-0.5D, 0.5D)));
 	    			
 	    			localEntity.setMetadata("flowers", new FixedMetadataValue(Main.getPlugin(), "flowers"));
@@ -150,15 +150,5 @@ public class FlowerPopper implements Listener{
 	    
 	    ((CraftFirework)localFirework).getHandle().expectedLifespan = 1;
 	  }
-	
-	@EventHandler
-	private void onPickupFlowers(PlayerPickupItemEvent e){
-		Player p = e.getPlayer();
-		Item item = e.getItem();
-		if((item.getItemStack().getType() == Material.RED_ROSE) && (item.getItemStack().getItemMeta().getDisplayName().contains("flower"))){
-			e.setCancelled(true);
-			e.getItem().remove();
-		}
-	}
 
 }

@@ -789,6 +789,36 @@ public class InvClick implements Listener{
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Ghosts.");
             	player.closeInventory();
             }
+            if(event.getSlot() == 24){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.MELON_SEEDS);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "PoopBomb");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PoopBomb.");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 25){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.COOKIE);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "CookieFountain");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "CookieFointain.");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 26){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.SADDLE);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "PigFly");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PigFly.");
+            	player.closeInventory();
+            }
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }

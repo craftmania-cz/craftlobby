@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -22,6 +23,7 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.help.HelpTopic;
 import org.bukkit.inventory.ItemStack;
@@ -155,6 +157,16 @@ public class PlayerListener implements Listener{
 	@EventHandler
 	public void onDamage(EntityDamageEvent event){
 		event.setCancelled(true);
+	}
+	
+	@EventHandler
+	public void onPickup(PlayerPickupItemEvent e){
+		Player p = e.getPlayer();
+		Item item = e.getItem();
+		if(((item.getItemStack().getItemMeta().getDisplayName().contains("nopickup")))){
+			e.setCancelled(true);
+			e.getItem().remove();
+		} 
 	}
 	
 	@EventHandler
