@@ -484,10 +484,10 @@ public class GadgetsMenu implements Listener{
 		if(p.hasPermission("craftlobby.heads.happymousecz")){
 			c++;
 		}
-		if(p.hasPermission("craftlobby.heads.ispencz")){
+		if(p.hasPermission("craftlobby.heads.delfik")){
 			c++;
 		}
-		if(p.hasPermission("craftlobby.heads.aywytristax")){
+		if(p.hasPermission("craftlobby.heads.fapsik")){
 			c++;
 		}
 		if(p.hasPermission("craftlobby.heads.itzjarko")){
@@ -499,10 +499,10 @@ public class GadgetsMenu implements Listener{
 		if(p.hasPermission("craftlobby.heads.misery96")){
 			c++;
 		}
-		if(p.hasPermission("craftlobby.heads.mrdkevcz")){
+		if(p.hasPermission("craftlobby.heads.skuban9999")){
 			c++;
 		}
-		if(p.hasPermission("craftlobby.heads.mrspirith")){
+		if(p.hasPermission("craftlobby.heads.annie")){
 			c++;
 		}
 		if(p.hasPermission("craftlobby.heads.nedzdo")){
@@ -520,7 +520,7 @@ public class GadgetsMenu implements Listener{
 		if(p.hasPermission("craftlobby.heads.radiko")){
 			c++;
 		}
-		if(p.hasPermission("craftlobby.heads.shadow79")){
+		if(p.hasPermission("craftlobby.heads.filip6cz")){
 			c++;
 		}
 		if(p.hasPermission("craftlobby.heads.skateque")){
@@ -538,7 +538,7 @@ public class GadgetsMenu implements Listener{
 		if(p.hasPermission("craftlobby.heads.toumancz")){
 			c++;
 		}
-		if(p.hasPermission("craftlobby.heads.xero2000")){
+		if(p.hasPermission("craftlobby.heads.soony37cze")){
 			c++;
 		}
 		if(p.hasPermission("craftlobby.heads.candle")){

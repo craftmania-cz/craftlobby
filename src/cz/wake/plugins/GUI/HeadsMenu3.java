@@ -305,10 +305,10 @@ public class HeadsMenu3 {
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(13, noPerm);
 		}
-		if(p.hasPermission("craftlobby.heads.ispencz")){
-			ItemStack skull = ItemFactory.createHead("iSpenCZ", "6c8ea6ed-913c-4b91-a777-cc284da867d2", "eyJ0aW1lc3RhbXAiOjE0NDc2MDg3MzI4MTUsInByb2ZpbGVJZCI6IjZjOGVhNmVkOTEzYzRiOTFhNzc3Y2MyODRkYTg2N2QyIiwicHJvZmlsZU5hbWUiOiJpU3BlbkNaIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzlhYTE2ZTk1Nzk1ZDg2NmFmM2ZjNGE2YWVhY2I1YTNiZGFiZDZhYmY5MjFlNzYyNmY5ZmVlZjhjMWQ5YzkifX19");
+		if(p.hasPermission("craftlobby.heads.delfik")){
+			ItemStack skull = ItemFactory.createHead("Delfik", "2ae3d9b6-d86e-4bd9-ab64-9d90b6736ce0", "eyJ0aW1lc3RhbXAiOjE0NTAyODQzOTM0MDEsInByb2ZpbGVJZCI6IjJhZTNkOWI2ZDg2ZTRiZDlhYjY0OWQ5MGI2NzM2Y2UwIiwicHJvZmlsZU5hbWUiOiJEZWxmaWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFmNzY3MTRmY2ZjOWJlMzQxZTdjMmQzMzJiZDZmZmJhNzg0YWE3OTdhYTg2NTk2YmM4N2E0NjE0OTg4ZSJ9fX0=");
 			ItemMeta sMeta = skull.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "iSpenCZ");
+			sMeta.setDisplayName(ChatColor.GREEN + "Delfik");
 			ArrayList<String> sLore = new ArrayList<String>();
 			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
 			sMeta.setLore(sLore);
@@ -317,17 +317,17 @@ public class HeadsMenu3 {
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "iSpenCZ");
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Delfik");
 			ArrayList<String> noPermLore = new ArrayList<String>();
 			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(14, noPerm);
 		}
-		if(p.hasPermission("craftlobby.heads.aywytristax")){
-			ItemStack skull = ItemFactory.createHead("Aywy_TristaX", "1578ab17-9df6-4fa2-96a2-b63a2e07e18b", "eyJ0aW1lc3RhbXAiOjE0NDc2MTEyMDY5MDYsInByb2ZpbGVJZCI6IjE1NzhhYjE3OWRmNjRmYTI5NmEyYjYzYTJlMDdlMThiIiwicHJvZmlsZU5hbWUiOiJBeXd5X1RyaXN0YVgiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWJhZDVmZWNkNTk5OTZjMWQyMjU3OTEyYzlkOWM3MzMxYjZiZjhmNWQ4M2M2Y2QyMmE4OWQ0MGJmOTcyMSJ9fX0=");
+		if(p.hasPermission("craftlobby.heads.fapsik")){
+			ItemStack skull = ItemFactory.createHead("Fapsik", "c7dbdc5b-e6de-49c9-8e67-df465898b516", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ0NDUzNzQsInByb2ZpbGVJZCI6ImM3ZGJkYzViZTZkZTQ5Yzk4ZTY3ZGY0NjU4OThiNTE2IiwicHJvZmlsZU5hbWUiOiJGYXBzaWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGJhMDE0NWQyODNiYzM1OTE0OGI5NDA2MjlmMWIyZGFmYmJlMGQ5YmZlODc5NTdhYWFlYzg5MzhmZjU1OWQifX19");
 			ItemMeta sMeta = skull.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "Aywy_TristaX");
+			sMeta.setDisplayName(ChatColor.GREEN + "Fapsik");
 			ArrayList<String> sLore = new ArrayList<String>();
 			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
 			sMeta.setLore(sLore);
@@ -336,7 +336,7 @@ public class HeadsMenu3 {
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Aywy_TristaX");
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Fapsik");
 			ArrayList<String> noPermLore = new ArrayList<String>();
 			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
@@ -400,10 +400,10 @@ public class HeadsMenu3 {
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(18, noPerm);
 		}
-		if(p.hasPermission("craftlobby.heads.mrdkevcz")){
-			ItemStack skull = ItemFactory.createHead("MrdKev_CZ", "bfcf0400-f9ed-4589-b761-04fc35bb8bd6", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE2NjkxNTAsInByb2ZpbGVJZCI6ImJmY2YwNDAwZjllZDQ1ODliNzYxMDRmYzM1YmI4YmQ2IiwicHJvZmlsZU5hbWUiOiJNcmRLZXZfQ1oiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJhZThmODA2YTk2NjE0MTRkNmNlZjc1ZmQ0NTMwYTU0MWMyOTljMGU3ZjY1NTEzYTQ5M2QwYmU1YjliZDQiLCJtZXRhZGF0YSI6eyJtb2RlbCI6InNsaW0ifX19fQ==");
+		if(p.hasPermission("craftlobby.heads.skuban9999")){
+			ItemStack skull = ItemFactory.createHead("Skuban9999", "2bf8e3d3-e5eb-41db-b921-64cfa0b26bcc", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ1MTc3MzYsInByb2ZpbGVJZCI6IjJiZjhlM2QzZTVlYjQxZGJiOTIxNjRjZmEwYjI2YmNjIiwicHJvZmlsZU5hbWUiOiJTa3ViYW45OTk5IiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzEwNjZlNjM5Mjg5MzlhMTk4ZTEzNWI4MGE2MzlmODU4NTE1MmJjZjRkNDVkNDU5MTViYTBlMDhkZWFmZDcyIn19fQ==");
 			ItemMeta sMeta = skull.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "MrdKev_CZ");
+			sMeta.setDisplayName(ChatColor.GREEN + "Skuban9999");
 			ArrayList<String> sLore = new ArrayList<String>();
 			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
 			sMeta.setLore(sLore);
@@ -412,17 +412,17 @@ public class HeadsMenu3 {
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "MrdKev_CZ");
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Skuban9999");
 			ArrayList<String> noPermLore = new ArrayList<String>();
 			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(19, noPerm);
 		}
-		if(p.hasPermission("craftlobby.heads.mrspirith")){
-			ItemStack skull = ItemFactory.createHead("MrSpirith", "75095752-c042-4aad-aa7f-15dbc57a28d9", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE3NjkzNjEsInByb2ZpbGVJZCI6Ijc1MDk1NzUyYzA0MjRhYWRhYTdmMTVkYmM1N2EyOGQ5IiwicHJvZmlsZU5hbWUiOiJNclNwaXJpdGgiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY1YzNhNjcyYmIzYzYyOWJmMGI5YTc2NGY5NDZkZTIyNmJiMGM1ODEyNDZkNzkyYmFjZWU4NmNkOTZmMiJ9fX0=");
+		if(p.hasPermission("craftlobby.heads.annie")){
+			ItemStack skull = ItemFactory.createHead("_AnNie", "bb8146b2-647f-450b-a1c9-9c4db9e9cdcb", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ1ODEzMDEsInByb2ZpbGVJZCI6ImJiODE0NmIyNjQ3ZjQ1MGJhMWM5OWM0ZGI5ZTljZGNiIiwicHJvZmlsZU5hbWUiOiJfQW5OaWUiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTc4ZGI1OWJhNzFlZjNjZDcwZDJhNThjYjk2Yzc3MmI0MzhjMWEzNzdjMTQ0YWYxZTI1ZWI4NDg2OTE0YzM2In19fQ==");
 			ItemMeta sMeta = skull.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "MrSpirith");
+			sMeta.setDisplayName(ChatColor.GREEN + "_AnNie");
 			ArrayList<String> sLore = new ArrayList<String>();
 			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
 			sMeta.setLore(sLore);
@@ -431,7 +431,7 @@ public class HeadsMenu3 {
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "MrSpirith");
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "_AnNie");
 			ArrayList<String> noPermLore = new ArrayList<String>();
 			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
@@ -533,10 +533,10 @@ public class HeadsMenu3 {
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(25, noPerm);
 		}
-		if(p.hasPermission("craftlobby.heads.shadow79")){
-			ItemStack skull = ItemFactory.createHead("shadow79", "27bf5ec8-8c2f-4745-8495-53cab2a2b600", "eyJ0aW1lc3RhbXAiOjE0NDc2NzY5MzE0OTcsInByb2ZpbGVJZCI6IjI3YmY1ZWM4OGMyZjQ3NDU4NDk1NTNjYWIyYTJiNjAwIiwicHJvZmlsZU5hbWUiOiJTaGFkb3c3OSIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xYjFmYWU5OWU4ZWU5Mjk0ZWJlYjg4MWRjYWVjZTYzNDcxZTE0MjFmZmFjODJlYzFkZTEyYjYxNTU1YyJ9fX0=");
+		if(p.hasPermission("craftlobby.heads.filip6cz")){
+			ItemStack skull = ItemFactory.createHead("Filip6_CZ", "c25f01ec-9fa8-4ff6-ae34-7286f8c44b27", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ2MzgxNjQsInByb2ZpbGVJZCI6ImMyNWYwMWVjOWZhODRmZjZhZTM0NzI4NmY4YzQ0YjI3IiwicHJvZmlsZU5hbWUiOiJGaWxpcDZfQ1oiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmI0NjUyMjQ2OTlmMzJlNzdkZGJjNTgzM2FjNjYzZTk1NWRmOTVmNTJmMjU0OTY5ODczOWYzZWNkODg0MjkifX19");
 			ItemMeta sMeta = skull.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "shadow79");
+			sMeta.setDisplayName(ChatColor.GREEN + "Filip6_CZ");
 			ArrayList<String> sLore = new ArrayList<String>();
 			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
 			sMeta.setLore(sLore);
@@ -545,7 +545,7 @@ public class HeadsMenu3 {
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "shadow79");
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Filip6_CZ");
 			ArrayList<String> noPermLore = new ArrayList<String>();
 			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
@@ -647,10 +647,10 @@ public class HeadsMenu3 {
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(31, noPerm);
 		}
-		if(p.hasPermission("craftlobby.heads.xero2000")){
-			ItemStack skull = ItemFactory.createHead("xero2000", "3ad14ba5-6575-4827-9f5f-d617e556c47a", "eyJ0aW1lc3RhbXAiOjE0NDc2Nzg4NjMxMjMsInByb2ZpbGVJZCI6IjNhZDE0YmE1NjU3NTQ4Mjc5ZjVmZDYxN2U1NTZjNDdhIiwicHJvZmlsZU5hbWUiOiJ4ZXJvMjAwMCIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iM2FjYTM2NDMzNmRmMDJjNzVkYmE4ZmVmODE4YTgyNGM3ZDQyZWFiMzFkZTFmNTdlMjRlMThkOTgxZGRkNDEifX19");
+		if(p.hasPermission("craftlobby.heads.soony37cze")){
+			ItemStack skull = ItemFactory.createHead("Soony37CZE", "f4376c30-07ca-4dd3-992e-3fc9f2410c92", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ2OTcyMzcsInByb2ZpbGVJZCI6ImY0Mzc2YzMwMDdjYTRkZDM5OTJlM2ZjOWYyNDEwYzkyIiwicHJvZmlsZU5hbWUiOiJTb29ueTM3Q1pFIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2U0YmY2NzgzODVlNmRkYjEzZjRhMjEzZDc4NWFkOWU1ZDFkY2NkMmQ3YmI4YmFiNTY0MjNhOGI5MCJ9fX0=");
 			ItemMeta sMeta = skull.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "xero2000");
+			sMeta.setDisplayName(ChatColor.GREEN + "Soony37CZE");
 			ArrayList<String> sLore = new ArrayList<String>();
 			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
 			sMeta.setLore(sLore);
@@ -659,7 +659,7 @@ public class HeadsMenu3 {
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "xero2000");
+			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Soony37CZE");
 			ArrayList<String> noPermLore = new ArrayList<String>();
 			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);

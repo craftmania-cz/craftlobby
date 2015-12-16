@@ -1827,25 +1827,25 @@ public class InvClick implements Listener{
             	}
             }
             if(event.getSlot() == 14){
-            	if(player.hasPermission("craftlobby.heads.ispencz")){
+            	if(player.hasPermission("craftlobby.heads.delfik")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("iSpenCZ", "6c8ea6ed-913c-4b91-a777-cc284da867d2", "eyJ0aW1lc3RhbXAiOjE0NDc2MDg3MzI4MTUsInByb2ZpbGVJZCI6IjZjOGVhNmVkOTEzYzRiOTFhNzc3Y2MyODRkYTg2N2QyIiwicHJvZmlsZU5hbWUiOiJpU3BlbkNaIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzlhYTE2ZTk1Nzk1ZDg2NmFmM2ZjNGE2YWVhY2I1YTNiZGFiZDZhYmY5MjFlNzYyNmY5ZmVlZjhjMWQ5YzkifX19");
+            		ItemStack skull = ItemFactory.createHead("Delfik", "2ae3d9b6-d86e-4bd9-ab64-9d90b6736ce0", "eyJ0aW1lc3RhbXAiOjE0NTAyODQzOTM0MDEsInByb2ZpbGVJZCI6IjJhZTNkOWI2ZDg2ZTRiZDlhYjY0OWQ5MGI2NzM2Y2UwIiwicHJvZmlsZU5hbWUiOiJEZWxmaWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFmNzY3MTRmY2ZjOWJlMzQxZTdjMmQzMzJiZDZmZmJhNzg0YWE3OTdhYTg2NTk2YmM4N2E0NjE0OTg4ZSJ9fX0=");
             		player.getInventory().setHelmet(skull);
-            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "iSpenCZ Head.");
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Delfik Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "iSpenCZ Head");
+            		MessagesListener.messageNoPerm(player, "Delfik Head");
             	}
             }
             if(event.getSlot() == 15){
-            	if(player.hasPermission("craftlobby.heads.aywytristax")){
+            	if(player.hasPermission("craftlobby.heads.fapsik")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("Aywy_TristaX", "1578ab17-9df6-4fa2-96a2-b63a2e07e18b", "eyJ0aW1lc3RhbXAiOjE0NDc2MTEyMDY5MDYsInByb2ZpbGVJZCI6IjE1NzhhYjE3OWRmNjRmYTI5NmEyYjYzYTJlMDdlMThiIiwicHJvZmlsZU5hbWUiOiJBeXd5X1RyaXN0YVgiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWJhZDVmZWNkNTk5OTZjMWQyMjU3OTEyYzlkOWM3MzMxYjZiZjhmNWQ4M2M2Y2QyMmE4OWQ0MGJmOTcyMSJ9fX0=");
+            		ItemStack skull = ItemFactory.createHead("Fapsik", "c7dbdc5b-e6de-49c9-8e67-df465898b516", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ0NDUzNzQsInByb2ZpbGVJZCI6ImM3ZGJkYzViZTZkZTQ5Yzk4ZTY3ZGY0NjU4OThiNTE2IiwicHJvZmlsZU5hbWUiOiJGYXBzaWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGJhMDE0NWQyODNiYzM1OTE0OGI5NDA2MjlmMWIyZGFmYmJlMGQ5YmZlODc5NTdhYWFlYzg5MzhmZjU1OWQifX19");
             		player.getInventory().setHelmet(skull);
-            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Aywy_TristaX Head.");
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Fapsik Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Aywy_TristaX Head");
+            		MessagesListener.messageNoPerm(player, "Fapsik Head");
             	}
             }
             if(event.getSlot() == 16){
@@ -1882,25 +1882,25 @@ public class InvClick implements Listener{
             	}
             }
             if(event.getSlot() == 19){
-            	if(player.hasPermission("craftlobby.heads.mrdkevcz")){
+            	if(player.hasPermission("craftlobby.heads.skuban9999")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("MrdKev_CZ", "bfcf0400-f9ed-4589-b761-04fc35bb8bd6", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE2NjkxNTAsInByb2ZpbGVJZCI6ImJmY2YwNDAwZjllZDQ1ODliNzYxMDRmYzM1YmI4YmQ2IiwicHJvZmlsZU5hbWUiOiJNcmRLZXZfQ1oiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJhZThmODA2YTk2NjE0MTRkNmNlZjc1ZmQ0NTMwYTU0MWMyOTljMGU3ZjY1NTEzYTQ5M2QwYmU1YjliZDQiLCJtZXRhZGF0YSI6eyJtb2RlbCI6InNsaW0ifX19fQ==");
+            		ItemStack skull = ItemFactory.createHead("Skuban9999", "2bf8e3d3-e5eb-41db-b921-64cfa0b26bcc", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ1MTc3MzYsInByb2ZpbGVJZCI6IjJiZjhlM2QzZTVlYjQxZGJiOTIxNjRjZmEwYjI2YmNjIiwicHJvZmlsZU5hbWUiOiJTa3ViYW45OTk5IiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzEwNjZlNjM5Mjg5MzlhMTk4ZTEzNWI4MGE2MzlmODU4NTE1MmJjZjRkNDVkNDU5MTViYTBlMDhkZWFmZDcyIn19fQ==");
             		player.getInventory().setHelmet(skull);
-            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrdKev_CZ Head.");
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Skuban9999 Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "MrdKev_CZ Head");
+            		MessagesListener.messageNoPerm(player, "Skuban9999 Head");
             	}
             }
             if(event.getSlot() == 20){
-            	if(player.hasPermission("craftlobby.heads.mrspirith")){
+            	if(player.hasPermission("craftlobby.heads.annie")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("MrSpirith", "75095752-c042-4aad-aa7f-15dbc57a28d9", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE3NjkzNjEsInByb2ZpbGVJZCI6Ijc1MDk1NzUyYzA0MjRhYWRhYTdmMTVkYmM1N2EyOGQ5IiwicHJvZmlsZU5hbWUiOiJNclNwaXJpdGgiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY1YzNhNjcyYmIzYzYyOWJmMGI5YTc2NGY5NDZkZTIyNmJiMGM1ODEyNDZkNzkyYmFjZWU4NmNkOTZmMiJ9fX0=");
+            		ItemStack skull = ItemFactory.createHead("_AnNie", "bb8146b2-647f-450b-a1c9-9c4db9e9cdcb", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ1ODEzMDEsInByb2ZpbGVJZCI6ImJiODE0NmIyNjQ3ZjQ1MGJhMWM5OWM0ZGI5ZTljZGNiIiwicHJvZmlsZU5hbWUiOiJfQW5OaWUiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTc4ZGI1OWJhNzFlZjNjZDcwZDJhNThjYjk2Yzc3MmI0MzhjMWEzNzdjMTQ0YWYxZTI1ZWI4NDg2OTE0YzM2In19fQ==");
             		player.getInventory().setHelmet(skull);
-            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrSpirith Head.");
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "_AnNie Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "MrSpirith Head");
+            		MessagesListener.messageNoPerm(player, "_AnNie Head");
             	}
             }
             if(event.getSlot() == 21){
@@ -1959,14 +1959,14 @@ public class InvClick implements Listener{
             	}
             }
             if(event.getSlot() == 26){
-            	if(player.hasPermission("craftlobby.heads.shadow79")){
+            	if(player.hasPermission("craftlobby.heads.filip6cz")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("shadow79", "27bf5ec8-8c2f-4745-8495-53cab2a2b600", "eyJ0aW1lc3RhbXAiOjE0NDc2NzY5MzE0OTcsInByb2ZpbGVJZCI6IjI3YmY1ZWM4OGMyZjQ3NDU4NDk1NTNjYWIyYTJiNjAwIiwicHJvZmlsZU5hbWUiOiJTaGFkb3c3OSIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xYjFmYWU5OWU4ZWU5Mjk0ZWJlYjg4MWRjYWVjZTYzNDcxZTE0MjFmZmFjODJlYzFkZTEyYjYxNTU1YyJ9fX0=");
+            		ItemStack skull = ItemFactory.createHead("Filip6_CZ", "c25f01ec-9fa8-4ff6-ae34-7286f8c44b27", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ2MzgxNjQsInByb2ZpbGVJZCI6ImMyNWYwMWVjOWZhODRmZjZhZTM0NzI4NmY4YzQ0YjI3IiwicHJvZmlsZU5hbWUiOiJGaWxpcDZfQ1oiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmI0NjUyMjQ2OTlmMzJlNzdkZGJjNTgzM2FjNjYzZTk1NWRmOTVmNTJmMjU0OTY5ODczOWYzZWNkODg0MjkifX19");
             		player.getInventory().setHelmet(skull);
-            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "shadow79 Head.");
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Filip6_CZ Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "shadow79 Head");
+            		MessagesListener.messageNoPerm(player, "Filip6_CZ Head");
             	}
             }
             if(event.getSlot() == 27){
@@ -2026,14 +2026,14 @@ public class InvClick implements Listener{
             	}
             }
             if(event.getSlot() == 32){
-            	if(player.hasPermission("craftlobby.heads.xero2000")){
+            	if(player.hasPermission("craftlobby.heads.soony37cze")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("xero2000", "3ad14ba5-6575-4827-9f5f-d617e556c47a", "eyJ0aW1lc3RhbXAiOjE0NDc2Nzg4NjMxMjMsInByb2ZpbGVJZCI6IjNhZDE0YmE1NjU3NTQ4Mjc5ZjVmZDYxN2U1NTZjNDdhIiwicHJvZmlsZU5hbWUiOiJ4ZXJvMjAwMCIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iM2FjYTM2NDMzNmRmMDJjNzVkYmE4ZmVmODE4YTgyNGM3ZDQyZWFiMzFkZTFmNTdlMjRlMThkOTgxZGRkNDEifX19");
+            		ItemStack skull = ItemFactory.createHead("Soony37CZE", "f4376c30-07ca-4dd3-992e-3fc9f2410c92", "eyJ0aW1lc3RhbXAiOjE0NTAyODQ2OTcyMzcsInByb2ZpbGVJZCI6ImY0Mzc2YzMwMDdjYTRkZDM5OTJlM2ZjOWYyNDEwYzkyIiwicHJvZmlsZU5hbWUiOiJTb29ueTM3Q1pFIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2U0YmY2NzgzODVlNmRkYjEzZjRhMjEzZDc4NWFkOWU1ZDFkY2NkMmQ3YmI4YmFiNTY0MjNhOGI5MCJ9fX0=");
             		player.getInventory().setHelmet(skull);
-            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "xero2000 Head.");
+            		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Soony37CZE Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "xero2000 Head");
+            		MessagesListener.messageNoPerm(player, "Soony37CZE Head");
             	}
             }
             if(event.getSlot() == 33){
