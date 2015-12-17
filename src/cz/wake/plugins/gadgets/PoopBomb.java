@@ -86,7 +86,7 @@ public class PoopBomb implements Listener{
 	          public void run(){
 	            this.step += 1;
 	            Object localObject;
-	            if (this.step <= 150){
+	            if (this.step <= 100){
 	              if (random.nextInt(100) + 1 <= 60) {
 	                for (int i = 0; i < 2; i++){
 	                  localObject = ((Item)localArrayList.get(random.nextInt(localArrayList.size()))).getLocation();

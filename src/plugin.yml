@@ -1,6 +1,6 @@
 name: WakesLobby	
 main: cz.wake.plugins.Main
-version: 0.2.0
+version: 1.2.30
 author: MrWakeCZ
 commands:
   wlobby:

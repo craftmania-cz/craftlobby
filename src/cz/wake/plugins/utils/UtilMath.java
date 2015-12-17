@@ -15,6 +15,51 @@ import cz.wake.plugins.Main;
 public class UtilMath
 {
 	
+	static public final float nanoToSec = 1 / 1000000000f;
+
+    // ---
+    static public final float FLOAT_ROUNDING_ERROR = 0.000001f; // 32 bits
+    static public final float PI = 3.141592653589793238462643383279f;
+    static public final float PI2 = PI * 2;
+
+    static public final float SQRT_3 = 1.73205080757f;
+
+    static public final float E = 2.7182818284590452354f;
+
+    static private final int SIN_BITS = 14; // 16KB. Adjust for accuracy.
+    static private final int SIN_MASK = ~(-1 << SIN_BITS);
+    static private final int SIN_COUNT = SIN_MASK + 1;
+
+    static private final float radFull = PI * 2;
+    static private final float degFull = 360;
+    static private final float radToIndex = SIN_COUNT / radFull;
+    static private final float degToIndex = SIN_COUNT / degFull;
+
+    /**
+     * multiply by this to convert from radians to degrees
+     */
+    static public final float radiansToDegrees = 180f / PI;
+    static public final float radDeg = radiansToDegrees;
+    /**
+     * multiply by this to convert from degrees to radians
+     */
+    static public final float degreesToRadians = PI / 180;
+    static public final float degRad = degreesToRadians;
+
+    static private class Sin {
+
+        static final float[] table = new float[SIN_COUNT];
+
+        static {
+            for (int i = 0; i < SIN_COUNT; i++) {
+                table[i] = (float) Math.sin((i + 0.5f) / SIN_COUNT * radFull);
+            }
+            for (int i = 0; i < 360; i += 90) {
+                table[(int) (i * degToIndex) & SIN_MASK] = (float) Math.sin(i * degreesToRadians);
+            }
+        }
+    }
+	
   public static double trim(int degree, double d)
   {
     String format = "#.#";
@@ -32,11 +77,67 @@ public class UtilMath
     return random.nextInt(i);
   }
   
+  /**
+   * Returns the sine in radians from a lookup table.
+   */
+  static public final float sin(float radians) {
+      return Sin.table[(int) (radians * radToIndex) & SIN_MASK];
+  }
+
+  /**
+   * Returns the cosine in radians from a lookup table.
+   */
+  static public final float cos(float radians) {
+      return Sin.table[(int) ((radians + PI / 2) * radToIndex) & SIN_MASK];
+  }
+  
   public static int randRange(int min, int max)
   {
     Random rand = new Random();
     int randomNum = rand.nextInt(max - min + 1) + min;
     return randomNum;
+  }
+  
+  /**
+   * Returns a random number between start (inclusive) and end (inclusive).
+   */
+  static public final int random(int start, int end) {
+      return start + random.nextInt(end - start + 1);
+  }
+  
+  /**
+   * Returns true if a random value between 0 and 1 is less than the specified value.
+   */
+  static public final boolean randomBoolean(float chance) {
+      return UtilMath.random() < chance;
+  }
+
+  /**
+   * Returns random number between 0.0 (inclusive) and 1.0 (exclusive).
+   */
+  static public final float random() {
+      return random.nextFloat();
+  }
+
+  /**
+   * Returns a random number between 0 (inclusive) and the specified value (exclusive).
+   */
+  static public final float random(float range) {
+      return random.nextFloat() * range;
+  }
+
+  /**
+   * Returns a random number between start (inclusive) and end (exclusive).
+   */
+  static public final float random(float start, float end) {
+      return start + random.nextFloat() * (end - start);
+  }
+
+  /**
+   * Returns a random number between 0 (inclusive) and the specified value (inclusive).
+   */
+  static public final int random(int range) {
+      return random.nextInt(range + 1);
   }
   
   public static double randomRange(double paramDouble1, double paramDouble2)

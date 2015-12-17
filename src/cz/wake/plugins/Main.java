@@ -1,18 +1,12 @@
 package cz.wake.plugins;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
-
-import net.milkbowl.vault.economy.Economy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
@@ -21,12 +15,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-
-import com.google.common.io.ByteArrayDataInput;
-import com.google.common.io.ByteStreams;
 
 import cz.wake.plugins.API.Glow;
 import cz.wake.plugins.API.WakeAPI;
@@ -35,7 +25,6 @@ import cz.wake.plugins.GUI.HeadsMenu;
 import cz.wake.plugins.GUI.HeadsMenu2;
 import cz.wake.plugins.GUI.MorphsMenu;
 import cz.wake.plugins.GUI.MountMenu;
-import cz.wake.plugins.GUI.ParticlesMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.commands.ProfilCMD;
@@ -46,13 +35,14 @@ import cz.wake.plugins.gadgets.BlizzardBlaster;
 import cz.wake.plugins.gadgets.Chickenator;
 import cz.wake.plugins.gadgets.ColorBomb;
 import cz.wake.plugins.gadgets.CookieFountain;
+import cz.wake.plugins.gadgets.DiscoBall;
 import cz.wake.plugins.gadgets.EtherealPearl;
 import cz.wake.plugins.gadgets.ExplosiveSheep;
 import cz.wake.plugins.gadgets.Fireworks;
 import cz.wake.plugins.gadgets.FlowerPopper;
 import cz.wake.plugins.gadgets.FunCannon;
 import cz.wake.plugins.gadgets.Ghosts;
-import cz.wake.plugins.gadgets.Guns;
+import cz.wake.plugins.gadgets.TeleportStick;
 import cz.wake.plugins.gadgets.MobGun;
 import cz.wake.plugins.gadgets.PaintballGun;
 import cz.wake.plugins.gadgets.Pee;
@@ -70,21 +60,6 @@ import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
-import cz.wake.plugins.particles.BloodHelix;
-import cz.wake.plugins.particles.Clouds;
-import cz.wake.plugins.particles.ColoredDust;
-import cz.wake.plugins.particles.EnderSignal;
-import cz.wake.plugins.particles.FlameRings;
-import cz.wake.plugins.particles.FrostLord;
-import cz.wake.plugins.particles.FrozenWalk;
-import cz.wake.plugins.particles.GreenSparks;
-import cz.wake.plugins.particles.LavaPop;
-import cz.wake.plugins.particles.Love;
-import cz.wake.plugins.particles.MobSpell;
-import cz.wake.plugins.particles.Notes;
-import cz.wake.plugins.particles.Portal;
-import cz.wake.plugins.particles.RainCloud;
-import cz.wake.plugins.particles.SnowCloud;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowNormal;
 import cz.wake.plugins.pets.IronGolemNormal;
@@ -96,7 +71,6 @@ import cz.wake.plugins.pets.SpiderNormal;
 public class Main extends JavaPlugin implements PluginMessageListener{
 
 	private static Main instance;
-	private static final Logger log = Logger.getLogger("Minecraft");
 	private MySQL mysql = new MySQL();
 	private FetchData fd = new FetchData();
 	private WakeAPI api = new WakeAPI();
@@ -106,8 +80,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public static List<CustomPlayer> customPlayers = new ArrayList<>();
 	public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
 	public VillagerMorph VillagerMorph;
-	private int playercount;
-    private static ByteArrayOutputStream b = new ByteArrayOutputStream();
+	private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
 	
 	
@@ -135,7 +108,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new InvClick(), this);
 		pm.registerEvents(new HeadsMenu(), this);
 		pm.registerEvents(new GadgetsMenu(), this);
-		pm.registerEvents(new Guns(), this);
+		pm.registerEvents(new TeleportStick(this), this);
 		pm.registerEvents(new MobGun(this), this);
 		pm.registerEvents(new FunCannon(this), this);
 		pm.registerEvents(new PaintballGun(this), this);
@@ -176,6 +149,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new PoopBomb(this), this);
 		pm.registerEvents(new CookieFountain(this), this);
 		pm.registerEvents(new PigFly(this), this);
+		pm.registerEvents(new DiscoBall(this), this);
 	}
 	
 	private void loadCommands(){

@@ -22,10 +22,9 @@ public class GadgetsItemsMenu{
 		
 		ItemStack wizardGun = new ItemStack(Material.STICK);
 		ItemMeta wgMeta = wizardGun.getItemMeta();
-		wgMeta.setDisplayName(ChatColor.GREEN + "WizardGun");
+		wgMeta.setDisplayName(ChatColor.GREEN + "TeleportStick");
 		ArrayList<String> wgLore = new ArrayList<String>();
-		wgLore.add(ChatColor.GRAY + "Klikanim budes strilet");
-		wgLore.add(ChatColor.GRAY + "nekonecny zroj magie!");
+		wgLore.add(ChatColor.GRAY + "Teleportu jse jako rumburak!");
 		wgMeta.setLore(wgLore);
 		wizardGun.setItemMeta(wgMeta);
 		
@@ -246,6 +245,14 @@ public class GadgetsItemsMenu{
 		pigMeta.setLore(pigLore);
 		pig.setItemMeta(pigMeta);
 		
+		ItemStack disco = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
+		ItemMeta dMeta = disco.getItemMeta();
+		dMeta.setDisplayName(ChatColor.RED + "DiscoBall");
+		ArrayList<String> dLore = new ArrayList<String>();
+		dLore.add(ChatColor.GRAY + "A jedeme! :D");
+		dMeta.setLore(dLore);
+		disco.setItemMeta(dMeta);
+		
 		ItemStack zpet = new ItemStack(Material.ARROW);
 		ItemMeta zpetMeta = zpet.getItemMeta();
 		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");
@@ -302,6 +309,7 @@ public class GadgetsItemsMenu{
 		gadgetsInv.setItem(24, poop);
 		gadgetsInv.setItem(25, cookie);
 		gadgetsInv.setItem(26, pig);
+		gadgetsInv.setItem(27, disco);
 		
 		p.openInventory(gadgetsInv);
 	}

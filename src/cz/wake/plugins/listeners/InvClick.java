@@ -553,10 +553,10 @@ public class InvClick implements Listener{
             	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
             	ItemStack wg = new ItemStack(Material.STICK);
             	ItemMeta wgMeta = wg.getItemMeta();
-            	wgMeta.setDisplayName("§aWizardGun §7- §eWitch");
+            	wgMeta.setDisplayName(ChatColor.RED + "TeleportStick");
             	wg.setItemMeta(wgMeta);
             	player.getInventory().setItem(6, wg);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "WizardGun.");
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TeleportStick.");
             	player.closeInventory();
             }
             if(event.getSlot() == 1){
@@ -817,6 +817,16 @@ public class InvClick implements Listener{
             	fc.setItemMeta(fcMeta);
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PigFly.");
+            	player.closeInventory();
+            }
+            if(event.getSlot() == 27){
+            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+            	ItemStack fc = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
+            	ItemMeta fcMeta = fc.getItemMeta();
+            	fcMeta.setDisplayName(ChatColor.RED + "DiscoBall");
+            	fc.setItemMeta(fcMeta);
+            	player.getInventory().setItem(6, fc);
+            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "DiscoBall.");
             	player.closeInventory();
             }
         	if(event.getSlot() == 49){

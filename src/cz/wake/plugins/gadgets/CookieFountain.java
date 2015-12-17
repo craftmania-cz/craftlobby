@@ -73,10 +73,10 @@ public class CookieFountain implements Listener {
 	            
 	            this.step += 1;
 	            Item localItem;
-	            if (this.step <= 40)
+	            if (this.step <= 80)
 	            {
 	              player.getWorld().playSound(player.getLocation(), Sound.ITEM_PICKUP, 1.0F, 1.0F);
-	              localItem = player.getWorld().dropItem(player.getLocation(), ItemFactory.create(Material.COOKIE, (byte)1, "nopickup"));
+	              localItem = player.getWorld().dropItem(player.getLocation(), ItemFactory.create(Material.COOKIE, (byte)0, "nopickup"));
 	              localItem.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.valueOf(true)));
 	              localItem.setVelocity(new Vector((random.nextDouble() - 0.5D) / 3.0D, 0.7D, (random.nextDouble() - 0.5D) / 3.0D));
 	              localArrayList.add(localItem);

@@ -86,7 +86,7 @@ public class PigFly implements Listener{
 	          public void run()
 	          {
 	            displayFirework(localBat.getLocation(), FireworkEffect.Type.BURST, false, false, Arrays.asList(new Color[] { Color.RED }), Arrays.asList(new Color[] { Color.RED }));
-	            dropItems(localBat.getLocation(), Arrays.asList(new ItemStack[] { ItemFactory.create(Material.BONE, (byte)1, "nopickup"), ItemFactory.create(Material.INK_SACK, (byte)1, "nopickup"), ItemFactory.create(Material.RAW_BEEF, (byte)1, "nopickup") }), 40, 100, 1);
+	            dropItems(localBat.getLocation(), Arrays.asList(new ItemStack[] { ItemFactory.create(Material.BONE, (byte)0, "nopickup"), ItemFactory.create(Material.INK_SACK, (byte)1, "nopickup"), ItemFactory.create(Material.RAW_BEEF, (byte)0, "nopickup") }), 40, 100, 1);
 	            sendStepSound(localBat.getLocation(), Material.REDSTONE_BLOCK, 5);
 	            localPig.remove();
 	            localBat.remove();
