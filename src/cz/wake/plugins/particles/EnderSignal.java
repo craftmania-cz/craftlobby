@@ -26,7 +26,7 @@ public class EnderSignal{
 						UtilParticles.play(p.getLocation().add(0,1.5,0), Effect.ENDER_SIGNAL);
 					}
 				}
-			}, 0L, 1L).getTaskId();
+			}, 0L, 2L).getTaskId();
 			es.put(p.getName(), Integer.valueOf(task7));
 		} 	
 	}

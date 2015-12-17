@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -55,6 +56,7 @@ import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
+import cz.wake.plugins.particles.SantaHat;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowNormal;
 import cz.wake.plugins.pets.IronGolemNormal;

@@ -51,6 +51,7 @@ import cz.wake.plugins.particles.MobSpell;
 import cz.wake.plugins.particles.Notes;
 import cz.wake.plugins.particles.Portal;
 import cz.wake.plugins.particles.RainCloud;
+import cz.wake.plugins.particles.SantaHat;
 import cz.wake.plugins.particles.SnowCloud;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowNormal;
@@ -94,6 +95,7 @@ public class InvClick implements Listener{
 	MobSpell sp = new MobSpell();
 	FrozenWalk fw = new FrozenWalk();
 	Lily lil = new Lily();
+	SantaHat sh = new SantaHat();
 	HeadsMenu4 headsMenu4 = new HeadsMenu4();
 	
 	@EventHandler
@@ -462,6 +464,15 @@ public class InvClick implements Listener{
             		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Lilly");
+        		}
+        	}
+        	if(event.getSlot() == 31){
+        		if(player.hasPermission("craftlobby.particles.santahat")){
+        			deactivateParticles(player);
+        			sh.activateHat(player);
+        			player.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(player, "SantaHat");
         		}
         	}
         	if(event.getSlot() == 49){
@@ -2328,6 +2339,11 @@ public class InvClick implements Listener{
 		if(Lily.li.containsKey(player.getName())){
 			Bukkit.getScheduler().cancelTask(((Integer)Lily.li.get(player.getName())).intValue());
 			Lily.li.remove(player.getName());
+			player.closeInventory();
+		}
+		if(SantaHat.sh.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)SantaHat.sh.get(player.getName())).intValue());
+			SantaHat.sh.remove(player.getName());
 			player.closeInventory();
 		}
 	}
