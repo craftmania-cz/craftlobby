@@ -2,15 +2,11 @@ package cz.wake.plugins;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Logger;
-
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -18,7 +14,6 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
-import cz.wake.plugins.API.Glow;
 import cz.wake.plugins.API.WakeAPI;
 import cz.wake.plugins.GUI.GadgetsMenu;
 import cz.wake.plugins.GUI.HeadsMenu;
@@ -89,7 +84,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		getConfig().options().copyDefaults(true);
 		saveDefaultConfig();
 		//this.mysql.checkTable();
-		registerGlow();
 		loadListeners();
 		loadCommands();
 		debug = false;
@@ -203,26 +197,4 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	     }
 		 
 	}
-	
-	public void registerGlow() {
-        try {
-            Field f = Enchantment.class.getDeclaredField("acceptingNew");
-            f.setAccessible(true);
-            f.set(null, true);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            Glow glow = new Glow(70);
-            Enchantment.registerEnchantment(glow);
-        }
-        catch (IllegalArgumentException e){
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-	
-	
 }
