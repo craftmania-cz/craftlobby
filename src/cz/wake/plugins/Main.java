@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.server.v1_8_R3.EntityChicken;
@@ -19,6 +20,7 @@ import net.minecraft.server.v1_8_R3.EntityZombie;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -122,6 +124,14 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public void onDisable(){
 		instance = null;
 		
+		for (Iterator localIterator = Bukkit.getWorld("OfficialLobby").getEntities().iterator(); localIterator.hasNext();)
+	    {
+	      Object localObject = (CraftEntity)localIterator.next();
+	      if (PetManager.pet.containsValue(localObject))
+	      {
+	        ((CraftEntity)localObject).remove();
+	      }
+	    }
 	}
 	
 	private void loadListeners(){
