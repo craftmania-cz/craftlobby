@@ -15,6 +15,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -42,6 +44,8 @@ import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.gadgets.TNTFountain;
 import cz.wake.plugins.particles.FrozenWalk;
+import cz.wake.plugins.pets.PetManager;
+import cz.wake.plugins.utils.ItemFactory;
 
 public class PlayerListener implements Listener{
 
@@ -81,6 +85,7 @@ public class PlayerListener implements Listener{
 		ItemMeta hiderMeta = hider.getItemMeta();
 		
 		ItemStack shopVip = new ItemStack(Material.EMERALD);
+		shopVip = ItemFactory.addGlow(shopVip);
 		ItemMeta svMeta = shopVip.getItemMeta();
 		
 		compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
@@ -143,6 +148,13 @@ public class PlayerListener implements Listener{
 			e.setCancelled(true);
 		}
 	}
+	
+	@EventHandler
+    public void onCreatureSpawn(CreatureSpawnEvent event){
+        if (event.getSpawnReason() == SpawnReason.EGG){
+            event.setCancelled(true);
+        }
+    }
 	
 	@EventHandler
 	public void onItemMove(InventoryClickEvent e){
@@ -267,6 +279,9 @@ public class PlayerListener implements Listener{
 		
 		//Deaktivace cloaks
 		ic.deactivateCloaks(p);
+		
+		//Deaktivatce mazlíčka
+		PetManager.forceRemovePet(p);
 	}
 	
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -278,6 +293,9 @@ public class PlayerListener implements Listener{
 		
 		//Deaktivace cloaks
 		ic.deactivateCloaks(p);
+		
+		//Deaktivatce mazlíčka
+		PetManager.forceRemovePet(p);
 	}
 	
 	@EventHandler

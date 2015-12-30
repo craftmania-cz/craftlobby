@@ -1,42 +1,47 @@
 package cz.wake.plugins.pets;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
+import org.bukkit.entity.Ocelot.Type;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import cz.wake.plugins.Main;
+import cz.wake.plugins.utils.mobs.RideableCat;
 
-public class OcelotNormal implements Listener{
+public class CatSiamese {
 	
-	public static void activateOcelot(Player p){
+	public static ArrayList<String> cs = new ArrayList();
+	
+	public static void activate(final Player p){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
 	      if (localObject == PetManager.pet.get(p))
 	      {
-	        PetManager.pet.remove(localObject);
+	    	 PetManager.forceRemovePet(p);
 	        ((CraftEntity)localObject).remove();
 	      }
 	    }
-		final Ocelot ocelot = (Ocelot) p.getWorld().spawnEntity(p.getLocation(), EntityType.OCELOT);
-	    PetManager.PetFollow(p, (CraftEntity)ocelot, 0.16D, 1.5D);
+		final Ocelot ocelot = RideableCat.spawn(p.getLocation());
+	    PetManager.PetFollow(p, (CraftEntity)ocelot, 0.18D, 1.0D);
 	    setMetadata((Ocelot)ocelot, "Pet", "Pet", Main.getInstance());
-	    ((Ocelot)ocelot).setAgeLock(true);
+	    ((Ocelot)ocelot).setAdult();
+	    ((Ocelot)ocelot).setCatType(Type.SIAMESE_CAT);
 	    ((Ocelot)ocelot).setCustomNameVisible(true);
-	    ((Ocelot)ocelot).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
+	    ((Ocelot)ocelot).setCustomName("§5" + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) ocelot);
-		
+	    cs.add(p.getName());
+	    p.closeInventory();
 	}
 	
 	public static void setMetadata(Ocelot paramPig, String paramString, Object paramObject, Main paramMain)
 	  {
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	  }
+
 
 }

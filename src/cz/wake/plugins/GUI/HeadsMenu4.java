@@ -24,7 +24,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Snowhead");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(0, skull);
@@ -33,7 +34,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Snowhead");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(0, noPerm);
@@ -43,7 +44,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Rudolf");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(1, skull);
@@ -52,7 +54,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Rudolf");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(1, noPerm);
@@ -62,7 +64,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Snowman");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(2, skull);
@@ -71,7 +74,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Snowman");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(2, noPerm);
@@ -81,7 +84,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Snowglobe");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(3, skull);
@@ -90,7 +94,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Snowglobe");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(3, noPerm);
@@ -100,7 +104,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "BluePresent");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(4, skull);
@@ -109,7 +114,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "BluePresent");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(4, noPerm);
@@ -119,7 +124,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "GoldPresent");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(5, skull);
@@ -128,7 +134,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "GoldPresent");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(5, noPerm);
@@ -138,7 +144,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "GreenPresent");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(6, skull);
@@ -147,7 +154,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "GreenPresent");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(6, noPerm);
@@ -157,7 +164,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "RedPresent");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(7, skull);
@@ -166,7 +174,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "RedPresent");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(7, noPerm);
@@ -176,7 +184,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Santa");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(8, skull);
@@ -185,7 +194,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Santa");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(8, noPerm);
@@ -195,7 +204,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Santa");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(9, skull);
@@ -204,7 +214,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Santa");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(9, noPerm);
@@ -214,7 +224,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Elf");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(10, skull);
@@ -223,7 +234,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Elf");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(10, noPerm);
@@ -233,7 +244,8 @@ public class HeadsMenu4 {
 			ItemMeta sMeta = skull.getItemMeta();
 			sMeta.setDisplayName(ChatColor.GREEN + "Elf #2");
 			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add(ChatColor.GRAY + "Ziskano z CraftBoxu.");
+			sLore.add("");
+			sLore.add(ChatColor.GRAY + "Ziskano z §cVanocniho CraftBoxu.");
 			sMeta.setLore(sLore);
 			skull.setItemMeta(sMeta);
 			hm.setItem(11, skull);
@@ -242,7 +254,7 @@ public class HeadsMenu4 {
 			ItemMeta noPermMeta = noPerm.getItemMeta();
 			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Elf #2");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat v CraftBoxu!");
+			noPermLore.add(ChatColor.GRAY + "Vybranou headku lze ziskat ve §eVanocnim CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			hm.setItem(11, noPerm);

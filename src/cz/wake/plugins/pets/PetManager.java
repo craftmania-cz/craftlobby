@@ -13,6 +13,8 @@ import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.Zombie;
@@ -20,6 +22,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityCombustEvent;
 import org.bukkit.event.entity.EntityTeleportEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -121,6 +124,23 @@ public class PetManager implements Listener{
 	    }
 	  }
 	  
+	  @EventHandler
+	  public void onEntityClick(PlayerInteractEntityEvent e) {
+			Player player = e.getPlayer();
+			LivingEntity mob = (LivingEntity) e.getRightClicked();
+			
+			if(mob.getType() == EntityType.ENDERMITE){
+				player.sendMessage("§cNa tohoto moba nelze nasednou!");
+				return;
+			}
+			if((mob.getName().contains(player.getName()))){
+				mob.setPassenger(player);
+			} else {
+				player.sendMessage("§cTento mob neni tvuj!");
+				return;
+			}
+	  }
+	  
 	  public static void forceRemovePet(Player p){
 		  for (Entity localEntity : p.getWorld().getEntities()) {
 		      if (localEntity == pet.get(p)){
@@ -128,5 +148,45 @@ public class PetManager implements Listener{
 		        localEntity.remove();
 		      }
 		  }
+		  if(CowNormal.cp.contains(p.getName())){
+			  CowNormal.cp.remove(p.getName());
+		  }
+		  if(ChickenNormal.cn.contains(p.getName())){
+			  ChickenNormal.cn.remove(p.getName());
+		  }
+		  if(PigNormal.pn.contains(p.getName())){
+			  PigNormal.pn.remove(p.getName());
+		  }
+		  if(WolfNormal.wn.contains(p.getName())){
+			  WolfNormal.wn.remove(p.getName());
+		  }
+		  if(SilverfishNormal.sn.contains(p.getName())){
+			  SilverfishNormal.sn.remove(p.getName());
+		  }
+		  if(ZombieNormal.zn.contains(p.getName())){
+			  ZombieNormal.zn.remove(p.getName());
+		  }
+		  if(EndermiteNormal.en.contains(p.getName())){
+			  EndermiteNormal.en.remove(p.getName());
+		  }
+		  if(RabbitBrown.rb.contains(p.getName())){
+			  RabbitBrown.rb.remove(p.getName());
+		  }
+		  if(RabbitBlack.rb.contains(p.getName())){
+			  RabbitBlack.rb.remove(p.getName());
+		  }
+		  if(RabbitGold.rg.contains(p.getName())){
+			  RabbitGold.rg.remove(p.getName());
+		  }
+		  if(CatBlack.cb.contains(p.getName())){
+			  CatBlack.cb.remove(p.getName());
+		  }
+		  if(CatRed.cr.contains(p.getName())){
+			  CatRed.cr.remove(p.getName());
+		  }
+		  if(CatSiamese.cs.contains(p.getName())){
+			  CatSiamese.cs.remove(p.getName());
+		  }
+				  
 	  }
 }

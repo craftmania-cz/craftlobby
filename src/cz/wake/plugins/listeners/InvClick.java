@@ -36,6 +36,7 @@ import cz.wake.plugins.gadgets.PortalGun;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
 import cz.wake.plugins.particles.BloodHelix;
+import cz.wake.plugins.particles.CandyCane;
 import cz.wake.plugins.particles.Clouds;
 import cz.wake.plugins.particles.ColoredDust;
 import cz.wake.plugins.particles.Enchanted;
@@ -53,13 +54,21 @@ import cz.wake.plugins.particles.Portal;
 import cz.wake.plugins.particles.RainCloud;
 import cz.wake.plugins.particles.SantaHat;
 import cz.wake.plugins.particles.SnowCloud;
+import cz.wake.plugins.pets.CatBlack;
+import cz.wake.plugins.pets.CatRed;
+import cz.wake.plugins.pets.CatSiamese;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowNormal;
-import cz.wake.plugins.pets.IronGolemNormal;
-import cz.wake.plugins.pets.OcelotNormal;
+import cz.wake.plugins.pets.EndermiteNormal;
 import cz.wake.plugins.pets.PetManager;
 import cz.wake.plugins.pets.PigNormal;
-import cz.wake.plugins.pets.SpiderNormal;
+import cz.wake.plugins.pets.RabbitBlack;
+import cz.wake.plugins.pets.RabbitBrown;
+import cz.wake.plugins.pets.RabbitGold;
+import cz.wake.plugins.pets.SilverfishNormal;
+import cz.wake.plugins.pets.Widder;
+import cz.wake.plugins.pets.WolfNormal;
+import cz.wake.plugins.pets.ZombieNormal;
 import cz.wake.plugins.utils.ItemFactory;
 
 public class InvClick implements Listener{
@@ -97,6 +106,7 @@ public class InvClick implements Listener{
 	Lily lil = new Lily();
 	SantaHat sh = new SantaHat();
 	HeadsMenu4 headsMenu4 = new HeadsMenu4();
+	CandyCane cc = new CandyCane();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -269,11 +279,7 @@ public class InvClick implements Listener{
 	        	}
 	        }
 	        if(event.getSlot() == 28){
-	        	if(player.hasPermission("craftlobby.pristup")){
-	        		this.petsMenu.openPets(player);
-	        	} else {
-	        		MessagesListener.messageNoPerm(player, "Pets Menu");
-	        	}
+	        	this.petsMenu.openPets(player);
 	        }
 	        if(event.getSlot() == 15){
 	        	this.cl.openCloaks(player);
@@ -475,6 +481,15 @@ public class InvClick implements Listener{
         			MessagesListener.messageNoPerm(player, "SantaHat");
         		}
         	}
+        	if(event.getSlot() == 32){
+        		if(player.hasPermission("craftlobby.perticles.cancdycane")){
+        			deactivateParticles(player);
+        			cc.activate(player);
+        			player.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(player, "CandyCane");
+        		}
+        	}
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
@@ -495,28 +510,102 @@ public class InvClick implements Listener{
             }
         	if(event.getSlot() == 40){
         		PetManager.forceRemovePet(player);
-        	}
-        	if(event.getSlot() == 10){
-            	PigNormal.activatePig(player);
-            }
-        	if(event.getSlot() == 11){
-        		ChickenNormal.activateChicken(player);
-        	}
-        	if(event.getSlot() == 12){
-        		CowNormal.activateCow(player);
-        	}
-        	if(event.getSlot() == 13){
-        		OcelotNormal.activateOcelot(player);
-        	}
-        	if(event.getSlot() == 14){
-        		SpiderNormal.activateSpider(player);
-        	}
-        	if(event.getSlot() == 15){
-        		IronGolemNormal.actiavteGolem(player);
+        		player.closeInventory();
         	}
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
+        	if(event.getSlot() == 0){
+        		if(player.hasPermission("craftlobby.pets.cow")){
+        			CowNormal.activateCow(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Cow Pet");
+        		}
+        	}
+        	if(event.getSlot() == 1){
+        		if(player.hasPermission("craftlobby.pets.chicken")){
+        			ChickenNormal.activateChicken(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Chicken Pet");
+        		}
+        	}
+        	if(event.getSlot() == 2){
+        		if(player.hasPermission("craftlobby.pets.pig")){
+        			PigNormal.activatePig(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Pig Pet");
+        		}
+        	}
+        	if(event.getSlot() == 3){
+        		if(player.hasPermission("craftlobby.pets.wolf")){
+        			WolfNormal.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Wolf Pet");
+        		}
+        	}
+        	if(event.getSlot() == 4){
+        		if(player.hasPermission("craftlobby.pets.silverfish")){
+        			SilverfishNormal.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Silverfish Pet");
+        		}
+        	}
+        	if(event.getSlot() == 5){
+        		if(player.hasPermission("craftlobby.pets.zombie")){
+        			ZombieNormal.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Zombie Pet");
+        		}
+        	}
+        	if(event.getSlot() == 6){
+        		if(player.hasPermission("craftlobby.pets.endermite")){
+        			EndermiteNormal.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Endermite Pet");
+        		}
+        	}
+        	if(event.getSlot() == 7){
+        		if(player.hasPermission("craftlobby.pets.rabbit.brown")){
+        			RabbitBrown.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Rabbit Pet");
+        		}
+        	}
+        	if(event.getSlot() == 8){
+        		if(player.hasPermission("craftlobby.pets.rabbit.black")){
+        			RabbitBlack.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Rabbit Pet");
+        		}
+        	}
+        	if(event.getSlot() == 9){
+        		if(player.hasPermission("craftlobby.pets.rabbit.gold")){
+        			RabbitGold.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Rabbit Pet");
+        		}
+        	}
+        	if(event.getSlot() == 10){
+        		if(player.hasPermission("craftlobby.pets.cat.black")){
+        			CatBlack.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Cat Pet");
+        		}
+        	}
+        	if(event.getSlot() == 11){
+        		if(player.hasPermission("craftlobby.pets.cat.red")){
+        			CatRed.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Cat Pet");
+        		}
+        	}
+        	if(event.getSlot() == 12){
+        		if(player.hasPermission("craftlobby.pets.cat.siamese")){
+        			CatSiamese.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Cat Pet");
+        		}
+        	}
         }
       //**************************** MORPHS MENU ****************************//
         if (event.getInventory().getTitle().equals("Morphs")) {
@@ -1795,7 +1884,7 @@ public class InvClick implements Listener{
             if(event.getSlot() == 9){
             	if(player.hasPermission("craftlobby.heads.mrwakecz")){
             		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
-            		ItemStack skull = ItemFactory.createHead("MrWakeCZ", "43d05dab-2dbc-418b-9e6f-dc73ab916dbc", "eyJ0aW1lc3RhbXAiOjE0NDc2MDQ4MzA3ODQsInByb2ZpbGVJZCI6IjQzZDA1ZGFiMmRiYzQxOGI5ZTZmZGM3M2FiOTE2ZGJjIiwicHJvZmlsZU5hbWUiOiJNcldha2VDWiIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9iNDRmM2FiZGFmYWIyZWU0OWZiODZjNzU1Zjk1NWY5ZTM0ODdiN2M2OWY4ZDY3MWQ1YjI4YTc3NDc2ZDA3ZSJ9fX0=");
+            		ItemStack skull = ItemFactory.createHead("MrWakeCZ", "43d05dab-2dbc-418b-9e6f-dc73ab916dbc", "eyJ0aW1lc3RhbXAiOjE0NTEzNDY2OTkwMDYsInByb2ZpbGVJZCI6IjQzZDA1ZGFiMmRiYzQxOGI5ZTZmZGM3M2FiOTE2ZGJjIiwicHJvZmlsZU5hbWUiOiJNcldha2VDWiIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzQ5ODM2MDliYjY2ZTBmNDY3ZmEzYmYyNmQ5NzBkOWI1OWYyODdjZDhiYTk0MWU4ZWE4NTliZTgwNmM5MCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrWakeCZ Head.");
             		player.closeInventory();
@@ -2344,6 +2433,11 @@ public class InvClick implements Listener{
 		if(SantaHat.sh.containsKey(player.getName())){
 			Bukkit.getScheduler().cancelTask(((Integer)SantaHat.sh.get(player.getName())).intValue());
 			SantaHat.sh.remove(player.getName());
+			player.closeInventory();
+		}
+		if(CandyCane.cd.containsKey(player.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)CandyCane.cd.get(player.getName())).intValue());
+			CandyCane.cd.remove(player.getName());
 			player.closeInventory();
 		}
 	}

@@ -1,5 +1,6 @@
 package cz.wake.plugins.pets;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
@@ -11,8 +12,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import cz.wake.plugins.Main;
+import cz.wake.plugins.utils.mobs.RideableChicken;
 
-public class ChickenNormal implements Listener{
+public class ChickenNormal{
+	
+	public static ArrayList<String> cn = new ArrayList();
 	
 	public static void activateChicken(Player p){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
@@ -20,17 +24,19 @@ public class ChickenNormal implements Listener{
 	      Object localObject = (CraftEntity)localIterator.next();
 	      if (localObject == PetManager.pet.get(p))
 	      {
-	        PetManager.pet.remove(localObject);
+	    	PetManager.forceRemovePet(p);
 	        ((CraftEntity)localObject).remove();
 	      }
 	    }
-		final Chicken chicken = (Chicken) p.getWorld().spawnEntity(p.getLocation(), EntityType.CHICKEN);
+		final Chicken chicken = RideableChicken.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)chicken, 0.16D, 2D);
 	    setMetadata((Chicken)chicken, "Pet", "Pet", Main.getInstance());
 	    ((Chicken)chicken).setAgeLock(true);
 	    ((Chicken)chicken).setCustomNameVisible(true);
-	    ((Chicken)chicken).setCustomName(ChatColor.LIGHT_PURPLE + p.getName());
+	    ((Chicken)chicken).setCustomName("§a" + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) chicken);
+	    cn.add(p.getName());
+	    p.closeInventory();
 		
 	}
 	

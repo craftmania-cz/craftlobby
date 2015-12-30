@@ -6,6 +6,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.server.v1_8_R3.EntityChicken;
+import net.minecraft.server.v1_8_R3.EntityCow;
+import net.minecraft.server.v1_8_R3.EntityHorse;
+import net.minecraft.server.v1_8_R3.EntityOcelot;
+import net.minecraft.server.v1_8_R3.EntityPig;
+import net.minecraft.server.v1_8_R3.EntityRabbit;
+import net.minecraft.server.v1_8_R3.EntitySheep;
+import net.minecraft.server.v1_8_R3.EntitySilverfish;
+import net.minecraft.server.v1_8_R3.EntityWolf;
+import net.minecraft.server.v1_8_R3.EntityZombie;
+
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -56,14 +67,18 @@ import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
-import cz.wake.plugins.particles.SantaHat;
-import cz.wake.plugins.pets.ChickenNormal;
-import cz.wake.plugins.pets.CowNormal;
-import cz.wake.plugins.pets.IronGolemNormal;
-import cz.wake.plugins.pets.OcelotNormal;
 import cz.wake.plugins.pets.PetManager;
-import cz.wake.plugins.pets.PigNormal;
-import cz.wake.plugins.pets.SpiderNormal;
+import cz.wake.plugins.utils.mobs.NMSUtils;
+import cz.wake.plugins.utils.mobs.RideableCat;
+import cz.wake.plugins.utils.mobs.RideableChicken;
+import cz.wake.plugins.utils.mobs.RideableCow;
+import cz.wake.plugins.utils.mobs.RideableHorse;
+import cz.wake.plugins.utils.mobs.RideablePig;
+import cz.wake.plugins.utils.mobs.RideableRabbit;
+import cz.wake.plugins.utils.mobs.RideableSheep;
+import cz.wake.plugins.utils.mobs.RideableSilverfish;
+import cz.wake.plugins.utils.mobs.RideableWolf;
+import cz.wake.plugins.utils.mobs.RideableZombie;
 
 public class Main extends JavaPlugin implements PluginMessageListener{
 
@@ -91,6 +106,17 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		debug = false;
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
+        
+        NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
+        NMSUtils.registerEntity("Chicken", 93, EntityChicken.class, RideableChicken.class);
+        NMSUtils.registerEntity("Pig", 90, EntityPig.class, RideablePig.class);
+        NMSUtils.registerEntity("Silverfish", 60, EntitySilverfish.class, RideableSilverfish.class);
+        NMSUtils.registerEntity("Wolf", 95, EntityWolf.class, RideableWolf.class);
+        NMSUtils.registerEntity("Zombie", 54, EntityZombie.class, RideableZombie.class);
+        NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
+        NMSUtils.registerEntity("Ozelot", 98, EntityOcelot.class, RideableCat.class);
+        NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
+        NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);
 	}
 	
 	public void onDisable(){
@@ -123,12 +149,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new MountMenu(), this);
 		pm.registerEvents(new PetManager(this), this);
 		pm.registerEvents(new PetsMenu(), this);
-		pm.registerEvents(new PigNormal(), this);
-		pm.registerEvents(new ChickenNormal(), this);
-		pm.registerEvents(new CowNormal(), this);
-		pm.registerEvents(new OcelotNormal(), this);
-		pm.registerEvents(new SpiderNormal(), this);
-		pm.registerEvents(new IronGolemNormal(), this);
 		pm.registerEvents(new PortalGun(this), this);
 		pm.registerEvents(new Chickenator(this), this);
 		pm.registerEvents(new Tsunami(this), this);

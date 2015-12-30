@@ -29,7 +29,7 @@ public class GadgetsMenu implements Listener{
 		
 		Inventory gadgetsMenu = Bukkit.createInventory(null, 54,"Hlavni menu");
 		
-		ItemStack petsItem = new ItemStack(Material.MONSTER_EGG);
+		ItemStack petsItem = new ItemStack(Material.BONE);
 		ItemMeta petsItemMeta = petsItem.getItemMeta();
 		petsItemMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD  + "Pets");
 		ArrayList<String> petsLore = new ArrayList<String>();
@@ -37,6 +37,7 @@ public class GadgetsMenu implements Listener{
 		petsLore.add(ChatColor.GRAY + "zviratek na serveru. Vyber si jednoho a ukaz");
 		petsLore.add(ChatColor.GRAY + "vsem ktery je ten nej.");
 		petsLore.add(ChatColor.GRAY + "");
+		petsLore.add(countPets(p));
 		petsLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
 		petsItemMeta.setLore(petsLore);
 		petsItem.setItemMeta(petsItemMeta);
@@ -154,10 +155,62 @@ public class GadgetsMenu implements Listener{
 	
 	public String countParticles(Player p){
 		int part = getParticlesCount(p);
-		int sum = 17;
+		int sum = 18;
 		int prc = (part*100/sum);
 		
 		return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public String countPets(Player p){
+		int part = getPetsCount(p);
+		int sum = 13;
+		int prc = (part*100/sum);
+		
+		return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public int getPetsCount(Player p){
+		int c = 0;
+		if(p.hasPermission("craftlobby.pets.cow")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.chicken")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.pig")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.wolf")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.silverfish")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.zombie")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.endermite")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.brown")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.black")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.gold")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.cat.black")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.cat.red")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.cat.siamese")){
+			c++;
+		}
+		return c;
 	}
 	
 	public int getParticlesCount(Player p){
@@ -211,6 +264,9 @@ public class GadgetsMenu implements Listener{
 			c++;
 		}
 		if(p.hasPermission("craftlobby.particles.lilly")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.particles.santahat")){
 			c++;
 		}
 		return c;

@@ -107,9 +107,6 @@ public class VIPMenu {
 		ArrayList<String> iLore = new ArrayList<String>();
 		iLore.add("");
 		iLore.add("§7SkyWars:");
-		iLore.add("§e▪ §fZmena barvy bunky pri startu hry.");
-		iLore.add("§e▪ §fVolba typu hry (Classic, Normal, Overpowered).");
-		iLore.add("§e▪ §fVolba casu ve hre.");
 		iLore.add("§e▪ §fPristup ke všem kitum.");
 		iLore.add("§7Annihilation:");
 		iLore.add("§e▪ §fPristup ke vsem kitum.");
@@ -137,15 +134,15 @@ public class VIPMenu {
 		
 		ItemStack t2 = new ItemStack(Material.PAPER);
 		ItemMeta wt = t2.getItemMeta();
-		wt.setDisplayName("§b§lVIP §7na §c§lNAVZDY");
+		wt.setDisplayName("§b§lVIP §7na §a§lNAVZDY AKCE -75%");
 		ArrayList<String> wi = new ArrayList<String>();
 		wi.add("");
-		wi.add("§cSMS CZ §f-> §c249kc");
-		wi.add("§fFAKAHEDA Y58473 249 MG §b" + p.getName().toString());
+		wi.add("§cSMS CZ §f-> §c99kc");
+		wi.add("§fFAKAHEDA Y58473 99 MVA §b" + p.getName().toString());
 		wi.add("§7na cislo: §f90333");
 		wi.add("");
-		wi.add("§aSMS SK §f-> §a10e");
-		wi.add("§fFAKAHEDA Y58473 10 MG §b" + p.getName().toString());
+		wi.add("§aSMS SK §f-> §a4e");
+		wi.add("§fFAKAHEDA Y58473 4 MVA §b" + p.getName().toString());
 		wi.add("§7na cislo: §f8866");
 		wt.setLore(wi);
 		t2.setItemMeta(wt);

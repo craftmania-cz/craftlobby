@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.particles.BloodHelix;
+import cz.wake.plugins.particles.CandyCane;
 import cz.wake.plugins.particles.Clouds;
 import cz.wake.plugins.particles.ColoredDust;
 import cz.wake.plugins.particles.Enchanted;
@@ -749,7 +750,43 @@ public class ParticlesMenu{
 			noPerm.setItemMeta(noPermMeta);
 			pInv.setItem(31, noPerm);
 		}
-		
+		if(p.hasPermission("craftlobby.particles.candycane")){
+			if(CandyCane.cd.containsKey(p.getName())){
+				ItemStack lilly = new ItemStack(Material.INK_SACK,1,(byte)2);
+				lilly = ItemFactory.addGlow(lilly);
+				ItemMeta liMeta = lilly.getItemMeta();
+				liMeta.setDisplayName("§a§lCandyCane");
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add("");
+				lore.add("§7Efekt drticich se bombonku!");
+				lore.add("");
+				lore.add("§cAktivovano");
+				liMeta.setLore(lore);
+				lilly.setItemMeta(liMeta);
+				pInv.setItem(32, lilly);
+			} else {
+				ItemStack lilly = new ItemStack(Material.INK_SACK,1,(byte)2);
+				ItemMeta liMeta = lilly.getItemMeta();
+				liMeta.setDisplayName("§a§lCandyCane");
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add("");
+				lore.add("§7Efekt drticich se bombonku!");
+				lore.add("");
+				lore.add("§eKliknutim aktivujes!");
+				liMeta.setLore(lore);
+				lilly.setItemMeta(liMeta);
+				pInv.setItem(32, lilly);
+			}
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lCandyCane");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			pInv.setItem(32, noPerm);
+		}
 		ItemStack zpet = new ItemStack(Material.ARROW);
 		ItemMeta zpetMeta = zpet.getItemMeta();
 		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");

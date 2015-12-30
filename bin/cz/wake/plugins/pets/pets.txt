@@ -1,0 +1,104 @@
+Sheep: White
+Sheep: Gray
+Sheep: Brown
+Sheep: Silver
+Horse: Brown
+Zombie (Baby)
+Pig (Baby)
+Cow (Baby)
+Wolf (Baby)
+Chicken (Baby)
+Rabbit: Brown (baby)
+Rabbit: Black (baby)
+Rabbit: Gold (baby)
+Cat: Black (Baby)
+Cat: Red (Baby)
+Cat: Siamese (Baby)
+Horse: Brown (Baby)
+Sheep: White (Baby)
+Sheep: Gray (Baby)
+Sheep: Silver (Baby)
+Sheep: Brown (Baby)
+Sheep: Orange
+Sheep: Magenta
+Sheep: Light Blue
+Sheep: Yellow
+Sheep: Lime
+Sheep: Cyan
+Sheep: Purple
+Sheep: Blue
+Sheep: Green
+Sheep: Red
+Bat
+Villager: Farmer
+Villager: Librarian
+Villager: Priest
+Villager: Blacksmith
+Villager: Butcher
+Mule
+Horse: Creamy
+Horse: Chestnut
+Horse: Dark Brown
+Horse: Gray
+Donkey
+Cave Spider
+Slime (Tiny)
+Sheep: Pink
+Horse: Creamy (Baby)
+Horse: Chestnut (baby)
+Horse: Dark Brown (baby)
+Horse: Gray (baby)
+Villager: Farmer (baby)
+Villager: Librarian (baby)
+Villager: Priest (baby)
+Villager: Blacksmith (baby)
+Villager: Butcher (baby)
+Sheep: Orange (baby)
+Sheep: Magenta (baby)
+Sheep: Light Blue (baby)
+Sheep: Yellow (baby)
+Sheep: Lime (baby)
+Sheep: Cyan (baby)
+Sheep: Purple (baby)
+Sheep: Blue (baby)
+Sheep: Green (baby)
+Sheep: Red (baby)
+Witch
+Magma Cube (Tiny)
+Bat
+Sheep: Black
+Spider
+Horse: White
+Horse: Black
+Rabbit: Killer
+Rabbit: White
+Pig Zombie
+Skeleton
+Mooshroom
+Villager Zombie
+Creeper
+Undead Horse
+Slime (small)
+Maga Cube (Small)
+Mooshroom (baby)
+Pig Zombie (baby)
+Sheep: Pink (baby)
+Sheep: Black (baby)
+Rabbit: Killer (baby)
+Rabbit: White (baby)
+Enderman
+Powered Creeper
+Skeleton Horse
+Snowman
+Herobrine
+Wither Skeleton
+Widder
+Slime (big)
+Magma Cube (big)
+Blaze
+Iron Golem
+Ocelot
+Ocelot (baby)
+Squid
+Guardian
+Guardian Elder
