@@ -147,7 +147,7 @@ public class GadgetsMenu implements Listener{
 	
 	public String countCloaks(Player p){
 		int cloaks = getCoaksCount(p);
-		int sum = 1;
+		int sum = 2;
 		int prc = (cloaks*100/sum);
 		
 		return "§7Odemknuto: §f" + cloaks + "/" + sum + " §8(" + prc + "%)";
@@ -155,7 +155,7 @@ public class GadgetsMenu implements Listener{
 	
 	public String countParticles(Player p){
 		int part = getParticlesCount(p);
-		int sum = 18;
+		int sum = 19;
 		int prc = (part*100/sum);
 		
 		return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
@@ -269,12 +269,18 @@ public class GadgetsMenu implements Listener{
 		if(p.hasPermission("craftlobby.particles.santahat")){
 			c++;
 		}
+		if(p.hasPermission("craftlobby.particles.candycane")){
+			c++;
+		}
 		return c;
 	}
 	
 	public int getCoaksCount(Player p){
 		int c = 0;
 		if(p.hasPermission("craftlobby.cloaks.santa")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.cloaks.angel")){
 			c++;
 		}
 		return c;

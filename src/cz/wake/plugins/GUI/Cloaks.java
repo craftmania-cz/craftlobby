@@ -11,6 +11,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
+import cz.wake.plugins.cloaks.AngleCloak;
+import cz.wake.plugins.cloaks.SantaCloak;
+import cz.wake.plugins.utils.ItemFactory;
 
 public class Cloaks {
 	
@@ -19,25 +22,82 @@ public void openCloaks(Player p){
 		Inventory cloakMenu = Bukkit.createInventory(null, 54, "Cloaks");
 		
 		if(p.hasPermission("craftlobby.cloaks.santa")){
-			ItemStack santa = new ItemStack(Material.SNOW_BALL);
-			ItemMeta sMeta = santa.getItemMeta();
-			sMeta.setDisplayName(ChatColor.GREEN + "Santa Cloak");
-			ArrayList<String> sLore = new ArrayList<String>();
-			sLore.add("");
-			sLore.add(ChatColor.GRAY + "S timto budes vypadat jako");
-			sLore.add(ChatColor.GRAY + "opravdovy santa.");
-			sMeta.setLore(sLore);
-			santa.setItemMeta(sMeta);
-			cloakMenu.setItem(10, santa);
+			if(SantaCloak.santaCloaks.containsKey(p.getName())){
+				ItemStack santa = new ItemStack(Material.SNOW_BALL);
+				santa = ItemFactory.addGlow(santa);
+				ItemMeta sMeta = santa.getItemMeta();
+				sMeta.setDisplayName("§a§lSanta Cloak");
+				ArrayList<String> sLore = new ArrayList<String>();
+				sLore.add("");
+				sLore.add("§7S timto budes vypadat jako");
+				sLore.add("§7opravdovy santa.");
+				sLore.add("");
+				sLore.add("§cAktivovano!");
+				sMeta.setLore(sLore);
+				santa.setItemMeta(sMeta);
+				cloakMenu.setItem(10, santa);
+			} else {
+				ItemStack santa = new ItemStack(Material.SNOW_BALL);
+				ItemMeta sMeta = santa.getItemMeta();
+				sMeta.setDisplayName("§a§lSanta Cloak");
+				ArrayList<String> sLore = new ArrayList<String>();
+				sLore.add("");
+				sLore.add("§7S timto budes vypadat jako");
+				sLore.add("§7opravdovy santa.");
+				sLore.add("");
+				sLore.add("§eKliknutim aktivujes!");
+				sMeta.setLore(sLore);
+				santa.setItemMeta(sMeta);
+				cloakMenu.setItem(10, santa);
+			}
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName(ChatColor.RED + "" + ChatColor.UNDERLINE + "Santa Cloak");
+			noPermMeta.setDisplayName("§c§lSanta Cloak");
 			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Vybrany Cloak lze ziskat z CraftBoxu.");
+			noPermLore.add("§7Tento Cloak se ziskat o Vanocich 2015.");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			cloakMenu.setItem(10, noPerm);
+		}
+		if(p.hasPermission("craftlobby.cloaks.angel")){
+			if(AngleCloak.angelCloaks.containsKey(p.getName())){
+				ItemStack santa = new ItemStack(Material.BREAD);
+				santa = ItemFactory.addGlow(santa);
+				ItemMeta sMeta = santa.getItemMeta();
+				sMeta.setDisplayName("§a§lAngel Cloak");
+				ArrayList<String> sLore = new ArrayList<String>();
+				sLore.add("");
+				sLore.add("§7Jako ten pravy andel,");
+				sLore.add("§7budes vypadat.");
+				sLore.add("");
+				sLore.add("§cAktivovano!");
+				sMeta.setLore(sLore);
+				santa.setItemMeta(sMeta);
+				cloakMenu.setItem(11, santa);
+			} else {
+				ItemStack santa = new ItemStack(Material.BREAD);
+				ItemMeta sMeta = santa.getItemMeta();
+				sMeta.setDisplayName("§a§lAngel Cloak");
+				ArrayList<String> sLore = new ArrayList<String>();
+				sLore.add("");
+				sLore.add("§7Jako ten pravy andel,");
+				sLore.add("§7budes vypadat.");
+				sLore.add("");
+				sLore.add("§eKliknutim aktivujes!");
+				sMeta.setLore(sLore);
+				santa.setItemMeta(sMeta);
+				cloakMenu.setItem(11, santa);
+			}
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lAngel Cloak");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add("§7Tento Cloak se ziskat v CraftBoxu.");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			cloakMenu.setItem(11, noPerm);
 		}
 		
 		ItemStack zpet = new ItemStack(Material.ARROW);

@@ -71,6 +71,10 @@ public class PlayerListener implements Listener{
 		Player p = e.getPlayer();
 		PlayerInventory inv = p.getInventory();
 		
+		p.getInventory().clear();
+		p.getInventory().setArmorContents(null);
+		p.updateInventory();
+		
 		ItemStack compass = new ItemStack(Material.COMPASS, 1);
 		ItemMeta compassMeta = compass.getItemMeta();
 		
@@ -108,9 +112,12 @@ public class PlayerListener implements Listener{
 			p.removePotionEffect(ep.getType());
 		}
 		
-		p.getInventory().clear();
-		p.getInventory().setArmorContents(null);
-		p.updateInventory();
+		p.getInventory().setItem(0, compass);
+		p.getInventory().setItem(1, playerHead);
+		p.getInventory().setItem(2, shopVip);
+		p.getInventory().setItem(4, gadgets);
+		p.getInventory().setItem(7, hider);
+		
 		p.setFlying(false);
 		p.setWalkSpeed(0.3F);
 		p.setHealth(20F);

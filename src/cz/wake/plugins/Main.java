@@ -123,15 +123,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	
 	public void onDisable(){
 		instance = null;
-		
-		for (Iterator localIterator = Bukkit.getWorld("OfficialLobby").getEntities().iterator(); localIterator.hasNext();)
-	    {
-	      Object localObject = (CraftEntity)localIterator.next();
-	      if (PetManager.pet.containsValue(localObject))
-	      {
-	        ((CraftEntity)localObject).remove();
-	      }
-	    }
 	}
 	
 	private void loadListeners(){

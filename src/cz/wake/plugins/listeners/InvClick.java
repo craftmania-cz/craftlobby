@@ -31,6 +31,7 @@ import cz.wake.plugins.GUI.MountMenu;
 import cz.wake.plugins.GUI.ParticlesMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.VIPMenu;
+import cz.wake.plugins.cloaks.AngleCloak;
 import cz.wake.plugins.cloaks.SantaCloak;
 import cz.wake.plugins.gadgets.PortalGun;
 import cz.wake.plugins.morphs.PigMorph;
@@ -107,6 +108,7 @@ public class InvClick implements Listener{
 	SantaHat sh = new SantaHat();
 	HeadsMenu4 headsMenu4 = new HeadsMenu4();
 	CandyCane cc = new CandyCane();
+	AngleCloak ac = new AngleCloak();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -302,10 +304,20 @@ public class InvClick implements Listener{
             }
         	if(event.getSlot() == 10){
         		if(player.hasPermission("craftlobby.cloaks.santa")){
+        			deactivateCloaks(player);
         			this.sc.activateSanta(player);
             		player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Santa Cloak");
+        		}
+        	}
+        	if(event.getSlot() == 11){
+        		if(player.hasPermission("craftlobby.cloaks.angel")){
+        			deactivateCloaks(player);
+        			this.ac.activate(player);
+        			player.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Angel Cloak");
         		}
         	}
         }
@@ -482,7 +494,7 @@ public class InvClick implements Listener{
         		}
         	}
         	if(event.getSlot() == 32){
-        		if(player.hasPermission("craftlobby.perticles.cancdycane")){
+        		if(player.hasPermission("craftlobby.particles.candycane")){
         			deactivateParticles(player);
         			cc.activate(player);
         			player.closeInventory();
@@ -2446,6 +2458,12 @@ public class InvClick implements Listener{
 		if(SantaCloak.santaCloaks.containsKey(p.getName())){
 			Bukkit.getScheduler().cancelTask(((Integer)SantaCloak.santaCloaks.get(p.getName())).intValue());
 			SantaCloak.santaCloaks.remove(p.getName());
+			p.getInventory().setArmorContents(null);
+			p.closeInventory();
+		}
+		if(AngleCloak.angelCloaks.containsKey(p.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)AngleCloak.angelCloaks.get(p.getName())).intValue());
+			AngleCloak.angelCloaks.remove(p.getName());
 			p.getInventory().setArmorContents(null);
 			p.closeInventory();
 		}
