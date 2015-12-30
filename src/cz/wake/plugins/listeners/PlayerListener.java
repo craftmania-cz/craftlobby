@@ -104,24 +104,14 @@ public class PlayerListener implements Listener{
 		hiderMeta.setDisplayName("§7Hraci: §a§lVIDITELNY");
 		hider.setItemMeta(hiderMeta);
 		
+		for(PotionEffect ep : p.getActivePotionEffects()){
+			p.removePotionEffect(ep.getType());
+		}
 		
-		p.getInventory().setItem(0, compass);
-		p.getInventory().setItem(1, playerHead);
-		p.getInventory().setItem(2, shopVip);
-		p.getInventory().setItem(4, gadgets);
-		p.getInventory().setItem(7, hider);
-		
-		//Ochrana před použitím starých itemů
-		p.getInventory().setItem(3, null);
-		p.getInventory().setItem(5, null);
-		p.getInventory().setItem(6, null);
-		p.getInventory().setItem(8, null);
-		
-		inv.setHelmet(null);
-        inv.setChestplate(null);
-        inv.setLeggings(null);
-        inv.setBoots(null);
-		
+		p.getInventory().clear();
+		p.getInventory().setArmorContents(null);
+		p.updateInventory();
+		p.setFlying(false);
 		p.setWalkSpeed(0.3F);
 		p.setHealth(20F);
 		p.setSaturation(20F);
