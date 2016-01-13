@@ -133,6 +133,9 @@ public class PetManager implements Listener{
 				player.sendMessage("§cNa tohoto moba nelze nasednou!");
 				return;
 			}
+			if(mob.getType() == EntityType.PLAYER){
+				return;
+			}
 			if((mob.getName().contains(player.getName()))){
 				mob.setPassenger(player);
 			} else {
@@ -186,6 +189,21 @@ public class PetManager implements Listener{
 		  }
 		  if(CatSiamese.cs.contains(p.getName())){
 			  CatSiamese.cs.remove(p.getName());
+		  }
+		  if(SheepWhite.sw.contains(p.getName())){
+			  SheepWhite.sw.remove(p.getName());
+		  }
+		  if(SheepGray.sg.contains(p.getName())){
+			  SheepGray.sg.remove(p.getName());
+		  }
+		  if(SheepBrown.sb.contains(p.getName())){
+			  SheepBrown.sb.remove(p.getName());
+		  }
+		  if(SheepSilver.ss.contains(p.getName())){
+			  SheepSilver.ss.remove(p.getName());
+		  }
+		  if(HorseBrown.hb.contains(p.getName())){
+			  HorseBrown.hb.remove(p.getName());
 		  }
 				  
 	  }

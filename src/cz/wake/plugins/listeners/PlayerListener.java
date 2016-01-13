@@ -89,7 +89,6 @@ public class PlayerListener implements Listener{
 		ItemMeta hiderMeta = hider.getItemMeta();
 		
 		ItemStack shopVip = new ItemStack(Material.EMERALD);
-		shopVip = ItemFactory.addGlow(shopVip);
 		ItemMeta svMeta = shopVip.getItemMeta();
 		
 		compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");

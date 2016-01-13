@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
+import cz.wake.plugins.utils.ItemFactory;
 
 public class Servers implements Listener{
 	
@@ -59,6 +60,19 @@ public class Servers implements Listener{
 		cLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		cMeta.setLore(cLore);
 		creative.setItemMeta(cMeta);
+		
+		ItemStack creative2 = new ItemStack(Material.WATER_BUCKET);
+		ItemMeta cMeta2 = creative2.getItemMeta();
+		cMeta2.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative #2");
+		ArrayList<String> cLore2 = new ArrayList<String>();
+		cLore2.add(ChatColor.DARK_GRAY + "NO-PVP");
+		cLore2.add("");
+		cLore2.add(ChatColor.GRAY + "Bylo narvano, tak je tu");
+		cLore2.add(ChatColor.GRAY + "dalsi server! :O");
+		cLore2.add("");
+		cLore2.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
+		cMeta2.setLore(cLore2);
+		creative2.setItemMeta(cMeta2);
 		
 		ItemStack prison = new ItemStack(Material.getMaterial(101));
 		ItemMeta pMeta = prison.getItemMeta();
@@ -178,16 +192,17 @@ public class Servers implements Listener{
 		lobby.setItemMeta(lobbyMeta);
 		
 		ItemStack bb = new ItemStack(Material.WORKBENCH);
+		bb = ItemFactory.addGlow(bb);
 		ItemMeta bbMeta = bb.getItemMeta();
 		bbMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Build Battle");
 		ArrayList<String> bbLore = new ArrayList<String>();
-		bbLore.add(ChatColor.DARK_GRAY + "BETA");
+		bbLore.add(ChatColor.DARK_GRAY + "Arcade");
 		bbLore.add("");
 		bbLore.add(ChatColor.GRAY + "Kreslit umis a co treba stavet?");
 		bbLore.add(ChatColor.GRAY + "Dokazes postavit zadane veci v casovem");
 		bbLore.add(ChatColor.GRAY + "intervale a vyhrat?");
 		bbLore.add("");
-		bbLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
+		bbLore.add(ChatColor.GRAY + "Coins Multiplier: §e2.0x");
 		bbLore.add("");
 		bbLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		bbMeta.setLore(bbLore);
@@ -205,9 +220,9 @@ public class Servers implements Listener{
 		serverMenu.setItem(10, survival);
 		serverMenu.setItem(11, skyblock);
 		serverMenu.setItem(12, creative);
-		serverMenu.setItem(13, prison);
-		serverMenu.setItem(14, vanilla);
-		serverMenu.setItem(15, pripravujeme);
+		serverMenu.setItem(13, creative2);
+		serverMenu.setItem(14, prison);
+		serverMenu.setItem(15, vanilla);
 		serverMenu.setItem(16, pripravujeme);
 		
 		serverMenu.setItem(19, anni);

@@ -1,10 +1,16 @@
 package cz.wake.plugins.commands;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.GUI.GadgetsMenu;
@@ -40,6 +46,17 @@ public class ProfilCMD implements CommandExecutor{
 							player.sendMessage("§2[DEBUG] §7- §fByl aktivovan.");
 						}
 						return true;
+					}
+				return true;
+				}
+				else if(ArrayOfString[0].equalsIgnoreCase("party")){
+					if(((Player) Sender).getPlayer().hasPermission("craftlobby.admin")){
+						ItemStack party = new ItemStack(Material.GOLD_INGOT);
+			            ItemMeta metaparty = party.getItemMeta();
+			            metaparty.setDisplayName(ChatColor.GREEN + "PartyCoins");
+			            party.setItemMeta(metaparty);
+			            player.getInventory().addItem(new ItemStack[] { party });
+			            return true;
 					}
 				return true;
 				}

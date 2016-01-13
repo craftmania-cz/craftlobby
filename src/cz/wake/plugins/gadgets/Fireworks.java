@@ -21,6 +21,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
+import cz.wake.plugins.listeners.MessagesListener;
 
 public class Fireworks implements Listener{
 	
@@ -29,6 +30,9 @@ public class Fireworks implements Listener{
 	public Fireworks(Main plugin){
 		this.plugin = plugin;
 	}
+	
+	private HashMap<Player, Double> _time = new HashMap();
+	HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
 	
 	@EventHandler
 	public void Activate(PlayerInteractEvent event){
@@ -51,9 +55,15 @@ public class Fireworks implements Listener{
 	    event.setCancelled(true);
 	    player.updateInventory();
 	    if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))){
-	  	    if (!player.hasPermission("craftlobby.gadget.firework")) {
-	  	      return;
-	  	    }
+	  	    //if (!player.hasPermission("craftlobby.gadget.firework")) {
+	  	    //  return;
+	  	    //}
+	    	
+	    	if (this._time.containsKey(player)){
+			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
+			  		return;
+			}
+	    	this._time.put(player, Double.valueOf(7D + 0.1D));
 			
 	  	    Firework fw = (Firework)player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
 	  	    FireworkMeta meta = fw.getFireworkMeta();
@@ -65,6 +75,19 @@ public class Fireworks implements Listener{
 	  	    int rp = r.nextInt(2) + 1;
 	  	    meta.setPower(rp);
 	      	fw.setFireworkMeta(meta);
+	      	
+	      	this._cdRunnable.put(player, new BukkitRunnable(){
+	    		@Override
+	    		public void run(){
+	    			Fireworks.this._time.put(player, Double.valueOf(((Double)Fireworks.this._time.get(player)).doubleValue() - 0.1D));
+	      			if (((Double)Fireworks.this._time.get(player)).doubleValue() < 0.01D){
+	      				Fireworks.this._time.remove(player);
+	      				Fireworks.this._cdRunnable.remove(player);
+	      				cancel();
+	    		}
+	    		
+	    	}
+	    });((BukkitRunnable)this._cdRunnable.get(player)).runTaskTimer(plugin, 2L, 2L);
 	  	 }
 	    
 	 }

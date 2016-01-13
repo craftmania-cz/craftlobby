@@ -51,6 +51,7 @@ import cz.wake.plugins.gadgets.Fireworks;
 import cz.wake.plugins.gadgets.FlowerPopper;
 import cz.wake.plugins.gadgets.FunCannon;
 import cz.wake.plugins.gadgets.Ghosts;
+import cz.wake.plugins.gadgets.PartyCoins;
 import cz.wake.plugins.gadgets.TeleportStick;
 import cz.wake.plugins.gadgets.MobGun;
 import cz.wake.plugins.gadgets.PaintballGun;
@@ -167,6 +168,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new CookieFountain(this), this);
 		pm.registerEvents(new PigFly(this), this);
 		pm.registerEvents(new DiscoBall(this), this);
+		pm.registerEvents(new PartyCoins(this), this);
 	}
 	
 	private void loadCommands(){

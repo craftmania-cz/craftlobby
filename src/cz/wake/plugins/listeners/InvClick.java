@@ -61,11 +61,16 @@ import cz.wake.plugins.pets.CatSiamese;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowNormal;
 import cz.wake.plugins.pets.EndermiteNormal;
+import cz.wake.plugins.pets.HorseBrown;
 import cz.wake.plugins.pets.PetManager;
 import cz.wake.plugins.pets.PigNormal;
 import cz.wake.plugins.pets.RabbitBlack;
 import cz.wake.plugins.pets.RabbitBrown;
 import cz.wake.plugins.pets.RabbitGold;
+import cz.wake.plugins.pets.SheepBrown;
+import cz.wake.plugins.pets.SheepGray;
+import cz.wake.plugins.pets.SheepSilver;
+import cz.wake.plugins.pets.SheepWhite;
 import cz.wake.plugins.pets.SilverfishNormal;
 import cz.wake.plugins.pets.Widder;
 import cz.wake.plugins.pets.WolfNormal;
@@ -224,9 +229,12 @@ public class InvClick implements Listener{
         		sendToServer(player, "creative");
         	}
         	if(event.getSlot() == 13){
-        		sendToServer(player, "prison");
+        		sendToServer(player, "creative2");
         	}
         	if(event.getSlot() == 14){
+        		sendToServer(player, "prison");
+        	}
+        	if(event.getSlot() == 15){
         		sendToServer(player, "vanilla");
         	}
         	if(event.getSlot() == 19){
@@ -616,6 +624,41 @@ public class InvClick implements Listener{
         			CatSiamese.activate(player);
         		} else {
         			MessagesListener.messageNoPerm(player, "Cat Pet");
+        		}
+        	}
+        	if(event.getSlot() == 13){
+        		if(player.hasPermission("craftlobby.pets.sheep.white")){
+        			SheepWhite.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Sheep Pet");
+        		}
+        	}
+        	if(event.getSlot() == 14){
+        		if(player.hasPermission("craftlobby.pets.sheep.gray")){
+        			SheepGray.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Sheep Pet");
+        		}
+        	}
+        	if(event.getSlot() == 15){
+        		if(player.hasPermission("craftlobby.pets.sheep.brown")){
+        			SheepBrown.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Sheep Pet");
+        		}
+        	}
+        	if(event.getSlot() == 16){
+        		if(player.hasPermission("craftlobby.pets.sheep.silver")){
+        			SheepSilver.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Sheep Pet");
+        		}
+        	}
+        	if(event.getSlot() == 17){
+        		if(player.hasPermission("craftlobby.pets.horse.brown")){
+        			HorseBrown.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Horse Pet");
         		}
         	}
         }
