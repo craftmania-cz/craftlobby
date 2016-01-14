@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.block.banner.Pattern;
+import org.bukkit.block.banner.PatternType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -100,16 +104,17 @@ public class GadgetsMenu implements Listener{
 		wardrobeItemMeta.setLore(wardrobeLore);
 		wardrobeItem.setItemMeta(wardrobeItemMeta);
 		
-		ItemStack mount = new ItemStack(Material.SADDLE,1);
-		ItemMeta mMeta = mount.getItemMeta();
-		mMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Mounts");
+		ItemStack banner = new ItemStack(Material.BANNER);
+		BannerMeta BA5M = (BannerMeta)banner.getItemMeta();
+		BA5M.setBaseColor(DyeColor.BLACK);
+		BA5M.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Banners");
 		ArrayList<String> mLore = new ArrayList<String>();
-		mLore.add(ChatColor.GRAY + "Nasedni na nejruznejsi moby");
-		mLore.add(ChatColor.GRAY + "a projed se.");
+		mLore.add(ChatColor.GRAY + "Nasad si na hlavu banner");
+		mLore.add(ChatColor.GRAY + "jako nejveci borec!");
 		mLore.add("");
 		mLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
-		mMeta.setLore(mLore);
-		mount.setItemMeta(mMeta);
+		BA5M.setLore(mLore);
+		banner.setItemMeta(BA5M);
 		
 		ItemStack cloaks = new ItemStack(Material.ENCHANTMENT_TABLE);
 		ItemMeta cMeta = cloaks.getItemMeta();
@@ -125,7 +130,7 @@ public class GadgetsMenu implements Listener{
 		cloaks.setItemMeta(cMeta);
 		
 		gadgetsMenu.setItem(11,wardrobeItem);
-		gadgetsMenu.setItem(13, mount);
+		gadgetsMenu.setItem(13, banner);
 		gadgetsMenu.setItem(15, cloaks);
 		gadgetsMenu.setItem(28, petsItem);
 		gadgetsMenu.setItem(30, gadgetsItem);

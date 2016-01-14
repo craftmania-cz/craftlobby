@@ -285,7 +285,7 @@ public class InvClick implements Listener{
 	        	if(player.hasPermission("craftlobby.pristup")){
 	        		this.mMenu.openMount(player);
 	        	} else {
-	        		MessagesListener.messageNoPerm(player, "Mount Menu");
+	        		MessagesListener.messageNoPerm(player, "Banner Menu");
 	        	}
 	        }
 	        if(event.getSlot() == 28){
