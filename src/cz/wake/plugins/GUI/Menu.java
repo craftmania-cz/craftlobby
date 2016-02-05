@@ -28,8 +28,6 @@ public class Menu {
 		ItemStack headItem = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
 		ArrayList<String> headLore = new ArrayList<String>();
 		headLore.add(ChatColor.GRAY + "");
-		headLore.add(ChatColor.GRAY + "Level: " + ChatColor.GOLD + FetchData.getPlayerLevel(p));
-		headLore.add(ChatColor.GRAY + "Zkusenosti do dalsiho levlu: " + ChatColor.GOLD + FetchData.getPlayerExp(p) + "/" + FetchData.getExpToLevel(FetchData.getPlayerLevel(p)) + " XP");
 		headLore.add(ChatColor.GRAY + "Odehrana doba: " + ChatColor.YELLOW + "Nedostupne...");
 		headLore.add(ChatColor.GRAY + "CraftCoiny: " + ChatColor.AQUA + Main.getInstance().getAPI().getCraftCoins(p));
 		headItemMeta.setLore(headLore);

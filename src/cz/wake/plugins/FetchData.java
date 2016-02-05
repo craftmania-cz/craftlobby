@@ -670,7 +670,7 @@ public class FetchData {
 	public synchronized int getSkyWarsKills(Player p){
 		
 		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT kills FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT kills FROM msw WHERE uuid = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
 				return localResultSet.getInt("kills");
 			}
@@ -684,7 +684,7 @@ public class FetchData {
 	public synchronized int getSkyWarsWins(Player p){
 		
 		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM msw WHERE uuid = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
 				return localResultSet.getInt("wins");
 			}
@@ -698,7 +698,7 @@ public class FetchData {
 	public synchronized int getSkyWarsDeaths(Player p){
 		
 		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT deaths FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT deaths FROM msw WHERE uuid = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
 				return localResultSet.getInt("deaths");
 			}
@@ -712,9 +712,9 @@ public class FetchData {
 	public synchronized int getSkyWarsPlayed(Player p){
 		
 		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT played FROM SkyWars_Data WHERE username = '" + p.getName().toString() + "'");
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT games FROM msw WHERE uuid = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
-				return localResultSet.getInt("played");
+				return localResultSet.getInt("games");
 			}
 			localResultSet.close();
 		} catch(SQLException localSQLException){
