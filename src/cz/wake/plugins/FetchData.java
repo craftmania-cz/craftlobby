@@ -723,5 +723,49 @@ public class FetchData {
 		return 0;
 	}
 	
+	public synchronized int getTurfWarsKills(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT kills FROM TurfWarsStats WHERE uuid = '" + p.getUniqueId().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("kills");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public synchronized int getTurfWarsWins(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM TurfWarsStats WHERE uuid = '" + p.getUniqueId().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("wins");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public synchronized int getTurfWarsLosses(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT losses FROM TurfWarsStats WHERE uuid = '" + p.getUniqueId().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("losses");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	
 
 }

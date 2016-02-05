@@ -174,5 +174,17 @@ public class WakeAPI {
 	public int getSkyWarsPlayed(Player p){
 		return Main.getInstance().fetchData().getSkyWarsPlayed(p);
 	}
+	
+	public int getTurfWarsKills(Player p){
+		return Main.getInstance().fetchData().getTurfWarsKills(p);
+	}
+	
+	public int getTurfWarsWins(Player p){
+		return Main.getInstance().fetchData().getTurfWarsWins(p);
+	}
+	
+	public int getTurfWarsLosses(Player p){
+		return Main.getInstance().fetchData().getTurfWarsLosses(p);
+	}
 
 }

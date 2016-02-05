@@ -117,6 +117,18 @@ public class StatisticsMG {
 		swMeta.setLore(swLore);
 		skywars.setItemMeta(swMeta);
 		
+		ItemStack turfwars = new ItemStack(Material.WOOL,1,(byte)3);
+		ItemMeta twMeta = turfwars.getItemMeta();
+		twMeta.setDisplayName("§f§lTurfWars");
+		ArrayList<String> twLore = new ArrayList<String>();
+		twLore.add("");
+		twLore.add("§e§lZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(p));
+		twLore.add("§e§lVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(p));
+		twLore.add("§e§lProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(p));
+		twLore.add("§eOdehrany cas: §cNenalezeno...");
+		twMeta.setLore(twLore);
+		turfwars.setItemMeta(twMeta);
+		
 		ItemStack zpet = new ItemStack(Material.WOOD_DOOR);
 		ItemMeta zpetMeta = zpet.getItemMeta();
 		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");
@@ -131,6 +143,7 @@ public class StatisticsMG {
 		minigamesMenu.setItem(22, uhc);
 		minigamesMenu.setItem(23, anni);
 		minigamesMenu.setItem(24, buildbattle);
+		minigamesMenu.setItem(30, turfwars);
 		minigamesMenu.setItem(31, skywars);
 		minigamesMenu.setItem(44, zpet);
 		
