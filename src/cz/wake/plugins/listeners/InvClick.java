@@ -933,6 +933,118 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "PigFly");
             	}
             }
+            if(event.getSlot() == 7){
+            	if(player.hasPermission("craftlobby.gadgets.firework")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.FIREWORK);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "Firework");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Firework.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Firework");
+            	}
+            }
+            if(event.getSlot() == 8){
+            	if(player.hasPermission("craftlobby.gadgets.poopbomb")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.MELON_SEEDS);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "PoopBomb");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PoopBomb.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "PoopBomb");
+            	}
+            }
+            if(event.getSlot() == 9){
+            	if(player.hasPermission("craftlobby.gadgets.tnt")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.TNT);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "TNT");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TNT.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "TNT");
+            	}
+            }
+            if(event.getSlot() == 10){
+            	if(player.hasPermission("craftlobby.gadgets.slimehat")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.SLIME_BALL);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "SlimeHat");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "SlimeHat.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "SlimeHat");
+            	}
+            }
+            if(event.getSlot() == 11){
+            	if(player.hasPermission("craftlobby.gadgets.withercatapult")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.COAL);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "WitherCatapult");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "WitherCatapult.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "WitherCatapult");
+            	}
+            }
+            if(event.getSlot() == 12){
+            	if(player.hasPermission("craftlobby.gadgets.discoball")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "DiscoBall");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "DiscoBall.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "DiscoBall");
+            	}
+            }
+            if(event.getSlot() == 13){
+            	if(player.hasPermission("craftlobby.gadgets.blizzardblaster")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.PACKED_ICE);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "BlizzardBlaster");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BlizzardBlaster.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "BlizzardBlaster");
+            	}
+            }
+            if(event.getSlot() == 14){
+            	if(player.hasPermission("craftlobby.gadgets.ghosts")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.FEATHER);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "Ghosts");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Ghosts.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Ghosts");
+            	}
+            }
             /*
             if(event.getSlot() == 1){
             	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
@@ -954,16 +1066,6 @@ public class InvClick implements Listener{
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PaintballGun.");
             	player.closeInventory();
             }
-            if(event.getSlot() == 4){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.TNT);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "TNT");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TNT.");
-            	player.closeInventory();
-            }
             if(event.getSlot() == 5){
             	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
             	ItemStack fc = new ItemStack(Material.CLAY_BALL);
@@ -972,26 +1074,6 @@ public class InvClick implements Listener{
             	fc.setItemMeta(fcMeta);
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TNTFountain.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 7){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.FIREWORK);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "Firework");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Firework.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 8){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.PACKED_ICE);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "BlizzardBlaster");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BlizzardBlaster.");
             	player.closeInventory();
             }
             if(event.getSlot() == 9){
@@ -1054,16 +1136,6 @@ public class InvClick implements Listener{
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "ExplosiveSheep.");
             	player.closeInventory();
             }
-            if(event.getSlot() == 16){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.SLIME_BALL);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "SlimeHat");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "SlimeHat.");
-            	player.closeInventory();
-            }
             if(event.getSlot() == 17){
             	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
             	ItemStack fc = new ItemStack(Material.RED_ROSE);
@@ -1103,47 +1175,7 @@ public class InvClick implements Listener{
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BatBlaster.");
             	player.closeInventory();
-            }
-            if(event.getSlot() == 21){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.COAL);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "WitherCatapult");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "WitherCatapult.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 23){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.FEATHER);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "Ghosts");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Ghosts.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 24){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.MELON_SEEDS);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "PoopBomb");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PoopBomb.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 27){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "DiscoBall");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "DiscoBall.");
-            	player.closeInventory();
-            } */
+            }*/
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }

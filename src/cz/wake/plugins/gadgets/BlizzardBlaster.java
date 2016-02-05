@@ -51,7 +51,7 @@ public class BlizzardBlaster implements Listener{
 	    if (!item.hasItemMeta()) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.blizzardblaster")){
+	    if (!player.hasPermission("craftlobby.gadgets.blizzardblaster")){
 	    	return;
 	    }
 	    if (!item.getType().equals(Material.PACKED_ICE)) {

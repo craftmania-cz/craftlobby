@@ -56,7 +56,7 @@ public class WitherCatapult implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("WitherCatapult")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.withercatapult")){
+	    if (!player.hasPermission("craftlobby.gadgets.withercatapult")){
 	    	return;
 	    }
 	    e.setCancelled(true);

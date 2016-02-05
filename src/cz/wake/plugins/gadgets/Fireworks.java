@@ -1,10 +1,8 @@
 package cz.wake.plugins.gadgets;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
@@ -17,7 +15,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
@@ -55,9 +52,9 @@ public class Fireworks implements Listener{
 	    event.setCancelled(true);
 	    player.updateInventory();
 	    if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))){
-	  	    //if (!player.hasPermission("craftlobby.gadget.firework")) {
-	  	    //  return;
-	  	    //}
+	  	    if (!player.hasPermission("craftlobby.gadgets.firework")) {
+	  	      return;
+	  	    }
 	    	
 	    	if (this._time.containsKey(player)){
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));

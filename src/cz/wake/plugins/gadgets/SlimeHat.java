@@ -67,7 +67,7 @@ public class SlimeHat implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("SlimeHat")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.slimehat")){
+	    if (!player.hasPermission("craftlobby.gadgets.slimehat")){
 	    	return;
 	    }
 	    e.setCancelled(true);

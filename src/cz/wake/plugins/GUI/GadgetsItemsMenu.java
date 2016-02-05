@@ -154,6 +154,159 @@ public class GadgetsItemsMenu{
 			noPerm.setItemMeta(noPermMeta);
 			gadgetsInv.setItem(6, noPerm);
 		}
+		if(p.hasPermission("craftlobby.gadgets.firework")){
+			ItemStack firework = new ItemStack(Material.FIREWORK);
+			ItemMeta fireworkMeta = firework.getItemMeta();
+			fireworkMeta.setDisplayName("§e§lFirework");
+			ArrayList<String> fireworkLore = new ArrayList<String>();
+			fireworkLore.add(ChatColor.GRAY + "Ohnostroj jako na Silvestra!");
+			fireworkMeta.setLore(fireworkLore);
+			firework.setItemMeta(fireworkMeta);
+			gadgetsInv.setItem(7, firework);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lFirework");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(7, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.poopbomb")){
+			ItemStack poop = new ItemStack(Material.MELON_SEEDS);
+			ItemMeta poMeta = poop.getItemMeta();
+			poMeta.setDisplayName("§e§lPoopBomb");
+			ArrayList<String> poLore = new ArrayList<String>();
+			poLore.add(ChatColor.GRAY + "Bobiky vsude :O");
+			poMeta.setLore(poLore);
+			poop.setItemMeta(poMeta);
+			gadgetsInv.setItem(8, poop);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lPoopBomb");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(8, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.tnt")){
+			ItemStack tnt = new ItemStack(Material.TNT);
+			ItemMeta tntMeta = tnt.getItemMeta();
+			tntMeta.setDisplayName("§e§lTNT");
+			ArrayList<String> tntLore = new ArrayList<String>();
+			tntLore.add(ChatColor.GRAY + "Staci vyhodit a uvidis");
+			tntLore.add(ChatColor.GRAY + "bordel. Majgat");
+			tntMeta.setLore(tntLore);
+			tnt.setItemMeta(tntMeta);
+			gadgetsInv.setItem(9, tnt);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lTNT");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(9, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.slimehat")){
+			ItemStack slimeHat = new ItemStack(Material.SLIME_BALL);
+			ItemMeta sliMeta = slimeHat.getItemMeta();
+			sliMeta.setDisplayName("§e§lSlimeHat");
+			ArrayList<String> sliLore = new ArrayList<String>();
+			sliLore.add(ChatColor.GRAY + "3x Slime na hlave? OK!");
+			sliMeta.setLore(sliLore);
+			slimeHat.setItemMeta(sliMeta);
+			gadgetsInv.setItem(10, slimeHat);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lSlimeHat");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(10, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.withercatapult")){
+			ItemStack wither = new ItemStack(Material.COAL);
+			ItemMeta wMeta = wither.getItemMeta();
+			wMeta.setDisplayName("§e§lWitherCatapult");
+			ArrayList<String> wLore = new ArrayList<String>();
+			wLore.add(ChatColor.GRAY + "To bude rev :D");
+			wMeta.setLore(wLore);
+			wither.setItemMeta(wMeta);
+			gadgetsInv.setItem(11, wither);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lWitherCatapult");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(11, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.discoball")){
+			ItemStack disco = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
+			ItemMeta dMeta = disco.getItemMeta();
+			dMeta.setDisplayName("§e§lDiscoBall");
+			ArrayList<String> dLore = new ArrayList<String>();
+			dLore.add(ChatColor.GRAY + "A jedeme! :D");
+			dMeta.setLore(dLore);
+			disco.setItemMeta(dMeta);
+			gadgetsInv.setItem(12, disco);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lDiscoBall");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(12, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.blizzardblaster")){
+			ItemStack blizzard = new ItemStack(Material.PACKED_ICE);
+			ItemMeta bMeta = blizzard.getItemMeta();
+			bMeta.setDisplayName("§e§lBlizzardBlaster");
+			ArrayList<String> bLore = new ArrayList<String>();
+			bLore.add(ChatColor.GRAY + "Epicky led vsude kolem tebe!");
+			bMeta.setLore(bLore);
+			blizzard.setItemMeta(bMeta);
+			gadgetsInv.setItem(13, blizzard);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lBlizzardBlaster");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(13, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.ghosts")){
+			ItemStack ghosts = new ItemStack(Material.FEATHER);
+			ItemMeta ghMeta = ghosts.getItemMeta();
+			ghMeta.setDisplayName("§e§lGhosts");
+			ArrayList<String> ghLore = new ArrayList<String>();
+			ghLore.add(ChatColor.GRAY + "Duchove jsou vsude, tak bacha na ne!");
+			ghMeta.setLore(ghLore);
+			ghosts.setItemMeta(ghMeta);
+			gadgetsInv.setItem(14, ghosts);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lGhosts");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(14, noPerm);
+		}
 		
 		ItemStack mobgun = new ItemStack(Material.BLAZE_ROD);
 		ItemMeta mobgunMeta = mobgun.getItemMeta();
@@ -173,15 +326,6 @@ public class GadgetsItemsMenu{
 		pgMeta.setLore(pgLore);
 		paintgun.setItemMeta(pgMeta);
 		
-		ItemStack tnt = new ItemStack(Material.TNT);
-		ItemMeta tntMeta = tnt.getItemMeta();
-		tntMeta.setDisplayName(ChatColor.GREEN + "TNT");
-		ArrayList<String> tntLore = new ArrayList<String>();
-		tntLore.add(ChatColor.GRAY + "Staci vyhodit a uvidis");
-		tntLore.add(ChatColor.GRAY + "bordel. Majgat");
-		tntMeta.setLore(tntLore);
-		tnt.setItemMeta(tntMeta);
-		
 		ItemStack fountain = new ItemStack(Material.CLAY_BALL);
 		ItemMeta ft = fountain.getItemMeta();
 		ft.setDisplayName(ChatColor.GREEN + "TNT Fountain");
@@ -190,22 +334,6 @@ public class GadgetsItemsMenu{
 		fLore.add(ChatColor.GRAY + "tak bacha na hlavu!");
 		ft.setLore(fLore);
 		fountain.setItemMeta(ft);
-		
-		ItemStack firework = new ItemStack(Material.FIREWORK);
-		ItemMeta fireworkMeta = firework.getItemMeta();
-		fireworkMeta.setDisplayName(ChatColor.GREEN + "Firework");
-		ArrayList<String> fireworkLore = new ArrayList<String>();
-		fireworkLore.add(ChatColor.GRAY + "Ohnostroj jako na Silvestra!");
-		fireworkMeta.setLore(fireworkLore);
-		firework.setItemMeta(fireworkMeta);
-		
-		ItemStack blizzard = new ItemStack(Material.PACKED_ICE);
-		ItemMeta bMeta = blizzard.getItemMeta();
-		bMeta.setDisplayName(ChatColor.GREEN + "BlizzardBlaster");
-		ArrayList<String> bLore = new ArrayList<String>();
-		bLore.add(ChatColor.GRAY + "Epicky led vsude kolem tebe!");
-		bMeta.setLore(bLore);
-		blizzard.setItemMeta(bMeta);
 		
 		ItemStack gravity = new ItemStack(Material.EYE_OF_ENDER);
 		ItemMeta gMeta = gravity.getItemMeta();
@@ -255,14 +383,6 @@ public class GadgetsItemsMenu{
 		exMeta.setLore(exLore);
 		exsheep.setItemMeta(exMeta);
 		
-		ItemStack slimeHat = new ItemStack(Material.SLIME_BALL);
-		ItemMeta sliMeta = slimeHat.getItemMeta();
-		sliMeta.setDisplayName(ChatColor.RED + "SlimeHat");
-		ArrayList<String> sliLore = new ArrayList<String>();
-		sliLore.add(ChatColor.GRAY + "3x Slime na hlave? OK!");
-		sliMeta.setLore(sliLore);
-		slimeHat.setItemMeta(sliMeta);
-		
 		ItemStack flowerpop = new ItemStack(Material.RED_ROSE);
 		ItemMeta fMeta = flowerpop.getItemMeta();
 		fMeta.setDisplayName(ChatColor.RED + "FlowerPopper");
@@ -298,38 +418,6 @@ public class GadgetsItemsMenu{
 		baLore.add(ChatColor.GRAY + "Posli je na nekoho!");
 		baMeta.setLore(baLore);
 		batblaster.setItemMeta(baMeta);
-		
-		ItemStack wither = new ItemStack(Material.COAL);
-		ItemMeta wMeta = wither.getItemMeta();
-		wMeta.setDisplayName(ChatColor.RED + "WitherCatapult");
-		ArrayList<String> wLore = new ArrayList<String>();
-		wLore.add(ChatColor.GRAY + "To bude rev :D");
-		wMeta.setLore(wLore);
-		wither.setItemMeta(wMeta);
-		
-		ItemStack ghosts = new ItemStack(Material.FEATHER);
-		ItemMeta ghMeta = ghosts.getItemMeta();
-		ghMeta.setDisplayName(ChatColor.RED + "Ghosts");
-		ArrayList<String> ghLore = new ArrayList<String>();
-		ghLore.add(ChatColor.GRAY + "Duchove jsou vsude, tak bacha na ne!");
-		ghMeta.setLore(ghLore);
-		ghosts.setItemMeta(ghMeta);
-		
-		ItemStack poop = new ItemStack(Material.MELON_SEEDS);
-		ItemMeta poMeta = poop.getItemMeta();
-		poMeta.setDisplayName(ChatColor.RED + "PoopBomb");
-		ArrayList<String> poLore = new ArrayList<String>();
-		poLore.add(ChatColor.GRAY + "Bobiky vsude :O");
-		poMeta.setLore(poLore);
-		poop.setItemMeta(poMeta);
-		
-		ItemStack disco = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
-		ItemMeta dMeta = disco.getItemMeta();
-		dMeta.setDisplayName(ChatColor.RED + "DiscoBall");
-		ArrayList<String> dLore = new ArrayList<String>();
-		dLore.add(ChatColor.GRAY + "A jedeme! :D");
-		dMeta.setLore(dLore);
-		disco.setItemMeta(dMeta);
 		
 		ItemStack zpet = new ItemStack(Material.ARROW);
 		ItemMeta zpetMeta = zpet.getItemMeta();
