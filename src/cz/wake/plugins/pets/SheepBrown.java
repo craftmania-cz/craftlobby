@@ -14,7 +14,7 @@ import cz.wake.plugins.utils.mobs.RideableSheep;
 
 public class SheepBrown {
 	
-public static ArrayList<String> sb = new ArrayList();
+	public static ArrayList<String> sb = new ArrayList();
 	
 	public static void activate(Player p){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)

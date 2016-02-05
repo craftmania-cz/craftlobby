@@ -33,7 +33,7 @@ public class Pee implements Listener{
 	public static final HashMap<Player, Integer> countdown = new HashMap();
 	private ArrayList<String> cooldown = new ArrayList();
 	
-	int counter = 0;
+	private int counter = 0;
 	
 	private Main plugin;
 	
@@ -59,7 +59,7 @@ public class Pee implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("Pee")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.pee")){
+	    if (!player.hasPermission("craftlobby.gadgets.pee")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -69,7 +69,7 @@ public class Pee implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(35D + 0.1D));
 	    	new BukkitRunnable(){
 	    		@Override
 	    		public void run(){

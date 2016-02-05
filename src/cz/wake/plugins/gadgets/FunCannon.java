@@ -62,7 +62,7 @@ public class FunCannon implements Listener{
 	    event.setCancelled(true);
 	    player.updateInventory();
 	    if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))){
-	  	    if (!player.hasPermission("craftlobby.gadget.funcannon")) {
+	  	    if (!player.hasPermission("craftlobby.gadgets.funcannon")) {
 	  	      return;
 	  	    }
 	  	    if (this._time.containsKey(player))
@@ -70,6 +70,7 @@ public class FunCannon implements Listener{
 	  	      MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 	  	      return;
 	  	    }
+	  	    this._time.put(player, Double.valueOf(5D + 0.1D));
 	  	    Projectile projEp = player.launchProjectile(EnderPearl.class);
 	  	    Projectile projEp2 = player.launchProjectile(EnderPearl.class);
 	  	    Projectile projSb = player.launchProjectile(Snowball.class);
@@ -83,7 +84,6 @@ public class FunCannon implements Listener{
 	  	    projSb2.setVelocity(projSb2.getVelocity().multiply(1));
 	  	    projSb2.setMetadata("FUNCANNON", new FixedMetadataValue(plugin, player.getName()));
 	  	    
-	  	    this._time.put(player, Double.valueOf(5D + 0.1D));
 	  	    this._cdRunnable.put(player, new BukkitRunnable()
 	  	    {
 	  	      @Override

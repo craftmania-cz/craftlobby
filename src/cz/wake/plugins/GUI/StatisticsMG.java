@@ -84,13 +84,10 @@ public class StatisticsMG {
 		ArrayList<String> bbLore = new ArrayList<String>();
 		bbLore.add("");
 		bbLore.add(ChatColor.YELLOW + "Vitezstvi: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildWins(p));
-		bbLore.add(ChatColor.YELLOW + "Prohry: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildLoses(p));
-		bbLore.add(ChatColor.YELLOW + "Nejvyssi pocet bodu: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildBestScore(p));
 		bbLore.add(ChatColor.YELLOW + "Odehrano her: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildPlayedGames(p));
-		bbLore.add(ChatColor.YELLOW + "Zniceno bloku: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildBlocksBroken(p));
-		bbLore.add(ChatColor.YELLOW + "Polozeno bloku: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildPlacedBlocks(p));
-		bbLore.add(ChatColor.YELLOW + "Umisteno efektu: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildParticles(p));
-		bbLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.RED + "Nenalezeno...");
+		//bbLore.add(ChatColor.YELLOW + "Zniceno bloku: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildBlocksBroken(p));
+		//bbLore.add(ChatColor.YELLOW + "Polozeno bloku: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildPlacedBlocks(p));
+		bbLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getBuildBattleTime(p), false));
 		bMeta.setLore(bbLore);
 		buildbattle.setItemMeta(bMeta);
 		

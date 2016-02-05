@@ -20,13 +20,140 @@ public class GadgetsItemsMenu{
 		
 		Inventory gadgetsInv = Bukkit.createInventory(null, 54, "Gadgets");
 		
-		ItemStack wizardGun = new ItemStack(Material.STICK);
-		ItemMeta wgMeta = wizardGun.getItemMeta();
-		wgMeta.setDisplayName(ChatColor.GREEN + "TeleportStick");
-		ArrayList<String> wgLore = new ArrayList<String>();
-		wgLore.add(ChatColor.GRAY + "Teleportu jse jako rumburak!");
-		wgMeta.setLore(wgLore);
-		wizardGun.setItemMeta(wgMeta);
+		if(p.hasPermission("craftlobby.gadgets.teleportstick")){
+			ItemStack wizardGun = new ItemStack(Material.STICK);
+			ItemMeta wgMeta = wizardGun.getItemMeta();
+			wgMeta.setDisplayName("§e§lTeleportStick");
+			ArrayList<String> wgLore = new ArrayList<String>();
+			wgLore.add(ChatColor.GRAY + "Teleportuj se jako Enderman!");
+			wgMeta.setLore(wgLore);
+			wizardGun.setItemMeta(wgMeta);
+			gadgetsInv.setItem(0, wizardGun);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lTeleportStick");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(0, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.funcannon")){
+			ItemStack funcannon = new ItemStack(Material.GOLD_HOE);
+			ItemMeta fcMeta = funcannon.getItemMeta();
+			fcMeta.setDisplayName("§e§lFunCannon");
+			ArrayList<String> fcLore = new ArrayList<String>();
+			fcLore.add(ChatColor.GRAY + "Kliknutim vystrelis hromadu efektu!");
+			fcMeta.setLore(fcLore);
+			funcannon.setItemMeta(fcMeta);
+			gadgetsInv.setItem(1, funcannon);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lFunCannon");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(1, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.colorbomb")){
+			ItemStack colorbomb = new ItemStack(Material.WOOL);
+			ItemMeta cbMeta = colorbomb.getItemMeta();
+			cbMeta.setDisplayName("§e§lColorBomb");
+			ArrayList<String> cbLore = new ArrayList<String>();
+			cbLore.add(ChatColor.GRAY + "Vsude jenom vlna...");
+			cbMeta.setLore(cbLore);
+			colorbomb.setItemMeta(cbMeta);
+			gadgetsInv.setItem(2, colorbomb);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lColorBomb");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(2, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.cookiefountain")){
+			ItemStack cookie = new ItemStack(Material.COOKIE);
+			ItemMeta cooMeta = cookie.getItemMeta();
+			cooMeta.setDisplayName("§e§lCookieFountain");
+			ArrayList<String> cooLore = new ArrayList<String>();
+			cooLore.add(ChatColor.GRAY + "Susenky vsude!");
+			cooMeta.setLore(cooLore);
+			cookie.setItemMeta(cooMeta);
+			gadgetsInv.setItem(3, cookie);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lCookieFountain");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(3, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.chikenator")){
+			ItemStack chickenator = new ItemStack(Material.COOKED_CHICKEN);
+			ItemMeta chMeta = chickenator.getItemMeta();
+			chMeta.setDisplayName("§e§lChickenator");
+			ArrayList<String> chLore = new ArrayList<String>();
+			chLore.add(ChatColor.GRAY + "Bouchajici kure!");
+			chMeta.setLore(chLore);
+			chickenator.setItemMeta(chMeta);
+			gadgetsInv.setItem(4, chickenator);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lChickenator");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(4, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.pee")){
+			ItemStack peee = new ItemStack(Material.INK_SACK,1,(short)11);
+			ItemMeta peeMeta = peee.getItemMeta();
+			peeMeta.setDisplayName("§e§lPee");
+			ArrayList<String> peeLore = new ArrayList<String>();
+			peeLore.add(ChatColor.GRAY + "Pocurej nam lobby,");
+			peeLore.add(ChatColor.GRAY + "ale ne zase moc :P");
+			peeMeta.setLore(peeLore);
+			peee.setItemMeta(peeMeta);
+			gadgetsInv.setItem(5, peee);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lPee");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(5, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.pigfly")){
+			ItemStack pig = new ItemStack(Material.SADDLE);
+			ItemMeta pigMeta = pig.getItemMeta();
+			pigMeta.setDisplayName("§e§lPigFly");
+			ArrayList<String> pigLore = new ArrayList<String>();
+			pigLore.add(ChatColor.GRAY + "Litajici prase... :O");
+			pigMeta.setLore(pigLore);
+			pig.setItemMeta(pigMeta);
+			gadgetsInv.setItem(6, pig);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lPigFly");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(6, noPerm);
+		}
 		
 		ItemStack mobgun = new ItemStack(Material.BLAZE_ROD);
 		ItemMeta mobgunMeta = mobgun.getItemMeta();
@@ -37,14 +164,6 @@ public class GadgetsItemsMenu{
 		mbLore.add(ChatColor.GRAY + "zmenis moba.");
 		mobgunMeta.setLore(mbLore);
 		mobgun.setItemMeta(mobgunMeta);
-		
-		ItemStack funcannon = new ItemStack(Material.GOLD_HOE);
-		ItemMeta fcMeta = funcannon.getItemMeta();
-		fcMeta.setDisplayName(ChatColor.GREEN + "FunCannon");
-		ArrayList<String> fcLore = new ArrayList<String>();
-		fcLore.add(ChatColor.GRAY + "Kliknutim vystrelis hromadu efektu!");
-		fcMeta.setLore(fcLore);
-		funcannon.setItemMeta(fcMeta);
 		
 		ItemStack paintgun = new ItemStack(Material.DIAMOND_BARDING);
 		ItemMeta pgMeta = paintgun.getItemMeta();
@@ -71,15 +190,6 @@ public class GadgetsItemsMenu{
 		fLore.add(ChatColor.GRAY + "tak bacha na hlavu!");
 		ft.setLore(fLore);
 		fountain.setItemMeta(ft);
-		
-		ItemStack peee = new ItemStack(Material.INK_SACK,1,(short)11);
-		ItemMeta peeMeta = peee.getItemMeta();
-		peeMeta.setDisplayName(ChatColor.GREEN + "Pee");
-		ArrayList<String> peeLore = new ArrayList<String>();
-		peeLore.add(ChatColor.GRAY + "Pocurej nam lobby,");
-		peeLore.add(ChatColor.GRAY + "ale ne zase moc :P");
-		peeMeta.setLore(peeLore);
-		peee.setItemMeta(peeMeta);
 		
 		ItemStack firework = new ItemStack(Material.FIREWORK);
 		ItemMeta fireworkMeta = firework.getItemMeta();
@@ -120,14 +230,6 @@ public class GadgetsItemsMenu{
 		tLore.add(ChatColor.GRAY + "Trampolina, zaskakej si!");
 		tMeta.setLore(tLore);
 		trampoline.setItemMeta(tMeta);
-		
-		ItemStack chickenator = new ItemStack(Material.COOKED_CHICKEN);
-		ItemMeta chMeta = chickenator.getItemMeta();
-		chMeta.setDisplayName(ChatColor.GREEN + "Chickenator");
-		ArrayList<String> chLore = new ArrayList<String>();
-		chLore.add(ChatColor.GRAY + "Bouchajici kure!");
-		chMeta.setLore(chLore);
-		chickenator.setItemMeta(chMeta);
 		
 		ItemStack portalgun = new ItemStack(Material.REDSTONE_COMPARATOR);
 		ItemMeta pMeta = portalgun.getItemMeta();
@@ -205,14 +307,6 @@ public class GadgetsItemsMenu{
 		wMeta.setLore(wLore);
 		wither.setItemMeta(wMeta);
 		
-		ItemStack colorbomb = new ItemStack(Material.WOOL);
-		ItemMeta cbMeta = colorbomb.getItemMeta();
-		cbMeta.setDisplayName(ChatColor.RED + "ColorBomb");
-		ArrayList<String> cbLore = new ArrayList<String>();
-		cbLore.add(ChatColor.GRAY + "Vsude jenom vlna...");
-		cbMeta.setLore(cbLore);
-		colorbomb.setItemMeta(cbMeta);
-		
 		ItemStack ghosts = new ItemStack(Material.FEATHER);
 		ItemMeta ghMeta = ghosts.getItemMeta();
 		ghMeta.setDisplayName(ChatColor.RED + "Ghosts");
@@ -228,22 +322,6 @@ public class GadgetsItemsMenu{
 		poLore.add(ChatColor.GRAY + "Bobiky vsude :O");
 		poMeta.setLore(poLore);
 		poop.setItemMeta(poMeta);
-		
-		ItemStack cookie = new ItemStack(Material.COOKIE);
-		ItemMeta cooMeta = cookie.getItemMeta();
-		cooMeta.setDisplayName(ChatColor.RED + "CookieFountain");
-		ArrayList<String> cooLore = new ArrayList<String>();
-		cooLore.add(ChatColor.GRAY + "Susenky!");
-		cooMeta.setLore(cooLore);
-		cookie.setItemMeta(cooMeta);
-		
-		ItemStack pig = new ItemStack(Material.SADDLE);
-		ItemMeta pigMeta = pig.getItemMeta();
-		pigMeta.setDisplayName(ChatColor.RED + "PigFly");
-		ArrayList<String> pigLore = new ArrayList<String>();
-		pigLore.add(ChatColor.GRAY + "Litajici prase... :O");
-		pigMeta.setLore(pigLore);
-		pig.setItemMeta(pigMeta);
 		
 		ItemStack disco = new ItemStack(Material.STAINED_GLASS,1,(byte)11);
 		ItemMeta dMeta = disco.getItemMeta();
@@ -282,20 +360,18 @@ public class GadgetsItemsMenu{
 		gadgetsInv.setItem(40, deaktivace);
 		gadgetsInv.setItem(39, zpet);
 		
-		gadgetsInv.setItem(0, wizardGun);
+		
+		/*
 		gadgetsInv.setItem(1, mobgun);
-		gadgetsInv.setItem(2, funcannon);
 		gadgetsInv.setItem(3, paintgun);
 		gadgetsInv.setItem(4, tnt);
 		gadgetsInv.setItem(5, fountain);
-		gadgetsInv.setItem(6, peee);
 		gadgetsInv.setItem(7, firework);
 		gadgetsInv.setItem(8, blizzard);
 		gadgetsInv.setItem(9, gravity);
 		gadgetsInv.setItem(10, smash);
 		gadgetsInv.setItem(11, trampoline);
 		gadgetsInv.setItem(12, portalgun);
-		gadgetsInv.setItem(13, chickenator);
 		gadgetsInv.setItem(14, tsunami);
 		gadgetsInv.setItem(15, exsheep);
 		gadgetsInv.setItem(16, slimeHat);
@@ -304,12 +380,9 @@ public class GadgetsItemsMenu{
 		gadgetsInv.setItem(19, blackhole);
 		gadgetsInv.setItem(20, batblaster);
 		gadgetsInv.setItem(21, wither);
-		gadgetsInv.setItem(22, colorbomb);
 		gadgetsInv.setItem(23, ghosts);
 		gadgetsInv.setItem(24, poop);
-		gadgetsInv.setItem(25, cookie);
-		gadgetsInv.setItem(26, pig);
-		gadgetsInv.setItem(27, disco);
+		gadgetsInv.setItem(27, disco); */
 		
 		p.openInventory(gadgetsInv);
 	}

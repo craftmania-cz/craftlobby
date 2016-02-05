@@ -63,7 +63,7 @@ public class PigFly implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("PigFly")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.pee")){
+	    if (!player.hasPermission("craftlobby.gadgets.pigfly")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -73,7 +73,7 @@ public class PigFly implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(40D + 0.1D));
 	    	Pig localPig = (Pig)player.getWorld().spawn(player.getLocation(), Pig.class);
 	        final Bat localBat = (Bat)player.getWorld().spawn(player.getLocation(), Bat.class);
 	        localPig.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.valueOf(true)));

@@ -118,9 +118,9 @@ public class Servers implements Listener{
 		
 		ItemStack skywars = new ItemStack(Material.EYE_OF_ENDER);
 		ItemMeta skyMeta = skywars.getItemMeta();
-		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars 2.0" + ChatColor.RED + "" + ChatColor.BOLD + " NOVINKA!");
+		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars 2.0");
 		ArrayList<String> skyLore = new ArrayList<String>();
-		skyLore.add(ChatColor.DARK_GRAY + "BETA");
+		skyLore.add(ChatColor.DARK_GRAY + "PVP");
 		skyLore.add("");
 		skyLore.add(ChatColor.GRAY + "Kazdy sam za sebe proti az 16 hracum!");
 		skyLore.add(ChatColor.GRAY + "Klasicky SkyWars");
@@ -180,19 +180,7 @@ public class Servers implements Listener{
 		uMeta.setLore(uhcLore);
 		uhc.setItemMeta(uMeta);
 		
-		ItemStack lobby = new ItemStack(Material.SLIME_BALL);
-		ItemMeta lobbyMeta = lobby.getItemMeta();
-		lobbyMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Port na spawn");
-		ArrayList<String> lobbyLore = new ArrayList<String>();
-		lobbyLore.add("");
-		lobbyLore.add(ChatColor.GRAY + "Teleport na spawn");
-		lobbyLore.add("");
-		lobbyLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		lobbyMeta.setLore(lobbyLore);
-		lobby.setItemMeta(lobbyMeta);
-		
 		ItemStack bb = new ItemStack(Material.WORKBENCH);
-		bb = ItemFactory.addGlow(bb);
 		ItemMeta bbMeta = bb.getItemMeta();
 		bbMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Build Battle");
 		ArrayList<String> bbLore = new ArrayList<String>();
@@ -202,11 +190,27 @@ public class Servers implements Listener{
 		bbLore.add(ChatColor.GRAY + "Dokazes postavit zadane veci v casovem");
 		bbLore.add(ChatColor.GRAY + "intervale a vyhrat?");
 		bbLore.add("");
-		bbLore.add(ChatColor.GRAY + "Coins Multiplier: §e2.0x");
+		bbLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
 		bbLore.add("");
 		bbLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		bbMeta.setLore(bbLore);
 		bb.setItemMeta(bbMeta);
+		
+		ItemStack tw = new ItemStack(Material.WOOL,1,(byte)3);
+		ItemMeta twMeta = tw.getItemMeta();
+		twMeta.setDisplayName("§e§lTurfWars §c§lNOVINKA!");
+		ArrayList<String> twLore = new ArrayList<String>();
+		twLore.add("§8TEAM PVP");
+		twLore.add("");
+		twLore.add("§7Dva teamy proti sobe");
+		twLore.add("§7a vyhraje pouze jeden!");
+		twLore.add("§7Ve kterem budes ty?");
+		twLore.add("");
+		twLore.add("§7Coins Multiplier: 1.0x");
+		twLore.add("");
+		twLore.add("§a▸ Kliknutim te portnu");
+		twMeta.setLore(twLore);
+		tw.setItemMeta(twMeta);
 		
 		ItemStack pripravujeme = new ItemStack(Material.STAINED_GLASS);
 		ItemMeta priMeta = pripravujeme.getItemMeta();
@@ -231,9 +235,7 @@ public class Servers implements Listener{
 		serverMenu.setItem(22, drawit);
 		serverMenu.setItem(23, uhc);
 		serverMenu.setItem(24, bb);
-		serverMenu.setItem(25, pripravujeme);
-		
-		serverMenu.setItem(40, lobby);
+		serverMenu.setItem(25, tw);
 		
 		p.openInventory(serverMenu);
 		

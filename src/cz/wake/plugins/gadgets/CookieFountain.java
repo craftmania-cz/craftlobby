@@ -52,7 +52,7 @@ public class CookieFountain implements Listener {
 	    if (!item.getItemMeta().getDisplayName().contains("CookieFountain")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.pee")){
+	    if (!player.hasPermission("craftlobby.gadgets.cookiefountain")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -62,7 +62,7 @@ public class CookieFountain implements Listener {
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(25D + 0.1D));
 	    	final ArrayList localArrayList = new ArrayList();
 	        new BukkitRunnable()
 	        {

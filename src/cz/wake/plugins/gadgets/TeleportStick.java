@@ -35,9 +35,7 @@ public class TeleportStick implements Listener{
 	
 	@EventHandler
 	public void ExplosionGun(PlayerInteractEvent e){
-		
-		final Player p = e.getPlayer();
-	    Player player = e.getPlayer();
+	    final Player player = e.getPlayer();
 	    ItemStack item = e.getItem();
 	    Action action = e.getAction();
 	    if(item == null){
@@ -52,7 +50,7 @@ public class TeleportStick implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("TeleportStick")) {
 	        return;
 	    }
-	    if (!p.hasPermission("craftlobby.gadget.wizardgun")){
+	    if (!player.hasPermission("craftlobby.gadgets.teleportstick")){
 	    	return;
 	    }
 	    e.setCancelled(true);

@@ -59,7 +59,7 @@ public class ColorBomb implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("ColorBomb")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.colorbomb")){
+	    if (!player.hasPermission("craftlobby.gadgets.colorbomb")){
 	    	return;
 	    }
 	    e.setCancelled(true);

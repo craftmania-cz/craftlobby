@@ -114,18 +114,10 @@ public class WakeAPI {
 		return Main.getInstance().fetchData().getBuildBattleWins(p);
 	}
 	
-	public int getBuildLoses(Player p){
-		return Main.getInstance().fetchData().getBuildBattleLoses(p);
-	}
-	
-	public int getBuildBestScore(Player p){
-		return Main.getInstance().fetchData().getBuildBattleBestScore(p);
-	}
-	
 	public int getBuildPlayedGames(Player p){
 		return Main.getInstance().fetchData().getBuildBattlePlayedGames(p);
 	}
-	
+	/*
 	public int getBuildBlocksBroken(Player p){
 		return Main.getInstance().fetchData().getBuildBattleBrokenBlocks(p);
 	}
@@ -133,9 +125,10 @@ public class WakeAPI {
 	public int getBuildPlacedBlocks(Player p){
 		return Main.getInstance().fetchData().getBuildBattlePlacedBlocks(p);
 	}
+	*/
 	
-	public int getBuildParticles(Player p){
-		return Main.getInstance().fetchData().getBuildBattleParticles(p);
+	public int getBuildBattleTime(Player p){
+		return Main.getInstance().fetchData().getBuildBattleTime(p);
 	}
 	
 	public int getDrawItTime(Player p){

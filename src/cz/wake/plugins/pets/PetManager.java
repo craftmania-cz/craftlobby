@@ -205,6 +205,54 @@ public class PetManager implements Listener{
 		  if(HorseBrown.hb.contains(p.getName())){
 			  HorseBrown.hb.remove(p.getName());
 		  }
+		  if(ZombieBaby.zb.contains(p.getName())){
+			  ZombieBaby.zb.remove(p.getName());
+		  }
+		  if(PigBaby.pb.contains(p.getName())){
+			  PigBaby.pb.remove(p.getName());
+		  }
+		  if(CowBaby.cb.contains(p.getName())){
+			  CowBaby.cb.remove(p.getName());
+		  }
+		  if(WolfBaby.wb.contains(p.getName())){
+			  WolfBaby.wb.remove(p.getName());
+		  }
+		  if(ChickenBaby.cb.contains(p.getName())){
+			  ChickenBaby.cb.remove(p.getName());
+		  }
+		  if(RabbitBrownBaby.rb.contains(p.getName())){
+			  RabbitBrownBaby.rb.remove(p.getName());
+		  }
+		  if(RabbitBlackBaby.rb.contains(p.getName())){
+			  RabbitBlackBaby.rb.remove(p.getName());
+		  }
+		  if(RabbitGoldBaby.rg.contains(p.getName())){
+			  RabbitGoldBaby.rg.remove(p.getName());
+		  }
+		  if(CatBlackBaby.cb.contains(p.getName())){
+			  CatBlackBaby.cb.remove(p.getName());
+		  }
+		  if(CatRedBaby.cr.contains(p.getName())){
+			  CatRedBaby.cr.remove(p.getName());
+		  }
+		  if(CatSiameseBaby.cs.contains(p.getName())){
+			  CatSiameseBaby.cs.remove(p.getName());
+		  }
+		  if(HorseBrownBaby.hb.contains(p.getName())){
+			  HorseBrownBaby.hb.remove(p.getName());
+		  }
+		  if(SheepWhiteBaby.sw.contains(p.getName())){
+			  SheepWhiteBaby.sw.remove(p.getName());
+		  }
+		  if(SheepGrayBaby.sg.contains(p.getName())){
+			  SheepGrayBaby.sg.remove(p.getName());
+		  }
+		  if(SheepSilverBaby.ss.contains(p.getName())){
+			  SheepSilverBaby.ss.remove(p.getName());
+		  }
+		  if(SheepBrownBaby.sb.contains(p.getName())){
+			  SheepBrownBaby.sb.remove(p.getName());
+		  }
 				  
 	  }
 }

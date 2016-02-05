@@ -498,40 +498,26 @@ public class FetchData {
 		return 0;
 	}
 	
+	public synchronized int getBuildBattleTime(Player p){
+		
+		try{
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT OnlineTime FROM bb_playedtime WHERE UUID = '" + p.getUniqueId().toString() + "'");
+			if(localResultSet.next()){
+				return localResultSet.getInt("OnlineTime");
+			}
+			localResultSet.close();
+		} catch(SQLException localSQLException){
+			localSQLException.printStackTrace();
+		}
+		return 0;
+	}
+	
 	public synchronized int getBuildBattleWins(Player p){
 		
 		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM buildbattlestats WHERE UUID = '" + p.getUniqueId().toString() + "'");
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Wins FROM masterbuilders WHERE UUID = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
-				return localResultSet.getInt("wins");
-			}
-			localResultSet.close();
-		} catch(SQLException localSQLException){
-			localSQLException.printStackTrace();
-		}
-		return 0;
-	}
-	
-	public synchronized int getBuildBattleLoses(Player p){
-		
-		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT loses FROM buildbattlestats WHERE UUID = '" + p.getUniqueId().toString() + "'");
-			if(localResultSet.next()){
-				return localResultSet.getInt("loses");
-			}
-			localResultSet.close();
-		} catch(SQLException localSQLException){
-			localSQLException.printStackTrace();
-		}
-		return 0;
-	}
-	
-	public synchronized int getBuildBattleBestScore(Player p){
-		
-		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT highestwin FROM buildbattlestats WHERE UUID = '" + p.getUniqueId().toString() + "'");
-			if(localResultSet.next()){
-				return localResultSet.getInt("highestwin");
+				return localResultSet.getInt("Wins");
 			}
 			localResultSet.close();
 		} catch(SQLException localSQLException){
@@ -543,9 +529,9 @@ public class FetchData {
 	public synchronized int getBuildBattlePlayedGames(Player p){
 		
 		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT gamesplayed FROM buildbattlestats WHERE UUID = '" + p.getUniqueId().toString() + "'");
+			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT PlayedGames FROM masterbuilders WHERE UUID = '" + p.getUniqueId().toString() + "'");
 			if(localResultSet.next()){
-				return localResultSet.getInt("gamesplayed");
+				return localResultSet.getInt("PlayedGames");
 			}
 			localResultSet.close();
 		} catch(SQLException localSQLException){
@@ -553,7 +539,7 @@ public class FetchData {
 		}
 		return 0;
 	}
-	
+	/*
 	public synchronized int getBuildBattleBrokenBlocks(Player p){
 		
 		try{
@@ -580,21 +566,8 @@ public class FetchData {
 			localSQLException.printStackTrace();
 		}
 		return 0;
-	}
-	
-	public synchronized int getBuildBattleParticles(Player p){
-		
-		try{
-			ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT particles FROM buildbattlestats WHERE UUID = '" + p.getUniqueId().toString() + "'");
-			if(localResultSet.next()){
-				return localResultSet.getInt("particles");
-			}
-			localResultSet.close();
-		} catch(SQLException localSQLException){
-			localSQLException.printStackTrace();
-		}
-		return 0;
-	}
+	} 
+	*/
 	
 	public synchronized int getDrawItTime(Player p){
 		

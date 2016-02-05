@@ -54,6 +54,7 @@ public class GadgetsMenu implements Listener{
 		gadgetsLore.add(ChatColor.GRAY + "se kterymy se muzes vyradit v");
 		gadgetsLore.add(ChatColor.GRAY + "nasem lobby.");
 		gadgetsLore.add("");
+		gadgetsLore.add(countGadgets(p));
 		gadgetsLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
 		gadgetsItemMeta.setLore(gadgetsLore);
 		gadgetsItem.setItemMeta(gadgetsItemMeta);
@@ -168,10 +169,44 @@ public class GadgetsMenu implements Listener{
 	
 	public String countPets(Player p){
 		int part = getPetsCount(p);
-		int sum = 13;
+		int sum = 34;
 		int prc = (part*100/sum);
 		
 		return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public String countGadgets(Player p){
+		int part = getGadgetsCount(p);
+		int sum = 7;
+		int prc = (part*100/sum);
+		
+		return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+	}
+	
+	public int getGadgetsCount(Player p){
+		int c = 0;
+		if(p.hasPermission("craftlobby.gadgets.teleportstick")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.gadgets.funcannon")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.gadgets.colorbomb")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.gadgets.cookiefountain")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.gadgets.chikenator")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.gadgets.pee")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.gadgets.pigfly")){
+			c++;
+		}
+		return c;
 	}
 	
 	public int getPetsCount(Player p){
@@ -213,6 +248,69 @@ public class GadgetsMenu implements Listener{
 			c++;
 		}
 		if(p.hasPermission("craftlobby.pets.cat.siamese")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.white")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.gray")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.brown")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.silver")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.horse.brown")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.zombie.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.pig.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.cow.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.wolf.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.chicken.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.brown.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.black.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.gold.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.cat.black.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.cat.red.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftloby.pets.cat.siamese.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.horse.brown.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.white.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.gray.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.silver.baby")){
+			c++;
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.brown.baby")){
 			c++;
 		}
 		return c;
