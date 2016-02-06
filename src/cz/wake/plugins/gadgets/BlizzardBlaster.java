@@ -67,7 +67,7 @@ public class BlizzardBlaster implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(30D + 0.1D));
 	    	
 	    	final Vector v = player.getLocation().getDirection().normalize().multiply(0.3);
 	        v.setY(0);

@@ -77,7 +77,7 @@ public class SlimeHat implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(35D + 0.1D));
 	    	this.slim.put(player, new ArrayList());
 	    	Slime localSlime1 = (Slime)player.getWorld().spawn(player.getLocation(), Slime.class);
 	        localSlime1.setSize(1);

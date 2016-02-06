@@ -64,7 +64,7 @@ public class Ghosts implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(25D + 0.1D));
 	    	for (int i = 0; i < 20; i++) {
 	            Bat bat = player.getWorld().spawn(player.getLocation().add(0, 1, 0), Bat.class);
 	            ArmorStand ghost = bat.getWorld().spawn(bat.getLocation(), ArmorStand.class);

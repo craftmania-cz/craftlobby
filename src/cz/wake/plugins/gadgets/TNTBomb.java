@@ -118,7 +118,7 @@ public class TNTBomb implements Listener{
 	  	    tnt.setVelocity(p.getLocation().getDirection().multiply(0.854321D));
 	  	    this._tnt.add(tnt);
 	  	    tnt.setMetadata("TNT_HGPLUS", new FixedMetadataValue(this.plugin, "WHATHERE?"));
-	  	    this._time.put(p, 30D + 0.1D);
+	  	    this._time.put(p, 35D + 0.1D);
 	  	    this._cdRunnable.put(p, new BukkitRunnable()
 	  	    {
 	  	      @Override

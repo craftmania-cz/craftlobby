@@ -66,7 +66,7 @@ public class WitherCatapult implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(25D + 0.1D));
 	    	player.getWorld().playSound(player.getLocation(), Sound.WITHER_DEATH, 1.0F, 1.0F);
 	    	for (Entity e1 : player.getNearbyEntities(5.0D, 5.0D, 5.0D)) {
 	    		if ((e1 instanceof Player)){

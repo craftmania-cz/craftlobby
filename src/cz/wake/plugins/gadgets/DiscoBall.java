@@ -62,7 +62,7 @@ public class DiscoBall implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(15D + 0.1D));
 	    	final Location localLocation = player.getLocation().add(0.0D, 5.0D, 0.0D);
 	        if (!localLocation.getBlock().isEmpty())
 	        {
