@@ -1,3 +1,0 @@
-- Práva na morphs
-- Zmìnit text u MobGun
-- Pozmìnit polohy u TNTFountain

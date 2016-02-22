@@ -68,6 +68,9 @@ public class PlayerListener implements Listener{
 	@EventHandler(priority=EventPriority.LOWEST)
 	public void onPlayerJoin(PlayerJoinEvent e){
 		
+		//Deaktivace Join zprav
+		e.setJoinMessage(null);
+		
 		Player p = e.getPlayer();
 		PlayerInventory inv = p.getInventory();
 		
@@ -269,6 +272,9 @@ public class PlayerListener implements Listener{
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onLeave(final PlayerQuitEvent e){
 		Player p = e.getPlayer();
+		
+		//Deaktivace leave zprav
+		e.setQuitMessage(null);
 		
 		//Deaktivace particles
 		ic.deactivateParticles(p);
