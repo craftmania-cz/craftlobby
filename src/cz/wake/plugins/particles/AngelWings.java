@@ -9,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import cz.wake.plugins.Main;
-import cz.wake.plugins.utils.UtilParticles;
 
 public class AngelWings {
 	

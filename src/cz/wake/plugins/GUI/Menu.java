@@ -11,10 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import cz.wake.plugins.FetchData;
 import cz.wake.plugins.Main;
-import cz.wake.plugins.API.TimeUtils;
-import cz.wake.plugins.API.WakeAPI;
 
 public class Menu {
 

@@ -12,9 +12,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import cz.wake.plugins.Main;
-import cz.wake.plugins.utils.ItemFactory;
-
 public class Servers implements Listener{
 	
 	public void openServersMenu(Player p){

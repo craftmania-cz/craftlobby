@@ -1,9 +1,6 @@
 package cz.wake.plugins.particles;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Random;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;

@@ -1,8 +1,5 @@
 package cz.wake.plugins.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

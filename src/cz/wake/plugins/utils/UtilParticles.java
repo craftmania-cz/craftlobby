@@ -4,8 +4,6 @@ import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.util.Vector;
 
-import java.util.Random;
-
 /**
  * Created by sacha on 07/08/15.
  */

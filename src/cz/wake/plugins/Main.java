@@ -4,8 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 
 import net.minecraft.server.v1_8_R3.EntityChicken;
 import net.minecraft.server.v1_8_R3.EntityCow;
@@ -20,7 +18,6 @@ import net.minecraft.server.v1_8_R3.EntityZombie;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -58,7 +55,6 @@ import cz.wake.plugins.gadgets.PaintballGun;
 import cz.wake.plugins.gadgets.Pee;
 import cz.wake.plugins.gadgets.PigFly;
 import cz.wake.plugins.gadgets.PoopBomb;
-import cz.wake.plugins.gadgets.PortalGun;
 import cz.wake.plugins.gadgets.SlimeHat;
 import cz.wake.plugins.gadgets.SmashDown;
 import cz.wake.plugins.gadgets.TNTBomb;
@@ -92,7 +88,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
 	public static ArrayList<Entity> noFallDamageEntities = new ArrayList<>();
-	public static List<CustomPlayer> customPlayers = new ArrayList<>();
 	public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
 	public VillagerMorph VillagerMorph;
 	private static ByteArrayOutputStream b = new ByteArrayOutputStream();
@@ -151,7 +146,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new MountMenu(), this);
 		pm.registerEvents(new PetManager(this), this);
 		pm.registerEvents(new PetsMenu(), this);
-		pm.registerEvents(new PortalGun(this), this);
 		pm.registerEvents(new Chickenator(this), this);
 		pm.registerEvents(new Tsunami(this), this);
 		pm.registerEvents(new ExplosiveSheep(this), this);
@@ -206,13 +200,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	
 	public static Plugin getPlugin() {
         return Bukkit.getPluginManager().getPlugin("WakesLobby");
-    }
-	
-	public static CustomPlayer getCustomPlayer(Player player) {
-        for (CustomPlayer cp : customPlayers)
-            if (cp.getPlayer().getName().equals(player.getName()))
-                return cp;
-        return new CustomPlayer(player.getUniqueId());
     }
 
 	@Override

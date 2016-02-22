@@ -27,7 +27,6 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import cz.wake.plugins.CustomPlayer;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.listeners.MessagesListener;
 import cz.wake.plugins.utils.ParticleEffect;

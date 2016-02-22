@@ -33,7 +33,6 @@ import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.cloaks.AngleCloak;
 import cz.wake.plugins.cloaks.SantaCloak;
-import cz.wake.plugins.gadgets.PortalGun;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
 import cz.wake.plugins.particles.BloodHelix;
@@ -86,7 +85,6 @@ import cz.wake.plugins.pets.SheepSilverBaby;
 import cz.wake.plugins.pets.SheepWhite;
 import cz.wake.plugins.pets.SheepWhiteBaby;
 import cz.wake.plugins.pets.SilverfishNormal;
-import cz.wake.plugins.pets.Widder;
 import cz.wake.plugins.pets.WolfBaby;
 import cz.wake.plugins.pets.WolfNormal;
 import cz.wake.plugins.pets.ZombieBaby;
@@ -833,7 +831,6 @@ public class InvClick implements Listener{
             	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
             	player.getInventory().setItem(6, null);
         		player.closeInventory();
-        		PortalGun.clear();
             }
             if(event.getSlot() == 0){
             	if(player.hasPermission("craftlobby.gadgets.teleportstick")){

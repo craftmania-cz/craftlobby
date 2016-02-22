@@ -20,17 +20,14 @@ import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.help.HelpTopic;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.potion.PotionEffect;
@@ -39,13 +36,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.GUI.GadgetsMenu;
 import cz.wake.plugins.GUI.Menu;
-import cz.wake.plugins.GUI.StatisticsMG;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.GUI.VIPMenu;
-import cz.wake.plugins.gadgets.TNTFountain;
 import cz.wake.plugins.particles.FrozenWalk;
 import cz.wake.plugins.pets.PetManager;
-import cz.wake.plugins.utils.ItemFactory;
 
 public class PlayerListener implements Listener{
 

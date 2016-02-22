@@ -25,7 +25,6 @@ import cz.wake.plugins.pets.CowNormal;
 import cz.wake.plugins.pets.EndermiteNormal;
 import cz.wake.plugins.pets.HorseBrown;
 import cz.wake.plugins.pets.HorseBrownBaby;
-import cz.wake.plugins.pets.PetManager;
 import cz.wake.plugins.pets.PigBaby;
 import cz.wake.plugins.pets.PigNormal;
 import cz.wake.plugins.pets.RabbitBlack;

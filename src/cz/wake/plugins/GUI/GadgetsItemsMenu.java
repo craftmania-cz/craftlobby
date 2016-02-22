@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -452,25 +451,16 @@ public class GadgetsItemsMenu{
 		/*
 		gadgetsInv.setItem(1, mobgun);
 		gadgetsInv.setItem(3, paintgun);
-		gadgetsInv.setItem(4, tnt);
-		gadgetsInv.setItem(5, fountain);
-		gadgetsInv.setItem(7, firework);
-		gadgetsInv.setItem(8, blizzard);
 		gadgetsInv.setItem(9, gravity);
 		gadgetsInv.setItem(10, smash);
 		gadgetsInv.setItem(11, trampoline);
 		gadgetsInv.setItem(12, portalgun);
 		gadgetsInv.setItem(14, tsunami);
 		gadgetsInv.setItem(15, exsheep);
-		gadgetsInv.setItem(16, slimeHat);
 		gadgetsInv.setItem(17, flowerpop);
 		gadgetsInv.setItem(18, pearl);
 		gadgetsInv.setItem(19, blackhole);
-		gadgetsInv.setItem(20, batblaster);
-		gadgetsInv.setItem(21, wither);
-		gadgetsInv.setItem(23, ghosts);
-		gadgetsInv.setItem(24, poop);
-		gadgetsInv.setItem(27, disco); */
+		gadgetsInv.setItem(20, batblaster); */
 		
 		p.openInventory(gadgetsInv);
 	}
