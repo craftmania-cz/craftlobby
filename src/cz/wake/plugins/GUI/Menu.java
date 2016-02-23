@@ -26,7 +26,7 @@ public class Menu {
 		ArrayList<String> headLore = new ArrayList<String>();
 		headLore.add(ChatColor.GRAY + "");
 		headLore.add(ChatColor.GRAY + "Odehrana doba: " + ChatColor.YELLOW + "Nedostupne...");
-		headLore.add(ChatColor.GRAY + "CraftCoiny: " + ChatColor.AQUA + Main.getInstance().getAPI().getCraftCoins(p));
+		headLore.add(ChatColor.GRAY + "CraftCoiny: " + ChatColor.AQUA + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()));
 		headItemMeta.setLore(headLore);
 		headItem.setItemMeta(headItemMeta);
 		

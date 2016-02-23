@@ -34,6 +34,7 @@ import cz.wake.plugins.GUI.MountMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.commands.ProfilCMD;
+import cz.wake.plugins.commands.Stats_Command;
 import cz.wake.plugins.gadgets.AntiGravity;
 import cz.wake.plugins.gadgets.BatBlaster;
 import cz.wake.plugins.gadgets.BlackHole;
@@ -168,6 +169,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private void loadCommands(){
 		getCommand("wlobby").setExecutor(new ProfilCMD());
 		getCommand("wl").setExecutor(new ProfilCMD());
+		getCommand("stats").setExecutor(new Stats_Command());
 	}
 	
 	public static Main getInstance(){

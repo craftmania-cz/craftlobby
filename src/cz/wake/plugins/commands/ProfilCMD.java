@@ -22,6 +22,7 @@ public class ProfilCMD implements CommandExecutor{
 	GadgetsMenu gadgetsMenu = new GadgetsMenu();
 	HeadsMenu hatsmenu = new HeadsMenu();
 	
+	@Override
 	public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString){
 		if(Sender instanceof Player){
 			Player player = (Player)Sender;

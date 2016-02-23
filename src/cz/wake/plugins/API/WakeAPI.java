@@ -1,190 +1,159 @@
 package cz.wake.plugins.API;
 
+import java.util.UUID;
+
 import org.bukkit.entity.Player;
 
 import cz.wake.plugins.Main;
 
 public class WakeAPI {
 	
-	public int getBedwarsKills(Player p){
-		return Main.getInstance().fetchData().getBedwarsKills(p);
+	public int getBedwarsKills(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsKills(uuid);
 	}
 	
-	public int getBedwarsScore(Player p){
-		return Main.getInstance().fetchData().getBedwarsScore(p);
+	public int getBedwarsScore(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsScore(uuid);
 	}
 	
-	public int getBedwarsWins(Player p){
-		return Main.getInstance().fetchData().getBedwarsWins(p);
+	public int getBedwarsWins(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsWins(uuid);
 	}
 	
-	public int getBedwarsLoses(Player p){
-		return Main.getInstance().fetchData().getBedwarsLoses(p);
+	public int getBedwarsLoses(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsLoses(uuid);
 	}
 	
-	public int getBedwarsDeaths(Player p){
-		return Main.getInstance().fetchData().getBedwarsDeaths(p);
+	public int getBedwarsDeaths(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsDeaths(uuid);
 	}
 	
-	public int getBedwarsDestroyed(Player p){
-		return Main.getInstance().fetchData().getBedwarsDestroyed(p);
+	public int getBedwarsDestroyed(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsDestroyed(uuid);
 	}
 	
-	public int getBedwarsPlayed(Player p){
-		return Main.getInstance().fetchData().getBedwarsPlayed(p);
+	public int getBedwarsPlayed(UUID uuid){
+		return Main.getInstance().fetchData().getBedwarsPlayed(uuid);
 	}
 	
-	public int getBedWarsTime(Player p){
-		return Main.getInstance().fetchData().getBedWarsTime(p);
+	public int getBedWarsTime(UUID uuid){
+		return Main.getInstance().fetchData().getBedWarsTime(uuid);
 	}
 	
-	public int getDrawitScore(Player p){
-		return Main.getInstance().fetchData().getDrawitScore(p);
+	public int getDrawitScore(UUID uuid){
+		return Main.getInstance().fetchData().getDrawitScore(uuid);
 	}
 	
-	public int getDrawitWins(Player p){
-		return Main.getInstance().fetchData().getDrawitWins(p);
+	public int getDrawitWins(UUID uuid){
+		return Main.getInstance().fetchData().getDrawitWins(uuid);
 	}
 	
-	public int getDrawitLoses(Player p){
-		return Main.getInstance().fetchData().getDrawitLoses(p);
+	public int getDrawitLoses(UUID uuid){
+		return Main.getInstance().fetchData().getDrawitLoses(uuid);
 	}
 	
-	public int getDrawitRightGuess(Player p){
-		return Main.getInstance().fetchData().getDrawitRightGuess(p);
+	public int getDrawitRightGuess(UUID uuid){
+		return Main.getInstance().fetchData().getDrawitRightGuess(uuid);
 	}
 	
-	public int getDrawitWrongGuess(Player p){
-		return Main.getInstance().fetchData().getDrawitWrongGuess(p);
+	public int getDrawitWrongGuess(UUID uuid){
+		return Main.getInstance().fetchData().getDrawitWrongGuess(uuid);
 	}
 	
-	public int getDrawitPlayed(Player p){
-		return Main.getInstance().fetchData().getDrawitPlayed(p);
+	public int getDrawitPlayed(UUID uuid){
+		return Main.getInstance().fetchData().getDrawitPlayed(uuid);
 	}
 	
-	public int getUHCKills(Player p){
-		return Main.getInstance().fetchData().getUHCKills(p);
+	public int getUHCKills(UUID uuid){
+		return Main.getInstance().fetchData().getUHCKills(uuid);
 	}
 	
-	public int getUHCDeaths(Player p){
-		return Main.getInstance().fetchData().getUHCDeaths(p);
+	public int getUHCDeaths(UUID uuid){
+		return Main.getInstance().fetchData().getUHCDeaths(uuid);
 	}
 	
-	public int getUHCKillstreak(Player p){
-		return Main.getInstance().fetchData().getUHCKillstreak(p);
+	public int getUHCKillstreak(UUID uuid){
+		return Main.getInstance().fetchData().getUHCKillstreak(uuid);
 	}
 	
-	public int getUHCBlockPlaced(Player p){
-		return Main.getInstance().fetchData().getUHCBlocksPlaced(p);
+	public int getUHCBlockPlaced(UUID uuid){
+		return Main.getInstance().fetchData().getUHCBlocksPlaced(uuid);
 	}
 	
-	public int getUHCBlockBroken(Player p){
-		return Main.getInstance().fetchData().getUHCBlocksBroken(p);
+	public int getUHCBlockBroken(UUID uuid){
+		return Main.getInstance().fetchData().getUHCBlocksBroken(uuid);
 	}
 	
-	public int getUHCTime(Player p){
-		return Main.getInstance().fetchData().getUHCTime(p);
+	public int getUHCTime(UUID uuid){
+		return Main.getInstance().fetchData().getUHCTime(uuid);
 	}
 	
-	public int getAnniKills(Player p){
-		return Main.getInstance().fetchData().getAnnihilationKills(p);
+	public int getBuildWins(UUID uuid){
+		return Main.getInstance().fetchData().getBuildBattleWins(uuid);
 	}
 	
-	public int getAnniDeaths(Player p){
-		return Main.getInstance().fetchData().getAnnihilationDeaths(p);
+	public int getBuildPlayedGames(UUID uuid){
+		return Main.getInstance().fetchData().getBuildBattlePlayedGames(uuid);
 	}
 	
-	public int getAnniWins(Player p){
-		return Main.getInstance().fetchData().getAnnihilationWins(p);
+	public int getBuildBattleTime(UUID uuid){
+		return Main.getInstance().fetchData().getBuildBattleTime(uuid);
 	}
 	
-	public int getAnniLosses(Player p){
-		return Main.getInstance().fetchData().getAnnihilationLosses(p);
+	public int getDrawItTime(UUID uuid){
+		return Main.getInstance().fetchData().getDrawItTime(uuid);
 	}
 	
-	public int getAnniNexusDamage(Player p){
-		return Main.getInstance().fetchData().getAnnihilationNexusDamage(p);
+	public int getVanillaKills(UUID uuid){
+		return Main.getInstance().fetchData().getVanillaKills(uuid);
 	}
 	
-	public int getAnniTime(Player p){
-		return Main.getInstance().fetchData().getAnnihilationTime(p);
+	public int getVanillaDeaths(UUID uuid){
+		return Main.getInstance().fetchData().getVanillaDeaths(uuid);
 	}
 	
-	public int getBuildWins(Player p){
-		return Main.getInstance().fetchData().getBuildBattleWins(p);
+	public int getVanillaBlockBroken(UUID uuid){
+		return Main.getInstance().fetchData().getVanillaBlockBroken(uuid);
 	}
 	
-	public int getBuildPlayedGames(Player p){
-		return Main.getInstance().fetchData().getBuildBattlePlayedGames(p);
-	}
-	/*
-	public int getBuildBlocksBroken(Player p){
-		return Main.getInstance().fetchData().getBuildBattleBrokenBlocks(p);
+	public int getVanillaBlockPlaced(UUID uuid){
+		return Main.getInstance().fetchData().getVanillaBlockPlaced(uuid);
 	}
 	
-	public int getBuildPlacedBlocks(Player p){
-		return Main.getInstance().fetchData().getBuildBattlePlacedBlocks(p);
-	}
-	*/
-	
-	public int getBuildBattleTime(Player p){
-		return Main.getInstance().fetchData().getBuildBattleTime(p);
+	public int getVanillaTime(UUID uuid){
+		return Main.getInstance().fetchData().getVanillaTime(uuid);
 	}
 	
-	public int getDrawItTime(Player p){
-		return Main.getInstance().fetchData().getDrawItTime(p);
+	public int getCraftCoins(UUID uuid){
+		return Main.getInstance().fetchData().getCraftCoins(uuid);
 	}
 	
-	public int getVanillaKills(Player p){
-		return Main.getInstance().fetchData().getVanillaKills(p);
+	public int getSkyWarsWins(UUID uuid){
+		return Main.getInstance().fetchData().getSkyWarsWins(uuid);
 	}
 	
-	public int getVanillaDeaths(Player p){
-		return Main.getInstance().fetchData().getVanillaDeaths(p);
+	public int getSkyWarsKills(UUID uuid){
+		return Main.getInstance().fetchData().getSkyWarsKills(uuid);
 	}
 	
-	public int getVanillaBlockBroken(Player p){
-		return Main.getInstance().fetchData().getVanillaBlockBroken(p);
+	public int getSkyWarsDeaths(UUID uuid){
+		return Main.getInstance().fetchData().getSkyWarsDeaths(uuid);
 	}
 	
-	public int getVanillaBlockPlaced(Player p){
-		return Main.getInstance().fetchData().getVanillaBlockPlaced(p);
+	public int getSkyWarsPlayed(UUID uuid){
+		return Main.getInstance().fetchData().getSkyWarsPlayed(uuid);
 	}
 	
-	public int getVanillaTime(Player p){
-		return Main.getInstance().fetchData().getVanillaTime(p);
+	public int getTurfWarsKills(UUID uuid){
+		return Main.getInstance().fetchData().getTurfWarsKills(uuid);
 	}
 	
-	public int getCraftCoins(Player p){
-		return Main.getInstance().fetchData().getCraftCoins(p);
+	public int getTurfWarsWins(UUID uuid){
+		return Main.getInstance().fetchData().getTurfWarsWins(uuid);
 	}
 	
-	public int getSkyWarsWins(Player p){
-		return Main.getInstance().fetchData().getSkyWarsWins(p);
-	}
-	
-	public int getSkyWarsKills(Player p){
-		return Main.getInstance().fetchData().getSkyWarsKills(p);
-	}
-	
-	public int getSkyWarsDeaths(Player p){
-		return Main.getInstance().fetchData().getSkyWarsDeaths(p);
-	}
-	
-	public int getSkyWarsPlayed(Player p){
-		return Main.getInstance().fetchData().getSkyWarsPlayed(p);
-	}
-	
-	public int getTurfWarsKills(Player p){
-		return Main.getInstance().fetchData().getTurfWarsKills(p);
-	}
-	
-	public int getTurfWarsWins(Player p){
-		return Main.getInstance().fetchData().getTurfWarsWins(p);
-	}
-	
-	public int getTurfWarsLosses(Player p){
-		return Main.getInstance().fetchData().getTurfWarsLosses(p);
+	public int getTurfWarsLosses(UUID uuid){
+		return Main.getInstance().fetchData().getTurfWarsLosses(uuid);
 	}
 
 }

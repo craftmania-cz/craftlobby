@@ -7,6 +7,8 @@ commands:
     description: Info o profilu!
   wl:
     description: Info o profilu!
+  stats:
+    description: Statistiky hracu
 permissions:
   craftlobby.pristup:
     description: Beta test
