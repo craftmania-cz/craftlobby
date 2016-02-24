@@ -136,6 +136,12 @@ public class PetManager implements Listener{
 			if(mob.getType() == EntityType.PLAYER){
 				return;
 			}
+			if(mob.getType() == EntityType.PRIMED_TNT){
+				return;
+			}
+			if(mob.getType() == EntityType.WITHER_SKULL){
+				return;
+			}
 			if((mob.getName().contains(player.getName()))){
 				mob.setPassenger(player);
 			} else {
