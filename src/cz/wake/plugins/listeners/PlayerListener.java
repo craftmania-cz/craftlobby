@@ -92,7 +92,6 @@ public class PlayerListener implements Listener{
 		compass.setItemMeta(compassMeta);
 		
 		playerHeadMeta.setDisplayName("§aProfil §7(Klikni pravym)");
-		playerHeadMeta.setOwner(p.getName());
 		playerHead.setItemMeta(playerHeadMeta);
 		
 		svMeta.setDisplayName("§aVIP Shop §7(Klikni pravym)");
