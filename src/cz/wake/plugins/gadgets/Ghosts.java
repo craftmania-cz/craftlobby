@@ -1,5 +1,6 @@
 package cz.wake.plugins.gadgets;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -82,8 +83,11 @@ public class Ghosts implements Listener{
 	    		@Override
 	    		public void run(){
 	    			if (!bats.isEmpty()) {
-	                    for (Bat bat : bats.keySet())
-	                        UtilParticles.play(bat.getLocation().add(0, 1.5, 0), Effect.CLOUD, 0, 0, 0.05f, 0.05f, 0.05f, 0.02f, 1);
+	    				for (Bat bat : bats.keySet()){
+	    					if(!bat.isDead()){
+	    						UtilParticles.play(bat.getLocation().add(0, 1.5, 0), Effect.CLOUD, 0, 0, 0.05f, 0.05f, 0.05f, 0.02f, 1);
+	    					}
+	    				}
 	                }
 	    		}
 	    	}, 0L, 3L).getTaskId();
