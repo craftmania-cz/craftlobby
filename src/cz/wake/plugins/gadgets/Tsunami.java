@@ -59,7 +59,7 @@ public class Tsunami implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("Tsunami")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.tsunami")){
+	    if (!player.hasPermission("craftlobby.gadgets.tsunami")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -69,7 +69,7 @@ public class Tsunami implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(25D + 0.1D));
 	    	final Vector v = player.getLocation().getDirection().normalize().multiply(0.3D);
 	        v.setY(0);
 	        final Location loc = player.getLocation().subtract(0.0D, 1.0D, 0.0D).add(v);
@@ -93,8 +93,8 @@ public class Tsunami implements Listener{
 	            Tsunami.this.armorStands.add(as);
 	            for (int i = 0; i < 5; i++)
 	            {
-	              loc.getWorld().spigot().playEffect(loc.clone().add(UtilMath.randomDouble(-1.5D, 1.5D), UtilMath.randomDouble(1.3D, 1.8D) - 0.75D, UtilMath.randomDouble(-1.5D, 1.5D)), Effect.CLOUD, 0, 0, 0.2F, 0.2F, 0.2F, 0.0F, 1, 64);
-	              loc.getWorld().spigot().playEffect(loc.clone().add(UtilMath.randomDouble(-1.5D, 1.5D), UtilMath.randomDouble(0.0D, 0.5D) - 0.75D, UtilMath.randomDouble(-1.5D, 1.5D)), Effect.WATERDRIP, 0, 0, 0.5F, 0.5F, 0.5F, 0.4F, 2, 64);
+	              loc.getWorld().spigot().playEffect(loc.clone().add(UtilMath.randomDouble(-1.5D, 1.5D), UtilMath.randomDouble(1.3D, 1.8D) - 0.75D, UtilMath.randomDouble(-1.5D, 1.5D)), Effect.CLOUD, 0, 0, 0.2F, 0.2F, 0.2F, 0.0F, 2, 64);
+	              loc.getWorld().spigot().playEffect(loc.clone().add(UtilMath.randomDouble(-1.5D, 1.5D), UtilMath.randomDouble(0.0D, 0.5D) - 0.75D, UtilMath.randomDouble(-1.5D, 1.5D)), Effect.WATERDRIP, 0, 0, 0.5F, 0.5F, 0.5F, 0.4F, 3, 64);
 	            }
 	            float finalR = -1.0F;
 	            float finalG = -1.0F;

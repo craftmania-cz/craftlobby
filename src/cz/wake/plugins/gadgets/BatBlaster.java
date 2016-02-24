@@ -59,7 +59,7 @@ public class BatBlaster implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("BatBlaster")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.batblaster")){
+	    if (!player.hasPermission("craftlobby.gadgets.batblaster")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -69,7 +69,7 @@ public class BatBlaster implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(this._time.get(player).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(60D + 0.1D));
 	    	this.playerVelocity.put(player, player.getEyeLocation());
 	    	this.isActive.put(player, Long.valueOf(System.currentTimeMillis()));
 	    	this.bats.put(player, new ArrayList<Bat>());

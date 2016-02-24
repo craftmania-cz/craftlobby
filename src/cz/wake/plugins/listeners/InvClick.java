@@ -1042,6 +1042,48 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "Ghosts");
             	}
             }
+            if(event.getSlot() == 15){
+            	if(player.hasPermission("craftlobby.gadgets.tsunami")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.WATER_BUCKET);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "Tsunami");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Tsunami.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "Tsunami");
+            	}
+            }
+            if(event.getSlot() == 16){
+            	if(player.hasPermission("craftlobby.gadgets.batblaster")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.IRON_BARDING);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "BatBlaster");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BatBlaster.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "BatBlaster");
+            	}
+            }
+            if(event.getSlot() == 17){
+            	if(player.hasPermission("craftlobby.gadgets.tntfountain")){
+            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+                	ItemStack fc = new ItemStack(Material.CLAY_BALL);
+                	ItemMeta fcMeta = fc.getItemMeta();
+                	fcMeta.setDisplayName(ChatColor.RED + "TNTFountain");
+                	fc.setItemMeta(fcMeta);
+                	player.getInventory().setItem(6, fc);
+                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TNTFountain.");
+                	player.closeInventory();
+            	} else {
+            		MessagesListener.messageNoPerm(player, "TNT Fountain");
+            	}
+            }
             /*
             if(event.getSlot() == 1){
             	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
@@ -1061,16 +1103,6 @@ public class InvClick implements Listener{
             	fc.setItemMeta(fcMeta);
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PaintballGun.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 5){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.CLAY_BALL);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "TNTFountain");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TNTFountain.");
             	player.closeInventory();
             }
             if(event.getSlot() == 9){
@@ -1101,26 +1133,6 @@ public class InvClick implements Listener{
             	fc.setItemMeta(fcMeta);
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Trampoline.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 12){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.REDSTONE_COMPARATOR);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "PortalGun");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PortalGun.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 14){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.WATER_BUCKET);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "Tsunami");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Tsunami.");
             	player.closeInventory();
             }
             if(event.getSlot() == 15){
@@ -1161,16 +1173,6 @@ public class InvClick implements Listener{
             	fc.setItemMeta(fcMeta);
             	player.getInventory().setItem(6, fc);
             	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BlackHole.");
-            	player.closeInventory();
-            }
-            if(event.getSlot() == 20){
-            	player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-            	ItemStack fc = new ItemStack(Material.IRON_BARDING);
-            	ItemMeta fcMeta = fc.getItemMeta();
-            	fcMeta.setDisplayName(ChatColor.RED + "BatBlaster");
-            	fc.setItemMeta(fcMeta);
-            	player.getInventory().setItem(6, fc);
-            	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "BatBlaster.");
             	player.closeInventory();
             }*/
         	if(event.getSlot() == 49){

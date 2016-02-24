@@ -58,7 +58,11 @@ public class TNTFountain implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("TNTFountain")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.tntfountain")){
+	    if (!player.hasPermission("craftlobby.gadgets.tntfountain")){
+	    	return;
+	    }
+	    if(this.isAboveGround(player, 15)){
+	    	player.sendMessage("§cNad tebou nesmi nic byt!");
 	    	return;
 	    }
 	    event.setCancelled(true);
@@ -74,7 +78,7 @@ public class TNTFountain implements Listener{
 			        return;
 			    }
 			    
-			    this._time.put(player, Double.valueOf(20D + 0.1D));
+			    this._time.put(player, Double.valueOf(120D + 0.1D));
 			    new BukkitRunnable()
 			      {
 			    	@Override
@@ -101,9 +105,9 @@ public class TNTFountain implements Listener{
 					    localTNTPrimed3.setMetadata("BOOM", new FixedMetadataValue(plugin, player.getName()));
 					    Location localLocation = localTNTPrimed.getLocation();
 
-					    ParticleEffect.SMOKE_NORMAL.display(1.0F, 1.0F, 1.0F, 0.0F, 30, localLocation, 15.0D);
-					    ParticleEffect.LAVA.display(1.0F, 1.0F, 1.0F, 0.0F, 30, localLocation, 15.0D);
-					    ParticleEffect.CLOUD.display(1.0F, 1.0F, 1.0F, 0.0F, 30, localLocation, 15.0D);
+					    ParticleEffect.SMOKE_NORMAL.display(1.0F, 1.0F, 1.0F, 0.0F, 20, localLocation, 15.0D);
+					    ParticleEffect.LAVA.display(1.0F, 1.0F, 1.0F, 0.0F, 20, localLocation, 15.0D);
+					    ParticleEffect.CLOUD.display(1.0F, 1.0F, 1.0F, 0.0F, 20, localLocation, 15.0D);
 		 	    		 counter++;
 		 	    		 if(counter == 30){
 		 	    			 cancel();
@@ -143,4 +147,19 @@ public class TNTFountain implements Listener{
 		  return (int)(A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
 	  }
 
+	public boolean isAboveGround(Player player, int checkLevels) {
+		 
+        World world = player.getWorld();
+        Location location = player.getLocation();
+ 
+        if (location.getBlock().getType() == Material.AIR) {
+            for (int i = 1; i < checkLevels; i++) {
+                if (world.getBlockAt((int)location.getX(), location.getBlockY() - i, (int)location.getY()).getType() != Material.AIR) {
+                    return false;
+                }
+            }
+        }
+ 
+        return true;
+    }
 }
