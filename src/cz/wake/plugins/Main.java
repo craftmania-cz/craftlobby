@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import net.milkbowl.vault.economy.Economy;
 import net.minecraft.server.v1_8_R3.EntityChicken;
 import net.minecraft.server.v1_8_R3.EntityCow;
 import net.minecraft.server.v1_8_R3.EntityHorse;
@@ -22,6 +23,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
@@ -93,6 +95,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public VillagerMorph VillagerMorph;
 	private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
+    public static Economy economy = null;
 	
 	
 	public void onEnable(){
@@ -102,6 +105,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		//this.mysql.checkTable();
 		loadListeners();
 		loadCommands();
+		setupEconomy(); //Vault
 		debug = false;
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
@@ -208,7 +212,14 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
 		 if (!channel.equals("BungeeCord")) {
 	            return;
-	     }
-		 
+	     }	 
 	}
+	
+	private boolean setupEconomy(){
+        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
+        if (economyProvider != null) {
+            economy = economyProvider.getProvider();
+        }
+        return (economy != null);
+    }
 }

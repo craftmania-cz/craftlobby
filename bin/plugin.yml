@@ -2,6 +2,7 @@ name: WakesLobby
 main: cz.wake.plugins.Main
 version: 1.2.30
 author: MrWakeCZ
+depend: [Vault]
 commands:
   wlobby:
     description: Info o profilu!
