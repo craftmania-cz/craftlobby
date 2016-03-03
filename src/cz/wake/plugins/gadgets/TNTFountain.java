@@ -61,10 +61,6 @@ public class TNTFountain implements Listener{
 	    if (!player.hasPermission("craftlobby.gadgets.tntfountain")){
 	    	return;
 	    }
-	    if(this.isAboveGround(player, 15)){
-	    	player.sendMessage("§cNad tebou nesmi nic byt!");
-	    	return;
-	    }
 	    event.setCancelled(true);
 	    player.updateInventory();
 	    if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))){

@@ -127,9 +127,9 @@ public class StatisticsMG {
 		twMeta.setDisplayName("§f§lTurfWars");
 		ArrayList<String> twLore = new ArrayList<String>();
 		twLore.add("");
-		twLore.add("§e§lZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(p.getUniqueId()));
-		twLore.add("§e§lVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(p.getUniqueId()));
-		twLore.add("§e§lProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(p.getUniqueId()));
+		twLore.add("§eZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(p.getUniqueId()));
+		twLore.add("§eVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(p.getUniqueId()));
+		twLore.add("§eProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(p.getUniqueId()));
 		twLore.add("§eOdehrany cas: §cNenalezeno...");
 		twMeta.setLore(twLore);
 		turfwars.setItemMeta(twMeta);
@@ -270,9 +270,9 @@ public class StatisticsMG {
 		twMeta.setDisplayName("§f§lTurfWars");
 		ArrayList<String> twLore = new ArrayList<String>();
 		twLore.add("");
-		twLore.add("§e§lZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(op.getUniqueId()));
-		twLore.add("§e§lVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(op.getUniqueId()));
-		twLore.add("§e§lProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(op.getUniqueId()));
+		twLore.add("§eZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(op.getUniqueId()));
+		twLore.add("§eVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(op.getUniqueId()));
+		twLore.add("§eProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(op.getUniqueId()));
 		twLore.add("§eOdehrany cas: §cNedostupne");
 		twMeta.setLore(twLore);
 		turfwars.setItemMeta(twMeta);
