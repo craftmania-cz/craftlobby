@@ -87,6 +87,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private static Main instance;
 	private MySQL mysql = new MySQL();
 	private FetchData fd = new FetchData();
+	private SetData sd = new SetData();
 	private WakeAPI api = new WakeAPI();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
@@ -186,6 +187,10 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	
 	public FetchData fetchData(){
 		return this.fd;
+	}
+	
+	public SetData setData(){
+		return this.sd;
 	}
 	
 	public WakeAPI getAPI(){

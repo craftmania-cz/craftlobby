@@ -17,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
+import cz.wake.plugins.API.TimeUtils;
 import cz.wake.plugins.GUI.Cloaks;
 import cz.wake.plugins.GUI.GadgetsItemsMenu;
 import cz.wake.plugins.GUI.GadgetsMenu;
@@ -25,6 +26,7 @@ import cz.wake.plugins.GUI.HeadsMenu2;
 import cz.wake.plugins.GUI.HeadsMenu3;
 import cz.wake.plugins.GUI.HeadsMenu4;
 import cz.wake.plugins.GUI.Menu;
+import cz.wake.plugins.GUI.NakupBoxu;
 import cz.wake.plugins.GUI.StatisticsMG;
 import cz.wake.plugins.GUI.MorphsMenu;
 import cz.wake.plugins.GUI.MountMenu;
@@ -128,6 +130,7 @@ public class InvClick implements Listener{
 	HeadsMenu4 headsMenu4 = new HeadsMenu4();
 	CandyCane cc = new CandyCane();
 	AngleCloak ac = new AngleCloak();
+	NakupBoxu np = new NakupBoxu();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -307,8 +310,47 @@ public class InvClick implements Listener{
 	        if(event.getSlot() == 15){
 	        	this.cl.openCloaks(player);
 	        }
+	        if(event.getSlot() == 50){
+	        	this.np.openNakup(player);
+	        }
             event.setCancelled(true);
             player.updateInventory();                   
+        }
+      //**************************** NAKUP CRAFTBOXU MENU ****************************//
+        if(event.getInventory().getTitle().equals("Nakup CraftBoxu")){
+        	if(event.getSlot() == 15){
+        		this.gadgetsMenu.openGadgetsMenu(player);
+        	}
+        	if(event.getSlot() == 11){
+        		if(!Main.getInstance().fetchData().hasData(player.getUniqueId())){ //Nema zaznam
+        			if(Main.getInstance().fetchData().getCraftCoins(player.getUniqueId()) >= 1000){ //Coiny vic jak 1000
+        				Main.getInstance().setData().takeCoins(player, 1000);
+        				Main.getInstance().setData().createRecordBuy(player, System.currentTimeMillis() + 86400000);
+        				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
+        				player.sendMessage("§eZakoupil jsi si §b1x CraftBox!");
+        				player.closeInventory();
+        			} else {
+        				player.sendMessage("§cNedostatek CraftCoinu k nakupu!");
+        				player.closeInventory();
+        			}
+        		} else {
+        			if(Main.getInstance().fetchData().getTimeToBuy(player.getUniqueId()) < System.currentTimeMillis()){
+        				if(Main.getInstance().fetchData().getCraftCoins(player.getUniqueId()) >= 1000){
+        					Main.getInstance().setData().takeCoins(player, 1000);
+        					Main.getInstance().setData().updateTimeBuy(player, System.currentTimeMillis() + 86400000);
+        					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
+            				player.sendMessage("§eZakoupil jsi si §b1x CraftBox!");
+            				player.closeInventory();
+        				} else {
+        					player.sendMessage("§cNedostatek CraftCoinu k nakupu!");
+            				player.closeInventory();
+        				}
+        			} else {
+        				player.closeInventory();
+        				player.sendMessage("§cStale neubehlo 24 hodin od nakupu.");
+        			}
+        		}
+        	}
         }
       //**************************** CLOAKS MENU ****************************//
         if(event.getInventory().getTitle().equals("Cloaks")){

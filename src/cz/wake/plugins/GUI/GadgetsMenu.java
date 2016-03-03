@@ -121,6 +121,20 @@ public class GadgetsMenu implements Listener{
 		cMeta.setLore(cLore);
 		cloaks.setItemMeta(cMeta);
 		
+		ItemStack box = new ItemStack(Material.ENDER_CHEST);
+		ItemMeta bMeta = box.getItemMeta();
+		bMeta.setDisplayName("§c§lNakup CraftBoxu");
+		ArrayList<String> bLore = new ArrayList<String>();
+		bLore.add("§7Primy nakup jednoho CrafBoxu,");
+		bLore.add("§7ktery muzes okamzite otevrit!");
+		bLore.add("");
+		bLore.add("§ePouze 1x za 24h!");
+		bLore.add("");
+		bLore.add("§7CraftBox si muzes zakoupit: §aIHNED");
+		bLore.add("§8Cena CraftBoxu je 1000 CC");
+		bMeta.setLore(bLore);
+		box.setItemMeta(bMeta);
+		
 		gadgetsMenu.setItem(11,wardrobeItem);
 		gadgetsMenu.setItem(13, banner);
 		gadgetsMenu.setItem(15, cloaks);
@@ -128,7 +142,8 @@ public class GadgetsMenu implements Listener{
 		gadgetsMenu.setItem(30, gadgetsItem);
 		gadgetsMenu.setItem(32, disguisesItem);
 		gadgetsMenu.setItem(34, particlesItem);
-		gadgetsMenu.setItem(49, shopItem);
+		gadgetsMenu.setItem(48, shopItem);
+		gadgetsMenu.setItem(50, box);
 		
 		p.openInventory(gadgetsMenu);
 		

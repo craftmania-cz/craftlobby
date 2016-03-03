@@ -653,7 +653,41 @@ public class FetchData {
 		return 0;
 	}
 	
+	public boolean hasData(final UUID uuid) {
+		
+		Boolean hasData = Boolean.valueOf(false);
+		
+		final String query = "SELECT * FROM craftboxer_buys WHERE uuid = '" + uuid.toString() + "';";
+		
+		try {
+			ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+			if (result.next()) {
+		        hasData = Boolean.valueOf(true);
+		      }
+			result.close();
+		} catch (SQLException e) {
+			//Nic
+		}
+		return hasData.booleanValue();
+	}
 	
+	public final long getTimeToBuy(final UUID uuid) {
+		
+		final String query = "SELECT time FROM craftboxer_buys WHERE uuid = '" + uuid.toString() + "';";
+		
+		try {
+			
+			ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+			
+			if(result.next()) {
+				return result.getLong("time");
+			}
+			result.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 
 }

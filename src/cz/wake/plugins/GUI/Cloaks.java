@@ -17,7 +17,7 @@ import cz.wake.plugins.utils.ItemFactory;
 
 public class Cloaks {
 	
-public void openCloaks(Player p){
+	public void openCloaks(Player p){
 		
 		Inventory cloakMenu = Bukkit.createInventory(null, 54, "Cloaks");
 		
