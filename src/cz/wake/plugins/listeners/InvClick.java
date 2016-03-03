@@ -322,8 +322,9 @@ public class InvClick implements Listener{
         		this.gadgetsMenu.openGadgetsMenu(player);
         	}
         	if(event.getSlot() == 11){
+        		int coins = Main.getInstance().fetchData().getCraftCoins(player.getUniqueId());
         		if(!Main.getInstance().fetchData().hasData(player.getUniqueId())){ //Nema zaznam
-        			if(Main.getInstance().fetchData().getCraftCoins(player.getUniqueId()) >= 1000){ //Coiny vic jak 1000
+        			if(coins >= 1000){ //Coiny vic jak 1000
         				Main.getInstance().setData().takeCoins(player, 1000);
         				Main.getInstance().setData().createRecordBuy(player, System.currentTimeMillis() + 86400000);
         				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
@@ -335,7 +336,7 @@ public class InvClick implements Listener{
         			}
         		} else {
         			if(Main.getInstance().fetchData().getTimeToBuy(player.getUniqueId()) < System.currentTimeMillis()){
-        				if(Main.getInstance().fetchData().getCraftCoins(player.getUniqueId()) >= 1000){
+        				if(coins >= 1000){
         					Main.getInstance().setData().takeCoins(player, 1000);
         					Main.getInstance().setData().updateTimeBuy(player, System.currentTimeMillis() + 86400000);
         					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
