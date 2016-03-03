@@ -2,11 +2,11 @@ package cz.wake.plugins.API;
 
 public class TimeUtils {
 	
-	public static String formatTime(String format, int time, boolean addPadding)
+	public static String formatTime(String format, long time, boolean addPadding)
 	  {
-	    int days = 0;
-	    int hours = 0;
-	    int minutes = 0;
+	    long days = 0;
+	    long hours = 0;
+	    long minutes = 0;
 	    if ((format.contains("%d")) && (time >= 1440))
 	    {
 	      days = getDifference(time, 1440);
@@ -25,18 +25,18 @@ public class TimeUtils {
 	    return format;
 	  }
 	  
-	  private static String asString(int time, boolean addPadding)
+	  private static String asString(long time, boolean addPadding)
 	  {
 	    if ((time < 10) && (addPadding)) {
 	      return "0" + time;
 	    }
-	    return Integer.valueOf(time).toString();
+	    return Long.valueOf(time).toString();
 	  }
 	  
-	  private static int getDifference(int time, int secDiff)
+	  private static int getDifference(long time, int secDiff)
 	  {
-	    int newTime = time / secDiff;
-	    return newTime;
+	    long newTime = time / secDiff;
+	    return (int) newTime;
 	  }
 
 }
