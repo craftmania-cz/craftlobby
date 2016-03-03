@@ -13,7 +13,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+
 import cz.wake.plugins.Main;
+import cz.wake.plugins.API.TimeUtils;
 
 public class GadgetsMenu implements Listener{
 	
@@ -130,7 +132,7 @@ public class GadgetsMenu implements Listener{
 		bLore.add("");
 		bLore.add("§ePouze 1x za 24h!");
 		bLore.add("");
-		bLore.add("§7CraftBox si muzes zakoupit: §aIHNED");
+		bLore.add("§7Muzes si zakoupit " + getStatusBox(p));
 		bLore.add("§8Cena CraftBoxu je 1000 CC");
 		bMeta.setLore(bLore);
 		box.setItemMeta(bMeta);
@@ -147,6 +149,17 @@ public class GadgetsMenu implements Listener{
 		
 		p.openInventory(gadgetsMenu);
 		
+	}
+	
+	public String getStatusBox(Player p){
+		long time = System.currentTimeMillis();
+		long pTime = Main.getInstance().fetchData().getTimeToBuy(p.getUniqueId());
+		
+		if(time > pTime){
+			return "§a§lIHNED";
+		} else {
+			return "za §b" + TimeUtils.formatTime("%hh %mm", ((pTime - time)/1000)/60, false);
+		}
 	}
 	
 	public String countHeads(Player p){
