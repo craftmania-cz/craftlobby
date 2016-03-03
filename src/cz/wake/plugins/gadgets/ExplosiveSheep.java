@@ -62,7 +62,7 @@ public class ExplosiveSheep implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("ExplosiveSheep")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.explosivesheep")){
+	    if (!player.hasPermission("craftlobby.gadgets.explosivesheep")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -72,7 +72,7 @@ public class ExplosiveSheep implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(30D + 0.1D));
 	    	Location loc = player.getLocation().add(player.getEyeLocation().getDirection().multiply(0.5D));
 	        loc.setY(player.getLocation().getBlockY() + 1);
 	        Sheep s = (Sheep)player.getWorld().spawn(loc, Sheep.class);

@@ -32,6 +32,7 @@ public class Trampoline implements Listener{
 	private HashMap<Player, Double> _time = new HashMap();
 	HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
 	private HashMap<String, ArrayList<Location>> locs = new HashMap();
+	private boolean enabled = false;
 	
 	private Main plugin;
 	
@@ -57,7 +58,11 @@ public class Trampoline implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("Trampoline")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.trampoline")){
+	    if(enabled){
+	    	player.sendMessage("§cTento gadget je jiz nekde aktivovany!");
+	    	return;
+	    }
+	    if (!player.hasPermission("craftlobby.gadgets.trampoline")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -68,19 +73,15 @@ public class Trampoline implements Listener{
 			  		return;
 			}
 	    	if(canBuild(player)){
-	    		this._time.put(player, Double.valueOf(20D + 0.1D));
-		    	
+	    		this.enabled = true;
+	    		this._time.put(player, Double.valueOf(60D + 0.1D));
 		    	buildTrampoline(player);
-		    	
-		    	Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
-		        {
+		    	Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable(){
 		    	  @Override
-		          public void run()
-		          {
+		          public void run(){
 		            Trampoline.this.removeTrampoline(player.getName());
 		          }
 		        }, 400L);
-		    	
 		    	this._cdRunnable.put(player, new BukkitRunnable(){
 		    		@Override
 		    		public void run(){
@@ -90,7 +91,6 @@ public class Trampoline implements Listener{
 		      				Trampoline.this._cdRunnable.remove(player);
 		      				cancel();
 		    		}
-		    		
 		    	}
 		    });((BukkitRunnable)this._cdRunnable.get(player)).runTaskTimer(plugin, 2L, 2L);
 	    	} else {
@@ -224,6 +224,7 @@ public class Trampoline implements Listener{
 	    {
 	      loc.getBlock().setType(Material.AIR);
 	      loc.getBlock().removeMetadata("Trampoline", Main.getPlugin());
+	      this.enabled = false;
 	    }
 	  }
 	  
@@ -242,8 +243,7 @@ public class Trampoline implements Listener{
 	    return locs;
 	  }
 	  
-	  private static double arrondi(double A, int B){
-		    
+	  private static double arrondi(double A, int B){ 
 		  return (int)(A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
 	  }
 

@@ -31,6 +31,7 @@ public class TNTFountain implements Listener{
 	private HashMap<Player, Double> _time = new HashMap();
 	HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
 	private final Map<Player, Location> locations = new HashMap();
+	private boolean enabled = false;
 	
 	int counter = 0;
 	
@@ -58,6 +59,10 @@ public class TNTFountain implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("TNTFountain")) {
 	        return;
 	    }
+	    if(enabled){
+	    	player.sendMessage("§cTento gadget je jiz na tomto lobby aktivovan!");
+	    	return;
+	    }
 	    if (!player.hasPermission("craftlobby.gadgets.tntfountain")){
 	    	return;
 	    }
@@ -73,6 +78,7 @@ public class TNTFountain implements Listener{
 			    if (localLocation == null) {
 			        return;
 			    }
+			    this.enabled = true;
 			    
 			    this._time.put(player, Double.valueOf(120D + 0.1D));
 			    new BukkitRunnable()
@@ -108,6 +114,7 @@ public class TNTFountain implements Listener{
 		 	    		 if(counter == 30){
 		 	    			 cancel();
 		 	    			 counter = 0;
+		 	    			 enabled = false;
 		 	    		 }
 		 	    	  
 			        	}

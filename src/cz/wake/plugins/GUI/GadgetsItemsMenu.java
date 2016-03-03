@@ -365,6 +365,102 @@ public class GadgetsItemsMenu{
 			noPerm.setItemMeta(noPermMeta);
 			gadgetsInv.setItem(17, noPerm);
 		}
+		if(p.hasPermission("craftlobby.gadgets.trampoline")){
+			ItemStack trampoline = new ItemStack(Material.HOPPER);
+			ItemMeta tMeta = trampoline.getItemMeta();
+			tMeta.setDisplayName("§e§lTrampoline");
+			ArrayList<String> tLore = new ArrayList<String>();
+			tLore.add(ChatColor.GRAY + "Trampolina, zaskakej si!");
+			tMeta.setLore(tLore);
+			trampoline.setItemMeta(tMeta);
+			gadgetsInv.setItem(18, trampoline);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lTrampoline");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(18, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.paintballgun")){
+			ItemStack paintgun = new ItemStack(Material.DIAMOND_BARDING);
+			ItemMeta pgMeta = paintgun.getItemMeta();
+			pgMeta.setDisplayName("§e§lPaintballGun");
+			ArrayList<String> pgLore = new ArrayList<String>();
+			pgLore.add(ChatColor.GRAY + "Jako paintball.");
+			pgMeta.setLore(pgLore);
+			paintgun.setItemMeta(pgMeta);
+			gadgetsInv.setItem(19, paintgun);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lPaintballGun");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(19, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.explosivesheep")){
+			ItemStack exsheep = new ItemStack(Material.SHEARS);
+			ItemMeta exMeta = exsheep.getItemMeta();
+			exMeta.setDisplayName("§e§lExplosiveSheep");
+			ArrayList<String> exLore = new ArrayList<String>();
+			exLore.add(ChatColor.GRAY + "Vybuchujici ovecka, utec.");
+			exMeta.setLore(exLore);
+			exsheep.setItemMeta(exMeta);
+			gadgetsInv.setItem(20, exsheep);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lExplosiveSheep");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(20, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.smashdown")){
+			ItemStack smash = new ItemStack(Material.FIREWORK_CHARGE);
+			ItemMeta sMeta = smash.getItemMeta();
+			sMeta.setDisplayName("§e§lSmashDown");
+			ArrayList<String> sLore = new ArrayList<String>();
+			sLore.add(ChatColor.GRAY + "Odstrel vsechny z tveho okoli.");
+			sMeta.setLore(sLore);
+			smash.setItemMeta(sMeta);
+			gadgetsInv.setItem(21, smash);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lSmashDown");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(21, noPerm);
+		}
+		if(p.hasPermission("craftlobby.gadgets.flowerpopper")){
+			ItemStack flowerpop = new ItemStack(Material.RED_ROSE);
+			ItemMeta fMeta = flowerpop.getItemMeta();
+			fMeta.setDisplayName("§e§lFlowerPopper");
+			ArrayList<String> fmLore = new ArrayList<String>();
+			fmLore.add(ChatColor.GRAY + "Ten pocit, kdyz ti z hlavy");
+			fmLore.add(ChatColor.GRAY + "strili kytky.");
+			fMeta.setLore(fmLore);
+			flowerpop.setItemMeta(fMeta);
+			gadgetsInv.setItem(22, flowerpop);
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lFlowerPopper");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			gadgetsInv.setItem(22, noPerm);
+		}
 		
 		ItemStack mobgun = new ItemStack(Material.BLAZE_ROD);
 		ItemMeta mobgunMeta = mobgun.getItemMeta();
@@ -376,14 +472,6 @@ public class GadgetsItemsMenu{
 		mobgunMeta.setLore(mbLore);
 		mobgun.setItemMeta(mobgunMeta);
 		
-		ItemStack paintgun = new ItemStack(Material.DIAMOND_BARDING);
-		ItemMeta pgMeta = paintgun.getItemMeta();
-		pgMeta.setDisplayName(ChatColor.GREEN + "PaintballGun");
-		ArrayList<String> pgLore = new ArrayList<String>();
-		pgLore.add(ChatColor.GRAY + "Jako paintball.");
-		pgMeta.setLore(pgLore);
-		paintgun.setItemMeta(pgMeta);
-		
 		ItemStack gravity = new ItemStack(Material.EYE_OF_ENDER);
 		ItemMeta gMeta = gravity.getItemMeta();
 		gMeta.setDisplayName(ChatColor.GREEN + "AntiGravity");
@@ -391,56 +479,6 @@ public class GadgetsItemsMenu{
 		gLore.add(ChatColor.GRAY + "Zrus gravitaci okolo sebe...");
 		gMeta.setLore(gLore);
 		gravity.setItemMeta(gMeta);
-		
-		ItemStack smash = new ItemStack(Material.FIREWORK_CHARGE);
-		ItemMeta sMeta = smash.getItemMeta();
-		sMeta.setDisplayName(ChatColor.GREEN + "SmashDown");
-		ArrayList<String> sLore = new ArrayList<String>();
-		sLore.add(ChatColor.GRAY + "Odstrel vsechny z tveho okoli.");
-		sMeta.setLore(sLore);
-		smash.setItemMeta(sMeta);
-		
-		ItemStack trampoline = new ItemStack(Material.HOPPER);
-		ItemMeta tMeta = trampoline.getItemMeta();
-		tMeta.setDisplayName(ChatColor.GREEN + "Trampoline");
-		ArrayList<String> tLore = new ArrayList<String>();
-		tLore.add(ChatColor.GRAY + "Trampolina, zaskakej si!");
-		tMeta.setLore(tLore);
-		trampoline.setItemMeta(tMeta);
-		
-		ItemStack portalgun = new ItemStack(Material.REDSTONE_COMPARATOR);
-		ItemMeta pMeta = portalgun.getItemMeta();
-		pMeta.setDisplayName(ChatColor.GREEN + "PortalGun");
-		ArrayList<String> pLore = new ArrayList<String>();
-		pLore.add(ChatColor.GRAY + "Omg portal gun :D!");
-		pMeta.setLore(pLore);
-		portalgun.setItemMeta(pMeta);
-		
-		ItemStack exsheep = new ItemStack(Material.SHEARS);
-		ItemMeta exMeta = exsheep.getItemMeta();
-		exMeta.setDisplayName(ChatColor.RED + "ExplosiveSheep");
-		ArrayList<String> exLore = new ArrayList<String>();
-		exLore.add(ChatColor.GRAY + "Vybuchujici ovecka, utec.");
-		exMeta.setLore(exLore);
-		exsheep.setItemMeta(exMeta);
-		
-		ItemStack flowerpop = new ItemStack(Material.RED_ROSE);
-		ItemMeta fMeta = flowerpop.getItemMeta();
-		fMeta.setDisplayName(ChatColor.RED + "FlowerPopper");
-		ArrayList<String> fmLore = new ArrayList<String>();
-		fmLore.add(ChatColor.GRAY + "Ten pocit kdyz ti z hlavy");
-		fmLore.add(ChatColor.GRAY + "strili kytky.");
-		fMeta.setLore(fmLore);
-		flowerpop.setItemMeta(fMeta);
-		
-		ItemStack pearl = new ItemStack(Material.ENDER_PEARL);
-		ItemMeta peMeta = pearl.getItemMeta();
-		peMeta.setDisplayName(ChatColor.RED + "EtherealPearl");
-		ArrayList<String> peLore = new ArrayList<String>();
-		peLore.add(ChatColor.GRAY + "Nasedni na perlu a prolet se!");
-		peLore.add(ChatColor.RED + "Pozor buguje do zeme!");
-		peMeta.setLore(peLore);
-		pearl.setItemMeta(peMeta);
 		
 		ItemStack blackhole = new ItemStack(Material.STAINED_CLAY,1,(byte)15);
 		ItemMeta bhMeta = blackhole.getItemMeta();

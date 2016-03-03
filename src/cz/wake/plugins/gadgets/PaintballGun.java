@@ -131,7 +131,8 @@ public class PaintballGun implements Listener{
 	      (b.getWorld().getBlockAt(b.getLocation().add(0.0D, 1.0D, 0.0D)).getType() == Material.MELON_STEM) || 
 	      (b.getWorld().getBlockAt(b.getLocation().add(0.0D, 1.0D, 0.0D)).getType() == Material.PUMPKIN_STEM) || 
 	      (b.getWorld().getBlockAt(b.getLocation().add(0.0D, 1.0D, 0.0D)).getType() == Material.MELON) || 
-	      (b.getWorld().getBlockAt(b.getLocation().add(0.0D, 1.0D, 0.0D)).getType() == Material.PUMPKIN)) {
+	      (b.getWorld().getBlockAt(b.getLocation().add(0.0D, 1.0D, 0.0D)).getType() == Material.PUMPKIN) ||
+	      (b.getWorld().getBlockAt(b.getLocation().add(0.0D, 1.0D, 0.0D)).getType() == Material.SUGAR_CANE)) {
 	      return true;
 	    }
 	    return false;
@@ -189,7 +190,7 @@ public class PaintballGun implements Listener{
 	  	    if (this._coolDown.contains(p.getUniqueId())) {
 	  	      return;
 	  	    }
-	  	    if (!p.hasPermission("craftlobby.gadget.paintballgun")) {
+	  	    if (!p.hasPermission("craftlobby.gadgets.paintballgun")) {
 	  	      return;
 	  	    }
 	  	    event.setCancelled(true);
@@ -208,7 +209,6 @@ public class PaintballGun implements Listener{
 	  	    proj.setVelocity(proj.getVelocity().multiply(2));
 	  	    this._balls.add(proj);
 	  	    proj.setMetadata("SUPAPEARL", new FixedMetadataValue(this.plugin, player.getName()));
-	  	    
 	  	    player.getWorld().playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 1.5F, 1.2F);
 	  	  }
 	    }

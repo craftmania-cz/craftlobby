@@ -64,7 +64,7 @@ public class SmashDown implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("SmashDown")) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.smashdown")){
+	    if (!player.hasPermission("craftlobby.gadgets.smashdown")){
 	    	return;
 	    }
 	    e.setCancelled(true);
@@ -74,7 +74,7 @@ public class SmashDown implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(15D + 0.1D));
 	    	
 	    	player.playSound(player.getLocation(), Sound.FIREWORK_LAUNCH, 2, 1);
 	        player.setVelocity(new Vector(0, 3, 0));

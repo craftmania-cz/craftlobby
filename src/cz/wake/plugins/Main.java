@@ -45,7 +45,6 @@ import cz.wake.plugins.gadgets.Chickenator;
 import cz.wake.plugins.gadgets.ColorBomb;
 import cz.wake.plugins.gadgets.CookieFountain;
 import cz.wake.plugins.gadgets.DiscoBall;
-import cz.wake.plugins.gadgets.EtherealPearl;
 import cz.wake.plugins.gadgets.ExplosiveSheep;
 import cz.wake.plugins.gadgets.Fireworks;
 import cz.wake.plugins.gadgets.FlowerPopper;
@@ -157,7 +156,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new ExplosiveSheep(this), this);
 		pm.registerEvents(new SlimeHat(this), this);
 		pm.registerEvents(new FlowerPopper(this), this);
-		pm.registerEvents(new EtherealPearl(this), this);
 		pm.registerEvents(new BlackHole(this), this);
 		pm.registerEvents(new HeadsMenu2(), this);
 		pm.registerEvents(new BatBlaster(this), this);
