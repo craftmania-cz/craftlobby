@@ -87,7 +87,7 @@ public class Servers implements Listener{
 		
 		ItemStack vanilla = new ItemStack(Material.EMERALD);
 		ItemMeta vMeta = vanilla.getItemMeta();
-		vMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Vanilla");
+		vMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Vanilla §c§l1.9");
 		ArrayList<String> vLore = new ArrayList<String>();
 		vLore.add(ChatColor.DARK_GRAY + "PVP");
 		vLore.add("");
@@ -115,7 +115,7 @@ public class Servers implements Listener{
 		
 		ItemStack skywars = new ItemStack(Material.EYE_OF_ENDER);
 		ItemMeta skyMeta = skywars.getItemMeta();
-		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars 2.0");
+		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars");
 		ArrayList<String> skyLore = new ArrayList<String>();
 		skyLore.add(ChatColor.DARK_GRAY + "PVP");
 		skyLore.add("");
@@ -161,15 +161,13 @@ public class Servers implements Listener{
 		
 		ItemStack uhc = new ItemStack(Material.GOLDEN_APPLE);
 		ItemMeta uMeta = uhc.getItemMeta();
-		uMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "UltraHardcore");
+		uMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "UHC Run");
 		ArrayList<String> uhcLore = new ArrayList<String>();
 		uhcLore.add(ChatColor.DARK_GRAY + "PVP");
 		uhcLore.add("");
 		uhcLore.add(ChatColor.GRAY + "Overis si zda umis hrat?");
 		uhcLore.add(ChatColor.GRAY + "Dokazes prezit a zachranit se?");
 		uhcLore.add(ChatColor.GRAY + "Nebo zemres jako my vsichni?");
-		uhcLore.add("");
-		uhcLore.add(ChatColor.RED + "Tato hra je extra tezka pro zacatecniky.");
 		uhcLore.add("");
 		uhcLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
 		uhcLore.add("");
@@ -195,7 +193,7 @@ public class Servers implements Listener{
 		
 		ItemStack tw = new ItemStack(Material.WOOL,1,(byte)3);
 		ItemMeta twMeta = tw.getItemMeta();
-		twMeta.setDisplayName("§e§lTurfWars §c§lNOVINKA!");
+		twMeta.setDisplayName("§e§lTurfWars");
 		ArrayList<String> twLore = new ArrayList<String>();
 		twLore.add("§8TEAM PVP");
 		twLore.add("");

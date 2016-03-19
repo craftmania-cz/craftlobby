@@ -989,6 +989,8 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 8){
             	if(player.hasPermission("craftlobby.gadgets.poopbomb")){
+            		player.sendMessage("§cGadget byl z duvodu kriticke chyby docasne deaktivovan.");
+            		/*
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.MELON_SEEDS);
                 	ItemMeta fcMeta = fc.getItemMeta();
@@ -996,7 +998,7 @@ public class InvClick implements Listener{
                 	fc.setItemMeta(fcMeta);
                 	player.getInventory().setItem(6, fc);
                 	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PoopBomb.");
-                	player.closeInventory();
+                	player.closeInventory(); */
             	} else {
             		MessagesListener.messageNoPerm(player, "PoopBomb");
             	}
@@ -1129,6 +1131,8 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 18){
             	if(player.hasPermission("craftlobby.gadgets.trampoline")){
+            		player.sendMessage("§cGadget byl z duvodu kriticke chyby docasne deaktivovan.");
+            		/*
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.HOPPER);
                 	ItemMeta fcMeta = fc.getItemMeta();
@@ -1136,13 +1140,15 @@ public class InvClick implements Listener{
                 	fc.setItemMeta(fcMeta);
                 	player.getInventory().setItem(6, fc);
                 	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "Trampoline.");
-                	player.closeInventory();
+                	player.closeInventory(); */
             	} else {
             		MessagesListener.messageNoPerm(player, "Trampoline");
             	}
             }
             if(event.getSlot() == 19){
             	if(player.hasPermission("craftlobby.gadgets.paintballgun")){
+            		player.sendMessage("§cGadget byl z duvodu kriticke chyby docasne deaktivovan.");
+            		/*
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.DIAMOND_BARDING);
                 	ItemMeta fcMeta = fc.getItemMeta();
@@ -1150,7 +1156,7 @@ public class InvClick implements Listener{
                 	fc.setItemMeta(fcMeta);
                 	player.getInventory().setItem(6, fc);
                 	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PaintballGun.");
-                	player.closeInventory();
+                	player.closeInventory(); */
             	} else {
             		MessagesListener.messageNoPerm(player, "PaintBall Gun");
             	}

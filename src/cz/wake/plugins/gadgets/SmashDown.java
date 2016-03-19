@@ -194,6 +194,6 @@ public class SmashDown implements Listener{
 	
 	private static double arrondi(double A, int B){
 		  return (int)(A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
-	  }
+	}
 
 }
