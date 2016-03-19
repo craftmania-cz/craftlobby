@@ -384,25 +384,6 @@ public class GadgetsItemsMenu{
 			noPerm.setItemMeta(noPermMeta);
 			gadgetsInv.setItem(18, noPerm);
 		}
-		if(p.hasPermission("craftlobby.gadgets.paintballgun")){
-			ItemStack paintgun = new ItemStack(Material.DIAMOND_BARDING);
-			ItemMeta pgMeta = paintgun.getItemMeta();
-			pgMeta.setDisplayName("§e§lPaintballGun");
-			ArrayList<String> pgLore = new ArrayList<String>();
-			pgLore.add(ChatColor.GRAY + "Jako paintball.");
-			pgMeta.setLore(pgLore);
-			paintgun.setItemMeta(pgMeta);
-			gadgetsInv.setItem(19, paintgun);
-		} else {
-			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
-			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName("§c§lPaintballGun");
-			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
-			noPermMeta.setLore(noPermLore);
-			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(19, noPerm);
-		}
 		if(p.hasPermission("craftlobby.gadgets.explosivesheep")){
 			ItemStack exsheep = new ItemStack(Material.SHEARS);
 			ItemMeta exMeta = exsheep.getItemMeta();
@@ -411,7 +392,7 @@ public class GadgetsItemsMenu{
 			exLore.add(ChatColor.GRAY + "Vybuchujici ovecka, utec.");
 			exMeta.setLore(exLore);
 			exsheep.setItemMeta(exMeta);
-			gadgetsInv.setItem(20, exsheep);
+			gadgetsInv.setItem(19, exsheep);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -420,7 +401,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(20, noPerm);
+			gadgetsInv.setItem(19, noPerm);
 		}
 		if(p.hasPermission("craftlobby.gadgets.smashdown")){
 			ItemStack smash = new ItemStack(Material.FIREWORK_CHARGE);
@@ -430,7 +411,7 @@ public class GadgetsItemsMenu{
 			sLore.add(ChatColor.GRAY + "Odstrel vsechny z tveho okoli.");
 			sMeta.setLore(sLore);
 			smash.setItemMeta(sMeta);
-			gadgetsInv.setItem(21, smash);
+			gadgetsInv.setItem(20, smash);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -439,7 +420,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(21, noPerm);
+			gadgetsInv.setItem(20, noPerm);
 		}
 		if(p.hasPermission("craftlobby.gadgets.flowerpopper")){
 			ItemStack flowerpop = new ItemStack(Material.RED_ROSE);
@@ -450,7 +431,7 @@ public class GadgetsItemsMenu{
 			fmLore.add(ChatColor.GRAY + "strili kytky.");
 			fMeta.setLore(fmLore);
 			flowerpop.setItemMeta(fMeta);
-			gadgetsInv.setItem(22, flowerpop);
+			gadgetsInv.setItem(21, flowerpop);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -459,7 +440,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(22, noPerm);
+			gadgetsInv.setItem(21, noPerm);
 		}
 		
 		ItemStack mobgun = new ItemStack(Material.BLAZE_ROD);

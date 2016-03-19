@@ -53,7 +53,6 @@ import cz.wake.plugins.gadgets.Ghosts;
 import cz.wake.plugins.gadgets.PartyCoins;
 import cz.wake.plugins.gadgets.TeleportStick;
 import cz.wake.plugins.gadgets.MobGun;
-import cz.wake.plugins.gadgets.PaintballGun;
 import cz.wake.plugins.gadgets.Pee;
 import cz.wake.plugins.gadgets.PigFly;
 import cz.wake.plugins.gadgets.PoopBomb;
@@ -135,7 +134,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new TeleportStick(this), this);
 		pm.registerEvents(new MobGun(this), this);
 		pm.registerEvents(new FunCannon(this), this);
-		pm.registerEvents(new PaintballGun(this), this);
 		pm.registerEvents(new TNTBomb(this), this);
 		pm.registerEvents(new TNTFountain(this), this);
 		pm.registerEvents(new MorphsMenu(), this);

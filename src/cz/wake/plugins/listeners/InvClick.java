@@ -1146,22 +1146,6 @@ public class InvClick implements Listener{
             	}
             }
             if(event.getSlot() == 19){
-            	if(player.hasPermission("craftlobby.gadgets.paintballgun")){
-            		player.sendMessage("§cGadget byl z duvodu kriticke chyby docasne deaktivovan.");
-            		/*
-            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-                	ItemStack fc = new ItemStack(Material.DIAMOND_BARDING);
-                	ItemMeta fcMeta = fc.getItemMeta();
-                	fcMeta.setDisplayName(ChatColor.AQUA + "PaintballGun");
-                	fc.setItemMeta(fcMeta);
-                	player.getInventory().setItem(6, fc);
-                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "PaintballGun.");
-                	player.closeInventory(); */
-            	} else {
-            		MessagesListener.messageNoPerm(player, "PaintBall Gun");
-            	}
-            }
-            if(event.getSlot() == 20){
             	if(player.hasPermission("craftlobby.gadgets.explosivesheep")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.SHEARS);
@@ -1175,7 +1159,7 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "ExplosiveSheep");
             	}
             }
-            if(event.getSlot() == 21){
+            if(event.getSlot() == 20){
             	if(player.hasPermission("craftlobby.gadgets.smashdown")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.FIREWORK_CHARGE);
@@ -1189,7 +1173,7 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "SmashDown");
             	}
             }
-            if(event.getSlot() == 22){
+            if(event.getSlot() == 21){
             	if(player.hasPermission("craftlobby.gadgets.flowerpopper")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.RED_ROSE);
