@@ -114,12 +114,18 @@ public class PoopBomb implements Listener{
 	    this._cdRunnable.put(player, new BukkitRunnable(){
     		@Override
     		public void run(){
-    			PoopBomb.this._time.put(player, Double.valueOf(((Double)PoopBomb.this._time.get(player)).doubleValue() - 0.1D));
-      			if (((Double)PoopBomb.this._time.get(player)).doubleValue() < 0.01D){
-      				PoopBomb.this._time.remove(player);
+    			if(player.isOnline()){
+    				PoopBomb.this._time.put(player, Double.valueOf(((Double)PoopBomb.this._time.get(player)).doubleValue() - 0.1D));
+          			if (((Double)PoopBomb.this._time.get(player)).doubleValue() < 0.01D){
+          				PoopBomb.this._time.remove(player);
+          				PoopBomb.this._cdRunnable.remove(player);
+          				cancel();
+          			}
+    			} else {
+    				PoopBomb.this._time.remove(player);
       				PoopBomb.this._cdRunnable.remove(player);
       				cancel();
-      			}
+    			}
     		
     		}
 	    });((BukkitRunnable)this._cdRunnable.get(player)).runTaskTimer(plugin, 2L, 2L); 

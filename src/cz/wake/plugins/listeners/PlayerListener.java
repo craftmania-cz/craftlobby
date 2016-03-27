@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Silverfish;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -17,6 +18,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -142,6 +144,13 @@ public class PlayerListener implements Listener{
 	}
 	
 	@EventHandler
+	public void silverfishFix(EntityChangeBlockEvent e){
+		if(e.getEntity() instanceof Silverfish){
+			e.setCancelled(true);
+		}
+	}
+	
+	@EventHandler
     public void onCreatureSpawn(CreatureSpawnEvent event){
         if (event.getSpawnReason() == SpawnReason.EGG){
             event.setCancelled(true);
@@ -165,9 +174,8 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler
 	public void onPickup(PlayerPickupItemEvent e){
-		Player p = e.getPlayer();
 		Item item = e.getItem();
-		if(((item.getItemStack().getItemMeta().getDisplayName().contains("nopickup")))){
+		if(((item.getItemStack().getItemMeta().getDisplayName().contains("nopickup"))) && item != null){
 			e.setCancelled(true);
 			e.getItem().remove();
 		} 

@@ -105,7 +105,7 @@ public class BatBlaster implements Listener{
 	    			              if (affectPlayers) {
 	    			                  UtilMath.applyVelocity(other, bat.getLocation().getDirection().add(new Vector(0.0F, 0.4F, 0.0F)));
 	    			              }
-	    			              bat.getWorld().playSound(bat.getLocation(), Sound.BAT_HURT, 0.5F, 0.5F);
+	    			              bat.getWorld().playSound(bat.getLocation(), Sound.BAT_HURT, 1F, 1F);
 	    			              bat.getWorld().spigot().playEffect(bat.getLocation(), Effect.SMOKE);
 	    			              
 	    			              bat.remove();

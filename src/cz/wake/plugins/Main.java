@@ -123,6 +123,10 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	
 	public void onDisable(){
 		instance = null;
+		
+		for(Entity e : Bukkit.getWorld("OfficialLobby").getEntities()){
+			e.remove();
+		}
 	}
 	
 	private void loadListeners(){
