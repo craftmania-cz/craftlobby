@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.cloaks.AngleCloak;
+import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.cloaks.SantaCloak;
 import cz.wake.plugins.utils.ItemFactory;
 
@@ -98,6 +99,45 @@ public class Cloaks {
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			cloakMenu.setItem(11, noPerm);
+		}
+		if(p.hasPermission("craftlobby.cloaks.hero")){
+			if(Hero.heroCloaks.containsKey(p.getName())){
+				ItemStack santa = new ItemStack(Material.REDSTONE);
+				santa = ItemFactory.addGlow(santa);
+				ItemMeta sMeta = santa.getItemMeta();
+				sMeta.setDisplayName("§a§lHero");
+				ArrayList<String> sLore = new ArrayList<String>();
+				sLore.add("");
+				sLore.add("§7Kazdy superhrdina,");
+				sLore.add("§7musi mit plast.");
+				sLore.add("");
+				sLore.add("§cAktivovano!");
+				sMeta.setLore(sLore);
+				santa.setItemMeta(sMeta);
+				cloakMenu.setItem(12, santa);
+			} else {
+				ItemStack santa = new ItemStack(Material.REDSTONE);
+				ItemMeta sMeta = santa.getItemMeta();
+				sMeta.setDisplayName("§a§lHero");
+				ArrayList<String> sLore = new ArrayList<String>();
+				sLore.add("");
+				sLore.add("§7Kazdy superhrdina,");
+				sLore.add("§7musi mit plast.");
+				sLore.add("");
+				sLore.add("§eKliknutim aktivujes!");
+				sMeta.setLore(sLore);
+				santa.setItemMeta(sMeta);
+				cloakMenu.setItem(12, santa);
+			}
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lHero");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add("§7Tento Cloak se ziskat v CraftBoxu.");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			cloakMenu.setItem(12, noPerm);
 		}
 		
 		ItemStack zpet = new ItemStack(Material.ARROW);

@@ -35,6 +35,7 @@ import cz.wake.plugins.GUI.MorphsMenu;
 import cz.wake.plugins.GUI.MountMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.Servers;
+import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.commands.ProfilCMD;
 import cz.wake.plugins.commands.Stats_Command;
 import cz.wake.plugins.gadgets.AntiGravity;
@@ -62,6 +63,7 @@ import cz.wake.plugins.gadgets.TNTBomb;
 import cz.wake.plugins.gadgets.TNTFountain;
 import cz.wake.plugins.gadgets.Trampoline;
 import cz.wake.plugins.gadgets.Tsunami;
+import cz.wake.plugins.gadgets.WakeArmy;
 import cz.wake.plugins.gadgets.WitherCatapult;
 import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
@@ -169,6 +171,8 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new PigFly(this), this);
 		pm.registerEvents(new DiscoBall(this), this);
 		pm.registerEvents(new PartyCoins(this), this);
+		pm.registerEvents(new WakeArmy(this), this);
+		pm.registerEvents(new Hero(), this);
 	}
 	
 	private void loadCommands(){

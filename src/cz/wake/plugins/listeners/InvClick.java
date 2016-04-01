@@ -34,6 +34,7 @@ import cz.wake.plugins.GUI.ParticlesMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.cloaks.AngleCloak;
+import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.cloaks.SantaCloak;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
@@ -131,6 +132,7 @@ public class InvClick implements Listener{
 	CandyCane cc = new CandyCane();
 	AngleCloak ac = new AngleCloak();
 	NakupBoxu np = new NakupBoxu();
+	Hero hero = new Hero();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -382,6 +384,15 @@ public class InvClick implements Listener{
         			player.closeInventory();
         		} else {
         			MessagesListener.messageNoPerm(player, "Angel Cloak");
+        		}
+        	}
+        	if(event.getSlot() == 12){
+        		if(player.hasPermission("craftlobby.cloaks.hero")){
+        			deactivateCloaks(player);
+        			this.hero.activate(player);
+        			player.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Hero Cloak");
         		}
         	}
         }
@@ -2737,6 +2748,12 @@ public class InvClick implements Listener{
 		if(AngleCloak.angelCloaks.containsKey(p.getName())){
 			Bukkit.getScheduler().cancelTask(((Integer)AngleCloak.angelCloaks.get(p.getName())).intValue());
 			AngleCloak.angelCloaks.remove(p.getName());
+			p.getInventory().setArmorContents(null);
+			p.closeInventory();
+		}
+		if(Hero.heroCloaks.containsKey(p.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(p.getName())).intValue());
+			Hero.heroCloaks.remove(p.getName());
 			p.getInventory().setArmorContents(null);
 			p.closeInventory();
 		}
