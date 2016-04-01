@@ -134,15 +134,15 @@ public class VIPMenu {
 		
 		ItemStack t2 = new ItemStack(Material.PAPER);
 		ItemMeta wt = t2.getItemMeta();
-		wt.setDisplayName("§b§lVIP §7na §a§lNAVZDY §c§lAKCE! -50%");
+		wt.setDisplayName("§b§lVIP §7na §a§lNAVZDY");
 		ArrayList<String> wi = new ArrayList<String>();
 		wi.add("");
-		wi.add("§cSMS CZ §f-> §c99kc");
-		wi.add("§fFAKAHEDA Y58473 99 MVE §b" + p.getName().toString());
+		wi.add("§cSMS CZ §f-> §c249kc");
+		wi.add("§fFAKAHEDA Y58473 249 MG §b" + p.getName().toString());
 		wi.add("§7na cislo: §f90333");
 		wi.add("");
-		wi.add("§aSMS SK §f-> §a4e");
-		wi.add("§fFAKAHEDA Y58473 4 MVE §b" + p.getName().toString());
+		wi.add("§aSMS SK §f-> §a10e");
+		wi.add("§fFAKAHEDA Y58473 10 MG §b" + p.getName().toString());
 		wi.add("§7na cislo: §f8866");
 		wt.setLore(wi);
 		t2.setItemMeta(wt);
