@@ -1,9 +1,14 @@
 package cz.wake.plugins;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import net.milkbowl.vault.economy.Economy;
 import net.minecraft.server.v1_8_R3.EntityChicken;
@@ -108,8 +113,9 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		loadCommands();
 		setupEconomy(); //Vault
 		debug = false;
+		
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
-        Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
+	    Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
         
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
         NMSUtils.registerEntity("Chicken", 93, EntityChicken.class, RideableChicken.class);
@@ -216,13 +222,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public static Plugin getPlugin() {
         return Bukkit.getPluginManager().getPlugin("WakesLobby");
     }
-
-	@Override
-	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
-		 if (!channel.equals("BungeeCord")) {
-	            return;
-	     }	 
-	}
 	
 	private boolean setupEconomy(){
         RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
@@ -231,4 +230,10 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         }
         return (economy != null);
     }
+
+	@Override
+	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
+		if(!channel.equalsIgnoreCase("BungeeCord")) return;
+	}
+	
 }
