@@ -21,12 +21,13 @@ public class SetData {
 					PreparedStatement sql = Main.getInstance().getMySQL().getCurrentConnection().prepareStatement(query);
 					sql.setString(1, p.getUniqueId().toString());
 					sql.setLong(2, milis);
-					sql.execute();
+					sql.setQueryTimeout(30);
+					sql.executeQuery();
 					sql.close();
 					
 				} catch (SQLException e) {
 					e.printStackTrace();
-				}
+				} 
 				
 			}
 		}.runTaskAsynchronously(Main.getInstance());
@@ -44,7 +45,8 @@ public class SetData {
 					
 					PreparedStatement sql = Main.getInstance().getMySQL().getCurrentConnection().prepareStatement(query);
 					sql.setLong(1, time);
-					sql.execute();
+					sql.setQueryTimeout(30);
+					sql.executeQuery();
 					sql.close();
 					
 				} catch (SQLException e) {
@@ -67,7 +69,8 @@ public class SetData {
 					
 					PreparedStatement sql = Main.getInstance().getMySQL().getCurrentConnection().prepareStatement(query);
 					sql.setInt(1, Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) - coins);
-					sql.execute();
+					sql.setQueryTimeout(30);
+					sql.executeUpdate();
 					sql.close();
 					
 				} catch (SQLException e) {

@@ -3,6 +3,9 @@ package cz.wake.plugins;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+
+import org.bukkit.Bukkit;
 
 
 public class MySQL {
@@ -13,6 +16,7 @@ public class MySQL {
 		try{
 			if((this.con == null) || (this.con.isClosed())){
 				this.con = DriverManager.getConnection("jdbc:mysql://" + Main.getInstance().getConfig().getString("host") + ":" + Main.getInstance().getConfig().getString("port") + "/" +  Main.getInstance().getConfig().getString("database"), Main.getInstance().getConfig().getString("user"), Main.getInstance().getConfig().getString("password"));
+				Bukkit.getServer().getLogger().log(Level.INFO, "[CraftLobby] Pripojovani do SQL: " + Main.getInstance().getConfig().getString("database"));
 			}
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
