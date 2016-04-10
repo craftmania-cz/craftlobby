@@ -94,8 +94,6 @@ public class Servers implements Listener{
 		vLore.add(ChatColor.GRAY + "Zakladni Minecraft bez prikazu");
 		vLore.add(ChatColor.GRAY + "pluginu atd. Ta prava hra o preziti!");
 		vLore.add("");
-		vLore.add("§cNa tomto server je aktivni whitelist!");
-		vLore.add("");
 		vLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		vMeta.setLore(vLore);
 		vanilla.setItemMeta(vMeta);

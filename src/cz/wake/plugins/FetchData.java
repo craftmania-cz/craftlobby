@@ -18,7 +18,7 @@ public class FetchData {
 			localResultSet.close();
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
-		}
+		} 
 		return 0;
 	}
 	
