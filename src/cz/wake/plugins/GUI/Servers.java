@@ -1,5 +1,6 @@
 package cz.wake.plugins.GUI;
 
+import java.sql.Time;
 import java.util.ArrayList;
 
 import net.md_5.bungee.api.ChatColor;
@@ -11,6 +12,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
+
+import cz.wake.plugins.Main;
+import cz.wake.plugins.API.TimeUtils;
+import cz.wake.plugins.utils.ItemFactory;
 
 public class Servers implements Listener{
 	
@@ -33,7 +39,7 @@ public class Servers implements Listener{
 		
 		ItemStack skyblock = new ItemStack(Material.COOKIE);
 		ItemMeta skMeta = skyblock.getItemMeta();
-		skMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Skyblock §b§l1.8");
+		skMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Skyblock §c§l1.9");
 		ArrayList<String> skLore = new ArrayList<String>();
 		skLore.add(ChatColor.DARK_GRAY + "PVP");
 		skLore.add("");
@@ -46,7 +52,7 @@ public class Servers implements Listener{
 		
 		ItemStack creative = new ItemStack(Material.LAVA_BUCKET);
 		ItemMeta cMeta = creative.getItemMeta();
-		cMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative §b§l1.8");
+		cMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative §c§l1.9");
 		ArrayList<String> cLore = new ArrayList<String>();
 		cLore.add(ChatColor.DARK_GRAY + "NO-PVP");
 		cLore.add("");
@@ -60,7 +66,7 @@ public class Servers implements Listener{
 		
 		ItemStack creative2 = new ItemStack(Material.WATER_BUCKET);
 		ItemMeta cMeta2 = creative2.getItemMeta();
-		cMeta2.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative #2 §b§l1.8");
+		cMeta2.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative #2 §c§l1.9");
 		ArrayList<String> cLore2 = new ArrayList<String>();
 		cLore2.add(ChatColor.DARK_GRAY + "NO-PVP");
 		cLore2.add("");
@@ -100,7 +106,7 @@ public class Servers implements Listener{
 		
 		ItemStack anni = new ItemStack(Material.ENDER_STONE);
 		ItemMeta aMeta = anni.getItemMeta();
-		aMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Annihilation §b§l1.8");
+		aMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Annihilation §b§l1.8 §7+ §c§l1.9");
 		ArrayList<String> aLore = new ArrayList<String>();
 		aLore.add(ChatColor.DARK_GRAY + "PVP");
 		aLore.add("");
@@ -115,7 +121,7 @@ public class Servers implements Listener{
 		
 		ItemStack skywars = new ItemStack(Material.EYE_OF_ENDER);
 		ItemMeta skyMeta = skywars.getItemMeta();
-		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars §b§l1.8");
+		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars §b§l1.8 §7+ §c§l1.9");
 		ArrayList<String> skyLore = new ArrayList<String>();
 		skyLore.add(ChatColor.DARK_GRAY + "PVP");
 		skyLore.add("");
@@ -129,23 +135,25 @@ public class Servers implements Listener{
 		skywars.setItemMeta(skyMeta);
 		
 		ItemStack bedwars = new ItemStack(Material.BED);
+		bedwars = ItemFactory.addGlow(bedwars);
 		ItemMeta bedMeta = bedwars.getItemMeta();
-		bedMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "BedWars §b§l1.8");
+		bedMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "BedWars §c§l1.9");
 		ArrayList<String> bedLore = new ArrayList<String>();
 		bedLore.add(ChatColor.DARK_GRAY + "PVP");
 		bedLore.add("");
 		bedLore.add(ChatColor.GRAY + "Hra podobna Annihilation");
 		bedLore.add(ChatColor.GRAY + "4 teamy, 4 postele, 1 vitez!");
 		bedLore.add("");
-		bedLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
+		bedLore.add(ChatColor.GRAY + "Coins Multiplier: §63.0x");
 		bedLore.add("");
 		bedLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		bedMeta.setLore(bedLore);
 		bedwars.setItemMeta(bedMeta);
 		
 		ItemStack drawit = new ItemStack(Material.PAINTING);
+		drawit = ItemFactory.addGlow(drawit);
 		ItemMeta drawMeta = drawit.getItemMeta();
-		drawMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "DrawIt §b§l1.8");
+		drawMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "DrawIt §c§l1.9");
 		ArrayList<String> drawLore = new ArrayList<String>();
 		drawLore.add(ChatColor.DARK_GRAY + "NO-PVP");
 		drawLore.add("");
@@ -153,7 +161,7 @@ public class Servers implements Listener{
 		drawLore.add(ChatColor.GRAY + "jenom tak jednoduche!");
 		drawLore.add(ChatColor.GRAY + "Jeste tezsi je ho uhadnout.");
 		drawLore.add("");
-		drawLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
+		drawLore.add(ChatColor.GRAY + "Coins Multiplier: §63.0x");
 		drawLore.add("");
 		drawLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		drawMeta.setLore(drawLore);
@@ -161,7 +169,7 @@ public class Servers implements Listener{
 		
 		ItemStack uhc = new ItemStack(Material.GOLDEN_APPLE);
 		ItemMeta uMeta = uhc.getItemMeta();
-		uMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "UHC Run §b§l1.8");
+		uMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "UHC Run §b§l1.8 §7+ §c§l1.9");
 		ArrayList<String> uhcLore = new ArrayList<String>();
 		uhcLore.add(ChatColor.DARK_GRAY + "PVP");
 		uhcLore.add("");
@@ -176,8 +184,9 @@ public class Servers implements Listener{
 		uhc.setItemMeta(uMeta);
 		
 		ItemStack bb = new ItemStack(Material.WORKBENCH);
+		bb = ItemFactory.addGlow(bb);
 		ItemMeta bbMeta = bb.getItemMeta();
-		bbMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Build Battle §b§l1.8");
+		bbMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Build Battle §c§l1.9");
 		ArrayList<String> bbLore = new ArrayList<String>();
 		bbLore.add(ChatColor.DARK_GRAY + "Arcade");
 		bbLore.add("");
@@ -185,7 +194,7 @@ public class Servers implements Listener{
 		bbLore.add(ChatColor.GRAY + "Dokazes postavit zadane veci v casovem");
 		bbLore.add(ChatColor.GRAY + "intervale a vyhrat?");
 		bbLore.add("");
-		bbLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
+		bbLore.add(ChatColor.GRAY + "Coins Multiplier: §63.0x");
 		bbLore.add("");
 		bbLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
 		bbMeta.setLore(bbLore);
@@ -193,7 +202,7 @@ public class Servers implements Listener{
 		
 		ItemStack tw = new ItemStack(Material.WOOL,1,(byte)3);
 		ItemMeta twMeta = tw.getItemMeta();
-		twMeta.setDisplayName("§e§lTurfWars §b§l1.8");
+		twMeta.setDisplayName("§e§lTurfWars §b§l1.8 §7+ §c§l1.9");
 		ArrayList<String> twLore = new ArrayList<String>();
 		twLore.add("§8TEAM PVP");
 		twLore.add("");
@@ -206,6 +215,30 @@ public class Servers implements Listener{
 		twLore.add("§a▸ Kliknutim te portnu");
 		twMeta.setLore(twLore);
 		tw.setItemMeta(twMeta);
+		
+		
+		new BukkitRunnable() {
+
+			@Override
+			public void run() {
+				ItemStack factions = new ItemStack(Material.TNT);
+				ItemMeta facMeta = factions.getItemMeta();
+				facMeta.setDisplayName("§c§lFactions");
+				ArrayList<String> facLore = new ArrayList<String>();
+				facLore.add("");
+				facLore.add("§7Tvrdili, ze preziji jenom ti nejlepsi,");
+				facLore.add("§7bude tedy tvuj team na vrcholu?");
+				facLore.add("§7Zit nebo zemrit, vyber si!");
+				facLore.add("");
+				facLore.add("§cZbyvajici cas: §f" + countTime());
+				facMeta.setLore(facLore);
+				factions.setItemMeta(facMeta);
+				serverMenu.setItem(16, factions);
+				
+			}
+			
+		}.runTaskTimerAsynchronously(Main.getInstance(), 0, 600);
+		
 		
 		ItemStack pripravujeme = new ItemStack(Material.STAINED_GLASS);
 		ItemMeta priMeta = pripravujeme.getItemMeta();
@@ -222,7 +255,6 @@ public class Servers implements Listener{
 		serverMenu.setItem(13, creative2);
 		serverMenu.setItem(14, prison);
 		serverMenu.setItem(15, vanilla);
-		serverMenu.setItem(16, pripravujeme);
 		
 		serverMenu.setItem(19, anni);
 		serverMenu.setItem(20, skywars);
@@ -234,6 +266,13 @@ public class Servers implements Listener{
 		
 		p.openInventory(serverMenu);
 		
+	}
+	
+	private String countTime(){
+		long time = System.currentTimeMillis();
+		long pTime = 1462053600000L;
+
+		return TimeUtils.formatTime("%d dni, %hh %mm", ((pTime - time)/1000)/60, false);
 	}
 
 

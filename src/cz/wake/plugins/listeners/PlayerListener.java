@@ -37,6 +37,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.GUI.GadgetsMenu;
+import cz.wake.plugins.GUI.Lobby;
 import cz.wake.plugins.GUI.Menu;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.GUI.VIPMenu;
@@ -60,6 +61,7 @@ public class PlayerListener implements Listener{
 	VIPMenu vmenu = new VIPMenu();
 	InvClick ic = new InvClick();
 	FrozenWalk fw = new FrozenWalk();
+	Lobby lb = new Lobby();
 	
 	@EventHandler(priority=EventPriority.LOWEST)
 	public void onPlayerJoin(PlayerJoinEvent e){
@@ -69,6 +71,7 @@ public class PlayerListener implements Listener{
 		
 		Player p = e.getPlayer();
 		PlayerInventory inv = p.getInventory();
+		
 		
 		p.getInventory().clear();
 		p.getInventory().setArmorContents(null);
@@ -89,6 +92,11 @@ public class PlayerListener implements Listener{
 		
 		ItemStack shopVip = new ItemStack(Material.EMERALD);
 		ItemMeta svMeta = shopVip.getItemMeta();
+		
+		ItemStack servers = new ItemStack(Material.WATCH);
+		ItemMeta serMeta = servers.getItemMeta();
+		serMeta.setDisplayName("§ePrehled lobby §7(Klikni pravym)");
+		servers.setItemMeta(serMeta);
 		
 		compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
 		compass.setItemMeta(compassMeta);
@@ -114,6 +122,7 @@ public class PlayerListener implements Listener{
 		p.getInventory().setItem(2, shopVip);
 		p.getInventory().setItem(4, gadgets);
 		p.getInventory().setItem(7, hider);
+		p.getInventory().setItem(8, servers);
 		
 		p.setFlying(false);
 		p.setWalkSpeed(0.3F);
@@ -199,6 +208,10 @@ public class PlayerListener implements Listener{
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
 				(e.getPlayer().getItemInHand().getType() == Material.COMPASS) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))){
 			this.servers.openServersMenu(p);
+		}
+		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
+				(e.getPlayer().getItemInHand().getType() == Material.WATCH) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§ePrehled lobby §7(Klikni pravym)"))){
+			this.lb.openMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))){
 			if(e.getPlayer().getItemInHand().getType() == Material.INK_SACK && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))){

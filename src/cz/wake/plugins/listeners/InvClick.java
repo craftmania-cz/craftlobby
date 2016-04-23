@@ -83,6 +83,8 @@ import cz.wake.plugins.pets.SheepBrown;
 import cz.wake.plugins.pets.SheepBrownBaby;
 import cz.wake.plugins.pets.SheepGray;
 import cz.wake.plugins.pets.SheepGrayBaby;
+import cz.wake.plugins.pets.SheepMagenta;
+import cz.wake.plugins.pets.SheepOrange;
 import cz.wake.plugins.pets.SheepSilver;
 import cz.wake.plugins.pets.SheepSilverBaby;
 import cz.wake.plugins.pets.SheepWhite;
@@ -225,6 +227,37 @@ public class InvClick implements Listener{
             	player.sendMessage("");
             	player.closeInventory();
             }
+        }
+      //**************************** LOBBY MENU ****************************// 
+        if(event.getInventory().getTitle().equals("Prehled lobby serveru")){
+        	if(event.getCurrentItem().getType() == Material.AIR)
+        		return;
+        	if(event.getSlot() == 0){
+        		sendToServer(player, "ohub");
+        	}
+        	if(event.getSlot() == 1){
+        		sendToServer(player, "lobby");
+        	}
+        	if(event.getSlot() == 2){
+        		sendToServer(player, "lobby2");
+        	}
+        	if(event.getSlot() == 3){
+        		sendToServer(player, "lobby3");
+        	}
+        	if(event.getSlot() == 4){
+        		sendToServer(player, "blobby");
+        	}
+        	if(event.getSlot() == 5){
+        		sendToServer(player, "dlobby");
+        	}
+        	if(event.getSlot() == 6){
+        		sendToServer(player, "slobby");
+        	}
+        	if(event.getSlot() == 7){
+        		sendToServer(player, "tlobby");
+        	}
+        	event.setCancelled(true);
+        	player.updateInventory();
         }
       //**************************** MINIGAMES STATS ****************************//  
         if(event.getInventory().getTitle().equals(player.getName())){
@@ -769,18 +802,14 @@ public class InvClick implements Listener{
         		} else {
         			MessagesListener.messageNoPerm(player, "Rabbit Baby Pet");
         		}
-        	} else {
-        		
-        	}
+        	} 
         	if(event.getSlot() == 24){
         		if(player.hasPermission("craftlobby.pets.rabbit.black.baby")){
         			RabbitBlackBaby.activate(player);
         		} else {
         			MessagesListener.messageNoPerm(player, "Rabbit Baby Pet");
         		}
-        	} else {
-        		
-        	}
+        	} 
         	if(event.getSlot() == 25){
         		if(player.hasPermission("craftlobby.pets.rabbit.gold.baby")){
         			RabbitGoldBaby.activate(player);
@@ -842,6 +871,20 @@ public class InvClick implements Listener{
         			SheepBrownBaby.activate(player);
         		} else {
         			MessagesListener.messageNoPerm(player, "Sheep Baby Pet");
+        		}
+        	}
+        	if(event.getSlot() == 34){
+        		if(player.hasPermission("craftlobby.pets.sheep.orange")){
+        			SheepOrange.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Sheep Orange");
+        		}
+        	}
+        	if(event.getSlot() == 35){
+        		if(player.hasPermission("craftlobby.pets.sheep.magenta")){
+        			SheepMagenta.activate(player);
+        		} else {
+        			MessagesListener.messageNoPerm(player, "Sheep Magenta");
         		}
         	}
         }

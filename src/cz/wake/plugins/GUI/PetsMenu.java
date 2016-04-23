@@ -37,6 +37,8 @@ import cz.wake.plugins.pets.SheepBrown;
 import cz.wake.plugins.pets.SheepBrownBaby;
 import cz.wake.plugins.pets.SheepGray;
 import cz.wake.plugins.pets.SheepGrayBaby;
+import cz.wake.plugins.pets.SheepMagenta;
+import cz.wake.plugins.pets.SheepOrange;
 import cz.wake.plugins.pets.SheepSilver;
 import cz.wake.plugins.pets.SheepSilverBaby;
 import cz.wake.plugins.pets.SheepWhite;
@@ -1379,6 +1381,84 @@ public class PetsMenu implements Listener{
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
 			petsMenu.setItem(33, noPerm);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.orange")){
+			if(SheepOrange.sg.contains(p.getName())){
+				ItemStack item = new ItemStack(Material.WOOL,1,(byte)1);
+				item = ItemFactory.addGlow(item);
+				ItemMeta meta = item.getItemMeta();
+				meta.setDisplayName("§5§lSheep: Orange");
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add("");
+				lore.add("§7Hodnota: §8Rare");
+				lore.add("§7Typ: §8Oranzova");
+				lore.add("");
+				lore.add("§cAktivovano!");
+				meta.setLore(lore);
+				item.setItemMeta(meta);
+				petsMenu.setItem(34, item);
+			} else {
+				ItemStack item = new ItemStack(Material.WOOL,1,(byte)1);
+				ItemMeta meta = item.getItemMeta();
+				meta.setDisplayName("§5§lSheep: Orange");
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add("");
+				lore.add("§7Hodnota: §8Rare");
+				lore.add("§7Typ: §8Oranzova");
+				lore.add("");
+				lore.add("§eKliknutim privolas!");
+				meta.setLore(lore);
+				item.setItemMeta(meta);
+				petsMenu.setItem(34, item);
+			}
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lSheep: Orange");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Mazlicka lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			petsMenu.setItem(34, noPerm);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.magenta")){
+			if(SheepMagenta.sg.contains(p.getName())){
+				ItemStack item = new ItemStack(Material.WOOL,1,(byte)2);
+				item = ItemFactory.addGlow(item);
+				ItemMeta meta = item.getItemMeta();
+				meta.setDisplayName("§5§lSheep: Magenta");
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add("");
+				lore.add("§7Hodnota: §8Rare");
+				lore.add("§7Typ: §8Svetle fialova");
+				lore.add("");
+				lore.add("§cAktivovano!");
+				meta.setLore(lore);
+				item.setItemMeta(meta);
+				petsMenu.setItem(35, item);
+			} else {
+				ItemStack item = new ItemStack(Material.WOOL,1,(byte)2);
+				ItemMeta meta = item.getItemMeta();
+				meta.setDisplayName("§5§lSheep: Magenta");
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add("");
+				lore.add("§7Hodnota: §8Rare");
+				lore.add("§7Typ: §8Svetle fialova");
+				lore.add("");
+				lore.add("§eKliknutim privolas!");
+				meta.setLore(lore);
+				item.setItemMeta(meta);
+				petsMenu.setItem(35, item);
+			}
+		} else {
+			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
+			ItemMeta noPermMeta = noPerm.getItemMeta();
+			noPermMeta.setDisplayName("§c§lSheep: Magenta");
+			ArrayList<String> noPermLore = new ArrayList<String>();
+			noPermLore.add(ChatColor.GRAY + "Mazlicka lze ziskat v CraftBoxu!");
+			noPermMeta.setLore(noPermLore);
+			noPerm.setItemMeta(noPermMeta);
+			petsMenu.setItem(35, noPerm);
 		}
 		
 		ItemStack zpet = new ItemStack(Material.ARROW);
