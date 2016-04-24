@@ -345,26 +345,6 @@ public class GadgetsItemsMenu{
 			noPerm.setItemMeta(noPermMeta);
 			gadgetsInv.setItem(16, noPerm);
 		}
-		if(p.hasPermission("craftlobby.gadgets.tntfountain")){
-			ItemStack fountain = new ItemStack(Material.CLAY_BALL);
-			ItemMeta ft = fountain.getItemMeta();
-			ft.setDisplayName("§e§lTNT Fountain");
-			ArrayList<String> fLore = new ArrayList<String>();
-			fLore.add(ChatColor.GRAY + "Vsude budou litat TNT,");
-			fLore.add(ChatColor.GRAY + "tak bacha na hlavu!");
-			ft.setLore(fLore);
-			fountain.setItemMeta(ft);
-			gadgetsInv.setItem(17, fountain);
-		} else {
-			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
-			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName("§c§lTNT Fountain");
-			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
-			noPermMeta.setLore(noPermLore);
-			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(17, noPerm);
-		}
 		if(p.hasPermission("craftlobby.gadgets.trampoline")){
 			ItemStack trampoline = new ItemStack(Material.HOPPER);
 			ItemMeta tMeta = trampoline.getItemMeta();
@@ -373,7 +353,7 @@ public class GadgetsItemsMenu{
 			tLore.add(ChatColor.GRAY + "Trampolina, zaskakej si!");
 			tMeta.setLore(tLore);
 			trampoline.setItemMeta(tMeta);
-			gadgetsInv.setItem(18, trampoline);
+			gadgetsInv.setItem(17, trampoline);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -382,7 +362,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(18, noPerm);
+			gadgetsInv.setItem(17, noPerm);
 		}
 		if(p.hasPermission("craftlobby.gadgets.explosivesheep")){
 			ItemStack exsheep = new ItemStack(Material.SHEARS);
@@ -392,7 +372,7 @@ public class GadgetsItemsMenu{
 			exLore.add(ChatColor.GRAY + "Vybuchujici ovecka, utec.");
 			exMeta.setLore(exLore);
 			exsheep.setItemMeta(exMeta);
-			gadgetsInv.setItem(19, exsheep);
+			gadgetsInv.setItem(18, exsheep);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -401,7 +381,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(19, noPerm);
+			gadgetsInv.setItem(18, noPerm);
 		}
 		if(p.hasPermission("craftlobby.gadgets.smashdown")){
 			ItemStack smash = new ItemStack(Material.FIREWORK_CHARGE);
@@ -411,7 +391,7 @@ public class GadgetsItemsMenu{
 			sLore.add(ChatColor.GRAY + "Odstrel vsechny z tveho okoli.");
 			sMeta.setLore(sLore);
 			smash.setItemMeta(sMeta);
-			gadgetsInv.setItem(20, smash);
+			gadgetsInv.setItem(19, smash);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -420,7 +400,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(20, noPerm);
+			gadgetsInv.setItem(19, noPerm);
 		}
 		if(p.hasPermission("craftlobby.gadgets.flowerpopper")){
 			ItemStack flowerpop = new ItemStack(Material.RED_ROSE);
@@ -431,7 +411,7 @@ public class GadgetsItemsMenu{
 			fmLore.add(ChatColor.GRAY + "strili kytky.");
 			fMeta.setLore(fmLore);
 			flowerpop.setItemMeta(fMeta);
-			gadgetsInv.setItem(21, flowerpop);
+			gadgetsInv.setItem(20, flowerpop);
 		} else {
 			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
 			ItemMeta noPermMeta = noPerm.getItemMeta();
@@ -440,7 +420,7 @@ public class GadgetsItemsMenu{
 			noPermLore.add(ChatColor.GRAY + "Gadget lze ziskat v CraftBoxu!");
 			noPermMeta.setLore(noPermLore);
 			noPerm.setItemMeta(noPermMeta);
-			gadgetsInv.setItem(21, noPerm);
+			gadgetsInv.setItem(20, noPerm);
 		}
 		
 		ItemStack mobgun = new ItemStack(Material.BLAZE_ROD);

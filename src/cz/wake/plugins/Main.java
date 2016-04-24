@@ -1,16 +1,12 @@
 package cz.wake.plugins;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import net.milkbowl.vault.economy.Economy;
+
 import net.minecraft.server.v1_8_R3.EntityChicken;
 import net.minecraft.server.v1_8_R3.EntityCow;
 import net.minecraft.server.v1_8_R3.EntityHorse;
@@ -65,7 +61,6 @@ import cz.wake.plugins.gadgets.PoopBomb;
 import cz.wake.plugins.gadgets.SlimeHat;
 import cz.wake.plugins.gadgets.SmashDown;
 import cz.wake.plugins.gadgets.TNTBomb;
-import cz.wake.plugins.gadgets.TNTFountain;
 import cz.wake.plugins.gadgets.Trampoline;
 import cz.wake.plugins.gadgets.Tsunami;
 import cz.wake.plugins.gadgets.WakeArmy;
@@ -147,7 +142,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new MobGun(this), this);
 		pm.registerEvents(new FunCannon(this), this);
 		pm.registerEvents(new TNTBomb(this), this);
-		pm.registerEvents(new TNTFountain(this), this);
 		pm.registerEvents(new MorphsMenu(), this);
 		pm.registerEvents(new VillagerMorph(this), this);
 		pm.registerEvents(new PigMorph(this), this);

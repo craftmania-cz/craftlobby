@@ -1168,20 +1168,6 @@ public class InvClick implements Listener{
             	}
             }
             if(event.getSlot() == 17){
-            	if(player.hasPermission("craftlobby.gadgets.tntfountain")){
-            		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
-                	ItemStack fc = new ItemStack(Material.CLAY_BALL);
-                	ItemMeta fcMeta = fc.getItemMeta();
-                	fcMeta.setDisplayName(ChatColor.RED + "TNTFountain");
-                	fc.setItemMeta(fcMeta);
-                	player.getInventory().setItem(6, fc);
-                	player.sendMessage(ChatColor.AQUA + "Gadgets" + ChatColor.GRAY + " Aktivoval jsi " + ChatColor.GREEN + "TNTFountain.");
-                	player.closeInventory();
-            	} else {
-            		MessagesListener.messageNoPerm(player, "TNT Fountain");
-            	}
-            }
-            if(event.getSlot() == 18){
             	if(player.hasPermission("craftlobby.gadgets.trampoline")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.HOPPER);
@@ -1195,7 +1181,7 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "Trampoline");
             	}
             }
-            if(event.getSlot() == 19){
+            if(event.getSlot() == 18){
             	if(player.hasPermission("craftlobby.gadgets.explosivesheep")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.SHEARS);
@@ -1209,7 +1195,7 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "ExplosiveSheep");
             	}
             }
-            if(event.getSlot() == 20){
+            if(event.getSlot() == 19){
             	if(player.hasPermission("craftlobby.gadgets.smashdown")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.FIREWORK_CHARGE);
@@ -1223,7 +1209,7 @@ public class InvClick implements Listener{
             		MessagesListener.messageNoPerm(player, "SmashDown");
             	}
             }
-            if(event.getSlot() == 21){
+            if(event.getSlot() == 20){
             	if(player.hasPermission("craftlobby.gadgets.flowerpopper")){
             		player.playSound(player.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
                 	ItemStack fc = new ItemStack(Material.RED_ROSE);
