@@ -1,9 +1,5 @@
 package cz.wake.plugins.morphs;
 
-import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
-import me.libraryaddict.disguise.disguisetypes.MobDisguise;
-import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Sound;
@@ -23,7 +19,7 @@ public class VillagerMorph implements Listener{
 	public VillagerMorph(Main plugin){
 		this.plugin = plugin;
 	}
-	
+	/*
 	public static void activate(Player p){
 		MobDisguise localDisguise = new MobDisguise(DisguiseType.VILLAGER);
 		DisguiseAPI.undisguiseToAll(p);
@@ -64,5 +60,5 @@ public class VillagerMorph implements Listener{
 	      ParticleEffect.VILLAGER_ANGRY.display(2.0F, 2.0F, 2.0F, 0.0F, 45, p.getLocation(), 15.0D);
 	    }
 	  }
-
+	*/
 }

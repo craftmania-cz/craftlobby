@@ -1,37 +1,17 @@
 package cz.wake.plugins.morphs;
 
-import me.libraryaddict.disguise.DisguiseAPI;
-import me.libraryaddict.disguise.disguisetypes.DisguiseType;
-import me.libraryaddict.disguise.disguisetypes.MobDisguise;
-import me.libraryaddict.disguise.disguisetypes.watchers.LivingWatcher;
-import net.md_5.bungee.api.ChatColor;
-
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
-
 import cz.wake.plugins.Main;
-import cz.wake.plugins.utils.ParticleEffect;
 
 public class PigMorph implements Listener{
 	
-private Main plugin;
+	private Main plugin;
 	
 	public PigMorph(Main plugin){
 		this.plugin = plugin;
 	}
 	
+	/*
 	public static void activate(Player p){
 		MobDisguise localDisguise = new MobDisguise(DisguiseType.PIG);
 		DisguiseAPI.undisguiseToAll(p);
@@ -100,5 +80,7 @@ private Main plugin;
 			
 		}
 	}
+	
+	*/
 
 }

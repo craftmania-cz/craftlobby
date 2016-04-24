@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Josef/Desktop/API/LibsDisguises.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Josef/Desktop/API/BungeeCord.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Josef/Desktop/API/minecraft_server.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Josef/Desktop/API/Vault.jar"/>

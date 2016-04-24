@@ -3,8 +3,6 @@ package cz.wake.plugins.listeners;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
-import me.libraryaddict.disguise.DisguiseAPI;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -17,7 +15,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
-import cz.wake.plugins.API.TimeUtils;
 import cz.wake.plugins.GUI.Cloaks;
 import cz.wake.plugins.GUI.GadgetsItemsMenu;
 import cz.wake.plugins.GUI.GadgetsMenu;
@@ -894,19 +891,19 @@ public class InvClick implements Listener{
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
         	if(event.getSlot() == 40){
-        		DisguiseAPI.undisguiseToAll(player);
+        		//DisguiseAPI.undisguiseToAll(player);
         		player.sendMessage(ChatColor.GRAY + "Zrusil jsi aktualni premenu.");
         		player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
         		player.closeInventory();
         	}
         	if(event.getSlot() == 10){
-        		VillagerMorph.activate(player);
+        		//VillagerMorph.activate(player);
         		player.playSound(player.getLocation(), Sound.ANVIL_LAND, 15.0F, 15.0F);
         		player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Villager Morph.");
         		player.closeInventory();
         	}
         	if(event.getSlot() == 11){
-        		PigMorph.activate(player);
+        		//PigMorph.activate(player);
         		player.playSound(player.getLocation(), Sound.ANVIL_LAND, 15.0F, 15.0F);
         		player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Pig Morph.");
         		player.closeInventory();
