@@ -16,7 +16,6 @@ public class MySQL {
 		try{
 			if((this.con == null) || (this.con.isClosed())){
 				this.con = DriverManager.getConnection("jdbc:mysql://" + Main.getInstance().getConfig().getString("host") + ":" + Main.getInstance().getConfig().getString("port") + "/" +  Main.getInstance().getConfig().getString("database"), Main.getInstance().getConfig().getString("user"), Main.getInstance().getConfig().getString("password"));
-				Bukkit.getServer().getLogger().log(Level.WARNING, "[CraftLobby] Pripojovani do SQL: " + Main.getInstance().getConfig().getString("database"));
 			}
 		} catch(SQLException localSQLException){
 			localSQLException.printStackTrace();
