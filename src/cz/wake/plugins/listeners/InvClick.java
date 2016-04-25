@@ -138,7 +138,7 @@ public class InvClick implements Listener{
       Player player = (Player) event.getWhoClicked();
       //**************************** PROFILE MENU ****************************//
         if (event.getInventory().getTitle().equals(player.getName())) {
-        	if(event.getSlot() == 29){
+        	if(event.getSlot() == 10){
         		this.statistics.openMinigamesMenu(player);
         	}
             event.setCancelled(true);
