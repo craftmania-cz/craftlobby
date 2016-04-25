@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import net.milkbowl.vault.economy.Economy;
-
 import net.minecraft.server.v1_8_R3.EntityChicken;
 import net.minecraft.server.v1_8_R3.EntityCow;
 import net.minecraft.server.v1_8_R3.EntityHorse;
@@ -67,6 +66,7 @@ import cz.wake.plugins.gadgets.WakeArmy;
 import cz.wake.plugins.gadgets.WitherCatapult;
 import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
+import cz.wake.plugins.manager.LagManager;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
 import cz.wake.plugins.pets.PetManager;
@@ -108,6 +108,8 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		loadCommands();
 		setupEconomy(); //Vault
 		debug = false;
+		
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
 		
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 	    Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
