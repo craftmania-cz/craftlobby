@@ -202,7 +202,8 @@ public class PlayerListener implements Listener{
 			this.vmenu.openVIPMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
-				(e.getPlayer().getItemInHand().getType() == Material.ENDER_CHEST) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))){
+				(e.getPlayer().getItemInHand().getType() == Material.ENDER_CHEST) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
+				 && (Main.getInstance().getTPS() >= 17)){
 			this.gadgetsMenu.openGadgetsMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 

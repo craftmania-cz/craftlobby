@@ -37,7 +37,4 @@ public class Stats_Command implements CommandExecutor{
 		}
 		return false;
 	}
-	
-	
-
 }

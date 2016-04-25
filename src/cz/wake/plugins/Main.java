@@ -219,6 +219,10 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         return Bukkit.getPluginManager().getPlugin("WakesLobby");
     }
 	
+	public double getTPS(){
+		return LagManager.getTPS();
+	}
+	
 	private boolean setupEconomy(){
         RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
         if (economyProvider != null) {

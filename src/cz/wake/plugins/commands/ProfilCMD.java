@@ -1,5 +1,7 @@
 package cz.wake.plugins.commands;
 
+import java.text.DecimalFormat;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -14,6 +16,7 @@ import cz.wake.plugins.GUI.GadgetsMenu;
 import cz.wake.plugins.GUI.HeadsMenu;
 import cz.wake.plugins.GUI.Menu;
 import cz.wake.plugins.GUI.StatisticsMG;
+import cz.wake.plugins.manager.LagManager;
 
 public class ProfilCMD implements CommandExecutor{
 	
@@ -57,6 +60,38 @@ public class ProfilCMD implements CommandExecutor{
 			            return true;
 					}
 				return true;
+				}
+				else if(ArrayOfString[0].equalsIgnoreCase("tps")){
+					if(((Player) Sender).getPlayer().hasPermission("craftlobby.admin")){
+						double TPS = LagManager.getTPS();
+						DecimalFormat TpsFormat = new DecimalFormat("#.###");
+						
+						if(TPS > 20){
+							Sender.sendMessage("§7Status: " + "§a" + TpsFormat.format(TPS));
+							return true;
+						}
+						if(TPS > 18){
+							Sender.sendMessage("§7Status: " + "§a" + TpsFormat.format(TPS));
+							return true;
+						}
+						if(TPS > 16){
+							Sender.sendMessage("§7Status: " + "§6" + TpsFormat.format(TPS));
+							return true;
+						}
+						if(TPS > 10){
+							Sender.sendMessage("§7Status: " + "§c" + TpsFormat.format(TPS));
+							return true;
+						}
+						if(TPS > 5){
+							Sender.sendMessage("§7Status: " + "§4" + TpsFormat.format(TPS));
+							return true;
+						}
+						if(TPS > 0){
+							Sender.sendMessage("§7Status: §c§lServer je kompletne pretizen!");
+							return true;
+						}
+					}
+					return true;
 				}
 			}
 			return false;
