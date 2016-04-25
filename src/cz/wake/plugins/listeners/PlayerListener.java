@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Sheep;
 import org.bukkit.entity.Silverfish;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -155,6 +156,9 @@ public class PlayerListener implements Listener{
 	@EventHandler
 	public void silverfishFix(EntityChangeBlockEvent e){
 		if(e.getEntity() instanceof Silverfish){
+			e.setCancelled(true);
+		}
+		if(e.getEntity() instanceof Sheep){
 			e.setCancelled(true);
 		}
 	}
