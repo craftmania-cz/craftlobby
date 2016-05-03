@@ -307,8 +307,8 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 25){
         		player.performCommand("warp turfwars");
         	}
-        	if(event.getSlot() == 40){
-        		player.performCommand("spawn");
+        	if(event.getSlot() == 16){
+        		sendToServer(player, "factions");
         	}
         }
       //**************************** GADGETS HLAVNI MENU ****************************//

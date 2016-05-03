@@ -217,27 +217,19 @@ public class Servers implements Listener{
 		tw.setItemMeta(twMeta);
 		
 		
-		new BukkitRunnable() {
-
-			@Override
-			public void run() {
-				ItemStack factions = new ItemStack(Material.TNT);
-				ItemMeta facMeta = factions.getItemMeta();
-				facMeta.setDisplayName("§c§lFactions");
-				ArrayList<String> facLore = new ArrayList<String>();
-				facLore.add("");
-				facLore.add("§7Tvrdili, ze preziji jenom ti nejlepsi,");
-				facLore.add("§7bude tedy tvuj team na vrcholu?");
-				facLore.add("§7Zit nebo zemrit, vyber si!");
-				facLore.add("");
-				facLore.add("§cZbyvajici cas: §f" + countTime());
-				facMeta.setLore(facLore);
-				factions.setItemMeta(facMeta);
-				serverMenu.setItem(16, factions);
-				
-			}
-			
-		}.runTaskTimerAsynchronously(Main.getInstance(), 0, 600);
+		ItemStack factions = new ItemStack(Material.TNT);
+		ItemMeta facMeta = factions.getItemMeta();
+		facMeta.setDisplayName("§c§lFactions");
+		ArrayList<String> facLore = new ArrayList<String>();
+		facLore.add("");
+		facLore.add("§7Tvrdili, ze preziji jenom ti nejlepsi,");
+		facLore.add("§7bude tedy tvuj team na vrcholu?");
+		facLore.add("§7Zit nebo zemrit, vyber si!");
+		facLore.add("");
+		facLore.add("§a▸ Kliknutim te portnu");
+		facMeta.setLore(facLore);
+		factions.setItemMeta(facMeta);
+		serverMenu.setItem(16, factions);
 		
 		
 		ItemStack pripravujeme = new ItemStack(Material.STAINED_GLASS);
@@ -270,7 +262,7 @@ public class Servers implements Listener{
 	
 	private String countTime(){
 		long time = System.currentTimeMillis();
-		long pTime = 1462053600000L;
+		long pTime = 1462204800000L;
 
 		return TimeUtils.formatTime("%d dni, %hh %mm", ((pTime - time)/1000)/60, false);
 	}
