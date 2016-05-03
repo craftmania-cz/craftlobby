@@ -689,5 +689,103 @@ public class FetchData {
 		return 0;
 	}
 	
+	/**
+	 * 
+	 * Zkontroluje @param uuid jestli se nachazi v DB.
+	 * 
+	 * @param uuid - UUID ke kontrole
+	 * @return true/false podle toho zda tam je nebo ne
+	 */
+	public boolean hasBoxData(final UUID uuid) {
+		
+		Boolean hasData = Boolean.valueOf(false);
+		
+		final String query = "SELECT * FROM craftboxer WHERE uuid = '" + uuid.toString() + "';";
+		
+		try {
+			ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+			if (result.next()) {
+		        hasData = Boolean.valueOf(true);
+		      }
+			result.close();
+		} catch (SQLException e) {
+			//Nic
+		}
+		return hasData.booleanValue();
+	}
+	
+	/**
+	 * 
+	 * Ziskani poctu jiz danych boxu!
+	 * 
+	 * @param uuid - UUID hrace
+	 * @return Pocet boxu jiz danych na @param uuid.
+	 */
+	public final int getBoxes(final UUID uuid) {
+		
+		final String query = "SELECT pocet FROM craftboxer WHERE uuid = '" + uuid.toString() + "';";
+		
+		try {
+			
+			ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+			
+			if(result.next()) {
+				return result.getInt("pocet");
+			}
+			result.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	/**
+	 * 
+	 * Cas v milisekundach kdy se ma dat dalsi box!
+	 * 
+	 * @param uuid - UUID hrace
+	 * @return Cas @param uuid.
+	 */
+	public final long getNextboxTime(final UUID uuid) {
+		
+		final String query = "SELECT dalsiBox FROM craftboxer WHERE uuid = '" + uuid.toString() + "';";
+		
+		try {
+			
+			ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+			
+			if(result.next()) {
+				return result.getLong("dalsiBox");
+			}
+			result.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	/**
+	 * 
+	 * Ziskani casu resetu.
+	 * 
+	 */
+	public final Long getFullResetTime() {
+		
+		final String query = "SELECT time FROM craftboxer_nextReset;";
+		
+		try {
+			
+			ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+			
+			if(result.next()) {
+				return result.getLong("time");
+			}
+			result.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return (long) 0;
+	}
+	
 
 }

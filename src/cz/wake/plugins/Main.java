@@ -35,6 +35,7 @@ import cz.wake.plugins.GUI.MorphsMenu;
 import cz.wake.plugins.GUI.MountMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.Servers;
+import cz.wake.plugins.boxer.Boxer;
 import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.commands.ProfilCMD;
 import cz.wake.plugins.commands.Stats_Command;
@@ -89,6 +90,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private FetchData fd = new FetchData();
 	private SetData sd = new SetData();
 	private WakeAPI api = new WakeAPI();
+	private Boxer boxer = new Boxer();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
 	public static ArrayList<Entity> noFallDamageEntities = new ArrayList<>();
@@ -109,11 +111,16 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		setupEconomy(); //Vault
 		debug = false;
 		
+		//Detekce TPS
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
+		
+		//CraftBoxy reset
+		boxer.runTaskDelete();
 		
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 	    Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
         
+	    //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
         NMSUtils.registerEntity("Chicken", 93, EntityChicken.class, RideableChicken.class);
         NMSUtils.registerEntity("Pig", 90, EntityPig.class, RideablePig.class);
@@ -175,6 +182,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new PartyCoins(this), this);
 		pm.registerEvents(new WakeArmy(this), this);
 		pm.registerEvents(new Hero(), this);
+		pm.registerEvents(new Boxer(), this);
 	}
 	
 	private void loadCommands(){
