@@ -1,17 +1,24 @@
-package cz.wake.plugins.GUI;
+package cz.wake.plugins.cloaks;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
 import cz.wake.plugins.Main;
-import cz.wake.plugins.cloaks.AngleCloak;
-import cz.wake.plugins.cloaks.Hero;
-import cz.wake.plugins.cloaks.SantaCloak;
+import cz.wake.plugins.listeners.MessagesListener;
 import cz.wake.plugins.utils.ItemFactory;
 
-public class Cloaks {
+public class CloaksAPI implements Listener{
+	
+	private AngleCloak angel = new AngleCloak();
+	private Hero hero = new Hero();
+	private SantaCloak santa = new SantaCloak();
 	
 	public void openCloaks(Player p){
 		
@@ -76,6 +83,80 @@ public class Cloaks {
 		cloakMenu.setItem(39, zpet);
 		
 		p.openInventory(cloakMenu);
+	}
+	
+	@EventHandler
+	private void onClick(InventoryClickEvent e){
+		final Player p = (Player) e.getWhoClicked();
+		if(e.getInventory().getTitle().equals("Cloaks")){
+			if (e.getCurrentItem() == null){
+	    		return;
+	        }
+			if (e.getCurrentItem().getType() == Material.AIR){
+            	return;
+            }
+			if(e.getSlot() == 40){
+				deactivateCloaks(p);
+        		p.playSound(p.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+        		p.closeInventory();
+			}
+			if(e.getSlot() == 39){
+            	Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+            }
+        	if(e.getSlot() == 49){
+        		Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+            }
+        	if(e.getSlot() == 10){
+        		if(p.hasPermission("craftlobby.cloaks.santa")){
+        			deactivateCloaks(p);
+        			this.santa.activateSanta(p);
+            		p.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(p, "Santa Cloak");
+        		}
+        	}
+        	if(e.getSlot() == 11){
+        		if(p.hasPermission("craftlobby.cloaks.angel")){
+        			deactivateCloaks(p);
+        			this.angel.activate(p);
+        			p.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(p, "Angel Cloak");
+        		}
+        	}
+        	if(e.getSlot() == 12){
+        		if(p.hasPermission("craftlobby.cloaks.hero")){
+        			deactivateCloaks(p);
+        			this.hero.activate(p);
+        			p.closeInventory();
+        		} else {
+        			MessagesListener.messageNoPerm(p, "Hero Cloak");
+        		}
+        	}
+			p.closeInventory();
+            e.setCancelled(true);
+		}
+	}
+	
+	public void deactivateCloaks(Player p){
+		if(SantaCloak.santaCloaks.containsKey(p.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)SantaCloak.santaCloaks.get(p.getName())).intValue());
+			SantaCloak.santaCloaks.remove(p.getName());
+			p.getInventory().setArmorContents(null);
+			p.closeInventory();
+		}
+		if(AngleCloak.angelCloaks.containsKey(p.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)AngleCloak.angelCloaks.get(p.getName())).intValue());
+			AngleCloak.angelCloaks.remove(p.getName());
+			p.getInventory().setArmorContents(null);
+			p.closeInventory();
+		}
+		if(Hero.heroCloaks.containsKey(p.getName())){
+			Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(p.getName())).intValue());
+			Hero.heroCloaks.remove(p.getName());
+			p.getInventory().setArmorContents(null);
+			p.closeInventory();
+		}
 	}
 
 }

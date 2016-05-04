@@ -15,7 +15,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
-import cz.wake.plugins.GUI.Cloaks;
 import cz.wake.plugins.GUI.GadgetsItemsMenu;
 import cz.wake.plugins.GUI.GadgetsMenu;
 import cz.wake.plugins.GUI.HeadsMenu;
@@ -31,6 +30,7 @@ import cz.wake.plugins.GUI.ParticlesMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.cloaks.AngleCloak;
+import cz.wake.plugins.cloaks.CloaksAPI;
 import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.cloaks.SantaCloak;
 import cz.wake.plugins.morphs.PigMorph;
@@ -108,7 +108,6 @@ public class InvClick implements Listener{
 	HeadsMenu3 headsMenu3 = new HeadsMenu3();
 	VIPMenu vMenu = new VIPMenu();
 	GreenSparks gs = new GreenSparks();
-	Cloaks cl = new Cloaks();
 	SantaCloak sc = new SantaCloak();
 	FrostLord fl = new FrostLord();
 	FlameRings fr = new FlameRings();
@@ -340,7 +339,7 @@ public class InvClick implements Listener{
 	        	this.petsMenu.openPets(player);
 	        }
 	        if(event.getSlot() == 15){
-	        	this.cl.openCloaks(player);
+	        	Main.getInstance().getCloaksMenu().openCloaks(player);
 	        }
 	        if(event.getSlot() == 50){
 	        	this.np.openNakup(player);
@@ -382,47 +381,6 @@ public class InvClick implements Listener{
         				player.closeInventory();
         				player.sendMessage("§cStale neubehlo 24 hodin od nakupu.");
         			}
-        		}
-        	}
-        }
-      //**************************** CLOAKS MENU ****************************//
-        if(event.getInventory().getTitle().equals("Cloaks")){
-        	if(event.getSlot() == 40){
-        		deactivateCloaks(player);
-        		player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
-        		player.closeInventory();
-        	}
-        	if(event.getSlot() == 39){
-            	this.gadgetsMenu.openGadgetsMenu(player);
-            }
-        	if(event.getSlot() == 49){
-            	this.gadgetsMenu.openGadgetsMenu(player);
-            }
-        	if(event.getSlot() == 10){
-        		if(player.hasPermission("craftlobby.cloaks.santa")){
-        			deactivateCloaks(player);
-        			this.sc.activateSanta(player);
-            		player.closeInventory();
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Santa Cloak");
-        		}
-        	}
-        	if(event.getSlot() == 11){
-        		if(player.hasPermission("craftlobby.cloaks.angel")){
-        			deactivateCloaks(player);
-        			this.ac.activate(player);
-        			player.closeInventory();
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Angel Cloak");
-        		}
-        	}
-        	if(event.getSlot() == 12){
-        		if(player.hasPermission("craftlobby.cloaks.hero")){
-        			deactivateCloaks(player);
-        			this.hero.activate(player);
-        			player.closeInventory();
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Hero Cloak");
         		}
         	}
         }
@@ -2761,27 +2719,6 @@ public class InvClick implements Listener{
 			Bukkit.getScheduler().cancelTask(((Integer)CandyCane.cd.get(player.getName())).intValue());
 			CandyCane.cd.remove(player.getName());
 			player.closeInventory();
-		}
-	}
-	
-	public void deactivateCloaks(Player p){
-		if(SantaCloak.santaCloaks.containsKey(p.getName())){
-			Bukkit.getScheduler().cancelTask(((Integer)SantaCloak.santaCloaks.get(p.getName())).intValue());
-			SantaCloak.santaCloaks.remove(p.getName());
-			p.getInventory().setArmorContents(null);
-			p.closeInventory();
-		}
-		if(AngleCloak.angelCloaks.containsKey(p.getName())){
-			Bukkit.getScheduler().cancelTask(((Integer)AngleCloak.angelCloaks.get(p.getName())).intValue());
-			AngleCloak.angelCloaks.remove(p.getName());
-			p.getInventory().setArmorContents(null);
-			p.closeInventory();
-		}
-		if(Hero.heroCloaks.containsKey(p.getName())){
-			Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(p.getName())).intValue());
-			Hero.heroCloaks.remove(p.getName());
-			p.getInventory().setArmorContents(null);
-			p.closeInventory();
 		}
 	}
 

@@ -36,6 +36,7 @@ import cz.wake.plugins.GUI.MountMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.boxer.Boxer;
+import cz.wake.plugins.cloaks.CloaksAPI;
 import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.commands.ProfilCMD;
 import cz.wake.plugins.commands.Stats_Command;
@@ -91,6 +92,8 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private SetData sd = new SetData();
 	private WakeAPI api = new WakeAPI();
 	private Boxer boxer = new Boxer();
+	private CloaksAPI cloaks = new CloaksAPI();
+	private GadgetsMenu gMenu = new GadgetsMenu();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
 	public static ArrayList<Entity> noFallDamageEntities = new ArrayList<>();
@@ -183,6 +186,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new WakeArmy(this), this);
 		pm.registerEvents(new Hero(), this);
 		pm.registerEvents(new Boxer(), this);
+		pm.registerEvents(new CloaksAPI(), this);
 	}
 	
 	private void loadCommands(){
@@ -242,6 +246,14 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	@Override
 	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
 		if(!channel.equalsIgnoreCase("BungeeCord")) return;
+	}
+	
+	public CloaksAPI getCloaksMenu(){
+		return cloaks;
+	}
+	
+	public GadgetsMenu getMainGadgetsMenu(){
+		return gMenu;
 	}
 	
 }
