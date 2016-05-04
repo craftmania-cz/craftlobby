@@ -299,7 +299,7 @@ public class PlayerListener implements Listener{
 		ic.deactivateParticles(p);
 		
 		//Deaktivace cloaks
-		ic.deactivateCloaks(p);
+		Main.getInstance().getCloaksMenu().deactivateCloaks(p);
 		
 		//Deaktivatce mazlíčka
 		PetManager.forceRemovePet(p);
@@ -313,7 +313,7 @@ public class PlayerListener implements Listener{
 		ic.deactivateParticles(p);
 		
 		//Deaktivace cloaks
-		ic.deactivateCloaks(p);
+		Main.getInstance().getCloaksMenu().deactivateCloaks(p);
 		
 		//Deaktivatce mazlíčka
 		PetManager.forceRemovePet(p);
