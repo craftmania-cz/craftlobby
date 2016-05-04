@@ -1,15 +1,10 @@
 package cz.wake.plugins.GUI;
 
-import java.util.ArrayList;
-
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-
 import cz.wake.plugins.Main;
 import cz.wake.plugins.cloaks.AngleCloak;
 import cz.wake.plugins.cloaks.Hero;
@@ -24,146 +19,57 @@ public class Cloaks {
 		
 		if(p.hasPermission("craftlobby.cloaks.santa")){
 			if(SantaCloak.santaCloaks.containsKey(p.getName())){
-				ItemStack santa = new ItemStack(Material.SNOW_BALL);
-				santa = ItemFactory.addGlow(santa);
-				ItemMeta sMeta = santa.getItemMeta();
-				sMeta.setDisplayName("§a§lSanta Cloak");
-				ArrayList<String> sLore = new ArrayList<String>();
-				sLore.add("");
-				sLore.add("§7S timto budes vypadat jako");
-				sLore.add("§7opravdovy santa.");
-				sLore.add("");
-				sLore.add("§cAktivovano!");
-				sMeta.setLore(sLore);
-				santa.setItemMeta(sMeta);
-				cloakMenu.setItem(10, santa);
+				ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte)0, "§a§lSanta Cloak", "", "§7S timto budes vypadat jako", "§7opravdovy santa.", "", "§cAktivovano!");
+				i = ItemFactory.addGlow(i);
+				cloakMenu.setItem(10, i);
 			} else {
-				ItemStack santa = new ItemStack(Material.SNOW_BALL);
-				ItemMeta sMeta = santa.getItemMeta();
-				sMeta.setDisplayName("§a§lSanta Cloak");
-				ArrayList<String> sLore = new ArrayList<String>();
-				sLore.add("");
-				sLore.add("§7S timto budes vypadat jako");
-				sLore.add("§7opravdovy santa.");
-				sLore.add("");
-				sLore.add("§eKliknutim aktivujes!");
-				sMeta.setLore(sLore);
-				santa.setItemMeta(sMeta);
-				cloakMenu.setItem(10, santa);
+				ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte)0, "§a§lSanta Cloak", "", "§7S timto budes vypadat jako", "§7opravdovy santa.", "", "§eKliknutim aktivujes!");
+				cloakMenu.setItem(10, i);
 			}
 		} else {
-			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
-			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName("§c§lSanta Cloak");
-			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add("§7Tento Cloak se ziskat o Vanocich 2015.");
-			noPermMeta.setLore(noPermLore);
-			noPerm.setItemMeta(noPermMeta);
-			cloakMenu.setItem(10, noPerm);
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lSanta Cloak", "§7Tento Cloak se ziskat o Vanocich 2015.");
+			cloakMenu.setItem(10, i);
 		}
 		if(p.hasPermission("craftlobby.cloaks.angel")){
 			if(AngleCloak.angelCloaks.containsKey(p.getName())){
-				ItemStack santa = new ItemStack(Material.BREAD);
-				santa = ItemFactory.addGlow(santa);
-				ItemMeta sMeta = santa.getItemMeta();
-				sMeta.setDisplayName("§a§lAngel Cloak");
-				ArrayList<String> sLore = new ArrayList<String>();
-				sLore.add("");
-				sLore.add("§7Jako ten pravy andel,");
-				sLore.add("§7budes vypadat.");
-				sLore.add("");
-				sLore.add("§cAktivovano!");
-				sMeta.setLore(sLore);
-				santa.setItemMeta(sMeta);
-				cloakMenu.setItem(11, santa);
+				ItemStack i = ItemFactory.create(Material.BREAD, (byte)0, "§a§lAngel Cloak", "", "§7Jako ten pravy andel,", "§7budes vypadat.", "", "§cAktivovano!");
+				i = ItemFactory.addGlow(i);
+				cloakMenu.setItem(11, i);
 			} else {
-				ItemStack santa = new ItemStack(Material.BREAD);
-				ItemMeta sMeta = santa.getItemMeta();
-				sMeta.setDisplayName("§a§lAngel Cloak");
-				ArrayList<String> sLore = new ArrayList<String>();
-				sLore.add("");
-				sLore.add("§7Jako ten pravy andel,");
-				sLore.add("§7budes vypadat.");
-				sLore.add("");
-				sLore.add("§eKliknutim aktivujes!");
-				sMeta.setLore(sLore);
-				santa.setItemMeta(sMeta);
-				cloakMenu.setItem(11, santa);
+				ItemStack i = ItemFactory.create(Material.BREAD, (byte)0, "§a§lAngel Cloak", "", "§7Jako ten pravy andel,", "§7budes vypadat.", "", "§eKliknutim aktivujes!");
+				cloakMenu.setItem(11, i);
 			}
 		} else {
-			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
-			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName("§c§lAngel Cloak");
-			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add("§7Tento Cloak se ziskat v CraftBoxu.");
-			noPermMeta.setLore(noPermLore);
-			noPerm.setItemMeta(noPermMeta);
-			cloakMenu.setItem(11, noPerm);
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lAngel Cloak", "§7Tento Cloak se da  ziskat v CraftBoxu.");
+			cloakMenu.setItem(11, i);
 		}
 		if(p.hasPermission("craftlobby.cloaks.hero")){
 			if(Hero.heroCloaks.containsKey(p.getName())){
-				ItemStack santa = new ItemStack(Material.REDSTONE);
-				santa = ItemFactory.addGlow(santa);
-				ItemMeta sMeta = santa.getItemMeta();
-				sMeta.setDisplayName("§a§lHero");
-				ArrayList<String> sLore = new ArrayList<String>();
-				sLore.add("");
-				sLore.add("§7Kazdy superhrdina,");
-				sLore.add("§7musi mit plast.");
-				sLore.add("");
-				sLore.add("§cAktivovano!");
-				sMeta.setLore(sLore);
-				santa.setItemMeta(sMeta);
-				cloakMenu.setItem(12, santa);
+				ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lHero", "", "§7Kazdy superhrdina,", "§7musi mit plast.", "", "§cAktivovano!");
+				i = ItemFactory.addGlow(i);
+				cloakMenu.setItem(12, i);
 			} else {
-				ItemStack santa = new ItemStack(Material.REDSTONE);
-				ItemMeta sMeta = santa.getItemMeta();
-				sMeta.setDisplayName("§a§lHero");
-				ArrayList<String> sLore = new ArrayList<String>();
-				sLore.add("");
-				sLore.add("§7Kazdy superhrdina,");
-				sLore.add("§7musi mit plast.");
-				sLore.add("");
-				sLore.add("§eKliknutim aktivujes!");
-				sMeta.setLore(sLore);
-				santa.setItemMeta(sMeta);
-				cloakMenu.setItem(12, santa);
+				ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lHero", "", "§7Kazdy superhrdina,", "§7musi mit plast.", "", "§eKliknutim aktivujes!");
+				cloakMenu.setItem(12, i);
 			}
 		} else {
-			ItemStack noPerm = new ItemStack(Material.INK_SACK,1,(byte)8);
-			ItemMeta noPermMeta = noPerm.getItemMeta();
-			noPermMeta.setDisplayName("§c§lHero");
-			ArrayList<String> noPermLore = new ArrayList<String>();
-			noPermLore.add("§7Tento Cloak se ziskat v CraftBoxu.");
-			noPermMeta.setLore(noPermLore);
-			noPerm.setItemMeta(noPermMeta);
-			cloakMenu.setItem(12, noPerm);
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lHero", "§7Tento Cloak se da ziskat v CraftBoxu.");
+			cloakMenu.setItem(12, i);
 		}
 		
-		ItemStack zpet = new ItemStack(Material.ARROW);
-		ItemMeta zpetMeta = zpet.getItemMeta();
-		zpetMeta.setDisplayName(ChatColor.RED + "Zpet do Gadgets menu");
-		zpet.setItemMeta(zpetMeta);
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
 		
-		ItemStack deaktivace = new ItemStack(Material.BARRIER);
-		ItemMeta deaktivaceMeta = deaktivace.getItemMeta();
-		deaktivaceMeta.setDisplayName(ChatColor.RED + "✖ Vypnout cloak ✖");
-		ArrayList<String> deaktivaceLore = new ArrayList<String>();
-		deaktivaceLore.add(ChatColor.GRAY + "Kliknutim vypnes cloak.");
-		deaktivaceMeta.setLore(deaktivaceLore);
-		deaktivace.setItemMeta(deaktivaceMeta);
+		//Deaktivace
+		ItemStack deaktivace = ItemFactory.create(Material.BARRIER, (byte)0, "§c Vypnout cloak ✖", "§7Kliknutim vypnes cloak.");
 		
-		ItemStack shopItem = new ItemStack(Material.CHEST,1);
-		ItemMeta shopItemMeta = shopItem.getItemMeta();
-		shopItemMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Gadgets");
-		ArrayList<String> shopLore = new ArrayList<String>();
-		shopLore.add(ChatColor.GRAY + "Gadgety jsou doplnky do lobby");
-		shopLore.add(ChatColor.GRAY + "daji se ziskat z CraftBoxu nebo na");
-		shopLore.add(ChatColor.GRAY + "specialnich eventech.");
-		shopLore.add("");
-		shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
-		shopItemMeta.setLore(shopLore);
-		shopItem.setItemMeta(shopItemMeta);
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets", 
+				"§7Gadgety jsou doplnky do lobby", 
+				"§7daji se ziskat z CraftBoxu nebo na", 
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
 		
 		cloakMenu.setItem(49, shopItem);
 		cloakMenu.setItem(40, deaktivace);
