@@ -248,7 +248,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		if(!channel.equalsIgnoreCase("BungeeCord")) return;
 	}
 	
-	public CloaksAPI getCloaksMenu(){
+	public CloaksAPI getCloaksAPI(){
 		return cloaks;
 	}
 	

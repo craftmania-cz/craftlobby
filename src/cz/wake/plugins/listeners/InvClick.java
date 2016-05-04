@@ -339,7 +339,7 @@ public class InvClick implements Listener{
 	        	this.petsMenu.openPets(player);
 	        }
 	        if(event.getSlot() == 15){
-	        	Main.getInstance().getCloaksMenu().openCloaks(player);
+	        	Main.getInstance().getCloaksAPI().openCloaks(player);
 	        }
 	        if(event.getSlot() == 50){
 	        	this.np.openNakup(player);
