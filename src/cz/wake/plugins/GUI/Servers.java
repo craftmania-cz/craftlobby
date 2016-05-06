@@ -26,7 +26,7 @@ public class Servers implements Listener{
 		
 		ItemStack survival = new ItemStack(Material.DIAMOND_SWORD);
 		ItemMeta sMeta = survival.getItemMeta();
-		sMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Survival §b§l1.8");
+		sMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Survival §c§l1.9");
 		ArrayList<String> sLore = new ArrayList<String>();
 		sLore.add(ChatColor.DARK_GRAY + "PVP");
 		sLore.add("");

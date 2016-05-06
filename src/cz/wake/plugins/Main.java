@@ -5,7 +5,6 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.milkbowl.vault.economy.Economy;
 import net.minecraft.server.v1_8_R3.EntityChicken;
 import net.minecraft.server.v1_8_R3.EntityCow;
 import net.minecraft.server.v1_8_R3.EntityHorse;
@@ -101,7 +100,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public VillagerMorph VillagerMorph;
 	private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
-    public static Economy economy = null;
 	
 	
 	public void onEnable(){
@@ -111,7 +109,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		//this.mysql.checkTable();
 		loadListeners();
 		loadCommands();
-		setupEconomy(); //Vault
 		debug = false;
 		
 		//Detekce TPS
@@ -234,14 +231,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public double getTPS(){
 		return LagManager.getTPS();
 	}
-	
-	private boolean setupEconomy(){
-        RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
-        if (economyProvider != null) {
-            economy = economyProvider.getProvider();
-        }
-        return (economy != null);
-    }
 
 	@Override
 	public void onPluginMessageReceived(String channel, Player player, byte[] message) {
