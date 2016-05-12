@@ -105,8 +105,9 @@ public class Servers implements Listener{
 		vanilla.setItemMeta(vMeta);
 		
 		ItemStack anni = new ItemStack(Material.ENDER_STONE);
+		anni = ItemFactory.addGlow(anni);
 		ItemMeta aMeta = anni.getItemMeta();
-		aMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Annihilation §b§l1.8 §7+ §c§l1.9");
+		aMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Annihilation §c§l1.9");
 		ArrayList<String> aLore = new ArrayList<String>();
 		aLore.add(ChatColor.DARK_GRAY + "PVP");
 		aLore.add("");

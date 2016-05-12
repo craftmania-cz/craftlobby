@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -286,25 +287,25 @@ public class InvClick implements Listener{
         		sendToServer(player, "vanilla");
         	}
         	if(event.getSlot() == 19){
-        		player.performCommand("warp anni");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1177.0D, 35.0D, 458.637D, 90f, 5f));
         	}
         	if(event.getSlot() == 20){
-        		player.performCommand("warp sw");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1175.0D, 35.0D, 538.548D, 90f, 5f));
         	}
         	if(event.getSlot() == 21){
-        		player.performCommand("warp bedwars");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1289.0D, 35.0D, 426.310D, -180f, 5f));
         	}
         	if(event.getSlot() == 22){
-        		player.performCommand("warp drawit");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
         	}
         	if(event.getSlot() == 23){
-        		player.performCommand("warp anni");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1177.0D, 35.0D, 458.637D, 90f, 5f));
         	}
         	if(event.getSlot() == 24){
-        		player.performCommand("warp drawit");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
         	}
         	if(event.getSlot() == 25){
-        		player.performCommand("warp turfwars");
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1289.0D, 35.0D, 572.620D, 0f, 5f));
         	}
         	if(event.getSlot() == 16){
         		sendToServer(player, "factions");
