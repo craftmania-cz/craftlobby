@@ -8,3 +8,6 @@ compile:
   
 package:
   script: "mvn package"
+  
+install:
+  script: "mvn clean install"
