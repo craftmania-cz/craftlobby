@@ -25,7 +25,7 @@ public class PigNormal{
 	        ((CraftEntity)localObject).remove();
 	      }
 	    }
-		final Pig pig = RideablePig.spawn(p.getLocation());
+		final Pig pig = RideablePig.spawn(d.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)pig, 0.16D, 1.0D);
 	    setMetadata((Pig)pig, "Pet", "Pet", Main.getInstance());
 	    ((Pig)pig).setAgeLock(true);
