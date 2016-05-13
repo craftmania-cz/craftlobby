@@ -222,7 +222,7 @@ public class PlayerListener implements Listener{
 			if(e.getPlayer().getItemInHand().getType() == Material.INK_SACK && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))){
 				if (!this._time.containsKey(e.getPlayer())){
 					this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
-					e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.WOOD_CLICK, 2.0F, 2.0F);
+					e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 2.0F, 2.0F);
 					for (Player players : Bukkit.getOnlinePlayers()){
 						e.getPlayer().hidePlayer(players);
 						ItemStack disable = new ItemStack(Material.INK_SACK,1,(byte)1);
@@ -255,7 +255,7 @@ public class PlayerListener implements Listener{
 				if((e.getPlayer().getItemInHand().getType() == Material.INK_SACK && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))){
 					if (!this._time.containsKey(e.getPlayer())){
 						this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
-						e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.WOOD_CLICK, 2.0F, 2.0F);
+						e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 2.0F, 2.0F);
 						for (Player pl : Bukkit.getOnlinePlayers()){
 							e.getPlayer().showPlayer(pl);
 							ItemStack enable = new ItemStack(Material.INK_SACK,1,(byte)10);

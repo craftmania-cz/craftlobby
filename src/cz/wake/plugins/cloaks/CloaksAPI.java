@@ -97,7 +97,7 @@ public class CloaksAPI implements Listener{
             }
 			if(e.getSlot() == 40){
 				deactivateCloaks(p);
-        		p.playSound(p.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+        		p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
         		p.closeInventory();
 			}
 			if(e.getSlot() == 39){

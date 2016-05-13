@@ -2,8 +2,8 @@ package cz.wake.plugins.gadgets;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_8_R3.EntityEnderPearl;
-import net.minecraft.server.v1_8_R3.EntitySnowball;
+import net.minecraft.server.v1_9_R1.EntityEnderPearl;
+import net.minecraft.server.v1_9_R1.EntitySnowball;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -116,8 +116,8 @@ public class FunCannon implements Listener{
  	    	  ParticleEffect.CLOUD.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
  	    	  ParticleEffect.LAVA.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
 
- 	        en.getLocation().getWorld().playSound(en.getLocation(), Sound.CAT_MEOW, 1.0F, 1.0F);
- 	        en.getLocation().getWorld().playSound(en.getLocation(), Sound.WOLF_BARK, 1.0F, 1.0F);
+ 	        en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_CAT_PURREOW, 1.0F, 1.0F);
+ 	        en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_WOLF_HURT, 1.0F, 1.0F);
  	      }
  	      en.remove();
  	    }

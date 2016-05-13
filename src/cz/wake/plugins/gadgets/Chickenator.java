@@ -73,14 +73,14 @@ public class Chickenator implements Listener{
 	    	final Chicken CHICKEN = (Chicken)player.getWorld().spawnEntity(player.getEyeLocation(), EntityType.CHICKEN);
 	        CHICKEN.setNoDamageTicks(500);
 	        CHICKEN.setVelocity(player.getLocation().getDirection().multiply(2.0943951023931953D));
-	        player.playSound(player.getLocation(), Sound.CHICKEN_IDLE, 1.4F, 1.5F);
-	        player.playSound(player.getLocation(), Sound.EXPLODE, 0.3F, 1.5F);
+	        player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_STEP, 1.4F, 1.5F);
+	        player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 0.3F, 1.5F);
 	        Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable()
 	        {
 	          public void run()
 	          {
 	            Chickenator.this.spawnRandomFirework(CHICKEN.getLocation());
-	            player.playSound(player.getLocation(), Sound.CHICKEN_HURT, 1.4F, 1.5F);
+	            player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_HURT, 1.4F, 1.5F);
 	            CHICKEN.remove();
 	            for (int i = 0; i < 30; i++)
 	            {

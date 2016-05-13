@@ -160,7 +160,7 @@ public class InvClick implements Listener{
             	this.vMenu.openMinigamesSMS(player);
             }
             if(event.getSlot() == 11){
-            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 13.0F, 1.0F);
             	player.sendMessage("");
             	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
             	player.sendMessage("");
@@ -173,7 +173,7 @@ public class InvClick implements Listener{
             	player.closeInventory();
             }
             if(event.getSlot() == 12){
-            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 13.0F, 1.0F);
             	player.sendMessage("");
             	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
             	player.sendMessage("");
@@ -186,7 +186,7 @@ public class InvClick implements Listener{
             	player.closeInventory();
             }
             if(event.getSlot() == 13){
-            	player.playSound(player.getLocation(), Sound.ZOMBIE_WOOD, 13.0F, 1.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 13.0F, 1.0F);
             	player.sendMessage("");
             	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
             	player.sendMessage("");
@@ -211,7 +211,7 @@ public class InvClick implements Listener{
             	this.vMenu.openMenuSMS(player);
             }
             if(event.getSlot() == 15){
-            	player.playSound(player.getLocation(), Sound.COW_HURT, 13.0F, 1.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);
             	player.sendMessage("");
             	player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
             	player.sendMessage("");
@@ -388,7 +388,7 @@ public class InvClick implements Listener{
         if(event.getInventory().getTitle().equals("Particles")){
         	if(event.getSlot() == 40){
         		deactivateParticles(player);
-        		player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+        		player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
         		player.closeInventory();
         	}
         	if(event.getSlot() == 39){
@@ -851,18 +851,18 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 40){
         		//DisguiseAPI.undisguiseToAll(player);
         		player.sendMessage(ChatColor.GRAY + "Zrusil jsi aktualni premenu.");
-        		player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+        		player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
         		player.closeInventory();
         	}
         	if(event.getSlot() == 10){
         		//VillagerMorph.activate(player);
-        		player.playSound(player.getLocation(), Sound.ANVIL_LAND, 15.0F, 15.0F);
+        		player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 15.0F, 15.0F);
         		player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Villager Morph.");
         		player.closeInventory();
         	}
         	if(event.getSlot() == 11){
         		//PigMorph.activate(player);
-        		player.playSound(player.getLocation(), Sound.ANVIL_LAND, 15.0F, 15.0F);
+        		player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 15.0F, 15.0F);
         		player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Pig Morph.");
         		player.closeInventory();
         	}
@@ -883,13 +883,13 @@ public class InvClick implements Listener{
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
             if(event.getSlot() == 40){
-            	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
             	player.getInventory().setHelmet(null);
         		player.closeInventory();
             }
             if(event.getSlot() == 0){
             	if(player.hasPermission("craftlobby.heads.strawberryjam")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Strawberry Jam", "adc3ea73-5b42-4fea-a237-4a72b52dd72b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzBiOGI1ODg5ZWUxYzYzODhkYzZjMmM1ZGJkNzBiNjk4NGFlZmU1NDMxOWEwOTVlNjRkYjc2MzgwOTdiODIxIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Strawberry Head.");
@@ -900,7 +900,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 1){
             	if(player.hasPermission("craftlobby.heads.oreo")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Oreo", "37dd5612-efdb-4f4b-bb55-9040a4403ff8", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGZkNzFlMjBmYzUwYWJmMGRlMmVmN2RlY2ZjMDFjZTI3YWQ1MTk1NTc1OWUwNzJjZWFhYjk2MzU1ZjU5NGYwIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Oreo Head.");
@@ -911,7 +911,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 2){
             	if(player.hasPermission("craftlobby.heads.chocolate")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Chocolate", "eaa47b1d-cb57-48c8-af33-cf4fd9872341", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODE5Zjk0OGQxNzcxOGFkYWNlNWRkNmUwNTBjNTg2MjI5NjUzZmVmNjQ1ZDcxMTNhYjk0ZDE3YjYzOWNjNDY2In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Chocolate Head.");
@@ -922,7 +922,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 3){
             	if(player.hasPermission("craftlobby.heads.whitechocolate")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("White Chocolate", "91f8d9e9-0514-4319-902f-f2662f4df272", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWVkNTUyNjBkY2NjOGRhNTkzMzhjNzVlNDFkNTQ0YTJlMWU3ZGJlZjMxYTY5ZmU0MmMwMWIzMjk4YmYyZCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "White Chocolate Head.");
@@ -933,7 +933,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 4){
             	if(player.hasPermission("craftlobby.heads.melon")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Melon", "983afea2-cf1b-4732-9726-c81e3f621630", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM5MDMwNjZjY2M0Njk1ZTExM2ZlZTMxNGM5NmE1NDRlYjkxOTYyMmVlZTdkYWExZDE5NjYzNzRmM2ZlODQ4In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Melon Head.");
@@ -944,7 +944,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 5){
             	if(player.hasPermission("craftlobby.heads.hamburger")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Hamburger", "d1375075-c727-40ad-bcce-7e4277099e30", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZlZjFjMjVmNTE2ZjJlN2Q2Zjc2Njc0MjBlMzNhZGNmM2NkZjkzOGNiMzdmOWE0MWE4YjM1ODY5ZjU2OWIifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Hamburger Head.");
@@ -955,7 +955,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 6){
             	if(player.hasPermission("craftlobby.heads.lemon")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Lemon", "09d10b7a-f525-412c-bedf-b2fe7c8bfc70", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU3ZmQ1NmNhMTU5Nzg3NzkzMjRkZjUxOTM1NGI2NjM5YThkOWJjMTE5MmM3YzNkZTkyNWEzMjliYWVmNmMifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Lemon Head.");
@@ -966,7 +966,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 7){
             	if(player.hasPermission("craftlobby.heads.donut")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Donut", "b48503a4-6dec-438c-a3bc-6b5da7fb1fde", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM3YzliODJiMTg2NjU2ZTlmNjM2M2EyYTFjNmE0YjViOTNjZmE5ZWY0ZGFkNmYxNmI5NGViYjVlMzYyNjc4In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Donut Head.");
@@ -977,7 +977,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 8){
             	if(player.hasPermission("craftlobby.heads.pepsi")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Pepsi", "92b6dbd7-11df-4702-b4d1-ec0dcc7ce114", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmJiYWU2ZGY5OWRjODJiZWFmNDlkMDY0ZGY3NGExYmJjMTVlOGUzNzY1MzMyNzY5MTJjOGM4ZmU1OWNiNGY0In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Pepsi Head.");
@@ -988,7 +988,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 9){
             	if(player.hasPermission("craftlobby.heads.cocacola")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Coca Cola", "8a145e5e-957d-418c-b000-511c971ae698", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNiMDFmYjJmNmJhNDdjOWQ3NjM4NDkxZjM3Y2Q4NTgyYTkzNzczMTE4NmRmNGQxZWNjZDU5YjY1YmYzNyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "CocaCola Head.");
@@ -999,7 +999,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 10){
             	if(player.hasPermission("craftlobby.heads.sprite")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Sprite", "8b8c8496-88f0-4907-bbfc-5453a2333326", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjhhMzRkODZhN2JiMTNkNDVhZmRjNTBkM2RjZTVlZWQ5NWUxODQ0ZmJkZWUwY2NhNzUzYzZkMzM0NmUzMzllIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Sprite Head.");
@@ -1010,7 +1010,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 11){
             	if(player.hasPermission("craftlobby.heads.apple")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Apple", "ebd81954-37b1-49f4-aaa1-8e79e2e3a856", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjNlODY1OTQ3OGRkMjhiMWFkZTZlYmU3ZDNlMWQ2NzU4ZTIxOWY0MzhkYjc4NGE1YWRkZWRhODZlZDFhMzhhIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Apple Head.");
@@ -1021,7 +1021,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 12){
             	if(player.hasPermission("craftlobby.heads.clock")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Clock", "f952235c-44a2-4f91-a6aa-0fcf361507ac", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmRlNGUyNzgzZjg1YTM5MTIyMWRkOTE2NTZiYTY4OGU3ZTQyZDE2ZjZhYmJmYmNmYWQ5Y2E1MzYxN2ZjYTYifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Clock Head.");
@@ -1032,7 +1032,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 13){
             	if(player.hasPermission("craftlobby.heads.computer")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Computer", "81c080fd-022b-477c-9f24-f637324d4c4c", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFlNTJhZThjOThhYzE5ZmQwNzYzN2E0NjlmZmEyNTZhYjBiM2IxMGVjZTYyNDMxODYxODhiYTM4ZGYxNTQifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Computer Head.");
@@ -1043,7 +1043,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 14){
             	if(player.hasPermission("craftlobby.heads.monitor")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Monitor", "5a929f7f-1a74-4d25-860d-40ff532acfbe", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTg2ZjcyYzE2YjFlOWZlNmUwOTllNzZiNWY3YTg4NGZiNzgyY2ZjYzU4OGM5NWM0ZTM4M2RjNTI3ZDFiODQifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Monitor Head.");
@@ -1054,7 +1054,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 15){
             	if(player.hasPermission("craftlobby.heads.instagram")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Instagram", "5e469ecf-80a4-40ae-8d9d-7c12bd2d3a3f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjViM2YyY2ZhMDczOWM0ZTgyODMxNmYzOWY5MGIwNWJjMWY0ZWQyN2IxZTM1ODg4NTExZjU1OGQ0Njc1In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Instagram Head.");
@@ -1065,7 +1065,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 16){
             	if(player.hasPermission("craftlobby.heads.c4")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("C4", "8b8fcca0-6880-4108-a46a-5a21320e0d7c", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGRhMzMyYWJkZTMzM2ExNWE2YzZmY2ZlY2E4M2YwMTU5ZWE5NGI2OGU4ZjI3NGJhZmMwNDg5MmI2ZGJmYyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "C4 Head.");
@@ -1076,7 +1076,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 17){
             	if(player.hasPermission("craftlobby.heads.policesiren")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Police Siren", "e8297346-5aca-4ae8-b2a3-e341b6d0921f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2EzNWFmYTU4NjMxNjA5NzkxZmZlMjVmM2E4NzlkZmJmZmVhMTE1MWY4N2JmZjYyYzU0MjNlZDYxMzZlZTAifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Police Siren Head.");
@@ -1087,7 +1087,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 18){
             	if(player.hasPermission("craftlobby.heads.spacehelmet")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Space Helmet", "822833e6-c3ec-457e-aeef-1fac97799e5f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzAyZTIyZjY1MDNjMzYzZGY2OWJmOWU5NDQ4ZmU4OWQyZjA1YmFlMzA1MzRiOGJiMTlkMjY4ZjA5ODliOTYifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Space Helmet Head.");
@@ -1098,7 +1098,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 19){
             	if(player.hasPermission("craftlobby.heads.facebook")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Facebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Facebook Head.");
@@ -1109,7 +1109,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 20){
             	if(player.hasPermission("craftlobby.heads.youtube")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("YouTube", "4ec6d571-4553-4a75-a4ae-6e104bcc76f0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQzNTNmZDBmODYzMTQzNTM4NzY1ODYwNzViOWJkZjBjNDg0YWFiMDMzMWI4NzJkZjExYmQ1NjRmY2IwMjllZCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "YouTube Head.");
@@ -1120,7 +1120,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 21){
             	if(player.hasPermission("craftlobby.heads.goldsteve")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Gold Steve", "844064fd-71f0-4aa2-a336-10bbada597d1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjkzN2UxYzQ1YmI4ZGEyOWIyYzU2NGRkOWE3ZGE3ODBkZDJmZTU0NDY4YTVkZmI0MTEzYjRmZjY1OGYwNDNlMSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Gold Steve Head.");
@@ -1131,7 +1131,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 22){
             	if(player.hasPermission("craftlobby.heads.scared")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Scared", "2cd3dbb5-6136-4127-9e14-89c328660871", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjM2ZTI2YzQ0NjU5ZTgxNDhlZDU4YWE3OWU0ZDYwZGI1OTVmNDI2NDQyMTE2ZjgxYjU0MTVjMjQ0NmVkOCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Scared Head.");
@@ -1142,7 +1142,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 23){
             	if(player.hasPermission("craftlobby.heads.embarrased")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Embarrased", "80e16b56-8d8c-4ea0-b3b2-dd69c7bd56cf", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjcyMGRmOTExYzA1MjM3NzA2NTQwOGRiNzhhMjVjNjc4Zjc5MWViOTQ0YzA2MzkzNWFlODZkYmU1MWM3MWIifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Embarrased Head.");
@@ -1153,7 +1153,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 24){
             	if(player.hasPermission("craftlobby.heads.kissy")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Kissy", "c7360c40-1b10-4a11-8322-697962372596", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTQ1YmQxOGEyYWFmNDY5ZmFkNzJlNTJjZGU2Y2ZiMDJiZmJhYTViZmVkMmE4MTUxMjc3Zjc3OWViY2RjZWMxIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Kissy Head.");
@@ -1164,7 +1164,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 25){
             	if(player.hasPermission("craftlobby.heads.cool")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Cool", "bcefcc41-e997-4845-ae08-7b8a1a2d51b6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODY4ZjRjZWY5NDlmMzJlMzNlYzVhZTg0NWY5YzU2OTgzY2JlMTMzNzVhNGRlYzQ2ZTViYmZiN2RjYjYifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Cool Head.");
@@ -1175,7 +1175,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 26){
             	if(player.hasPermission("craftlobby.heads.suprised")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Suprised", "1a61537c-52d6-429d-9314-8420d631b494", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmMyYjliOWFlNjIyYmQ2OGFkZmY3MTgwZjgyMDZlYzQ0OTRhYmJmYTEzMGU5NGE1ODRlYzY5MmU4OTg0YWIyIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Suprised Head.");
@@ -1186,7 +1186,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 27){
             	if(player.hasPermission("craftlobby.heads.crying")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Crying", "b03562f3-2a20-4257-bb62-e040f552c297", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWYxYjg3NWRlNDljNTg3ZTNiNDAyM2NlMjRkNDcyZmYyNzU4M2ExZjA1NGYzN2U3M2ExMTU0YjViNTQ5OCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Crying Head.");
@@ -1197,7 +1197,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 28){
             	if(player.hasPermission("craftlobby.heads.grin")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Grin", "988770c2-3a2d-41c3-a753-b13fa383e823", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTA1OWQ1OWViNGU1OWMzMWVlY2Y5ZWNlMmY5Y2YzOTM0ZTQ1YzBlYzQ3NmZjODZiZmFlZjhlYTkxM2VhNzEwIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Grin Head.");
@@ -1208,7 +1208,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 29){
             	if(player.hasPermission("craftlobby.heads.derp")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Derp", "58c6ac60-cbce-4ecb-981b-e79a87ad2bb6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2JhYWJlNzI0ZWFlNTljNWQxM2Y0NDJjN2RjNWQyYjFjNmI3MGMyZjgzMzY0YTQ4OGNlNTk3M2FlODBiNGMzIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Derp Head.");
@@ -1219,7 +1219,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 30){
             	if(player.hasPermission("craftlobby.heads.mustache")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Mustache", "0d7d6e4d-fb18-491b-a7b6-dbf45d923811", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzYzNmYyNzI0YWE2YWE0ZGU3YWM0NmMxOWYzYzg0NWZiMTQ4NDdhNTE4YzhmN2UwM2Q3OTJjODJlZmZiMSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Mustache Head.");
@@ -1230,7 +1230,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 31){
             	if(player.hasPermission("craftlobby.heads.smile")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Smile", "0beedb99-f64e-4a26-93f3-8f3af84050aa", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2ZmYWNjZjE3ODc5YjE3ODkxZmM1ZWY2NjQ3MmNjMDY2YTg1YmZhMzFiNmQ3ODZjMzJhZmVlNDc5NjA2OGQifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Smile Head.");
@@ -1241,7 +1241,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 32){
             	if(player.hasPermission("craftlobby.heads.dead")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Dead", "275a74fe-e3e4-4aff-86a2-68e3fb9720d7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM3MWU0ZTFjZjZhMWEzNmZkYWUyNzEzN2ZkOWI4NzQ4ZTYxNjkyOTk5MjVmOWFmMmJlMzAxZTU0Mjk4YzczIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Dead Head.");
@@ -1252,7 +1252,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 33){
             	if(player.hasPermission("craftlobby.heads.skull")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Skull", "c659cdd4-e436-4977-a6a7-d5518ebecfbb", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWFlMzg1NWY5NTJjZDRhMDNjMTQ4YTk0NmUzZjgxMmE1OTU1YWQzNWNiY2I1MjYyN2VhNGFjZDQ3ZDMwODEifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Skull Head.");
@@ -1263,7 +1263,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 34){
             	if(player.hasPermission("craftlobby.heads.mailbox")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Mailbox", "4113ced7-576b-4c03-8a92-0937d5966ea1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGFjYmJjYTU2NzM3MmE5YjJiMzZjOGY2ODE1NDg1MWJkYTVlZTFkNTNlMmJjMjA4YTExNTJkOWExOGQyY2IifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Mailbox Head.");
@@ -1274,7 +1274,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 35){
             	if(player.hasPermission("craftlobby.heads.texture")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("MissingTexture", "5d43c6dd-ca01-466c-9614-764449140917", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTllYjlkYTI2Y2YyZDMzNDEzOTdhN2Y0OTEzYmEzZDM3ZDFhZDEwZWFlMzBhYjI1ZmEzOWNlYjg0YmMifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MissingTexture Head.");
@@ -1299,7 +1299,7 @@ public class InvClick implements Listener{
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
             if(event.getSlot() == 40){
-            	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
             	player.getInventory().setHelmet(null);
         		player.closeInventory();
             }
@@ -1308,7 +1308,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 0){
             	if(player.hasPermission("craftlobby.heads.a")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("A", "d9e6ae1b-8e1d-4ae7-8f5b-b581b1771d40", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM2MGRhMjk0NGExNzdkZDA4MjY4ZmJlYzA0ZTQwODEyZDFkOTI5NjUwYmU2NjUyOWIxZWU1ZTFlN2VjYSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "A Head.");
@@ -1319,7 +1319,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 1){
             	if(player.hasPermission("craftlobby.heads.b")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("B", "a389402c-129b-4de2-8877-7912a1afe881", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODA0MWY1ZTg2OTgzZDM2ZWFlYzRlMTY3YjJiYmI1YTM3Mjc2MDdjZGU4OGY3NTU1Y2ExYjUyMmEwMzliYiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "B Head.");
@@ -1330,7 +1330,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 2){
             	if(player.hasPermission("craftlobby.heads.c")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("C", "5aafc18c-4341-4d65-bbfe-062706ffb067", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDk0NTk5NmM4YWU5MWUzNzYxOTZkNGRjNjc2ZmVjMzFmZWFjNzkwYTJmMTk1YjI5ODFhNzAzY2ExZDE2Y2I2In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "C Head.");
@@ -1341,7 +1341,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 3){
             	if(player.hasPermission("craftlobby.heads.d")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("D", "2bb28566-da08-4b69-963f-da9561f1d0a8", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTY0MTE1MGY0ODFlODQ5MmY3MTI4Yzk0ODk5NjI1NGQyZDkxZmM5MGY1YThmZjRkOGFjNWMzOWE2YTg4YSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "D Head.");
@@ -1352,7 +1352,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 4){
             	if(player.hasPermission("craftlobby.heads.e")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("E", "72c35d01-c507-4efc-9184-63c32cdf4687", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGIyNTE0ODdmZjhlZWYyZWJjN2E1N2RhYjZlM2Q5ZjFkYjdmYzkyNmRkYzY2ZmVhMTRhZmUzZGZmMTVhNDUifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "E Head.");
@@ -1363,7 +1363,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 5){
             	if(player.hasPermission("craftlobby.heads.f")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("F", "b46b2241-5546-48db-a457-a2dbad23db27", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2U0MzM2NTZiNDQzNjY4ZWQwM2RhYzhjNDQyNzIyYTJhNDEyMjFiZThiYjQ4ZTIzYjM1YmQ4YzJlNTlmNjMifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "F Head.");
@@ -1374,7 +1374,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 6){
             	if(player.hasPermission("craftlobby.heads.g")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("G", "4b0845df-5f9a-47ab-8ab7-044f810017fd", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTk1ODYzYjczNjM3NjA1ZmVhY2JiMTczYjc3ZDVlMTU1ZTY1MjA0Yzc4ZDVjNzkxMWY3MzhmMjhkZWI2MCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "G Head.");
@@ -1385,7 +1385,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 7){
             	if(player.hasPermission("craftlobby.heads.h")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("H", "ea507bde-e39a-4e8c-b6a7-35fffed066c6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2MxZDM1OGQ5MjcwNzQyODljYzI2YmZmNWIxMjQwNzQ2ZjlmNGYwY2M0NmY5NDJmNTk4MWM2NTk1ZjcyZGQifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "H Head.");
@@ -1396,7 +1396,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 8){
             	if(player.hasPermission("craftlobby.heads.i")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("I", "84143d3c-f198-461d-aecc-40741d5494fe", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGYyMjk1ODY1YmRhNGU0Nzk3OWQzNmI4YTg4N2E3NWExM2IwMzRlNjk4OGY3ODY3MGI2NGExZTY0NDJjIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "I Head.");
@@ -1407,7 +1407,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 9){
             	if(player.hasPermission("craftlobby.heads.j")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("J", "3814608a-d3e2-49ce-9ebf-fe4c25efd882", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTM0NDYyYjU1ZDdmNTgyMzY4MGFkMTNmMmFkYmQ3ZDFlZDQ2YmE1MTAxMDE3ZWQ0YjM3YWVlZWI3NzVkIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "J Head.");
@@ -1418,7 +1418,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 10){
             	if(player.hasPermission("craftlobby.heads.k")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("K", "519c18a7-f30d-4f03-8975-9655f2360347", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzczMzI1YTkzNWMwNjdiNmVmMjI3MzY3ZjYyY2E0YmY0OWY2N2FkYjlmNmRhMzIwOTFlMmQzMmM1ZGRlMzI4In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "K Head.");
@@ -1429,7 +1429,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 11){
             	if(player.hasPermission("craftlobby.heads.l")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("L", "c5d1650f-c193-4f67-be23-7eae09a66e1c", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjVhMWUzMzI4YzU3MWFhNDk1ZDljNWY0OTQ4MTVjY2ExNzZjM2FjYjE4NGZlYjVhN2I5Yzk2Y2U4ZTUyZmNlIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "L Head.");
@@ -1440,7 +1440,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 12){
             	if(player.hasPermission("craftlobby.heads.m")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("M", "d6a7ebad-3f25-4d4c-9bf0-36b069dc38ca", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDQ2N2JmNmJlOTVlNWM4ZTlkMDE5NzdhMmYwYzQ4N2VkNWIwZGU1Yzg3OTYzYTJlYjE1NDExYzQ0MmZiMmIifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "M Head.");
@@ -1451,7 +1451,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 13){
             	if(player.hasPermission("craftlobby.heads.n")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("N", "d621ae4e-f103-4b78-a180-c756b76b45b4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODIzZTQzNGQ2Mzk1ZmU3ZTYzNDkyNDMxYmRlZTU3ODJiZDVlZTViYzhjYWI3NTU5NDY3YmRkMWY5M2I5MjVhIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "N Head.");
@@ -1462,7 +1462,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 14){
             	if(player.hasPermission("craftlobby.heads.o")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("O", "425da042-932b-483d-9252-b7783871b66e", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODg0NDU0NjZiZGM1YWQ1YmNlYTgyMjM5YzRlMWI1MTBmNmVhNTI2MmQ4MmQ4YTk2ZDcyOTFjMzQyZmI4OSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "O Head.");
@@ -1473,7 +1473,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 15){
             	if(player.hasPermission("craftlobby.heads.p")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("P", "ebfde078-cc98-48f1-ac64-608c8545cc28", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjlkZTYwMWRlZTNmZmVjYTRkNTQ1OTVmODQ0MjAxZDBlZDIwOTFhY2VjNDU0OGM2OTZiYjE2YThhMTU4ZjYifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "P Head.");
@@ -1484,7 +1484,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 16){
             	if(player.hasPermission("craftlobby.heads.q")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Q", "5f94a01f-2bf4-497b-90fb-188e38055ca9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjZjYTc2OWJkZTI1ZDRjYzQxZTE5ZTQyYWRjMzVhYjRjMTU1N2I3NmFmMjMyNjQ5YWNjOTk2N2ZmMTk4ZjEzIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Q Head.");
@@ -1495,7 +1495,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 17){
             	if(player.hasPermission("craftlobby.heads.r")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("R", "ff745ee1-3463-473e-9e5d-db5b3f9e56a1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjdhMTg4ODA1MTYyY2E1ZGQ0ZjQ2NDljNjYxZDNmNmQyM2M0MjY2MmFlZjAxNjQ1YjFhOTdmNzhiM2YxMzIxOSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "R Head.");
@@ -1506,7 +1506,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 18){
             	if(player.hasPermission("craftlobby.heads.s")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("S", "7fdd4eda-abdb-4019-aa25-9c23b69f0012", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjBkMDlkZmQ5ZjVkZTYyNDMyMzNlMGUzMzI1YjZjMzQ3OTMzNWU3Y2NmMTNmMjQ0OGQ0ZTFmN2ZjNGEwZGYifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "S Head.");
@@ -1517,7 +1517,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 19){
             	if(player.hasPermission("craftlobby.heads.t")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("T", "28408552-4d4a-4830-a90e-8d2d98f84dcc", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjRjNzU2MTliOTFkMjQxZjY3ODM1MGFkOTIzN2MxMzRjNWUwOGQ4N2Q2ODYwNzQxZWRlMzA2YTRlZjkxIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "T Head.");
@@ -1528,7 +1528,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 20){
             	if(player.hasPermission("craftlobby.heads.u")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("U", "0b7ee6c6-f3ae-43a2-b19b-0c9df57a752d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTlmNmQyYzZkNTI4NWY4ODJhZTU1ZDFlOTFiOGY5ZWZkZmM5YjM3NzIwOGJmNGM4M2Y4OGRkMTU2NDE1ZSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "U Head.");
@@ -1539,7 +1539,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 21){
             	if(player.hasPermission("craftlobby.heads.v")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("V", "4a7d6a90-977e-4708-976b-c52d27ecaa31", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGNlMjdhMTUzNjM1ZjgzNTIzN2Q4NWM2YmY3NGY1YjFmMmU2MzhjNDhmZWU4YzgzMDM4ZDA1NThkNDFkYTcifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "V Head.");
@@ -1550,7 +1550,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 22){
             	if(player.hasPermission("craftlobby.heads.w")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("W", "eacab58c-56fb-46d9-97f6-c1c2cab2cf9e", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWVkY2Y0ZmZjYjUzYjU2ZDQyYmFhYzlkMGRmYjExOGUzNDM0NjIzMjc0NDJkZDliMjlkNDlmNTBhN2QzOGIifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "W Head.");
@@ -1561,7 +1561,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 23){
             	if(player.hasPermission("craftlobby.heads.x")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("X", "1f5d7b63-569e-4d96-b7fb-ef437ef39850", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODM2MThmZjEyMTc2NDBiZWM1YjUyNWZhMmE4ZTY3MWM3NWQyYTdkN2NiMmRkYzMxZDc5ZDlkODk1ZWFiMSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "X Head.");
@@ -1572,7 +1572,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 24){
             	if(player.hasPermission("craftlobby.heads.y")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Y", "fd3e1792-dd5e-497a-b2af-c24a22ca75e0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDljMWQyOWEzOGJjZjExM2I3ZThjMzRlMTQ4YTc5ZjlmZTQxZWRmNDFhYThiMWRlODczYmIxZDQzM2IzODYxIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Y Head.");
@@ -1583,7 +1583,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 25){
             	if(player.hasPermission("craftlobby.heads.z")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Z", "34b483d5-b7b7-4a33-b8c1-bb725969bd4a", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjkyOTU3MzQxOTVkMmM3ZmEzODliOTg3NTdlOTY4NmNlNjQzN2MxNmM1OGJkZjJiNGNkNTM4Mzg5YjU5MTIifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Z Head.");
@@ -1594,7 +1594,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 26){
             	if(player.hasPermission("craftlobby.heads.enderchest")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Enderchest", "42db67b6-9dd1-4bfe-b478-8829c1622218", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZjYzQ4NmMyYmUxY2I5ZGZjYjJlNTNkZDlhM2U5YTg4M2JmYWRiMjdjYjk1NmYxODk2ZDYwMmI0MDY3In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Enderchest Head.");
@@ -1605,7 +1605,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 27){
             	if(player.hasPermission("craftlobby.heads.fishtank")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("FishTank", "afcf2ba0-0405-428f-b727-c4acdda0dc75", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNlOGZkYTEzMDNiNWIzMjM5Yjk2ZWZiYTM5NWY2MjcxN2NjODc4NWJlMzJlMWQ4ODlhZmU2Yjk3YmIxYzFhIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "FishTank Head.");
@@ -1616,7 +1616,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 28){
             	if(player.hasPermission("craftlobby.heads.herobrine")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Herobrine", "d0b15454-36fa-43e4-a247-f882bb9fe288", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOThiN2NhM2M3ZDMxNGE2MWFiZWQ4ZmMxOGQ3OTdmYzMwYjZlZmM4NDQ1NDI1YzRlMjUwOTk3ZTUyZTZjYiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Herobrine Head.");
@@ -1627,7 +1627,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 29){
             	if(player.hasPermission("craftlobby.heads.mummy")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Mummy", "8f7c0c5b-720f-4944-8481-b0f7931f303f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2U5MWU5NTgyMmZlOThjYzVhNTY1OGU4MjRiMWI4Y2YxNGQ0ZGU5MmYwZTFhZjI0ODE1MzcyNDM1YzllYWI2In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Mummy Head.");
@@ -1638,7 +1638,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 30){
             	if(player.hasPermission("craftlobby.heads.blackcat")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("BlackCat", "6dbe3930-9e7c-426a-a7aa-4a48e93078a8", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q4Y2RjYTg3Mjk2Njc5Y2EyNmFhZDY3MDQzYmYxZDQ0Yjk4MjYyMTljY2E5ZjRjNDlhNDExM2IxNzZlNGMifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "BlackCat Head.");
@@ -1649,7 +1649,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 31){
             	if(player.hasPermission("craftlobby.heads.helloweenpumpkin")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("HelloweenPumpkin", "87f9057b-abd3-45b9-8457-b8507a67ac55", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGM2NTcwZjEyNDI5OTJmNmViYTIzZWU1ODI1OThjMzllM2U3NDUzODMyNzNkZWVmOGIzOTc3NTgzZmUzY2Y1In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "HelloweenPumpkin Head.");
@@ -1660,7 +1660,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 32){
             	if(player.hasPermission("craftlobby.heads.devil")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Devil", "c3c88c33-f305-4c10-9303-ce658b2fbde7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWRhMzkyNjllZjQ1ZjgyNWVjNjFiYjRmOGFhMDliZDNjZjA3OTk2ZmI2ZmFjMzM4YTZlOTFkNjY5OWFlNDI1In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Devil Head.");
@@ -1671,7 +1671,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 33){
             	if(player.hasPermission("craftlobby.heads.skeletonminer")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("SkeletonMiner", "fc0cbbe8-e2e2-4118-99a4-e4f811e75511", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM3ZjhmOTVjMTI1NzU3Y2JmNzY3YTExZjUyYTRlNjY5MWNlMThhMjU5NzhjNjhjZmEzOTEwMzYwZmUifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "SkeletonMiner Head.");
@@ -1682,7 +1682,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 34){
             	if(player.hasPermission("craftlobby.heads.witch")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Witch", "68ab540e-1ad4-4680-9fc3-b42bcf869253", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRlZGJlZTQyYmU0NzJlM2ViNzkxZTdkYmRmYWYxOGM4ZmU1OTNjNjM4YmExMzk2YzllZjY4ZjU1NWNiY2UifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Witch Head.");
@@ -1693,7 +1693,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 35){
             	if(player.hasPermission("craftlobby.heads.ghost")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Ghost", "31152fb2-cb1e-45c3-86dd-b23f7a20a6f8", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjhkMjE4MzY0MDIxOGFiMzMwYWM1NmQyYWFiN2UyOWE5NzkwYTU0NWY2OTE2MTllMzg1NzhlYTRhNjlhZTBiNiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Ghost Head.");
@@ -1717,13 +1717,13 @@ public class InvClick implements Listener{
             	this.headsMenu4.openHeadsMenu4(player);
             }
             if(event.getSlot() == 40){
-            	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
             	player.getInventory().setHelmet(null);
         		player.closeInventory();
             }
             if(event.getSlot() == 0){
             	if(player.hasPermission("craftlobby.heads.evilbunny")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("EvilBunny", "e4f254ad-1413-4853-8736-10c7aa53fbaf", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2Q0ZmRhZDVhNjEwNGFhNTQ5ZDFlNzZkNzNhM2M2ZmUzYzY3MjRiZjA5ZjdmZmNjMDJmMzNmOWVkZTdmYWRlIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "EvilBunny Head.");
@@ -1734,7 +1734,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 1){
             	if(player.hasPermission("craftlobby.heads.scaryclown")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("ScaryClown", "d1956517-9a4d-421d-8647-2d940dc64518", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODZkYmMxZGViYzU3NDM4YTVkZTRiYTkxNTE1MTM4MmFiYzNkOGYxMzE4ZTJhMzVlNzhkZmIzMGYwNGJjNDY3In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "ScaryClown Head.");
@@ -1745,7 +1745,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 2){
             	if(player.hasPermission("craftlobby.heads.frankensteinsmonster")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("FrankensteinsMonster", "aec7b0b6-7bf8-46a6-b873-feb3d6277af8", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDdjYmUwNjFiNDQ1Yjg4Y2IyZGY1OWFjY2M4ZDJjMWMxMjExOGZlMGIyMTI3ZTZlNzU4MTM1NTBhZGFjNjdjZiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "FrankensteinsMonster Head.");
@@ -1756,7 +1756,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 3){
             	if(player.hasPermission("craftlobby.heads.ogre")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Ogre", "579a7117-023d-4183-80d1-f33ab649f7ff", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWNhNDc5NDZkNzI4NTgzNGVmMWUxNzYyOWY3MjgyYjY1ZTkxNDM1OTdmZTdiZjJiZTFkZTI0M2YxYzYzIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Ogre Head.");
@@ -1767,7 +1767,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 4){
             	if(player.hasPermission("craftlobby.heads.werewolf")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("WereWolf", "fdc7eb2a-0bec-408d-8f16-f8494d3960d7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTFjOTkzNGNkZDU1YTllNjMzNTk2MmE4Nzc2MjYwZDc5MTYxNTA4MTM0ODNlOTU2YzI4NjFiMTFhOGEyNjdmNyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "WereWolf Head.");
@@ -1778,7 +1778,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 5){
             	if(player.hasPermission("craftlobby.heads.guardian")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Guardian", "2e9c0a67-92b3-4949-9be1-faf12318ee88", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTMyYzI0NTI0YzgyYWIzYjNlNTdjMjA1MmM1MzNmMTNkZDhjMGJlYjhiZGQwNjM2OWJiMjU1NGRhODZjMTIzIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Guardian Head.");
@@ -1789,7 +1789,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 6){
             	if(player.hasPermission("craftlobby.heads.walrus")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Walrus", "a185ff1a-f32e-47e0-be61-5a612f130f33", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDdiYWVkYWY5YWQ5NTQ3NGViMWJlNTg5MjQ0NDVkZmM3N2JiZGMyNTJjYzFjODE2NDRjZjcxNTRjNDQxIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Walrus Head.");
@@ -1800,7 +1800,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 7){
             	if(player.hasPermission("craftlobby.heads.batman")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Batman", "af20c020-6810-4abe-8437-97d3bff52bec", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjI1NmY3MTczNWVmNDU4NTgxYzlkYWNmMzk0MTg1ZWVkOWIzM2NiNmVjNWNkNTk0YTU3MTUzYThiNTY2NTYwIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Batman Head.");
@@ -1811,7 +1811,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 8){
             	if(player.hasPermission("craftlobby.heads.ilusionblock")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("IlusionBlock", "d27723ec-8f68-4bbf-a2b0-58f0adf0b7f9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQ2MmRkZmE1NTNjZTc4NjgzYmU0NzdiOGQ4NjU0ZjNkZmMzYWEyOTY5ODA4NDc4Yzk4N2FiODhjMzc2YTAifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "IlusionBlock Head.");
@@ -1822,7 +1822,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 9){
             	if(player.hasPermission("craftlobby.heads.mrwakecz")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("MrWakeCZ", "43d05dab-2dbc-418b-9e6f-dc73ab916dbc", "eyJ0aW1lc3RhbXAiOjE0NTQ3MTIwOTIzMjksInByb2ZpbGVJZCI6IjQzZDA1ZGFiMmRiYzQxOGI5ZTZmZGM3M2FiOTE2ZGJjIiwicHJvZmlsZU5hbWUiOiJNcldha2VDWiIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzQ5ODM2MDliYjY2ZTBmNDY3ZmEzYmYyNmQ5NzBkOWI1OWYyODdjZDhiYTk0MWU4ZWE4NTliZTgwNmM5MCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrWakeCZ Head.");
@@ -1833,7 +1833,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 10){
             	if(player.hasPermission("craftlobby.heads.deawen")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Deawen", "75095752-c042-4aad-aa7f-15dbc57a28d9", "eyJ0aW1lc3RhbXAiOjE0NTk0NDYxNDU4MDUsInByb2ZpbGVJZCI6Ijc1MDk1NzUyYzA0MjRhYWRhYTdmMTVkYmM1N2EyOGQ5IiwicHJvZmlsZU5hbWUiOiJEZWF3ZW4iLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViYWI5YTNmMWI4YjgxZmQ4N2FkNzg4NmFlMTFjMjgzZDYyODg0OWU1ZDFlYzYzMDQ5NjA2ZmJlYTVmNjYzIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Deawen Head.");
@@ -1844,7 +1844,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 11){
             	if(player.hasPermission("craftlobby.heads.ccarmel")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Ccarmel", "81b28a0a-1b32-4d55-8f10-fff7021d4c23", "eyJ0aW1lc3RhbXAiOjE0NTk0NTIxNjI1NzUsInByb2ZpbGVJZCI6IjgxYjI4YTBhMWIzMjRkNTU4ZjEwZmZmNzAyMWQ0YzIzIiwicHJvZmlsZU5hbWUiOiJDY2FybWVsIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzI0MjVlNTVlZjA0NjMzYjcyNWU2NmNhM2E2NWFmNDFkM2ZjMmZiMDY5YjJiNjFlNzhlYTE4Y2U5MjkwMmY2ZiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Ccarmel Head.");
@@ -1855,7 +1855,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 12){
             	if(player.hasPermission("craftlobby.heads.flafylp")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Flafy_LP", "63e2cc82-a760-432c-9cce-f0e297f14389", "eyJ0aW1lc3RhbXAiOjE0NTk0NTIxODk1MDUsInByb2ZpbGVJZCI6IjYzZTJjYzgyYTc2MDQzMmM5Y2NlZjBlMjk3ZjE0Mzg5IiwicHJvZmlsZU5hbWUiOiJGbGFmeV9MUCIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mZmJlYTE5ZTc3Y2FjMmE5YjdjM2EyN2Q2Yjc3OTdkNGM4NmIxYWVhYTYzYjIyNDlkZWQ4YTgwN2JiM2I4In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Flafy_LP Head.");
@@ -1866,7 +1866,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 13){
             	if(player.hasPermission("craftlobby.heads.itztoky")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("iTzToky", "1fe73673-484e-429b-97bc-c959365d3b9d", "eyJ0aW1lc3RhbXAiOjE0NTk0NDYyNTQ1ODgsInByb2ZpbGVJZCI6IjFmZTczNjczNDg0ZTQyOWI5N2JjYzk1OTM2NWQzYjlkIiwicHJvZmlsZU5hbWUiOiJpVHpUb2t5IiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzIwZTMyNjUyMzlmYjg4ODU5NzljZTc1NTFkNGJiYzExYjRlNjhlNTM3M2Q3OTg0YWNkZmFiNWM5NDUzYjFlIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "iTzToky Head.");
@@ -1877,7 +1877,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 14){
             	if(player.hasPermission("craftlobby.heads.delfik")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Delfik", "2ae3d9b6-d86e-4bd9-ab64-9d90b6736ce0", "eyJ0aW1lc3RhbXAiOjE0NTAyODQzOTM0MDEsInByb2ZpbGVJZCI6IjJhZTNkOWI2ZDg2ZTRiZDlhYjY0OWQ5MGI2NzM2Y2UwIiwicHJvZmlsZU5hbWUiOiJEZWxmaWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFmNzY3MTRmY2ZjOWJlMzQxZTdjMmQzMzJiZDZmZmJhNzg0YWE3OTdhYTg2NTk2YmM4N2E0NjE0OTg4ZSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Delfik Head.");
@@ -1888,7 +1888,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 15){
             	if(player.hasPermission("craftlobby.heads.mrzaky")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("MrZaky", "0cf27547-32ac-4f0b-90e8-f185d8124c76", "eyJ0aW1lc3RhbXAiOjE0NTk0NDYzNjMzMjUsInByb2ZpbGVJZCI6IjBjZjI3NTQ3MzJhYzRmMGI5MGU4ZjE4NWQ4MTI0Yzc2IiwicHJvZmlsZU5hbWUiOiJNclpha3kiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWQyOGNlMmZjNjdjYmU0YzI0OTE3ZWZiNjk4OWQxNjk0ZjQ0OTVmNjE4YWQ5NDg5ZTkyZDZjODNjZmY4Y2MifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrZaky Head.");
@@ -1899,7 +1899,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 16){
             	if(player.hasPermission("craftlobby.heads.itzjarko")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("iTz_Jarko", "cb91e9c3-3ec1-432e-8dad-c631f9b38daf", "eyJ0aW1lc3RhbXAiOjE0NTk0NTI2ODQ4OTksInByb2ZpbGVJZCI6ImNiOTFlOWMzM2VjMTQzMmU4ZGFkYzYzMWY5YjM4ZGFmIiwicHJvZmlsZU5hbWUiOiJpVHpfSmFya28iLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWJmOWU5N2M4NGRhNmNhOWVlMzQxYmYwYjMzZWI5MzYyZGYzMmZiY2IwYzE0ZWIyNDVmYzU1YzBhOGM0YWJkMSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "iTz_Jarko Head.");
@@ -1910,7 +1910,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 17){
             	if(player.hasPermission("craftlobby.heads.kapr20")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("kapr20", "e94d212c-8016-43df-9dbc-0e058bfe2adf", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE0MTczMjgsInByb2ZpbGVJZCI6ImU5NGQyMTJjODAxNjQzZGY5ZGJjMGUwNThiZmUyYWRmIiwicHJvZmlsZU5hbWUiOiJrYXByMjAiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjNjM2JlOTkzOGRlZDVlYTkyMjQxNzQwNWI3OTIxMDkyZjM3OWNhZTlkYjUyYmUzNzFjZjkyNjllOTAifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "kapr20 Head.");
@@ -1921,7 +1921,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 18){
             	if(player.hasPermission("craftlobby.heads.misery96")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Misery96", "f3dbccbc-73ef-4d2a-9592-e87860c1fb0b", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE1MDA1MzYsInByb2ZpbGVJZCI6ImYzZGJjY2JjNzNlZjRkMmE5NTkyZTg3ODYwYzFmYjBiIiwicHJvZmlsZU5hbWUiOiJNaXNlcnk5NiIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83OGQ2ZjFlY2NjMTA2MGM5ZGY3NjZkYWUwZDU0OTJlNGVmMzYxMTIyYWZmODYyNjg1ZTE0ZGRiOGRiMjM2YyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Misery96 Head.");
@@ -1932,7 +1932,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 19){
             	if(player.hasPermission("craftlobby.heads.trewish")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Trewish", "a78598c6-d85e-4197-833c-793dbe7d387c", "eyJ0aW1lc3RhbXAiOjE0NTk0NDY0NjIxOTEsInByb2ZpbGVJZCI6ImE3ODU5OGM2ZDg1ZTQxOTc4MzNjNzkzZGJlN2QzODdjIiwicHJvZmlsZU5hbWUiOiJUcmV3aXNoIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzU4NDhjNmM5ZDhmY2RjN2ZjZjkxODllNzE5NjRjYzI1YWFiYmY1NDA5MWJmZTBhZjY1NDQ3MmNkMjg2Y2FjIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Trewish Head.");
@@ -1943,7 +1943,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 20){
             	if(player.hasPermission("craftlobby.heads.keyio")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Keyio", "2cefcef0-0342-4a88-a1b8-d9019f3542ca", "eyJ0aW1lc3RhbXAiOjE0NTk0NDY1NzUxNTcsInByb2ZpbGVJZCI6IjJjZWZjZWYwMDM0MjRhODhhMWI4ZDkwMTlmMzU0MmNhIiwicHJvZmlsZU5hbWUiOiJLZXlpbyIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kNjc1NDgzZTA2ZTRjY2M5ZTg2NjhmZTlhOGNlOTlmNTg5NDdmZmM0YWFkZjkyN2RmMmI5MTFhNGM1OTQwYmUifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Keyio Head.");
@@ -1954,7 +1954,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 21){
             	if(player.hasPermission("craftlobby.heads.nedzdo")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Nedzdo", "03683a45-67a5-4444-823a-a43c49215767", "eyJ0aW1lc3RhbXAiOjE0NTk0NTI2MDUwNzMsInByb2ZpbGVJZCI6IjAzNjgzYTQ1NjdhNTQ0NDQ4MjNhYTQzYzQ5MjE1NzY3IiwicHJvZmlsZU5hbWUiOiJOZWR6ZG8iLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzVjZGFmZjRmNjY0MTBjNDJmOGExYTcwMjFmY2M1MWEyNWE5ODhlZDg1ZmNkZDE5Mjc1YjBhNGJiYzFhZjFkIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Nedzdo Head.");
@@ -1965,7 +1965,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 22){
             	if(player.hasPermission("craftlobby.heads.cheap")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Cheap_", "bfe196c4-2e8e-427a-be3b-36c716d373d3", "eyJ0aW1lc3RhbXAiOjE0NTk0NDY3MjQyNDEsInByb2ZpbGVJZCI6ImJmZTE5NmM0MmU4ZTQyN2FiZTNiMzZjNzE2ZDM3M2QzIiwicHJvZmlsZU5hbWUiOiJDaGVhcF8iLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTJkYmM2NGNkMTI1MmE2MDEwMDhiYTY1NzNhMmVlYjExMmMxNDNhMGZiNDZjODZlZjZjZGVkZWU5MWFhZGQifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Cheap_ Head.");
@@ -1976,7 +1976,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 23){
             	if(player.hasPermission("craftlobby.heads.pvnst")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("PVNST", "70dc3eaa-e5e2-48b7-b94b-9fa1a0dabfbc", "eyJ0aW1lc3RhbXAiOjE0NDc2MTE5OTY2MDAsInByb2ZpbGVJZCI6IjcwZGMzZWFhZTVlMjQ4YjdiOTRiOWZhMWEwZGFiZmJjIiwicHJvZmlsZU5hbWUiOiJQVk5TVCIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lMDM1YmVkY2U1ODA2NmNlN2RjNzMyZTA1NDdlMzMyNDYzNzY3ODJlYTAzOGNkNjRjOTZlODI0YWE5OWY4OTM4In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "PVNST Head.");
@@ -1987,7 +1987,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 24){
             	if(player.hasPermission("craftlobby.heads.r3pl1kat0r")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("_R3pl1_", "379161e5-7373-4917-ba83-ca601e9f0b90", "eyJ0aW1lc3RhbXAiOjE0NTk0NTIyNTkwODksInByb2ZpbGVJZCI6IjM3OTE2MWU1NzM3MzQ5MTdiYTgzY2E2MDFlOWYwYjkwIiwicHJvZmlsZU5hbWUiOiJfUjNwbDFfIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzU1Njk3MTM4ZTczMTUwY2FkNTIxMjcyYzczNjA3NWQ3ZTQ3ZjNlZjM4MDcyOTNlNmUxZTdkMTIzODY2ODk3In19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "_R3pl1_ Head.");
@@ -1998,7 +1998,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 25){
             	if(player.hasPermission("craftlobby.heads.radiko")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Radiko", "07ef2b1b-183d-4808-8fb8-60fba3131fd7", "eyJ0aW1lc3RhbXAiOjE0NDc2NzY4ODkwMDUsInByb2ZpbGVJZCI6IjA3ZWYyYjFiMTgzZDQ4MDg4ZmI4NjBmYmEzMTMxZmQ3IiwicHJvZmlsZU5hbWUiOiJSYWRpa28iLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGMxMzZmZWQxMzllNzU1ODViZDNkMDQ3YzlmZjI3YzBhZDM0ZmQyZTgwMjUxY2I4ZjIyMTc1NmU0Yzk4M2Y0ZSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Radiko Head.");
@@ -2009,7 +2009,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 26){
             	if(player.hasPermission("craftlobby.heads.filip6cz")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Filip6_CZ", "c25f01ec-9fa8-4ff6-ae34-7286f8c44b27", "eyJ0aW1lc3RhbXAiOjE0NTk0NTIyODgyMjEsInByb2ZpbGVJZCI6ImMyNWYwMWVjOWZhODRmZjZhZTM0NzI4NmY4YzQ0YjI3IiwicHJvZmlsZU5hbWUiOiJGaWxpcDZfQ1oiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDBlZDhlNjhmMTE1NjgwZWQ4NWZkODk2OGMxOTIyNWFkNzM3ZWUyZTViMTJmM2Y4MWJkMmMyZWQ0NzViZTIifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Filip6_CZ Head.");
@@ -2020,7 +2020,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 27){
             	if(player.hasPermission("craftlobby.heads.skateque")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
         			ItemStack skull = ItemFactory.createHead("SkateQue", "4049f7f9-6869-4d1b-983e-246f348603c4", "eyJ0aW1lc3RhbXAiOjE0NDc2NzcwNTgxOTgsInByb2ZpbGVJZCI6IjQwNDlmN2Y5Njg2OTRkMWI5ODNlMjQ2ZjM0ODYwM2M0IiwicHJvZmlsZU5hbWUiOiJTa2F0ZVF1ZSIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS82MjgxNzI1MWEzNTZlMWE1ZmRkMzQ2MjY3YjQ0MTIxZGYyOWRjYjBjOWJhNzQ2MGNjYjYxNmM2NTM3YTI0MyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "SkateQue Head.");
@@ -2031,7 +2031,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 28){
             	if(player.hasPermission("craftlobby.heads.spexikex")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("SpexikEx", "9b72557a-b9a0-480b-829a-32128219af5d", "eyJ0aW1lc3RhbXAiOjE0NTk0NTIzMzQ3OTcsInByb2ZpbGVJZCI6IjliNzI1NTdhYjlhMDQ4MGI4MjlhMzIxMjgyMTlhZjVkIiwicHJvZmlsZU5hbWUiOiJTcGV4aWtFeCIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mM2E1MjRiM2MzMmI0MzdkNzY0MThjNGI5NTg5YTA3M2Y5NTRjMmJlN2VkYmM3YzBkNGZiNDI1NGFmN2JmYmU0IiwibWV0YWRhdGEiOnsibW9kZWwiOiJzbGltIn19fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "SpexikEx Head.");
@@ -2043,7 +2043,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 29){
             	if(player.hasPermission("craftlobby.heads.sprajtiik")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Sprajtiik", "5bc96e8c-eb0b-4028-a433-43185ee30206", "eyJ0aW1lc3RhbXAiOjE0NTk0NTIzNjI0NDIsInByb2ZpbGVJZCI6IjViYzk2ZThjZWIwYjQwMjhhNDMzNDMxODVlZTMwMjA2IiwicHJvZmlsZU5hbWUiOiJTcHJhanRpaWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDRmOTNlZDI4YzU0MThmYzRhYjJlYjFlODUxYWU1YTU2ZTc1YTE3ZDFlNTBlNTk3MmEyYTY1YWY3NGJjZDMifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Sprajtiik Head.");
@@ -2054,7 +2054,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 30){
             	if(player.hasPermission("craftlobby.heads.brancesko")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Brancesko", "87e761a3-65c0-43b8-9551-bad0dbacd6f0", "eyJ0aW1lc3RhbXAiOjE0NTk0NDY5OTkxOTgsInByb2ZpbGVJZCI6Ijg3ZTc2MWEzNjVjMDQzYjg5NTUxYmFkMGRiYWNkNmYwIiwicHJvZmlsZU5hbWUiOiJCcmFuY2Vza28iLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzBjODE3MTM1MDk1ODZlZDQ1YmZmNzczYjU1OTM4N2YwOTIzMmU0MTk1ZTZmMjkzZTFjODk2NWZlNDUyMmUifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Brancesko Head.");
@@ -2065,7 +2065,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 31){
             	if(player.hasPermission("craftlobby.heads.crazyshanncz")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("CrazyShann_Cz", "95fffed8-8961-434a-9355-59ae809a2ada", "eyJ0aW1lc3RhbXAiOjE0NTk0NDcwNjE4NTAsInByb2ZpbGVJZCI6Ijk1ZmZmZWQ4ODk2MTQzNGE5MzU1NTlhZTgwOWEyYWRhIiwicHJvZmlsZU5hbWUiOiJDcmF6eVNoYW5uX0N6IiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2Y4MmJiZGMzMjYyNTk3YTg5YTkyMmIzMTNlY2E0ZDg3Njg5NmVmYTMyYTVmNDg5M2Y3OTA1NzExZjAyZjg3ZiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "CrazyShann_Cz Head.");
@@ -2076,7 +2076,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 32){
             	if(player.hasPermission("craftlobby.heads.soony37cze")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Soony37CZE", "f4376c30-07ca-4dd3-992e-3fc9f2410c92", "eyJ0aW1lc3RhbXAiOjE0NTk0NTI0MDIzMDksInByb2ZpbGVJZCI6ImY0Mzc2YzMwMDdjYTRkZDM5OTJlM2ZjOWYyNDEwYzkyIiwicHJvZmlsZU5hbWUiOiJTb29ueTM3Q1pFIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzc1NGQ3NjUxMDkzYjlhNWQ2NjU3MTE0ZDQ4Y2E0ZTY1MDZlYmI4OTJjOTgyNGZkMzZjOWMzNjk4MWM5MTcifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Soony37CZE Head.");
@@ -2087,7 +2087,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 33){
             	if(player.hasPermission("craftlobby.heads.marki35")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Marki35", "b0a6ea8c-1119-41eb-a806-49c287baf3ed", "eyJ0aW1lc3RhbXAiOjE0NTk0NTE3OTYwNTAsInByb2ZpbGVJZCI6ImIwYTZlYThjMTExOTQxZWJhODA2NDljMjg3YmFmM2VkIiwicHJvZmlsZU5hbWUiOiJNYXJraTM1IiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2Q3MmFjNzliOTcyMDc0NDBlYmMwNmQyMTc1ZmQ3MTRhM2VjZjQwNDM1ZTU5YzQ1Yzk3ZGYxN2Q3YzI4MjEzYSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Marki35 Head.");
@@ -2098,7 +2098,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 34){
             	if(player.hasPermission("craftlobby.heads.nurtuka")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Nurtuka", "1f159f46-90dc-4f01-8ba3-9dcdc53b2046", "eyJ0aW1lc3RhbXAiOjE0NTk0NTE4ODkxMDIsInByb2ZpbGVJZCI6IjFmMTU5ZjQ2OTBkYzRmMDE4YmEzOWRjZGM1M2IyMDQ2IiwicHJvZmlsZU5hbWUiOiJOdXJ0dWthIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2Q5YzYxNTQ1NTE2YjE2ZTJjNGQ0M2FkOGJlNGQ4YWYyNjY3ZDdhOGIzYzMyYzUxYTgwMjg3NWM0YjBlNjVhYTEifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Nurtuka Head.");
@@ -2109,7 +2109,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 35){
             	if(player.hasPermission("craftlobby.heads.patule1215")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("patule1215", "d47a6921-6d3b-49e2-a66e-700656ff8497", "eyJ0aW1lc3RhbXAiOjE0NTk0NTE5ODM2MjgsInByb2ZpbGVJZCI6ImQ0N2E2OTIxNmQzYjQ5ZTJhNjZlNzAwNjU2ZmY4NDk3IiwicHJvZmlsZU5hbWUiOiJwYXR1bGUxMjE1IiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzlkNTRiZmY2YTZiMzc2NmNjZDFhYzY0OTU5N2Y1YTgyNTE2NzdmNjQ1YTk3Njc3OGMyNWE5MTFmM2RiN2RjIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "patule1215 Head.");
@@ -2130,13 +2130,13 @@ public class InvClick implements Listener{
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
             if(event.getSlot() == 40){
-            	player.playSound(player.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+            	player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
             	player.getInventory().setHelmet(null);
         		player.closeInventory();
             }
             if(event.getSlot() == 0){
             	if(player.hasPermission("craftlobby.heads.stefanbabiak")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("stefanbabiak", "2db50655-c1eb-4942-a813-acf968712fa9", "eyJ0aW1lc3RhbXAiOjE0NTk0NTI3OTY3NDIsInByb2ZpbGVJZCI6IjJkYjUwNjU1YzFlYjQ5NDJhODEzYWNmOTY4NzEyZmE5IiwicHJvZmlsZU5hbWUiOiJzdGVmYW5iYWJpYWsiLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGRmNzhjOTc1ZWJiMjI2YzQwZjA3MmIyZWY0YmMyYmM3MGNiMWM2NGFiOTNiNTk3ZmVjYjNjNjU3OWQ0NzgyNSJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "stefanbabiak Head.");
@@ -2147,7 +2147,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 1){
             	if(player.hasPermission("craftlobby.heads.shadycz")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("ShadyCZ", "1d9042cf-6c30-4156-b3ac-cbfe4e45d23c", "eyJ0aW1lc3RhbXAiOjE0NTk1MTk2MDI5MDAsInByb2ZpbGVJZCI6IjFkOTA0MmNmNmMzMDQxNTZiM2FjY2JmZTRlNDVkMjNjIiwicHJvZmlsZU5hbWUiOiJTaGFkeUNaIiwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzJiOWY5YjMwMjFlMDVlZDhlYzZkMjVhYzdiNDM5ZDdhYzNlYTJiYjk3OWZkMWM1NWFkNGUxNjM4MWIxNmRlIn19fQ==");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "ShadyCZ Head.");
@@ -2158,7 +2158,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 2){
             	if(player.hasPermission("craftlobby.heads.snowman")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Snowman", "cac3fe21-e50a-413e-a3b4-fda3fd396034", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOThlMzM0ZTRiZWUwNDI2NDc1OWE3NjZiYzE5NTVjZmFmM2Y1NjIwMTQyOGZhZmVjOGQ0YmYxYmIzNmFlNiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowman Head.");
@@ -2169,7 +2169,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 3){
             	if(player.hasPermission("craftlobby.heads.snowglobe")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Snowglobe", "be6b6cbc-223a-4c98-b205-b00b7c545579", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRkNjYzMTM2Y2FmYTExODA2ZmRiY2E2YjU5NmFmZDg1MTY2YjRlYzAyMTQyYzhkNWFjODk0MWQ4OWFiNyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowglobe Head.");
@@ -2180,7 +2180,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 4){
             	if(player.hasPermission("craftlobby.heads.present1")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("BluePresent", "9e7cfed7-6eab-419e-ade9-dcdd59c3949d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTEyZTk0NTFjZGIxOTZiNzgxOTVhOGYwYTRiOWMxYzBhMDRmNTgyNzg4NzkyN2I2YTgyYWFkMzljYWIyZjQzMCJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "BluePresent Head.");
@@ -2191,7 +2191,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 5){
             	if(player.hasPermission("craftlobby.heads.present2")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("GoldPresent", "d8b36e98-b8ee-4cdc-ac57-f4ef5a6e74b1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmI0Y2RlMTZhNDAxNGRlMGE3NjUxZjYwNjdmMTI2OTViYjVmZWQ2ZmVhZWMxZTk0MTNjYTQyNzFlN2M4MTkifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "GoldPresent Head.");
@@ -2202,7 +2202,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 6){
             	if(player.hasPermission("craftlobby.heads.present3")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("GreenPresent", "4fabccc8-0092-49b6-b010-689e521857a0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDA4Y2U3ZGViYTU2YjcyNmE4MzJiNjExMTVjYTE2MzM2MTM1OWMzMDQzNGY3ZDVlM2MzZmFhNmZlNDA1MiJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "GreenPresent Head.");
@@ -2213,7 +2213,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 7){
             	if(player.hasPermission("craftlobby.heads.present4")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("RedPresent", "dca29a3a-76d3-4979-88a2-2da034b99212", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlZjlhYTE0ZTg4NDc3M2VhYzEzNGE0ZWU4OTcyMDYzZjQ2NmRlNjc4MzYzY2Y3YjFhMjFhODViNyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "RedPresent Head.");
@@ -2224,7 +2224,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 8){
             	if(player.hasPermission("craftlobby.heads.santa")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Santa", "f4b89f66-750d-4ffb-8002-90a097de4b9b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGExNTkyMzZkNzUxMmJkYjQzMjZhMjRlMTQ1MDIxNjdiNzZiY2Q4NWMwNDE5MzFjMjE5NDIwMWIxN2Y1ZTcifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Santa Head.");
@@ -2235,7 +2235,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 9){
             	if(player.hasPermission("craftlobby.heads.santa2")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
         			ItemStack skull = ItemFactory.createHead("Santa", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Santa Head.");
@@ -2246,7 +2246,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 10){
             	if(player.hasPermission("craftlobby.heads.elf")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Elf", "203a3caa-9053-468d-9b82-a5e143e54c74", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU3YmU0N2JlNmY0YjI2YjA3OWM3NzU4YjY2Y2E4ODhiOWMzNGVhZWQ3MmU2ZTU4YjEzZDg3ZmZkYTBiMyJ9fX0=");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Elf Head.");
@@ -2257,7 +2257,7 @@ public class InvClick implements Listener{
             }
             if(event.getSlot() == 11){
             	if(player.hasPermission("craftlobby.heads.elf2")){
-            		player.playSound(player.getLocation(), Sound.ORB_PICKUP, 15.0F, 15.0F);
+            		player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 15.0F, 15.0F);
             		ItemStack skull = ItemFactory.createHead("Elf", "f879b9f5-ec53-472b-8626-a0b98b6bd153", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmM2ZTc5ZDE3MTc5MDJmNzFkYzU1M2M1MzczZmYyZTE3YmFlNjE5YjM5ZjhkZGJkZDIzMzgzZGQ1NWIzOTYifX19");
             		player.getInventory().setHelmet(skull);
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Elf Head.");

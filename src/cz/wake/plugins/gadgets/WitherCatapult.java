@@ -67,11 +67,11 @@ public class WitherCatapult implements Listener{
 			  		return;
 			  	}
 	    	this._time.put(player, Double.valueOf(25D + 0.1D));
-	    	player.getWorld().playSound(player.getLocation(), Sound.WITHER_DEATH, 1.0F, 1.0F);
+	    	player.getWorld().playSound(player.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0F, 1.0F);
 	    	for (Entity e1 : player.getNearbyEntities(5.0D, 5.0D, 5.0D)) {
 	    		if ((e1 instanceof Player)){
 	    	        Player p = (Player)e1;
-	    	        p.playSound(p.getLocation(), Sound.WITHER_DEATH, 1.0F, 1.0F);
+	    	        p.playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0F, 1.0F);
 	    	    }
 	    	}
 	    	final int task = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable()

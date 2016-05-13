@@ -3,8 +3,8 @@ package cz.wake.plugins.pets;
 import java.util.Iterator;
 
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftWither;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftWither;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -31,7 +31,7 @@ public class Widder {
 	    Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable(){
 			@Override
 			public void run() {
-				((CraftWither)wither).getHandle().r(600);
+				((CraftWither)wither).getHandle().p(600); //?
 			}
 	    	
 	    }, 0L, 1L);

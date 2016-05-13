@@ -46,7 +46,7 @@ public class FrostLord{
 				                stepY = 0;
 				                step = 0;
 				                radius = 1.5f;
-				                location.getWorld().playSound(location, Sound.DIG_SNOW, .5f, 1.5f);
+				                location.getWorld().playSound(location, Sound.BLOCK_SNOW_BREAK, .5f, 1.5f);
 				                UtilParticles.play(location.clone().add(0, 3, 0), Effect.SNOW_SHOVEL, 0, 0, 0, 0, 0, 0.3f, 40);
 				            }
 				        }

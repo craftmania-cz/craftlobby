@@ -15,7 +15,7 @@ public class MessagesListener {
 	}
 	
 	public static void messageNoPerm(Player p, String gadget){
-		p.playSound(p.getLocation(), Sound.NOTE_BASS, 15.0F, 15.0F);
+		p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BASS, 15.0F, 15.0F);
 		p.sendMessage(ChatColor.RED + "Nemas opraveni k pouzivani: " + ChatColor.WHITE + gadget);
 	}
 	
@@ -29,11 +29,11 @@ public class MessagesListener {
 	
 	public static void messageOfActive(Player p, String Message){
 		p.sendMessage(ChatColor.GRAY + "Jiz mas aktivovany: " + ChatColor.RED + Message);
-		p.playSound(p.getLocation(), Sound.NOTE_BASS, 15.0F, 15.0F);
+		p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BASS, 15.0F, 15.0F);
 	}
 	
 	public void prepareGadget(Player p, String gadget, Material mat, byte data){
-		p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+		p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 15.0F, 15.0F);
 		p.sendMessage("§7Aktivoval jsi §a" + gadget);
 		ItemStack item = ItemFactory.create(mat, data, "§c" + gadget);
 		p.getInventory().setItem(6, item);

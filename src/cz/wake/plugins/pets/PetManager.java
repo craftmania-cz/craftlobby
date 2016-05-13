@@ -3,14 +3,14 @@ package cz.wake.plugins.pets;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.server.v1_8_R3.AttributeInstance;
-import net.minecraft.server.v1_8_R3.EntityInsentient;
-import net.minecraft.server.v1_8_R3.GenericAttributes;
-import net.minecraft.server.v1_8_R3.PathEntity;
+import net.minecraft.server.v1_9_R1.AttributeInstance;
+import net.minecraft.server.v1_9_R1.EntityInsentient;
+import net.minecraft.server.v1_9_R1.GenericAttributes;
+import net.minecraft.server.v1_9_R1.PathEntity;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -45,7 +45,7 @@ public class PetManager implements Listener{
 			public void run(){
 				if ((!pet.isValid() || (!player.isOnline()))){
 					this.cancel();}
-				net.minecraft.server.v1_8_R3.Entity pett = ((CraftEntity) pet).getHandle();
+				net.minecraft.server.v1_9_R1.Entity pett = ((CraftEntity) pet).getHandle();
 				((EntityInsentient) pett).getNavigation().a(2);
 				Object petf = ((CraftEntity) pet).getHandle();
 				Location targetLocation = player.getLocation();

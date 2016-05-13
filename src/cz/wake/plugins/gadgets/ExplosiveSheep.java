@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import net.minecraft.server.v1_8_R3.Entity;
-import net.minecraft.server.v1_8_R3.EntitySheep;
-import net.minecraft.server.v1_8_R3.GenericAttributes;
-import net.minecraft.server.v1_8_R3.PathfinderGoalSelector;
+import net.minecraft.server.v1_9_R1.Entity;
+import net.minecraft.server.v1_9_R1.EntitySheep;
+import net.minecraft.server.v1_9_R1.GenericAttributes;
+import net.minecraft.server.v1_9_R1.PathfinderGoalSelector;
 
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
@@ -16,8 +16,8 @@ import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftSheep;
-import org.bukkit.craftbukkit.v1_8_R3.util.UnsafeList;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftSheep;
+import org.bukkit.craftbukkit.v1_9_R1.util.UnsafeList;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
@@ -145,12 +145,12 @@ public class ExplosiveSheep implements Listener{
 	      } else {
 	        this.s.setColor(DyeColor.WHITE);
 	      }
-	      this.s.getWorld().playSound(this.s.getLocation(), Sound.CLICK, 5.0F, 1.0F);
+	      this.s.getWorld().playSound(this.s.getLocation(), Sound.UI_BUTTON_CLICK, 5.0F, 1.0F);
 	      this.red = (!this.red);
 	      this.time -= 0.2D;
 	      if (this.time < 0.5D)
 	      {
-	        this.s.getWorld().playSound(this.s.getLocation(), Sound.EXPLODE, 2.0F, 1.0F);
+	        this.s.getWorld().playSound(this.s.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 2.0F, 1.0F);
 	        this.s.getWorld().spigot().playEffect(this.s.getLocation(), Effect.EXPLOSION_HUGE);
 	        for (int i = 0; i < 50; i++)
 	        {

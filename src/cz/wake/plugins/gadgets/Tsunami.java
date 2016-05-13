@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.server.v1_9_R1.Block;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -79,7 +81,7 @@ public class Tsunami implements Listener{
 	          public void run()
 	          {
 	            if ((loc.getBlock().getType() != org.bukkit.Material.AIR) && 
-	              (net.minecraft.server.v1_8_R3.Block.getById(loc.getBlock().getTypeId()).getMaterial().isSolid())) {
+	              (Block.getByCombinedId(loc.getBlock().getTypeId()).getMaterial().isSolid())) {
 	              loc.add(0.0D, 1.0D, 0.0D);
 	            }
 	            if (loc.clone().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == org.bukkit.Material.AIR) {

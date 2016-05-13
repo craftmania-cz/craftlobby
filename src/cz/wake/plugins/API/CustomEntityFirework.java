@@ -1,13 +1,13 @@
 package cz.wake.plugins.API;
 
-import net.minecraft.server.v1_8_R3.EntityFireworks;
-import net.minecraft.server.v1_8_R3.PacketPlayOutEntityStatus;
-import net.minecraft.server.v1_8_R3.World;
+import net.minecraft.server.v1_9_R1.EntityFireworks;
+import net.minecraft.server.v1_9_R1.PacketPlayOutEntityStatus;
+import net.minecraft.server.v1_9_R1.World;
 
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_9_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -24,7 +24,7 @@ public class CustomEntityFirework extends EntityFireworks {
 	boolean gone = false;
 
 	@Override
-	public void t_() {
+	public void m() {
 		if (gone) {
 			return;
 		}

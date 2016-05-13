@@ -73,7 +73,7 @@ public class PoopBomb implements Listener{
 	        final Item localItem1 = player.getWorld().dropItem(player.getLocation(), localItemStack);
 	        localItem1.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.valueOf(true)));
 	        localArrayList.add(localItem1);
-	        localItem1.getWorld().playSound(localItem1.getLocation(), Sound.VILLAGER_HIT, 1.0F, 1.0F);
+	        localItem1.getWorld().playSound(localItem1.getLocation(), Sound.ENTITY_VILLAGER_HURT, 1.0F, 1.0F);
 	        for (int i = 0; i < 2; i++)
 	        {
 	          Item localItem2 = player.getWorld().dropItem(player.getLocation(), localItemStack);
@@ -94,7 +94,7 @@ public class PoopBomb implements Listener{
 	                  Item localItem2 = localItem1.getWorld().dropItem((Location)localObject, localItemStack);
 	                  localItem2.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.valueOf(true)));
 	                  localItem2.setVelocity(new Vector((random.nextDouble() - 0.5D) / 2.0D, 0.2D, (random.nextDouble() - 0.5D) / 2.0D));
-	                  localItem2.getWorld().playSound(localItem2.getLocation(), Sound.ITEM_PICKUP, 1.0F, 1.0F);
+	                  localItem2.getWorld().playSound(localItem2.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0F, 1.0F);
 	                  localArrayList.add(localItem2);
 	                }
 	              }
@@ -103,7 +103,7 @@ public class PoopBomb implements Listener{
 	              for (localObject = localArrayList.iterator(); ((Iterator)localObject).hasNext();){
 	                Item localItem1 = (Item)((Iterator)localObject).next();
 	                ParticleEffect.SMOKE_LARGE.display(0.0F, 0.0F, 0.0F, 0.2F, 4, localItem1.getLocation(), 15.0D);
-	                localItem1.getWorld().playSound(localItem1.getLocation(), Sound.EXPLODE, 1.0F, 1.0F);
+	                localItem1.getWorld().playSound(localItem1.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F);
 	                localItem1.remove();
 	              }
 	              cancel();

@@ -5,16 +5,16 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.minecraft.server.v1_8_R3.EntityChicken;
-import net.minecraft.server.v1_8_R3.EntityCow;
-import net.minecraft.server.v1_8_R3.EntityHorse;
-import net.minecraft.server.v1_8_R3.EntityOcelot;
-import net.minecraft.server.v1_8_R3.EntityPig;
-import net.minecraft.server.v1_8_R3.EntityRabbit;
-import net.minecraft.server.v1_8_R3.EntitySheep;
-import net.minecraft.server.v1_8_R3.EntitySilverfish;
-import net.minecraft.server.v1_8_R3.EntityWolf;
-import net.minecraft.server.v1_8_R3.EntityZombie;
+import net.minecraft.server.v1_9_R1.EntityChicken;
+import net.minecraft.server.v1_9_R1.EntityCow;
+import net.minecraft.server.v1_9_R1.EntityHorse;
+import net.minecraft.server.v1_9_R1.EntityOcelot;
+import net.minecraft.server.v1_9_R1.EntityPig;
+import net.minecraft.server.v1_9_R1.EntityRabbit;
+import net.minecraft.server.v1_9_R1.EntitySheep;
+import net.minecraft.server.v1_9_R1.EntitySilverfish;
+import net.minecraft.server.v1_9_R1.EntityWolf;
+import net.minecraft.server.v1_9_R1.EntityZombie;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;

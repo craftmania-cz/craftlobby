@@ -1,10 +1,8 @@
 package cz.wake.plugins.gadgets;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -14,13 +12,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.listeners.MessagesListener;
 import cz.wake.plugins.utils.ParticleEffect;
-import cz.wake.plugins.utils.UtilParticles;
 
 public class TeleportStick implements Listener{
 	
@@ -77,7 +73,7 @@ public class TeleportStick implements Listener{
 	        player.teleport(localLocation);
 	        ParticleEffect.SMOKE_LARGE.display(0.0F, 0.0F, 1.0F, 1.0F, 15, localLocation, 15.0D);
 	        ParticleEffect.ENCHANTMENT_TABLE.display(0.0F, 0.0F, 1.0F, 1.0F, 15, localLocation, 15.0D);
-	        localLocation.getWorld().playSound(localLocation, Sound.ENDERMAN_TELEPORT, 1.0F, 1.0F);
+	        localLocation.getWorld().playSound(localLocation, Sound.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
 	        this._cdRunnable.put(player, new BukkitRunnable(){
 	    		@Override
 	    		public void run(){

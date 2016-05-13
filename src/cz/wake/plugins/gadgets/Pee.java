@@ -82,7 +82,7 @@ public class Pee implements Listener{
 	    	        final Item fb = player.getWorld().dropItem(loc, is);
 	    	        fb.setVelocity(player.getLocation().getDirection().multiply(0.4D).add(new Vector(0.0D, 0.25D, 0.0D)));
 	    	        fb.setMetadata("takeable", new FixedMetadataValue(plugin, "takeable"));
-	    	        player.playSound(player.getLocation(), Sound.NOTE_PIANO, 5.0F, 1.0F);
+	    	        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_PLING, 5.0F, 1.0F);
 	    	        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable()
 	    	        {
 	    	        	public void run(){

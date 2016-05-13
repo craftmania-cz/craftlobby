@@ -108,7 +108,7 @@ public class ColorBomb implements Listener{
 	        	              i.setPickupDelay(500000);
 	        	              i.setVelocity(new Vector(0.0D, 0.5D, 0.0D).add(UtilMath.getRandomCircleVector().multiply(0.1D)));
 	        	              ColorBomb.this.items.add(i);
-	        	              i.getWorld().playSound(i.getLocation(), Sound.CHICKEN_EGG_POP, 0.2F, 1.0F);
+	        	              i.getWorld().playSound(i.getLocation(), Sound.ENTITY_CHICKEN_EGG, 0.2F, 1.0F);
 	        	              for (Entity entity : ColorBomb.this.bomb.getNearbyEntities(1.5D, 1.0D, 1.5D)) {
 	        	            	  if (((entity instanceof Player)) && (affectPlayers)) {
 	        	            		  entity.setVelocity(new Vector(0.0D, 0.5D, 0.0D).add(UtilMath.getRandomCircleVector().multiply(0.1D)));

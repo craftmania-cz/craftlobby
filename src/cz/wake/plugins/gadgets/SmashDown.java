@@ -76,7 +76,7 @@ public class SmashDown implements Listener{
 			  	}
 	    	this._time.put(player, Double.valueOf(15D + 0.1D));
 	    	
-	    	player.playSound(player.getLocation(), Sound.FIREWORK_LAUNCH, 2, 1);
+	    	player.playSound(player.getLocation(), Sound.ENTITY_FIREWORK_LAUNCH, 2, 1);
 	        player.setVelocity(new Vector(0, 3, 0));
 	        final int taskId = Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
 	            @Override
@@ -111,7 +111,7 @@ public class SmashDown implements Listener{
 	
 	private void playBoomEffect(Entity entity) {
         final Location loc = entity.getLocation();
-        loc.getWorld().playSound(loc, Sound.EXPLODE, 2, 1);
+        loc.getWorld().playSound(loc, Sound.ENTITY_GENERIC_EXPLODE, 2, 1);
         new BukkitRunnable() {
             int i = 1;
             @Override
@@ -150,7 +150,7 @@ public class SmashDown implements Listener{
                                 && b.getType() != Material.LEAVES_2
                                 && b.getType() != Material.QUARTZ_STAIRS
                                 && b.getType() != Material.QUARTZ_BLOCK
-                                && net.minecraft.server.v1_8_R3.Block.getById(b.getTypeId()).getMaterial().isSolid()
+                                && net.minecraft.server.v1_9_R1.Block.getByCombinedId(b.getTypeId()).getMaterial().isSolid()
                                 && b.getType().getId() != 43
                                 && b.getType().getId() != 44) {
                             FallingBlock fb = loc.getWorld().spawnFallingBlock(b.getLocation().clone().add(0, 1.1f, 0), b.getType(), b.getData());

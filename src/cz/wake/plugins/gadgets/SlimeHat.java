@@ -10,7 +10,7 @@ import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftFirework;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftFirework;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -185,7 +185,7 @@ public class SlimeHat implements Listener{
 		Player p = e.getPlayer();
 		Item item = e.getItem();
 		if((item.getItemStack().getType() == Material.SLIME_BALL) && (item.getItemStack().getItemMeta().getDisplayName().contains("slimeHat"))){
-			p.playSound(p.getLocation(), Sound.EAT, 30.0F, 1.0F);
+			p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 30.0F, 1.0F);
 			PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 200, 2);
 			potionEffect.apply(p);
 			e.setCancelled(true);

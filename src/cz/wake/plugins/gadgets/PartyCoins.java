@@ -80,7 +80,7 @@ public class PartyCoins implements Listener{
 	          tometa.setLore(Arrays.asList(new String[] { "Bomb" }));
 	          todrop.setItemMeta(tometa);
 	          final Item item1 = player.getWorld().dropItem(player.getLocation().add(0.0D, 1.5D, 0.0D), todrop);
-	          item1.getWorld().playSound(item1.getLocation(), Sound.FUSE, 1.0F, 1.0F);
+	          //item1.getWorld().playSound(item1.getLocation(), Sound.FUSE, 1.0F, 1.0F);
 	          item1.setVelocity(player.getLocation().getDirection().multiply(0.9D));
 	          item1.setPickupDelay(130);
 	          Bukkit.broadcastMessage("§a" + player.getName() + " §eprave vyhodil §6CoinsParty!");
@@ -110,7 +110,7 @@ public class PartyCoins implements Listener{
 	              tometa.setLore(test);
 	              todrop.setItemMeta(tometa);
 	              player.getWorld().dropItemNaturally(loc1, todrop);
-	              item1.getWorld().playSound(item1.getLocation(), Sound.ITEM_PICKUP, 1.0F, 1.0F);
+	              item1.getWorld().playSound(item1.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0F, 1.0F);
 	            }
 	          }, 120L, 4L);
 	          
@@ -118,7 +118,7 @@ public class PartyCoins implements Listener{
 
 				@Override
 				public void run() {
-					item1.getWorld().playSound(item1.getLocation(), Sound.COW_HURT, 1.0F, 1.0F);
+					item1.getWorld().playSound(item1.getLocation(), Sound.ENTITY_COW_HURT, 1.0F, 1.0F);
 	                fi = 0;
 	                Bukkit.getScheduler().cancelTask(FireworkTask);
 	                Bukkit.getScheduler().cancelTask(SpawnTask);
@@ -135,7 +135,7 @@ public class PartyCoins implements Listener{
 	          {
 	            public void run()
 	            {
-	              item1.getWorld().playSound(item1.getLocation(), Sound.FALL_BIG, 1.0F, 1.0F);
+	              item1.getWorld().playSound(item1.getLocation(), Sound.ENTITY_GENERIC_BIG_FALL, 1.0F, 1.0F);
 	            }
 	          }, 50L);
 	          
@@ -143,7 +143,7 @@ public class PartyCoins implements Listener{
 	          {
 	            public void run()
 	            {
-	              item1.getWorld().playSound(item1.getLocation(), Sound.FALL_BIG, 1.0F, 1.0F);
+	              item1.getWorld().playSound(item1.getLocation(), Sound.ENTITY_GENERIC_BIG_FALL, 1.0F, 1.0F);
 	            }
 	          }, 70L);
 	          
@@ -151,7 +151,7 @@ public class PartyCoins implements Listener{
 	          {
 	            public void run()
 	            {
-	              item1.getWorld().playSound(item1.getLocation(), Sound.FALL_BIG, 1.0F, 1.0F);
+	              item1.getWorld().playSound(item1.getLocation(), Sound.ENTITY_GENERIC_BIG_FALL, 1.0F, 1.0F);
 	            }
 	          }, 90L);
 	          
@@ -159,7 +159,7 @@ public class PartyCoins implements Listener{
 	          {
 	            public void run()
 	            {
-	              item1.getWorld().playSound(item1.getLocation(), Sound.ENDERDRAGON_GROWL, 1.0F, 1.0F);
+	              item1.getWorld().playSound(item1.getLocation(), Sound.ENTITY_ENDERDRAGON_GROWL, 1.0F, 1.0F);
 	            }
 	          }, 110L);
 	        }
@@ -218,7 +218,7 @@ public class PartyCoins implements Listener{
 	      (event.getItem().getItemStack().getItemMeta().getLore().contains("Bomb")))
 	    {
 	      Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "addbalance " + player.getName() + " 1");
-	      event.getPlayer().getWorld().playSound(event.getItem().getLocation(), Sound.LEVEL_UP, 1.0F, 1.0F);
+	      event.getPlayer().getWorld().playSound(event.getItem().getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0F, 1.0F);
 	      event.setCancelled(true);
 	      event.getItem().remove();
 	    }

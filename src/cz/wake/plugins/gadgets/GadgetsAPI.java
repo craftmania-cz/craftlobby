@@ -229,7 +229,7 @@ public class GadgetsAPI implements Listener{
             	return;
             }
 			if(e.getSlot() == 40){
-            	p.playSound(p.getLocation(), Sound.EXPLODE, 15.0F, 15.0F);
+            	p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
             	p.getInventory().setItem(6, null);
         		p.closeInventory();
             }
