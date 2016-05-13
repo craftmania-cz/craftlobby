@@ -16,11 +16,12 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.API.TimeUtils;
+import cz.wake.plugins.gadgets.GadgetsAPI;
 
 public class GadgetsMenu implements Listener{
 	
 	HeadsMenu hatsMenu = new HeadsMenu();
-	GadgetsItemsMenu gItems = new GadgetsItemsMenu();
+	GadgetsAPI gItems = new GadgetsAPI();
 	
 	public void openGadgetsMenu(Player p){
 		

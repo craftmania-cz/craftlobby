@@ -51,6 +51,7 @@ import cz.wake.plugins.gadgets.ExplosiveSheep;
 import cz.wake.plugins.gadgets.Fireworks;
 import cz.wake.plugins.gadgets.FlowerPopper;
 import cz.wake.plugins.gadgets.FunCannon;
+import cz.wake.plugins.gadgets.GadgetsAPI;
 import cz.wake.plugins.gadgets.Ghosts;
 import cz.wake.plugins.gadgets.PartyCoins;
 import cz.wake.plugins.gadgets.TeleportStick;
@@ -92,6 +93,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private WakeAPI api = new WakeAPI();
 	private Boxer boxer = new Boxer();
 	private CloaksAPI cloaks = new CloaksAPI();
+	private GadgetsAPI gadgets = new GadgetsAPI();
 	private GadgetsMenu gMenu = new GadgetsMenu();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
@@ -184,6 +186,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new Hero(), this);
 		pm.registerEvents(new Boxer(), this);
 		pm.registerEvents(new CloaksAPI(), this);
+		pm.registerEvents(new GadgetsAPI(), this);
 	}
 	
 	private void loadCommands(){
@@ -243,6 +246,10 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	
 	public GadgetsMenu getMainGadgetsMenu(){
 		return gMenu;
+	}
+	
+	public GadgetsAPI getGadgetsAPI(){
+		return gadgets;
 	}
 	
 }

@@ -1,8 +1,12 @@
 package cz.wake.plugins.listeners;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import cz.wake.plugins.utils.ItemFactory;
 
 public class MessagesListener {
 	
@@ -26,6 +30,14 @@ public class MessagesListener {
 	public static void messageOfActive(Player p, String Message){
 		p.sendMessage(ChatColor.GRAY + "Jiz mas aktivovany: " + ChatColor.RED + Message);
 		p.playSound(p.getLocation(), Sound.NOTE_BASS, 15.0F, 15.0F);
+	}
+	
+	public void prepareGadget(Player p, String gadget, Material mat, byte data){
+		p.playSound(p.getLocation(), Sound.CHICKEN_EGG_POP, 15.0F, 15.0F);
+		p.sendMessage("§7Aktivoval jsi §a" + gadget);
+		ItemStack item = ItemFactory.create(mat, data, "§c" + gadget);
+		p.getInventory().setItem(6, item);
+		p.closeInventory();
 	}
 
 }
