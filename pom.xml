@@ -4,7 +4,7 @@
 
 	<groupId>cz.wake.plugins</groupId>
 	<artifactId>CraftLobby</artifactId>
-	<version>1.4</version>
+	<version>1.5</version>
 	<name>CraftLobby</name>
 
 	<build>
@@ -59,10 +59,10 @@
 	<dependencies>
         <dependency>
             <groupId>net.minecraft</groupId>
-            <artifactId>minecraft-server-18</artifactId>
-            <version>1.8.8</version>
+            <artifactId>minecraft-server-19</artifactId>
+            <version>1.9.2</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/lib/spigot18.jar</systemPath>
+            <systemPath>${pom.basedir}/lib/spigot19.jar</systemPath>
         </dependency>
 		<dependency>
             <groupId>net.md-5</groupId>
