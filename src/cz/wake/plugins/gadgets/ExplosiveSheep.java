@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 import net.minecraft.server.v1_9_R1.Entity;
+import net.minecraft.server.v1_9_R1.EntityCreature;
+import net.minecraft.server.v1_9_R1.EntityInsentient;
 import net.minecraft.server.v1_9_R1.EntitySheep;
 import net.minecraft.server.v1_9_R1.GenericAttributes;
 import net.minecraft.server.v1_9_R1.PathfinderGoalSelector;
@@ -16,6 +18,7 @@ import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_9_R1.entity.CraftSheep;
 import org.bukkit.craftbukkit.v1_9_R1.util.UnsafeList;
 import org.bukkit.entity.Player;
@@ -27,6 +30,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+
+import com.google.common.collect.Sets;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.listeners.MessagesListener;
@@ -165,26 +170,8 @@ public class ExplosiveSheep implements Listener{
 	          sheep.setBaby();
 	          sheep.setAgeLock(true);
 	          sheep.setNoDamageTicks(120);
-	          EntitySheep entitySheep = ((CraftSheep)sheep).getHandle();
-	          try
-	          {
-	            Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
-	            bField.setAccessible(true);
-	            Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
-	            cField.setAccessible(true);
-	            bField.set(entitySheep.goalSelector, new UnsafeList());
-	            bField.set(entitySheep.targetSelector, new UnsafeList());
-	            cField.set(entitySheep.goalSelector, new UnsafeList());
-	            cField.set(entitySheep.targetSelector, new UnsafeList());
-	            
-	            entitySheep.goalSelector.a(3, new CustomPathFinderGoalPanic(entitySheep, 0.4D));
-	            
-	            entitySheep.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(1.4D);
-	          }
-	          catch (Exception exc)
-	          {
-	            exc.printStackTrace();
-	          }
+	          clearPathfinders(sheep);
+	          makePanic(sheep);
 	          Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable()
 	          {
 	            public void run()
@@ -206,6 +193,32 @@ public class ExplosiveSheep implements Listener{
 	      }
 	    }
 	    }
+	
+	public void clearPathfinders(org.bukkit.entity.Entity entity)
+	  {
+	    net.minecraft.server.v1_9_R1.Entity nmsEntity = ((CraftEntity)entity).getHandle();
+	    try
+	    {
+	      Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
+	      bField.setAccessible(true);
+	      Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
+	      cField.setAccessible(true);
+	      bField.set(((EntityInsentient)nmsEntity).goalSelector, Sets.newLinkedHashSet());
+	      bField.set(((EntityInsentient)nmsEntity).targetSelector, Sets.newLinkedHashSet());
+	      cField.set(((EntityInsentient)nmsEntity).goalSelector, Sets.newLinkedHashSet());
+	      cField.set(((EntityInsentient)nmsEntity).targetSelector, Sets.newLinkedHashSet());
+	    }
+	    catch (Exception exc)
+	    {
+	      exc.printStackTrace();
+	    }
+	  }
+	
+	public void makePanic(org.bukkit.entity.Entity entity)
+	  {
+	    EntityInsentient insentient = (EntityInsentient)((CraftEntity)entity).getHandle();
+	    insentient.goalSelector.a(3, new CustomPathFinderGoalPanic((EntityCreature)insentient, 0.4D));
+	  }
 	
 
 }
