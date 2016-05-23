@@ -86,7 +86,7 @@ public class GadgetsAPI implements Listener{
 			gadgetsInv.setItem(8, i);
 		}
 		if(p.hasPermission("craftlobby.gadgets.tnt")){
-			ItemStack i = ItemFactory.create(Material.MELON_SEEDS, (byte)0, "§e§lTNT", "§7Staci vyhodit a uvidis", "§7bordel. Majgat");
+			ItemStack i = ItemFactory.create(Material.TNT, (byte)0, "§e§lTNT", "§7Staci vyhodit a uvidis", "§7bordel. Majgat");
 			gadgetsInv.setItem(9, i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lTNT", "§7Gadget lze ziskat v CraftBoxu!");
