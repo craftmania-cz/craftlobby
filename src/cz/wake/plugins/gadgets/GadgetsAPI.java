@@ -163,7 +163,7 @@ public class GadgetsAPI implements Listener{
 			gadgetsInv.setItem(19, i);
 		}
 		if(p.hasPermission("craftlobby.gadgets.flowerpopper")){
-			ItemStack i = ItemFactory.create(Material.RED_ROSE, (byte)0, "§e§lFlowerPopper", "§7Ten pocit, kdyz ti z hlavy", "strili kytky.");
+			ItemStack i = ItemFactory.create(Material.RED_ROSE, (byte)0, "§e§lFlowerPopper", "§7Ten pocit, kdyz ti z hlavy", "§7strili kytky.");
 			gadgetsInv.setItem(20, i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lFlowerPopper", "§7Gadget lze ziskat v CraftBoxu!");

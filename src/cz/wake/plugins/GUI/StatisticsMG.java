@@ -92,7 +92,7 @@ public class StatisticsMG {
 		bbLore.add("");
 		bbLore.add(ChatColor.YELLOW + "Vitezstvi: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildWins(p.getUniqueId()));
 		bbLore.add(ChatColor.YELLOW + "Odehrano her: " + ChatColor.WHITE + Main.getInstance().getAPI().getBuildPlayedGames(p.getUniqueId()));
-		bbLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getBuildBattleTime(p.getUniqueId()), false));
+		//bbLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getBuildBattleTime(p.getUniqueId()), false));
 		bMeta.setLore(bbLore);
 		buildbattle.setItemMeta(bMeta);
 		
