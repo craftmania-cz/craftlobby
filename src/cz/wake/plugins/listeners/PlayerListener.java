@@ -29,6 +29,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -151,6 +152,11 @@ public class PlayerListener implements Listener{
 		} else {
 			e.setCancelled(true);
 		}
+	}
+	
+	@EventHandler
+	public void onSwap(PlayerSwapHandItemsEvent e){
+		e.setCancelled(true);
 	}
 	
 	@EventHandler
