@@ -306,6 +306,9 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 25){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1289.0D, 35.0D, 572.620D, 0f, 5f));
         	}
+        	if(event.getSlot() == 31){
+        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
+        	}
         	if(event.getSlot() == 16){
         		sendToServer(player, "factions");
         	}

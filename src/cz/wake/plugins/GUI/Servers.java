@@ -232,6 +232,22 @@ public class Servers implements Listener{
 		factions.setItemMeta(facMeta);
 		serverMenu.setItem(16, factions);
 		
+		ItemStack sb = new ItemStack(Material.QUARTZ_BLOCK);
+		sb = ItemFactory.addGlow(sb);
+		ItemMeta sbMeta = sb.getItemMeta();
+		sbMeta.setDisplayName("§e§lSpeedBuilders");
+		ArrayList<String> sbLore = new ArrayList<String>();
+		sbLore.add("§8Arcade");
+		sbLore.add("");
+		sbLore.add("§7V teto minihre plati,");
+		sbLore.add("§7rychlejsi vyhrava!");
+		sbLore.add("§7Vyhrajes i ty?!");
+		sbLore.add("");
+		sbLore.add("§a▸ Kliknutim te portnu");
+		sbMeta.setLore(sbLore);
+		sb.setItemMeta(sbMeta);
+		serverMenu.setItem(31, sb);
+		
 		
 		ItemStack pripravujeme = new ItemStack(Material.STAINED_GLASS);
 		ItemMeta priMeta = pripravujeme.getItemMeta();
