@@ -5,18 +5,18 @@ import java.util.Iterator;
 
 import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
 import org.bukkit.entity.Ocelot;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Ocelot.Type;
+import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableCat;
 
-public class CatRedBaby {
+public class Cat {
 	
-	public static ArrayList<String> cr = new ArrayList();
+	public static ArrayList<String> cb = new ArrayList();
 	
-	public static void activate(final Player p){
+	public static void activate(final Player p, boolean baby, Type type){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
@@ -29,12 +29,16 @@ public class CatRedBaby {
 		final Ocelot ocelot = RideableCat.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)ocelot, 0.18D, 1.0D);
 	    setMetadata((Ocelot)ocelot, "Pet", "Pet", Main.getInstance());
-	    ((Ocelot)ocelot).setBaby();;
-	    ((Ocelot)ocelot).setCatType(Type.RED_CAT);
+		if(baby){
+			((Ocelot)ocelot).setBaby();
+		} else {
+			((Ocelot)ocelot).setAdult();
+		}
+	    ((Ocelot)ocelot).setCatType(type);
 	    ((Ocelot)ocelot).setCustomNameVisible(true);
-	    ((Ocelot)ocelot).setCustomName("§6" + p.getName());
+	    ((Ocelot)ocelot).setCustomName(p.getName().toString());
 	    PetManager.pet.put(p, (CraftEntity) ocelot);
-	    cr.add(p.getName());
+	    cb.add(p.getName());
 	    p.closeInventory();
 	}
 	

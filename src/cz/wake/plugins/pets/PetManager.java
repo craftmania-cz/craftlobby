@@ -3,14 +3,12 @@ package cz.wake.plugins.pets;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.server.v1_9_R1.AttributeInstance;
-import net.minecraft.server.v1_9_R1.EntityInsentient;
-import net.minecraft.server.v1_9_R1.GenericAttributes;
-import net.minecraft.server.v1_9_R1.PathEntity;
+import net.minecraft.server.v1_9_R1.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -130,7 +128,7 @@ public class PetManager implements Listener{
 			LivingEntity mob = (LivingEntity) e.getRightClicked();
 			
 			if(mob.getType() == EntityType.ENDERMITE){
-				player.sendMessage("§cNa tohoto moba nelze nasednou!");
+				player.sendMessage("Â§cNa tohoto moba nelze nasednou!");
 				return;
 			}
 			if(mob.getType() == EntityType.PLAYER){
@@ -144,8 +142,13 @@ public class PetManager implements Listener{
 			}
 			if((mob.getName().contains(player.getName()))){
 				mob.setPassenger(player);
+
+				PacketPlayOutMount packet = new PacketPlayOutMount(((CraftPlayer)player).getHandle());
+				for(Player p : player.getWorld().getPlayers()){
+					((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
+				}
 			} else {
-				player.sendMessage("§cTento mob neni tvuj!");
+				player.sendMessage("Â§cTento mob neni tvuj!");
 				return;
 			}
 	  }
@@ -187,14 +190,8 @@ public class PetManager implements Listener{
 		  if(RabbitGold.rg.contains(p.getName())){
 			  RabbitGold.rg.remove(p.getName());
 		  }
-		  if(CatBlack.cb.contains(p.getName())){
-			  CatBlack.cb.remove(p.getName());
-		  }
-		  if(CatRed.cr.contains(p.getName())){
-			  CatRed.cr.remove(p.getName());
-		  }
-		  if(CatSiamese.cs.contains(p.getName())){
-			  CatSiamese.cs.remove(p.getName());
+		  if(Cat.cb.contains(p.getName())){
+			  Cat.cb.remove(p.getName());
 		  }
 		  if(SheepWhite.sw.contains(p.getName())){
 			  SheepWhite.sw.remove(p.getName());
@@ -234,15 +231,6 @@ public class PetManager implements Listener{
 		  }
 		  if(RabbitGoldBaby.rg.contains(p.getName())){
 			  RabbitGoldBaby.rg.remove(p.getName());
-		  }
-		  if(CatBlackBaby.cb.contains(p.getName())){
-			  CatBlackBaby.cb.remove(p.getName());
-		  }
-		  if(CatRedBaby.cr.contains(p.getName())){
-			  CatRedBaby.cr.remove(p.getName());
-		  }
-		  if(CatSiameseBaby.cs.contains(p.getName())){
-			  CatSiameseBaby.cs.remove(p.getName());
 		  }
 		  if(HorseBrownBaby.hb.contains(p.getName())){
 			  HorseBrownBaby.hb.remove(p.getName());

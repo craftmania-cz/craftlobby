@@ -13,7 +13,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.GUI.GadgetsMenu;
@@ -30,12 +29,8 @@ import cz.wake.plugins.GUI.ParticlesMenu;
 import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.cloaks.AngleCloak;
-import cz.wake.plugins.cloaks.CloaksAPI;
 import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.cloaks.SantaCloak;
-import cz.wake.plugins.gadgets.GadgetsAPI;
-import cz.wake.plugins.morphs.PigMorph;
-import cz.wake.plugins.morphs.VillagerMorph;
 import cz.wake.plugins.particles.BloodHelix;
 import cz.wake.plugins.particles.CandyCane;
 import cz.wake.plugins.particles.Clouds;
@@ -55,12 +50,7 @@ import cz.wake.plugins.particles.Portal;
 import cz.wake.plugins.particles.RainCloud;
 import cz.wake.plugins.particles.SantaHat;
 import cz.wake.plugins.particles.SnowCloud;
-import cz.wake.plugins.pets.CatBlack;
-import cz.wake.plugins.pets.CatBlackBaby;
-import cz.wake.plugins.pets.CatRed;
-import cz.wake.plugins.pets.CatRedBaby;
-import cz.wake.plugins.pets.CatSiamese;
-import cz.wake.plugins.pets.CatSiameseBaby;
+import cz.wake.plugins.pets.Cat;
 import cz.wake.plugins.pets.ChickenBaby;
 import cz.wake.plugins.pets.ChickenNormal;
 import cz.wake.plugins.pets.CowBaby;
@@ -339,7 +329,7 @@ public class InvClick implements Listener{
 	        	}
 	        }
 	        if(event.getSlot() == 28){
-	        	this.petsMenu.openPets(player);
+	        	Main.getInstance().getPetsAPI().openMainInv(player);
 	        }
 	        if(event.getSlot() == 15){
 	        	Main.getInstance().getCloaksAPI().openCloaks(player);
@@ -580,271 +570,6 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
-        }
-      //**************************** PETS MENU ****************************//
-        if(event.getInventory().getTitle().equals("Pets")){
-        	if(event.getSlot() == 39){
-            	this.gadgetsMenu.openGadgetsMenu(player);
-            }
-        	if(event.getSlot() == 40){
-        		PetManager.forceRemovePet(player);
-        		player.closeInventory();
-        	}
-        	if(event.getSlot() == 49){
-            	this.gadgetsMenu.openGadgetsMenu(player);
-            }
-        	if(event.getSlot() == 0){
-        		if(player.hasPermission("craftlobby.pets.cow")){
-        			CowNormal.activateCow(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cow Pet");
-        		}
-        	}
-        	if(event.getSlot() == 1){
-        		if(player.hasPermission("craftlobby.pets.chicken")){
-        			ChickenNormal.activateChicken(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Chicken Pet");
-        		}
-        	}
-        	if(event.getSlot() == 2){
-        		if(player.hasPermission("craftlobby.pets.pig")){
-        			PigNormal.activatePig(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Pig Pet");
-        		}
-        	}
-        	if(event.getSlot() == 3){
-        		if(player.hasPermission("craftlobby.pets.wolf")){
-        			WolfNormal.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Wolf Pet");
-        		}
-        	}
-        	if(event.getSlot() == 4){
-        		if(player.hasPermission("craftlobby.pets.silverfish")){
-        			SilverfishNormal.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Silverfish Pet");
-        		}
-        	}
-        	if(event.getSlot() == 5){
-        		if(player.hasPermission("craftlobby.pets.zombie")){
-        			ZombieNormal.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Zombie Pet");
-        		}
-        	}
-        	if(event.getSlot() == 6){
-        		if(player.hasPermission("craftlobby.pets.endermite")){
-        			EndermiteNormal.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Endermite Pet");
-        		}
-        	}
-        	if(event.getSlot() == 7){
-        		if(player.hasPermission("craftlobby.pets.rabbit.brown")){
-        			RabbitBrown.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Rabbit Pet");
-        		}
-        	}
-        	if(event.getSlot() == 8){
-        		if(player.hasPermission("craftlobby.pets.rabbit.black")){
-        			RabbitBlack.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Rabbit Pet");
-        		}
-        	}
-        	if(event.getSlot() == 9){
-        		if(player.hasPermission("craftlobby.pets.rabbit.gold")){
-        			RabbitGold.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Rabbit Pet");
-        		}
-        	}
-        	if(event.getSlot() == 10){
-        		if(player.hasPermission("craftlobby.pets.cat.black")){
-        			CatBlack.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cat Pet");
-        		}
-        	}
-        	if(event.getSlot() == 11){
-        		if(player.hasPermission("craftlobby.pets.cat.red")){
-        			CatRed.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cat Pet");
-        		}
-        	}
-        	if(event.getSlot() == 12){
-        		if(player.hasPermission("craftlobby.pets.cat.siamese")){
-        			CatSiamese.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cat Pet");
-        		}
-        	}
-        	if(event.getSlot() == 13){
-        		if(player.hasPermission("craftlobby.pets.sheep.white")){
-        			SheepWhite.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Pet");
-        		}
-        	}
-        	if(event.getSlot() == 14){
-        		if(player.hasPermission("craftlobby.pets.sheep.gray")){
-        			SheepGray.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Pet");
-        		}
-        	}
-        	if(event.getSlot() == 15){
-        		if(player.hasPermission("craftlobby.pets.sheep.brown")){
-        			SheepBrown.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Pet");
-        		}
-        	}
-        	if(event.getSlot() == 16){
-        		if(player.hasPermission("craftlobby.pets.sheep.silver")){
-        			SheepSilver.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Pet");
-        		}
-        	}
-        	if(event.getSlot() == 17){
-        		if(player.hasPermission("craftlobby.pets.horse.brown")){
-        			HorseBrown.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Horse Pet");
-        		}
-        	}
-        	if(event.getSlot() == 18){
-        		if(player.hasPermission("craftlobby.pets.zombie.baby")){
-        			ZombieBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Zombie Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 19){
-        		if(player.hasPermission("craftlobby.pets.pig.baby")){
-        			PigBaby.activatePig(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Pig Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 20){
-        		if(player.hasPermission("craftlobby.pets.cow.baby")){
-        			CowBaby.activateCow(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cow Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 21){
-        		if(player.hasPermission("craftlobby.pets.wolf.baby")){
-        			WolfBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Wolf Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 22){
-        		if(player.hasPermission("craftlobby.pets.chicken.baby")){
-        			ChickenBaby.activateChicken(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Chicken Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 23){
-        		if(player.hasPermission("craftlobby.pets.rabbit.brown.baby")){
-        			RabbitBrownBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Rabbit Baby Pet");
-        		}
-        	} 
-        	if(event.getSlot() == 24){
-        		if(player.hasPermission("craftlobby.pets.rabbit.black.baby")){
-        			RabbitBlackBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Rabbit Baby Pet");
-        		}
-        	} 
-        	if(event.getSlot() == 25){
-        		if(player.hasPermission("craftlobby.pets.rabbit.gold.baby")){
-        			RabbitGoldBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Rabbit Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 26){
-        		if(player.hasPermission("craftlobby.pets.cat.black.baby")){
-        			CatBlackBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cat Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 27){
-        		if(player.hasPermission("craftlobby.pets.cat.red.baby")){
-        			CatRedBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cat Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 28){
-        		if(player.hasPermission("craftloby.pets.cat.siamese.baby")){
-        			CatSiameseBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Cat Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 29){
-        		if(player.hasPermission("craftlobby.pets.horse.brown.baby")){
-        			HorseBrownBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Horse Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 30){
-        		if(player.hasPermission("craftlobby.pets.sheep.white.baby")){
-        			SheepWhiteBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 31){
-        		if(player.hasPermission("craftlobby.pets.sheep.gray.baby")){
-        			SheepGrayBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 32){
-        		if(player.hasPermission("craftlobby.pets.sheep.silver.baby")){
-        			SheepSilverBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 33){
-        		if(player.hasPermission("craftlobby.pets.sheep.brown.baby")){
-        			SheepBrownBaby.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Baby Pet");
-        		}
-        	}
-        	if(event.getSlot() == 34){
-        		if(player.hasPermission("craftlobby.pets.sheep.orange")){
-        			SheepOrange.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Orange");
-        		}
-        	}
-        	if(event.getSlot() == 35){
-        		if(player.hasPermission("craftlobby.pets.sheep.magenta")){
-        			SheepMagenta.activate(player);
-        		} else {
-        			MessagesListener.messageNoPerm(player, "Sheep Magenta");
-        		}
-        	}
         }
       //**************************** MORPHS MENU ****************************//
         if (event.getInventory().getTitle().equals("Morphs")) {

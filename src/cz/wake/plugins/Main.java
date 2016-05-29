@@ -22,7 +22,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
@@ -72,6 +71,7 @@ import cz.wake.plugins.manager.LagManager;
 import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
 import cz.wake.plugins.pets.PetManager;
+import cz.wake.plugins.pets.PetsAPI;
 import cz.wake.plugins.utils.mobs.NMSUtils;
 import cz.wake.plugins.utils.mobs.RideableCat;
 import cz.wake.plugins.utils.mobs.RideableChicken;
@@ -94,6 +94,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private Boxer boxer = new Boxer();
 	private CloaksAPI cloaks = new CloaksAPI();
 	private GadgetsAPI gadgets = new GadgetsAPI();
+	private PetsAPI pets = new PetsAPI();
 	private GadgetsMenu gMenu = new GadgetsMenu();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
@@ -187,6 +188,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new Boxer(), this);
 		pm.registerEvents(new CloaksAPI(), this);
 		pm.registerEvents(new GadgetsAPI(), this);
+		pm.registerEvents(new PetsAPI(), this);
 	}
 	
 	private void loadCommands(){
@@ -250,6 +252,10 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	
 	public GadgetsAPI getGadgetsAPI(){
 		return gadgets;
+	}
+	
+	public PetsAPI getPetsAPI(){
+		return pets;
 	}
 	
 }
