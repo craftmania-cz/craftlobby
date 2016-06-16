@@ -120,7 +120,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         NMSUtils.registerEntity("Silverfish", 60, EntitySilverfish.class, RideableSilverfish.class);
         NMSUtils.registerEntity("Wolf", 95, EntityWolf.class, RideableWolf.class);
         //NMSUtils.registerEntity("Zombie", 54, EntityZombie.class, RideableZombie.class);
-        //NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
+        NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
         NMSUtils.registerEntity("Ozelot", 98, EntityOcelot.class, RideableCat.class);
         //NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
         //NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);

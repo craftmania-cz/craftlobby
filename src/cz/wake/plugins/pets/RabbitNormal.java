@@ -12,13 +12,12 @@ import org.bukkit.metadata.FixedMetadataValue;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableRabbit;
 
-public class RabbitGoldBaby {
+public class RabbitNormal {
 
-	/*
 	
-	public static ArrayList<String> rg = new ArrayList();
+	public static ArrayList<String> rb = new ArrayList();
 	
-	public static void activate(final Player p){
+	public static void activate(final Player p, boolean baby, Type type){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
@@ -31,12 +30,15 @@ public class RabbitGoldBaby {
 		final Rabbit rabbit = RideableRabbit.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)rabbit, 0.30D, 1.0D);
 	    setMetadata((Rabbit)rabbit, "Pet", "Pet", Main.getInstance());
-	    ((Rabbit)rabbit).setBaby();
-	    ((Rabbit)rabbit).setRabbitType(Type.GOLD);
+		if(baby){
+			((Rabbit)rabbit).setBaby();
+		}
+		((Rabbit)rabbit).setAgeLock(true);
+	    ((Rabbit)rabbit).setRabbitType(type);
 	    ((Rabbit)rabbit).setCustomNameVisible(true);
-	    ((Rabbit)rabbit).setCustomName("�6" + p.getName());
+	    ((Rabbit)rabbit).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) rabbit);
-	    rg.add(p.getName());
+	    rb.add(p.getName());
 	    p.closeInventory();
 	}
 	
@@ -44,7 +46,5 @@ public class RabbitGoldBaby {
 	  {
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	  }
-
-	  */
 
 }

@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Rabbit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -82,6 +83,24 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWolf", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(6, i);
 		}
+		if(p.hasPermission("craftlobby.pets.rabbit.black")
+				|| p.hasPermission("craftlobby.pets.rabbit.black.baby")
+				|| p.hasPermission("craftlobby.pets.rabbit.blackandwhite")
+				|| p.hasPermission("craftlobby.pets.rabbit.blackandwhite.baby")
+				|| p.hasPermission("craftlobby.pets.rabbit.brown")
+				|| p.hasPermission("craftlobby.pets.rabbit.brown.baby")
+				|| p.hasPermission("craftlobby.pets.rabbit.saltandpepper")
+				|| p.hasPermission("craftlobby.pets.rabbit.saltandpepper.baby")
+				|| p.hasPermission("craftlobby.pets.rabbit.killer")
+				|| p.hasPermission("craftlobby.pets.rabbit.killer.baby")
+				|| p.hasPermission("craftlobby.pets.rabbit.white")
+				|| p.hasPermission("craftlobby.pets.rabbit.white.baby")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0, "§eRabbit","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(7,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(7, i);
+		}
 
 		//Zpet do menu
 		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
@@ -98,6 +117,117 @@ public class PetsAPI implements Listener{
 		inv.setItem(48, zpet);
 		
 		p.openInventory(inv);
+	}
+
+	public void openRabbitMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Rabbit");
+
+		if(p.hasPermission("craftlobby.pets.rabbit.black")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Black", "", "§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.black.baby")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Black (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_STEW,(byte)0,"§aRabbit Black & White", "", "§eKliknutim spawnes!");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black & White", "§7Tento typ nevlastnis.");
+			inv.setItem(2, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite.baby")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_STEW,(byte)0,"§aRabbit Black & White (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(3,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black & White (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(3, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.brown")){
+			ItemStack i = ItemFactory.create(Material.COOKED_RABBIT,(byte)0,"§aRabbit Brown", "", "§eKliknutim spawnes!");
+			inv.setItem(4,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Brown", "§7Tento typ nevlastnis.");
+			inv.setItem(4, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.brown.baby")){
+			ItemStack i = ItemFactory.create(Material.COOKED_RABBIT,(byte)0,"§aRabbit Brown (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(5,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Brown (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(5, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper")){
+			ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Salt & Pepper", "", "§eKliknutim spawnes!");
+			inv.setItem(6,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Salt & Pepper", "§7Tento typ nevlastnis.");
+			inv.setItem(6, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper.baby")){
+			ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Salt & Pepper (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(7,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Salt & Pepper (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(7, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.killer")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Killer", "", "§eKliknutim spawnes!");
+			inv.setItem(8,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Killer", "§7Tento typ nevlastnis.");
+			inv.setItem(8, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.killer.baby")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Killer (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(9,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Killer (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(9, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.white")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0,"§aRabbit White", "", "§eKliknutim spawnes!");
+			inv.setItem(10,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit White", "§7Tento typ nevlastnis.");
+			inv.setItem(10, i);
+		}
+		if(p.hasPermission("craftlobby.pets.rabbit.white.baby")){
+			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0,"§aRabbit White (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(11,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit White (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(11, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(23, dea);
+		inv.setItem(22, shopItem);
+		inv.setItem(21, zpet);
+
+		p.openInventory(inv);
+
 	}
 
 	public void openWolfMenu(final Player p){
@@ -390,6 +520,9 @@ public class PetsAPI implements Listener{
 			if(e.getSlot() == 6){
 				this.openWolfMenu(p);
 			}
+			if(e.getSlot() == 7){
+				this.openRabbitMenu(p);
+			}
 
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
@@ -591,6 +724,108 @@ public class PetsAPI implements Listener{
 					WolfNormal.activate(p,true);
 				} else {
 					this.ml.messageNoPerm(p,"Wolf (Baby)");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Rabbit")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.rabbit.black")){
+					RabbitNormal.activate(p,false, Rabbit.Type.BLACK);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Black");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.rabbit.black.baby")){
+					RabbitNormal.activate(p,true, Rabbit.Type.BLACK);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Black (Baby)");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite")){
+					RabbitNormal.activate(p,false, Rabbit.Type.BLACK_AND_WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Black & White");
+				}
+			}
+			if(e.getSlot() == 3){
+				if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite.baby")){
+					RabbitNormal.activate(p,true, Rabbit.Type.BLACK_AND_WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Black & White (Baby)");
+				}
+			}
+			if(e.getSlot() == 4){
+				if(p.hasPermission("craftlobby.pets.rabbit.brown")){
+					RabbitNormal.activate(p,false, Rabbit.Type.BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Brown");
+				}
+			}
+			if(e.getSlot() == 5){
+				if(p.hasPermission("craftlobby.pets.rabbit.brown.baby")){
+					RabbitNormal.activate(p,true, Rabbit.Type.BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Brown (Baby)");
+				}
+			}
+			if(e.getSlot() == 6){
+				if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper")){
+					RabbitNormal.activate(p,false, Rabbit.Type.SALT_AND_PEPPER);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Salt & Pepper");
+				}
+			}
+			if(e.getSlot() == 7){
+				if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper.baby")){
+					RabbitNormal.activate(p,true, Rabbit.Type.SALT_AND_PEPPER);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Salt & Pepper (Baby)");
+				}
+			}
+			if(e.getSlot() == 8){
+				if(p.hasPermission("craftlobby.pets.rabbit.killer")){
+					RabbitNormal.activate(p,false, Rabbit.Type.THE_KILLER_BUNNY);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Killer");
+				}
+			}
+			if(e.getSlot() == 9){
+				if(p.hasPermission("craftlobby.pets.rabbit.killer.baby")){
+					RabbitNormal.activate(p,true, Rabbit.Type.THE_KILLER_BUNNY);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit Killer (Baby)");
+				}
+			}
+			if(e.getSlot() == 10){
+				if(p.hasPermission("craftlobby.pets.rabbit.white")){
+					RabbitNormal.activate(p,false, Rabbit.Type.WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit White");
+				}
+			}
+			if(e.getSlot() == 11){
+				if(p.hasPermission("craftlobby.pets.rabbit.white.baby")){
+					RabbitNormal.activate(p,true, Rabbit.Type.WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Rabbit White (Baby)");
 				}
 			}
 		}

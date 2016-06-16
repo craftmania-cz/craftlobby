@@ -9,13 +9,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
-import org.bukkit.entity.Enderman;
+import org.bukkit.entity.*;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Skeleton;
-import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityCombustEvent;
@@ -181,18 +176,12 @@ public class PetManager implements Listener{
 		  if(WolfNormal.wn.contains(p.getName())){
 			  WolfNormal.wn.remove(p.getName());
 		  }
+		  if(RabbitNormal.rb.contains(p.getName())){
+			  RabbitNormal.rb.remove(p.getName());
+		  }
 		  /*
 		  if(ZombieNormal.zn.contains(p.getName())){
 			  ZombieNormal.zn.remove(p.getName());
-		  }
-		  if(RabbitBrown.rb.contains(p.getName())){
-			  RabbitBrown.rb.remove(p.getName());
-		  }
-		  if(RabbitBlack.rb.contains(p.getName())){
-			  RabbitBlack.rb.remove(p.getName());
-		  }
-		  if(RabbitGold.rg.contains(p.getName())){
-			  RabbitGold.rg.remove(p.getName());
 		  }
 		  if(SheepWhite.sw.contains(p.getName())){
 			  SheepWhite.sw.remove(p.getName());
@@ -211,15 +200,6 @@ public class PetManager implements Listener{
 		  }
 		  if(ZombieBaby.zb.contains(p.getName())){
 			  ZombieBaby.zb.remove(p.getName());
-		  }
-		  if(RabbitBrownBaby.rb.contains(p.getName())){
-			  RabbitBrownBaby.rb.remove(p.getName());
-		  }
-		  if(RabbitBlackBaby.rb.contains(p.getName())){
-			  RabbitBlackBaby.rb.remove(p.getName());
-		  }
-		  if(RabbitGoldBaby.rg.contains(p.getName())){
-			  RabbitGoldBaby.rg.remove(p.getName());
 		  }
 		  if(HorseBrownBaby.hb.contains(p.getName())){
 			  HorseBrownBaby.hb.remove(p.getName());
