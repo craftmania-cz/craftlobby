@@ -374,10 +374,18 @@ public class PetsAPI implements Listener{
 				this.openChickenMenu(p);
 			}
 			if(e.getSlot() == 4){
-				EndermiteNormal.activate(p);
+				if(p.hasPermission("craftlobby.pets.endermite")){
+					EndermiteNormal.activate(p);
+				} else {
+					this.ml.messageNoPerm(p,"Endermite");
+				}
 			}
 			if(e.getSlot() == 5){
-				SilverfishNormal.activate(p);
+				if(p.hasPermission("craftlobby.pets.silverfish")){
+					SilverfishNormal.activate(p);
+				} else {
+					this.ml.messageNoPerm(p,"Silverfish");
+				}
 			}
 			if(e.getSlot() == 6){
 				this.openWolfMenu(p);
