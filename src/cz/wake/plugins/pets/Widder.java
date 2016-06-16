@@ -3,8 +3,8 @@ package cz.wake.plugins.pets;
 import java.util.Iterator;
 
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftWither;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftWither;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -26,7 +26,7 @@ public class Widder {
 		final CraftWither wither = (CraftWither) p.getWorld().spawnEntity(p.getLocation(), EntityType.WITHER);
 	    PetManager.PetFollow(p, (CraftEntity)wither, 0.16D, 1.5D);
 	    setMetadata((CraftWither)wither, "Pet", "Pet", Main.getInstance());
-	    ((CraftWither)wither).setCustomName("§f" + p.getName() + " Wither");
+	    ((CraftWither)wither).setCustomName("ï¿½f" + p.getName() + " Wither");
 	    PetManager.pet.put(p, (CraftEntity) wither);
 	    Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable(){
 			@Override

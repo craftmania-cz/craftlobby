@@ -3,7 +3,7 @@ package cz.wake.plugins.pets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -12,6 +12,8 @@ import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableZombie;
 
 public class ZombieBaby {
+
+	/*
 	
 public static ArrayList<String> zb = new ArrayList();
 	
@@ -30,7 +32,7 @@ public static ArrayList<String> zb = new ArrayList();
 	    setMetadata((Zombie)zomb, "Pet", "Pet", Main.getInstance());
 	    ((Zombie)zomb).setCustomNameVisible(true);
 	    ((Zombie)zomb).setBaby(true);
-	    ((Zombie)zomb).setCustomName("§a" + p.getName());
+	    ((Zombie)zomb).setCustomName("ï¿½a" + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) zomb);
 	    zb.add(p.getName());
 	    p.closeInventory();
@@ -40,5 +42,7 @@ public static ArrayList<String> zb = new ArrayList();
 	  {
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	  }
+
+	  */
 
 }

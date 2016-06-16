@@ -5,18 +5,9 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.minecraft.server.v1_9_R1.EntityChicken;
-import net.minecraft.server.v1_9_R1.EntityCow;
-import net.minecraft.server.v1_9_R1.EntityHorse;
-import net.minecraft.server.v1_9_R1.EntityOcelot;
-import net.minecraft.server.v1_9_R1.EntityPig;
-import net.minecraft.server.v1_9_R1.EntityRabbit;
-import net.minecraft.server.v1_9_R1.EntitySheep;
-import net.minecraft.server.v1_9_R1.EntitySilverfish;
-import net.minecraft.server.v1_9_R1.EntityWolf;
-import net.minecraft.server.v1_9_R1.EntityZombie;
-
-import org.bukkit.Bukkit;
+import net.minecraft.server.v1_9_R2.*;
+import org.bukkit.*;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -31,7 +22,6 @@ import cz.wake.plugins.GUI.HeadsMenu;
 import cz.wake.plugins.GUI.HeadsMenu2;
 import cz.wake.plugins.GUI.MorphsMenu;
 import cz.wake.plugins.GUI.MountMenu;
-import cz.wake.plugins.GUI.PetsMenu;
 import cz.wake.plugins.GUI.Servers;
 import cz.wake.plugins.boxer.Boxer;
 import cz.wake.plugins.cloaks.CloaksAPI;
@@ -129,11 +119,18 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         NMSUtils.registerEntity("Pig", 90, EntityPig.class, RideablePig.class);
         NMSUtils.registerEntity("Silverfish", 60, EntitySilverfish.class, RideableSilverfish.class);
         NMSUtils.registerEntity("Wolf", 95, EntityWolf.class, RideableWolf.class);
-        NMSUtils.registerEntity("Zombie", 54, EntityZombie.class, RideableZombie.class);
-        NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
+        //NMSUtils.registerEntity("Zombie", 54, EntityZombie.class, RideableZombie.class);
+        //NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
         NMSUtils.registerEntity("Ozelot", 98, EntityOcelot.class, RideableCat.class);
-        NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
-        NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);
+        //NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
+        //NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);
+
+		for(World w : Bukkit.getWorlds()){
+			System.out.println("Mazani entit pro: " + w.getName());
+			for(Entity e : w.getEntities()){
+				e.remove();
+			}
+		}
 	}
 	
 	public void onDisable(){
@@ -166,7 +163,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new Trampoline(this), this);
 		pm.registerEvents(new MountMenu(), this);
 		pm.registerEvents(new PetManager(this), this);
-		pm.registerEvents(new PetsMenu(), this);
 		pm.registerEvents(new Chickenator(this), this);
 		pm.registerEvents(new Tsunami(this), this);
 		pm.registerEvents(new ExplosiveSheep(this), this);

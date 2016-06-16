@@ -3,7 +3,7 @@ package cz.wake.plugins.pets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Cow;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -15,7 +15,7 @@ public class CowNormal{
 	
 	public static ArrayList<String> cp = new ArrayList();
 	
-	public static void activateCow(Player p){
+	public static void activateCow(Player p, boolean baby){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
@@ -28,9 +28,12 @@ public class CowNormal{
 		final Cow cow = RideableCow.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)cow, 0.16D, 1.5D);
 	    setMetadata((Cow)cow, "Pet", "Pet", Main.getInstance());
+        if(baby){
+            ((Cow)cow).setBaby();
+        }
 	    ((Cow)cow).setAgeLock(true);
 	    ((Cow)cow).setCustomNameVisible(true);
-	    ((Cow)cow).setCustomName("§a" + p.getName());
+	    ((Cow)cow).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) cow);
 	    cp.add(p.getName());
 	    p.closeInventory();
@@ -40,6 +43,4 @@ public class CowNormal{
 	public static void setMetadata(Cow paramPig, String paramString, Object paramObject, Main paramMain){
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	}
-
-
 }

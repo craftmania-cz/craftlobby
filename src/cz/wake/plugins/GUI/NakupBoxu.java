@@ -17,17 +17,17 @@ public class NakupBoxu {
 		
 		ItemStack ano = new ItemStack(Material.STAINED_CLAY,1,(byte)5);
 		ItemMeta aMeta = ano.getItemMeta();
-		aMeta.setDisplayName("§a§lAno");
+		aMeta.setDisplayName("Â§aÂ§lAno");
 		ArrayList<String> aLore = new ArrayList<String>();
-		aLore.add("§7Kliknutim potvrdis.");
+		aLore.add("Â§7Kliknutim potvrdis.");
 		aMeta.setLore(aLore);
 		ano.setItemMeta(aMeta);
 		
 		ItemStack ne = new ItemStack(Material.STAINED_CLAY,1,(byte)14);
 		ItemMeta nMeta = ne.getItemMeta();
-		nMeta.setDisplayName("§c§lNe");
+		nMeta.setDisplayName("Â§cÂ§lNe");
 		ArrayList<String> nLore = new ArrayList<String>();
-		nLore.add("§7Kliknutim se vratis zpet!");
+		nLore.add("Â§7Kliknutim se vratis zpet!");
 		nMeta.setLore(nLore);
 		ne.setItemMeta(nMeta);
 		

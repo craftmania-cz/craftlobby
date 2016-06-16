@@ -14,7 +14,7 @@ public class MessagesListener {
 		p.sendMessage(ChatColor.GRAY + "Vyckej jeste " + ChatColor.AQUA + time + "s" + ChatColor.GRAY + " pred pouzitim.");
 	}
 	
-	public static void messageNoPerm(Player p, String gadget){
+	public void messageNoPerm(Player p, String gadget){
 		p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BASS, 15.0F, 15.0F);
 		p.sendMessage(ChatColor.RED + "Nemas opraveni k pouzivani: " + ChatColor.WHITE + gadget);
 	}
@@ -34,8 +34,8 @@ public class MessagesListener {
 	
 	public void prepareGadget(Player p, String gadget, Material mat, byte data){
 		p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 15.0F, 15.0F);
-		p.sendMessage("ง7Aktivoval jsi งa" + gadget);
-		ItemStack item = ItemFactory.create(mat, data, "งc" + gadget);
+		p.sendMessage("ยง7Aktivoval jsi ยงa" + gadget);
+		ItemStack item = ItemFactory.create(mat, data, "ยงc" + gadget);
 		p.getInventory().setItem(6, item);
 		p.closeInventory();
 	}

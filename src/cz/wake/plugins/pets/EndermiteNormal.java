@@ -3,7 +3,7 @@ package cz.wake.plugins.pets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Endermite;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -29,7 +29,7 @@ public class EndermiteNormal {
 	    PetManager.PetFollow(p, (CraftEntity)ender, 0.16D, 1.0D);
 	    setMetadata((Endermite)ender, "Pet", "Pet", Main.getInstance());
 	    ((Endermite)ender).setCustomNameVisible(true);
-	    ((Endermite)ender).setCustomName("§a" + p.getName());
+	    ((Endermite)ender).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) ender);
 	    en.add(p.getName());
 	    p.closeInventory();

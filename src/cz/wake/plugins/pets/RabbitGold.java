@@ -3,7 +3,7 @@ package cz.wake.plugins.pets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Rabbit.Type;
@@ -13,6 +13,8 @@ import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableRabbit;
 
 public class RabbitGold {
+
+	/*
 	
 public static ArrayList<String> rg = new ArrayList();
 	
@@ -31,7 +33,7 @@ public static ArrayList<String> rg = new ArrayList();
 	    setMetadata((Rabbit)rabbit, "Pet", "Pet", Main.getInstance());
 	    ((Rabbit)rabbit).setRabbitType(Type.GOLD);
 	    ((Rabbit)rabbit).setCustomNameVisible(true);
-	    ((Rabbit)rabbit).setCustomName("§5" + p.getName());
+	    ((Rabbit)rabbit).setCustomName("ï¿½5" + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) rabbit);
 	    rg.add(p.getName());
 	    p.closeInventory();
@@ -41,5 +43,7 @@ public static ArrayList<String> rg = new ArrayList();
 	  {
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	  }
+
+	  */
 
 }

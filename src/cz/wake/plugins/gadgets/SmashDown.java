@@ -150,7 +150,7 @@ public class SmashDown implements Listener{
                                 && b.getType() != Material.LEAVES_2
                                 && b.getType() != Material.QUARTZ_STAIRS
                                 && b.getType() != Material.QUARTZ_BLOCK
-                                && net.minecraft.server.v1_9_R1.Block.getByCombinedId(b.getTypeId()).getMaterial().isSolid()
+                                && net.minecraft.server.v1_9_R2.Block.getByCombinedId(b.getTypeId()).getMaterial().isSolid()
                                 && b.getType().getId() != 43
                                 && b.getType().getId() != 44) {
                             FallingBlock fb = loc.getWorld().spawnFallingBlock(b.getLocation().clone().add(0, 1.1f, 0), b.getType(), b.getData());

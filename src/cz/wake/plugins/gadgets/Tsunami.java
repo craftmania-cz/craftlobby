@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.server.v1_9_R1.Block;
+import net.minecraft.server.v1_9_R2.Block;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;

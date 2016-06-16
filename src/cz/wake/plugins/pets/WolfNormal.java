@@ -3,7 +3,7 @@ package cz.wake.plugins.pets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -15,7 +15,7 @@ public class WolfNormal {
 	
 	public static ArrayList<String> wn = new ArrayList();
 	
-	public static void activate(final Player p){
+	public static void activate(final Player p, boolean baby){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
@@ -28,9 +28,12 @@ public class WolfNormal {
 		final Wolf wolf = RideableWolf.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)wolf, 0.16D, 1.0D);
 	    setMetadata((Wolf)wolf, "Pet", "Pet", Main.getInstance());
+        if(baby){
+            ((Wolf)wolf).setBaby();
+        }
 	    ((Wolf)wolf).setAgeLock(true);
 	    ((Wolf)wolf).setCustomNameVisible(true);
-	    ((Wolf)wolf).setCustomName("§a" + p.getName());
+	    ((Wolf)wolf).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) wolf);
 	    wn.add(p.getName());
 	    p.closeInventory();

@@ -2,9 +2,8 @@ package cz.wake.plugins.gadgets;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.UUID;
 
-import net.minecraft.server.v1_9_R1.PacketPlayOutMount;
+import net.minecraft.server.v1_9_R2.PacketPlayOutMount;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
@@ -12,14 +11,14 @@ import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftFirework;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftFirework;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Slime;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -99,7 +98,7 @@ public class SlimeHat implements Listener{
 	        localSlime3.setPassenger(localSlime4);
 	        player.setPassenger(localSlime1);
 	        
-	        //Oprava chyby pøi mountu na 1.9
+	        //Oprava chyby pri mountu na 1.9
 	        PacketPlayOutMount packet = new PacketPlayOutMount(((CraftPlayer)player).getHandle());
 	        for(Player p : player.getWorld().getPlayers()){
 	        	((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);

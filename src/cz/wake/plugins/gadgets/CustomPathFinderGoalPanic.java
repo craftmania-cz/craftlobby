@@ -1,6 +1,6 @@
 package cz.wake.plugins.gadgets;
 
-import net.minecraft.server.v1_9_R1.*;
+import net.minecraft.server.v1_9_R2.*;
 
 /**
  * Created by sacha on 25/07/15.

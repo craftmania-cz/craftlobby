@@ -21,7 +21,7 @@ public class Menu {
 		
 		SkullMeta headItemMeta = (SkullMeta)Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
 		headItemMeta.setOwner(p.getName());
-		headItemMeta.setDisplayName("§aInformace o tobe");
+		headItemMeta.setDisplayName("Â§aInformace o tobe");
 		ItemStack headItem = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
 		ArrayList<String> headLore = new ArrayList<String>();
 		headLore.add(ChatColor.GRAY + "");
@@ -32,7 +32,7 @@ public class Menu {
 		
 		ItemStack statistics = new ItemStack(Material.DIAMOND,1);
 		ItemMeta statisticsMeta = statistics.getItemMeta();
-		statisticsMeta.setDisplayName("§aStatistiky");
+		statisticsMeta.setDisplayName("Â§aStatistiky");
 		ArrayList<String> statisticsLore = new ArrayList<String>();
 		statisticsLore.add("");
 		statisticsLore.add(ChatColor.WHITE + "Klikni pro zobrazeni!");
@@ -41,7 +41,7 @@ public class Menu {
 		
 		ItemStack achievements = new ItemStack(Material.ENCHANTED_BOOK,1);
 		ItemMeta achievementsMeta = achievements.getItemMeta();
-		achievementsMeta.setDisplayName("§aAchievementy");
+		achievementsMeta.setDisplayName("Â§aAchievementy");
 		ArrayList<String> achievementsLore = new ArrayList<String>();
 		achievementsLore.add("");
 		achievementsLore.add(ChatColor.GRAY + "Pripravujeme...");
@@ -50,7 +50,7 @@ public class Menu {
 		
 		ItemStack guild = new ItemStack(Material.PAINTING,1);
 		ItemMeta guildMeta = guild.getItemMeta();
-		guildMeta.setDisplayName("§aGuilds");
+		guildMeta.setDisplayName("Â§aGuilds");
 		ArrayList<String> guildLore = new ArrayList<String>();
 		guildLore.add("");
 		guildLore.add(ChatColor.GRAY + "Pripravujeme...");
@@ -59,19 +59,19 @@ public class Menu {
 		
 		ItemStack nastaveni = new ItemStack(Material.REDSTONE_COMPARATOR);
 		ItemMeta nMeta = nastaveni.getItemMeta();
-		nMeta.setDisplayName("§aNastaveni");
+		nMeta.setDisplayName("Â§aNastaveni");
 		ArrayList<String> nLore = new ArrayList<String>();
 		nLore.add("");
-		nLore.add("§7Pripravujeme...");
+		nLore.add("Â§7Pripravujeme...");
 		nMeta.setLore(nLore);
 		nastaveni.setItemMeta(nMeta);
 		
 		ItemStack multiplier = new ItemStack(Material.POTION);
 		ItemMeta mMeta = multiplier.getItemMeta();
-		mMeta.setDisplayName("§aCoins Multiplier");
+		mMeta.setDisplayName("Â§aCoins Multiplier");
 		ArrayList<String> mLore = new ArrayList<String>();
 		mLore.add("");
-		mLore.add("§7Pripravujeme...");
+		mLore.add("Â§7Pripravujeme...");
 		mMeta.setLore(mLore);
 		multiplier.setItemMeta(mMeta);
 		

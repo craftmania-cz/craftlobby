@@ -3,12 +3,12 @@ package cz.wake.plugins.pets;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.minecraft.server.v1_9_R1.*;
+import net.minecraft.server.v1_9_R2.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -43,7 +43,7 @@ public class PetManager implements Listener{
 			public void run(){
 				if ((!pet.isValid() || (!player.isOnline()))){
 					this.cancel();}
-				net.minecraft.server.v1_9_R1.Entity pett = ((CraftEntity) pet).getHandle();
+				net.minecraft.server.v1_9_R2.Entity pett = ((CraftEntity) pet).getHandle();
 				((EntityInsentient) pett).getNavigation().a(2);
 				Object petf = ((CraftEntity) pet).getHandle();
 				Location targetLocation = player.getLocation();
@@ -163,23 +163,27 @@ public class PetManager implements Listener{
 		  if(CowNormal.cp.contains(p.getName())){
 			  CowNormal.cp.remove(p.getName());
 		  }
-		  if(ChickenNormal.cn.contains(p.getName())){
-			  ChickenNormal.cn.remove(p.getName());
-		  }
 		  if(PigNormal.pn.contains(p.getName())){
 			  PigNormal.pn.remove(p.getName());
 		  }
-		  if(WolfNormal.wn.contains(p.getName())){
-			  WolfNormal.wn.remove(p.getName());
+		  if(Cat.cb.contains(p.getName())){
+			  Cat.cb.remove(p.getName());
+		  }
+		  if(ChickenNormal.cn.contains(p.getName())){
+			  ChickenNormal.cn.remove(p.getName());
+		  }
+		  if(EndermiteNormal.en.contains(p.getName())){
+			  EndermiteNormal.en.remove(p.getName());
 		  }
 		  if(SilverfishNormal.sn.contains(p.getName())){
 			  SilverfishNormal.sn.remove(p.getName());
 		  }
+		  if(WolfNormal.wn.contains(p.getName())){
+			  WolfNormal.wn.remove(p.getName());
+		  }
+		  /*
 		  if(ZombieNormal.zn.contains(p.getName())){
 			  ZombieNormal.zn.remove(p.getName());
-		  }
-		  if(EndermiteNormal.en.contains(p.getName())){
-			  EndermiteNormal.en.remove(p.getName());
 		  }
 		  if(RabbitBrown.rb.contains(p.getName())){
 			  RabbitBrown.rb.remove(p.getName());
@@ -189,9 +193,6 @@ public class PetManager implements Listener{
 		  }
 		  if(RabbitGold.rg.contains(p.getName())){
 			  RabbitGold.rg.remove(p.getName());
-		  }
-		  if(Cat.cb.contains(p.getName())){
-			  Cat.cb.remove(p.getName());
 		  }
 		  if(SheepWhite.sw.contains(p.getName())){
 			  SheepWhite.sw.remove(p.getName());
@@ -210,18 +211,6 @@ public class PetManager implements Listener{
 		  }
 		  if(ZombieBaby.zb.contains(p.getName())){
 			  ZombieBaby.zb.remove(p.getName());
-		  }
-		  if(PigBaby.pb.contains(p.getName())){
-			  PigBaby.pb.remove(p.getName());
-		  }
-		  if(CowBaby.cb.contains(p.getName())){
-			  CowBaby.cb.remove(p.getName());
-		  }
-		  if(WolfBaby.wb.contains(p.getName())){
-			  WolfBaby.wb.remove(p.getName());
-		  }
-		  if(ChickenBaby.cb.contains(p.getName())){
-			  ChickenBaby.cb.remove(p.getName());
 		  }
 		  if(RabbitBrownBaby.rb.contains(p.getName())){
 			  RabbitBrownBaby.rb.remove(p.getName());
@@ -247,6 +236,7 @@ public class PetManager implements Listener{
 		  if(SheepBrownBaby.sb.contains(p.getName())){
 			  SheepBrownBaby.sb.remove(p.getName());
 		  }
+		  */
 				  
 	  }
 }

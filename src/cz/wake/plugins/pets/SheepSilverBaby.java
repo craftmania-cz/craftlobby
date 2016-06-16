@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.bukkit.DyeColor;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -13,6 +13,8 @@ import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableSheep;
 
 public class SheepSilverBaby {
+
+	/*
 	
 	public static ArrayList<String> ss = new ArrayList();
 	
@@ -33,7 +35,7 @@ public class SheepSilverBaby {
 	    ((Sheep)sheep).setAgeLock(true);
 	    ((Sheep)sheep).setColor(DyeColor.SILVER);
 	    ((Sheep)sheep).setCustomNameVisible(true);
-	    ((Sheep)sheep).setCustomName("§6" + p.getName());
+	    ((Sheep)sheep).setCustomName("ï¿½6" + p.getName());
 	    PetManager.pet.put(p, (CraftEntity) sheep);
 	    ss.add(p.getName());
 	    p.closeInventory();
@@ -43,5 +45,7 @@ public class SheepSilverBaby {
 	  {
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	  }
+
+	  */
 
 }

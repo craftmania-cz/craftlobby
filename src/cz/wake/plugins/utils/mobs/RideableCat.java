@@ -2,11 +2,11 @@ package cz.wake.plugins.utils.mobs;
 
 import java.lang.reflect.Field;
 
-import net.minecraft.server.v1_9_R1.*;
+import net.minecraft.server.v1_9_R2.*;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_9_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftOcelot;
+import org.bukkit.craftbukkit.v1_9_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftOcelot;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 
@@ -38,9 +38,9 @@ public class RideableCat extends EntityOcelot{
             this.lastYaw = this.yaw = passenger.yaw;
             this.pitch = passenger.pitch * 0.5F;
             this.setYawPitch(this.yaw, this.pitch);
-            this.aK = this.aI = this.yaw;
-            f = ((EntityLiving)passenger).bd * 0.5F;
-            f1 = ((EntityLiving)passenger).be;
+            this.aK = this.aJ = this.yaw;
+            f = ((EntityLiving)passenger).be * 0.5F;
+            f1 = ((EntityLiving)passenger).bf;
 
             if(f1 <= 0.0F)
             {
@@ -48,7 +48,7 @@ public class RideableCat extends EntityOcelot{
             }
             Field jump = null;
             try {
-                jump = EntityLiving.class.getDeclaredField("bc");
+                jump = EntityLiving.class.getDeclaredField("bd");
             } catch (NoSuchFieldException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
@@ -79,7 +79,7 @@ public class RideableCat extends EntityOcelot{
                 f4 = 1.0F;
             }
 
-            this.aB += (f4 - this.aB) * 0.4F; this.aC += this.aB;
+            this.aC += (f4 - this.aC) * 0.4F; this.aC += this.aC;
         } else {
             this.P = 0.5F; this.aM = 0.02F; super.g(f, f1);
         }

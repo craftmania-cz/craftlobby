@@ -3,7 +3,7 @@ package cz.wake.plugins.pets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Silverfish;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -29,7 +29,7 @@ public class SilverfishNormal {
 	    PetManager.PetFollow(p, (CraftEntity)silver, 0.16D, 1.0D);
 	    setMetadata((Silverfish)silver, "Pet", "Pet", Main.getInstance());
 	    ((Silverfish)silver).setCustomNameVisible(true);
-	    ((Silverfish)silver).setCustomName("§a" + p.getName());
+	    ((Silverfish)silver).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) silver);
 	    sn.add(p.getName());
 	    p.closeInventory();

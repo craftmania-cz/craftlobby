@@ -2,8 +2,8 @@ package cz.wake.plugins.gadgets;
 
 import java.util.HashMap;
 
-import net.minecraft.server.v1_9_R1.EntityEnderPearl;
-import net.minecraft.server.v1_9_R1.EntitySnowball;
+import net.minecraft.server.v1_9_R2.EntityEnderPearl;
+import net.minecraft.server.v1_9_R2.EntitySnowball;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;

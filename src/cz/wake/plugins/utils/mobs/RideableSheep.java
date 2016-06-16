@@ -3,20 +3,20 @@ package cz.wake.plugins.utils.mobs;
 import java.lang.reflect.Field;
 
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_9_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftSheep;
+import org.bukkit.craftbukkit.v1_9_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftSheep;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 
-import net.minecraft.server.v1_9_R1.Entity;
-import net.minecraft.server.v1_9_R1.EntityHuman;
-import net.minecraft.server.v1_9_R1.EntityInsentient;
-import net.minecraft.server.v1_9_R1.EntityLiving;
-import net.minecraft.server.v1_9_R1.EntitySheep;
-import net.minecraft.server.v1_9_R1.GenericAttributes;
-import net.minecraft.server.v1_9_R1.MathHelper;
-import net.minecraft.server.v1_9_R1.World;
+import net.minecraft.server.v1_9_R2.Entity;
+import net.minecraft.server.v1_9_R2.EntityHuman;
+import net.minecraft.server.v1_9_R2.EntityInsentient;
+import net.minecraft.server.v1_9_R2.EntityLiving;
+import net.minecraft.server.v1_9_R2.EntitySheep;
+import net.minecraft.server.v1_9_R2.GenericAttributes;
+import net.minecraft.server.v1_9_R2.MathHelper;
+import net.minecraft.server.v1_9_R2.World;
 
 public class RideableSheep extends EntitySheep{
 	
@@ -34,7 +34,9 @@ public class RideableSheep extends EntitySheep{
             }
         }
     }
- 
+
+    /*
+
     @Override
     public void g(float f, float f1) {
     	Entity passenger = null;
@@ -103,6 +105,6 @@ public class RideableSheep extends EntitySheep{
         customEntity.setCustomNameVisible(false);
  
         return (CraftSheep) customEntity.getBukkitEntity();
-    }
+    } */
 
 }
