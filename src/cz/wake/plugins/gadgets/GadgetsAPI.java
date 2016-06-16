@@ -243,147 +243,147 @@ public class GadgetsAPI implements Listener{
             	if(p.hasPermission("craftlobby.gadgets.teleportstick")){
                 	this.ml.prepareGadget(p, "TeleportStick", Material.STICK, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "TeleportStick");
+            		this.ml.messageNoPerm(p, "TeleportStick");
             	}
             }
             if(e.getSlot() == 1){
             	if(p.hasPermission("craftlobby.gadgets.funcannon")){
                 	this.ml.prepareGadget(p, "FunCannon", Material.GOLD_HOE, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "FunCannon");
+					this.ml.messageNoPerm(p, "FunCannon");
             	}
             }
             if(e.getSlot() == 2){
             	if(p.hasPermission("craftlobby.gadgets.colorbomb")){
                 	this.ml.prepareGadget(p, "ColorBomb", Material.WOOL, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "ColorBomb");
+					this.ml.messageNoPerm(p, "ColorBomb");
             	}
             }
             if(e.getSlot() == 3){
             	if(p.hasPermission("craftlobby.gadgets.cookiefountain")){
                 	this.ml.prepareGadget(p, "CookieFountain", Material.COOKIE, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "CookieFountain");
+					this.ml.messageNoPerm(p, "CookieFountain");
             	}
             }
             if(e.getSlot() == 4){
             	if(p.hasPermission("craftlobby.gadgets.chikenator")){
                 	this.ml.prepareGadget(p, "Chickenator", Material.COOKED_CHICKEN, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "Chickenator");
+					this.ml.messageNoPerm(p, "Chickenator");
             	}
             }
             if(e.getSlot() == 5){
             	if(p.hasPermission("craftlobby.gadgets.pee")){
                 	this.ml.prepareGadget(p, "Pee", Material.INK_SACK, (byte)11);
             	} else {
-            		MessagesListener.messageNoPerm(p, "Pee");
+					this.ml.messageNoPerm(p, "Pee");
             	}
             }
             if(e.getSlot() == 6){
             	if(p.hasPermission("craftlobby.gadgets.pigfly")){
                 	this.ml.prepareGadget(p, "PigFly", Material.SADDLE, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "PigFly");
+					this.ml.messageNoPerm(p, "PigFly");
             	}
             }
             if(e.getSlot() == 7){
             	if(p.hasPermission("craftlobby.gadgets.firework")){
                 	this.ml.prepareGadget(p, "Firework", Material.FIREWORK, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "Firework");
+					this.ml.messageNoPerm(p, "Firework");
             	}
             }
             if(e.getSlot() == 8){
             	if(p.hasPermission("craftlobby.gadgets.poopbomb")){
                 	this.ml.prepareGadget(p, "PoopBomb", Material.MELON_SEEDS, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "PoopBomb");
+					this.ml.messageNoPerm(p, "PoopBomb");
             	}
             }
             if(e.getSlot() == 9){
             	if(p.hasPermission("craftlobby.gadgets.tnt")){
                 	this.ml.prepareGadget(p, "TNT", Material.TNT, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "TNT");
+					this.ml.messageNoPerm(p, "TNT");
             	}
             }
             if(e.getSlot() == 10){
             	if(p.hasPermission("craftlobby.gadgets.slimehat")){
                 	this.ml.prepareGadget(p, "SlimeHat", Material.SLIME_BALL, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "SlimeHat");
+					this.ml.messageNoPerm(p, "SlimeHat");
             	}
             }
             if(e.getSlot() == 11){
             	if(p.hasPermission("craftlobby.gadgets.withercatapult")){
                 	this.ml.prepareGadget(p, "WitherCatapult", Material.COAL, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "WitherCatapult");
+					this.ml.messageNoPerm(p, "WitherCatapult");
             	}
             }
             if(e.getSlot() == 12){
             	if(p.hasPermission("craftlobby.gadgets.discoball")){
                 	this.ml.prepareGadget(p, "DiscoBall", Material.STAINED_GLASS, (byte)11);
             	} else {
-            		MessagesListener.messageNoPerm(p, "DiscoBall");
+					this.ml.messageNoPerm(p, "DiscoBall");
             	}
             }
             if(e.getSlot() == 13){
             	if(p.hasPermission("craftlobby.gadgets.blizzardblaster")){
                 	this.ml.prepareGadget(p, "BlizzardBlaster", Material.PACKED_ICE, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "BlizzardBlaster");
+					this.ml.messageNoPerm(p, "BlizzardBlaster");
             	}
             }
             if(e.getSlot() == 14){
             	if(p.hasPermission("craftlobby.gadgets.ghosts")){
                 	this.ml.prepareGadget(p, "Ghosts", Material.FEATHER, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "Ghosts");
+					this.ml.messageNoPerm(p, "Ghosts");
             	}
             }
             if(e.getSlot() == 15){
             	if(p.hasPermission("craftlobby.gadgets.tsunami")){
                 	this.ml.prepareGadget(p, "Tsunami", Material.WATER_BUCKET, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "Tsunami");
+					this.ml.messageNoPerm(p, "Tsunami");
             	}
             }
             if(e.getSlot() == 16){
             	if(p.hasPermission("craftlobby.gadgets.batblaster")){
                 	this.ml.prepareGadget(p, "BatBlaster", Material.IRON_BARDING, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "BatBlaster");
+					this.ml.messageNoPerm(p, "BatBlaster");
             	}
             }
             if(e.getSlot() == 17){
             	if(p.hasPermission("craftlobby.gadgets.trampoline")){
                 	this.ml.prepareGadget(p, "Trampoline", Material.HOPPER, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "Trampoline");
+					this.ml.messageNoPerm(p, "Trampoline");
             	}
             }
             if(e.getSlot() == 18){
             	if(p.hasPermission("craftlobby.gadgets.explosivesheep")){
                 	this.ml.prepareGadget(p, "ExplosiveSheep", Material.SHEARS, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "ExplosiveSheep");
+					this.ml.messageNoPerm(p, "ExplosiveSheep");
             	}
             }
             if(e.getSlot() == 19){
             	if(p.hasPermission("craftlobby.gadgets.smashdown")){
                 	this.ml.prepareGadget(p, "SmashDown", Material.FIREWORK_CHARGE, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "SmashDown");
+					this.ml.messageNoPerm(p, "SmashDown");
             	}
             }
             if(e.getSlot() == 20){
             	if(p.hasPermission("craftlobby.gadgets.flowerpopper")){
                 	this.ml.prepareGadget(p, "FlowerPopper", Material.RED_ROSE, (byte)0);
             	} else {
-            		MessagesListener.messageNoPerm(p, "FlowerPopper");
+					this.ml.messageNoPerm(p, "FlowerPopper");
             	}
             }
             

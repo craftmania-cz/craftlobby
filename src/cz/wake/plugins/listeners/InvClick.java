@@ -281,7 +281,7 @@ public class InvClick implements Listener{
 	        	if(player.hasPermission("craftlobby.pristup")){
 	        		this.mpMenu.openMorphsMenu(player);
 	        	} else {
-	        		MessagesListener.messageNoPerm(player, "Morph Menu");
+	        		//MessagesListener.messageNoPerm(player, "Morph Menu");
 	        	}
 	        }
 	        if(event.getSlot() == 34){
@@ -291,7 +291,7 @@ public class InvClick implements Listener{
 	        	if(player.hasPermission("craftlobby.pristup")){
 	        		this.mMenu.openMount(player);
 	        	} else {
-	        		MessagesListener.messageNoPerm(player, "Banner Menu");
+	        		//MessagesListener.messageNoPerm(player, "Banner Menu");
 	        	}
 	        }
 	        if(event.getSlot() == 28){
@@ -359,7 +359,7 @@ public class InvClick implements Listener{
             		fl.activateFrost(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "FrostLord");
+        			//MessagesListener.messageNoPerm(player, "FrostLord");
         		}
         	}
         	if(event.getSlot() == 11){
@@ -368,7 +368,7 @@ public class InvClick implements Listener{
             		fr.activateFlame(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "FlameRings");
+        			//MessagesListener.messageNoPerm(player, "FlameRings");
         		}	
         	}
         	if(event.getSlot() == 12){
@@ -377,7 +377,7 @@ public class InvClick implements Listener{
             		ss.activateSnowCloud(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "SnowClouds");
+        			//MessagesListener.messageNoPerm(player, "SnowClouds");
         		}
         	}
         	if(event.getSlot() == 13){
@@ -386,7 +386,7 @@ public class InvClick implements Listener{
             		rc.activateRainCloud(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "RainClouds");
+        			//MessagesListener.messageNoPerm(player, "RainClouds");
         		}
         	}
         	if(event.getSlot() == 14){
@@ -395,7 +395,7 @@ public class InvClick implements Listener{
             		bh.activateHelix(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "BloodHelix");
+        			//MessagesListener.messageNoPerm(player, "BloodHelix");
         		}
         	}
         	if(event.getSlot() == 15){
@@ -404,7 +404,7 @@ public class InvClick implements Listener{
             		gs.activateGreenSparks(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "GreenSparks");
+        			//MessagesListener.messageNoPerm(player, "GreenSparks");
         		}
         	}
         	if(event.getSlot() == 16){
@@ -413,7 +413,7 @@ public class InvClick implements Listener{
             		es.activateSignal(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "EnderSignal");	
+        			//MessagesListener.messageNoPerm(player, "EnderSignal");
         		}
         	}
         	if(event.getSlot() == 19){
@@ -422,7 +422,7 @@ public class InvClick implements Listener{
             		e.activateEnchanted(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Enchanted");
+        			//MessagesListener.messageNoPerm(player, "Enchanted");
         		}
         	}
         	if(event.getSlot() == 20){
@@ -431,7 +431,7 @@ public class InvClick implements Listener{
             		l.activateLove(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Love");
+        			//MessagesListener.messageNoPerm(player, "Love");
         		}
         	}
         	if(event.getSlot() == 21){
@@ -440,7 +440,7 @@ public class InvClick implements Listener{
             		n.activateNotes(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Notes");
+        			//MessagesListener.messageNoPerm(player, "Notes");
         		}
         	}
         	if(event.getSlot() == 22){
@@ -449,7 +449,7 @@ public class InvClick implements Listener{
             		c.activateClouds(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Clouds");
+        			//MessagesListener.messageNoPerm(player, "Clouds");
         		}
         	}
         	if(event.getSlot() == 23){
@@ -458,7 +458,7 @@ public class InvClick implements Listener{
             		cd.activateDust(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "ColoredDust");
+        			//MessagesListener.messageNoPerm(player, "ColoredDust");
         		}
         	}
         	if(event.getSlot() == 24){
@@ -467,7 +467,7 @@ public class InvClick implements Listener{
             		lp.activateDust(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "LavaPop");
+        			//MessagesListener.messageNoPerm(player, "LavaPop");
         		}
         	}
         	if(event.getSlot() == 25){
@@ -476,7 +476,7 @@ public class InvClick implements Listener{
             		p.activatePortal(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Portal");
+        			//MessagesListener.messageNoPerm(player, "Portal");
         		}
         	}
         	if(event.getSlot() == 28){
@@ -485,7 +485,7 @@ public class InvClick implements Listener{
             		sp.activateSpell(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Spell");
+        			//MessagesListener.messageNoPerm(player, "Spell");
         		}
         	}
         	if(event.getSlot() == 29){
@@ -494,7 +494,7 @@ public class InvClick implements Listener{
             		fw.activateFrozen(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "FrozenWalk");
+        			//MessagesListener.messageNoPerm(player, "FrozenWalk");
         		}
         	}
         	if(event.getSlot() == 30){
@@ -503,7 +503,7 @@ public class InvClick implements Listener{
             		lil.activateSignal(player);
             		player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "Lilly");
+        			//MessagesListener.messageNoPerm(player, "Lilly");
         		}
         	}
         	if(event.getSlot() == 31){
@@ -512,7 +512,7 @@ public class InvClick implements Listener{
         			sh.activateHat(player);
         			player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "SantaHat");
+        			//MessagesListener.messageNoPerm(player, "SantaHat");
         		}
         	}
         	if(event.getSlot() == 32){
@@ -521,7 +521,7 @@ public class InvClick implements Listener{
         			cc.activate(player);
         			player.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(player, "CandyCane");
+        			//MessagesListener.messageNoPerm(player, "CandyCane");
         		}
         	}
         	if(event.getSlot() == 49){
@@ -589,7 +589,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Strawberry Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Strawberry Head");
+            		//MessagesListener.messageNoPerm(player, "Strawberry Head");
             	}
             }
             if(event.getSlot() == 1){
@@ -600,7 +600,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Oreo Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Oreo Head");
+            		//MessagesListener.messageNoPerm(player, "Oreo Head");
             	}
             }
             if(event.getSlot() == 2){
@@ -611,7 +611,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Chocolate Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Chocolate Head");
+            		//MessagesListener.messageNoPerm(player, "Chocolate Head");
             	}
             }
             if(event.getSlot() == 3){
@@ -622,7 +622,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "White Chocolate Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "White Chocolate Head");
+            		//MessagesListener.messageNoPerm(player, "White Chocolate Head");
             	}
             }
             if(event.getSlot() == 4){
@@ -633,7 +633,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Melon Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Melon Head");
+            		//MessagesListener.messageNoPerm(player, "Melon Head");
             	}
             }
             if(event.getSlot() == 5){
@@ -644,7 +644,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Hamburger Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Hamburger Head");
+            		//MessagesListener.messageNoPerm(player, "Hamburger Head");
             	}
             }
             if(event.getSlot() == 6){
@@ -655,7 +655,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Lemon Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Lemon Head");
+            		//MessagesListener.messageNoPerm(player, "Lemon Head");
             	}
             }
             if(event.getSlot() == 7){
@@ -666,7 +666,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Donut Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Donut Head");
+            		//MessagesListener.messageNoPerm(player, "Donut Head");
             	}
             }
             if(event.getSlot() == 8){
@@ -677,7 +677,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Pepsi Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Pepsi Head");
+            		//MessagesListener.messageNoPerm(player, "Pepsi Head");
             	}
             }
             if(event.getSlot() == 9){
@@ -688,7 +688,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "CocaCola Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "CocaCola Head");
+            		//MessagesListener.messageNoPerm(player, "CocaCola Head");
             	}
             }
             if(event.getSlot() == 10){
@@ -699,7 +699,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Sprite Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Sprite Head");
+            		//MessagesListener.messageNoPerm(player, "Sprite Head");
             	}
             }
             if(event.getSlot() == 11){
@@ -710,7 +710,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Apple Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Apple Head");
+            		//MessagesListener.messageNoPerm(player, "Apple Head");
             	}
             }
             if(event.getSlot() == 12){
@@ -721,7 +721,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Clock Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Clock Head");
+            		//MessagesListener.messageNoPerm(player, "Clock Head");
             	}
             }
             if(event.getSlot() == 13){
@@ -732,7 +732,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Computer Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Computer Head");
+            		//MessagesListener.messageNoPerm(player, "Computer Head");
             	}
             }
             if(event.getSlot() == 14){
@@ -743,7 +743,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Monitor Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Monitor Head");
+            		//MessagesListener.messageNoPerm(player, "Monitor Head");
             	}
             }
             if(event.getSlot() == 15){
@@ -754,7 +754,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Instagram Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Instagram Head");
+            		//MessagesListener.messageNoPerm(player, "Instagram Head");
             	}
             }
             if(event.getSlot() == 16){
@@ -765,7 +765,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "C4 Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "C4 Head");
+            		//MessagesListener.messageNoPerm(player, "C4 Head");
             	}
             }
             if(event.getSlot() == 17){
@@ -776,7 +776,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Police Siren Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Police Siren Head");
+            		//MessagesListener.messageNoPerm(player, "Police Siren Head");
             	}
             }
             if(event.getSlot() == 18){
@@ -787,7 +787,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Space Helmet Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Space Helmet Head");
+            		//MessagesListener.messageNoPerm(player, "Space Helmet Head");
             	}
             }
             if(event.getSlot() == 19){
@@ -798,7 +798,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Facebook Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Facebook Head");
+            		//MessagesListener.messageNoPerm(player, "Facebook Head");
             	}
             }
             if(event.getSlot() == 20){
@@ -809,7 +809,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "YouTube Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Youtube Head");
+            		//MessagesListener.messageNoPerm(player, "Youtube Head");
             	}
             }
             if(event.getSlot() == 21){
@@ -820,7 +820,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Gold Steve Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Gold Steve Head");
+            		//MessagesListener.messageNoPerm(player, "Gold Steve Head");
             	}
             }
             if(event.getSlot() == 22){
@@ -831,7 +831,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Scared Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Scared Head");
+            		//MessagesListener.messageNoPerm(player, "Scared Head");
             	}
             }
             if(event.getSlot() == 23){
@@ -842,7 +842,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Embarrased Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Embarrased Head");
+            		//MessagesListener.messageNoPerm(player, "Embarrased Head");
             	}
             }
             if(event.getSlot() == 24){
@@ -853,7 +853,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Kissy Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Kissy Head");
+            		//MessagesListener.messageNoPerm(player, "Kissy Head");
             	}
             }
             if(event.getSlot() == 25){
@@ -864,7 +864,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Cool Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Cool Head");
+            		//MessagesListener.messageNoPerm(player, "Cool Head");
             	}
             }
             if(event.getSlot() == 26){
@@ -875,7 +875,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Suprised Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Suprised Head");
+            		//MessagesListener.messageNoPerm(player, "Suprised Head");
             	}
             }
             if(event.getSlot() == 27){
@@ -886,7 +886,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Crying Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Crying Head");
+            		//MessagesListener.messageNoPerm(player, "Crying Head");
             	}
             }
             if(event.getSlot() == 28){
@@ -897,7 +897,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Grin Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Grin Head");
+            		//MessagesListener.messageNoPerm(player, "Grin Head");
             	}
             }
             if(event.getSlot() == 29){
@@ -908,7 +908,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Derp Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Derp Head");
+            		//MessagesListener.messageNoPerm(player, "Derp Head");
             	}
             }
             if(event.getSlot() == 30){
@@ -919,7 +919,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Mustache Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Mustache Head");
+            		//MessagesListener.messageNoPerm(player, "Mustache Head");
             	}
             }
             if(event.getSlot() == 31){
@@ -930,7 +930,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Smile Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Smile Head");
+            		//MessagesListener.messageNoPerm(player, "Smile Head");
             	}
             }
             if(event.getSlot() == 32){
@@ -941,7 +941,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Dead Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Dead Head");
+            		//MessagesListener.messageNoPerm(player, "Dead Head");
             	}
             }
             if(event.getSlot() == 33){
@@ -952,7 +952,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Skull Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Skull Head");
+            		//MessagesListener.messageNoPerm(player, "Skull Head");
             	}
             }
             if(event.getSlot() == 34){
@@ -963,7 +963,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Mailbox Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Mailbox Head");
+            		//MessagesListener.messageNoPerm(player, "Mailbox Head");
             	}
             }
             if(event.getSlot() == 35){
@@ -974,7 +974,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MissingTexture Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "MissingTexture Head");
+            		//MessagesListener.messageNoPerm(player, "MissingTexture Head");
             	}
             }
             if(event.getSlot() == 41){
@@ -1008,7 +1008,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "A Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "A Head");
+            		//MessagesListener.messageNoPerm(player, "A Head");
             	}
             }
             if(event.getSlot() == 1){
@@ -1019,7 +1019,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "B Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "B Head");
+            		//MessagesListener.messageNoPerm(player, "B Head");
             	}
             }
             if(event.getSlot() == 2){
@@ -1030,7 +1030,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "C Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "C Head");
+            		//MessagesListener.messageNoPerm(player, "C Head");
             	}
             }
             if(event.getSlot() == 3){
@@ -1041,7 +1041,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "D Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "D Head");
+            		//MessagesListener.messageNoPerm(player, "D Head");
             	}
             }
             if(event.getSlot() == 4){
@@ -1052,7 +1052,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "E Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "E Head");
+            		//MessagesListener.messageNoPerm(player, "E Head");
             	}
             }
             if(event.getSlot() == 5){
@@ -1063,7 +1063,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "F Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "F Head");
+            		//MessagesListener.messageNoPerm(player, "F Head");
             	}
             }
             if(event.getSlot() == 6){
@@ -1074,7 +1074,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "G Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "G Head");
+            		//MessagesListener.messageNoPerm(player, "G Head");
             	}
             }
             if(event.getSlot() == 7){
@@ -1085,7 +1085,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "H Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "H Head");
+            		//MessagesListener.messageNoPerm(player, "H Head");
             	}
             }
             if(event.getSlot() == 8){
@@ -1096,7 +1096,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "I Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "I Head");
+            		//MessagesListener.messageNoPerm(player, "I Head");
             	}
             }
             if(event.getSlot() == 9){
@@ -1107,7 +1107,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "J Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "J Head");
+            		//MessagesListener.messageNoPerm(player, "J Head");
             	}
             }
             if(event.getSlot() == 10){
@@ -1118,7 +1118,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "K Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "K Head");
+            		//MessagesListener.messageNoPerm(player, "K Head");
             	}
             }
             if(event.getSlot() == 11){
@@ -1129,7 +1129,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "L Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "L Head");
+            		//MessagesListener.messageNoPerm(player, "L Head");
             	}
             }
             if(event.getSlot() == 12){
@@ -1140,7 +1140,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "M Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "M Head");
+            		//MessagesListener.messageNoPerm(player, "M Head");
             	}
             }
             if(event.getSlot() == 13){
@@ -1151,7 +1151,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "N Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "N Head");
+            		//MessagesListener.messageNoPerm(player, "N Head");
             	}
             }
             if(event.getSlot() == 14){
@@ -1162,7 +1162,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "O Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "O Head");
+            		//MessagesListener.messageNoPerm(player, "O Head");
             	}
             }
             if(event.getSlot() == 15){
@@ -1173,7 +1173,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "P Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "P Head");
+            		//MessagesListener.messageNoPerm(player, "P Head");
             	}
             }
             if(event.getSlot() == 16){
@@ -1184,7 +1184,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Q Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Q Head");
+            		//MessagesListener.messageNoPerm(player, "Q Head");
             	}
             }
             if(event.getSlot() == 17){
@@ -1195,7 +1195,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "R Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "R Head");
+            		//MessagesListener.messageNoPerm(player, "R Head");
             	}
             }
             if(event.getSlot() == 18){
@@ -1206,7 +1206,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "S Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "S Head");
+            		//MessagesListener.messageNoPerm(player, "S Head");
             	}
             }
             if(event.getSlot() == 19){
@@ -1217,7 +1217,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "T Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "T Head");
+            		//MessagesListener.messageNoPerm(player, "T Head");
             	}
             }
             if(event.getSlot() == 20){
@@ -1228,7 +1228,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "U Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "U Head");
+            		//MessagesListener.messageNoPerm(player, "U Head");
             	}
             }
             if(event.getSlot() == 21){
@@ -1239,7 +1239,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "V Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "V Head");
+            		//MessagesListener.messageNoPerm(player, "V Head");
             	}
             }
             if(event.getSlot() == 22){
@@ -1250,7 +1250,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "W Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "W Head");
+            		//MessagesListener.messageNoPerm(player, "W Head");
             	}
             }
             if(event.getSlot() == 23){
@@ -1261,7 +1261,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "X Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "X Head");
+            		//MessagesListener.messageNoPerm(player, "X Head");
             	}
             }
             if(event.getSlot() == 24){
@@ -1272,7 +1272,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Y Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Y Head");
+            		//MessagesListener.messageNoPerm(player, "Y Head");
             	}
             }
             if(event.getSlot() == 25){
@@ -1283,7 +1283,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Z Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Z Head");
+            		//MessagesListener.messageNoPerm(player, "Z Head");
             	}
             }
             if(event.getSlot() == 26){
@@ -1294,7 +1294,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Enderchest Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Enderchest Head");
+            		//MessagesListener.messageNoPerm(player, "Enderchest Head");
             	}
             }
             if(event.getSlot() == 27){
@@ -1305,7 +1305,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "FishTank Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "FishTank Head");
+            		//MessagesListener.messageNoPerm(player, "FishTank Head");
             	}
             }
             if(event.getSlot() == 28){
@@ -1316,7 +1316,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Herobrine Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Herobrine Head");
+            		//MessagesListener.messageNoPerm(player, "Herobrine Head");
             	}
             }
             if(event.getSlot() == 29){
@@ -1327,7 +1327,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Mummy Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Mummy Head");
+            		//MessagesListener.messageNoPerm(player, "Mummy Head");
             	}
             }
             if(event.getSlot() == 30){
@@ -1338,7 +1338,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "BlackCat Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "BlackCat Head");
+            		//MessagesListener.messageNoPerm(player, "BlackCat Head");
             	}
             }
             if(event.getSlot() == 31){
@@ -1349,7 +1349,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "HelloweenPumpkin Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "HelloweenPumpkin Head");
+            		//MessagesListener.messageNoPerm(player, "HelloweenPumpkin Head");
             	}
             }
             if(event.getSlot() == 32){
@@ -1360,7 +1360,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Devil Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Devil Head");
+            		//MessagesListener.messageNoPerm(player, "Devil Head");
             	}
             }
             if(event.getSlot() == 33){
@@ -1371,7 +1371,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "SkeletonMiner Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "SkeletonMiner Head");
+            		//MessagesListener.messageNoPerm(player, "SkeletonMiner Head");
             	}
             }
             if(event.getSlot() == 34){
@@ -1382,7 +1382,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Witch Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Witch Head");
+            		//MessagesListener.messageNoPerm(player, "Witch Head");
             	}
             }
             if(event.getSlot() == 35){
@@ -1393,7 +1393,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Ghost Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Ghost Head");
+            		//MessagesListener.messageNoPerm(player, "Ghost Head");
             	}
             }
         }
@@ -1423,7 +1423,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "EvilBunny Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "EvilBunny Head");
+            		//MessagesListener.messageNoPerm(player, "EvilBunny Head");
             	}
             }
             if(event.getSlot() == 1){
@@ -1434,7 +1434,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "ScaryClown Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "ScaryClown Head");
+            		//MessagesListener.messageNoPerm(player, "ScaryClown Head");
             	}
             }
             if(event.getSlot() == 2){
@@ -1445,7 +1445,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "FrankensteinsMonster Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "FrankensteinsMonster Head");
+            		//MessagesListener.messageNoPerm(player, "FrankensteinsMonster Head");
             	}
             }
             if(event.getSlot() == 3){
@@ -1456,7 +1456,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Ogre Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Ogre Head");
+            		//MessagesListener.messageNoPerm(player, "Ogre Head");
             	}
             }
             if(event.getSlot() == 4){
@@ -1467,7 +1467,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "WereWolf Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "WereWolf Head");
+            		//MessagesListener.messageNoPerm(player, "WereWolf Head");
             	}
             }
             if(event.getSlot() == 5){
@@ -1478,7 +1478,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Guardian Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Guardian Head");
+            		//MessagesListener.messageNoPerm(player, "Guardian Head");
             	}
             }
             if(event.getSlot() == 6){
@@ -1489,7 +1489,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Walrus Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Walrus Head");
+            		//MessagesListener.messageNoPerm(player, "Walrus Head");
             	}
             }
             if(event.getSlot() == 7){
@@ -1500,7 +1500,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Batman Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Batman Head");
+            		//MessagesListener.messageNoPerm(player, "Batman Head");
             	}
             }
             if(event.getSlot() == 8){
@@ -1511,7 +1511,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "IlusionBlock Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "IlusionBlock Head");
+            		//MessagesListener.messageNoPerm(player, "IlusionBlock Head");
             	}
             }
             if(event.getSlot() == 9){
@@ -1522,7 +1522,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrWakeCZ Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "MrWakeCZ Head");
+            		//MessagesListener.messageNoPerm(player, "MrWakeCZ Head");
             	}
             }
             if(event.getSlot() == 10){
@@ -1533,7 +1533,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Deawen Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Deawen Head");
+            		//MessagesListener.messageNoPerm(player, "Deawen Head");
             	}
             }
             if(event.getSlot() == 11){
@@ -1544,7 +1544,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Ccarmel Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Ccarmel Head");
+            		//MessagesListener.messageNoPerm(player, "Ccarmel Head");
             	}
             }
             if(event.getSlot() == 12){
@@ -1555,7 +1555,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Flafy_LP Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Flafy_LP Head");
+            		//MessagesListener.messageNoPerm(player, "Flafy_LP Head");
             	}
             }
             if(event.getSlot() == 13){
@@ -1566,7 +1566,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "iTzToky Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "iTzToky Head");
+            		//MessagesListener.messageNoPerm(player, "iTzToky Head");
             	}
             }
             if(event.getSlot() == 14){
@@ -1577,7 +1577,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Delfik Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Delfik Head");
+            		//MessagesListener.messageNoPerm(player, "Delfik Head");
             	}
             }
             if(event.getSlot() == 15){
@@ -1588,7 +1588,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "MrZaky Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "MrZaky Head");
+            		//MessagesListener.messageNoPerm(player, "MrZaky Head");
             	}
             }
             if(event.getSlot() == 16){
@@ -1599,7 +1599,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "iTz_Jarko Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "iTz_Jarko Head");
+            		//MessagesListener.messageNoPerm(player, "iTz_Jarko Head");
             	}
             }
             if(event.getSlot() == 17){
@@ -1610,7 +1610,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "kapr20 Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "kapr20 Head");
+            		//MessagesListener.messageNoPerm(player, "kapr20 Head");
             	}
             }
             if(event.getSlot() == 18){
@@ -1621,7 +1621,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Misery96 Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Misery96 Head");
+            		//MessagesListener.messageNoPerm(player, "Misery96 Head");
             	}
             }
             if(event.getSlot() == 19){
@@ -1632,7 +1632,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Trewish Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Trewish Head");
+            		//MessagesListener.messageNoPerm(player, "Trewish Head");
             	}
             }
             if(event.getSlot() == 20){
@@ -1643,7 +1643,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Keyio Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Keyio Head");
+            		//MessagesListener.messageNoPerm(player, "Keyio Head");
             	}
             }
             if(event.getSlot() == 21){
@@ -1654,7 +1654,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Nedzdo Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Nedzdo Head");
+            		//MessagesListener.messageNoPerm(player, "Nedzdo Head");
             	}
             }
             if(event.getSlot() == 22){
@@ -1665,7 +1665,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Cheap_ Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Cheap_ Head");
+            		//MessagesListener.messageNoPerm(player, "Cheap_ Head");
             	}
             }
             if(event.getSlot() == 23){
@@ -1676,7 +1676,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "PVNST Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "PVNST Head");
+            		//MessagesListener.messageNoPerm(player, "PVNST Head");
             	}
             }
             if(event.getSlot() == 24){
@@ -1687,7 +1687,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "_R3pl1_ Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "_R3pl1_ Head");
+            		//MessagesListener.messageNoPerm(player, "_R3pl1_ Head");
             	}
             }
             if(event.getSlot() == 25){
@@ -1698,7 +1698,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Radiko Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Radiko Head");
+            		//MessagesListener.messageNoPerm(player, "Radiko Head");
             	}
             }
             if(event.getSlot() == 26){
@@ -1709,7 +1709,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Filip6_CZ Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Filip6_CZ Head");
+            		//MessagesListener.messageNoPerm(player, "Filip6_CZ Head");
             	}
             }
             if(event.getSlot() == 27){
@@ -1720,7 +1720,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "SkateQue Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "SkateQue Head");
+            		//MessagesListener.messageNoPerm(player, "SkateQue Head");
             	}
             }
             if(event.getSlot() == 28){
@@ -1731,7 +1731,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "SpexikEx Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "SpexikEx Head");
+            		//MessagesListener.messageNoPerm(player, "SpexikEx Head");
             	}
             	
             }
@@ -1743,7 +1743,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Sprajtiik Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Sprajtiik Head");
+            		//MessagesListener.messageNoPerm(player, "Sprajtiik Head");
             	}
             }
             if(event.getSlot() == 30){
@@ -1754,7 +1754,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Brancesko Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Brancesko Head");
+            		//MessagesListener.messageNoPerm(player, "Brancesko Head");
             	}
             }
             if(event.getSlot() == 31){
@@ -1765,7 +1765,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "CrazyShann_Cz Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "CrazyShann_Cz Head");
+            		//MessagesListener.messageNoPerm(player, "CrazyShann_Cz Head");
             	}
             }
             if(event.getSlot() == 32){
@@ -1776,7 +1776,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Soony37CZE Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Soony37CZE Head");
+            		//MessagesListener.messageNoPerm(player, "Soony37CZE Head");
             	}
             }
             if(event.getSlot() == 33){
@@ -1787,7 +1787,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Marki35 Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Marki35 Head");
+            		//MessagesListener.messageNoPerm(player, "Marki35 Head");
             	}
             }
             if(event.getSlot() == 34){
@@ -1798,7 +1798,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Nurtuka Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Nurtuka Head");
+            		//MessagesListener.messageNoPerm(player, "Nurtuka Head");
             	}
             }
             if(event.getSlot() == 35){
@@ -1809,7 +1809,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "patule1215 Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "patule1215 Head");
+            		//MessagesListener.messageNoPerm(player, "patule1215 Head");
             	}
             }
         }
@@ -1836,7 +1836,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "stefanbabiak Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "stefanbabiak Head");
+            		//MessagesListener.messageNoPerm(player, "stefanbabiak Head");
             	}
             }
             if(event.getSlot() == 1){
@@ -1847,7 +1847,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "ShadyCZ Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "ShadyCZ Head");
+            		//MessagesListener.messageNoPerm(player, "ShadyCZ Head");
             	}
             }
             if(event.getSlot() == 2){
@@ -1858,7 +1858,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowman Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Snowman Head");
+            		//MessagesListener.messageNoPerm(player, "Snowman Head");
             	}
             }
             if(event.getSlot() == 3){
@@ -1869,7 +1869,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Snowglobe Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Snowglobe Head");
+            		//MessagesListener.messageNoPerm(player, "Snowglobe Head");
             	}
             }
             if(event.getSlot() == 4){
@@ -1880,7 +1880,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "BluePresent Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "BluePresent Head");
+            		//MessagesListener.messageNoPerm(player, "BluePresent Head");
             	}
             }
             if(event.getSlot() == 5){
@@ -1891,7 +1891,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "GoldPresent Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "GoldPresent Head");
+            		//MessagesListener.messageNoPerm(player, "GoldPresent Head");
             	}
             }
             if(event.getSlot() == 6){
@@ -1902,7 +1902,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "GreenPresent Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "GreenPresent Head");
+            		//MessagesListener.messageNoPerm(player, "GreenPresent Head");
             	}
             }
             if(event.getSlot() == 7){
@@ -1913,7 +1913,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "RedPresent Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "RedPresent Head");
+            		//MessagesListener.messageNoPerm(player, "RedPresent Head");
             	}
             }
             if(event.getSlot() == 8){
@@ -1924,7 +1924,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Santa Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Santa Head");
+            		//MessagesListener.messageNoPerm(player, "Santa Head");
             	}
             }
             if(event.getSlot() == 9){
@@ -1935,7 +1935,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Santa Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Santa Head");
+            		//MessagesListener.messageNoPerm(player, "Santa Head");
             	}
             }
             if(event.getSlot() == 10){
@@ -1946,7 +1946,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Elf Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Elf Head");
+            		//MessagesListener.messageNoPerm(player, "Elf Head");
             	}
             }
             if(event.getSlot() == 11){
@@ -1957,7 +1957,7 @@ public class InvClick implements Listener{
             		player.sendMessage(ChatColor.GRAY + "Nasadil sis na hlavu " + ChatColor.GREEN + "Elf Head.");
             		player.closeInventory();
             	} else {
-            		MessagesListener.messageNoPerm(player, "Elf Head");
+            		//MessagesListener.messageNoPerm(player, "Elf Head");
             	}
             }
         }

@@ -19,6 +19,7 @@ public class CloaksAPI implements Listener{
 	private AngleCloak angel = new AngleCloak();
 	private Hero hero = new Hero();
 	private SantaCloak santa = new SantaCloak();
+	private MessagesListener ml = new MessagesListener();
 	
 	public void openCloaks(Player p){
 		
@@ -112,7 +113,7 @@ public class CloaksAPI implements Listener{
         			this.santa.activateSanta(p);
             		p.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(p, "Santa Cloak");
+					this.ml.messageNoPerm(p, "Santa Cloak");
         		}
         	}
         	if(e.getSlot() == 11){
@@ -121,7 +122,7 @@ public class CloaksAPI implements Listener{
         			this.angel.activate(p);
         			p.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(p, "Angel Cloak");
+					this.ml.messageNoPerm(p, "Angel Cloak");
         		}
         	}
         	if(e.getSlot() == 12){
@@ -130,7 +131,7 @@ public class CloaksAPI implements Listener{
         			this.hero.activate(p);
         			p.closeInventory();
         		} else {
-        			MessagesListener.messageNoPerm(p, "Hero Cloak");
+					this.ml.messageNoPerm(p, "Hero Cloak");
         		}
         	}
 			p.closeInventory();
