@@ -131,6 +131,9 @@ public class PetsAPI implements Listener{
 			inv.setItem(9, i);
 		}
 
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
 		//Zpet do menu
 		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
 
@@ -142,6 +145,7 @@ public class PetsAPI implements Listener{
 				"",
 				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
 
+		inv.setItem(50, dea);
 		inv.setItem(49, shopItem);
 		inv.setItem(48, zpet);
 		
@@ -677,6 +681,10 @@ public class PetsAPI implements Listener{
 			}
 			if (e.getCurrentItem().getType() == Material.AIR){
 				return;
+			}
+			if(e.getSlot() == 50){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
 			}
 			if(e.getSlot() == 49){
 				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);

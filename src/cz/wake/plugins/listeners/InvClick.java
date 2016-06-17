@@ -64,7 +64,6 @@ public class InvClick implements Listener{
 	HeadsMenu3 headsMenu3 = new HeadsMenu3();
 	VIPMenu vMenu = new VIPMenu();
 	GreenSparks gs = new GreenSparks();
-	SantaCloak sc = new SantaCloak();
 	FrostLord fl = new FrostLord();
 	FlameRings fr = new FlameRings();
 	SnowCloud ss = new SnowCloud();
@@ -84,9 +83,7 @@ public class InvClick implements Listener{
 	SantaHat sh = new SantaHat();
 	HeadsMenu4 headsMenu4 = new HeadsMenu4();
 	CandyCane cc = new CandyCane();
-	AngleCloak ac = new AngleCloak();
 	NakupBoxu np = new NakupBoxu();
-	Hero hero = new Hero();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -193,19 +190,22 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 2){
         		sendToServer(player, "lobby2");
         	}
-        	if(event.getSlot() == 3){
-        		sendToServer(player, "lobby3");
-        	}
-        	if(event.getSlot() == 4){
+			if(event.getSlot() == 3){
+				sendToServer(player, "lobby3");
+			}
+			if(event.getSlot() == 4){
+				sendToServer(player, "lobby4");
+			}
+        	if(event.getSlot() == 5){
         		sendToServer(player, "blobby");
         	}
-        	if(event.getSlot() == 5){
+        	if(event.getSlot() == 6){
         		sendToServer(player, "dlobby");
         	}
-        	if(event.getSlot() == 6){
+        	if(event.getSlot() == 7){
         		sendToServer(player, "slobby");
         	}
-        	if(event.getSlot() == 7){
+        	if(event.getSlot() == 8){
         		sendToServer(player, "tlobby");
         	}
         	event.setCancelled(true);
@@ -271,33 +271,28 @@ public class InvClick implements Listener{
         }
       //**************************** GADGETS HLAVNI MENU ****************************//
         if (event.getInventory().getTitle().equals("Hlavni menu")) {
-        	if(event.getSlot() == 11){
+        	if(event.getSlot() == 10){
 	        	this.hatsMenu.openHatsMenu(player);
 	        }
 	        if(event.getSlot() == 30){
 	        	Main.getInstance().getGadgetsAPI().openInventory(player);
 	        }
 	        if(event.getSlot() == 32){
-	        	if(player.hasPermission("craftlobby.pristup")){
-	        		this.mpMenu.openMorphsMenu(player);
-	        	} else {
-	        		//MessagesListener.messageNoPerm(player, "Morph Menu");
-	        	}
+	        	player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
 	        }
 	        if(event.getSlot() == 34){
 	        	this.pMenu.openParticles(player);
 	        }
-	        if(event.getSlot() == 13){
-	        	if(player.hasPermission("craftlobby.pristup")){
-	        		this.mMenu.openMount(player);
-	        	} else {
-	        		//MessagesListener.messageNoPerm(player, "Banner Menu");
-	        	}
+	        if(event.getSlot() == 12){
+				player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
 	        }
+			if(event.getSlot() == 14){
+				player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+			}
 	        if(event.getSlot() == 28){
 	        	Main.getInstance().getPetsAPI().openMainInv(player);
 	        }
-	        if(event.getSlot() == 15){
+	        if(event.getSlot() == 16){
 	        	Main.getInstance().getCloaksAPI().openCloaks(player);
 	        }
 	        if(event.getSlot() == 50){
@@ -314,8 +309,8 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 11){
         		int coins = Main.getInstance().fetchData().getCraftCoins(player.getUniqueId());
         		if(!Main.getInstance().fetchData().hasData(player.getUniqueId())){ //Nema zaznam
-        			if(coins >= 1000){ //Coiny vic jak 1000
-        				Main.getInstance().setData().takeCoins(player, 1000);
+        			if(coins >= 750){ //Coiny vic jak 750
+        				Main.getInstance().setData().takeCoins(player, 750);
         				Main.getInstance().setData().createRecordBuy(player, System.currentTimeMillis() + 86400000);
         				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
         				player.sendMessage("§eZakoupil jsi si §b1x CraftBox!");
@@ -326,8 +321,8 @@ public class InvClick implements Listener{
         			}
         		} else {
         			if(Main.getInstance().fetchData().getTimeToBuy(player.getUniqueId()) < System.currentTimeMillis()){
-        				if(coins >= 1000){
-        					Main.getInstance().setData().takeCoins(player, 1000);
+        				if(coins >= 750){
+        					Main.getInstance().setData().takeCoins(player, 750);
         					Main.getInstance().setData().updateTimeBuy(player, System.currentTimeMillis() + 86400000);
         					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
             				player.sendMessage("§eZakoupil jsi si §b1x CraftBox!");

@@ -134,8 +134,6 @@ public class CloaksAPI implements Listener{
 					this.ml.messageNoPerm(p, "Hero Cloak");
         		}
         	}
-			p.closeInventory();
-            e.setCancelled(true);
 		}
 	}
 	

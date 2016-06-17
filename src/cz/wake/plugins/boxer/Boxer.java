@@ -13,7 +13,7 @@ import cz.wake.plugins.Main;
 public class Boxer implements Listener{
 	
 	public void giveBox(final Player p, int boxes){
-		Bukkit.broadcastMessage("งb" + p.getName() + "งf nasel ง6CraftBox!");
+		Bukkit.broadcastMessage("ยงb" + p.getName() + "ยงf nasel ยง6CraftBox!");
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"mb add " + p.getName() + " " + boxes);
 	}
 	
@@ -72,7 +72,7 @@ public class Boxer implements Listener{
 						System.out.println("[Craftboxer] Kontrola potvrzena. Probehne cisteni boxu...");
 						long nextReset = (System.currentTimeMillis() + 604800000);
 						Main.getInstance().setData().resetBoxes();
-						System.out.println("[Craftboxer] Vsechyn boxy vyresetovany na 0");
+						System.out.println("[Craftboxer] Vsechny boxy vyresetovany na 0");
 						Main.getInstance().setData().resetTime(nextReset);
 						System.out.println("[Craftboxer] Probehl reset casu!");
 					} else {

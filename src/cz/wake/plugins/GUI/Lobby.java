@@ -20,6 +20,8 @@ public class Lobby {
 		meta.setDisplayName("§aOHUB");
 		ArrayList<String> lore = new ArrayList<String>();
 		lore.add("");
+		lore.add("§cVarovani: Kope do WHUBU!");
+		lore.add("");
 		lore.add("§7Kliknutim se pripojis.");
 		meta.setLore(lore);
 		ohub.setItemMeta(meta);
@@ -44,7 +46,7 @@ public class Lobby {
 		l2Meta.setLore(l2Lore);
 		lobby2.setItemMeta(l2Meta);
 		inv.setItem(2, lobby2);
-		
+
 		ItemStack lobby3 = new ItemStack(Material.IRON_BLOCK);
 		ItemMeta l3Meta = lobby3.getItemMeta();
 		l3Meta.setDisplayName("§aLobby-3");
@@ -54,6 +56,16 @@ public class Lobby {
 		l3Meta.setLore(l3Lore);
 		lobby3.setItemMeta(l3Meta);
 		inv.setItem(3, lobby3);
+
+		ItemStack lobby4 = new ItemStack(Material.IRON_BLOCK);
+		ItemMeta l4Meta = lobby4.getItemMeta();
+		l4Meta.setDisplayName("§aLobby-4");
+		ArrayList<String> l4Lore = new ArrayList<String>();
+		l4Lore.add("");
+		l4Lore.add("§7Kliknutim se pripojis.");
+		l4Meta.setLore(l4Lore);
+		lobby4.setItemMeta(l4Meta);
+		inv.setItem(4, lobby4);
 		
 		ItemStack blobby = new ItemStack(Material.IRON_BLOCK);
 		ItemMeta bMeta = blobby.getItemMeta();
@@ -63,7 +75,7 @@ public class Lobby {
 		bLore.add("§7Kliknutim se pripojis.");
 		bMeta.setLore(bLore);
 		blobby.setItemMeta(bMeta);
-		inv.setItem(4, blobby);
+		inv.setItem(5, blobby);
 		
 		ItemStack dlobby = new ItemStack(Material.IRON_BLOCK);
 		ItemMeta dMeta = dlobby.getItemMeta();
@@ -73,7 +85,7 @@ public class Lobby {
 		dLore.add("§7Kliknutim se pripojis.");
 		dMeta.setLore(dLore);
 		dlobby.setItemMeta(dMeta);
-		inv.setItem(5, dlobby);
+		inv.setItem(6, dlobby);
 		
 		ItemStack slobby = new ItemStack(Material.IRON_BLOCK);
 		ItemMeta sMeta = slobby.getItemMeta();
@@ -83,7 +95,7 @@ public class Lobby {
 		sLore.add("§7Kliknutim se pripojis.");
 		sMeta.setLore(sLore);
 		slobby.setItemMeta(sMeta);
-		inv.setItem(6, slobby);
+		inv.setItem(7, slobby);
 		
 		ItemStack tlobby = new ItemStack(Material.IRON_BLOCK);
 		ItemMeta tMeta = tlobby.getItemMeta();
@@ -93,9 +105,8 @@ public class Lobby {
 		tLore.add("§7Kliknutim se pripojis.");
 		tMeta.setLore(tLore);
 		tlobby.setItemMeta(tMeta);
-		inv.setItem(7, tlobby);
-		
-		
+		inv.setItem(8, tlobby);
+
 		p.openInventory(inv);
 	}
 

@@ -2,10 +2,12 @@ package cz.wake.plugins.GUI;
 
 import java.util.ArrayList;
 
+import cz.wake.plugins.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -35,7 +37,8 @@ public class GadgetsMenu implements Listener{
 		petsLore.add(ChatColor.GRAY + "zviratek na serveru. Vyber si jednoho a ukaz");
 		petsLore.add(ChatColor.GRAY + "vsem ktery je ten nej.");
 		petsLore.add(ChatColor.GRAY + "");
-		petsLore.add(countPets(p));
+		petsLore.add("§7Odemknuto: §cAktualne nedostupne");
+		//petsLore.add(countPets(p));
 		petsLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
 		petsItemMeta.setLore(petsLore);
 		petsItem.setItemMeta(petsItemMeta);
@@ -134,16 +137,21 @@ public class GadgetsMenu implements Listener{
 		bLore.add("§ePouze 1x za 24h!");
 		bLore.add("");
 		bLore.add("§7Muzes si zakoupit " + getStatusBox(p));
-		bLore.add("§8Cena CraftBoxu je 1000 CC");
+		bLore.add("§8Cena CraftBoxu je 750 CC");
 		bMeta.setLore(bLore);
 		box.setItemMeta(bMeta);
+
+		ItemStack morphs = ItemFactory.create(Material.STAINED_GLASS_PANE,(byte)14,"§c§lMorphs","","§8Aktualne nedostupne!");
+		ItemStack suits = ItemFactory.create(Material.STAINED_GLASS_PANE,(byte)14,"§c§lSuits","","§8Aktualne nedostupne!");
+		ItemStack banners = ItemFactory.create(Material.STAINED_GLASS_PANE,(byte)14,"§c§lBanners","","§8Aktualne nedostupne!");
 		
-		gadgetsMenu.setItem(11,wardrobeItem);
-		gadgetsMenu.setItem(13, banner);
-		gadgetsMenu.setItem(15, cloaks);
+		gadgetsMenu.setItem(10, wardrobeItem);
+		gadgetsMenu.setItem(12, banners);
+		gadgetsMenu.setItem(14, suits);
+		gadgetsMenu.setItem(16, cloaks);
 		gadgetsMenu.setItem(28, petsItem);
 		gadgetsMenu.setItem(30, gadgetsItem);
-		gadgetsMenu.setItem(32, disguisesItem);
+		gadgetsMenu.setItem(32, morphs);
 		gadgetsMenu.setItem(34, particlesItem);
 		gadgetsMenu.setItem(48, shopItem);
 		gadgetsMenu.setItem(50, box);
