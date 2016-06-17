@@ -2,7 +2,10 @@ package cz.wake.plugins.GUI;
 
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Random;
 
+import cz.wake.plugins.utils.Particles;
+import cz.wake.plugins.utils.UtilParticles;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.Bukkit;
@@ -17,271 +20,128 @@ import org.bukkit.scheduler.BukkitRunnable;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.API.TimeUtils;
 import cz.wake.plugins.utils.ItemFactory;
+import org.bukkit.scheduler.BukkitTask;
 
 public class Servers implements Listener{
+
+	public static Random random = new Random();
 	
 	public void openServersMenu(Player p){
 		
-		Inventory serverMenu = Bukkit.createInventory(null, 45, "Kam jit?");
+		Inventory inv = Bukkit.createInventory(null, 54, "           §0§nVyber serveru");
+
+		ItemStack colorful = ItemFactory.create(Material.STAINED_GLASS_PANE,randomByte((byte)1,(byte)15)," ");
+
+		inv.setItem(0,colorful);
+		inv.setItem(1,colorful);
+		inv.setItem(2,colorful);
+		inv.setItem(3,colorful);
+		inv.setItem(4,colorful);
+		inv.setItem(5,colorful);
+		inv.setItem(6,colorful);
+		inv.setItem(7,colorful);
+		inv.setItem(8,colorful);
+		inv.setItem(45,colorful);
+		inv.setItem(46,colorful);
+		inv.setItem(47,colorful);
+		inv.setItem(48,colorful);
+		inv.setItem(49,colorful);
+		inv.setItem(50,colorful);
+		inv.setItem(51,colorful);
+		inv.setItem(52,colorful);
+		inv.setItem(53,colorful);
+
+		ItemStack surv = ItemFactory.create(Material.GOLD_PICKAXE,(byte)0,"§e§lSurvival","§8Survival, Economy, PVP","",
+				"§7Stary dobry survival, s mnoha","§7vylepsenim a prikazy.","","§b▸ Kliknutim te portnu");
+		inv.setItem(20,surv);
+
+		ItemStack skyb = ItemFactory.create(Material.SAPLING,randomByte((byte)0,(byte)5),"§e§lSkyBlock","§8Survival, Economy, PVP","",
+				"§7Spawnes se na opustenem ostrove","§7sam a se zakladnimi surovinami.","§7Postav si svuj ostrov sam","§7nebo s kamarady.","","§b▸ Kliknutim te portnu");
+		inv.setItem(21,skyb);
+
+		ItemStack crea1 = ItemFactory.create(Material.LAVA_BUCKET,(byte)0,"§e§lCreative #1","§8Creative, pozemky, WorldEdit","",
+				"§7Svet ve kterem muzes prakticky","§7delat co chces, stavet, budovat","§7nebo se proste zlepsovat.","","§b▸ Kliknutim te portnu");
+		inv.setItem(22,crea1);
+
+		ItemStack crea2 = ItemFactory.create(Material.WATER_BUCKET,(byte)0,"§e§lCreative #2","§8Creative, pozemky, WorldEdit","",
+				"§7Dalsi svet, ve kterem","§7lze delat prakticky vse.","","§b▸ Kliknutim te portnu");
+		inv.setItem(23,crea2);
+
+		ItemStack pris = ItemFactory.create(Material.IRON_FENCE,(byte)0,"§e§lPrison","§8RankUp, Prestige, Mining","","§7Svet ve kterem je dulezite",
+				"§7se zlepsovat a kopat", "§7jinak budes pozadu.","","§b▸ Kliknutim te portnu");
+		inv.setItem(24,pris);
+
+		ItemStack van = ItemFactory.create(Material.EMERALD,(byte)0,"§e§lVanilla","§8Vanilla, Survival, PVP","","§7Otevreny svet ve kterem",
+				"§7poznas co to je zit","§7na vlastni pest.","","§b▸ Kliknutim te portnu");
+		inv.setItem(25,van);
+
+		ItemStack fac = ItemFactory.create(Material.TNT,(byte)0,"§e§lFactions","§8Frakce, PVP, souboje","","§7Zde nikdy nevis","§7kdo ti jde po krku.",
+				"§7Az to zjistis, bude pozde.","","§b▸ Kliknutim te portnu");
+		inv.setItem(26,fac);
+
+		ItemStack bedw = ItemFactory.create(Material.BED,(byte)0,"§a§lBedWars","§8Minihra, PVP","","§7Ctyri teamy proti sobe","§7a jeden vytez! Bude to tvuj team?",
+				"","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+		bedw = ItemFactory.addGlow(bedw);
+		inv.setItem(29,bedw);
+
+		ItemStack sw = ItemFactory.create(Material.BOW,(byte)0,"§a§lSkyWars §8(1.8)","§8Minihra, PVP","","§7Kazdy sam za sebe,","§7vyhraje pouze ten nejlepsi.","§8Brzy: TEAM SKYWARS",
+				"","§7Multiplier: 1.0x","","§b▸ Kliknutim te portnu");
+		inv.setItem(30,sw);
+
+		ItemStack an = ItemFactory.create(Material.ENDER_STONE,(byte)0,"§a§lAnnihilation","§8Minihra, Team PVP","","§7Hlavnim ukolem je znicit","§7Nexus jineho teamu. Stihnes to,",
+				"§7nez znici oni tebe?","","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+		an = ItemFactory.addGlow(an);
+		inv.setItem(31,an);
+
+		ItemStack uhc = ItemFactory.create(Material.GOLDEN_APPLE,(byte)0,"§a§lUHC Run §8(1.8)","§8Solo & Team, PVP minihra, Hardcore","","§7Tak tady jsou si vsichni rovni",
+				"§7zde totiz plati pravidlo,","§7rychlejsi a silnejsi vyhrava!","","§7Multiplier: 1.0x","","§b▸ Kliknutim te portnu");
+		inv.setItem(32,uhc);
+
+		new BukkitRunnable() {
+			int c = 1;
+			@Override
+			public void run() {
+				if(c == 1){
+					ItemStack i = ItemFactory.create(Material.PAINTING,(byte)0,"§e§lArcade","§8Rychle minihry bez PVP","",
+							"§aDrawIt", "§fBuildBattle", "§fSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+					i = ItemFactory.addGlow(i);
+					inv.setItem(33,i);
+					c++;
+				}
+				else if(c == 2){
+					ItemStack i = ItemFactory.create(Material.WORKBENCH,(byte)0,"§e§lArcade","§8Rychle minihry bez PVP","",
+							"§fDrawIt", "§aBuildBattle", "§fSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+					i = ItemFactory.addGlow(i);
+					inv.setItem(33,i);
+					c++;
+				}
+				else if(c == 3){
+					ItemStack i = ItemFactory.create(Material.QUARTZ_BLOCK,(byte)0,"§e§lArcade","§8Rychle minihry bez PVP","",
+							"§fDrawIt", "§fBuildBattle", "§aSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+					i = ItemFactory.addGlow(i);
+					inv.setItem(33,i);
+					c = 1;
+				}
+			}
+		}.runTaskTimerAsynchronously(Main.getPlugin(), 0, 25);
+
+		ItemStack tw = ItemFactory.create(Material.WOOL,(byte)3,"§e§lTurfWars §8(1.8)","§8Minihra, Team PVP","","§7Pokud umis dobre strilet s","§7lukem, tak zde se ti to bude hodit.",
+				"","§7Multiplier: 1.0x","","§b▸ Kliknutim te portnu");
+		inv.setItem(34,tw);
+
+		ItemStack lobby = ItemFactory.create(Material.BOOKSHELF,(byte)0,"§c§lLobby","","§7Kliknutim zobrazis prehled","§7vsech lobby na CM.","","§b▸ Pro zobrazeni klikni");
+		inv.setItem(18,lobby);
+
+		ItemStack event = ItemFactory.create(Material.FIREWORK,(byte)0,"§c§lEventy","","§7Server urceny pro pro","§7celoserverove eventy.","","§e§nAktualne se zadny event nekona!");
+		inv.setItem(27,event);
 		
-		ItemStack survival = new ItemStack(Material.DIAMOND_SWORD);
-		ItemMeta sMeta = survival.getItemMeta();
-		sMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Survival §c§l1.9");
-		ArrayList<String> sLore = new ArrayList<String>();
-		sLore.add(ChatColor.DARK_GRAY + "PVP");
-		sLore.add("");
-		sLore.add(ChatColor.GRAY + "Stan se legendou, zacni od");
-		sLore.add(ChatColor.GRAY + "uplneho zacatku az po bohace!");
-		sLore.add("");
-		sLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		sMeta.setLore(sLore);
-		survival.setItemMeta(sMeta);
-		
-		ItemStack skyblock = new ItemStack(Material.COOKIE);
-		ItemMeta skMeta = skyblock.getItemMeta();
-		skMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Skyblock §c§l1.9");
-		ArrayList<String> skLore = new ArrayList<String>();
-		skLore.add(ChatColor.DARK_GRAY + "PVP");
-		skLore.add("");
-		skLore.add(ChatColor.GRAY + "Sam a opusteny na ostrove,");
-		skLore.add(ChatColor.GRAY + "dokazes prezit? Nebo ne?");
-		skLore.add("");
-		skLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		skMeta.setLore(skLore);
-		skyblock.setItemMeta(skMeta);
-		
-		ItemStack creative = new ItemStack(Material.LAVA_BUCKET);
-		ItemMeta cMeta = creative.getItemMeta();
-		cMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative §c§l1.9");
-		ArrayList<String> cLore = new ArrayList<String>();
-		cLore.add(ChatColor.DARK_GRAY + "NO-PVP");
-		cLore.add("");
-		cLore.add(ChatColor.GRAY + "Umis stavet? Nebo si chces");
-		cLore.add(ChatColor.GRAY + "jenom tak stavet a trenovat");
-		cLore.add(ChatColor.GRAY + "na BuildEvent?");
-		cLore.add("");
-		cLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		cMeta.setLore(cLore);
-		creative.setItemMeta(cMeta);
-		
-		ItemStack creative2 = new ItemStack(Material.WATER_BUCKET);
-		ItemMeta cMeta2 = creative2.getItemMeta();
-		cMeta2.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Creative #2 §c§l1.9");
-		ArrayList<String> cLore2 = new ArrayList<String>();
-		cLore2.add(ChatColor.DARK_GRAY + "NO-PVP");
-		cLore2.add("");
-		cLore2.add(ChatColor.GRAY + "Bylo narvano, tak je tu");
-		cLore2.add(ChatColor.GRAY + "dalsi server! :O");
-		cLore2.add("");
-		cLore2.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		cMeta2.setLore(cLore2);
-		creative2.setItemMeta(cMeta2);
-		
-		ItemStack prison = new ItemStack(Material.getMaterial(101));
-		ItemMeta pMeta = prison.getItemMeta();
-		pMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Prison §c§l1.9");
-		ArrayList<String> pLore = new ArrayList<String>();
-		pLore.add(ChatColor.DARK_GRAY + "PVP");
-		pLore.add("");
-		pLore.add(ChatColor.GRAY + "Legendarni server prvni v CZ/SK!");
-		pLore.add(ChatColor.GRAY + "Uchop krumpac a ukaz svetu,");
-		pLore.add(ChatColor.GRAY + "ze byla chyba te tam pustit!");
-		pLore.add("");
-		pLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		pMeta.setLore(pLore);
-		prison.setItemMeta(pMeta);
-		
-		ItemStack vanilla = new ItemStack(Material.EMERALD);
-		ItemMeta vMeta = vanilla.getItemMeta();
-		vMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Vanilla §c§l1.9");
-		ArrayList<String> vLore = new ArrayList<String>();
-		vLore.add(ChatColor.DARK_GRAY + "PVP");
-		vLore.add("");
-		vLore.add(ChatColor.GRAY + "Zakladni Minecraft bez prikazu");
-		vLore.add(ChatColor.GRAY + "pluginu atd. Ta prava hra o preziti!");
-		vLore.add("");
-		vLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		vMeta.setLore(vLore);
-		vanilla.setItemMeta(vMeta);
-		
-		ItemStack anni = new ItemStack(Material.ENDER_STONE);
-		anni = ItemFactory.addGlow(anni);
-		ItemMeta aMeta = anni.getItemMeta();
-		aMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Annihilation §c§l1.9");
-		ArrayList<String> aLore = new ArrayList<String>();
-		aLore.add(ChatColor.DARK_GRAY + "PVP");
-		aLore.add("");
-		aLore.add(ChatColor.GRAY + "Teamova hra, znic Nexus driv");
-		aLore.add(ChatColor.GRAY + "nez ho znici tobe a vyhraj!");
-		aLore.add("");
-		aLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
-		aLore.add("");
-		aLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		aMeta.setLore(aLore);
-		anni.setItemMeta(aMeta);
-		
-		ItemStack skywars = new ItemStack(Material.EYE_OF_ENDER);
-		ItemMeta skyMeta = skywars.getItemMeta();
-		skyMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "SkyWars §b§l1.8 §7+ §c§l1.9");
-		ArrayList<String> skyLore = new ArrayList<String>();
-		skyLore.add(ChatColor.DARK_GRAY + "PVP");
-		skyLore.add("");
-		skyLore.add(ChatColor.GRAY + "Kazdy sam za sebe proti az 16 hracum!");
-		skyLore.add(ChatColor.GRAY + "Klasicky SkyWars");
-		skyLore.add("");
-		skyLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
-		skyLore.add("");
-		skyLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		skyMeta.setLore(skyLore);
-		skywars.setItemMeta(skyMeta);
-		
-		ItemStack bedwars = new ItemStack(Material.BED);
-		bedwars = ItemFactory.addGlow(bedwars);
-		ItemMeta bedMeta = bedwars.getItemMeta();
-		bedMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "BedWars §c§l1.9");
-		ArrayList<String> bedLore = new ArrayList<String>();
-		bedLore.add(ChatColor.DARK_GRAY + "PVP");
-		bedLore.add("");
-		bedLore.add(ChatColor.GRAY + "Hra podobna Annihilation");
-		bedLore.add(ChatColor.GRAY + "4 teamy, 4 postele, 1 vitez!");
-		bedLore.add("");
-		bedLore.add(ChatColor.GRAY + "Coins Multiplier: §63.0x");
-		bedLore.add("");
-		bedLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		bedMeta.setLore(bedLore);
-		bedwars.setItemMeta(bedMeta);
-		
-		ItemStack drawit = new ItemStack(Material.PAINTING);
-		drawit = ItemFactory.addGlow(drawit);
-		ItemMeta drawMeta = drawit.getItemMeta();
-		drawMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "DrawIt §c§l1.9");
-		ArrayList<String> drawLore = new ArrayList<String>();
-		drawLore.add(ChatColor.DARK_GRAY + "NO-PVP");
-		drawLore.add("");
-		drawLore.add(ChatColor.GRAY + "Nakreslit zadany predmet neni");
-		drawLore.add(ChatColor.GRAY + "jenom tak jednoduche!");
-		drawLore.add(ChatColor.GRAY + "Jeste tezsi je ho uhadnout.");
-		drawLore.add("");
-		drawLore.add(ChatColor.GRAY + "Coins Multiplier: §63.0x");
-		drawLore.add("");
-		drawLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		drawMeta.setLore(drawLore);
-		drawit.setItemMeta(drawMeta);
-		
-		ItemStack uhc = new ItemStack(Material.GOLDEN_APPLE);
-		ItemMeta uMeta = uhc.getItemMeta();
-		uMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "UHC Run §b§l1.8 §7+ §c§l1.9");
-		ArrayList<String> uhcLore = new ArrayList<String>();
-		uhcLore.add(ChatColor.DARK_GRAY + "PVP");
-		uhcLore.add("");
-		uhcLore.add(ChatColor.GRAY + "Overis si zda umis hrat?");
-		uhcLore.add(ChatColor.GRAY + "Dokazes prezit a zachranit se?");
-		uhcLore.add(ChatColor.GRAY + "Nebo zemres jako my vsichni?");
-		uhcLore.add("");
-		uhcLore.add(ChatColor.GRAY + "Coins Multiplier: 1.0x");
-		uhcLore.add("");
-		uhcLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		uMeta.setLore(uhcLore);
-		uhc.setItemMeta(uMeta);
-		
-		ItemStack bb = new ItemStack(Material.WORKBENCH);
-		bb = ItemFactory.addGlow(bb);
-		ItemMeta bbMeta = bb.getItemMeta();
-		bbMeta.setDisplayName(ChatColor.YELLOW + "" + ChatColor.BOLD + "Build Battle §c§l1.9");
-		ArrayList<String> bbLore = new ArrayList<String>();
-		bbLore.add(ChatColor.DARK_GRAY + "Arcade");
-		bbLore.add("");
-		bbLore.add(ChatColor.GRAY + "Kreslit umis a co treba stavet?");
-		bbLore.add(ChatColor.GRAY + "Dokazes postavit zadane veci v casovem");
-		bbLore.add(ChatColor.GRAY + "intervale a vyhrat?");
-		bbLore.add("");
-		bbLore.add(ChatColor.GRAY + "Coins Multiplier: §63.0x");
-		bbLore.add("");
-		bbLore.add(ChatColor.AQUA + "▸ Kliknutim te portnu");
-		bbMeta.setLore(bbLore);
-		bb.setItemMeta(bbMeta);
-		
-		ItemStack tw = new ItemStack(Material.WOOL,1,(byte)3);
-		ItemMeta twMeta = tw.getItemMeta();
-		twMeta.setDisplayName("§e§lTurfWars §b§l1.8 §7+ §c§l1.9");
-		ArrayList<String> twLore = new ArrayList<String>();
-		twLore.add("§8TEAM PVP");
-		twLore.add("");
-		twLore.add("§7Dva teamy proti sobe");
-		twLore.add("§7a vyhraje pouze jeden!");
-		twLore.add("§7Ve kterem budes ty?");
-		twLore.add("");
-		twLore.add("§7Coins Multiplier: 1.0x");
-		twLore.add("");
-		twLore.add("§a▸ Kliknutim te portnu");
-		twMeta.setLore(twLore);
-		tw.setItemMeta(twMeta);
-		
-		
-		ItemStack factions = new ItemStack(Material.TNT);
-		ItemMeta facMeta = factions.getItemMeta();
-		facMeta.setDisplayName("§c§lFactions");
-		ArrayList<String> facLore = new ArrayList<String>();
-		facLore.add("");
-		facLore.add("§7Tvrdili, ze preziji jenom ti nejlepsi,");
-		facLore.add("§7bude tedy tvuj team na vrcholu?");
-		facLore.add("§7Zit nebo zemrit, vyber si!");
-		facLore.add("");
-		facLore.add("§a▸ Kliknutim te portnu");
-		facMeta.setLore(facLore);
-		factions.setItemMeta(facMeta);
-		serverMenu.setItem(16, factions);
-		
-		ItemStack sb = new ItemStack(Material.QUARTZ_BLOCK);
-		sb = ItemFactory.addGlow(sb);
-		ItemMeta sbMeta = sb.getItemMeta();
-		sbMeta.setDisplayName("§e§lSpeedBuilders");
-		ArrayList<String> sbLore = new ArrayList<String>();
-		sbLore.add("§8Arcade");
-		sbLore.add("");
-		sbLore.add("§7V teto minihre plati,");
-		sbLore.add("§7rychlejsi vyhrava!");
-		sbLore.add("§7Vyhrajes i ty?!");
-		sbLore.add("");
-		sbLore.add("§a▸ Kliknutim te portnu");
-		sbMeta.setLore(sbLore);
-		sb.setItemMeta(sbMeta);
-		serverMenu.setItem(31, sb);
-		
-		
-		ItemStack pripravujeme = new ItemStack(Material.STAINED_GLASS);
-		ItemMeta priMeta = pripravujeme.getItemMeta();
-		priMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Pripravujeme");
-		ArrayList<String> priLore = new ArrayList<String>();
-		priLore.add("");
-		priLore.add(ChatColor.GRAY + "Jiz brzy neco noveho...");
-		priMeta.setLore(priLore);
-		pripravujeme.setItemMeta(priMeta);
-		
-		serverMenu.setItem(10, survival);
-		serverMenu.setItem(11, skyblock);
-		serverMenu.setItem(12, creative);
-		serverMenu.setItem(13, creative2);
-		serverMenu.setItem(14, prison);
-		serverMenu.setItem(15, vanilla);
-		
-		serverMenu.setItem(19, anni);
-		serverMenu.setItem(20, skywars);
-		serverMenu.setItem(21, bedwars);
-		serverMenu.setItem(22, drawit);
-		serverMenu.setItem(23, uhc);
-		serverMenu.setItem(24, bb);
-		serverMenu.setItem(25, tw);
-		
-		p.openInventory(serverMenu);
+		p.openInventory(inv);
 		
 	}
-	
-	private String countTime(){
-		long time = System.currentTimeMillis();
-		long pTime = 1462204800000L;
 
-		return TimeUtils.formatTime("%d dni, %hh %mm", ((pTime - time)/1000)/60, false);
+	private byte randomByte(byte start, byte end){
+		int cislo = start + random.nextInt(end - start + 1);
+		return (byte)cislo;
 	}
 
 

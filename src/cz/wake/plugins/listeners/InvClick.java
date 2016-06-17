@@ -3,6 +3,7 @@ package cz.wake.plugins.listeners;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
+import cz.wake.plugins.GUI.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -15,18 +16,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import cz.wake.plugins.Main;
-import cz.wake.plugins.GUI.GadgetsMenu;
-import cz.wake.plugins.GUI.HeadsMenu;
-import cz.wake.plugins.GUI.HeadsMenu2;
-import cz.wake.plugins.GUI.HeadsMenu3;
-import cz.wake.plugins.GUI.HeadsMenu4;
-import cz.wake.plugins.GUI.Menu;
-import cz.wake.plugins.GUI.NakupBoxu;
-import cz.wake.plugins.GUI.StatisticsMG;
-import cz.wake.plugins.GUI.MorphsMenu;
-import cz.wake.plugins.GUI.MountMenu;
-import cz.wake.plugins.GUI.ParticlesMenu;
-import cz.wake.plugins.GUI.VIPMenu;
 import cz.wake.plugins.cloaks.AngleCloak;
 import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.cloaks.SantaCloak;
@@ -84,6 +73,7 @@ public class InvClick implements Listener{
 	HeadsMenu4 headsMenu4 = new HeadsMenu4();
 	CandyCane cc = new CandyCane();
 	NakupBoxu np = new NakupBoxu();
+	Lobby lob = new Lobby();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -222,50 +212,47 @@ public class InvClick implements Listener{
         	player.updateInventory();
         }
       //**************************** SERVERS MENU ****************************//
-        if(event.getInventory().getTitle().equals("Kam jit?")){
-        	if(event.getSlot() == 10){
+        if(event.getInventory().getTitle().equals("           §0§nVyber serveru")){
+        	if(event.getSlot() == 20){
         		sendToServer(player, "survival");
         	}
-        	if(event.getSlot() == 11){
+        	if(event.getSlot() == 21){
         		sendToServer(player, "skyblock");
         	}
-        	if(event.getSlot() == 12){
+        	if(event.getSlot() == 22){
         		sendToServer(player, "creative");
         	}
-        	if(event.getSlot() == 13){
+        	if(event.getSlot() == 23){
         		sendToServer(player, "creative2");
         	}
-        	if(event.getSlot() == 14){
+        	if(event.getSlot() == 24){
         		sendToServer(player, "prison");
         	}
-        	if(event.getSlot() == 15){
+        	if(event.getSlot() == 25){
         		sendToServer(player, "vanilla");
         	}
-        	if(event.getSlot() == 19){
+        	if(event.getSlot() == 31){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1177.0D, 35.0D, 458.637D, 90f, 5f));
         	}
-        	if(event.getSlot() == 20){
+        	if(event.getSlot() == 30){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1175.0D, 35.0D, 538.548D, 90f, 5f));
         	}
-        	if(event.getSlot() == 21){
+        	if(event.getSlot() == 29){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1289.0D, 35.0D, 426.310D, -180f, 5f));
         	}
-        	if(event.getSlot() == 22){
+        	if(event.getSlot() == 33){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
         	}
-        	if(event.getSlot() == 23){
+        	if(event.getSlot() == 32){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1177.0D, 35.0D, 458.637D, 90f, 5f));
         	}
-        	if(event.getSlot() == 24){
-        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
-        	}
-        	if(event.getSlot() == 25){
+        	if(event.getSlot() == 34){
         		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1289.0D, 35.0D, 572.620D, 0f, 5f));
         	}
-        	if(event.getSlot() == 31){
-        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
-        	}
-        	if(event.getSlot() == 16){
+			if(event.getSlot() == 18){
+				this.lob.openMenu(player);
+			}
+        	if(event.getSlot() == 26){
         		sendToServer(player, "factions");
         	}
         }
