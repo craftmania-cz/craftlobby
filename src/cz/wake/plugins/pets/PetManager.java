@@ -182,6 +182,9 @@ public class PetManager implements Listener{
 		  if(ZombieNormal.zn.contains(p.getName())){
 			  ZombieNormal.zn.remove(p.getName());
 		  }
+		  if(HorseNormal.hb.contains(p.getName())){
+			  HorseNormal.hb.remove(p.getName());
+		  }
 		  /*
 		  if(SheepWhite.sw.contains(p.getName())){
 			  SheepWhite.sw.remove(p.getName());
@@ -194,12 +197,6 @@ public class PetManager implements Listener{
 		  }
 		  if(SheepSilver.ss.contains(p.getName())){
 			  SheepSilver.ss.remove(p.getName());
-		  }
-		  if(HorseBrown.hb.contains(p.getName())){
-			  HorseBrown.hb.remove(p.getName());
-		  }
-		  if(HorseBrownBaby.hb.contains(p.getName())){
-			  HorseBrownBaby.hb.remove(p.getName());
 		  }
 		  if(SheepWhiteBaby.sw.contains(p.getName())){
 			  SheepWhiteBaby.sw.remove(p.getName());

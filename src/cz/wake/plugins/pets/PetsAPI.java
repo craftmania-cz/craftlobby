@@ -3,6 +3,7 @@ package cz.wake.plugins.pets;
 import cz.wake.plugins.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Horse;
 import org.bukkit.entity.Ocelot;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Rabbit;
@@ -109,6 +110,26 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(8, i);
 		}
+		if(p.hasPermission("craftlobby.pets.horse.black")
+				|| p.hasPermission("craftlobby.pets.horse.black.baby")
+				|| p.hasPermission("craftlobby.pets.horse.brown")
+				|| p.hasPermission("craftlobby.pets.horse.brown.baby")
+				|| p.hasPermission("craftlobby.pets.horse.chestnut")
+				|| p.hasPermission("craftlobby.pets.horse.chestnut.baby")
+				|| p.hasPermission("craftlobby.pets.horse.creamy")
+				|| p.hasPermission("craftlobby.pets.horse.creamy.baby")
+				|| p.hasPermission("craftlobby.pets.horse.darkbrown")
+				|| p.hasPermission("craftlobby.pets.horse.darkbrown.baby")
+				|| p.hasPermission("craftlobby.pets.horse.gray")
+				|| p.hasPermission("craftlobby.pets.horse.gray.baby")
+				|| p.hasPermission("craftlobby.pets.horse.white")
+				|| p.hasPermission("craftlobby.pets.horse.white.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(9,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(9, i);
+		}
 
 		//Zpet do menu
 		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
@@ -124,6 +145,130 @@ public class PetsAPI implements Listener{
 		inv.setItem(49, shopItem);
 		inv.setItem(48, zpet);
 		
+		p.openInventory(inv);
+	}
+
+	public void openHorseMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Horse");
+
+		if(p.hasPermission("craftlobby.pets.horse.black")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Black", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.black.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Black (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.brown")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Brown", "§7Tento typ nevlastnis.");
+			inv.setItem(2, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.brown.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(3,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Brown (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(3, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.chestnut")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(4,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Chestnut", "§7Tento typ nevlastnis.");
+			inv.setItem(4, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.chestnut.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(5,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Chestnut (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(5, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.creamy")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(6,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Creamy", "§7Tento typ nevlastnis.");
+			inv.setItem(6, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.creamy.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(7,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Creamy (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(7, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.darkbrown")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse DarkBrown","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(8,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse DarkBrown", "§7Tento typ nevlastnis.");
+			inv.setItem(8, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.darkbrown.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse DarkBrown (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(9,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse DarkBrown (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(9, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.gray")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(10,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Gray", "§7Tento typ nevlastnis.");
+			inv.setItem(10, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.gray.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(11,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Gray (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(11, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.white")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(12,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse White", "§7Tento typ nevlastnis.");
+			inv.setItem(12, i);
+		}
+		if(p.hasPermission("craftlobby.pets.horse.white.baby")){
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White (Baby)","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(13,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse White (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(13, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(23, dea);
+		inv.setItem(22, shopItem);
+		inv.setItem(21, zpet);
+
 		p.openInventory(inv);
 	}
 
@@ -574,6 +719,9 @@ public class PetsAPI implements Listener{
 			if(e.getSlot() == 8){
 				this.openZombieMenu(p);
 			}
+			if(e.getSlot() == 9){
+				this.openHorseMenu(p);
+			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
 			if (e.getCurrentItem() == null){
@@ -908,6 +1056,122 @@ public class PetsAPI implements Listener{
 					ZombieNormal.activate(p,true);
 				} else {
 					this.ml.messageNoPerm(p,"Zombie Baby");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Horse")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.horse.black")){
+					HorseNormal.activate(p,false, Horse.Color.BLACK);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Black");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.horse.black.baby")){
+					HorseNormal.activate(p,true, Horse.Color.BLACK);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Black (Baby)");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.horse.brown")){
+					HorseNormal.activate(p,false, Horse.Color.BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Brown");
+				}
+			}
+			if(e.getSlot() == 3){
+				if(p.hasPermission("craftlobby.pets.horse.brown.baby")){
+					HorseNormal.activate(p,true, Horse.Color.BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Brown (Baby)");
+				}
+			}
+			if(e.getSlot() == 4){
+				if(p.hasPermission("craftlobby.pets.horse.chestnut")){
+					HorseNormal.activate(p,false, Horse.Color.CHESTNUT);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Chestnut");
+				}
+			}
+			if(e.getSlot() == 5){
+				if(p.hasPermission("craftlobby.pets.horse.chestnut.baby")){
+					HorseNormal.activate(p,true, Horse.Color.CHESTNUT);
+				} else {
+					this.ml.messageNoPerm(p,"Hrose Chestnut (Baby)");
+				}
+			}
+			if(e.getSlot() == 6){
+				if(p.hasPermission("craftlobby.pets.horse.creamy")){
+					HorseNormal.activate(p,false, Horse.Color.CREAMY);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Creamy");
+				}
+			}
+			if(e.getSlot() == 7){
+				if(p.hasPermission("craftlobby.pets.horse.creamy.baby")){
+					HorseNormal.activate(p,true, Horse.Color.CREAMY);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Creamy (Baby)");
+				}
+			}
+			if(e.getSlot() == 8){
+				if(p.hasPermission("craftlobby.pets.horse.darkbrown")){
+					HorseNormal.activate(p,false, Horse.Color.DARK_BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Horse DarkBrown");
+				}
+			}
+			if(e.getSlot() == 9){
+				if(p.hasPermission("craftlobby.pets.horse.darkbrown.baby")){
+					HorseNormal.activate(p,true, Horse.Color.DARK_BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Horse DarkBrown (Baby)");
+				}
+			}
+			if(e.getSlot() == 10){
+				if(p.hasPermission("craftlobby.pets.horse.gray")){
+					HorseNormal.activate(p,false, Horse.Color.GRAY);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Gray");
+				}
+			}
+			if(e.getSlot() == 11){
+				if(p.hasPermission("craftlobby.pets.horse.gray.baby")){
+					HorseNormal.activate(p,true, Horse.Color.GRAY);
+				} else {
+					this.ml.messageNoPerm(p,"Horse Gray (Baby)");
+				}
+			}
+			if(e.getSlot() == 12){
+				if(p.hasPermission("craftlobby.pets.horse.white")){
+					HorseNormal.activate(p,false, Horse.Color.WHITE );
+				} else {
+					this.ml.messageNoPerm(p,"Horse White");
+				}
+			}
+			if(e.getSlot() == 13){
+				if(p.hasPermission("craftlobby.pets.horse.white.baby")){
+					HorseNormal.activate(p,true, Horse.Color.WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Horse White (Baby)");
 				}
 			}
 		}

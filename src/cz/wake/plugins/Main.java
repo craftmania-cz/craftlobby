@@ -122,7 +122,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         NMSUtils.registerEntity("Zombie", 54, EntityZombie.class, RideableZombie.class);
         NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
         NMSUtils.registerEntity("Ozelot", 98, EntityOcelot.class, RideableCat.class);
-        //NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
+        NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
         //NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);
 
 		for(World w : Bukkit.getWorlds()){
