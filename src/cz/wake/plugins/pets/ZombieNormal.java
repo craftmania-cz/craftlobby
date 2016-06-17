@@ -12,12 +12,10 @@ import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableZombie;
 
 public class ZombieNormal {
-
-	/*
 	
 	public static ArrayList<String> zn = new ArrayList();
 	
-	public static void activate(final Player p){
+	public static void activate(final Player p, boolean baby){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
@@ -30,8 +28,11 @@ public class ZombieNormal {
 		final Zombie zomb = RideableZombie.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)zomb, 0.16D, 1.0D);
 	    setMetadata((Zombie)zomb, "Pet", "Pet", Main.getInstance());
+        if(baby){
+            ((Zombie)zomb).setBaby(true);
+        }
 	    ((Zombie)zomb).setCustomNameVisible(true);
-	    ((Zombie)zomb).setCustomName("�a" + p.getName());
+	    ((Zombie)zomb).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) zomb);
 	    zn.add(p.getName());
 	    p.closeInventory();
@@ -41,6 +42,4 @@ public class ZombieNormal {
 	  {
 	    paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
 	  }
-
-	  */
 }

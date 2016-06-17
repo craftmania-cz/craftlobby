@@ -179,10 +179,10 @@ public class PetManager implements Listener{
 		  if(RabbitNormal.rb.contains(p.getName())){
 			  RabbitNormal.rb.remove(p.getName());
 		  }
-		  /*
 		  if(ZombieNormal.zn.contains(p.getName())){
 			  ZombieNormal.zn.remove(p.getName());
 		  }
+		  /*
 		  if(SheepWhite.sw.contains(p.getName())){
 			  SheepWhite.sw.remove(p.getName());
 		  }
@@ -197,9 +197,6 @@ public class PetManager implements Listener{
 		  }
 		  if(HorseBrown.hb.contains(p.getName())){
 			  HorseBrown.hb.remove(p.getName());
-		  }
-		  if(ZombieBaby.zb.contains(p.getName())){
-			  ZombieBaby.zb.remove(p.getName());
 		  }
 		  if(HorseBrownBaby.hb.contains(p.getName())){
 			  HorseBrownBaby.hb.remove(p.getName());
