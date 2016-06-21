@@ -26,12 +26,12 @@ public class Widder {
 		final CraftWither wither = (CraftWither) p.getWorld().spawnEntity(p.getLocation(), EntityType.WITHER);
 	    PetManager.PetFollow(p, (CraftEntity)wither, 0.16D, 1.5D);
 	    setMetadata((CraftWither)wither, "Pet", "Pet", Main.getInstance());
-	    ((CraftWither)wither).setCustomName("�f" + p.getName() + " Wither");
+	    ((CraftWither)wither).setCustomName(p.getName() + " Wither");
 	    PetManager.pet.put(p, (CraftEntity) wither);
 	    Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable(){
 			@Override
 			public void run() {
-				((CraftWither)wither).getHandle().p(600); //?
+				((CraftWither)wither).getHandle().l(600); //?
 			}
 	    	
 	    }, 0L, 1L);

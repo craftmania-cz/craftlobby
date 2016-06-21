@@ -167,6 +167,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(10, i);
 		}
+		if(p.hasPermission("craftlobby.pets.wither")){
+			ItemStack i = ItemFactory.create(Material.SKULL,(byte)1, "§eWither","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(11,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(11, i);
+		}
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -1020,6 +1027,9 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 10){
 				this.openSheepMenu(p);
+			}
+			if(e.getSlot() == 11){
+				Widder.activateCow(p);
 			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
