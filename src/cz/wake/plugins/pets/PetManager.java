@@ -198,6 +198,12 @@ public class PetManager implements Listener{
 		  if(SlimeNormal.pn.contains(p.getName())){
 			  SlimeNormal.pn.remove(p.getName());
 		  }
+		  if(SpiderNormal.pn.contains(p.getName())){
+			  SpiderNormal.pn.remove(p.getName());
+		  }
+		  if(CaveSpiderNormal.cn.contains(p.getName())){
+			  CaveSpiderNormal.cn.remove(p.getName());
+		  }
 				  
 	  }
 }

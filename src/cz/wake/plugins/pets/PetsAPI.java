@@ -192,6 +192,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSpider", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(13, i);
 		}
+		if(p.hasPermission("craftlobby.pets.cavespider")){
+			ItemStack i = ItemFactory.create(Material.FERMENTED_SPIDER_EYE,(byte)0, "§eCaveSpider","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(14,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCaveSpider", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(14, i);
+		}
 
 
 		//Deaktivace
@@ -1124,6 +1131,13 @@ public class PetsAPI implements Listener{
 					SpiderNormal.activateSpider(p);
 				} else {
 					this.ml.messageNoPerm(p,"Spider");
+				}
+			}
+			if(e.getSlot() == 14){
+				if(p.hasPermission("craftlobby.pets.cavespider")){
+					CaveSpiderNormal.activateCave(p);
+				} else {
+					this.ml.messageNoPerm(p,"CaveSpider");
 				}
 			}
 		}
