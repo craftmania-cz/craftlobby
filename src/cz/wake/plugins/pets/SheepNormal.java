@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.bukkit.DyeColor;
-import org.bukkit.craftbukkit.v1_9_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -12,11 +12,11 @@ import org.bukkit.metadata.FixedMetadataValue;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableSheep;
 
-public class SheepBrownBaby {
+public class SheepNormal {
 	
 	public static ArrayList<String> sb = new ArrayList();
 	
-	public static void activate(Player p){
+	public static void activate(Player p, boolean baby, DyeColor type){
 		for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
 	    {
 	      Object localObject = (CraftEntity)localIterator.next();
@@ -29,11 +29,13 @@ public class SheepBrownBaby {
 		final Sheep sheep = RideableSheep.spawn(p.getLocation());
 	    PetManager.PetFollow(p, (CraftEntity)sheep, 0.16D, 2D);
 	    setMetadata((Sheep)sheep, "Pet", "Pet", Main.getInstance());
-	    ((Sheep)sheep).setBaby();
+        if(baby){
+            ((Sheep)sheep).setBaby();
+        }
 	    ((Sheep)sheep).setAgeLock(true);
-	    ((Sheep)sheep).setColor(DyeColor.BROWN);
+	    ((Sheep)sheep).setColor(type);
 	    ((Sheep)sheep).setCustomNameVisible(true);
-	    ((Sheep)sheep).setCustomName("§6" + p.getName());
+	    ((Sheep)sheep).setCustomName(p.getName());
 	    PetManager.pet.put(p, (CraftEntity) sheep);
 	    sb.add(p.getName());
 	    p.closeInventory();

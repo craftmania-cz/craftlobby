@@ -1,12 +1,11 @@
+
 package cz.wake.plugins.pets;
 
 import cz.wake.plugins.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Horse;
-import org.bukkit.entity.Ocelot;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Rabbit;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -130,6 +129,44 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(9, i);
 		}
+		if(p.hasPermission("craftlobby.pets.sheep.white")
+				|| p.hasPermission("craftlobby.pets.sheep.white.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.black")
+				|| p.hasPermission("craftlobby.pets.sheep.black.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.blue")
+				|| p.hasPermission("craftlobby.pets.sheep.blue.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.brown")
+				|| p.hasPermission("craftlobby.pets.sheep.brown.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.cyan")
+				|| p.hasPermission("craftlobby.pets.sheep.cyan.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.green")
+				|| p.hasPermission("craftlobby.pets.sheep.green.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.lightblue")
+				|| p.hasPermission("craftlobby.pets.sheep.lightblue.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.lime")
+				|| p.hasPermission("craftlobby.pets.sheep.lime.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.magenta")
+				|| p.hasPermission("craftlobby.pets.sheep.magenta.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.orange")
+				|| p.hasPermission("craftlobby.pets.sheep.orange.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.pink")
+				|| p.hasPermission("craftlobby.pets.sheep.pink.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.purple")
+				|| p.hasPermission("craftlobby.pets.sheep.purple.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.red")
+				|| p.hasPermission("craftlobby.pets.sheep.red.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.silver")
+				|| p.hasPermission("craftlobby.pets.sheep.silver.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.yellow")
+				|| p.hasPermission("craftlobby.pets.sheep.yellow.baby")
+				|| p.hasPermission("craftlobby.pets.sheep.gray")
+				|| p.hasPermission("craftlobby.pets.sheep.gray.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§eSheep","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(10,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(10, i);
+		}
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -149,6 +186,257 @@ public class PetsAPI implements Listener{
 		inv.setItem(49, shopItem);
 		inv.setItem(48, zpet);
 		
+		p.openInventory(inv);
+	}
+
+	public void openSheepMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 54, "Pets - Sheep");
+
+		if(p.hasPermission("craftlobby.pets.sheep.white")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep White","","§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep White", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.white.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep White (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep White (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.black")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)15, "§aSheep Black","","§eKliknutim spawnes!");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Black", "§7Tento typ nevlastnis.");
+			inv.setItem(2, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.black.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)15, "§aSheep Black (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(3,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Black (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(3, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.blue")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)11, "§aSheep Blue","","§eKliknutim spawnes!");
+			inv.setItem(4,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Blue", "§7Tento typ nevlastnis.");
+			inv.setItem(4, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.blue.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)11, "§aSheep Blue (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(5,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Blue (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(5, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.brown")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)12, "§aSheep Brown","","§eKliknutim spawnes!");
+			inv.setItem(6,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Brown", "§7Tento typ nevlastnis.");
+			inv.setItem(6, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.brown.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)12, "§aSheep Brown (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(7,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Brown (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(7, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.cyan")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)9, "§aSheep Cyan","","§eKliknutim spawnes!");
+			inv.setItem(8,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Cyan", "§7Tento typ nevlastnis.");
+			inv.setItem(8, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.cyan.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)9, "§aSheep Cyan (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(9,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Cyan (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(9, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.green")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)13, "§aSheep Green","","§eKliknutim spawnes!");
+			inv.setItem(10,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Green", "§7Tento typ nevlastnis.");
+			inv.setItem(10, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.green.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)13, "§aSheep Green (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(11,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Green (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(11, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.lightblue")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)3, "§aSheep LightBlue","","§eKliknutim spawnes!");
+			inv.setItem(12,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep LightBlue", "§7Tento typ nevlastnis.");
+			inv.setItem(12, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.lightblue.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)3, "§aSheep LightBlue (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(13,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep LightBlue (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(13, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.lime")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)5, "§aSheep Lime","","§eKliknutim spawnes!");
+			inv.setItem(14,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Lime", "§7Tento typ nevlastnis.");
+			inv.setItem(14, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.lime.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)5, "§aSheep Lime (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(15,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Lime (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(15, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.magenta")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)2, "§aSheep Magenta","","§eKliknutim spawnes!");
+			inv.setItem(16,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Magenta", "§7Tento typ nevlastnis.");
+			inv.setItem(16, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.magenta.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)2, "§aSheep Magenta (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(17,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Magenta (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(17, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.orange")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)1, "§aSheep Orange","","§eKliknutim spawnes!");
+			inv.setItem(18,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Orange", "§7Tento typ nevlastnis.");
+			inv.setItem(18, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.orange.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)1, "§aSheep Orange (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(19,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Orange (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(19, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.pink")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)6, "§aSheep Pink","","§eKliknutim spawnes!");
+			inv.setItem(20,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Pink", "§7Tento typ nevlastnis.");
+			inv.setItem(20, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.pink.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)6, "§aSheep Pink (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(21,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Pink (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(21, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.purple")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)10, "§aSheep Purple","","§eKliknutim spawnes!");
+			inv.setItem(22,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Purple", "§7Tento typ nevlastnis.");
+			inv.setItem(22, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.purple.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)10, "§aSheep Purple (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(23,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Purple (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(23, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.red")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)14, "§aSheep Red","","§eKliknutim spawnes!");
+			inv.setItem(24,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Red", "§7Tento typ nevlastnis.");
+			inv.setItem(24, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.red.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)14, "§aSheep Red (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(25,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Red (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(25, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.silver")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)8, "§aSheep Silver","","§eKliknutim spawnes!");
+			inv.setItem(26,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Silver", "§7Tento typ nevlastnis.");
+			inv.setItem(26, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.silver.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)8, "§aSheep Silver (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(27,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Silver (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(27, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.yellow")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)4, "§aSheep Yellow","","§eKliknutim spawnes!");
+			inv.setItem(28,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Yellow", "§7Tento typ nevlastnis.");
+			inv.setItem(28, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.yellow.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)4, "§aSheep Yellow (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(29,i);
+		} else{
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Yellow (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(29, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.gray")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)7, "§aSheep Gray","","§eKliknutim spawnes!");
+			inv.setItem(30,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Gray", "§7Tento typ nevlastnis.");
+			inv.setItem(30, i);
+		}
+		if(p.hasPermission("craftlobby.pets.sheep.gray.baby")){
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)7, "§aSheep Gray (Baby)","","§eKliknutim spawnes!");
+			inv.setItem(31,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Gray (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(31, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(50, dea);
+		inv.setItem(49, shopItem);
+		inv.setItem(48, zpet);
+
+
 		p.openInventory(inv);
 	}
 
@@ -730,6 +1018,9 @@ public class PetsAPI implements Listener{
 			if(e.getSlot() == 9){
 				this.openHorseMenu(p);
 			}
+			if(e.getSlot() == 10){
+				this.openSheepMenu(p);
+			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
 			if (e.getCurrentItem() == null){
@@ -1180,6 +1471,248 @@ public class PetsAPI implements Listener{
 					HorseNormal.activate(p,true, Horse.Color.WHITE);
 				} else {
 					this.ml.messageNoPerm(p,"Horse White (Baby)");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Sheep")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 49){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 48){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 50){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.sheep.white")){
+					 SheepNormal.activate(p,false, DyeColor.WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep White");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.sheep.white.baby")){
+					SheepNormal.activate(p,true,DyeColor.WHITE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep White (Baby)");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.sheep.black")){
+					SheepNormal.activate(p,false,DyeColor.BLACK);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Black");
+				}
+			}
+			if(e.getSlot() == 3){
+				if(p.hasPermission("craftlobby.pets.sheep.black.baby")){
+					SheepNormal.activate(p,true,DyeColor.BLACK);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Black (Baby)");
+				}
+			}
+			if(e.getSlot() == 4){
+				if(p.hasPermission("craftlobby.pets.sheep.blue")){
+					SheepNormal.activate(p,false,DyeColor.BLUE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Blue");
+				}
+			}
+			if(e.getSlot() == 5){
+				if(p.hasPermission("craftlobby.pets.sheep.blue.baby")){
+					SheepNormal.activate(p,true,DyeColor.BLUE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Blue (Baby)");
+				}
+			}
+			if(e.getSlot() == 6){
+				if(p.hasPermission("craftlobby.pets.sheep.brown")){
+					SheepNormal.activate(p,false,DyeColor.BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Brown");
+				}
+			}
+			if(e.getSlot() == 7){
+				if(p.hasPermission("craftlobby.pets.sheep.brown.baby")){
+					SheepNormal.activate(p,true,DyeColor.BROWN);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Brown (Baby)");
+				}
+			}
+			if(e.getSlot() == 8){
+				if(p.hasPermission("craftlobby.pets.sheep.cyan")){
+					SheepNormal.activate(p,false,DyeColor.CYAN);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Cyan");
+				}
+			}
+			if(e.getSlot() == 9){
+				if(p.hasPermission("craftlobby.pets.sheep.cyan.baby")){
+					SheepNormal.activate(p,true,DyeColor.CYAN);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Cyan (Baby)");
+				}
+			}
+			if(e.getSlot() == 10){
+				if(p.hasPermission("craftlobby.pets.sheep.green")){
+					SheepNormal.activate(p,false,DyeColor.GREEN);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Green");
+				}
+			}
+			if(e.getSlot() == 11){
+				if(p.hasPermission("craftlobby.pets.sheep.green.baby")){
+					SheepNormal.activate(p,true,DyeColor.GREEN);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Green (Baby)");
+				}
+			}
+			if(e.getSlot() == 12){
+				if(p.hasPermission("craftlobby.pets.sheep.lightblue")){
+					SheepNormal.activate(p,false,DyeColor.LIGHT_BLUE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep LightBlue");
+				}
+			}
+			if(e.getSlot() == 13){
+				if(p.hasPermission("craftlobby.pets.sheep.lightblue.baby")){
+					SheepNormal.activate(p,true,DyeColor.LIGHT_BLUE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep LightBlue (Baby)");
+				}
+			}
+			if(e.getSlot() == 14){
+				if(p.hasPermission("craftlobby.pets.sheep.lime")){
+					SheepNormal.activate(p,false,DyeColor.LIME);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Lime");
+				}
+			}
+			if(e.getSlot() == 15){
+				if(p.hasPermission("craftlobby.pets.sheep.lime.baby")){
+					SheepNormal.activate(p,true,DyeColor.LIME);
+				} else {
+					this.ml.messageNoPerm(p,"Sheel Lime (Baby)");
+				}
+			}
+			if(e.getSlot() == 16){
+				if(p.hasPermission("craftlobby.pets.sheep.magenta")){
+					SheepNormal.activate(p,false,DyeColor.MAGENTA);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Magenta");
+				}
+			}
+			if(e.getSlot() == 17){
+				if(p.hasPermission("craftlobby.pets.sheep.magenta.baby")){
+					SheepNormal.activate(p,true,DyeColor.MAGENTA);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Magenta (Baby)");
+				}
+			}
+			if(e.getSlot() == 18){
+				if(p.hasPermission("craftlobby.pets.sheep.orange")){
+					SheepNormal.activate(p,false,DyeColor.ORANGE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Orange");
+				}
+			}
+			if(e.getSlot() == 19){
+				if(p.hasPermission("craftlobby.pets.sheep.orange.baby")){
+					SheepNormal.activate(p,true,DyeColor.ORANGE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Orange (Baby)");
+				}
+			}
+			if(e.getSlot() == 20){
+				if(p.hasPermission("craftlobby.pets.sheep.pink")){
+					SheepNormal.activate(p,false,DyeColor.PINK);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Pink");
+				}
+			}
+			if(e.getSlot() == 21){
+				if(p.hasPermission("craftlobby.pets.sheep.pink.baby")){
+					SheepNormal.activate(p,true,DyeColor.PINK);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Pink (Baby)");
+				}
+			}
+			if(e.getSlot() == 22){
+				if(p.hasPermission("craftlobby.pets.sheep.purple")){
+					SheepNormal.activate(p,false,DyeColor.PURPLE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Purple");
+				}
+			}
+			if(e.getSlot() == 23){
+				if(p.hasPermission("craftlobby.pets.sheep.purple.baby")){
+					SheepNormal.activate(p,true,DyeColor.PURPLE);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Purple (Baby)");
+				}
+			}
+			if(e.getSlot() == 24){
+				if(p.hasPermission("craftlobby.pets.sheep.red")){
+					SheepNormal.activate(p,false,DyeColor.RED);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Red");
+				}
+			}
+			if(e.getSlot() == 25){
+				if(p.hasPermission("craftlobby.pets.sheep.red.baby")){
+					SheepNormal.activate(p,true,DyeColor.RED);
+				} else {
+					this.ml.messageNoPerm(p,"Shep Red (Baby)");
+				}
+			}
+			if(e.getSlot() == 26){
+				if(p.hasPermission("craftlobby.pets.sheep.silver")){
+					SheepNormal.activate(p,false,DyeColor.SILVER);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Silver");
+				}
+			}
+			if(e.getSlot() == 27){
+				if(p.hasPermission("craftlobby.pets.sheep.silver.baby")){
+					SheepNormal.activate(p,true,DyeColor.SILVER);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Silver (Baby)");
+				}
+			}
+			if(e.getSlot() == 28){
+				if(p.hasPermission("craftlobby.pets.sheep.yellow")){
+					SheepNormal.activate(p,false,DyeColor.YELLOW);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Yellow");
+				}
+			}
+			if(e.getSlot() == 29){
+				if(p.hasPermission("craftlobby.pets.sheep.yellow.baby")){
+					SheepNormal.activate(p,true,DyeColor.YELLOW);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Yellow (Baby)");
+				}
+			}
+			if(e.getSlot() == 30){
+				if(p.hasPermission("craftlobby.pets.sheep.gray")){
+					SheepNormal.activate(p,false,DyeColor.GRAY);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Gray");
+				}
+			}
+			if(e.getSlot() == 31){
+				if(p.hasPermission("craftlobby.pets.sheep.gray.baby")){
+					SheepNormal.activate(p,true,DyeColor.GRAY);
+				} else {
+					this.ml.messageNoPerm(p,"Sheep Gray (Baby)");
 				}
 			}
 		}

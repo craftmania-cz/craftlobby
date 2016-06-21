@@ -185,32 +185,9 @@ public class PetManager implements Listener{
 		  if(HorseNormal.hb.contains(p.getName())){
 			  HorseNormal.hb.remove(p.getName());
 		  }
-		  /*
-		  if(SheepWhite.sw.contains(p.getName())){
-			  SheepWhite.sw.remove(p.getName());
+		  if(SheepNormal.sb.contains(p.getName())){
+			  SheepNormal.sb.remove(p.getName());
 		  }
-		  if(SheepGray.sg.contains(p.getName())){
-			  SheepGray.sg.remove(p.getName());
-		  }
-		  if(SheepBrown.sb.contains(p.getName())){
-			  SheepBrown.sb.remove(p.getName());
-		  }
-		  if(SheepSilver.ss.contains(p.getName())){
-			  SheepSilver.ss.remove(p.getName());
-		  }
-		  if(SheepWhiteBaby.sw.contains(p.getName())){
-			  SheepWhiteBaby.sw.remove(p.getName());
-		  }
-		  if(SheepGrayBaby.sg.contains(p.getName())){
-			  SheepGrayBaby.sg.remove(p.getName());
-		  }
-		  if(SheepSilverBaby.ss.contains(p.getName())){
-			  SheepSilverBaby.ss.remove(p.getName());
-		  }
-		  if(SheepBrownBaby.sb.contains(p.getName())){
-			  SheepBrownBaby.sb.remove(p.getName());
-		  }
-		  */
 				  
 	  }
 }
