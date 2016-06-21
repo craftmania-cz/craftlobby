@@ -1102,8 +1102,12 @@ public class PetsAPI implements Listener{
 				this.openSheepMenu(p);
 			}
 			if(e.getSlot() == 11){
-				Widder.activateCow(p);
-				p.closeInventory();
+				if(p.hasPermission("craftlobby.pets.wither")){
+					Widder.activateCow(p);
+					p.closeInventory();
+				} else {
+					this.ml.messageNoPerm(p,"Wither");
+				}
 			}
 			if(e.getSlot() == 12){
 				this.openSlimeMenu(p);
