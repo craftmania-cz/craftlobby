@@ -37,7 +37,6 @@ public class CowNormal{
 	    PetManager.pet.put(p, (CraftEntity) cow);
 	    cp.add(p.getName());
 	    p.closeInventory();
-		
 	}
 	
 	public static void setMetadata(Cow paramPig, String paramString, Object paramObject, Main paramMain){

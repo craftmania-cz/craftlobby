@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cz.wake.plugins.utils.mobs.*;
 import net.minecraft.server.v1_9_R2.*;
 import org.bukkit.*;
 import org.bukkit.World;
@@ -62,17 +63,6 @@ import cz.wake.plugins.morphs.PigMorph;
 import cz.wake.plugins.morphs.VillagerMorph;
 import cz.wake.plugins.pets.PetManager;
 import cz.wake.plugins.pets.PetsAPI;
-import cz.wake.plugins.utils.mobs.NMSUtils;
-import cz.wake.plugins.utils.mobs.RideableCat;
-import cz.wake.plugins.utils.mobs.RideableChicken;
-import cz.wake.plugins.utils.mobs.RideableCow;
-import cz.wake.plugins.utils.mobs.RideableHorse;
-import cz.wake.plugins.utils.mobs.RideablePig;
-import cz.wake.plugins.utils.mobs.RideableRabbit;
-import cz.wake.plugins.utils.mobs.RideableSheep;
-import cz.wake.plugins.utils.mobs.RideableSilverfish;
-import cz.wake.plugins.utils.mobs.RideableWolf;
-import cz.wake.plugins.utils.mobs.RideableZombie;
 
 public class Main extends JavaPlugin implements PluginMessageListener{
 
@@ -124,6 +114,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         NMSUtils.registerEntity("Ozelot", 98, EntityOcelot.class, RideableCat.class);
         NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
         NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);
+		NMSUtils.registerEntity("MushroomCow",96,EntityMushroomCow.class, RideableMushroomCow.class);
 
 		for(World w : Bukkit.getWorlds()){
 			System.out.println("Mazani entit pro: " + w.getName());

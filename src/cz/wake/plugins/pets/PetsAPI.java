@@ -38,7 +38,9 @@ public class PetsAPI implements Listener{
 			inv.setItem(0, i);
 		}
 		if(p.hasPermission("craftlobby.pets.cow")
-				|| p.hasPermission("craftlobby.pets.cow.baby")){
+				|| p.hasPermission("craftlobby.pets.cow.baby")
+				|| p.hasPermission("craftlobby.pets.cow.mushroom")
+				|| p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
 			ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0, "§eCow","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(1,i);
 		} else {
@@ -168,7 +170,7 @@ public class PetsAPI implements Listener{
 			inv.setItem(10, i);
 		}
 		if(p.hasPermission("craftlobby.pets.wither")){
-			ItemStack i = ItemFactory.create(Material.SKULL,(byte)1, "§eWither","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1, "§eWither","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(11,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither", "§7Nevlastnis ani jeden druh.");
@@ -863,6 +865,20 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow (Baby)", "§7Tento typ nevlastnis.");
 			inv.setItem(1, i);
 		}
+		if(p.hasPermission("craftlobby.pets.cow.mushroom")){
+			ItemStack i = ItemFactory.create(Material.RED_MUSHROOM,(byte)0,"§aCow Mushroom", "", "§eKliknutim spawnes!");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow Mushroom", "§7Tento typ nevlastnis.");
+			inv.setItem(2, i);
+		}
+		if(p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+			ItemStack i = ItemFactory.create(Material.BROWN_MUSHROOM,(byte)0,"§aCow Mushroom (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(3,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow Mushroom (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(3, i);
+		}
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -1135,6 +1151,20 @@ public class PetsAPI implements Listener{
 					CowNormal.activateCow(p,true);
 				} else {
 					this.ml.messageNoPerm(p,"Cow (Baby)");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.cow.mushroom")){
+					MushroomNormal.activateCow(p,false);
+				} else {
+					this.ml.messageNoPerm(p,"Cow Mushroom");
+				}
+			}
+			if(e.getSlot() == 3){
+				if(p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+					MushroomNormal.activateCow(p,true);
+				} else {
+					this.ml.messageNoPerm(p,"Cow Mushroom (Baby)");
 				}
 			}
 		}
