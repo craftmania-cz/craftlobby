@@ -176,6 +176,16 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(11, i);
 		}
+		if(p.hasPermission("craftlobby.pets.slime.small")
+				|| p.hasPermission("craftlobby.pets.slime.normal")
+				|| p.hasPermission("craftlobby.pets.slime.big")){
+			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0, "§eSlime","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(12,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(12, i);
+		}
+
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -195,6 +205,53 @@ public class PetsAPI implements Listener{
 		inv.setItem(49, shopItem);
 		inv.setItem(48, zpet);
 		
+		p.openInventory(inv);
+	}
+
+	public void openSlimeMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Slime");
+
+		if(p.hasPermission("craftlobby.pets.slime.small")){
+			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Small", "", "§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime: Small", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.slime.normal")){
+			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Normal", "", "§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime: Normal", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+		if(p.hasPermission("craftlobby.pets.slime.big")){
+			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Big", "", "§eKliknutim spawnes!");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime: Big", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(23, dea);
+		inv.setItem(22, shopItem);
+		inv.setItem(21, zpet);
+
 		p.openInventory(inv);
 	}
 
@@ -1046,6 +1103,10 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 11){
 				Widder.activateCow(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 12){
+				this.openSlimeMenu(p);
 			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
@@ -1753,6 +1814,45 @@ public class PetsAPI implements Listener{
 					SheepNormal.activate(p,true,DyeColor.GRAY);
 				} else {
 					this.ml.messageNoPerm(p,"Sheep Gray (Baby)");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Slime")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.slime.small")){
+					SlimeNormal.activateSlime(p,1);
+				} else {
+					this.ml.messageNoPerm(p,"Slime Small");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.slime.normal")){
+					SlimeNormal.activateSlime(p,2);
+				} else {
+					this.ml.messageNoPerm(p,"Slime Normal");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.slime.big")){
+					SlimeNormal.activateSlime(p,3);
+				} else {
+					this.ml.messageNoPerm(p,"Slime Big");
 				}
 			}
 		}
