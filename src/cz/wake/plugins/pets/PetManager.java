@@ -207,6 +207,9 @@ public class PetManager implements Listener{
 		  if(IronGolemNormal.cn.contains(p.getName())){
 			  IronGolemNormal.cn.remove(p.getName());
 		  }
+		  if(WitchNormal.cn.contains(p.getName())){
+			  WitchNormal.cn.remove(p.getName());
+		  }
 				  
 	  }
 }

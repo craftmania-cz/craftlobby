@@ -206,6 +206,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cIronGolem", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(15, i);
 		}
+		if(p.hasPermission("craftlobby.pets.witch")){
+			ItemStack i = ItemFactory.create(Material.SPLASH_POTION,(byte)0, "§eWitch","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(16,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWitch", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(16, i);
+		}
 
 
 		//Deaktivace
@@ -1152,6 +1159,13 @@ public class PetsAPI implements Listener{
 					IronGolemNormal.activateGolem(p);
 				} else {
 					this.ml.messageNoPerm(p,"Iron Golem");
+				}
+			}
+			if(e.getSlot() == 16){
+				if(p.hasPermission("craftlobby.pets.witch")){
+					WitchNormal.activateWitch(p);
+				} else {
+					this.ml.messageNoPerm(p,"Witch");
 				}
 			}
 		}
