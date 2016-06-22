@@ -204,6 +204,9 @@ public class PetManager implements Listener{
 		  if(CaveSpiderNormal.cn.contains(p.getName())){
 			  CaveSpiderNormal.cn.remove(p.getName());
 		  }
+		  if(IronGolemNormal.cn.contains(p.getName())){
+			  IronGolemNormal.cn.remove(p.getName());
+		  }
 				  
 	  }
 }
