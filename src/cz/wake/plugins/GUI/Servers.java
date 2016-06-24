@@ -93,41 +93,33 @@ public class Servers implements Listener{
 		an = ItemFactory.addGlow(an);
 		inv.setItem(31,an);
 
-		ItemStack uhc = ItemFactory.create(Material.GOLDEN_APPLE,(byte)0,"§a§lUHC Run §8(1.8)","§8Solo & Team, PVP minihra, Hardcore","","§7Tak tady jsou si vsichni rovni",
-				"§7zde totiz plati pravidlo,","§7rychlejsi a silnejsi vyhrava!","","§7Multiplier: 1.0x","","§b▸ Kliknutim te portnu");
-		inv.setItem(32,uhc);
-
 		new BukkitRunnable() {
 			int c = 1;
 			@Override
 			public void run() {
 				if(c == 1){
-					ItemStack i = ItemFactory.create(Material.PAINTING,(byte)0,"§e§lArcade","§8Rychle minihry bez PVP","",
-							"§aDrawIt", "§fBuildBattle", "§fSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+					ItemStack i = ItemFactory.create(Material.PAINTING,(byte)0,"§a§lArcade","§8Rychle minihry bez PVP","",
+							"§eDrawIt", "§fBuildBattle", "§fSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
 					i = ItemFactory.addGlow(i);
-					inv.setItem(33,i);
+					inv.setItem(32,i);
 					c++;
 				}
 				else if(c == 2){
-					ItemStack i = ItemFactory.create(Material.WORKBENCH,(byte)0,"§e§lArcade","§8Rychle minihry bez PVP","",
-							"§fDrawIt", "§aBuildBattle", "§fSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+					ItemStack i = ItemFactory.create(Material.WORKBENCH,(byte)0,"§a§lArcade","§8Rychle minihry bez PVP","",
+							"§fDrawIt", "§eBuildBattle", "§fSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
 					i = ItemFactory.addGlow(i);
-					inv.setItem(33,i);
+					inv.setItem(32,i);
 					c++;
 				}
 				else if(c == 3){
-					ItemStack i = ItemFactory.create(Material.QUARTZ_BLOCK,(byte)0,"§e§lArcade","§8Rychle minihry bez PVP","",
-							"§fDrawIt", "§fBuildBattle", "§aSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
+					ItemStack i = ItemFactory.create(Material.QUARTZ_BLOCK,(byte)0,"§a§lArcade","§8Rychle minihry bez PVP","",
+							"§fDrawIt", "§fBuildBattle", "§eSpeedBuilders", "","§7Multiplier: §63.0x","","§b▸ Kliknutim te portnu");
 					i = ItemFactory.addGlow(i);
-					inv.setItem(33,i);
+					inv.setItem(32,i);
 					c = 1;
 				}
 			}
 		}.runTaskTimerAsynchronously(Main.getPlugin(), 0, 25);
-
-		ItemStack tw = ItemFactory.create(Material.WOOL,(byte)3,"§e§lTurfWars §8(1.8)","§8Minihra, Team PVP","","§7Pokud umis dobre strilet s","§7lukem, tak zde se ti to bude hodit.",
-				"","§7Multiplier: 1.0x","","§b▸ Kliknutim te portnu");
-		inv.setItem(34,tw);
 
 		ItemStack lobby = ItemFactory.create(Material.BOOKSHELF,(byte)0,"§c§lLobby","","§7Kliknutim zobrazis prehled","§7vsech lobby na CM.","","§b▸ Pro zobrazeni klikni");
 		inv.setItem(18,lobby);
