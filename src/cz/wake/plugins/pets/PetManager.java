@@ -139,6 +139,10 @@ public class PetManager implements Listener{
 				player.sendMessage("§cNa tohoto moba nelze nasednou!");
 				return;
 			}
+		    if(mob.getType() == EntityType.BAT){
+				player.sendMessage("§cNa tohoto moba nelze nasednou!");
+				return;
+			}
 			if((mob.getName().contains(player.getName()))){
 				mob.setPassenger(player);
 
@@ -212,6 +216,9 @@ public class PetManager implements Listener{
 		  }
 		  if(EndermanNormal.cn.contains(p.getName())){
 			  EndermanNormal.cn.remove(p.getName());
+		  }
+		  if(BlazeNormal.cn.contains(p.getName())){
+			  BlazeNormal.cn.remove(p.getName());
 		  }
 	  }
 }
