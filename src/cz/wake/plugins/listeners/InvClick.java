@@ -46,9 +46,7 @@ public class InvClick implements Listener{
 	Menu profilMenu = new Menu();
 	HeadsMenu hatsMenu = new HeadsMenu();
 	GadgetsMenu gadgetsMenu = new GadgetsMenu();
-	MorphsMenu mpMenu = new MorphsMenu();
 	ParticlesMenu pMenu = new ParticlesMenu();
-	MountMenu mMenu = new MountMenu();
 	HeadsMenu2 headsMenu2 = new HeadsMenu2();
 	HeadsMenu3 headsMenu3 = new HeadsMenu3();
 	VIPMenu vMenu = new VIPMenu();
@@ -194,9 +192,6 @@ public class InvClick implements Listener{
         	}
         	if(event.getSlot() == 7){
         		sendToServer(player, "slobby");
-        	}
-        	if(event.getSlot() == 8){
-        		sendToServer(player, "tlobby");
         	}
         	event.setCancelled(true);
         	player.updateInventory();

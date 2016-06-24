@@ -96,16 +96,6 @@ public class Lobby {
 		sMeta.setLore(sLore);
 		slobby.setItemMeta(sMeta);
 		inv.setItem(7, slobby);
-		
-		ItemStack tlobby = new ItemStack(Material.IRON_BLOCK);
-		ItemMeta tMeta = tlobby.getItemMeta();
-		tMeta.setDisplayName("§aT-Lobby");
-		ArrayList<String> tLore = new ArrayList<String>();
-		tLore.add("");
-		tLore.add("§7Kliknutim se pripojis.");
-		tMeta.setLore(tLore);
-		tlobby.setItemMeta(tMeta);
-		inv.setItem(8, tlobby);
 
 		p.openInventory(inv);
 	}

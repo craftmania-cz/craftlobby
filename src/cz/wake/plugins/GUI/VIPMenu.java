@@ -123,11 +123,11 @@ public class VIPMenu {
 		ArrayList<String> il = new ArrayList<String>();
 		il.add("");
 		il.add("§cSMS CZ §f-> §c99kc");
-		il.add("§fFAKAHEDA Y58473 99 MG §b" + p.getName().toString());
+		il.add("§fFAKAHEDA Y58473 99 MG §b" + p.getName());
 		il.add("§7na cislo: §f90333");
 		il.add("");
 		il.add("§aSMS SK §f-> §a4e");
-		il.add("§fFAKAHEDA Y58473 4 MG §b" + p.getName().toString());
+		il.add("§fFAKAHEDA Y58473 4 MG §b" + p.getName());
 		il.add("§7na cislo: §f8866");
 		it.setLore(il);
 		t1.setItemMeta(it);
@@ -138,11 +138,11 @@ public class VIPMenu {
 		ArrayList<String> wi = new ArrayList<String>();
 		wi.add("");
 		wi.add("§cSMS CZ §f-> §c249kc");
-		wi.add("§fFAKAHEDA Y58473 249 MG §b" + p.getName().toString());
+		wi.add("§fFAKAHEDA Y58473 249 MG §b" + p.getName());
 		wi.add("§7na cislo: §f90333");
 		wi.add("");
 		wi.add("§aSMS SK §f-> §a10e");
-		wi.add("§fFAKAHEDA Y58473 10 MG §b" + p.getName().toString());
+		wi.add("§fFAKAHEDA Y58473 10 MG §b" + p.getName());
 		wi.add("§7na cislo: §f8866");
 		wt.setLore(wi);
 		t2.setItemMeta(wt);

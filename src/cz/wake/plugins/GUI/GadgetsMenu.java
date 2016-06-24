@@ -22,9 +22,6 @@ import cz.wake.plugins.gadgets.GadgetsAPI;
 
 public class GadgetsMenu implements Listener{
 	
-	HeadsMenu hatsMenu = new HeadsMenu();
-	GadgetsAPI gItems = new GadgetsAPI();
-	
 	public void openGadgetsMenu(Player p){
 		
 		Inventory gadgetsMenu = Bukkit.createInventory(null, 54,"Hlavni menu");
