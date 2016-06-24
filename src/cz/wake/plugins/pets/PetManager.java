@@ -220,5 +220,11 @@ public class PetManager implements Listener{
 		  if(BlazeNormal.cn.contains(p.getName())){
 			  BlazeNormal.cn.remove(p.getName());
 		  }
+		  if(BatNormal.en.contains(p.getName())){
+			  BatNormal.en.remove(p.getName());
+		  }
+		  if(VilagerNormal.cn.contains(p.getName())){
+			  VilagerNormal.cn.remove(p.getName());
+		  }
 	  }
 }

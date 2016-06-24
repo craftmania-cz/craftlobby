@@ -238,6 +238,22 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cBat", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(19, i);
 		}
+		if(p.hasPermission("craftlobby.pets.villager.blacksmith")
+				|| p.hasPermission("craftlobby.pets.villager.blacksmith.baby")
+				|| p.hasPermission("craftlobby.pets.villager.butcher")
+				|| p.hasPermission("craftlobby.pets.villager.butcher.baby")
+				|| p.hasPermission("craftlobby.pets.villager.farmer")
+				|| p.hasPermission("craftlobby.pets.villager.farmer.baby")
+				|| p.hasPermission("craftlobby.pets.villager.librarian")
+				|| p.hasPermission("craftlobby.pets.villager.librarian.baby")
+				|| p.hasPermission("craftlobby.pets.villager.priest")
+				|| p.hasPermission("craftlobby.pets.villager.priest.baby")){
+			ItemStack i = ItemFactory.create(Material.BOOK,(byte)0, "§eVillager","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(20,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(20, i);
+		}
 
 
 		//Deaktivace
@@ -259,6 +275,103 @@ public class PetsAPI implements Listener{
 		inv.setItem(48, zpet);
 		
 		p.openInventory(inv);
+	}
+
+	public void openVillagerMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Villager");
+
+		if(p.hasPermission("craftlobby.pets.villager.blacksmith")){
+			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aVillager: Blacksmith", "", "§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Blacksmith", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.blacksmith.baby")){
+			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aVillager: Blacksmith (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Blacksmith (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.butcher")){
+			ItemStack i = ItemFactory.create(Material.MUTTON,(byte)0,"§aVillager: Butcher", "", "§eKliknutim spawnes!");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Butcher", "§7Tento typ nevlastnis.");
+			inv.setItem(2, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.butcher.baby")){
+			ItemStack i = ItemFactory.create(Material.MUTTON,(byte)0,"§aVillager: Butcher (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(3,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Butcher (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(3, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.farmer")){
+			ItemStack i = ItemFactory.create(Material.SEEDS,(byte)0,"§aVillager: Farmer", "", "§eKliknutim spawnes!");
+			inv.setItem(4,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Farmer", "§7Tento typ nevlastnis.");
+			inv.setItem(4, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.farmer.baby")){
+			ItemStack i = ItemFactory.create(Material.SEEDS,(byte)0,"§aVillager: Farmer (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(5,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Farmer (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(5, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.librarian")){
+			ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK,(byte)0,"§aVillager: Librarian", "", "§eKliknutim spawnes!");
+			inv.setItem(6,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Librarian", "§7Tento typ nevlastnis.");
+			inv.setItem(6, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.librarian.baby")){
+			ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK,(byte)0,"§aVillager: Librarian (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(7,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Librarian (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(7, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.priest")){
+			ItemStack i = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§aVillager: Priest", "", "§eKliknutim spawnes!");
+			inv.setItem(8,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Priest", "§7Tento typ nevlastnis.");
+			inv.setItem(8, i);
+		}
+		if(p.hasPermission("craftlobby.pets.villager.priest.baby")){
+			ItemStack i = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§aVillager: Priest (Baby)", "", "§eKliknutim spawnes!");
+			inv.setItem(9,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Priest (Baby)", "§7Tento typ nevlastnis.");
+			inv.setItem(9, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(23, dea);
+		inv.setItem(22, shopItem);
+		inv.setItem(21, zpet);
+
+		p.openInventory(inv);
+
 	}
 
 	public void openSlimeMenu(final Player p){
@@ -1242,6 +1355,9 @@ public class PetsAPI implements Listener{
 					this.ml.messageNoPerm(p,"Bat");
 				}
 			}
+			if(e.getSlot() == 20){
+				this.openVillagerMenu(p);
+			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
 			if (e.getCurrentItem() == null){
@@ -2015,6 +2131,94 @@ public class PetsAPI implements Listener{
 					SlimeNormal.activateSlime(p,3);
 				} else {
 					this.ml.messageNoPerm(p,"Slime Big");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Villager")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.villager.blacksmith")){
+					VilagerNormal.activateWitch(p, false, Villager.Profession.BLACKSMITH);
+				} else {
+					this.ml.messageNoPerm(p,"Villager Blacksmith");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.villager.blacksmith.baby")){
+					VilagerNormal.activateWitch(p, true, Villager.Profession.BLACKSMITH);
+				} else {
+					this.ml.messageNoPerm(p,"Villager Blacksmith (Baby)");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.villager.butcher")){
+					VilagerNormal.activateWitch(p, false, Villager.Profession.BUTCHER);
+				} else {
+					this.ml.messageNoPerm(p,"Villager Butcher");
+				}
+			}
+			if(e.getSlot() == 3){
+				if(p.hasPermission("craftlobby.pets.villager.butcher.baby")){
+					VilagerNormal.activateWitch(p, true, Villager.Profession.BUTCHER);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Butcher (Baby)");
+				}
+			}
+			if(e.getSlot() == 4){
+				if(p.hasPermission("craftlobby.pets.villager.farmer")){
+					VilagerNormal.activateWitch(p, false, Villager.Profession.FARMER);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Farmer");
+				}
+			}
+			if(e.getSlot() == 5){
+				if(p.hasPermission("craftlobby.pets.villager.farmer.baby")){
+					VilagerNormal.activateWitch(p, true, Villager.Profession.FARMER);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Farmer (Baby)");
+				}
+			}
+			if(e.getSlot() == 6){
+				if(p.hasPermission("craftlobby.pets.villager.librarian")){
+					VilagerNormal.activateWitch(p, false, Villager.Profession.LIBRARIAN);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Librarian");
+				}
+			}
+			if(e.getSlot() == 7){
+				if(p.hasPermission("craftlobby.pets.villager.librarian.baby")){
+					VilagerNormal.activateWitch(p, true, Villager.Profession.LIBRARIAN);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Librarian (Baby)");
+				}
+			}
+			if(e.getSlot() == 8){
+				if(p.hasPermission("craftlobby.pets.villager.priest")){
+					VilagerNormal.activateWitch(p, false, Villager.Profession.PRIEST);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Priest");
+				}
+			}
+			if(e.getSlot() == 9) {
+				if (p.hasPermission("craftlobby.pets.villager.priest.baby")) {
+					VilagerNormal.activateWitch(p, true, Villager.Profession.PRIEST);
+				} else {
+					this.ml.messageNoPerm(p, "Villager Priest (Baby)");
 				}
 			}
 		}
