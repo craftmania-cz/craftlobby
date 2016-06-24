@@ -224,6 +224,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEnderman", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(17, i);
 		}
+		if(p.hasPermission("craftlobby.pets.blaze")){
+			ItemStack i = ItemFactory.create(Material.BLAZE_POWDER,(byte)0, "§eBlaze","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(18,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cBlaze", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(18, i);
+		}
 
 
 		//Deaktivace
@@ -1212,6 +1219,13 @@ public class PetsAPI implements Listener{
 					EndermanNormal.activateWitch(p);
 				} else {
 					this.ml.messageNoPerm(p,"Enderman");
+				}
+			}
+			if(e.getSlot() == 18){
+				if(p.hasPermission("craftlobby.pets.blaze")){
+					BlazeNormal.activateWitch(p);
+				} else {
+					this.ml.messageNoPerm(p,"Blaze");
 				}
 			}
 		}

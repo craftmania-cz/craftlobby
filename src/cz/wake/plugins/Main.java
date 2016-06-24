@@ -121,6 +121,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		NMSUtils.registerEntity("VillagerGolem", 99, EntityIronGolem.class, RideableGolem.class);
 		NMSUtils.registerEntity("Witch", 66, EntityWitch.class, RideableWitch.class);
 		NMSUtils.registerEntity("Enderman", 58, EntityEnderman.class, RideableEnderman.class);
+		NMSUtils.registerEntity("Blaze", 61, EntityBlaze.class, RideableBlaze.class);
 
 		for(World w : Bukkit.getWorlds()){
 			System.out.println("Mazani entit pro: " + w.getName());
