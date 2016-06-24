@@ -23,6 +23,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -30,8 +31,7 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerSwapHandItemsEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.potion.PotionEffect;
@@ -150,6 +150,19 @@ public class PlayerListener implements Listener{
 		if(Main.getInstance().isDebug() && p.hasPermission("craftlobby.admin")){
 			e.setCancelled(false);
 		} else {
+			e.setCancelled(true);
+		}
+	}
+
+	@EventHandler
+	public void onOpen(InventoryOpenEvent e){
+		if(e instanceof BeaconInventory){
+			e.setCancelled(true);
+		}
+		if(e instanceof CraftingInventory){
+			e.setCancelled(true);
+		}
+		if(e instanceof FurnaceInventory){
 			e.setCancelled(true);
 		}
 	}
