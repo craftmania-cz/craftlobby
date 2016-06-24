@@ -20,11 +20,6 @@ import cz.wake.plugins.manager.LagManager;
 
 public class ProfilCMD implements CommandExecutor{
 	
-	Menu menu = new Menu();
-	StatisticsMG minigamesMenu = new StatisticsMG();
-	GadgetsMenu gadgetsMenu = new GadgetsMenu();
-	HeadsMenu hatsmenu = new HeadsMenu();
-	
 	@Override
 	public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString){
 		if(Sender instanceof Player){
@@ -41,10 +36,10 @@ public class ProfilCMD implements CommandExecutor{
 					if(((Player) Sender).getPlayer().hasPermission("craftlobby.admin")){
 						if(Main.getInstance().debug){
 							Main.getInstance().debug = false;
-							player.sendMessage("§2[DEBUG] §7- §fByl deaktivovan.");
+							player.sendMessage("Â§2[DEBUG] Â§7- Â§fByl deaktivovan.");
 						} else {
 							Main.getInstance().debug = true;
-							player.sendMessage("§2[DEBUG] §7- §fByl aktivovan.");
+							player.sendMessage("Â§2[DEBUG] Â§7- Â§fByl aktivovan.");
 						}
 						return true;
 					}
@@ -67,27 +62,27 @@ public class ProfilCMD implements CommandExecutor{
 						DecimalFormat TpsFormat = new DecimalFormat("#.###");
 						
 						if(TPS > 20){
-							Sender.sendMessage("§7Status: " + "§a" + TpsFormat.format(TPS));
+							Sender.sendMessage("Â§7Status: " + "Â§a" + TpsFormat.format(TPS));
 							return true;
 						}
 						if(TPS > 18){
-							Sender.sendMessage("§7Status: " + "§a" + TpsFormat.format(TPS));
+							Sender.sendMessage("Â§7Status: " + "Â§a" + TpsFormat.format(TPS));
 							return true;
 						}
 						if(TPS > 16){
-							Sender.sendMessage("§7Status: " + "§6" + TpsFormat.format(TPS));
+							Sender.sendMessage("Â§7Status: " + "Â§6" + TpsFormat.format(TPS));
 							return true;
 						}
 						if(TPS > 10){
-							Sender.sendMessage("§7Status: " + "§c" + TpsFormat.format(TPS));
+							Sender.sendMessage("Â§7Status: " + "Â§c" + TpsFormat.format(TPS));
 							return true;
 						}
 						if(TPS > 5){
-							Sender.sendMessage("§7Status: " + "§4" + TpsFormat.format(TPS));
+							Sender.sendMessage("Â§7Status: " + "Â§4" + TpsFormat.format(TPS));
 							return true;
 						}
 						if(TPS > 0){
-							Sender.sendMessage("§7Status: §c§lServer je kompletne pretizen!");
+							Sender.sendMessage("Â§7Status: Â§cÂ§lServer je kompletne pretizen!");
 							return true;
 						}
 					}
