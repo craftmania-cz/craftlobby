@@ -226,5 +226,8 @@ public class PetManager implements Listener{
 		  if(VilagerNormal.cn.contains(p.getName())){
 			  VilagerNormal.cn.remove(p.getName());
 		  }
+		  if(CreeperNormal.cn.contains(p.getName())){
+			  CreeperNormal.cn.remove(p.getName());
+		  }
 	  }
 }

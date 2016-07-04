@@ -254,6 +254,14 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(20, i);
 		}
+		if(p.hasPermission("craftlobby.pets.creeper")
+				|| p.hasPermission("craftlobby.pets.creeper.powered")){
+			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0, "§eCreeper","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(21,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(21, i);
+		}
 
 
 		//Deaktivace
@@ -824,6 +832,46 @@ public class PetsAPI implements Listener{
 		p.openInventory(inv);
 	}
 
+	public void openCreeperMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Creeper");
+
+		if(p.hasPermission("craftlobby.pets.creeper")){
+			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0,"§aCreeper", "", "§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.creeper.powered")){
+			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0,"§aCreeper (Powered)", "", "§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper (Powered)", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(23, dea);
+		inv.setItem(22, shopItem);
+		inv.setItem(21, zpet);
+
+		p.openInventory(inv);
+	}
+
 	public void openZombieMenu(final Player p){
 
 		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Zombie");
@@ -1357,6 +1405,9 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 20){
 				this.openVillagerMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openCreeperMenu(p);
 			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
@@ -2219,6 +2270,38 @@ public class PetsAPI implements Listener{
 					VilagerNormal.activateWitch(p, true, Villager.Profession.PRIEST);
 				} else {
 					this.ml.messageNoPerm(p, "Villager Priest (Baby)");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Creeper")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.creeper")){
+					CreeperNormal.activateWitch(p,false);
+				} else {
+					this.ml.messageNoPerm(p,"Creeper");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.creeper.powered")){
+					CreeperNormal.activateWitch(p,true);
+				} else {
+					this.ml.messageNoPerm(p,"Creeper (Powered)");
 				}
 			}
 		}
