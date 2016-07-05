@@ -57,13 +57,20 @@
 	</repositories>
 
 	<dependencies>
-        <dependency>
-            <groupId>net.minecraft</groupId>
-            <artifactId>minecraft-server-19</artifactId>
-            <version>1.9.2</version>
-            <scope>system</scope>
-            <systemPath>${pom.basedir}/lib/spigot19.jar</systemPath>
-        </dependency>
+        <!--Spigot API-->
+		<dependency>
+           <groupId>org.spigotmc</groupId>
+           <artifactId>spigot-api</artifactId>
+           <version>1.9.4-R0.1-SNAPSHOT</version>
+           <scope>provided</scope>
+		</dependency>
+		<!--Bukkit API-->
+		<dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.9.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+		</dependency>
 		<dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-proxy</artifactId>
