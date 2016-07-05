@@ -10,4 +10,9 @@ package:
   script: "mvn package"
   
 install:
-  script: "mvn clean install"
+  script
+   - mvn clean install
+  artifacts:
+   name: "$CI_BUILD_REF_NAME"
+   paths:
+    - target/*.jar
