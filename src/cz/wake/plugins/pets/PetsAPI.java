@@ -266,10 +266,17 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SNOW_BALL,(byte)0, "§eSnowman","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(22,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Nevlastnis ani jeden druh.");
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSnowman", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(22, i);
 		}
-
+		if(p.hasPermission("craftlobby.pets.skeleton")
+				|| p.hasPermission("craftlobby.pets.skeleton.wither")){
+			ItemStack i = ItemFactory.create(Material.BOW,(byte)0, "§eSkeleton","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(23,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.BOW, (byte)8, "§cSkeleton", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(23, i);
+		}
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -837,6 +844,26 @@ public class PetsAPI implements Listener{
 		inv.setItem(21, zpet);
 
 		p.openInventory(inv);
+	}
+
+	public void openSkeletonMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Skeleton");
+
+		if(p.hasPermission("craftlobby.pets.skeleton")){
+			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)0,"§aSkeleton", "", "§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.skeleton.wither")){
+			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1,"§aWither Skeleton", "", "§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither Skeleton", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
 	}
 
 	public void openCreeperMenu(final Player p){
@@ -1422,6 +1449,9 @@ public class PetsAPI implements Listener{
 				} else {
 					this.ml.messageNoPerm(p,"Snowman");
 				}
+			}
+			if(e.getSlot() == 23){
+				this.openSkeletonMenu(p);
 			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
@@ -2316,6 +2346,38 @@ public class PetsAPI implements Listener{
 					CreeperNormal.activateWitch(p,true);
 				} else {
 					this.ml.messageNoPerm(p,"Creeper (Powered)");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - Skeleton")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.skeleton")){
+					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.NORMAL);
+				} else {
+					this.ml.messageNoPerm(p,"Skeleton");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.skeleton.wither")){
+					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.WITHER);
+				} else {
+					this.ml.messageNoPerm(p,"Wither Skeleton");
 				}
 			}
 		}
