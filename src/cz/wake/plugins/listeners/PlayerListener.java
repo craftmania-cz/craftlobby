@@ -217,28 +217,28 @@ public class PlayerListener implements Listener{
 	public void onPlayerInteract(PlayerInteractEvent e){
 		final Player p = e.getPlayer();
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
-				(e.getPlayer().getItemInHand().getType() == Material.SKULL_ITEM) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))){
+				(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.SKULL_ITEM) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))){
 			this.hlavniMenu.openMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
-				(e.getPlayer().getItemInHand().getType() == Material.EMERALD) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aVIP Shop §7(Klikni pravym)"))){
+				(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.EMERALD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aVIP Shop §7(Klikni pravym)"))){
 			this.vmenu.openVIPMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
-				(e.getPlayer().getItemInHand().getType() == Material.ENDER_CHEST) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
+				(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.ENDER_CHEST) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
 				 && (Main.getInstance().getTPS() >= 17)){
 			this.gadgetsMenu.openGadgetsMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
-				(e.getPlayer().getItemInHand().getType() == Material.COMPASS) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))){
+				(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.COMPASS) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))){
 			this.servers.openServersMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) && 
-				(e.getPlayer().getItemInHand().getType() == Material.WATCH) && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§ePrehled lobby §7(Klikni pravym)"))){
+				(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATCH) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§ePrehled lobby §7(Klikni pravym)"))){
 			this.lb.openMenu(p);
 		}
 		if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))){
-			if(e.getPlayer().getItemInHand().getType() == Material.INK_SACK && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))){
+			if(e.getPlayer().getInventory().getItemInMainHand().getType() == Material.INK_SACK && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))){
 				if (!this._time.containsKey(e.getPlayer())){
 					this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
 					e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 2.0F, 2.0F);
