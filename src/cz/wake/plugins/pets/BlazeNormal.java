@@ -14,29 +14,26 @@ public class BlazeNormal {
 
     public static ArrayList<String> cn = new ArrayList();
 
-    public static void activateWitch(Player p){
-        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
-        {
-            Object localObject = (CraftEntity)localIterator.next();
-            if (localObject == PetManager.pet.get(p))
-            {
+    public static void activateWitch(Player p) {
+        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
+            Object localObject = (CraftEntity) localIterator.next();
+            if (localObject == PetManager.pet.get(p)) {
                 PetManager.forceRemovePet(p);
-                ((CraftEntity)localObject).remove();
+                ((CraftEntity) localObject).remove();
             }
         }
         final Blaze e = RideableBlaze.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity)e, 0.16D, 2D);
-        setMetadata((Blaze)e, "Pet", "Pet", Main.getInstance());
-        ((Blaze)e).setCustomNameVisible(true);
-        ((Blaze)e).setCustomName(p.getName());
+        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        setMetadata((Blaze) e, "Pet", "Pet", Main.getInstance());
+        ((Blaze) e).setCustomNameVisible(true);
+        ((Blaze) e).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) e);
         cn.add(p.getName());
         p.closeInventory();
 
     }
 
-    public static void setMetadata(Blaze paramPig, String paramString, Object paramObject, Main paramMain)
-    {
+    public static void setMetadata(Blaze paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
 }

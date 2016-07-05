@@ -14,29 +14,27 @@ public class SlimeNormal {
 
     public static ArrayList<String> pn = new ArrayList();
 
-    public static void activateSlime(Player p, int size){
-        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
-        {
-            Object localObject = (CraftEntity)localIterator.next();
-            if (localObject == PetManager.pet.get(p))
-            {
+    public static void activateSlime(Player p, int size) {
+        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
+            Object localObject = (CraftEntity) localIterator.next();
+            if (localObject == PetManager.pet.get(p)) {
                 PetManager.forceRemovePet(p);
-                ((CraftEntity)localObject).remove();
+                ((CraftEntity) localObject).remove();
             }
         }
         final Slime slime = RideableSlime.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity)slime, 0.16D, 1.0D);
-        setMetadata((Slime)slime, "Pet", "Pet", Main.getInstance());
-        ((Slime)slime).setSize(size);
-        ((Slime)slime).setCustomNameVisible(true);
-        ((Slime)slime).setCustomName(p.getName());
+        PetManager.PetFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
+        setMetadata((Slime) slime, "Pet", "Pet", Main.getInstance());
+        ((Slime) slime).setSize(size);
+        ((Slime) slime).setCustomNameVisible(true);
+        ((Slime) slime).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) slime);
         pn.add(p.getName());
         p.closeInventory();
 
     }
 
-    public static void setMetadata(Slime paramPig, String paramString, Object paramObject, Main paramMain){
+    public static void setMetadata(Slime paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
 }

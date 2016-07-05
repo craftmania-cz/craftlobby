@@ -14,29 +14,26 @@ public class CaveSpiderNormal {
 
     public static ArrayList<String> cn = new ArrayList();
 
-    public static void activateCave(Player p){
-        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
-        {
-            Object localObject = (CraftEntity)localIterator.next();
-            if (localObject == PetManager.pet.get(p))
-            {
+    public static void activateCave(Player p) {
+        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
+            Object localObject = (CraftEntity) localIterator.next();
+            if (localObject == PetManager.pet.get(p)) {
                 PetManager.forceRemovePet(p);
-                ((CraftEntity)localObject).remove();
+                ((CraftEntity) localObject).remove();
             }
         }
         final CaveSpider spider = RideableCaveSpider.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity)spider, 0.16D, 2D);
-        setMetadata((CaveSpider)spider, "Pet", "Pet", Main.getInstance());
-        ((CaveSpider)spider).setCustomNameVisible(true);
-        ((CaveSpider)spider).setCustomName(p.getName());
+        PetManager.PetFollow(p, (CraftEntity) spider, 0.16D, 2D);
+        setMetadata((CaveSpider) spider, "Pet", "Pet", Main.getInstance());
+        ((CaveSpider) spider).setCustomNameVisible(true);
+        ((CaveSpider) spider).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) spider);
         cn.add(p.getName());
         p.closeInventory();
 
     }
 
-    public static void setMetadata(CaveSpider paramPig, String paramString, Object paramObject, Main paramMain)
-    {
+    public static void setMetadata(CaveSpider paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
 }

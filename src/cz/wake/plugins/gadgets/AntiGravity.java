@@ -1,7 +1,8 @@
 package cz.wake.plugins.gadgets;
 
-import java.util.HashMap;
-
+import cz.wake.plugins.Main;
+import cz.wake.plugins.listeners.MessagesListener;
+import cz.wake.plugins.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
@@ -16,9 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import cz.wake.plugins.Main;
-import cz.wake.plugins.listeners.MessagesListener;
-import cz.wake.plugins.utils.UtilMath;
+import java.util.HashMap;
 
 public class AntiGravity implements Listener{
 	

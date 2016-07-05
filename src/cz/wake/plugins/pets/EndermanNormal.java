@@ -15,29 +15,26 @@ public class EndermanNormal {
 
     public static ArrayList<String> cn = new ArrayList();
 
-    public static void activateWitch(Player p){
-        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext();)
-        {
-            Object localObject = (CraftEntity)localIterator.next();
-            if (localObject == PetManager.pet.get(p))
-            {
+    public static void activateWitch(Player p) {
+        for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
+            Object localObject = (CraftEntity) localIterator.next();
+            if (localObject == PetManager.pet.get(p)) {
                 PetManager.forceRemovePet(p);
-                ((CraftEntity)localObject).remove();
+                ((CraftEntity) localObject).remove();
             }
         }
         final Enderman e = RideableEnderman.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity)e, 0.16D, 2D);
+        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Enderman) e, "Pet", "Pet", Main.getInstance());
-        ((Enderman)e).setCustomNameVisible(true);
-        ((Enderman)e).setCustomName(p.getName());
+        ((Enderman) e).setCustomNameVisible(true);
+        ((Enderman) e).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) e);
         cn.add(p.getName());
         p.closeInventory();
 
     }
 
-    public static void setMetadata(Enderman paramPig, String paramString, Object paramObject, Main paramMain)
-    {
+    public static void setMetadata(Enderman paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
 }
