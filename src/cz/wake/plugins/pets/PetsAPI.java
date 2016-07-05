@@ -262,6 +262,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(21, i);
 		}
+		if(p.hasPermission("craftlobby.pets.snowman")){
+			ItemStack i = ItemFactory.create(Material.SNOW_BALL,(byte)0, "§eSnowman","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(22,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(22, i);
+		}
 
 
 		//Deaktivace
@@ -1408,6 +1415,13 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 21){
 				this.openCreeperMenu(p);
+			}
+			if(e.getSlot() == 22){
+				if(p.hasPermission("craftlobby.pets.snowman")){
+					SnowmanNormal.activate(p);
+				} else {
+					this.ml.messageNoPerm(p,"Snowman");
+				}
 			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
