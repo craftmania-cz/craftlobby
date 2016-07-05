@@ -7,10 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Sheep;
-import org.bukkit.entity.Silverfish;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -178,6 +175,9 @@ public class PlayerListener implements Listener{
 			e.setCancelled(true);
 		}
 		if(e.getEntity() instanceof Sheep){
+			e.setCancelled(true);
+		}
+		if(e.getEntity() instanceof Snowman){
 			e.setCancelled(true);
 		}
 	}
