@@ -7,19 +7,19 @@ compile:
   script: "mvn compile"
   artifacts:
     paths:
-    - target/*.jar
-    - 1.5/*.jar
+    - target/
+    - 1.5/
   
 package:
   script: "mvn package"
   artifacts:
     paths:
-    - target/*.jar
-    - 1.5/*.jar
+    - target/
+    - 1.5/
   
 install:
   script: "mvn clean install"
   artifacts:
     paths:
-    - target/*.jar
-    - 1.5/*.jar
+    - target/
+    - 1.5/
