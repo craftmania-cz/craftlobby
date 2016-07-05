@@ -5,21 +5,9 @@ validate:
   
 compile:
   script: "mvn compile"
-  artifacts:
-    paths:
-    - target/
-    - 1.5/
   
 package:
   script: "mvn package"
-  artifacts:
-    paths:
-    - target/
-    - 1.5/
   
 install:
   script: "mvn clean install"
-  artifacts:
-    paths:
-    - target/
-    - 1.5/
