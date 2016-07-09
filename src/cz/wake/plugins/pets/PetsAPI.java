@@ -277,6 +277,15 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(23, i);
 		}
+		if(p.hasPermission("craftlobby.pets.magmacube.small")
+				|| p.hasPermission("craftlobby.pets.magmacube.normal")
+				|| p.hasPermission("craftlobby.pets.magmacube.big")){
+			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0, "§eMagmaCube","","§7Kliknutim zobrazis preshled.");
+			inv.setItem(24,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube", "§7Nevlastnis ani jeden druh.");
+			inv.setItem(24, i);
+		}
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -394,6 +403,53 @@ public class PetsAPI implements Listener{
 
 		p.openInventory(inv);
 
+	}
+
+	public void openMagmaMenu(final Player p){
+
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - MagmaCube");
+
+		if(p.hasPermission("craftlobby.pets.magmacube.small")){
+			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Small", "", "§eKliknutim spawnes!");
+			inv.setItem(0,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube: Small", "§7Tento typ nevlastnis.");
+			inv.setItem(0, i);
+		}
+		if(p.hasPermission("craftlobby.pets.magmacube.normal")){
+			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Normal", "", "§eKliknutim spawnes!");
+			inv.setItem(1,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube: Normal", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+		if(p.hasPermission("craftlobby.pets.magmacube.big")){
+			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Big", "", "§eKliknutim spawnes!");
+			inv.setItem(2,i);
+		} else {
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube: Big", "§7Tento typ nevlastnis.");
+			inv.setItem(1, i);
+		}
+
+		//Deaktivace
+		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+		//Zpet do menu
+		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+		//Shop
+		ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+				"§7Gadgety jsou doplnky do lobby",
+				"§7daji se ziskat z CraftBoxu nebo na",
+				"§7specialnich eventech.",
+				"",
+				"§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+		inv.setItem(23, dea);
+		inv.setItem(22, shopItem);
+		inv.setItem(21, zpet);
+
+		p.openInventory(inv);
 	}
 
 	public void openSlimeMenu(final Player p){
@@ -2378,6 +2434,45 @@ public class PetsAPI implements Listener{
 					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.WITHER);
 				} else {
 					this.ml.messageNoPerm(p,"Wither Skeleton");
+				}
+			}
+		}
+		if(e.getInventory().getTitle().equals("Pets - MagmaCube")){
+			if (e.getCurrentItem() == null){
+				return;
+			}
+			if (e.getCurrentItem().getType() == Material.AIR){
+				return;
+			}
+			if(e.getSlot() == 22){
+				Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+			}
+			if(e.getSlot() == 21){
+				this.openMainInv(p);
+			}
+			if(e.getSlot() == 23){
+				PetManager.forceRemovePet(p);
+				p.closeInventory();
+			}
+			if(e.getSlot() == 0){
+				if(p.hasPermission("craftlobby.pets.magmacube.small")){
+					MagmaCubeNormal.activateSlime(p,1);
+				} else {
+					this.ml.messageNoPerm(p,"MagmaCube: Small");
+				}
+			}
+			if(e.getSlot() == 1){
+				if(p.hasPermission("craftlobby.pets.magmacube.normal")){
+					MagmaCubeNormal.activateSlime(p,2);
+				} else {
+					this.ml.messageNoPerm(p,"MagmaCube: Normal");
+				}
+			}
+			if(e.getSlot() == 2){
+				if(p.hasPermission("craftlobby.pets.magmacube.big")){
+					MagmaCubeNormal.activateSlime(p,3);
+				} else {
+					this.ml.messageNoPerm(p,"MagmaCube: Big");
 				}
 			}
 		}
