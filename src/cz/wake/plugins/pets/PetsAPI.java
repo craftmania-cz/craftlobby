@@ -1509,6 +1509,9 @@ public class PetsAPI implements Listener{
 			if(e.getSlot() == 23){
 				this.openSkeletonMenu(p);
 			}
+			if(e.getSlot() == 24){
+				this.openMagmaMenu(p);
+			}
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
 			if (e.getCurrentItem() == null){
