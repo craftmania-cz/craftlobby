@@ -41,7 +41,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.cow.baby")
 				|| p.hasPermission("craftlobby.pets.cow.mushroom")
 				|| p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
-			ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0, "§eCow","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0, "§eCow","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(1,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow", "§7Nevlastnis ani jeden druh.");
@@ -49,7 +49,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.pig")
 				|| p.hasMetadata("craftlobby.pets.pig.baby")){
-			ItemStack i = ItemFactory.create(Material.PORK,(byte)0, "§ePig","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.PORK,(byte)0, "§ePig","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(2,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPig", "§7Nevlastnis ani jeden druh.");
@@ -57,21 +57,21 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.chicken")
 				|| p.hasPermission("craftlobby.pets.chicken.baby")){
-			ItemStack i = ItemFactory.create(Material.EGG,(byte)0, "§eChicken","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.EGG,(byte)0, "§eChicken","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(3,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cChicken", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(3, i);
 		}
 		if(p.hasPermission("craftlobby.pets.endermite")){
-			ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER,(byte)0, "§eEndermite","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER,(byte)0, "§eEndermite","","§aKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEndermite", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(4, i);
 		}
 		if(p.hasPermission("craftlobby.pets.silverfish")){
-			ItemStack i = ItemFactory.create(Material.FLINT,(byte)0, "§eSilverfish","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.FLINT,(byte)0, "§eSilverfish","","§aKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSilverfish", "§7Nevlastnis ani jeden druh.");
@@ -79,7 +79,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.wolf")
 				|| p.hasPermission("craftlobby.pets.wolf")){
-			ItemStack i = ItemFactory.create(Material.BONE,(byte)0, "§eWolf","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.BONE,(byte)0, "§eWolf","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(6,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWolf", "§7Nevlastnis ani jeden druh.");
@@ -97,7 +97,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.rabbit.killer.baby")
 				|| p.hasPermission("craftlobby.pets.rabbit.white")
 				|| p.hasPermission("craftlobby.pets.rabbit.white.baby")){
-			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0, "§eRabbit","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0, "§eRabbit","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(7,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit", "§7Nevlastnis ani jeden druh.");
@@ -105,7 +105,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.zombie")
 				|| p.hasPermission("craftlobby.pets.zombie.baby")){
-			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0, "§eZombie","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0, "§eZombie","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(8,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie", "§7Nevlastnis ani jeden druh.");
@@ -129,7 +129,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.horse.mule")
 				|| p.hasPermission("craftlobby.pets.horse.zombie")
 				|| p.hasPermission("craftlobby.pets.horse.skeleton")){
-			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(9,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse", "§7Nevlastnis ani jeden druh.");
@@ -167,14 +167,14 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.sheep.yellow.baby")
 				|| p.hasPermission("craftlobby.pets.sheep.gray")
 				|| p.hasPermission("craftlobby.pets.sheep.gray.baby")){
-			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§eSheep","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§eSheep","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(10,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(10, i);
 		}
 		if(p.hasPermission("craftlobby.pets.wither")){
-			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1, "§eWither","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1, "§eWither","","§aKliknutim spawnes!");
 			inv.setItem(11,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither", "§7Nevlastnis ani jeden druh.");
@@ -183,56 +183,56 @@ public class PetsAPI implements Listener{
 		if(p.hasPermission("craftlobby.pets.slime.small")
 				|| p.hasPermission("craftlobby.pets.slime.normal")
 				|| p.hasPermission("craftlobby.pets.slime.big")){
-			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0, "§eSlime","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0, "§eSlime","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(12,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(12, i);
 		}
 		if(p.hasPermission("craftlobby.pets.spider")){
-			ItemStack i = ItemFactory.create(Material.SPIDER_EYE,(byte)0, "§eSpider","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SPIDER_EYE,(byte)0, "§eSpider","","§aKliknutim spawnes!");
 			inv.setItem(13,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSpider", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(13, i);
 		}
 		if(p.hasPermission("craftlobby.pets.cavespider")){
-			ItemStack i = ItemFactory.create(Material.FERMENTED_SPIDER_EYE,(byte)0, "§eCaveSpider","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.FERMENTED_SPIDER_EYE,(byte)0, "§eCaveSpider","","§aKliknutim spawnes!");
 			inv.setItem(14,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCaveSpider", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(14, i);
 		}
 		if(p.hasPermission("craftlobby.pets.irongolem")){
-			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0, "§eIronGolem","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0, "§eIronGolem","","§aKliknutim spawnes!");
 			inv.setItem(15,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cIronGolem", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(15, i);
 		}
 		if(p.hasPermission("craftlobby.pets.witch")){
-			ItemStack i = ItemFactory.create(Material.SPLASH_POTION,(byte)0, "§eWitch","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SPLASH_POTION,(byte)0, "§eWitch","","§aKliknutim spawnes!");
 			inv.setItem(16,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWitch", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(16, i);
 		}
 		if(p.hasPermission("craftlobby.pets.enderman")){
-			ItemStack i = ItemFactory.create(Material.ENDER_PEARL,(byte)0, "§eEnderman","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.ENDER_PEARL,(byte)0, "§eEnderman","","§aKliknutim spawnes!");
 			inv.setItem(17,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEnderman", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(17, i);
 		}
 		if(p.hasPermission("craftlobby.pets.blaze")){
-			ItemStack i = ItemFactory.create(Material.BLAZE_POWDER,(byte)0, "§eBlaze","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.BLAZE_POWDER,(byte)0, "§eBlaze","","§aKliknutim spawnes!");
 			inv.setItem(18,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cBlaze", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(18, i);
 		}
 		if(p.hasPermission("craftlobby.pets.bat")){
-			ItemStack i = ItemFactory.create(Material.FEATHER,(byte)0, "§eBat","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.FEATHER,(byte)0, "§eBat","","§aKliknutim spawnes!");
 			inv.setItem(19,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cBat", "§7Nevlastnis ani jeden druh.");
@@ -248,7 +248,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.villager.librarian.baby")
 				|| p.hasPermission("craftlobby.pets.villager.priest")
 				|| p.hasPermission("craftlobby.pets.villager.priest.baby")){
-			ItemStack i = ItemFactory.create(Material.BOOK,(byte)0, "§eVillager","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.BOOK,(byte)0, "§eVillager","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(20,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager", "§7Nevlastnis ani jeden druh.");
@@ -256,14 +256,14 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.creeper")
 				|| p.hasPermission("craftlobby.pets.creeper.powered")){
-			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0, "§eCreeper","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0, "§eCreeper","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(21,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(21, i);
 		}
 		if(p.hasPermission("craftlobby.pets.snowman")){
-			ItemStack i = ItemFactory.create(Material.SNOW_BALL,(byte)0, "§eSnowman","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.SNOW_BALL,(byte)0, "§eSnowman","","§aKliknutim spawnes!");
 			inv.setItem(22,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSnowman", "§7Nevlastnis ani jeden druh.");
@@ -271,7 +271,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.skeleton")
 				|| p.hasPermission("craftlobby.pets.skeleton.wither")){
-			ItemStack i = ItemFactory.create(Material.BOW,(byte)0, "§eSkeleton","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.BOW,(byte)0, "§eSkeleton","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(23,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton", "§7Nevlastnis ani jeden druh.");
@@ -280,7 +280,7 @@ public class PetsAPI implements Listener{
 		if(p.hasPermission("craftlobby.pets.magmacube.small")
 				|| p.hasPermission("craftlobby.pets.magmacube.normal")
 				|| p.hasPermission("craftlobby.pets.magmacube.big")){
-			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0, "§eMagmaCube","","§7Kliknutim zobrazis preshled.");
+			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0, "§eMagmaCube","","§7Kliknutim zobrazis prehled.");
 			inv.setItem(24,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube", "§7Nevlastnis ani jeden druh.");
