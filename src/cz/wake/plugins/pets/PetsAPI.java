@@ -274,7 +274,7 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.BOW,(byte)0, "§eSkeleton","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(23,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.BOW, (byte)8, "§cSkeleton", "§7Nevlastnis ani jeden druh.");
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(23, i);
 		}
 
