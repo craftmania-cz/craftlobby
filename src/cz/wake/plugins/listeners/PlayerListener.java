@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.Block;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -150,19 +151,6 @@ public class PlayerListener implements Listener{
 			e.setCancelled(true);
 		}
 	}
-
-	@EventHandler
-	public void onOpen(InventoryOpenEvent e){
-		if(e instanceof BeaconInventory){
-			e.setCancelled(true);
-		}
-		if(e instanceof CraftingInventory){
-			e.setCancelled(true);
-		}
-		if(e instanceof FurnaceInventory){
-			e.setCancelled(true);
-		}
-	}
 	
 	@EventHandler
 	public void onSwap(PlayerSwapHandItemsEvent e){
@@ -302,6 +290,18 @@ public class PlayerListener implements Listener{
 						MessagesListener.messageCooldown(e.getPlayer(), String.valueOf(arrondi(((Double)this._time.get(e.getPlayer())).doubleValue(), 1)));
 				  		return;
 					}
+				}
+			}
+		}
+		if((e.getAction() == Action.RIGHT_CLICK_BLOCK) || (e.getAction() == Action.LEFT_CLICK_BLOCK)){
+			Block b = e.getClickedBlock();
+			if((b.getType() == Material.BEACON)
+					|| (b.getType() == Material.BREWING_STAND)
+					|| (b.getType() == Material.ANVIL)){
+				if(Main.getInstance().isDebug()){
+					e.setCancelled(false);
+				} else {
+					e.setCancelled(true);
 				}
 			}
 		}
