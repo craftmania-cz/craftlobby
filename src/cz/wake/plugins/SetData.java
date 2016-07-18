@@ -81,6 +81,30 @@ public class SetData {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
+    public final void takeSkyKeys(final Player p, final int coins) {
+
+        final String query = "UPDATE CraftCoins SET skykeys = ? WHERE uuid = '" + p.getUniqueId().toString() + "';";
+
+        new BukkitRunnable() {
+
+            public void run() {
+
+                try {
+
+                    PreparedStatement sql = Main.getInstance().getMySQL().getCurrentConnection().prepareStatement(query);
+                    sql.setInt(1, Main.getInstance().fetchData().getSkyKeysDust(p.getUniqueId()) - coins);
+                    sql.setQueryTimeout(30);
+                    sql.execute();
+                    sql.close();
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
     /**
      * Pridani boxu bez casu
      *

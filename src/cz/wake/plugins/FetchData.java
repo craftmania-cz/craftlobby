@@ -653,5 +653,23 @@ public class FetchData {
         return (long) 0;
     }
 
+    public final int getSkyKeysDust(final UUID uuid) {
+
+        final String query = "SELECT skykeys FROM CraftCoins WHERE uuid = '" + uuid.toString() + "';";
+
+        try {
+
+            ResultSet result = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery(query);
+
+            if (result.next()) {
+                return result.getInt("skykeys");
+            }
+            result.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }

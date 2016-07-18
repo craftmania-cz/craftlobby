@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cz.wake.plugins.boxer.SkyKeys;
 import cz.wake.plugins.commands.SBPerms_command;
 import cz.wake.plugins.utils.mobs.*;
 import net.minecraft.server.v1_9_R2.*;
@@ -188,6 +189,13 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new CloaksAPI(), this);
 		pm.registerEvents(new GadgetsAPI(), this);
 		pm.registerEvents(new PetsAPI(), this);
+
+        //SkyKeys pro SLOBBY
+        if(pm.isPluginEnabled("CrateKeys")){
+            if(getConfig().getString("server").contains("slobby")){
+                pm.registerEvents(new SkyKeys(), this);
+            }
+        }
 	}
 	
 	private void loadCommands(){
