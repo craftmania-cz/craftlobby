@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cz.wake.plugins.commands.SBPerms_command;
 import cz.wake.plugins.utils.mobs.*;
 import net.minecraft.server.v1_9_R2.*;
 import org.bukkit.*;
@@ -193,6 +194,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		getCommand("wlobby").setExecutor(new ProfilCMD());
 		getCommand("wl").setExecutor(new ProfilCMD());
 		getCommand("stats").setExecutor(new Stats_Command());
+        getCommand("sbperms").setExecutor(new SBPerms_command());
 	}
 	
 	public static Main getInstance(){

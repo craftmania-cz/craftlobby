@@ -26,7 +26,7 @@ public class Stats_Command implements CommandExecutor {
                         minigamesMenu.openOfflineStats(player, offPlayer);
                         return true;
                     } else {
-                        player.sendMessage("�cK pristupu statistikam ostatnich hracu musis vlastnit MiniGames VIP.");
+                        player.sendMessage("§cK pristupu statistikam ostatnich hracu musis vlastnit MiniGames VIP.");
                         return false;
                     }
                 }

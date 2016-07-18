@@ -31,7 +31,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.cat.siamese.baby")
 				|| p.hasPermission("craftlobby.pets.cat.wild")
 				|| p.hasPermission("craftlobby.pets.cat.wild.baby")){
-			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§eCat", "", "§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§eCat", "", this.getCountCats(p), "", "§aKliknutim zobrazis prehled.");
 			inv.setItem(0, i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat", "§7Nevlastnis ani jeden druh.");
@@ -41,7 +41,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.cow.baby")
 				|| p.hasPermission("craftlobby.pets.cow.mushroom")
 				|| p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
-			ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0, "§eCow","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0, "§eCow", "", this.getCountCows(p), "","§aKliknutim zobrazis prehled.");
 			inv.setItem(1,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow", "§7Nevlastnis ani jeden druh.");
@@ -49,7 +49,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.pig")
 				|| p.hasMetadata("craftlobby.pets.pig.baby")){
-			ItemStack i = ItemFactory.create(Material.PORK,(byte)0, "§ePig","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.PORK,(byte)0, "§ePig","","§aKliknutim zobrazis prehled.");
 			inv.setItem(2,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPig", "§7Nevlastnis ani jeden druh.");
@@ -57,7 +57,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.chicken")
 				|| p.hasPermission("craftlobby.pets.chicken.baby")){
-			ItemStack i = ItemFactory.create(Material.EGG,(byte)0, "§eChicken","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.EGG,(byte)0, "§eChicken","","§aKliknutim zobrazis prehled.");
 			inv.setItem(3,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cChicken", "§7Nevlastnis ani jeden druh.");
@@ -67,7 +67,7 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER,(byte)0, "§eEndermite","","§aKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEndermite", "§7Nevlastnis ani jeden druh.");
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEndermite", "§aNevlastnis ani jeden druh.");
 			inv.setItem(4, i);
 		}
 		if(p.hasPermission("craftlobby.pets.silverfish")){
@@ -79,7 +79,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.wolf")
 				|| p.hasPermission("craftlobby.pets.wolf")){
-			ItemStack i = ItemFactory.create(Material.BONE,(byte)0, "§eWolf","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.BONE,(byte)0, "§eWolf","","§aKliknutim zobrazis prehled.");
 			inv.setItem(6,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWolf", "§7Nevlastnis ani jeden druh.");
@@ -97,7 +97,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.rabbit.killer.baby")
 				|| p.hasPermission("craftlobby.pets.rabbit.white")
 				|| p.hasPermission("craftlobby.pets.rabbit.white.baby")){
-			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0, "§eRabbit","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0, "§eRabbit","","§aKliknutim zobrazis prehled.");
 			inv.setItem(7,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit", "§7Nevlastnis ani jeden druh.");
@@ -105,7 +105,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.zombie")
 				|| p.hasPermission("craftlobby.pets.zombie.baby")){
-			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0, "§eZombie","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0, "§eZombie","","§aKliknutim zobrazis prehled.");
 			inv.setItem(8,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie", "§7Nevlastnis ani jeden druh.");
@@ -129,7 +129,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.horse.mule")
 				|| p.hasPermission("craftlobby.pets.horse.zombie")
 				|| p.hasPermission("craftlobby.pets.horse.skeleton")){
-			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse","","§aKliknutim zobrazis prehled.");
 			inv.setItem(9,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse", "§7Nevlastnis ani jeden druh.");
@@ -167,7 +167,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.sheep.yellow.baby")
 				|| p.hasPermission("craftlobby.pets.sheep.gray")
 				|| p.hasPermission("craftlobby.pets.sheep.gray.baby")){
-			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§eSheep","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§eSheep","","§aKliknutim zobrazis prehled.");
 			inv.setItem(10,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep", "§7Nevlastnis ani jeden druh.");
@@ -183,7 +183,7 @@ public class PetsAPI implements Listener{
 		if(p.hasPermission("craftlobby.pets.slime.small")
 				|| p.hasPermission("craftlobby.pets.slime.normal")
 				|| p.hasPermission("craftlobby.pets.slime.big")){
-			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0, "§eSlime","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0, "§eSlime","","§aKliknutim zobrazis prehled.");
 			inv.setItem(12,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime", "§7Nevlastnis ani jeden druh.");
@@ -248,7 +248,7 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.villager.librarian.baby")
 				|| p.hasPermission("craftlobby.pets.villager.priest")
 				|| p.hasPermission("craftlobby.pets.villager.priest.baby")){
-			ItemStack i = ItemFactory.create(Material.BOOK,(byte)0, "§eVillager","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.BOOK,(byte)0, "§eVillager","","§aKliknutim zobrazis prehled.");
 			inv.setItem(20,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager", "§7Nevlastnis ani jeden druh.");
@@ -256,7 +256,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.creeper")
 				|| p.hasPermission("craftlobby.pets.creeper.powered")){
-			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0, "§eCreeper","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0, "§eCreeper","","§aKliknutim zobrazis prehled.");
 			inv.setItem(21,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Nevlastnis ani jeden druh.");
@@ -271,7 +271,7 @@ public class PetsAPI implements Listener{
 		}
 		if(p.hasPermission("craftlobby.pets.skeleton")
 				|| p.hasPermission("craftlobby.pets.skeleton.wither")){
-			ItemStack i = ItemFactory.create(Material.BOW,(byte)0, "§eSkeleton","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.BOW,(byte)0, "§eSkeleton","","§aKliknutim zobrazis prehled.");
 			inv.setItem(23,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton", "§7Nevlastnis ani jeden druh.");
@@ -280,7 +280,7 @@ public class PetsAPI implements Listener{
 		if(p.hasPermission("craftlobby.pets.magmacube.small")
 				|| p.hasPermission("craftlobby.pets.magmacube.normal")
 				|| p.hasPermission("craftlobby.pets.magmacube.big")){
-			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0, "§eMagmaCube","","§7Kliknutim zobrazis prehled.");
+			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0, "§eMagmaCube","","§aKliknutim zobrazis prehled.");
 			inv.setItem(24,i);
 		} else {
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube", "§7Nevlastnis ani jeden druh.");
@@ -2500,5 +2500,67 @@ public class PetsAPI implements Listener{
 			}
 		}
 	}
+
+    private String getCountCats(Player p){
+        int i = this.countCatsPermissions(p);
+        int sum = 8;
+        int prc = (i * 100 / sum);
+
+        return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private String getCountCows(Player p){
+        int i = this.countCowPermissions(p);
+        int sum = 4;
+        int prc = (i * 100 / sum);
+
+        return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private int countCowPermissions(Player p){
+        int c = 0;
+        if (p.hasPermission("craftlobby.pets.cow")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cow.baby")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cow.mushroom")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+            c++;
+        }
+        return c;
+    }
+
+	private int countCatsPermissions(Player p){
+        int c = 0;
+        if (p.hasPermission("craftlobby.pets.cat.black")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.red")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.siamese")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.black.baby")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.red.baby")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.siamese.baby")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.wild")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.cat.wild.baby")) {
+            c++;
+        }
+        return c;
+    }
 
 }

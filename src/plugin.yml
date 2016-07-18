@@ -10,6 +10,8 @@ commands:
     description: Info o profilu!
   stats:
     description: Statistiky hracu
+  sbperms:
+    description: Addon na Skybox
 permissions:
   craftlobby.pristup:
     description: Beta test

@@ -69,7 +69,7 @@ public class Servers implements Listener {
                 "§7Az to zjistis, bude pozde.", "", "§b▸ Kliknutim te portnu");
         inv.setItem(26, fac);
 
-        ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§a§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vytez! Bude to tvuj team?",
+        ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§a§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
                 "", "§7Multiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
         bedw = ItemFactory.addGlow(bedw);
         inv.setItem(29, bedw);

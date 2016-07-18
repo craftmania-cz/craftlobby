@@ -38,3 +38,6 @@ manifest.mf
 
 # delombok
 */src/main/lombok
+craftlobby.properties
+craftlobby.xml
+module_craftlobby.xml
