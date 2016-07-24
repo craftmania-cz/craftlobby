@@ -22,7 +22,7 @@ public class SBPerms_command implements CommandExecutor{
                     String nazev = ArrayOfString[2];
                     String finalNazev = nazev.replaceAll("_", " ");
                     if(p.hasPermission(perm)){
-                        p.sendMessage("§eTento doplnek jiz co vlastnis! Nalezena vec: §f" + finalNazev);
+                        p.sendMessage("§eTento doplnek jiz vlastnis! Nalezena vec: §f" + finalNazev);
                         Sender.sendMessage("§eHrac jiz §f" + finalNazev + " §evlastni.");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"addbalance " + p.getName() + " 50");
                         return true;
