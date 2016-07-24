@@ -1,14 +1,12 @@
 package cz.wake.plugins.cloaks;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -22,14 +20,14 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class SantaCloak{
 	
-	public static final HashMap<String, Integer> santaCloaks = new HashMap();
+	public static final HashMap<String, Integer> santaCloaks = new HashMap<>();
 	int particles;
 	
 	@SuppressWarnings("deprecation")
 	public void activateSanta(Player p){
 		if(!santaCloaks.containsKey(p.getName())){
 			
-			ItemStack skull = ItemFactory.createHead("§fSanta", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");
+			ItemStack skull = ItemFactory.createHead("Â§fSanta", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");
 			p.getInventory().setHelmet(skull);
 			
 			ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE,1);
@@ -76,7 +74,7 @@ public class SantaCloak{
 					} 
 				}	
 			}, 0L, 1L).getTaskId();
-			santaCloaks.put(p.getName(),Integer.valueOf(particles));
+			santaCloaks.put(p.getName(),particles);
 		}
 	}
 
