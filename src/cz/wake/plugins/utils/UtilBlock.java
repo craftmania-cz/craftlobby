@@ -396,7 +396,7 @@ public class UtilBlock
   }
   
   public static List<Block> getBlocksInRadius(Location location, int radius, boolean hollow) {
-      List<Block> blocks = new ArrayList<>();
+      List<Block> blocks = new ArrayList();
 
       int bX = location.getBlockX();
       int bY = location.getBlockY();
