@@ -80,7 +80,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private GadgetsMenu gMenu = new GadgetsMenu();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
-	public static ArrayList<Entity> noFallDamageEntities = new ArrayList<>();
+	public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
 	public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
 	public VillagerMorph VillagerMorph;
 	private static ByteArrayOutputStream b = new ByteArrayOutputStream();
