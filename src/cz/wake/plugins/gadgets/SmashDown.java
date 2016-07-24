@@ -35,8 +35,8 @@ public class SmashDown implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
     HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    List<Player> activePlayers = new ArrayList<>();
-    List<FallingBlock> fallingBlocks = new ArrayList<>();
+    List<Player> activePlayers = new ArrayList();
+    List<FallingBlock> fallingBlocks = new ArrayList();
 
     @EventHandler
     public void smashDown(PlayerInteractEvent e) {

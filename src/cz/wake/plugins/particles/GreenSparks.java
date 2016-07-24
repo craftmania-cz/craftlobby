@@ -18,8 +18,6 @@ public class GreenSparks{
 	public static final HashMap<String, Integer> greenPlayers = new HashMap();
 	public static int task1;
 	
-	//Poslední úprava 7.12.2015
-	
 	@SuppressWarnings("deprecation")
 	public void activateGreenSparks(Player p){
 		if(!greenPlayers.containsKey(p.getName())){

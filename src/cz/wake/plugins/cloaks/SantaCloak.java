@@ -20,7 +20,7 @@ import cz.wake.plugins.utils.UtilParticles;
 
 public class SantaCloak{
 	
-	public static final HashMap<String, Integer> santaCloaks = new HashMap<>();
+	public static final HashMap<String, Integer> santaCloaks = new HashMap();
 	int particles;
 	
 	@SuppressWarnings("deprecation")

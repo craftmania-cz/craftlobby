@@ -19,7 +19,7 @@ import cz.wake.plugins.Main;
 public class UtilBlock
 {
   public static HashSet<Byte> blockPassSet = new HashSet();
-  public static Map<Location, String> blocksToRestore = new HashMap<>();
+  public static Map<Location, String> blocksToRestore = new HashMap();
   
   public static boolean solid(Block block)
   {

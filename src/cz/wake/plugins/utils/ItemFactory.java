@@ -21,7 +21,7 @@ public class ItemFactory {
         ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setDisplayName(displayName);
         if (lore != null) {
-            List<String> finalLore = new ArrayList<>();
+            List<String> finalLore = new ArrayList();
             for (String s : lore)
                 finalLore.add(s);
             itemMeta.setLore(finalLore);
