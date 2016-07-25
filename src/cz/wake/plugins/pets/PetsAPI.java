@@ -96,7 +96,9 @@ public class PetsAPI implements Listener{
 				|| p.hasPermission("craftlobby.pets.rabbit.killer")
 				|| p.hasPermission("craftlobby.pets.rabbit.killer.baby")
 				|| p.hasPermission("craftlobby.pets.rabbit.white")
-				|| p.hasPermission("craftlobby.pets.rabbit.white.baby")){
+				|| p.hasPermission("craftlobby.pets.rabbit.white.baby")
+                || p.hasPermission("craftlobby.pets.rabbit.gold")
+                || p.hasPermission("craftlobby.pets.rabbit.gold.baby")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0, "§eRabbit","","§aKliknutim zobrazis prehled.");
 			inv.setItem(7,i);
 		} else {
@@ -1110,6 +1112,20 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit White (Baby)", "§7Tento typ nevlastnis.");
 			inv.setItem(11, i);
 		}
+        if(p.hasPermission("craftlobby.pets.rabbit.gold")){
+            ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Gold", "", "§eKliknutim spawnes!");
+            inv.setItem(12,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Gold", "§7Tento typ nevlastnis.");
+            inv.setItem(12, i);
+        }
+        if(p.hasPermission("craftlobby.pets.rabbit.gold.baby")){
+            ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Gold (Baby)", "", "§eKliknutim spawnes!");
+            inv.setItem(13,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Gold (Baby)", "§7Tento typ nevlastnis.");
+            inv.setItem(13, i);
+        }
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -1850,6 +1866,20 @@ public class PetsAPI implements Listener{
 					this.ml.messageNoPerm(p,"Rabbit White (Baby)");
 				}
 			}
+            if(e.getSlot() == 12){
+                if(p.hasPermission("craftlobby.pets.rabbit.gold")){
+                    RabbitNormal.activate(p,false, Rabbit.Type.GOLD);
+                } else {
+                    this.ml.messageNoPerm(p,"Rabbit Gold");
+                }
+            }
+            if(e.getSlot() == 13){
+                if(p.hasPermission("craftlobby.pets.rabbit.gold.baby")){
+                    RabbitNormal.activate(p,true, Rabbit.Type.GOLD);
+                } else {
+                    this.ml.messageNoPerm(p,"Rabbit Gold (Baby)");
+                }
+            }
 		}
 		if(e.getInventory().getTitle().equals("Pets - Zombie")){
 			if (e.getCurrentItem() == null){
