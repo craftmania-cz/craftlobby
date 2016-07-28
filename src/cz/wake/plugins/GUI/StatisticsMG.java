@@ -22,10 +22,14 @@ public class StatisticsMG {
 
         SkullMeta headItemMeta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
         headItemMeta.setOwner(p.getName());
-        headItemMeta.setDisplayName("§f§lStatistiky: §7" + p.getName());
+        headItemMeta.setDisplayName("§fCelkove statistiky");
         ArrayList<String> hLore = new ArrayList<String>();
         hLore.add("");
-        hLore.add("§eCraftCoiny: §f" + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+        hLore.add("§eCraftCoiny: §7" + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+        hLore.add("");
+        hLore.add("§ePocet hlasu (tyden): §7" + Main.getInstance().fetchData().getVotesWeek(p.getUniqueId()));
+        hLore.add("§ePocet hlasu (mesic): §7" + Main.getInstance().fetchData().getVotesMonth(p.getUniqueId()));
+        hLore.add("§ePocet hlasu (celkem): §7" + Main.getInstance().fetchData().getVotesAll(p.getUniqueId()));
         headItemMeta.setLore(hLore);
         ItemStack headItem = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
         headItem.setItemMeta(headItemMeta);
@@ -42,7 +46,7 @@ public class StatisticsMG {
         bedwarsLore.add(ChatColor.YELLOW + "Smrti: " + ChatColor.WHITE + Main.getInstance().getAPI().getBedwarsDeaths(p.getUniqueId()));
         bedwarsLore.add(ChatColor.YELLOW + "Zniceno posteli: " + ChatColor.WHITE + Main.getInstance().getAPI().getBedwarsDestroyed(p.getUniqueId()));
         bedwarsLore.add(ChatColor.YELLOW + "Odehrano her: " + ChatColor.WHITE + Main.getInstance().getAPI().getBedwarsPlayed(p.getUniqueId()));
-        bedwarsLore.add(ChatColor.YELLOW + "Odehrany cas: §cPozastaveno" /*ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getBedWarsTime(p.getUniqueId()), false)*/);
+        //bedwarsLore.add(ChatColor.YELLOW + "Odehrany cas: §cPozastaveno" /*ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getBedWarsTime(p.getUniqueId()), false)*/);
         bedwarsMeta.setLore(bedwarsLore);
         bedwars.setItemMeta(bedwarsMeta);
 
@@ -57,23 +61,9 @@ public class StatisticsMG {
         drawitLore.add(ChatColor.YELLOW + "Spravne uhadnuti: " + ChatColor.WHITE + Main.getInstance().getAPI().getDrawitRightGuess(p.getUniqueId()));
         drawitLore.add(ChatColor.YELLOW + "Spatne uhadnuti: " + ChatColor.WHITE + Main.getInstance().getAPI().getDrawitWrongGuess(p.getUniqueId()));
         drawitLore.add(ChatColor.YELLOW + "Odehrano her: " + ChatColor.WHITE + Main.getInstance().getAPI().getDrawitPlayed(p.getUniqueId()));
-        drawitLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getDrawItTime(p.getUniqueId()), false));
+        //rawitLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getDrawItTime(p.getUniqueId()), false));
         drawitMeta.setLore(drawitLore);
         drawit.setItemMeta(drawitMeta);
-
-        ItemStack uhc = new ItemStack(Material.GOLDEN_APPLE);
-        ItemMeta uhcMeta = uhc.getItemMeta();
-        uhcMeta.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "UltraHardcore");
-        ArrayList<String> uhcLore = new ArrayList<String>();
-        uhcLore.add("");
-        uhcLore.add(ChatColor.YELLOW + "Zabiti: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCKills(p.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Smrti: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCDeaths(p.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Killstreak: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCKillstreak(p.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Polozene bloky: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCBlockPlaced(p.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Znicene bloky: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCBlockBroken(p.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getUHCTime(p.getUniqueId()), false));
-        uhcMeta.setLore(uhcLore);
-        uhc.setItemMeta(uhcMeta);
 
         ItemStack anni = new ItemStack(Material.ENDER_STONE);
         ItemMeta anniMeta = anni.getItemMeta();
@@ -104,7 +94,7 @@ public class StatisticsMG {
         vanLore.add(ChatColor.YELLOW + "Smrti: " + ChatColor.WHITE + Main.getInstance().getAPI().getVanillaDeaths(p.getUniqueId()));
         vanLore.add(ChatColor.YELLOW + "Zniceno bloku: " + ChatColor.WHITE + Main.getInstance().getAPI().getVanillaBlockBroken(p.getUniqueId()));
         vanLore.add(ChatColor.YELLOW + "Polozeno bloku: " + ChatColor.WHITE + Main.getInstance().getAPI().getVanillaBlockPlaced(p.getUniqueId()));
-        vanLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getVanillaTime(p.getUniqueId()), false));
+        //vanLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getVanillaTime(p.getUniqueId()), false));
         vanMeta.setLore(vanLore);
         vanilla.setItemMeta(vanMeta);
 
@@ -117,21 +107,9 @@ public class StatisticsMG {
         swLore.add(ChatColor.YELLOW + "Smrti: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsDeaths(p.getUniqueId()));
         swLore.add(ChatColor.YELLOW + "Vitezstvi: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsWins(p.getUniqueId()));
         swLore.add(ChatColor.YELLOW + "Odehrano her: " + ChatColor.WHITE + Main.getInstance().getAPI().getSkyWarsPlayed(p.getUniqueId()));
-        swLore.add(ChatColor.YELLOW + "Odehrany cas: §cNenalezeno...");
+        //swLore.add(ChatColor.YELLOW + "Odehrany cas: §cNenalezeno...");
         swMeta.setLore(swLore);
         skywars.setItemMeta(swMeta);
-
-        ItemStack turfwars = new ItemStack(Material.WOOL, 1, (byte) 3);
-        ItemMeta twMeta = turfwars.getItemMeta();
-        twMeta.setDisplayName("§f§lTurfWars");
-        ArrayList<String> twLore = new ArrayList<String>();
-        twLore.add("");
-        twLore.add("§eZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(p.getUniqueId()));
-        twLore.add("§eVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(p.getUniqueId()));
-        twLore.add("§eProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(p.getUniqueId()));
-        twLore.add("§eOdehrany cas: §cNenalezeno...");
-        twMeta.setLore(twLore);
-        turfwars.setItemMeta(twMeta);
 
         if (p.hasPermission("craftlobby.stats.vip")) {
             ItemStack info = new ItemStack(Material.ARROW);
@@ -148,13 +126,10 @@ public class StatisticsMG {
         minigamesMenu.setItem(13, headItem);
         minigamesMenu.setItem(20, bedwars);
         minigamesMenu.setItem(21, drawit);
-        minigamesMenu.setItem(22, uhc);
-        minigamesMenu.setItem(23, anni);
-        minigamesMenu.setItem(24, buildbattle);
-        minigamesMenu.setItem(30, turfwars);
-        minigamesMenu.setItem(31, skywars);
-        minigamesMenu.setItem(32, vanilla);
-
+        minigamesMenu.setItem(22, anni);
+        minigamesMenu.setItem(23, buildbattle);
+        minigamesMenu.setItem(24, skywars);
+        minigamesMenu.setItem(31, vanilla);
 
         p.openInventory(minigamesMenu);
     }
@@ -204,20 +179,6 @@ public class StatisticsMG {
         drawitMeta.setLore(drawitLore);
         drawit.setItemMeta(drawitMeta);
 
-        ItemStack uhc = new ItemStack(Material.GOLDEN_APPLE);
-        ItemMeta uhcMeta = uhc.getItemMeta();
-        uhcMeta.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "UltraHardcore");
-        ArrayList<String> uhcLore = new ArrayList<String>();
-        uhcLore.add("");
-        uhcLore.add(ChatColor.YELLOW + "Zabiti: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCKills(op.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Smrti: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCDeaths(op.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Killstreak: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCKillstreak(op.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Polozene bloky: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCBlockPlaced(op.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Znicene bloky: " + ChatColor.WHITE + Main.getInstance().getAPI().getUHCBlockBroken(op.getUniqueId()));
-        uhcLore.add(ChatColor.YELLOW + "Odehrany cas: " + ChatColor.WHITE + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().getAPI().getUHCTime(op.getUniqueId()), false));
-        uhcMeta.setLore(uhcLore);
-        uhc.setItemMeta(uhcMeta);
-
         ItemStack anni = new ItemStack(Material.ENDER_STONE);
         ItemMeta anniMeta = anni.getItemMeta();
         anniMeta.setDisplayName(ChatColor.WHITE + "" + ChatColor.BOLD + "Annihilation");
@@ -264,25 +225,11 @@ public class StatisticsMG {
         swMeta.setLore(swLore);
         skywars.setItemMeta(swMeta);
 
-        ItemStack turfwars = new ItemStack(Material.WOOL, 1, (byte) 3);
-        ItemMeta twMeta = turfwars.getItemMeta();
-        twMeta.setDisplayName("§f§lTurfWars");
-        ArrayList<String> twLore = new ArrayList<String>();
-        twLore.add("");
-        twLore.add("§eZabiti: §f" + Main.getInstance().getAPI().getTurfWarsKills(op.getUniqueId()));
-        twLore.add("§eVitezstvi: §f" + Main.getInstance().getAPI().getTurfWarsWins(op.getUniqueId()));
-        twLore.add("§eProhry: §f" + Main.getInstance().getAPI().getTurfWarsLosses(op.getUniqueId()));
-        twLore.add("§eOdehrany cas: §cNedostupne");
-        twMeta.setLore(twLore);
-        turfwars.setItemMeta(twMeta);
-
         minigamesMenu.setItem(20, bedwars);
         minigamesMenu.setItem(21, drawit);
-        minigamesMenu.setItem(22, uhc);
         minigamesMenu.setItem(23, anni);
         minigamesMenu.setItem(24, buildbattle);
         minigamesMenu.setItem(13, headItem);
-        minigamesMenu.setItem(30, turfwars);
         minigamesMenu.setItem(31, skywars);
         minigamesMenu.setItem(32, vanilla);
 

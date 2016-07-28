@@ -64,30 +64,6 @@ public class WakeAPI {
 		return Main.getInstance().fetchData().getDrawitPlayed(uuid);
 	}
 	
-	public int getUHCKills(UUID uuid){
-		return Main.getInstance().fetchData().getUHCKills(uuid);
-	}
-	
-	public int getUHCDeaths(UUID uuid){
-		return Main.getInstance().fetchData().getUHCDeaths(uuid);
-	}
-	
-	public int getUHCKillstreak(UUID uuid){
-		return Main.getInstance().fetchData().getUHCKillstreak(uuid);
-	}
-	
-	public int getUHCBlockPlaced(UUID uuid){
-		return Main.getInstance().fetchData().getUHCBlocksPlaced(uuid);
-	}
-	
-	public int getUHCBlockBroken(UUID uuid){
-		return Main.getInstance().fetchData().getUHCBlocksBroken(uuid);
-	}
-	
-	public int getUHCTime(UUID uuid){
-		return Main.getInstance().fetchData().getUHCTime(uuid);
-	}
-	
 	public int getBuildWins(UUID uuid){
 		return Main.getInstance().fetchData().getBuildBattleWins(uuid);
 	}
@@ -142,18 +118,6 @@ public class WakeAPI {
 	
 	public int getSkyWarsPlayed(UUID uuid){
 		return Main.getInstance().fetchData().getSkyWarsPlayed(uuid);
-	}
-	
-	public int getTurfWarsKills(UUID uuid){
-		return Main.getInstance().fetchData().getTurfWarsKills(uuid);
-	}
-	
-	public int getTurfWarsWins(UUID uuid){
-		return Main.getInstance().fetchData().getTurfWarsWins(uuid);
-	}
-	
-	public int getTurfWarsLosses(UUID uuid){
-		return Main.getInstance().fetchData().getTurfWarsLosses(uuid);
 	}
 
 }

@@ -202,90 +202,6 @@ public class FetchData {
         return 0;
     }
 
-    public synchronized int getUHCKills(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Kills FROM uhc_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("Kills");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getUHCDeaths(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Deaths FROM uhc_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("Deaths");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getUHCKillstreak(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Killstreak FROM uhc_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("Killstreak");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getUHCBlocksBroken(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT BlocksBroken FROM uhc_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("BlocksBroken");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getUHCBlocksPlaced(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT BlocksPlaced FROM uhc_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("BlocksPlaced");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getUHCTime(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT OnlineTime FROM uhc_playedtime WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("OnlineTime");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
     public synchronized int getBuildBattleTime(UUID uuid) {
 
         try {
@@ -482,48 +398,6 @@ public class FetchData {
         return 0;
     }
 
-    public synchronized int getTurfWarsKills(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT kills FROM TurfWarsStats WHERE uuid = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("kills");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getTurfWarsWins(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM TurfWarsStats WHERE uuid = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("wins");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getTurfWarsLosses(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT losses FROM TurfWarsStats WHERE uuid = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("losses");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
     public boolean hasData(final UUID uuid) {
 
         Boolean hasData = Boolean.valueOf(false);
@@ -667,6 +541,48 @@ public class FetchData {
             result.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getVotesWeek(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT week FROM votes WHERE uuid = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("week");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getVotesMonth(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT month FROM votes WHERE uuid = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("month");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getVotesAll(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT votes FROM votes WHERE uuid = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("votes");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
         }
         return 0;
     }
