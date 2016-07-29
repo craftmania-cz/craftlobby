@@ -258,76 +258,6 @@ public class FetchData {
         return 0;
     }
 
-    public synchronized int getVanillaKills(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Kills FROM vanilla_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("Kills");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getVanillaDeaths(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Deaths FROM vanilla_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("Deaths");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getVanillaBlockBroken(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT BlocksBroken FROM vanilla_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("BlocksBroken");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getVanillaBlockPlaced(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT BlocksPlaced FROM vanilla_stats WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("BlocksPlaced");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
-    public synchronized int getVanillaTime(UUID uuid) {
-
-        try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT OnlineTime FROM vanilla_playedtime WHERE UUID = '" + uuid.toString() + "'");
-            if (localResultSet.next()) {
-                return localResultSet.getInt("OnlineTime");
-            }
-            localResultSet.close();
-        } catch (SQLException localSQLException) {
-            localSQLException.printStackTrace();
-        }
-        return 0;
-    }
-
     public synchronized int getCraftCoins(UUID uuid) {
 
         try {
@@ -345,9 +275,9 @@ public class FetchData {
     public synchronized int getSkyWarsKills(UUID uuid) {
 
         try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT kills FROM msw WHERE uuid = '" + uuid.toString() + "'");
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT normal_kills FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             if (localResultSet.next()) {
-                return localResultSet.getInt("kills");
+                return localResultSet.getInt("normal_kills");
             }
             localResultSet.close();
         } catch (SQLException localSQLException) {
@@ -359,9 +289,9 @@ public class FetchData {
     public synchronized int getSkyWarsWins(UUID uuid) {
 
         try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT wins FROM msw WHERE uuid = '" + uuid.toString() + "'");
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT normal_wins FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             if (localResultSet.next()) {
-                return localResultSet.getInt("wins");
+                return localResultSet.getInt("normal_wins");
             }
             localResultSet.close();
         } catch (SQLException localSQLException) {
@@ -373,9 +303,9 @@ public class FetchData {
     public synchronized int getSkyWarsDeaths(UUID uuid) {
 
         try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT deaths FROM msw WHERE uuid = '" + uuid.toString() + "'");
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT normal_deaths FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             if (localResultSet.next()) {
-                return localResultSet.getInt("deaths");
+                return localResultSet.getInt("normal_deaths");
             }
             localResultSet.close();
         } catch (SQLException localSQLException) {
@@ -387,9 +317,24 @@ public class FetchData {
     public synchronized int getSkyWarsPlayed(UUID uuid) {
 
         try {
-            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT games FROM msw WHERE uuid = '" + uuid.toString() + "'");
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT normal_played FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             if (localResultSet.next()) {
-                return localResultSet.getInt("games");
+                return localResultSet.getInt("normal_played");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+
+    public synchronized int getSkyWarsDust(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT skykeys FROM CraftCoins WHERE uuid = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("skykeys");
             }
             localResultSet.close();
         } catch (SQLException localSQLException) {
@@ -579,6 +524,118 @@ public class FetchData {
             ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT votes FROM votes WHERE uuid = '" + uuid.toString() + "'");
             if (localResultSet.next()) {
                 return localResultSet.getInt("votes");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniKills(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Kills FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("Kills");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniDeaths(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Deaths FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("Deaths");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniWins(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Wins FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("Wins");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniLosses(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Losses FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("Losses");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniDestroyed(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT Destroyed FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("Destroyed");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniKillBoss(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT KillBoss FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("KillBoss");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniMinedDiamond(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT MinedDiamond FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("MinedDiamond");
+            }
+            localResultSet.close();
+        } catch (SQLException localSQLException) {
+            localSQLException.printStackTrace();
+        }
+        return 0;
+    }
+
+    public synchronized int getAnniPlayedGames(UUID uuid) {
+
+        try {
+            ResultSet localResultSet = Main.getInstance().getMySQL().getCurrentConnection().createStatement().executeQuery("SELECT PlayedGames FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
+            if (localResultSet.next()) {
+                return localResultSet.getInt("PlayedGames");
             }
             localResultSet.close();
         } catch (SQLException localSQLException) {

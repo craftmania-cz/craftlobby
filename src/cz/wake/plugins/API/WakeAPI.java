@@ -36,10 +36,6 @@ public class WakeAPI {
 		return Main.getInstance().fetchData().getBedwarsPlayed(uuid);
 	}
 	
-	public int getBedWarsTime(UUID uuid){
-		return Main.getInstance().fetchData().getBedWarsTime(uuid);
-	}
-	
 	public int getDrawitScore(UUID uuid){
 		return Main.getInstance().fetchData().getDrawitScore(uuid);
 	}
@@ -70,34 +66,6 @@ public class WakeAPI {
 	
 	public int getBuildPlayedGames(UUID uuid){
 		return Main.getInstance().fetchData().getBuildBattlePlayedGames(uuid);
-	}
-	
-	public int getBuildBattleTime(UUID uuid){
-		return Main.getInstance().fetchData().getBuildBattleTime(uuid);
-	}
-	
-	public int getDrawItTime(UUID uuid){
-		return Main.getInstance().fetchData().getDrawItTime(uuid);
-	}
-	
-	public int getVanillaKills(UUID uuid){
-		return Main.getInstance().fetchData().getVanillaKills(uuid);
-	}
-	
-	public int getVanillaDeaths(UUID uuid){
-		return Main.getInstance().fetchData().getVanillaDeaths(uuid);
-	}
-	
-	public int getVanillaBlockBroken(UUID uuid){
-		return Main.getInstance().fetchData().getVanillaBlockBroken(uuid);
-	}
-	
-	public int getVanillaBlockPlaced(UUID uuid){
-		return Main.getInstance().fetchData().getVanillaBlockPlaced(uuid);
-	}
-	
-	public int getVanillaTime(UUID uuid){
-		return Main.getInstance().fetchData().getVanillaTime(uuid);
 	}
 	
 	public int getCraftCoins(UUID uuid){
