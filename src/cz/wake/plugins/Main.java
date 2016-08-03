@@ -8,7 +8,7 @@ import java.util.HashMap;
 import cz.wake.plugins.boxer.SkyKeys;
 import cz.wake.plugins.commands.SBPerms_command;
 import cz.wake.plugins.utils.mobs.*;
-import net.minecraft.server.v1_9_R2.*;
+import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.*;
 import org.bukkit.World;
 import org.bukkit.block.Block;

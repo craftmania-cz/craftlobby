@@ -1,10 +1,10 @@
 package cz.wake.plugins.utils.mobs;
 
-import net.minecraft.server.v1_9_R2.*;
+import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_9_R2.CraftWorld;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftSpider;
+import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftSpider;
 import org.bukkit.entity.Spider;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
@@ -37,8 +37,8 @@ public class RideableSpider extends EntitySpider {
             this.lastYaw = this.yaw = passenger.yaw;
             this.pitch = passenger.pitch * 0.5F;
             this.setYawPitch(this.yaw, this.pitch);
-            this.aK = this.aJ = this.yaw;
-            f = ((EntityLiving) passenger).be * 0.5F;
+            this.aK = this.aI = this.yaw;
+            f = ((EntityLiving)passenger).bf * 2F;
             f1 = ((EntityLiving) passenger).bf;
 
             if (f1 <= 0.0F) {
@@ -72,7 +72,7 @@ public class RideableSpider extends EntitySpider {
                 super.g(f, f1);
             }
 
-            this.aD = this.ab;
+            this.ab = this.av;
             double d0 = this.locX - this.lastX;
             double d1 = this.locZ - this.lastZ;
             float f4 = MathHelper.sqrt(d0 * d0 + d1 * d1) * 4.0F;
@@ -80,8 +80,8 @@ public class RideableSpider extends EntitySpider {
                 f4 = 1.0F;
             }
 
-            this.aC += (f4 - this.aC) * 0.4F;
-            this.aC += this.aC;
+            this.aB += (f4 - this.aB) * 0.4F;
+            this.aE += this.aB;
         } else {
             this.P = 0.5F;
             this.aM = 0.02F;

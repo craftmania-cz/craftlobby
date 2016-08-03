@@ -3,7 +3,7 @@ package cz.wake.plugins.gadgets;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.listeners.MessagesListener;
 import cz.wake.plugins.utils.UtilMath;
-import net.minecraft.server.v1_9_R2.Block;
+import net.minecraft.server.v1_10_R1.Block;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;

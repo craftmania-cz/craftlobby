@@ -4,14 +4,14 @@ import com.google.common.collect.Sets;
 import cz.wake.plugins.Main;
 import cz.wake.plugins.listeners.MessagesListener;
 import cz.wake.plugins.utils.UtilMath;
-import net.minecraft.server.v1_9_R2.EntityCreature;
-import net.minecraft.server.v1_9_R2.EntityInsentient;
-import net.minecraft.server.v1_9_R2.EntitySheep;
-import net.minecraft.server.v1_9_R2.PathfinderGoalSelector;
+import net.minecraft.server.v1_10_R1.EntityCreature;
+import net.minecraft.server.v1_10_R1.EntityInsentient;
+import net.minecraft.server.v1_10_R1.EntitySheep;
+import net.minecraft.server.v1_10_R1.PathfinderGoalSelector;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftSheep;
-import org.bukkit.craftbukkit.v1_9_R2.util.UnsafeList;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftSheep;
+import org.bukkit.craftbukkit.v1_10_R1.util.UnsafeList;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
@@ -173,7 +173,7 @@ public class ExplosiveSheep implements Listener {
     }
 
     public void clearPathfinders(org.bukkit.entity.Entity entity) {
-        net.minecraft.server.v1_9_R2.Entity nmsEntity = ((CraftEntity) entity).getHandle();
+        net.minecraft.server.v1_10_R1.Entity nmsEntity = ((CraftEntity) entity).getHandle();
         try {
             Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
             bField.setAccessible(true);

@@ -6,7 +6,7 @@ import cz.wake.plugins.utils.ItemFactory;
 import cz.wake.plugins.utils.ParticleEffect;
 import cz.wake.plugins.utils.UtilMath;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftFirework;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftFirework;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;

@@ -1,9 +1,8 @@
 package cz.wake.plugins.pets;
 
-
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableEnderman;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
 import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;

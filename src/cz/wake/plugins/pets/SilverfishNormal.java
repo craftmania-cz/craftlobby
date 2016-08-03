@@ -2,7 +2,7 @@ package cz.wake.plugins.pets;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideableSilverfish;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Silverfish;
 import org.bukkit.metadata.FixedMetadataValue;

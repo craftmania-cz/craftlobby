@@ -2,7 +2,7 @@ package cz.wake.plugins.pets;
 
 import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.mobs.RideablePig;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class PigNormal {
-
 
     public static ArrayList<String> pn = new ArrayList();
 
