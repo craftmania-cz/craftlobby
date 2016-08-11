@@ -288,6 +288,14 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube", "§7Nevlastnis ani jeden druh.");
 			inv.setItem(24, i);
 		}
+		if(p.hasPermission("craftlobby.pets.polarbear")
+                || p.hasPermission("craftlobby.pets.polarbear.baby")){
+            ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0, "§ePolarBear","","§aKliknutim zobrazis prehled.");
+            inv.setItem(25,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube", "§7Nevlastnis ani jeden druh.");
+            inv.setItem(25, i);
+        }
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -1190,6 +1198,46 @@ public class PetsAPI implements Listener{
 
 	}
 
+	public void openBearMenu(final Player p){
+
+        Inventory inv = Bukkit.createInventory(null, 27, "Pets - PolarBear");
+
+        if(p.hasPermission("craftlobby.pets.polarbear")){
+            ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0,"§aPolarBear", "", "§eKliknutim spawnes!");
+            inv.setItem(0,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPolarBear", "§7Tento typ nevlastnis.");
+            inv.setItem(0, i);
+        }
+        if(p.hasPermission("craftlobby.pets.polarbear.baby")){
+            ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0,"§aPolarBear (Baby)", "", "§eKliknutim spawnes!");
+            inv.setItem(1,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPolarBear (Baby)", "§7Tento typ nevlastnis.");
+            inv.setItem(1, i);
+        }
+
+        //Deaktivace
+        ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+        //Zpet do menu
+        ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+        //Shop
+        ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+                "§7Gadgety jsou doplnky do lobby",
+                "§7daji se ziskat z CraftBoxu nebo na",
+                "§7specialnich eventech.",
+                "",
+                "§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+        inv.setItem(23, dea);
+        inv.setItem(22, shopItem);
+        inv.setItem(21, zpet);
+
+        p.openInventory(inv);
+    }
+
 	public void openChickenMenu(final Player p){
 
 		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Chicken");
@@ -1548,6 +1596,9 @@ public class PetsAPI implements Listener{
 			if(e.getSlot() == 24){
 				this.openMagmaMenu(p);
 			}
+			if(e.getSlot() == 25){
+			    this.openBearMenu(p);
+            }
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
 			if (e.getCurrentItem() == null){
@@ -2490,6 +2541,39 @@ public class PetsAPI implements Listener{
 				}
 			}
 		}
+        if(e.getInventory().getTitle().equals("Pets - PolarBear")){
+            if (e.getCurrentItem() == null){
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR){
+                return;
+            }
+            if(e.getSlot() == 22){
+                Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+            }
+            if(e.getSlot() == 21){
+                this.openMainInv(p);
+            }
+            if(e.getSlot() == 23){
+                PetManager.forceRemovePet(p);
+                p.closeInventory();
+            }
+            if(e.getSlot() == 0){
+                if(p.hasPermission("craftlobby.pets.polarbear")){
+                    BearNormal.activateGolem(p,false);
+                } else {
+                    this.ml.messageNoPerm(p,"Polar Bear");
+                }
+            }
+            if(e.getSlot() == 1){
+                if(p.hasPermission("craftlobby.pets.polarbear.baby")){
+                    BearNormal.activateGolem(p,true);
+                } else {
+                    this.ml.messageNoPerm(p,"Polar Bear (Baby)");
+                }
+            }
+
+        }
 		if(e.getInventory().getTitle().equals("Pets - MagmaCube")){
 			if (e.getCurrentItem() == null){
 				return;
