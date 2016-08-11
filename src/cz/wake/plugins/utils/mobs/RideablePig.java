@@ -37,16 +37,16 @@ public class RideablePig extends EntityPig {
             this.lastYaw = this.yaw = passenger.yaw;
             this.pitch = passenger.pitch * 0.5F;
             this.setYawPitch(this.yaw, this.pitch);
-            this.aK = this.aI = this.yaw;
-            f = ((EntityLiving)passenger).bf * 2F;
-            f1 = ((EntityLiving) passenger).bf;
+            this.aK = this.aL = this.yaw;
+            f = ((EntityLiving) passenger).bf * 0.5F;
+            f1 = ((EntityLiving) passenger).bg;
 
             if (f1 <= 0.0F) {
                 f1 *= 0.25F;
             }
             Field jump = null;
             try {
-                jump = EntityLiving.class.getDeclaredField("bd");
+                jump = EntityLiving.class.getDeclaredField("be");
             } catch (NoSuchFieldException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
@@ -72,7 +72,7 @@ public class RideablePig extends EntityPig {
                 super.g(f, f1);
             }
 
-            this.ab = this.av;
+            this.av= this.ab;
             double d0 = this.locX - this.lastX;
             double d1 = this.locZ - this.lastZ;
             float f4 = MathHelper.sqrt(d0 * d0 + d1 * d1) * 4.0F;
@@ -80,8 +80,8 @@ public class RideablePig extends EntityPig {
                 f4 = 1.0F;
             }
 
-            this.aB += (f4 - this.aB) * 0.4F;
-            this.aE += this.aB;
+            this.aD += (f4 - this.aD) * 0.4F;
+            this.aD += this.aD;
         } else {
             this.P = 0.5F;
             this.aM = 0.02F;
