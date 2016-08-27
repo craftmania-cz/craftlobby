@@ -176,6 +176,13 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFunCannon Ice", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(21, i);
         }
+        if(p.hasPermission("craftlobby.gadget.antigravity")){
+            ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§e§lAntiGravity", "§7Zrus gravitaci okolo sebe...");
+            gadgetsInv.setItem(22, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 8, "§c§lAntiGravity", "§7Gadget lze ziskat v CraftBoxu!");
+            gadgetsInv.setItem(22, i);
+        }
 
         /** Nepouzivane gadgety
 
@@ -188,14 +195,6 @@ public class GadgetsAPI implements Listener {
          mbLore.add(ChatColor.GRAY + "zmenis moba.");
          mobgunMeta.setLore(mbLore);
          mobgun.setItemMeta(mobgunMeta);
-
-         ItemStack gravity = new ItemStack(Material.EYE_OF_ENDER);
-         ItemMeta gMeta = gravity.getItemMeta();
-         gMeta.setDisplayName(ChatColor.GREEN + "AntiGravity");
-         ArrayList<String> gLore = new ArrayList<String>();
-         gLore.add(ChatColor.GRAY + "Zrus gravitaci okolo sebe...");
-         gMeta.setLore(gLore);
-         gravity.setItemMeta(gMeta);
 
          ItemStack blackhole = new ItemStack(Material.STAINED_CLAY,1,(byte)15);
          ItemMeta bhMeta = blackhole.getItemMeta();
@@ -398,6 +397,13 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "FunCannon Ice", Material.DIAMOND_HOE, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "FunCannon Ice");
+                }
+            }
+            if(e.getSlot() == 22){
+                if(p.hasPermission("craftlobby.gadget.antigravity")){
+                    this.ml.prepareGadget(p, "AntiGravity", Material.EYE_OF_ENDER, (byte)0);
+                } else {
+                    this.ml.messageNoPerm(p, "AntiGravity");
                 }
             }
 
