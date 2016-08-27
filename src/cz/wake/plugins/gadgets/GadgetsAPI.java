@@ -169,6 +169,13 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFlowerPopper", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(20, i);
         }
+        if(p.hasPermission("craftlobby.gadgets.funcannon.ice")) {
+            ItemStack i = ItemFactory.create(Material.DIAMOND_HOE, (byte) 0, "§e§lFunCannon Ice", "§7Efekty, efekty, vsude jenom efekty!");
+            gadgetsInv.setItem(21, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFunCannon Ice", "§7Gadget lze ziskat v CraftBoxu!");
+            gadgetsInv.setItem(21, i);
+        }
 
         /** Nepouzivane gadgety
 
@@ -384,6 +391,13 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "FlowerPopper", Material.RED_ROSE, (byte) 0);
                 } else {
                     this.ml.messageNoPerm(p, "FlowerPopper");
+                }
+            }
+            if(e.getSlot() == 21) {
+                if (p.hasPermission("craftlobby.gadgets.funcannon.ice")){
+                    this.ml.prepareGadget(p, "FunCannon Ice", Material.DIAMOND_HOE, (byte)0);
+                } else {
+                    this.ml.messageNoPerm(p, "FunCannon Ice");
                 }
             }
 

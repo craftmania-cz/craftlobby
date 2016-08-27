@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import cz.wake.plugins.boxer.SkyKeys;
 import cz.wake.plugins.commands.SBPerms_command;
+import cz.wake.plugins.gadgets.*;
 import cz.wake.plugins.utils.mobs.*;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.*;
@@ -31,33 +32,6 @@ import cz.wake.plugins.cloaks.CloaksAPI;
 import cz.wake.plugins.cloaks.Hero;
 import cz.wake.plugins.commands.ProfilCMD;
 import cz.wake.plugins.commands.Stats_Command;
-import cz.wake.plugins.gadgets.AntiGravity;
-import cz.wake.plugins.gadgets.BatBlaster;
-import cz.wake.plugins.gadgets.BlackHole;
-import cz.wake.plugins.gadgets.BlizzardBlaster;
-import cz.wake.plugins.gadgets.Chickenator;
-import cz.wake.plugins.gadgets.ColorBomb;
-import cz.wake.plugins.gadgets.CookieFountain;
-import cz.wake.plugins.gadgets.DiscoBall;
-import cz.wake.plugins.gadgets.ExplosiveSheep;
-import cz.wake.plugins.gadgets.Fireworks;
-import cz.wake.plugins.gadgets.FlowerPopper;
-import cz.wake.plugins.gadgets.FunCannon;
-import cz.wake.plugins.gadgets.GadgetsAPI;
-import cz.wake.plugins.gadgets.Ghosts;
-import cz.wake.plugins.gadgets.PartyCoins;
-import cz.wake.plugins.gadgets.TeleportStick;
-import cz.wake.plugins.gadgets.MobGun;
-import cz.wake.plugins.gadgets.Pee;
-import cz.wake.plugins.gadgets.PigFly;
-import cz.wake.plugins.gadgets.PoopBomb;
-import cz.wake.plugins.gadgets.SlimeHat;
-import cz.wake.plugins.gadgets.SmashDown;
-import cz.wake.plugins.gadgets.TNTBomb;
-import cz.wake.plugins.gadgets.Trampoline;
-import cz.wake.plugins.gadgets.Tsunami;
-import cz.wake.plugins.gadgets.WakeArmy;
-import cz.wake.plugins.gadgets.WitherCatapult;
 import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
 import cz.wake.plugins.manager.LagManager;
@@ -190,6 +164,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new CloaksAPI(), this);
 		pm.registerEvents(new GadgetsAPI(), this);
 		pm.registerEvents(new PetsAPI(), this);
+        pm.registerEvents(new FunCannonIce(this), this);
 
         //SkyKeys pro SLOBBY
         if(pm.isPluginEnabled("CrateKeys")){
