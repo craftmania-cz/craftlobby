@@ -159,15 +159,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler
 	public void silverfishFix(EntityChangeBlockEvent e){
-		if(e.getEntity() instanceof Silverfish){
-			e.setCancelled(true);
-		}
-		if(e.getEntity() instanceof Sheep){
-			e.setCancelled(true);
-		}
-		if(e.getEntity() instanceof Snowman){
-			e.setCancelled(true);
-		}
+		e.setCancelled(true);
 	}
 	
 	@EventHandler
