@@ -101,7 +101,7 @@ public class BlizzardBlaster implements Listener {
                             }
                         }, 20);
                         for (final Entity ent : as.getNearbyEntities(0.5, 0.5, 0.5)) {
-                            if (!cooldownJump.contains(ent) && ent != player) {
+                            if ((!cooldownJump.contains(ent)) && (ent != player) && (!(ent instanceof ArmorStand))) {
                                 UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
                                 cooldownJump.add(ent);
                                 Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
