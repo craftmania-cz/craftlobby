@@ -227,16 +227,16 @@ public class InvClick implements Listener{
         		sendToServer(player, "vanilla");
         	}
         	if(event.getSlot() == 31){
-        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1177.0D, 35.0D, 458.637D, 90f, 5f));
+        		sendToServer(player, "pvparcade");
         	}
         	if(event.getSlot() == 30){
-        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1175.0D, 35.0D, 538.548D, 90f, 5f));
+        		sendToServer(player, "slobby");
         	}
         	if(event.getSlot() == 29){
-        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1289.0D, 35.0D, 426.310D, -180f, 5f));
+        		sendToServer(player, "blobby");
         	}
         	if(event.getSlot() == 32){
-        		player.teleport(new Location(Bukkit.getWorld("OfficialLobby"), 1322.0D, 35.0D, 498.490D, -90f, 5f));
+        		sendToServer(player, "arcade");
         	}
 			if(event.getSlot() == 18){
 				this.lob.openMenu(player);
