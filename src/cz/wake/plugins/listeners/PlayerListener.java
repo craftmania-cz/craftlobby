@@ -15,20 +15,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
-import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerKickEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerSwapHandItemsEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -289,7 +280,24 @@ public class PlayerListener implements Listener{
 			Block b = e.getClickedBlock();
 			if((b.getType() == Material.BEACON)
 					|| (b.getType() == Material.BREWING_STAND)
-					|| (b.getType() == Material.ANVIL)){
+					|| (b.getType() == Material.ANVIL)
+                    || (b.getType() == Material.ENDER_CHEST)
+                    || (b.getType() == Material.TRAP_DOOR)
+                    || (b.getType() == Material.CHEST)
+                    || (b.getType() == Material.FENCE)
+                    || (b.getType() == Material.FENCE_GATE)
+                    || (b.getType() == Material.ACACIA_FENCE)
+                    || (b.getType() == Material.ACACIA_FENCE_GATE)
+                    || (b.getType() == Material.BIRCH_FENCE)
+                    || (b.getType() == Material.BIRCH_FENCE_GATE)
+                    || (b.getType() == Material.DARK_OAK_FENCE)
+                    || (b.getType() == Material.DARK_OAK_FENCE_GATE)
+                    || (b.getType() == Material.JUNGLE_FENCE)
+                    || (b.getType() == Material.JUNGLE_FENCE_GATE)
+                    || (b.getType() == Material.NETHER_FENCE)
+                    || (b.getType() == Material.SPRUCE_FENCE_GATE)
+                    || (b.getType() == Material.TRAPPED_CHEST)
+                    || (b.getType() == Material.HOPPER)){
 				if(Main.getInstance().isDebug()){
 					e.setCancelled(false);
 				} else {
