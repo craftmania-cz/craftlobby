@@ -169,42 +169,27 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFlowerPopper", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(20, i);
         }
-        if(p.hasPermission("craftlobby.gadgets.funcannon.ice")) {
-            ItemStack i = ItemFactory.create(Material.DIAMOND_HOE, (byte) 0, "§e§lFunCannon Ice", "§7Efekty, efekty, vsude jenom efekty!");
+        if(p.hasPermission("craftlobby.gadgets.funcannon.ender")) {
+            ItemStack i = ItemFactory.create(Material.DIAMOND_HOE, (byte) 0, "§e§lFunCannon Ender", "§7Efekty, efekty, vsude jenom efekty!");
             gadgetsInv.setItem(21, i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFunCannon Ice", "§7Gadget lze ziskat v CraftBoxu!");
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFunCannon Ender", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(21, i);
         }
         if(p.hasPermission("craftlobby.gadget.antigravity")){
             ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§e§lAntiGravity", "§7Zrus gravitaci okolo sebe...");
             gadgetsInv.setItem(22, i);
         } else {
-            ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 8, "§c§lAntiGravity", "§7Gadget lze ziskat v CraftBoxu!");
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lAntiGravity", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(22, i);
         }
-
-        /** Nepouzivane gadgety
-
-         ItemStack mobgun = new ItemStack(Material.BLAZE_ROD);
-         ItemMeta mobgunMeta = mobgun.getItemMeta();
-         mobgunMeta.setDisplayName(ChatColor.GREEN + "MobGun");
-         ArrayList<String> mbLore = new ArrayList<String>();
-         mbLore.add(ChatColor.GRAY + "Pravym kliknutim vystrelis");
-         mbLore.add(ChatColor.GRAY + "vybraneho moba. Levym kliknutim");
-         mbLore.add(ChatColor.GRAY + "zmenis moba.");
-         mobgunMeta.setLore(mbLore);
-         mobgun.setItemMeta(mobgunMeta);
-
-         ItemStack blackhole = new ItemStack(Material.STAINED_CLAY,1,(byte)15);
-         ItemMeta bhMeta = blackhole.getItemMeta();
-         bhMeta.setDisplayName(ChatColor.RED + "BlackHole");
-         ArrayList<String> bhLore = new ArrayList<String>();
-         bhLore.add(ChatColor.GRAY + "Cerna dira je velka a tajna!");
-         bhLore.add(ChatColor.GRAY + "Kliknutim objevis co je v ni.");
-         bhMeta.setLore(bhLore);
-         blackhole.setItemMeta(bhMeta);
-         */
+        if(p.hasPermission("craftlobby.gadget.blackhole")){
+            ItemStack i = ItemFactory.create(Material.STAINED_CLAY, (byte) 15, "§e§lBlackHole", "§7Vhod vsechny do cerne diry a uvezni je tam!");
+            gadgetsInv.setItem(23, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lBlackHole", "§7Gadget lze ziskat v CraftBoxu!");
+            gadgetsInv.setItem(23, i);
+        }
 
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§cZpet do menu");
 
@@ -366,7 +351,8 @@ public class GadgetsAPI implements Listener {
             }
             if (e.getSlot() == 17) {
                 if (p.hasPermission("craftlobby.gadgets.trampoline")) {
-                    this.ml.prepareGadget(p, "Trampoline", Material.HOPPER, (byte) 0);
+                    //this.ml.prepareGadget(p, "Trampoline", Material.HOPPER, (byte) 0);
+                    p.sendMessage("§cTento gadget je aktualne deaktivovany!");
                 } else {
                     this.ml.messageNoPerm(p, "Trampoline");
                 }
@@ -393,10 +379,10 @@ public class GadgetsAPI implements Listener {
                 }
             }
             if(e.getSlot() == 21) {
-                if (p.hasPermission("craftlobby.gadgets.funcannon.ice")){
-                    this.ml.prepareGadget(p, "FunCannon Ice", Material.DIAMOND_HOE, (byte)0);
+                if (p.hasPermission("craftlobby.gadgets.funcannon.ender")){
+                    this.ml.prepareGadget(p, "FunCannon Ender", Material.DIAMOND_HOE, (byte)0);
                 } else {
-                    this.ml.messageNoPerm(p, "FunCannon Ice");
+                    this.ml.messageNoPerm(p, "FunCannon Ender");
                 }
             }
             if(e.getSlot() == 22){
@@ -404,6 +390,13 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "AntiGravity", Material.EYE_OF_ENDER, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "AntiGravity");
+                }
+            }
+            if(e.getSlot() == 23){
+                if(p.hasPermission("craftlobby.gadget.blackhole")){
+                    this.ml.prepareGadget(p, "BlackHole", Material.STAINED_CLAY, (byte)15);
+                } else {
+                    this.ml.messageNoPerm(p, "BlackHole");
                 }
             }
 

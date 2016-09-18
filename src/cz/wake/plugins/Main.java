@@ -52,10 +52,12 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private GadgetsAPI gadgets = new GadgetsAPI();
 	private PetsAPI pets = new PetsAPI();
 	private GadgetsMenu gMenu = new GadgetsMenu();
+    private Servers s = new Servers();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
 	public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
 	public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
+    public static ArrayList<Player> inPortal = new ArrayList<>();
 	public VillagerMorph VillagerMorph;
 	private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
@@ -120,7 +122,6 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new HeadsMenu(), this);
 		pm.registerEvents(new GadgetsMenu(), this);
 		pm.registerEvents(new TeleportStick(this), this);
-		pm.registerEvents(new MobGun(this), this);
 		pm.registerEvents(new FunCannon(this), this);
 		pm.registerEvents(new TNTBomb(this), this);
 		pm.registerEvents(new MorphsMenu(), this);
@@ -153,7 +154,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new PartyCoins(this), this);
 		pm.registerEvents(new WakeArmy(this), this);
 		pm.registerEvents(new Hero(), this);
-		pm.registerEvents(new Boxer(), this);
+		//pm.registerEvents(new Boxer(), this);
 		pm.registerEvents(new CloaksAPI(), this);
 		pm.registerEvents(new GadgetsAPI(), this);
 		pm.registerEvents(new PetsAPI(), this);
@@ -234,5 +235,21 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	public PetsAPI getPetsAPI(){
 		return pets;
 	}
+
+	public Servers getServerMenu(){
+	    return s;
+    }
+
+    public void addPortal(Player p){
+        inPortal.add(p);
+    }
+
+    public boolean inPortal(Player p){
+        return inPortal.contains(p);
+    }
+
+    public void removePortal(Player p){
+        inPortal.remove(p);
+    }
 	
 }

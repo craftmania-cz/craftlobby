@@ -44,13 +44,13 @@ public class FunCannonIce implements Listener {
         if (!item.getType().equals(Material.DIAMOND_HOE)) {
             return;
         }
-        if (!item.getItemMeta().getDisplayName().contains("FunCannon Ice")) {
+        if (!item.getItemMeta().getDisplayName().contains("FunCannon Ender")) {
             return;
         }
         event.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
-            if (!player.hasPermission("craftlobby.gadgets.funcannon.ice")) {
+            if (!player.hasPermission("craftlobby.gadgets.funcannon.ender")) {
                 return;
             }
             if (this._time.containsKey(player)) {
@@ -60,8 +60,8 @@ public class FunCannonIce implements Listener {
             this._time.put(player, Double.valueOf(5D + 0.1D));
             Projectile projEp = player.launchProjectile(EnderPearl.class);
             Projectile projEp2 = player.launchProjectile(EnderPearl.class);
-            Projectile projSb = player.launchProjectile(Snowball.class);
-            Projectile projSb2 = player.launchProjectile(Snowball.class);
+            Projectile projSb = player.launchProjectile(EnderPearl.class);
+            Projectile projSb2 = player.launchProjectile(EnderPearl.class);
             projEp.setVelocity(projEp.getVelocity().multiply(1));
             projEp2.setVelocity(projEp2.getVelocity().multiply(1));
             projEp.setMetadata("FUNCANNON2", new FixedMetadataValue(plugin, player.getName()));
@@ -92,15 +92,13 @@ public class FunCannonIce implements Listener {
         if ((en instanceof Projectile)) {
             if (en.hasMetadata("FUNCANNON2")) {
 
-                ParticleEffect.DRAGON_BREATH.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
-                ParticleEffect.HEART.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
-                ParticleEffect.SMOKE_NORMAL.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
-                ParticleEffect.SMOKE_LARGE.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
-                ParticleEffect.CLOUD.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
                 ParticleEffect.PORTAL.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
+                ParticleEffect.FIREWORKS_SPARK.display(1.0F, 1.0F, 1.0F, 0.0F, 20, en.getLocation(), 15.0D);
+                ParticleEffect.ENCHANTMENT_TABLE.display(0.5F, 0.5F, 0.5F, 0.0F, 20, en.getLocation(), 15.0D);
+                ParticleEffect.END_ROD.display(0.3F, 0.3F, 0.3F, 0.0F, 20, en.getLocation(), 15.0D);
 
-                en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_MULE_HURT, 1.0F, 1.0F);
-                en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_BAT_HURT, 1.0F, 1.0F);
+                en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_WOLF_AMBIENT, 1.0F, 1.0F);
+                en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_WOLF_WHINE, 1.0F, 1.0F);
             }
             en.remove();
         }

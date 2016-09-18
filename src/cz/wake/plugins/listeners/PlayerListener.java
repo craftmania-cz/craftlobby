@@ -1,12 +1,9 @@
 package cz.wake.plugins.listeners;
 
 import java.util.HashMap;
+import java.util.Random;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -351,5 +348,25 @@ public class PlayerListener implements Listener{
 	public static double arrondi(double A, int B){
 		return (int)(A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
 	}
+
+	@EventHandler
+    public void onPortal(EntityPortalEnterEvent e){
+	    Player p = (Player) e.getEntity();
+        if(!Main.getInstance().inPortal(p)){
+            if(Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")){
+                Main.getInstance().addPortal(p);
+                //Main.getInstance().getServerMenu().openServersMenu(p);
+            } else {
+                ic.sendToServer(p,"lobby");
+            }
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    Main.getInstance().removePortal(p);
+                }
+            }.runTaskLater(Main.getInstance(), 100L);
+
+        }
+    }
 	
 }

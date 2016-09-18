@@ -59,8 +59,8 @@ public class FunCannon implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(5D + 0.1D));
-            Projectile projEp = player.launchProjectile(EnderPearl.class);
-            Projectile projEp2 = player.launchProjectile(EnderPearl.class);
+            Projectile projEp = player.launchProjectile(Snowball.class);
+            Projectile projEp2 = player.launchProjectile(Snowball.class);
             Projectile projSb = player.launchProjectile(Snowball.class);
             Projectile projSb2 = player.launchProjectile(Snowball.class);
             projEp.setVelocity(projEp.getVelocity().multiply(1));
@@ -102,7 +102,7 @@ public class FunCannon implements Listener {
                 ParticleEffect.LAVA.display(0.0F, 0.0F, 0.0F, 0.0F, 20, en.getLocation(), 15.0D);
 
                 en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_CAT_PURREOW, 1.0F, 1.0F);
-                en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_WOLF_HURT, 1.0F, 1.0F);
+                en.getLocation().getWorld().playSound(en.getLocation(), Sound.ENTITY_CAT_AMBIENT, 1.0F, 1.0F);
             }
             en.remove();
         }

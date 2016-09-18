@@ -66,7 +66,7 @@ public class BlackHole implements Listener {
                 MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double) this._time.get(player)).doubleValue(), 1)));
                 return;
             }
-            this._time.put(player, Double.valueOf(20D + 0.1D));
+            this._time.put(player, Double.valueOf(75D + 0.1D));
             if (i != null) {
                 i.remove();
                 i = null;
