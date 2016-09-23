@@ -197,6 +197,13 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDiamondFountain", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(24, i);
         }
+        if(p.hasPermission("craftlobby.gadgets.firetrail")){
+            ItemStack i = ItemFactory.create(Material.BLAZE_POWDER, (byte) 0, "§e§lFireTrail", "§7Jsi do hrani na CraftManii totalne zapaleny!");
+            gadgetsInv.setItem(25, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDiamondFountain", "§7Gadget lze ziskat v CraftBoxu!");
+            gadgetsInv.setItem(25, i);
+        }
 
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§cZpet do menu");
 
@@ -411,6 +418,13 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "DiamondFountain", Material.DIAMOND, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "DiamondFountain");
+                }
+            }
+            if(e.getSlot() == 25){
+                if(p.hasPermission("craftlobby.gadgets.firetrail")){
+                    this.ml.prepareGadget(p, "FireTrail", Material.BLAZE_POWDER, (byte)0);
+                } else {
+                    this.ml.messageNoPerm(p, "FireTrail");
                 }
             }
 
