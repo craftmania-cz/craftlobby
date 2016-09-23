@@ -80,6 +80,11 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 	    Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
+
+        // Deaktivace fire
+        for(World w : Bukkit.getWorlds()){
+            w.setGameRuleValue("doFireTick", "false");
+        }
         
 	    //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
@@ -160,6 +165,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new PetsAPI(), this);
         pm.registerEvents(new FunCannonIce(this), this);
         pm.registerEvents(new DiamondsFountain(this), this);
+        pm.registerEvents(new FireTrail(this), this);
 
         //SkyKeys pro SLOBBY
         if(pm.isPluginEnabled("CrateKeys")){
