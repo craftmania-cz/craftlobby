@@ -13,6 +13,8 @@ commands:
     description: Statistiky hracu
   sbperms:
     description: Addon na Skybox
+  changepassword:
+    description: Prikaz na zmenu hesla pro Warez
 permissions:
   craftlobby.pristup:
     description: Beta test

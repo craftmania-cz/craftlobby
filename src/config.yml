@@ -10,3 +10,6 @@ debug: false
 
 # Typ serveru
 server: lobby
+
+# Zmena hesla pro Warez hrace
+auth-zmenahesla: true

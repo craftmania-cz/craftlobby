@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import cz.wake.plugins.boxer.SkyKeys;
+import cz.wake.plugins.commands.Changepassword_Command;
 import cz.wake.plugins.commands.SBPerms_command;
 import cz.wake.plugins.gadgets.*;
 import cz.wake.plugins.utils.mobs.*;
@@ -180,6 +181,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		getCommand("wl").setExecutor(new ProfilCMD());
 		getCommand("stats").setExecutor(new Stats_Command());
         getCommand("sbperms").setExecutor(new SBPerms_command());
+        getCommand("changepassword").setExecutor(new Changepassword_Command());
 	}
 	
 	public static Main getInstance(){
