@@ -365,7 +365,14 @@ public class PlayerListener implements Listener{
                     Main.getInstance().removePortal(p);
                 }
             }.runTaskLater(Main.getInstance(), 100L);
+        }
+    }
 
+    @EventHandler
+    public void onMove(PlayerMoveEvent e){
+        final Player p = e.getPlayer();
+        if(p.getLocation().getY() <= 10){
+            p.performCommand("spawn");
         }
     }
 	

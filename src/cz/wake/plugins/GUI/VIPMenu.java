@@ -106,14 +106,15 @@ public class VIPMenu {
         iMeta.setDisplayName("§b§lVyhody MiniGames VIP");
         ArrayList<String> iLore = new ArrayList<String>();
         iLore.add("");
-        iLore.add("§7SkyWars:");
-        iLore.add("§e▪ §fPristup ke všem kitum.");
         iLore.add("§7Annihilation:");
         iLore.add("§e▪ §fPristup ke vsem kitum.");
+        iLore.add("§e▪ §fVIP Slot");
         iLore.add("§7BedWars:");
         iLore.add("§e▪ §fVIP Menu ve Villagerovi");
+        iLore.add("§e▪ §fVIP Slot");
         iLore.add("§7DrawIt:");
         iLore.add("§e▪ §fPridan cas na kresleni - 75 vterin.");
+        iLore.add("§e▪ §fVIP Slot");
         iMeta.setLore(iLore);
         info.setItemMeta(iMeta);
 

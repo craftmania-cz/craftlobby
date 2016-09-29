@@ -227,7 +227,7 @@ public class InvClick implements Listener{
         		sendToServer(player, "vanilla");
         	}
         	if(event.getSlot() == 31){
-        		sendToServer(player, "pvparcade");
+        		sendToServer(player, "lobby2");
         	}
         	if(event.getSlot() == 30){
         		sendToServer(player, "slobby");
@@ -236,7 +236,7 @@ public class InvClick implements Listener{
         		sendToServer(player, "blobby");
         	}
         	if(event.getSlot() == 32){
-        		sendToServer(player, "arcade");
+        		sendToServer(player, "dlobby");
         	}
 			if(event.getSlot() == 18){
 				this.lob.openMenu(player);
