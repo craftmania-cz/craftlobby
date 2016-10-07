@@ -70,18 +70,15 @@ public class Servers implements Listener {
         inv.setItem(26, fac);
 
         ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§a§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
-                "", "§eMultiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
-        bedw = ItemFactory.addGlow(bedw);
+                "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(29, bedw);
 
         ItemStack sw = ItemFactory.create(Material.BOW, (byte) 0, "§a§lSkyWars", "§8Minihra, PVP", "", "§7Kazdy sam za sebe,", "§7vyhraje pouze ten nejlepsi.", "", "§bSolo: §fKlasicky SkyWars",
-                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§eMultiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
-        sw = ItemFactory.addGlow(sw);
+                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(30, sw);
 
         ItemStack an = ItemFactory.create(Material.ENDER_STONE, (byte) 0, "§a§lAnnihilation", "§8Minihra, Team PVP", "", "§7Hlavnim ukolem je znicit", "§7Nexus jineho teamu. Stihnes to,",
-                "§7nez znici oni tebe?", "", "§eMultiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
-        an = ItemFactory.addGlow(an);
+                "§7nez znici oni tebe?", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(31, an);
 
         new BukkitRunnable() {
@@ -91,20 +88,17 @@ public class Servers implements Listener {
             public void run() {
                 if (c == 1) {
                     ItemStack i = ItemFactory.create(Material.PAINTING, (byte) 0, "§a§lArcade", "§8Rychle minihry bez PVP", "",
-                            "§eDrawIt", "§fBuildBattle", "§fSpeedBuilders", "", "§eMultiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
-                    i = ItemFactory.addGlow(i);
+                            "§eDrawIt", "§fBuildBattle", "§fSpeedBuilders", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
                     inv.setItem(32, i);
                     c++;
                 } else if (c == 2) {
                     ItemStack i = ItemFactory.create(Material.WORKBENCH, (byte) 0, "§a§lArcade", "§8Rychle minihry bez PVP", "",
-                            "§fDrawIt", "§eBuildBattle", "§fSpeedBuilders", "", "§eMultiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
-                    i = ItemFactory.addGlow(i);
+                            "§fDrawIt", "§eBuildBattle", "§fSpeedBuilders", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
                     inv.setItem(32, i);
                     c++;
                 } else if (c == 3) {
                     ItemStack i = ItemFactory.create(Material.QUARTZ_BLOCK, (byte) 0, "§a§lArcade", "§8Rychle minihry bez PVP", "",
-                            "§fDrawIt", "§fBuildBattle", "§eSpeedBuilders", "", "§eMultiplier: §63.0x", "", "§b▸ Kliknutim te portnu");
-                    i = ItemFactory.addGlow(i);
+                            "§fDrawIt", "§fBuildBattle", "§eSpeedBuilders", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
                     inv.setItem(32, i);
                     c = 1;
                 }
