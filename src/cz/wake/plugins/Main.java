@@ -168,6 +168,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         pm.registerEvents(new DiamondsFountain(this), this);
         pm.registerEvents(new FireTrail(this), this);
         pm.registerEvents(new Rocket(this), this);
+        pm.registerEvents(new Parachute(this), this);
 
         //SkyKeys pro SLOBBY
         if(pm.isPluginEnabled("CrateKeys")){
