@@ -201,8 +201,15 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.BLAZE_POWDER, (byte) 0, "§e§lFireTrail", "§7Jsi do hrani na CraftManii totalne zapaleny!");
             gadgetsInv.setItem(25, i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDiamondFountain", "§7Gadget lze ziskat v CraftBoxu!");
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFireTrail", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(25, i);
+        }
+        if(p.hasPermission("craftlobby.gadgets.rocket")){
+            ItemStack i = ItemFactory.create(Material.COAL, (byte) 1, "§e§lRocket", "§7NASA te potrebuje, my ale take!");
+            gadgetsInv.setItem(26, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lRocket", "§7Gadget lze ziskat v CraftBoxu!");
+            gadgetsInv.setItem(26, i);
         }
 
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§cZpet do menu");
@@ -425,6 +432,13 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "FireTrail", Material.BLAZE_POWDER, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "FireTrail");
+                }
+            }
+            if(e.getSlot() == 26){
+                if(p.hasPermission("craftlobby.gadgets.rocket")){
+                    this.ml.prepareGadget(p, "Rocket", Material.COAL, (byte)1);
+                } else {
+                    this.ml.messageNoPerm(p, "Rocket");
                 }
             }
 
