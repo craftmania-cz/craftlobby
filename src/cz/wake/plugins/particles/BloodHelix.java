@@ -38,7 +38,7 @@ public class BloodHelix{
 				            Vector v = new Vector();
 				            v.setX(Math.cos(angle) * radius);
 				            v.setZ(Math.sin(angle) * radius);
-				            UtilParticles.play(location.add(v), Effect.COLOURED_DUST, 0f);
+				            UtilParticles.play(location.add(v), Effect.COLOURED_DUST, 0);
 				            location.subtract(v);
 				            location.add(0, 0.12d, 0);
 				            radius -= 0.044f;
@@ -49,7 +49,7 @@ public class BloodHelix{
 				            Vector v = new Vector();
 				            v.setX(Math.cos(angle) * radius2);
 				            v.setZ(Math.sin(angle) * radius2);
-				            UtilParticles.play(location2.add(v), Effect.COLOURED_DUST, 0f);
+				            UtilParticles.play(location2.add(v), Effect.COLOURED_DUST, 0);
 				            location2.subtract(v);
 				            location2.add(0, 0.12d, 0);
 				            radius2 -= 0.044f;

@@ -2,6 +2,7 @@ package cz.wake.plugins.cloaks;
 
 import java.util.HashMap;
 
+import cz.wake.plugins.utils.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Effect;
@@ -13,10 +14,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import cz.wake.plugins.Main;
-import cz.wake.plugins.utils.ItemFactory;
-import cz.wake.plugins.utils.ParticleEffect;
-import cz.wake.plugins.utils.UtilMath;
-import cz.wake.plugins.utils.UtilParticles;
 
 public class SantaCloak{
 	
@@ -67,8 +64,7 @@ public class SantaCloak{
 				            } else {
 				            	UtilMath.rotateAroundAxisZ(v, 90);
 				            }
-				            UtilParticles.play(p.getLocation().clone().add(0, 1, 0).add(v), Effect.COLOURED_DUST, 0f);
-				            ParticleEffect.SNOW_SHOVEL.display(1.0f, 1.0f, 1.0f, 0, 3, p.getLocation(), 30.0D);
+				            UtilParticles.play(p.getLocation().clone().add(0, 1, 0).add(v), Effect.COLOURED_DUST, 0);
 				        }
 				        step += 3;
 					} 

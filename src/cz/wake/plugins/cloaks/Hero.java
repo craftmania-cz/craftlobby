@@ -2,6 +2,8 @@ package cz.wake.plugins.cloaks;
 
 import java.util.HashMap;
 
+import cz.wake.plugins.utils.ParticleEffect;
+import cz.wake.plugins.utils.UtilParticles;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -10,8 +12,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import cz.wake.plugins.Main;
-import cz.wake.plugins.utils.Particles;
-import cz.wake.plugins.utils.UtilParticles;
 
 public class Hero implements Listener{
 	
@@ -28,7 +28,7 @@ public class Hero implements Listener{
 				public void run() {
 					if(heroCloaks.containsKey(p.getName())){
 						drawParticles(p.getLocation(),p);
-				        UtilParticles.display(Particles.CLOUD, 0.15F, 0.1f, 0.15f, p.getLocation(), 4);
+				        UtilParticles.display(ParticleEffect.CLOUD, 0.15F, 0.1f, 0.15f, p.getLocation(), 4);
 					}
 				}
 				
