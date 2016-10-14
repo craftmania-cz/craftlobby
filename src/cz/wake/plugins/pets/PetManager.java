@@ -153,8 +153,11 @@ public class PetManager implements Listener {
                 ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
             }
         } else {
+            if(mob instanceof Horse){
+                player.sendMessage("§cTento mob neni tvuj!");
+                return;
+            }
             player.sendMessage("§cTento mob neni tvuj!");
-            return;
         }
     }
 

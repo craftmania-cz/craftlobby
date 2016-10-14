@@ -156,6 +156,11 @@ public class PlayerListener implements Listener{
             event.setCancelled(true);
         }
     }
+
+    @EventHandler
+    public void onTarget(EntityTargetEvent e){
+        e.setCancelled(true);
+    }
 	
 	@EventHandler
 	public void onItemMove(InventoryClickEvent e){
