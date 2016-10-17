@@ -28,12 +28,12 @@ import java.util.Random;
 public class Rocket implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    public static Random random = new Random();
-    public static final List<Block> BLOCKS = new ArrayList<>();
-    boolean launching;
-    ArmorStand armorStand;
-    List<FallingBlock> fallingBlocks = new ArrayList<>();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private static Random random = new Random();
+    private static final List<Block> BLOCKS = new ArrayList<>();
+    private boolean launching;
+    private ArmorStand armorStand;
+    private List<FallingBlock> fallingBlocks = new ArrayList<>();
 
     private Main plugin;
 
@@ -76,7 +76,7 @@ public class Rocket implements Listener {
             loc.setX(loc.getBlockX() + 0.5);
             loc.setY(loc.getBlockY());
             loc.setZ(loc.getBlockZ() + 0.5);
-            Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
+            final int task = Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
                 for (int i = 0; i < 2; i++) {
                     Block b1 = loc.clone().add(1, i, 0).getBlock();
                     Block b2 = loc.clone().add(-1, i, 0).getBlock();
@@ -97,90 +97,98 @@ public class Rocket implements Listener {
                 armorStand = loc.getWorld().spawn(loc.add(0, 1.5, 0), ArmorStand.class);
                 armorStand.setVisible(false);
                 armorStand.setGravity(false);
-            }, 10);
-            Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
-                armorStand.setPassenger(player);
-                BukkitRunnable runnable = new BukkitRunnable() {
-                    int i = 5;
+            }, 10).getTaskId();
+            final int task4 = Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
+                @Override
+                public void run() {
+                    armorStand.setPassenger(player);
+                    final int task3 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
+                        int i = 5;
+                        @Override
+                        public void run() {
+                            if (i > 0) {
+                                player.sendTitle("§c§l" + i, "");
+                                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 1.0f, 1.0f);
+                                ParticleEffect.SMOKE_LARGE.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
+                                i--;
+                            } else {
 
-                    @Override
-                    public void run() {
-                        if (i > 0) {
-                            player.sendTitle("§c§l" + i, "");
-                            player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 1.0f, 1.0f);
-                            i--;
-                        } else {
-
-                            player.sendTitle("§e§lSTART", "");
-                            player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 1.0f);
-                            armorStand.remove();
-                            armorStand = null;
-
-
-                            for (Block block : BLOCKS) {
-                                block.setType(Material.AIR);
-                            }
-
-                            BLOCKS.clear();
-
-                            final FallingBlock top = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 3, 0), Material.QUARTZ_BLOCK, (byte) 0);
-                            FallingBlock base = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 2, 0), Material.QUARTZ_BLOCK, (byte) 0);
-                            for (int i = 0; i < 2; i++) {
-                                FallingBlock fence1 = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 1 + i, 1), Material.FENCE, (byte) 0);
-                                FallingBlock fence2 = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 1 + i, -1), Material.FENCE, (byte) 0);
-                                FallingBlock fence3 = player.getWorld().spawnFallingBlock(player.getLocation().add(1, 1 + i, 0), Material.FENCE, (byte) 0);
-                                FallingBlock fence4 = player.getWorld().spawnFallingBlock(player.getLocation().add(-1, 1 + i, 0), Material.FENCE, (byte) 0);
-                                fallingBlocks.add(fence1);
-                                fallingBlocks.add(fence2);
-                                fallingBlocks.add(fence3);
-                                fallingBlocks.add(fence4);
-                            }
-
-                            fallingBlocks.add(top);
-                            fallingBlocks.add(base);
-                            if (fallingBlocks.get(8).getPassenger() == null)
-                                fallingBlocks.get(8).setPassenger(player);
-                            top.setPassenger(player);
-                            launching = true;
-
-                            Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (armorStand != null) {
-                                        if (armorStand.getPassenger() == null)
-                                            armorStand.setPassenger(player);
-                                        ParticleEffect.SMOKE_LARGE.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
-                                        player.playSound(armorStand.getLocation().clone().add(0, -3, 0), Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
-                                    }
-                                    for (FallingBlock fallingBlock : fallingBlocks) {
-                                        fallingBlock.setVelocity(new Vector(0, 0.8, 0));
-                                    }
-                                    if (launching) {
-                                        if (fallingBlocks.get(8).getPassenger() == null) {
-                                            fallingBlocks.get(8).setPassenger(player);
-                                        }
-                                        ParticleEffect.FLAME.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
-                                        ParticleEffect.LAVA.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
-                                        player.playSound(fallingBlocks.get(9).getLocation().clone().add(0, -1, 0), Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
-                                        player.playSound(fallingBlocks.get(9).getLocation().clone().add(0, -1, 0), Sound.ENTITY_BAT_LOOP, 1.0f, 1.0f);
-                                    }
-                                }
-                            }, 0L, 2L);
-
-                            Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
-                                fallingBlocks.forEach(Entity::remove);
-                                fallingBlocks.clear();
-                                //FallDamageManager.addNoFall(getPlayer());
+                                player.sendTitle("§e§lSTART", "");
                                 player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 1.0f);
-                                ParticleEffect.EXPLOSION_HUGE.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
-                                launching = false;
-                            }, 160);
-                            cancel();
+                                armorStand.remove();
+                                armorStand = null;
+
+
+                                for (Block block : BLOCKS) {
+                                    block.setType(Material.AIR);
+                                }
+
+                                BLOCKS.clear();
+
+                                final FallingBlock top = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 3, 0), Material.QUARTZ_BLOCK, (byte) 0);
+                                FallingBlock base = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 2, 0), Material.QUARTZ_BLOCK, (byte) 0);
+                                for (int i = 0; i < 2; i++) {
+                                    FallingBlock fence1 = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 1 + i, 1), Material.FENCE, (byte) 0);
+                                    FallingBlock fence2 = player.getWorld().spawnFallingBlock(player.getLocation().add(0, 1 + i, -1), Material.FENCE, (byte) 0);
+                                    FallingBlock fence3 = player.getWorld().spawnFallingBlock(player.getLocation().add(1, 1 + i, 0), Material.FENCE, (byte) 0);
+                                    FallingBlock fence4 = player.getWorld().spawnFallingBlock(player.getLocation().add(-1, 1 + i, 0), Material.FENCE, (byte) 0);
+                                    fallingBlocks.add(fence1);
+                                    fallingBlocks.add(fence2);
+                                    fallingBlocks.add(fence3);
+                                    fallingBlocks.add(fence4);
+                                }
+
+                                fallingBlocks.add(top);
+                                fallingBlocks.add(base);
+                                if (fallingBlocks.get(8).getPassenger() == null)
+                                    fallingBlocks.get(8).setPassenger(player);
+                                top.setPassenger(player);
+                                launching = true;
+
+                                final int task2 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (armorStand != null) {
+                                            if (armorStand.getPassenger() == null)
+                                                armorStand.setPassenger(player);
+                                            player.playSound(armorStand.getLocation().clone().add(0, -3, 0), Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
+                                        }
+                                        for (FallingBlock fallingBlock : fallingBlocks) {
+                                            fallingBlock.setVelocity(new Vector(0, 0.8, 0));
+                                        }
+                                        if (launching) {
+                                            player.sendTitle("", "");
+                                            if (fallingBlocks.get(8).getPassenger() == null) {
+                                                fallingBlocks.get(8).setPassenger(player);
+                                            }
+                                            ParticleEffect.FLAME.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
+                                            ParticleEffect.LAVA.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
+                                            player.playSound(fallingBlocks.get(9).getLocation().clone().add(0, -1, 0), Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
+                                            player.playSound(fallingBlocks.get(9).getLocation().clone().add(0, -1, 0), Sound.ENTITY_BAT_LOOP, 1.0f, 1.0f);
+                                        }
+                                    }
+                                }, 0L, 2L).getTaskId();
+
+                                Bukkit.getScheduler().runTaskLater(Main.getPlugin(), () -> {
+                                    fallingBlocks.forEach(Entity::remove);
+                                    fallingBlocks.clear();
+                                    //FallDamageManager.addNoFall(getPlayer());
+                                    Bukkit.getScheduler().cancelTask(task2);
+                                    player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0f, 1.0f);
+                                    ParticleEffect.EXPLOSION_HUGE.display(0.3f, 0.2f, 0.3f, 0.0F, 20, player.getLocation().add(0, -3, 0), 15.0D);
+                                    launching = false;
+                                }, 160);
+                            }
                         }
-                    }
-                };
-                runnable.runTaskTimer(Main.getPlugin(), 0, 20);
-            }, 12);
+                    }, 0L, 20L).getTaskId();
+                    final int cancelTask = Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
+                        @Override
+                        public void run() {
+                            Bukkit.getScheduler().cancelTask(task3);
+                        }
+                    }, 120L).getTaskId();
+                }
+            },12L).getTaskId();
 
             Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
                 @Override
@@ -193,7 +201,6 @@ public class Rocket implements Listener {
                     fallingBlocks.clear();
                     if (armorStand != null)
                         armorStand.remove();
-
                     launching = false;
                     player.sendTitle(" ", "");
                 }

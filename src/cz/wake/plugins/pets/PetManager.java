@@ -154,6 +154,7 @@ public class PetManager implements Listener {
             }
         } else {
             if(mob instanceof Horse){
+                e.setCancelled(true);
                 player.sendMessage("§cTento mob neni tvuj!");
                 return;
             }
