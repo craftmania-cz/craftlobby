@@ -72,6 +72,7 @@ public class InvClick implements Listener{
 	CandyCane cc = new CandyCane();
 	NakupBoxu np = new NakupBoxu();
 	Lobby lob = new Lobby();
+    Hero cape = new Hero();
 	
 	@EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -271,9 +272,26 @@ public class InvClick implements Listener{
 	        if(event.getSlot() == 16){
 	        	Main.getInstance().getCloaksAPI().openCloaks(player);
 	        }
-	        if(event.getSlot() == 50){
+	        if(event.getSlot() == 49){
 	        	this.np.openNakup(player);
 	        }
+	        if(event.getSlot() == 51){
+                if(player.hasPermission("craftlobby.cape.majitel")
+                        || player.hasPermission("craftlobby.cape.admin")
+                        || player.hasPermission("craftlobby.cape.builder")
+                        || player.hasPermission("craftlobby.cape.helper")
+                        || player.hasPermission("craftlobby.cape.vip")
+                        || player.hasPermission("craftlobby.cape.spirit")){
+                    if(Hero.heroCloaks.containsKey(player.getName())){
+                        Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(player.getName())).intValue());
+                        Hero.heroCloaks.remove(player.getName());
+                        player.getInventory().setArmorContents(null);
+                        player.closeInventory();
+                    } else {
+                        this.cape.activate(player);
+                    }
+                }
+            }
             event.setCancelled(true);
             player.updateInventory();                   
         }

@@ -17,48 +17,155 @@ public class Hero implements Listener{
 	
 	public static final HashMap<String, Integer> heroCloaks = new HashMap();
 	boolean x = true;
+    boolean y = false;
 	int particles;
 	
 	
 	@SuppressWarnings("deprecation")
 	public void activate(Player p){
-		if(!heroCloaks.containsKey(p.getName())){
-			particles = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
+	    boolean[][] type = shapeM;
+        int borderRed = 0;
+        int borderGreen = 0;
+        int borderBlue = 0;
+        int textRed = 255;
+        int textGreen = 255;
+        int textBlue = 255;
+        if(p.hasPermission("craftlobby.cape.majitel")){
+            type = shapeM;
+            borderRed = 30;
+            borderGreen = 144;
+            borderBlue = 255;
+        } else if (p.hasPermission("craftlobby.cape.admin")){
+            type = shapeA;
+            borderRed = 255;
+            borderGreen = 48;
+            borderBlue = 48;
+        } else if (p.hasPermission("craftlobby.cape.builder")){
+            type = shapeB;
+            borderRed = 142;
+            borderGreen = 56;
+            borderBlue = 142;
+        } else if (p.hasPermission("craftlobby.cape.helper")){
+            type = shapeH;
+            borderRed = 0;
+            borderGreen = 139;
+            borderBlue = 0;
+        } else if (p.hasPermission("craftlobby.cape.vip")){
+            type = shapeVIP;
+            borderRed = 0;
+            borderGreen = 240;
+            borderBlue = 0;
+        } else if (p.hasPermission("craftlobby.cape.spirit")){
+            type = shapeSpirit;
+            borderRed = 139;
+            borderGreen = 0;
+            borderBlue = 0;
+            textRed = 255;
+            textGreen = 165;
+            textBlue = 0;
+        }
+        if(!heroCloaks.containsKey(p.getName())){
+            boolean[][] finalType = type;
+            int finalBorderRed = borderRed;
+            int finalBorderGreen = borderGreen;
+            int finalBorderBlue = borderBlue;
+            int finalTextRed = textRed;
+            int finalTextGreen = textGreen;
+            int finalTextBlue = textBlue;
+            particles = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
 				@Override
 				public void run() {
 					if(heroCloaks.containsKey(p.getName())){
-						drawParticles(p.getLocation(),p);
+						drawParticles(p.getLocation(),p, finalType, finalBorderRed, finalBorderGreen, finalBorderBlue,
+                                finalTextRed, finalTextGreen, finalTextBlue);
 				        UtilParticles.display(ParticleEffect.CLOUD, 0.15F, 0.1f, 0.15f, p.getLocation(), 4);
 					}
 				}
 				
 			}, 0L, 2L).getTaskId();
 			heroCloaks.put(p.getName(),Integer.valueOf(particles));
+            p.closeInventory();
 		}
 	}
-	
-	private boolean[][] shape = {
+
+	private boolean[][] shapeM = {
             {x, x, x, x, x,},
+            {x, y, x, y, x,},
+            {x, y, y, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
             {x, x, x, x, x,},
+    };
+
+    private boolean[][] shapeH = {
             {x, x, x, x, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, y, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
             {x, x, x, x, x,},
+    };
+
+    private boolean[][] shapeA = {
             {x, x, x, x, x,},
+            {x, y, y, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, y, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
             {x, x, x, x, x,},
+    };
+
+    private boolean[][] shapeB = {
             {x, x, x, x, x,},
+            {x, x, y, y, x,},
+            {x, y, x, y, x,},
+            {x, x, y, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, x, y, y, x,},
+            {x, x, x, x, x,},
+    };
+
+    private boolean[][] shapeVIP = {
+            {x, x, x, x, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, y, x, y, x,},
+            {x, x, y, x, x,},
+            {x, x, x, x, x,},
+    };
+
+    private boolean[][] shapeSpirit = {
+            {x, x, x, x, x,},
+            {x, y, y, y, x,},
+            {x, x, x, y, x,},
+            {x, y, y, y, x,},
+            {x, y, x, x, x,},
+            {x, y, x, x, x,},
+            {x, y, y, y, x,},
             {x, x, x, x, x,},
     };
 	
-	private void drawParticles(Location location, Player p) {
+	private void drawParticles(Location location, Player p, boolean[][] typeShape, int red, int green, int blue,
+                               int textRed, int textGreen, int textBlue) {
         double space = 0.2;
-        double defX = location.getX() - (space * shape[0].length / 2) + space / 2;
+        double defX = location.getX() - (space * typeShape[0].length / 2) + space / 2;
         double x = defX;
         double defY = location.getY() + 1.5;
         double y = defY;
         double angle = -((location.getYaw() + 180) / 60);
         angle += (location.getYaw() < -180 ? 3.25 : 2.985);
-        for (int i = 0; i < shape.length; i++) {
-            for (int j = 0; j < shape[i].length; j++) {
-                if (shape[i][j]) {
+        for (int i = 0; i < typeShape.length; i++) {
+            for (int j = 0; j < typeShape[i].length; j++) {
+                if (typeShape[i][j]) {
                     Location target = location.clone();
                     target.setX(x);
                     target.setY(y);
@@ -77,7 +184,29 @@ public class Hero implements Listener{
                         loc.setY(defY);
 
                     for (int k = 0; k < 3; k++)
-                        UtilParticles.display(255, 0, 0, loc);
+                        UtilParticles.display(red, green, blue, loc);
+                    loc.subtract(v2);
+                    loc.subtract(v);
+                } else {
+                    Location target = location.clone();
+                    target.setX(x);
+                    target.setY(y);
+
+                    Vector v = target.toVector().subtract(location.toVector());
+                    Vector v2 = getBackVector(location);
+                    v = rotateAroundAxisY(v, angle);
+                    double iT = ((double) i) / 10;
+                    v2.setY(0).multiply(-0.2 - iT);
+
+                    Location loc = location.clone();
+
+                    loc.add(v);
+                    loc.add(v2);
+                    if (p.isSprinting())
+                        loc.setY(defY);
+
+                    for (int k = 0; k < 3; k++)
+                        UtilParticles.display(textRed, textGreen, textBlue, loc);
                     loc.subtract(v2);
                     loc.subtract(v);
                 }

@@ -51,19 +51,6 @@ public class CloaksAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lAngel Cloak", "§7Tento Cloak se da  ziskat v CraftBoxu.");
 			cloakMenu.setItem(11, i);
 		}
-		if(p.hasPermission("craftlobby.cloaks.hero")){
-			if(Hero.heroCloaks.containsKey(p.getName())){
-				ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lHero", "", "§7Kazdy superhrdina,", "§7musi mit plast.", "", "§cAktivovano!");
-				i = ItemFactory.addGlow(i);
-				cloakMenu.setItem(12, i);
-			} else {
-				ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lHero", "", "§7Kazdy superhrdina,", "§7musi mit plast.", "", "§eKliknutim aktivujes!");
-				cloakMenu.setItem(12, i);
-			}
-		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lHero", "§7Tento Cloak se da ziskat v CraftBoxu.");
-			cloakMenu.setItem(12, i);
-		}
 		
 		//Zpet do menu
 		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
@@ -125,15 +112,6 @@ public class CloaksAPI implements Listener{
 					this.ml.messageNoPerm(p, "Angel Cloak");
         		}
         	}
-        	if(e.getSlot() == 12){
-        		if(p.hasPermission("craftlobby.cloaks.hero")){
-        			deactivateCloaks(p);
-        			this.hero.activate(p);
-        			p.closeInventory();
-        		} else {
-					this.ml.messageNoPerm(p, "Hero Cloak");
-        		}
-        	}
 		}
 	}
 	
@@ -147,12 +125,6 @@ public class CloaksAPI implements Listener{
 		if(AngleCloak.angelCloaks.containsKey(p.getName())){
 			Bukkit.getScheduler().cancelTask(((Integer)AngleCloak.angelCloaks.get(p.getName())).intValue());
 			AngleCloak.angelCloaks.remove(p.getName());
-			p.getInventory().setArmorContents(null);
-			p.closeInventory();
-		}
-		if(Hero.heroCloaks.containsKey(p.getName())){
-			Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(p.getName())).intValue());
-			Hero.heroCloaks.remove(p.getName());
 			p.getInventory().setArmorContents(null);
 			p.closeInventory();
 		}
