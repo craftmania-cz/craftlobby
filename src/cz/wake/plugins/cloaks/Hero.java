@@ -78,7 +78,6 @@ public class Hero implements Listener{
 					if(heroCloaks.containsKey(p.getName())){
 						drawParticles(p.getLocation(),p, finalType, finalBorderRed, finalBorderGreen, finalBorderBlue,
                                 finalTextRed, finalTextGreen, finalTextBlue);
-				        UtilParticles.display(ParticleEffect.CLOUD, 0.15F, 0.1f, 0.15f, p.getLocation(), 4);
 					}
 				}
 				
@@ -248,6 +247,13 @@ public class Hero implements Listener{
         final float newZ = (float) (loc.getZ() + (1 * Math.sin(Math.toRadians(loc.getYaw() + 90 * 1))));
         final float newX = (float) (loc.getX() + (1 * Math.cos(Math.toRadians(loc.getYaw() + 90 * 1))));
         return new Vector(newX - loc.getX(), 0, newZ - loc.getZ());
+    }
+
+    public static void deactivateCape(Player player){
+        if(Hero.heroCloaks.containsKey(player.getName())){
+            Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(player.getName())).intValue());
+            Hero.heroCloaks.remove(player.getName());
+        }
     }
 
 }

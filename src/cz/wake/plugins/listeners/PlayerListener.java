@@ -3,6 +3,7 @@ package cz.wake.plugins.listeners;
 import java.util.HashMap;
 import java.util.Random;
 
+import cz.wake.plugins.cloaks.Hero;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
@@ -50,6 +51,7 @@ public class PlayerListener implements Listener{
 	InvClick ic = new InvClick();
 	FrozenWalk fw = new FrozenWalk();
 	Lobby lb = new Lobby();
+    Hero cape = new Hero();
 	
 	@EventHandler(priority=EventPriority.LOWEST)
 	public void onPlayerJoin(PlayerJoinEvent e){
@@ -321,6 +323,7 @@ public class PlayerListener implements Listener{
 		
 		//Deaktivace cloaks
 		Main.getInstance().getCloaksAPI().deactivateCloaks(p);
+        Hero.deactivateCape(p);
 		
 		//Deaktivatce mazlíčka
 		PetManager.forceRemovePet(p);
@@ -335,6 +338,7 @@ public class PlayerListener implements Listener{
 		
 		//Deaktivace cloaks
 		Main.getInstance().getCloaksAPI().deactivateCloaks(p);
+        Hero.deactivateCape(p);
 		
 		//Deaktivatce mazlíčka
 		PetManager.forceRemovePet(p);

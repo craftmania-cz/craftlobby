@@ -516,6 +516,7 @@ public class InvClick implements Listener{
         	if(event.getSlot() == 49){
             	this.gadgetsMenu.openGadgetsMenu(player);
             }
+            Hero.deactivateCape(player);
         }
       //**************************** MOUNT MENU ****************************//
         if(event.getInventory().getTitle().equals("Mounts")){

@@ -112,6 +112,7 @@ public class CloaksAPI implements Listener{
 					this.ml.messageNoPerm(p, "Angel Cloak");
         		}
         	}
+            Hero.deactivateCape(p);
 		}
 	}
 	
