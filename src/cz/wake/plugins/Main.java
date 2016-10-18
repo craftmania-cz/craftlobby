@@ -9,6 +9,7 @@ import cz.wake.plugins.boxer.SkyKeys;
 import cz.wake.plugins.commands.Changepassword_Command;
 import cz.wake.plugins.commands.SBPerms_command;
 import cz.wake.plugins.gadgets.*;
+import cz.wake.plugins.manager.TimeTask;
 import cz.wake.plugins.utils.mobs.*;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.*;
@@ -54,6 +55,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 	private PetsAPI pets = new PetsAPI();
 	private GadgetsMenu gMenu = new GadgetsMenu();
     private Servers s = new Servers();
+    private TimeTask tt = new TimeTask();
 	public boolean debug;
 	public HashMap<Block, String> _BlocksToRestore = new HashMap();
 	public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
@@ -85,7 +87,11 @@ public class Main extends JavaPlugin implements PluginMessageListener{
         // Deaktivace fire
         for(World w : Bukkit.getWorlds()){
             w.setGameRuleValue("doFireTick", "false");
+            w.setGameRuleValue("doDaylightCycle", "false");
         }
+
+        // Automaticka zmena casu v lobby podle Real casu
+        tt.initTimeSetter();
         
 	    //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
