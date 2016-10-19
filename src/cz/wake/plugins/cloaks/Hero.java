@@ -1,8 +1,6 @@
 package cz.wake.plugins.cloaks;
 
-import java.util.HashMap;
-
-import cz.wake.plugins.utils.ParticleEffect;
+import cz.wake.plugins.Main;
 import cz.wake.plugins.utils.UtilParticles;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -11,51 +9,51 @@ import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import cz.wake.plugins.Main;
+import java.util.HashMap;
 
-public class Hero implements Listener{
-	
-	public static final HashMap<String, Integer> heroCloaks = new HashMap();
-	boolean x = true;
+public class Hero implements Listener {
+
+    public static final HashMap<String, Integer> heroCloaks = new HashMap();
+    boolean x = true;
     boolean y = false;
-	int particles;
-	
-	
-	@SuppressWarnings("deprecation")
-	public void activate(Player p){
-	    boolean[][] type = shapeM;
+    int particles;
+
+
+    @SuppressWarnings("deprecation")
+    public void activate(Player p) {
+        boolean[][] type = shapeM;
         int borderRed = 0;
         int borderGreen = 0;
         int borderBlue = 0;
         int textRed = 255;
         int textGreen = 255;
         int textBlue = 255;
-        if(p.hasPermission("craftlobby.cape.majitel")){
+        if (p.hasPermission("craftlobby.cape.majitel")) {
             type = shapeM;
             borderRed = 30;
             borderGreen = 144;
             borderBlue = 255;
-        } else if (p.hasPermission("craftlobby.cape.admin")){
+        } else if (p.hasPermission("craftlobby.cape.admin")) {
             type = shapeA;
             borderRed = 255;
             borderGreen = 48;
             borderBlue = 48;
-        } else if (p.hasPermission("craftlobby.cape.builder")){
+        } else if (p.hasPermission("craftlobby.cape.builder")) {
             type = shapeB;
             borderRed = 142;
             borderGreen = 56;
             borderBlue = 142;
-        } else if (p.hasPermission("craftlobby.cape.helper")){
+        } else if (p.hasPermission("craftlobby.cape.helper")) {
             type = shapeH;
             borderRed = 0;
             borderGreen = 139;
             borderBlue = 0;
-        } else if (p.hasPermission("craftlobby.cape.vip")){
+        } else if (p.hasPermission("craftlobby.cape.vip")) {
             type = shapeVIP;
             borderRed = 0;
             borderGreen = 240;
             borderBlue = 0;
-        } else if (p.hasPermission("craftlobby.cape.spirit")){
+        } else if (p.hasPermission("craftlobby.cape.spirit")) {
             type = shapeSpirit;
             borderRed = 139;
             borderGreen = 0;
@@ -64,7 +62,7 @@ public class Hero implements Listener{
             textGreen = 165;
             textBlue = 0;
         }
-        if(!heroCloaks.containsKey(p.getName())){
+        if (!heroCloaks.containsKey(p.getName())) {
             boolean[][] finalType = type;
             int finalBorderRed = borderRed;
             int finalBorderGreen = borderGreen;
@@ -72,22 +70,22 @@ public class Hero implements Listener{
             int finalTextRed = textRed;
             int finalTextGreen = textGreen;
             int finalTextBlue = textBlue;
-            particles = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable(){
-				@Override
-				public void run() {
-					if(heroCloaks.containsKey(p.getName())){
-						drawParticles(p.getLocation(),p, finalType, finalBorderRed, finalBorderGreen, finalBorderBlue,
+            particles = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable() {
+                @Override
+                public void run() {
+                    if (heroCloaks.containsKey(p.getName())) {
+                        drawParticles(p.getLocation(), p, finalType, finalBorderRed, finalBorderGreen, finalBorderBlue,
                                 finalTextRed, finalTextGreen, finalTextBlue);
-					}
-				}
-				
-			}, 0L, 2L).getTaskId();
-			heroCloaks.put(p.getName(),Integer.valueOf(particles));
-            p.closeInventory();
-		}
-	}
+                    }
+                }
 
-	private boolean[][] shapeM = {
+            }, 0L, 2L).getTaskId();
+            heroCloaks.put(p.getName(), Integer.valueOf(particles));
+            p.closeInventory();
+        }
+    }
+
+    private boolean[][] shapeM = {
             {x, x, x, x, x,},
             {x, y, x, y, x,},
             {x, y, y, y, x,},
@@ -152,8 +150,8 @@ public class Hero implements Listener{
             {x, y, y, y, x,},
             {x, x, x, x, x,},
     };
-	
-	private void drawParticles(Location location, Player p, boolean[][] typeShape, int red, int green, int blue,
+
+    private void drawParticles(Location location, Player p, boolean[][] typeShape, int red, int green, int blue,
                                int textRed, int textGreen, int textBlue) {
         double space = 0.2;
         double defX = location.getX() - (space * typeShape[0].length / 2) + space / 2;
@@ -215,8 +213,8 @@ public class Hero implements Listener{
             x = defX;
         }
     }
-	
-	public static Vector rotateAroundAxisY(Vector v, double angle) {
+
+    public static Vector rotateAroundAxisY(Vector v, double angle) {
         double x, z, cos, sin;
         cos = Math.cos(angle);
         sin = Math.sin(angle);
@@ -249,9 +247,9 @@ public class Hero implements Listener{
         return new Vector(newX - loc.getX(), 0, newZ - loc.getZ());
     }
 
-    public static void deactivateCape(Player player){
-        if(Hero.heroCloaks.containsKey(player.getName())){
-            Bukkit.getScheduler().cancelTask(((Integer)Hero.heroCloaks.get(player.getName())).intValue());
+    public static void deactivateCape(Player player) {
+        if (Hero.heroCloaks.containsKey(player.getName())) {
+            Bukkit.getScheduler().cancelTask(((Integer) Hero.heroCloaks.get(player.getName())).intValue());
             Hero.heroCloaks.remove(player.getName());
         }
     }

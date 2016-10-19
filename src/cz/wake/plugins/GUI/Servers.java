@@ -97,7 +97,7 @@ public class Servers implements Listener {
                     inv.setItem(32, i);
                     c++;
                 } else if (c == 3) {
-                    ItemStack i = ItemFactory.create(Material.QUARTZ_BLOCK, (byte) 0, "§a§lArcade", "§8Rychle minihry bez PVP", "",
+                    ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS, (byte) 0, "§a§lArcade", "§8Rychle minihry bez PVP", "",
                             "§fDrawIt", "§fBuildBattle", "§eSpeedBuilders", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
                     inv.setItem(32, i);
                     c = 1;

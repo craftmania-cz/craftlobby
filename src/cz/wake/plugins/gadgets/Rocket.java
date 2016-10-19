@@ -104,6 +104,7 @@ public class Rocket implements Listener {
                     armorStand.setPassenger(player);
                     final int task3 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
                         int i = 5;
+
                         @Override
                         public void run() {
                             if (i > 0) {
@@ -188,7 +189,7 @@ public class Rocket implements Listener {
                         }
                     }, 120L).getTaskId();
                 }
-            },12L).getTaskId();
+            }, 12L).getTaskId();
 
             Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
                 @Override

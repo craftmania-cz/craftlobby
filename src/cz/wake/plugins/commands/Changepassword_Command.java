@@ -15,7 +15,7 @@ public class Changepassword_Command implements CommandExecutor {
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
         if (Sender instanceof Player) {
             Player player = (Player) Sender;
-            if(Main.getInstance().getConfig().getBoolean("auth-zmenahesla")){
+            if (Main.getInstance().getConfig().getBoolean("auth-zmenahesla")) {
                 if ((Command.getName().equalsIgnoreCase("changepassword")) || (Command.getName().equalsIgnoreCase("zmenahesla"))) {
                     if (ArrayOfString.length == 0) {
                         sendToServer(player, "hubzmena");

@@ -16,7 +16,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import javax.rmi.CORBA.Util;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -85,15 +84,15 @@ public class Parachute implements Listener {
                 @Override
                 public void run() {
                     if (active) {
-                        if (!player.isOnGround() && player.getVelocity().getY() < -0.3){
+                        if (!player.isOnGround() && player.getVelocity().getY() < -0.3) {
                             UtilMath.applyVelocity(player, player.getVelocity().add(new Vector(0, 0.1, 0)));
                         }
-                        if (player.isOnGround()){
+                        if (player.isOnGround()) {
                             killParachute(player);
                         }
                     }
                 }
-            },0L, 1L);
+            }, 0L, 1L);
 
 
             this._cdRunnable.put(player, new BukkitRunnable() {

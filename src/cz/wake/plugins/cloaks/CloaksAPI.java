@@ -17,7 +17,6 @@ import cz.wake.plugins.utils.ItemFactory;
 public class CloaksAPI implements Listener{
 	
 	private AngleCloak angel = new AngleCloak();
-	private Hero hero = new Hero();
 	private SantaCloak santa = new SantaCloak();
 	private MessagesListener ml = new MessagesListener();
 	
