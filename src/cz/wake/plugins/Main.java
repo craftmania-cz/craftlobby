@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cz.wake.plugins.banners.BannerAPI;
 import cz.wake.plugins.boxer.SkyKeys;
 import cz.wake.plugins.commands.Changepassword_Command;
 import cz.wake.plugins.commands.SBPerms_command;
@@ -171,6 +172,7 @@ public class Main extends JavaPlugin implements PluginMessageListener{
 		pm.registerEvents(new GadgetsAPI(), this);
 		pm.registerEvents(new PetsAPI(), this);
         pm.registerEvents(new FunCannonIce(this), this);
+        pm.registerEvents(new BannerAPI(),this);
         pm.registerEvents(new DiamondsFountain(this), this);
         pm.registerEvents(new FireTrail(this), this);
         pm.registerEvents(new Rocket(this), this);

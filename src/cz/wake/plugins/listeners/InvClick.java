@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
 import cz.wake.plugins.GUI.*;
+import cz.wake.plugins.banners.BannerAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -72,6 +73,7 @@ public class InvClick implements Listener{
 	CandyCane cc = new CandyCane();
 	NakupBoxu np = new NakupBoxu();
 	Lobby lob = new Lobby();
+    BannerAPI bannerAPI = new BannerAPI();
     Hero cape = new Hero();
 	
 	@EventHandler
@@ -261,7 +263,7 @@ public class InvClick implements Listener{
 	        	this.pMenu.openParticles(player);
 	        }
 	        if(event.getSlot() == 12){
-				player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+                bannerAPI.openInventory(player);
 	        }
 			if(event.getSlot() == 14){
 				player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
