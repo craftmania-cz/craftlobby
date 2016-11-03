@@ -28,7 +28,7 @@ public class Widder {
         Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
             @Override
             public void run() {
-                ((CraftWither) wither).getHandle().l(600); //?
+                ((CraftWither) wither).getHandle().g(600);
             }
 
         }, 0L, 1L);

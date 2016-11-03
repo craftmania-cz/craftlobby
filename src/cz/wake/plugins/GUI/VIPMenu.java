@@ -106,6 +106,9 @@ public class VIPMenu {
         iMeta.setDisplayName("§b§lVyhody MiniGames VIP");
         ArrayList<String> iLore = new ArrayList<String>();
         iLore.add("");
+        iLore.add("§7Lobby:");
+        iLore.add("§e▪ §fVIP Cape");
+        iLore.add("§e▪ §fStatistiky ostatnich hracu §c/stats nick");
         iLore.add("§7Annihilation:");
         iLore.add("§e▪ §fPristup ke vsem kitum.");
         iLore.add("§e▪ §fVIP Slot");

@@ -2681,7 +2681,7 @@ public class PetsAPI implements Listener{
 
     private String getCountSheep(Player p){
         int i = this.countSheepPermissions(p);
-        int sum = 31;
+        int sum = 32;
         int prc = (i * 100 / sum);
 
         return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
@@ -2721,7 +2721,7 @@ public class PetsAPI implements Listener{
 
     private String getCountMagaCube(Player p){
         int i = this.countMagmaCubePermissions(p);
-        int sum = 2;
+        int sum = 3;
         int prc = (i * 100 / sum);
 
         return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
