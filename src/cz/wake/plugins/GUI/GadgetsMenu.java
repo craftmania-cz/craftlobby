@@ -8,9 +8,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.block.banner.Pattern;
+import org.bukkit.block.banner.PatternType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -99,18 +102,6 @@ public class GadgetsMenu implements Listener {
         wardrobeItemMeta.setLore(wardrobeLore);
         wardrobeItem.setItemMeta(wardrobeItemMeta);
 
-        ItemStack banner = new ItemStack(Material.BANNER);
-        BannerMeta BA5M = (BannerMeta) banner.getItemMeta();
-        BA5M.setBaseColor(DyeColor.BLACK);
-        BA5M.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Banners");
-        ArrayList<String> mLore = new ArrayList<String>();
-        mLore.add(ChatColor.GRAY + "Nasad si na hlavu banner");
-        mLore.add(ChatColor.GRAY + "jako nejveci borec!");
-        mLore.add("");
-        mLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
-        BA5M.setLore(mLore);
-        banner.setItemMeta(BA5M);
-
         ItemStack cloaks = new ItemStack(Material.ENCHANTMENT_TABLE);
         ItemMeta cMeta = cloaks.getItemMeta();
         cMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Cloaks");
@@ -162,7 +153,7 @@ public class GadgetsMenu implements Listener {
         ItemStack banners = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lBanners", "", "§8Aktualne nedostupne!");
 
         gadgetsMenu.setItem(10, wardrobeItem);
-        gadgetsMenu.setItem(12, banners);
+        gadgetsMenu.setItem(12, penguin());
         gadgetsMenu.setItem(14, suits);
         gadgetsMenu.setItem(16, cloaks);
         gadgetsMenu.setItem(28, petsItem);
@@ -841,6 +832,28 @@ public class GadgetsMenu implements Listener {
             c++;
         }
         return c;
+    }
+
+    private ItemStack penguin() {
+        ItemStack b = new ItemStack(Material.BANNER);
+        BannerMeta bm = (BannerMeta) b.getItemMeta();
+        bm.setBaseColor(DyeColor.BLACK);
+        bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.FLOWER));
+        bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.HALF_HORIZONTAL_MIRROR));
+        bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.TRIANGLE_BOTTOM));
+        bm.addPattern(new Pattern(DyeColor.ORANGE, PatternType.RHOMBUS_MIDDLE));
+        bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLE_TOP));
+        bm.addPattern(new Pattern(DyeColor.ORANGE, PatternType.CIRCLE_MIDDLE));
+        bm.setDisplayName("§b§lBanners");
+        ArrayList<String> mLore = new ArrayList<String>();
+        mLore.add(ChatColor.GRAY + "Nasad si na hlavu banner");
+        mLore.add(ChatColor.GRAY + "jako nejveci borec!");
+        mLore.add("");
+        mLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
+        bm.setLore(mLore);
+        bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        b.setItemMeta(bm);
+        return b;
     }
 
 }
