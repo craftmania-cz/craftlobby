@@ -24,7 +24,7 @@ public class TimeTask {
                 if (time < 0) time += 24000;
                 for (World w : Bukkit.getWorlds()) {
                     if (w != null) {
-                        w.setTime(time);
+                        w.setTime(time + 1300); //+ Zimni cas
                     }
                 }
             }
