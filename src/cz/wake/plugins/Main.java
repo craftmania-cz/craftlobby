@@ -12,6 +12,7 @@ import cz.wake.plugins.commands.ProfilCMD;
 import cz.wake.plugins.commands.SBPerms_command;
 import cz.wake.plugins.commands.Stats_Command;
 import cz.wake.plugins.gadgets.*;
+import cz.wake.plugins.heads.HeadsAPI;
 import cz.wake.plugins.listeners.InvClick;
 import cz.wake.plugins.listeners.PlayerListener;
 import cz.wake.plugins.manager.LagManager;
@@ -126,7 +127,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
-        pm.registerEvents(new HeadsMenu(), this);
         pm.registerEvents(new GadgetsMenu(), this);
         pm.registerEvents(new TeleportStick(this), this);
         pm.registerEvents(new FunCannon(this), this);
@@ -148,7 +148,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new SlimeHat(this), this);
         pm.registerEvents(new FlowerPopper(this), this);
         pm.registerEvents(new BlackHole(this), this);
-        pm.registerEvents(new HeadsMenu2(), this);
         pm.registerEvents(new BatBlaster(this), this);
         pm.registerEvents(new ColorBomb(this), this);
         pm.registerEvents(new WitherCatapult(this), this);
@@ -170,6 +169,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new FireTrail(this), this);
         pm.registerEvents(new Rocket(this), this);
         pm.registerEvents(new Parachute(this), this);
+        pm.registerEvents(new HeadsAPI(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {

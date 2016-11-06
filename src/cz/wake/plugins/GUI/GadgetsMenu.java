@@ -99,6 +99,8 @@ public class GadgetsMenu implements Listener {
         wardrobeLore.add("");
         wardrobeLore.add(countHeads(p));
         wardrobeLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
+        wardrobeItemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        wardrobeItemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         wardrobeItemMeta.setLore(wardrobeLore);
         wardrobeItem.setItemMeta(wardrobeItemMeta);
 
