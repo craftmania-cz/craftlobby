@@ -1,0 +1,20 @@
+name: WakesLobby	
+main: cz.wake.lobby.Main
+version: 1.6
+author: MrWakeCZ
+softdepend: [CrateKeys]
+depend: [Vault]
+commands:
+  wlobby:
+    description: Info o profilu!
+  wl:
+    description: Info o profilu!
+  stats:
+    description: Statistiky hracu
+  sbperms:
+    description: Addon na Skybox
+  changepassword:
+    description: Prikaz na zmenu hesla pro Warez
+permissions:
+  craftlobby.pristup:
+    description: Beta test
