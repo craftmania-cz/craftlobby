@@ -27,6 +27,7 @@ public class BearNormal {
         setMetadata((PolarBear) golem, "Pet", "Pet", Main.getInstance());
         ((PolarBear) golem).setCustomNameVisible(true);
         ((PolarBear) golem).setCustomName(p.getName());
+        ((PolarBear) golem).setAgeLock(true);
         if(baby){
             ((PolarBear) golem).setBaby();
         }

@@ -296,6 +296,14 @@ public class PetsAPI implements Listener{
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube", "§7Nevlastnis ani jeden druh.");
             inv.setItem(25, i);
         }
+        if(p.hasPermission("craftlobby.pets.guardian")
+                || p.hasPermission("craftlobby.pets.guardian.elder")){
+            ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS,(byte)0, "§eGuardian","", this.getCountGuardian(p), "","§aKliknutim zobrazis prehled.");
+            inv.setItem(26,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cGuardian", "§7Nevlastnis ani jeden druh.");
+            inv.setItem(26, i);
+        }
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -952,6 +960,46 @@ public class PetsAPI implements Listener{
 		p.openInventory(inv);
 	}
 
+	public void openGuardianMenu(final Player p){
+
+        Inventory inv = Bukkit.createInventory(null, 27, "Pets - Guardian");
+
+        if(p.hasPermission("craftlobby.pets.guardian")){
+            ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS,(byte)0,"§aGuardian", "", "§eKliknutim spawnes!");
+            inv.setItem(0,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cGuardian", "§7Tento typ nevlastnis.");
+            inv.setItem(0, i);
+        }
+        if(p.hasPermission("craftlobby.pets.guardian.elder")){
+            ItemStack i = ItemFactory.create(Material.PRISMARINE_SHARD,(byte)0,"§aGuardian Elder", "", "§eKliknutim spawnes!");
+            inv.setItem(1,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cGuardian Elder", "§7Tento typ nevlastnis.");
+            inv.setItem(1, i);
+        }
+
+        //Deaktivace
+        ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+        //Zpet do menu
+        ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+
+        //Shop
+        ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+                "§7Gadgety jsou doplnky do lobby",
+                "§7daji se ziskat z CraftBoxu nebo na",
+                "§7specialnich eventech.",
+                "",
+                "§7Aktualni stav: §6" +  Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+
+        inv.setItem(23, dea);
+        inv.setItem(22, shopItem);
+        inv.setItem(21, zpet);
+
+        p.openInventory(inv);
+    }
+
 	public void openCreeperMenu(final Player p){
 
 		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Creeper");
@@ -1598,6 +1646,9 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 25){
 			    this.openBearMenu(p);
+            }
+            if(e.getSlot() == 26){
+                this.openGuardianMenu(p);
             }
 		}
 		if(e.getInventory().getTitle().equals("Pets - Cat")){
@@ -2477,6 +2528,38 @@ public class PetsAPI implements Listener{
 				}
 			}
 		}
+        if(e.getInventory().getTitle().equals("Pets - Guardian")){
+            if (e.getCurrentItem() == null){
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR){
+                return;
+            }
+            if(e.getSlot() == 22){
+                Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+            }
+            if(e.getSlot() == 21){
+                this.openMainInv(p);
+            }
+            if(e.getSlot() == 23){
+                PetManager.forceRemovePet(p);
+                p.closeInventory();
+            }
+            if(e.getSlot() == 0){
+                if(p.hasPermission("craftlobby.pets.guardian")){
+                    GuardianNormal.activateGuardian(p, false);
+                } else {
+                    this.ml.messageNoPerm(p,"Guardian");
+                }
+            }
+            if(e.getSlot() == 1){
+                if(p.hasPermission("craftlobby.pets.guardian.elder")){
+                    GuardianNormal.activateGuardian(p, true);
+                } else {
+                    this.ml.messageNoPerm(p,"Guardian Elder");
+                }
+            }
+        }
 		if(e.getInventory().getTitle().equals("Pets - Creeper")){
 			if (e.getCurrentItem() == null){
 				return;
@@ -2735,6 +2818,14 @@ public class PetsAPI implements Listener{
         return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
     }
 
+    private String getCountGuardian(Player p){
+        int i = this.countGuardianPermissions(p);
+        int sum = 2;
+        int prc = (i * 100 / sum);
+
+        return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
+    }
+
 
     private int countCowPermissions(Player p){
         int c = 0;
@@ -2748,6 +2839,17 @@ public class PetsAPI implements Listener{
             c++;
         }
         if (p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+            c++;
+        }
+        return c;
+    }
+
+    private int countGuardianPermissions(Player p){
+        int c = 0;
+        if(p.hasPermission("craftlobby.pets.guardian")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.guardian.elder")){
             c++;
         }
         return c;

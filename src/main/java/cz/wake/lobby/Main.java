@@ -113,6 +113,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         NMSUtils.registerEntity("Skeleton", 51, EntitySkeleton.class, RideableSkeleton.class);
         NMSUtils.registerEntity("LavaSlime", 62, EntityMagmaCube.class, RideableMagmaCube.class);
         NMSUtils.registerEntity("PolarBear", 102, EntityPolarBear.class, RideableBear.class);
+        NMSUtils.registerEntity("Guardian", 68, EntityGuardian.class, RideableGuardian.class);
     }
 
     public void onDisable() {
