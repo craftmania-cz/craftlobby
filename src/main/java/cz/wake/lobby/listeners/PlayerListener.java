@@ -69,7 +69,7 @@ public class PlayerListener implements Listener {
         playerHead.setDurability((short) 3);
         SkullMeta playerHeadMeta = (SkullMeta) playerHead.getItemMeta();
 
-        ItemStack gadgets = new ItemStack(Material.ENDER_CHEST);
+        ItemStack gadgets = new ItemStack(Material.NETHER_STAR);
         ItemMeta gadgetsMeta = gadgets.getItemMeta();
 
         ItemStack hider = new ItemStack(Material.INK_SACK, 1, (byte) 10);
@@ -195,7 +195,7 @@ public class PlayerListener implements Listener {
             this.vmenu.openVIPMenu(p);
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.ENDER_CHEST) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
+                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.NETHER_STAR) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
                 && (Main.getInstance().getTPS() >= 17)) {
             this.gadgetsMenu.openGadgetsMenu(p);
         }
