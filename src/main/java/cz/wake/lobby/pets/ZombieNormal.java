@@ -4,6 +4,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableZombie;
 import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Villager;
 import org.bukkit.entity.Zombie;
 import org.bukkit.metadata.FixedMetadataValue;
 
@@ -14,7 +15,7 @@ public class ZombieNormal {
 
     public static ArrayList<String> zn = new ArrayList();
 
-    public static void activate(final Player p, boolean baby) {
+    public static void activate(final Player p, boolean baby, Villager.Profession prof) {
         for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
             Object localObject = (CraftEntity) localIterator.next();
             if (localObject == PetManager.pet.get(p)) {
@@ -30,6 +31,7 @@ public class ZombieNormal {
         }
         ((Zombie) zomb).setCustomNameVisible(true);
         ((Zombie) zomb).setCustomName(p.getName());
+        ((Zombie) zomb).setVillagerProfession(prof);
         PetManager.pet.put(p, (CraftEntity) zomb);
         zn.add(p.getName());
         p.closeInventory();

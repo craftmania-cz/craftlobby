@@ -106,7 +106,9 @@ public class PetsAPI implements Listener{
 			inv.setItem(7, i);
 		}
 		if(p.hasPermission("craftlobby.pets.zombie")
-				|| p.hasPermission("craftlobby.pets.zombie.baby")){
+				|| p.hasPermission("craftlobby.pets.zombie.baby")
+                || p.hasPermission("craftlobby.pets.zombie.husk")
+                || p.hasPermission("craftlobby.pets.zombie.husk.baby")){
 			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0, "§eZombie","", this.getCountZombie(p), "","§aKliknutim zobrazis prehled.");
 			inv.setItem(8,i);
 		} else {
@@ -1058,6 +1060,56 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie (Baby)", "§7Tento typ nevlastnis.");
 			inv.setItem(1, i);
 		}
+		if(p.hasPermission("craftlobby.pets.zombie.husk")){
+            ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk", "", "§eKliknutim spawnes!");
+            inv.setItem(2,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Husk", "§7Tento typ nevlastnis.");
+            inv.setItem(2, i);
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.husk.baby")){
+            ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk (Baby)", "", "§eKliknutim spawnes!");
+            inv.setItem(3,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Husk (Baby)", "§7Tento typ nevlastnis.");
+            inv.setItem(3, i);
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.blacksmith")){
+            ItemStack i = ItemFactory.create(Material.ANVIL,(byte)0,"§aZombie Blacksmith", "", "§eKliknutim spawnes!");
+            inv.setItem(4,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Blacksmith", "§7Tento typ nevlastnis.");
+            inv.setItem(4, i);
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.butcher")){
+            ItemStack i = ItemFactory.create(Material.RAW_BEEF,(byte)0,"§aZombie Butcher", "", "§eKliknutim spawnes!");
+            inv.setItem(5,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Butcher", "§7Tento typ nevlastnis.");
+            inv.setItem(5, i);
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.farmer")){
+            ItemStack i = ItemFactory.create(Material.GOLD_HOE,(byte)0,"§aZombie Farmer", "", "§eKliknutim spawnes!");
+            inv.setItem(6,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Farmer", "§7Tento typ nevlastnis.");
+            inv.setItem(6, i);
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.librarian")){
+            ItemStack i = ItemFactory.create(Material.BOOK_AND_QUILL,(byte)0,"§aZombie Librarian", "", "§eKliknutim spawnes!");
+            inv.setItem(7,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Librarian", "§7Tento typ nevlastnis.");
+            inv.setItem(7, i);
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.priest")){
+            ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aZombie Priest", "", "§eKliknutim spawnes!");
+            inv.setItem(8,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Priest", "§7Tento typ nevlastnis.");
+            inv.setItem(8, i);
+        }
+
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -2002,18 +2054,67 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 0){
 				if(p.hasPermission("craftlobby.pets.zombie")){
-					ZombieNormal.activate(p,false);
+					ZombieNormal.activate(p,false, Villager.Profession.NORMAL);
 				} else {
 					this.ml.messageNoPerm(p,"Zombie");
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.zombie.baby")){
-					ZombieNormal.activate(p,true);
+					ZombieNormal.activate(p,true,Villager.Profession.NORMAL);
 				} else {
 					this.ml.messageNoPerm(p,"Zombie Baby");
 				}
 			}
+			if(e.getSlot() == 2){
+                if(p.hasPermission("craftlobby.pets.zombie.husk")){
+                    ZombieNormal.activate(p, false, Villager.Profession.HUSK);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Husk");
+                }
+            }
+            if(e.getSlot() == 3){
+                if(p.hasPermission("craftlobby.pets.zombie.husk.baby")){
+                    ZombieNormal.activate(p, true, Villager.Profession.HUSK);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Husk");
+                }
+            }
+            if(e.getSlot() == 4){
+                if(p.hasPermission("craftlobby.pets.zombie.blacksmith")){
+                    ZombieNormal.activate(p, false, Villager.Profession.BLACKSMITH);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Blacksmith");
+                }
+            }
+            if(e.getSlot() == 5){
+                if(p.hasPermission("craftlobby.pets.zombie.butcher")){
+                    ZombieNormal.activate(p, false, Villager.Profession.BUTCHER);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Butcher");
+                }
+            }
+            if(e.getSlot() == 6){
+                if(p.hasPermission("craftlobby.pets.zombie.farmer")){
+                    ZombieNormal.activate(p, false, Villager.Profession.FARMER);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Farmer");
+                }
+            }
+            if(e.getSlot() == 7){
+                if(p.hasPermission("craftlobby.pets.zombie.librarian")){
+                    ZombieNormal.activate(p, false, Villager.Profession.LIBRARIAN);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Librarian");
+                }
+            }
+            if(e.getSlot() == 8){
+                if(p.hasPermission("craftlobby.pets.zombie.priest")){
+                    ZombieNormal.activate(p, false, Villager.Profession.PRIEST);
+                } else {
+                    this.ml.messageNoPerm(p,"Zombie Priest");
+                }
+            }
 		}
 		if(e.getInventory().getTitle().equals("Pets - Horse")){
 			if (e.getCurrentItem() == null){
@@ -2748,7 +2849,7 @@ public class PetsAPI implements Listener{
 
     private String getCountZombie(Player p){
         int i = this.countZonbiePermissions(p);
-        int sum = 2;
+        int sum = 9;
         int prc = (i * 100 / sum);
 
         return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
@@ -3020,6 +3121,27 @@ public class PetsAPI implements Listener{
             c++;
         }
         if(p.hasPermission("craftlobby.pets.zombie.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.husk")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.husk.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.blacksmith")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.butcher")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.farmer")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.librarian")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.zombie.priest")){
             c++;
         }
         return c;
