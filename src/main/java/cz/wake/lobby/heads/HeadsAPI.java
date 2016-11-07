@@ -31,6 +31,7 @@ public class HeadsAPI implements Listener {
         bhLore.add("");
         bhLore.add("§7Seznam zakladnich headek.");
         bhLore.add("");
+        bhLore.add(counHeadsString(p));
         bhLore.add("§ePro zobrazeni klikni!");
         bhMeta.setLore(bhLore);
         basicHeads.setItemMeta(bhMeta);
@@ -757,6 +758,217 @@ public class HeadsAPI implements Listener {
         } else {
             ms.messageNoPerm(p, name);
         }
+    }
+
+    public String counHeadsString(final Player p) {
+        int heads = countHeads(p);
+        int sum = 66;
+        int prc = (heads * 100 / sum);
+
+        return "§7Odemknuto: §f" + heads + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private int countHeads(final Player p){
+        int c = 0;
+        if(p.hasPermission("craftlobby.heads.strawberryjam")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.chocolate")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.whitechocolate")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.hamburger")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.lemon")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.donut")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.computer")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.monitor")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.policesiren")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.texture")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.spacehelmet")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.youtube")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.mailbox")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.scared")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.embarrased")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.kissy")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.cool")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.suprised")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.crying")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.grin")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.derp")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.mustache")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.smile")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.dead")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.skull")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.evilbunny")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.scaryclown")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.frankensteinsmonster")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.elephant")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.werewolf")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.guardian")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.walrus")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.batman")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.ghost")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.skeletonminer")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.devil")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.helloweenpumpkin")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.mummy")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.herobrine")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.a")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.b")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.c")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.d")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.e")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.f")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.g")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.h")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.i")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.j")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.k")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.l")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.m")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.n")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.o")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.p")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.q")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.r")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.s")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.t")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.u")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.v")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.w")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.x")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.y")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.z")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.heads.mrwakecz")){
+            c++;
+        }
+        return c;
     }
 
 }

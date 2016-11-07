@@ -3,6 +3,7 @@ package cz.wake.lobby.GUI;
 import cz.wake.lobby.API.TimeUtils;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.Hero;
+import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 
 public class GadgetsMenu implements Listener {
 
-    Hero cape = new Hero();
+    HeadsAPI hAPI = new HeadsAPI();
 
     public void openGadgetsMenu(Player p) {
 
@@ -97,7 +98,7 @@ public class GadgetsMenu implements Listener {
         wardrobeLore.add(ChatColor.GRAY + "Nasad si na hlavu headku a bud");
         wardrobeLore.add(ChatColor.GRAY + "boss v nasem lobby!");
         wardrobeLore.add("");
-        wardrobeLore.add(countHeads(p));
+        wardrobeLore.add(hAPI.counHeadsString(p));
         wardrobeLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
         wardrobeItemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         wardrobeItemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
@@ -178,14 +179,6 @@ public class GadgetsMenu implements Listener {
         } else {
             return "za §b" + TimeUtils.formatTime("%hh %mm", ((pTime - time) / 1000) / 60, false);
         }
-    }
-
-    public String countHeads(Player p) {
-        int heads = getHeadsCount(p);
-        int sum = 120;
-        int prc = (heads * 100 / sum);
-
-        return "§7Odemknuto: §f" + heads + "/" + sum + " §8(" + prc + "%)";
     }
 
     public String countCloaks(Player p) {
