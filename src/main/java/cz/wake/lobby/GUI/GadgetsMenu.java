@@ -207,7 +207,7 @@ public class GadgetsMenu implements Listener {
 
     public String countGadgets(Player p) {
         int part = getGadgetsCount(p);
-        int sum = 21;
+        int sum = 28;
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
@@ -276,6 +276,27 @@ public class GadgetsMenu implements Listener {
             c++;
         }
         if (p.hasPermission("craftlobby.gadgets.flowerpopper")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadgets.funcannon.ender")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadget.antigravity")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadget.blackhole")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadgets.diamondfountain")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadgets.firetrail")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadgets.rocket")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.gadgets.parachute")) {
             c++;
         }
         return c;
