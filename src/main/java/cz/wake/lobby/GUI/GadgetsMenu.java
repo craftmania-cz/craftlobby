@@ -156,7 +156,7 @@ public class GadgetsMenu implements Listener {
         ItemStack banners = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lBanners", "", "§8Aktualne nedostupne!");
 
         gadgetsMenu.setItem(10, wardrobeItem);
-        gadgetsMenu.setItem(12, penguin());
+        gadgetsMenu.setItem(12, penguin(p));
         gadgetsMenu.setItem(14, suits);
         gadgetsMenu.setItem(16, cloaks);
         gadgetsMenu.setItem(28, petsItem);
@@ -211,6 +211,76 @@ public class GadgetsMenu implements Listener {
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    public String countBanners(Player p) {
+        int part = getBannerCount(p);
+        int sum = 19;
+        int prc = (part * 100 / sum);
+
+        return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private int getBannerCount(Player p) {
+        int c = 0;
+        if (p.hasPermission("craftlobby.banner.tardis")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.duck")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.king")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.creeper")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.rabbit")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.panda")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.assassin")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.dragon")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.slime")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.bumbum")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.zoidberg")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.smile")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.bear")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.grumpy")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.pencil")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.batman")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.twitch")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.penguin")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.banner.thunder")) {
+            c++;
+        }
+        return c;
     }
 
     public int getGadgetsCount(Player p) {
@@ -850,7 +920,7 @@ public class GadgetsMenu implements Listener {
         return c;
     }
 
-    private ItemStack penguin() {
+    private ItemStack penguin(Player p) {
         ItemStack b = new ItemStack(Material.BANNER);
         BannerMeta bm = (BannerMeta) b.getItemMeta();
         bm.setBaseColor(DyeColor.BLACK);
@@ -863,8 +933,9 @@ public class GadgetsMenu implements Listener {
         bm.setDisplayName("§b§lBanners");
         ArrayList<String> mLore = new ArrayList<String>();
         mLore.add(ChatColor.GRAY + "Nasad si na hlavu banner");
-        mLore.add(ChatColor.GRAY + "jako nejveci borec!");
+        mLore.add(ChatColor.GRAY + "jako nejvetsi borec!");
         mLore.add("");
+        mLore.add(countBanners(p));
         mLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
         bm.setLore(mLore);
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);

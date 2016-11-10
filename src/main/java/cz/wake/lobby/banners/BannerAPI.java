@@ -347,7 +347,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.BLUE, PatternType.STRAIGHT_CROSS));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.BORDER));
         bm.addPattern(new Pattern(DyeColor.BLUE, PatternType.BORDER));
-        bm.setDisplayName("§e§lTardis");
+        bm.setDisplayName("§eTardis");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
 
@@ -364,7 +364,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.BORDER));
         bm.addPattern(new Pattern(DyeColor.ORANGE, PatternType.STRIPE_MIDDLE));
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.STRIPE_TOP));
-        bm.setDisplayName("§e§lDuck");
+        bm.setDisplayName("§eDuck");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
 
@@ -381,7 +381,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.CREEPER));
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.STRIPE_TOP));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLES_TOP));
-        bm.setDisplayName("§e§lKing");
+        bm.setDisplayName("§eKing");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -393,7 +393,7 @@ public class BannerAPI implements Listener {
         bm.setBaseColor(DyeColor.GREEN);
         bm.addPattern(new Pattern(DyeColor.LIME, PatternType.GRADIENT));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.CREEPER));
-        bm.setDisplayName("§e§lCreeper");
+        bm.setDisplayName("§eCreeper");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -409,7 +409,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.CROSS));
         bm.addPattern(new Pattern(DyeColor.LIGHT_BLUE, PatternType.CURLY_BORDER));
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.TRIANGLES_BOTTOM));
-        bm.setDisplayName("§e§lKralik");
+        bm.setDisplayName("§eKralik");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -425,7 +425,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.STRIPE_CENTER));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.CREEPER));
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.STRIPE_BOTTOM));
-        bm.setDisplayName("§e§lPanda");
+        bm.setDisplayName("§ePanda");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -441,7 +441,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.RED, PatternType.STRIPE_BOTTOM));
         bm.addPattern(new Pattern(DyeColor.RED, PatternType.CIRCLE_MIDDLE));
         bm.addPattern(new Pattern(DyeColor.RED, PatternType.TRIANGLE_BOTTOM));
-        bm.setDisplayName("§e§lAssassin");
+        bm.setDisplayName("§eAssassin");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -458,7 +458,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.STRIPE_BOTTOM));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.STRIPE_TOP));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLE_TOP));
-        bm.setDisplayName("§e§lDragon");
+        bm.setDisplayName("§eDragon");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -476,7 +476,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.LIME, PatternType.BORDER));
         bm.addPattern(new Pattern(DyeColor.LIME, PatternType.STRIPE_TOP));
         bm.addPattern(new Pattern(DyeColor.LIME, PatternType.STRIPE_BOTTOM));
-        bm.setDisplayName("§e§lSlime");
+        bm.setDisplayName("§eSlime");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -492,7 +492,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.GRAY, PatternType.CREEPER));
         bm.addPattern(new Pattern(DyeColor.GRAY, PatternType.STRIPE_BOTTOM));
         bm.addPattern(new Pattern(DyeColor.GRAY, PatternType.STRIPE_TOP));
-        bm.setDisplayName("§e§lBumbum");
+        bm.setDisplayName("§eBumbum");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -508,7 +508,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.RED, PatternType.STRIPE_TOP));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.CIRCLE_MIDDLE));
         bm.addPattern(new Pattern(DyeColor.RED, PatternType.STRIPE_CENTER));
-        bm.setDisplayName("§e§lZoidberg");
+        bm.setDisplayName("§eZoidberg");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -529,7 +529,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.STRIPE_MIDDLE));
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.BORDER));
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.STRIPE_MIDDLE));
-        bm.setDisplayName("§e§lSmile");
+        bm.setDisplayName("§eSmile");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -551,7 +551,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLE_BOTTOM));
         bm.addPattern(new Pattern(DyeColor.BROWN, PatternType.STRIPE_BOTTOM));
         bm.addPattern(new Pattern(DyeColor.BROWN, PatternType.SKULL));
-        bm.setDisplayName("§e§lBear");
+        bm.setDisplayName("§eBear");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -573,7 +573,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.GREEN, PatternType.TRIANGLE_TOP));
         bm.addPattern(new Pattern(DyeColor.GREEN, PatternType.TRIANGLE_TOP));
         bm.addPattern(new Pattern(DyeColor.GREEN, PatternType.STRIPE_TOP));
-        bm.setDisplayName("§e§lGrumpy");
+        bm.setDisplayName("§eGrumpy");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -595,7 +595,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.STRIPE_LEFT));
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.STRIPE_TOP));
         bm.addPattern(new Pattern(DyeColor.WHITE, PatternType.STRIPE_RIGHT));
-        bm.setDisplayName("§e§lPencil");
+        bm.setDisplayName("§ePencil");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -612,7 +612,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.RHOMBUS_MIDDLE));
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.TRIANGLES_BOTTOM));
         bm.addPattern(new Pattern(DyeColor.YELLOW, PatternType.TRIANGLES_TOP));
-        bm.setDisplayName("§e§lBatman");
+        bm.setDisplayName("§eBatman");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -633,7 +633,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.PURPLE, PatternType.BORDER));
         bm.addPattern(new Pattern(DyeColor.PURPLE, PatternType.STRIPE_TOP));
         bm.addPattern(new Pattern(DyeColor.PURPLE, PatternType.STRIPE_TOP));
-        bm.setDisplayName("§e§lTwitch");
+        bm.setDisplayName("§eTwitch");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -649,7 +649,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.ORANGE, PatternType.RHOMBUS_MIDDLE));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLE_TOP));
         bm.addPattern(new Pattern(DyeColor.ORANGE, PatternType.CIRCLE_MIDDLE));
-        bm.setDisplayName("§e§lPenguin");
+        bm.setDisplayName("§ePenguin");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
@@ -666,7 +666,7 @@ public class BannerAPI implements Listener {
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.TRIANGLES_TOP));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.SQUARE_TOP_RIGHT));
         bm.addPattern(new Pattern(DyeColor.BLACK, PatternType.SQUARE_BOTTOM_LEFT));
-        bm.setDisplayName("§e§lThunder");
+        bm.setDisplayName("§eThunder");
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
