@@ -7,10 +7,7 @@ import cz.wake.lobby.boxer.Boxer;
 import cz.wake.lobby.boxer.SkyKeys;
 import cz.wake.lobby.cloaks.CloaksAPI;
 import cz.wake.lobby.cloaks.Hero;
-import cz.wake.lobby.commands.Changepassword_Command;
-import cz.wake.lobby.commands.ProfilCMD;
-import cz.wake.lobby.commands.SBPerms_command;
-import cz.wake.lobby.commands.Stats_Command;
+import cz.wake.lobby.commands.*;
 import cz.wake.lobby.gadgets.*;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.listeners.InvClick;
@@ -87,7 +84,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Automaticka zmena casu v lobby podle Real casu
-        tt.initTimeSetter();
+        //tt.initTimeSetter();
 
         //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
@@ -185,6 +182,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("wl").setExecutor(new ProfilCMD());
         getCommand("stats").setExecutor(new Stats_Command());
         getCommand("sbperms").setExecutor(new SBPerms_command());
+        getCommand("cbperms").setExecutor(new CBPerms_command());
         getCommand("changepassword").setExecutor(new Changepassword_Command());
     }
 

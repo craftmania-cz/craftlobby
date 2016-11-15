@@ -13,6 +13,8 @@ commands:
     description: Statistiky hracu
   sbperms:
     description: Addon na Skybox
+  cbperms:
+    description: Addon na CraftBoxy
   changepassword:
     description: Prikaz na zmenu hesla pro Warez
 permissions:
