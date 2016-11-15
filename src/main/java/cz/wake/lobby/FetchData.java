@@ -456,7 +456,7 @@ public class FetchData {
      */
     public final Long getFullResetTime() {
 
-        final String query = "SELECT time FROM craftboxer_nextReset;";
+        final String query = "SELECT time FROM craftboxer_nextReset WHERE id = 1;";
 
         try {
 

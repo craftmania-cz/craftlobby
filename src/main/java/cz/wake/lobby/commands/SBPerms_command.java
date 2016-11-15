@@ -24,7 +24,7 @@ public class SBPerms_command implements CommandExecutor{
                     if(p.hasPermission(perm)){
                         p.sendMessage("§eTento doplnek jiz vlastnis! Nalezena vec: §f" + finalNazev);
                         Sender.sendMessage("§eHrac jiz §f" + finalNazev + " §evlastni.");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"addbalance " + p.getName() + " 50");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"coins give " + p.getName() + " 50");
                         return true;
                     } else {
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add " + perm);

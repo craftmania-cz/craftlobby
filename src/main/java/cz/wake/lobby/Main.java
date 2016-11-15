@@ -157,7 +157,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new PartyCoins(this), this);
         pm.registerEvents(new WakeArmy(this), this);
         pm.registerEvents(new Hero(), this);
-        //pm.registerEvents(new Boxer(), this);
+        pm.registerEvents(new Boxer(), this);
         pm.registerEvents(new CloaksAPI(), this);
         pm.registerEvents(new GadgetsAPI(), this);
         pm.registerEvents(new PetsAPI(), this);
