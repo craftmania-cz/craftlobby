@@ -108,7 +108,6 @@ public class SetData {
     /**
      * Pridani boxu bez casu
      *
-     * @param uuid   - UUID
      * @param amount - Pocet boxu
      */
     public final void createRecord(final Player p, final int amount, final long milis) {
@@ -140,13 +139,12 @@ public class SetData {
     /**
      * Pridani boxu + cas
      *
-     * @param uuid   - UUID
      * @param amount - Pocet boxu
      */
     public final void addBoxesWithTime(final Player p, final int amount, final long milis) {
 
-        //final String query = "INSERT INTO craftboxer (nick ,uuid, pocet, dalsiBox) VALUES (?,?,?,?);";
-        final String query = "UPDATE craftboxer SET pocet = ?, dalsiBox = ? WHERE uuid = '" + p.getUniqueId().toString() + "'";
+        final String query = "INSERT INTO craftboxer (nick ,uuid, pocet, dalsiBox) VALUES (?,?,?,?) ON DUPLICATE KEY UPDATE pocet = ?, dalsiBox = ?;";
+        //final String query = "UPDATE craftboxer SET pocet = ?, dalsiBox = ? WHERE uuid = '" + p.getUniqueId().toString() + "'";
 
         new BukkitRunnable() {
 
@@ -155,8 +153,12 @@ public class SetData {
                 try {
 
                     PreparedStatement sql = Main.getInstance().getMySQL().getCurrentConnection().prepareStatement(query);
-                    sql.setInt(1, amount + Main.getInstance().fetchData().getBoxes(p.getUniqueId()));
-                    sql.setLong(2, milis);
+                    sql.setString(1, p.getName());
+                    sql.setString(2, p.getUniqueId().toString());
+                    sql.setInt(3, amount);
+                    sql.setLong(4, milis);
+                    sql.setInt(5, amount + Main.getInstance().fetchData().getBoxes(p.getUniqueId()));
+                    sql.setLong(6, milis);
                     sql.execute();
                     sql.close();
 

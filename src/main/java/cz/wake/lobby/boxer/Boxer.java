@@ -13,10 +13,10 @@ import cz.wake.lobby.Main;
 public class Boxer implements Listener{
 	
 	private void giveBox(final Player p, int boxes, int sance){
-        if(sance >= 0 && sance <= 60){
+        if(sance >= 0 && sance <= 80){
             Bukkit.broadcastMessage("§bCraftBox §8┃ §e" + p.getName() + "§f nasel §aBasic CraftBox");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"mb add " + p.getName() + " basic " + boxes);
-        } else if (sance > 60){
+        } else if (sance > 80){
             Bukkit.broadcastMessage("§bCraftBox §8┃ §e" + p.getName() + "§f nasel §9Rare CraftBox");
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"mb add " + p.getName() + " rare " + boxes);
         }
@@ -31,41 +31,22 @@ public class Boxer implements Listener{
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e){
 		final Player p = e.getPlayer();
-		
-		if(!Main.getInstance().fetchData().hasBoxData(p.getUniqueId())){
-			long dalsiBox = randRange(1800000, 10800000); //30 minut az 3h
-			long cas = System.currentTimeMillis() + dalsiBox;
-			Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable(){
-				@Override
-				public void run(){
-					Main.getInstance().setData().createRecord(p, 3, cas); //Novy hraci dostanou 3x box!
-					Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"mb add " + p.getName() + " basic 3");
-				}
-			}, 40L);
-		} else {
-			int sance = randRange(1, 100);
-			if(sance <= 10){ //20% sance na ziskani boxu
-				if((Main.getInstance().fetchData().getBoxes(p.getUniqueId()) < 12)
-						&& (Main.getInstance().fetchData().getNextboxTime(p.getUniqueId()) < System.currentTimeMillis())){
-					long dalsiBox = randRange(1800000, 10800000); //30 minut az 3h
-					long cas = System.currentTimeMillis() + dalsiBox;
-                    int sance2 = randRange(1, 100); //Sance na druhy boxu
-					Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable(){
-						@Override
-						public void run(){
-							Main.getInstance().setData().addBoxesWithTime(p, 1, cas);
-							giveBox(p, 1, sance2);
-						}
-					}, 40L);
-				} else if((Main.getInstance().fetchData().getBoxes(p.getUniqueId()) == 12)){
-					return;
-				} else {
-					return;
-				}
-			} else {
-				return;
-			}
-		}
+
+        if(randRange(1, 100) <= 10){ //10% sance na ziskani boxu
+            if((Main.getInstance().fetchData().getBoxes(p.getUniqueId()) < 12)
+                    && (Main.getInstance().fetchData().getNextboxTime(p.getUniqueId()) < System.currentTimeMillis())){
+                long dalsiBox = randRange(1800000, 10800000); //30 minut az 3h
+                long cas = System.currentTimeMillis() + dalsiBox;
+                int sance2 = randRange(1, 100); //Sance na druhy boxu
+                Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable(){
+                    @Override
+                    public void run(){
+                        Main.getInstance().setData().addBoxesWithTime(p, 1, cas);
+                        giveBox(p, 1, sance2);
+                    }
+                }, 40L);
+            }
+        }
 	}
 	
 	//Kazdy 2h kontrola prekroceni
