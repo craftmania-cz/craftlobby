@@ -5,6 +5,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.Hero;
 import cz.wake.lobby.particles.FrozenWalk;
 import cz.wake.lobby.pets.PetManager;
+import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
@@ -44,9 +45,7 @@ public class PlayerListener implements Listener {
     Servers servers = new Servers();
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
-    FrozenWalk fw = new FrozenWalk();
     Lobby lb = new Lobby();
-    Hero cape = new Hero();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -115,6 +114,8 @@ public class PlayerListener implements Listener {
         p.setSaturation(20F);
         p.setFoodLevel(20);
         p.setGameMode(GameMode.ADVENTURE);
+
+        UtilTablist.setupPrefixInTab(p);
     }
 
     @EventHandler
