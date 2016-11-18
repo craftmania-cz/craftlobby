@@ -228,7 +228,7 @@ public class GadgetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
 
         gadgetsInv.setItem(49, shopItem);
         gadgetsInv.setItem(40, deaktivace);

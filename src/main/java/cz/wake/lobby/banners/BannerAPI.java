@@ -36,7 +36,7 @@ public class BannerAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
 
         if (p.hasPermission("craftlobby.banner.tardis")) {
             inv.setItem(0, tardis());

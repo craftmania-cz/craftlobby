@@ -1,6 +1,5 @@
 package cz.wake.lobby;
 
-import cz.wake.lobby.API.WakeAPI;
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.banners.BannerAPI;
 import cz.wake.lobby.boxer.Boxer;
@@ -18,6 +17,7 @@ import cz.wake.lobby.morphs.PigMorph;
 import cz.wake.lobby.morphs.VillagerMorph;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.pets.PetsAPI;
+import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
@@ -38,10 +38,6 @@ import java.util.HashMap;
 public class Main extends JavaPlugin implements PluginMessageListener {
 
     private static Main instance;
-    private MySQL mysql = new MySQL();
-    private FetchData fd = new FetchData();
-    private SetData sd = new SetData();
-    private WakeAPI api = new WakeAPI();
     private Boxer boxer = new Boxer();
     private CloaksAPI cloaks = new CloaksAPI();
     private GadgetsAPI gadgets = new GadgetsAPI();
@@ -53,20 +49,29 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     public HashMap<Block, String> _BlocksToRestore = new HashMap();
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
     public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
-    public static ArrayList<Player> inPortal = new ArrayList<>();
+    private static ArrayList<Player> inPortal = new ArrayList<>();
     public VillagerMorph VillagerMorph;
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
+    private SQLManager sql;
 
 
     public void onEnable() {
         instance = this;
+
+        // Config
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
-        //this.mysql.checkTable();
+
+        // Listeners
         loadListeners();
         loadCommands();
+
+        // Debug rezim
         debug = false;
+
+        // HikariCP
+        initDatabase();
 
         //Detekce TPS
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
@@ -118,6 +123,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public void onDisable() {
         instance = null;
+
+        sql.onDisable();
 
         for (Entity e : Bukkit.getWorld("OfficialLobby").getEntities()) {
             e.remove();
@@ -186,27 +193,18 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("stats").setExecutor(new Stats_Command());
         getCommand("sbperms").setExecutor(new SBPerms_command());
         getCommand("cbperms").setExecutor(new CBPerms_command());
-        getCommand("changepassword").setExecutor(new Changepassword_Command());
     }
 
     public static Main getInstance() {
         return instance;
     }
 
-    public MySQL getMySQL() {
-        return this.mysql;
+    public SQLManager fetchData() {
+        return this.sql;
     }
 
-    public FetchData fetchData() {
-        return this.fd;
-    }
-
-    public SetData setData() {
-        return this.sd;
-    }
-
-    public WakeAPI getAPI() {
-        return this.api;
+    public SQLManager setData() {
+        return this.sql;
     }
 
     public void activeteDebug() {
@@ -264,6 +262,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public void removePortal(Player p) {
         inPortal.remove(p);
+    }
+
+    private void initDatabase() {
+        sql = new SQLManager(this);
     }
 
 }

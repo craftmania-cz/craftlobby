@@ -267,7 +267,7 @@ public class HeadsAPI implements Listener {
         shopLore.add(ChatColor.GRAY + "daji se ziskat z CraftBoxu nebo na");
         shopLore.add(ChatColor.GRAY + "specialnich eventech.");
         shopLore.add("");
-        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
         shopItemMeta.setLore(shopLore);
         shopItem.setItemMeta(shopItemMeta);
 
@@ -460,7 +460,7 @@ public class HeadsAPI implements Listener {
         shopLore.add(ChatColor.GRAY + "daji se ziskat z CraftBoxu nebo na");
         shopLore.add(ChatColor.GRAY + "specialnich eventech.");
         shopLore.add("");
-        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getAPI().getCraftCoins(p.getUniqueId()) + " CC");
+        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
         shopItemMeta.setLore(shopLore);
         shopItem.setItemMeta(shopItemMeta);
 
