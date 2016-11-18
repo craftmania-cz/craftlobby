@@ -147,28 +147,28 @@ public class InvClick implements Listener {
             if (event.getCurrentItem().getType() == Material.AIR)
                 return;
             if (event.getSlot() == 0) {
-                sendToServer(player, "ohub");
+                //sendToServer(player, "ohub");
             }
             if (event.getSlot() == 1) {
-                sendToServer(player, "lobby");
+                sendToServer(player, "mainlobby", "frontend");
             }
             if (event.getSlot() == 2) {
-                sendToServer(player, "lobby2");
+                sendToServer(player, "mainlobby", "frontend");
             }
             if (event.getSlot() == 3) {
-                sendToServer(player, "lobby3");
+                sendToServer(player, "mainlobby", "frontend");
             }
             if (event.getSlot() == 4) {
-                sendToServer(player, "lobby4");
+                sendToServer(player, "mainlobby", "frontend");
             }
             if (event.getSlot() == 5) {
-                sendToServer(player, "blobby");
+                sendToServer(player, "bedwars", "frontend");
             }
             if (event.getSlot() == 6) {
-                sendToServer(player, "dlobby");
+                sendToServer(player, "arcade", "frontend");
             }
             if (event.getSlot() == 7) {
-                sendToServer(player, "slobby");
+                sendToServer(player, "skywars", "frontend");
             }
             event.setCancelled(true);
             player.updateInventory();
@@ -249,7 +249,8 @@ public class InvClick implements Listener {
                 Main.getInstance().getCloaksAPI().openCloaks(player);
             }
             if (event.getSlot() == 49) {
-                this.np.openNakup(player);
+                //this.np.openNakup(player);
+                player.sendMessage("§cDeaktivovano...");
             }
             if (event.getSlot() == 51) {
                 if (player.hasPermission("craftlobby.cape.majitel")
@@ -535,13 +536,26 @@ public class InvClick implements Listener {
         return;
     }
 
+    public void sendToServer(Player player, String group, String end) {
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        DataOutputStream out = new DataOutputStream(b);
+        try {
+            out.writeUTF("Connect");
+            out.writeUTF(group);
+            out.writeUTF(end);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        player.sendPluginMessage(Main.getPlugin(), "PlayerBalancer", b.toByteArray());
+    }
+
     public void sendToServer(Player player, String target) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
         try {
             out.writeUTF("Connect");
             out.writeUTF(target);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

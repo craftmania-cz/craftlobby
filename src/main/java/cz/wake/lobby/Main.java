@@ -77,6 +77,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "PlayerBalancer");
+        Bukkit.getMessenger().registerIncomingPluginChannel(this, "PlayerBalancer", this);
+
         // Deaktivace fire
         for (World w : Bukkit.getWorlds()) {
             w.setGameRuleValue("doFireTick", "false");
