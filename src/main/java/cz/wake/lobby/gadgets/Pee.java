@@ -64,6 +64,10 @@ public class Pee implements Listener {
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
+            if (Main.getInstance().getTPS() < 17) {
+                player.sendMessage("§cServer je pretizeny, nelze pouzivat gadgets!");
+                return;
+            }
             if (this._time.containsKey(player)) {
                 MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double) this._time.get(player)).doubleValue(), 1)));
                 return;

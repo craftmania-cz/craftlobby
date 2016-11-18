@@ -99,6 +99,10 @@ public class TNTBomb implements Listener {
         event.setCancelled(true);
         p.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
+            if (Main.getInstance().getTPS() < 17) {
+                p.sendMessage("§cServer je pretizeny, nelze pouzivat gadgets!");
+                return;
+            }
             if (this._time.containsKey(p)) {
                 MessagesListener.messageCooldown(p, String.valueOf(arrondi(((Double) this._time.get(p)).doubleValue(), 1)));
                 return;

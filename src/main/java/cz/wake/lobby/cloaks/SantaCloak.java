@@ -23,6 +23,10 @@ public class SantaCloak {
 
     @SuppressWarnings("deprecation")
     public void activateSanta(Player p) {
+        if (Main.getInstance().getTPS() < 17) {
+            p.sendMessage("§cServer je pretizeny, nelze pouzivat gadgets!");
+            return;
+        }
         if (!santaCloaks.containsKey(p.getName())) {
 
             ItemStack skull = ItemFactory.createHead("§fSanta", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");

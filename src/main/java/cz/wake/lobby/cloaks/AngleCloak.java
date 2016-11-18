@@ -25,6 +25,10 @@ public class AngleCloak {
 
 	@SuppressWarnings("deprecation")
 	public void activate(Player p){
+        if (Main.getInstance().getTPS() < 17) {
+            p.sendMessage("§cServer je pretizeny, nelze pouzivat gadgets!");
+            return;
+        }
 		if(!angelCloaks.containsKey(p.getName())){
 			
 			ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE,1);

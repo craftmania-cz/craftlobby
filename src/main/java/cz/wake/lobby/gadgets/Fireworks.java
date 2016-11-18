@@ -51,6 +51,10 @@ public class Fireworks implements Listener {
         event.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
+            if (Main.getInstance().getTPS() < 17) {
+                player.sendMessage("§cServer je pretizeny, nelze pouzivat gadgets!");
+                return;
+            }
             if (!player.hasPermission("craftlobby.gadgets.firework")) {
                 return;
             }
