@@ -32,19 +32,21 @@ public class Boxer implements Listener{
 	public void onJoin(PlayerJoinEvent e){
 		final Player p = e.getPlayer();
 
-        if(randRange(1, 100) <= 10){ //10% sance na ziskani boxu
-            if((Main.getInstance().fetchData().getBoxes(p.getUniqueId()) < 12)
-                    && (Main.getInstance().fetchData().getNextboxTime(p.getUniqueId()) < System.currentTimeMillis())){
-                long dalsiBox = randRange(1800000, 10800000); //30 minut az 3h
-                long cas = System.currentTimeMillis() + dalsiBox;
-                int sance2 = randRange(1, 100); //Sance na druhy boxu
-                Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable(){
-                    @Override
-                    public void run(){
-                        Main.getInstance().setData().addBoxesWithTime(p, 1, cas);
-                        giveBox(p, 1, sance2);
-                    }
-                }, 40L);
+        if(Main.getInstance().getTPS() > 18){
+            if(randRange(1, 100) <= 10){ //10% sance na ziskani boxu
+                if((Main.getInstance().fetchData().getBoxes(p.getUniqueId()) < 12)
+                        && (Main.getInstance().fetchData().getNextboxTime(p.getUniqueId()) < System.currentTimeMillis())){
+                    long dalsiBox = randRange(1800000, 10800000); //30 minut az 3h
+                    long cas = System.currentTimeMillis() + dalsiBox;
+                    int sance2 = randRange(1, 100); //Sance na druhy boxu
+                    Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getInstance(), new Runnable(){
+                        @Override
+                        public void run(){
+                            Main.getInstance().setData().addBoxesWithTime(p, 1, cas);
+                            giveBox(p, 1, sance2);
+                        }
+                    }, 40L);
+                }
             }
         }
 	}
