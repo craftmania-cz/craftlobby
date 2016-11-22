@@ -10,16 +10,16 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class SkyKeys implements Listener{
+public class SkyKeys implements Listener {
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent e){
+    public void onJoin(PlayerJoinEvent e) {
         final Player p = e.getPlayer();
 
         int sqlDusts = Main.getInstance().fetchData().getSkyKeysDust(p.getUniqueId());
-        int finalKeys = sqlDusts/10;
+        int finalKeys = sqlDusts / 10;
 
-        if(finalKeys == 0){
+        if (finalKeys == 0) {
             System.out.println("[SkyKeys] " + p.getName() + " ma 0 klicu. Returning...");
         } else {
             p.getInventory().addItem(giveKeys(finalKeys));
@@ -27,7 +27,7 @@ public class SkyKeys implements Listener{
         }
     }
 
-    private ItemStack giveKeys(int amount){
+    private ItemStack giveKeys(int amount) {
         ItemStack i = new ItemStack(Material.NETHER_STAR);
         ItemMeta m = i.getItemMeta();
         m.setDisplayName("§aSkyKey §8(Klikni pravym na SkyBox)");
@@ -37,10 +37,10 @@ public class SkyKeys implements Listener{
     }
 
     @EventHandler
-    public void onSkyBoxUse(CrateOpenEvent e){
+    public void onSkyBoxUse(CrateOpenEvent e) {
         Player p = e.getPlayer();
 
-        Main.getInstance().setData().takeSkyKeys(p,10);
+        Main.getInstance().setData().takeSkyKeys(p, 10);
         System.out.println("[SkyKeys] " + p.getName() + " bylo odebrano 10 dustu.");
     }
 

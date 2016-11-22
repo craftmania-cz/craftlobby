@@ -872,5 +872,45 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
+    public final int getCraftBoxes(final Player p, final String s) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + s + " FROM MysteryBoxes WHERE UUID = '" + p.getUniqueId().toString() + "';");
+            ps.executeQuery();
+            if(ps.getResultSet().next()){
+                return ps.getResultSet().getInt(s);
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final void addCraftBox(final Player p, final String name, final int n) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("INSERT INTO MysteryBoxes (UUID , " + name + ") VALUES (?,?) ON DUPLICATE KEY UPDATE " + name + " = ?;");
+                    ps.setString(1, p.getUniqueId().toString());
+                    ps.setInt(2, n);
+                    ps.setInt(3, n + getCraftBoxes(p, name));
+                    ps.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
 
 }
