@@ -2,8 +2,7 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.cloaks.Hero;
-import cz.wake.lobby.particles.FrozenWalk;
+import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
@@ -315,7 +314,7 @@ public class PlayerListener implements Listener {
 
         //Deaktivace cloaks
         Main.getInstance().getCloaksAPI().deactivateCloaks(p);
-        Hero.deactivateCape(p);
+        RankCape.deactivateCape(p);
 
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
@@ -330,7 +329,7 @@ public class PlayerListener implements Listener {
 
         //Deaktivace cloaks
         Main.getInstance().getCloaksAPI().deactivateCloaks(p);
-        Hero.deactivateCape(p);
+        RankCape.deactivateCape(p);
 
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);

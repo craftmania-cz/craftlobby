@@ -19,6 +19,8 @@ public class CloaksAPI implements Listener{
 	private AngleCloak angel = new AngleCloak();
 	private SantaCloak santa = new SantaCloak();
 	private MessagesListener ml = new MessagesListener();
+    private RankCape cape = new RankCape();
+    private TurnajCape tc = new TurnajCape();
 	
 	public void openCloaks(Player p){
 		
@@ -47,9 +49,40 @@ public class CloaksAPI implements Listener{
 				cloakMenu.setItem(11, i);
 			}
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lAngel Cloak", "§7Tento Cloak se da  ziskat v CraftBoxu.");
+			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lAngel Cloak", "§7Tento Cloak se da ziskat v CraftBoxu.");
 			cloakMenu.setItem(11, i);
 		}
+		if(p.hasPermission("craftlobby.cape.majitel")
+                || p.hasPermission("craftlobby.cape.admin")
+                || p.hasPermission("craftlobby.cape.builder")
+                || p.hasPermission("craftlobby.cape.helper")
+                || p.hasPermission("craftlobby.cape.vip")
+                || p.hasPermission("craftlobby.cape.spirit")) {
+            if(RankCape.heroCloaks.containsKey(p.getName())){
+                ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lRank Cape", "", "§7Od VIP ziskas unikatni Cape", "§7se kterou ukazes kdo jsi!", "", "§cAktivovano!");
+                i = ItemFactory.addGlow(i);
+                cloakMenu.setItem(14, i);
+            } else {
+                ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lRank Cape", "", "§7Od VIP ziskas unikatni Cape", "§7se kterou ukazes kdo jsi!", "", "§eKliknutim aktivujes!");
+                cloakMenu.setItem(14, i);
+            }
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lRank Cape", "§7Tato se da ziskat zakoupenim §aMiniGames VIP");
+            cloakMenu.setItem(14, i);
+        }
+        if(p.hasPermission("craftlobby.cape.gigaturnaj2016")){
+            if(TurnajCape.turnajCloaks.containsKey(p.getName())){
+                ItemStack i = ItemFactory.create(Material.GOLD_INGOT, (byte)0, "§6§lGiGa Turnaj Cape", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji 2016", "", "§cAktivovano!");
+                i = ItemFactory.addGlow(i);
+                cloakMenu.setItem(15, i);
+            } else {
+                ItemStack i = ItemFactory.create(Material.GOLD_INGOT, (byte)0, "§6§lGiGa Turnaj Cape", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji 2016", "", "§eKliknutim aktivujes!");
+                cloakMenu.setItem(15, i);
+            }
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lGiGa Turnaj Cape", "§7Tuto Cape dostali hraci, kteri se ucastnili GiGaturnaje 2016");
+            cloakMenu.setItem(15, i);
+        }
 		
 		//Zpet do menu
 		ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
@@ -111,7 +144,29 @@ public class CloaksAPI implements Listener{
 					this.ml.messageNoPerm(p, "Angel Cloak");
         		}
         	}
-            Hero.deactivateCape(p);
+            if (e.getSlot() == 14) {
+                if (p.hasPermission("craftlobby.cape.majitel")
+                        || p.hasPermission("craftlobby.cape.admin")
+                        || p.hasPermission("craftlobby.cape.builder")
+                        || p.hasPermission("craftlobby.cape.helper")
+                        || p.hasPermission("craftlobby.cape.vip")
+                        || p.hasPermission("craftlobby.cape.spirit")) {
+                    deactivateCloaks(p);
+                    this.cape.activate(p);
+                    p.closeInventory();
+                } else {
+                    this.ml.messageNoPerm(p, "Rank Cape");
+                }
+            }
+            if (e.getSlot() == 15) {
+                if (p.hasPermission("craftlobby.cape.gigaturnaj2016")){
+                    deactivateCloaks(p);
+                    this.tc.activate(p);
+                    p.closeInventory();
+                } else {
+                    this.ml.messageNoPerm(p, "GiGa Turnaj Cape");
+                }
+            }
 		}
 	}
 	
@@ -128,6 +183,18 @@ public class CloaksAPI implements Listener{
 			p.getInventory().setArmorContents(null);
 			p.closeInventory();
 		}
+        if (RankCape.heroCloaks.containsKey(p.getName())) {
+            Bukkit.getScheduler().cancelTask(((Integer) RankCape.heroCloaks.get(p.getName())).intValue());
+            RankCape.heroCloaks.remove(p.getName());
+            p.getInventory().setArmorContents(null);
+            p.closeInventory();
+        }
+        if (TurnajCape.turnajCloaks.containsKey(p.getName())) {
+            Bukkit.getScheduler().cancelTask(((Integer) TurnajCape.turnajCloaks.get(p.getName())).intValue());
+            TurnajCape.turnajCloaks.remove(p.getName());
+            p.getInventory().setArmorContents(null);
+            p.closeInventory();
+        }
 	}
 
 }

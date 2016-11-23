@@ -2,7 +2,7 @@ package cz.wake.lobby.GUI;
 
 import cz.wake.lobby.API.TimeUtils;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.cloaks.Hero;
+import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
@@ -132,28 +132,8 @@ public class GadgetsMenu implements Listener {
         bMeta.setLore(bLore);
         box.setItemMeta(bMeta);
 
-        if(p.hasPermission("craftlobby.cape.majitel")
-                || p.hasPermission("craftlobby.cape.admin")
-                || p.hasPermission("craftlobby.cape.builder")
-                || p.hasPermission("craftlobby.cape.helper")
-                || p.hasPermission("craftlobby.cape.vip")
-                || p.hasPermission("craftlobby.cape.spirit")){
-            if(Hero.heroCloaks.containsKey(p.getName())){
-                ItemStack cape = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lCape", "", "§7Vlastni Cape z efektu!","", "§cKliknutim deaktivujes!");
-                cape = ItemFactory.addGlow(cape);
-                gadgetsMenu.setItem(51, cape);
-            } else {
-                ItemStack cape = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lCape", "", "§7Vlastni Cape z efektu!","", "§eKliknutim aktivujes!");
-                gadgetsMenu.setItem(51, cape);
-            }
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§c§lCape", "§7Tento bonus lze ziskat zakoupenim VIP!");
-            gadgetsMenu.setItem(51, i);
-        }
-
         ItemStack morphs = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lMorphs", "", "§8Aktualne nedostupne!");
         ItemStack suits = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lSuits", "", "§8Aktualne nedostupne!");
-        ItemStack banners = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lBanners", "", "§8Aktualne nedostupne!");
 
         gadgetsMenu.setItem(10, wardrobeItem);
         gadgetsMenu.setItem(12, penguin(p));
@@ -163,8 +143,8 @@ public class GadgetsMenu implements Listener {
         gadgetsMenu.setItem(30, gadgetsItem);
         gadgetsMenu.setItem(32, morphs);
         gadgetsMenu.setItem(34, particlesItem);
-        gadgetsMenu.setItem(47, shopItem);
-        gadgetsMenu.setItem(49, box);
+        gadgetsMenu.setItem(48, shopItem);
+        gadgetsMenu.setItem(50, box);
 
         p.openInventory(gadgetsMenu);
 

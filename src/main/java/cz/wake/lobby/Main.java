@@ -5,7 +5,7 @@ import cz.wake.lobby.banners.BannerAPI;
 import cz.wake.lobby.boxer.Boxer;
 import cz.wake.lobby.boxer.SkyKeys;
 import cz.wake.lobby.cloaks.CloaksAPI;
-import cz.wake.lobby.cloaks.Hero;
+import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.commands.*;
 import cz.wake.lobby.gadgets.*;
 import cz.wake.lobby.heads.HeadsAPI;
@@ -166,7 +166,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new DiscoBall(this), this);
         pm.registerEvents(new PartyCoins(this), this);
         pm.registerEvents(new WakeArmy(this), this);
-        pm.registerEvents(new Hero(), this);
         pm.registerEvents(new Boxer(), this);
         pm.registerEvents(new CloaksAPI(), this);
         pm.registerEvents(new GadgetsAPI(), this);

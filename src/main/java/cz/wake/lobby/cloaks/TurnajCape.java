@@ -5,64 +5,34 @@ import cz.wake.lobby.utils.UtilParticles;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
 
-public class Hero implements Listener {
+public class TurnajCape {
 
-    public static final HashMap<String, Integer> heroCloaks = new HashMap();
+    public static final HashMap<String, Integer> turnajCloaks = new HashMap();
     boolean x = true;
     boolean y = false;
     int particles;
 
-
     @SuppressWarnings("deprecation")
     public void activate(Player p) {
-        boolean[][] type = shapeM;
+        boolean[][] type = shapeTurnaj;
         int borderRed = 0;
         int borderGreen = 0;
         int borderBlue = 0;
         int textRed = 255;
         int textGreen = 255;
         int textBlue = 255;
-        if (p.hasPermission("craftlobby.cape.majitel")) {
-            type = shapeM;
-            borderRed = 30;
-            borderGreen = 144;
-            borderBlue = 255;
-        } else if (p.hasPermission("craftlobby.cape.admin")) {
-            type = shapeA;
+        if (p.hasPermission("craftlobby.cape.gigaturnaj2016")) {
+            type = shapeTurnaj;
             borderRed = 255;
-            borderGreen = 48;
-            borderBlue = 48;
-        } else if (p.hasPermission("craftlobby.cape.builder")) {
-            type = shapeB;
-            borderRed = 142;
-            borderGreen = 56;
-            borderBlue = 142;
-        } else if (p.hasPermission("craftlobby.cape.helper")) {
-            type = shapeH;
-            borderRed = 0;
-            borderGreen = 139;
+            borderGreen = 165;
             borderBlue = 0;
-        } else if (p.hasPermission("craftlobby.cape.vip")) {
-            type = shapeVIP;
-            borderRed = 0;
-            borderGreen = 240;
-            borderBlue = 0;
-        } else if (p.hasPermission("craftlobby.cape.spirit")) {
-            type = shapeSpirit;
-            borderRed = 139;
-            borderGreen = 0;
-            borderBlue = 0;
-            textRed = 255;
-            textGreen = 165;
-            textBlue = 0;
         }
-        if (!heroCloaks.containsKey(p.getName())) {
+        if (!turnajCloaks.containsKey(p.getName())) {
             boolean[][] finalType = type;
             int finalBorderRed = borderRed;
             int finalBorderGreen = borderGreen;
@@ -73,81 +43,27 @@ public class Hero implements Listener {
             particles = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable() {
                 @Override
                 public void run() {
-                    if (heroCloaks.containsKey(p.getName())) {
+                    if (turnajCloaks.containsKey(p.getName())) {
                         drawParticles(p.getLocation(), p, finalType, finalBorderRed, finalBorderGreen, finalBorderBlue,
                                 finalTextRed, finalTextGreen, finalTextBlue);
                     }
                 }
 
             }, 0L, 2L).getTaskId();
-            heroCloaks.put(p.getName(), Integer.valueOf(particles));
+            turnajCloaks.put(p.getName(), Integer.valueOf(particles));
             p.closeInventory();
         }
+
     }
 
-    private boolean[][] shapeM = {
-            {x, x, x, x, x,},
-            {x, y, x, y, x,},
-            {x, y, y, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, x, x, x, x,},
-    };
-
-    private boolean[][] shapeH = {
-            {x, x, x, x, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, y, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, x, x, x, x,},
-    };
-
-    private boolean[][] shapeA = {
+    private boolean[][] shapeTurnaj = {
             {x, x, x, x, x,},
             {x, y, y, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, y, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, x, x, x, x,},
-    };
-
-    private boolean[][] shapeB = {
-            {x, x, x, x, x,},
-            {x, x, y, y, x,},
-            {x, y, x, y, x,},
-            {x, x, y, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, x, y, y, x,},
-            {x, x, x, x, x,},
-    };
-
-    private boolean[][] shapeVIP = {
-            {x, x, x, x, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
-            {x, y, x, y, x,},
             {x, x, y, x, x,},
-            {x, x, x, x, x,},
-    };
-
-    private boolean[][] shapeSpirit = {
-            {x, x, x, x, x,},
-            {x, y, y, y, x,},
-            {x, x, x, y, x,},
-            {x, y, y, y, x,},
-            {x, y, x, x, x,},
-            {x, y, x, x, x,},
-            {x, y, y, y, x,},
+            {x, x, y, x, x,},
+            {x, x, y, x, x,},
+            {x, x, y, x, x,},
+            {x, x, y, x, x,},
             {x, x, x, x, x,},
     };
 
@@ -214,7 +130,7 @@ public class Hero implements Listener {
         }
     }
 
-    public static Vector rotateAroundAxisY(Vector v, double angle) {
+    private static Vector rotateAroundAxisY(Vector v, double angle) {
         double x, z, cos, sin;
         cos = Math.cos(angle);
         sin = Math.sin(angle);
@@ -223,35 +139,9 @@ public class Hero implements Listener {
         return v.setX(x).setZ(z);
     }
 
-    public static final Vector rotateAroundAxisX(Vector v, double angle) {
-        double y, z, cos, sin;
-        cos = Math.cos(angle);
-        sin = Math.sin(angle);
-        y = v.getY() * cos - v.getZ() * sin;
-        z = v.getY() * sin + v.getZ() * cos;
-        return v.setY(y).setZ(z);
-    }
-
-    public static final Vector rotateAroundAxisZ(Vector v, double angle) {
-        double x, y, cos, sin;
-        cos = Math.cos(angle);
-        sin = Math.sin(angle);
-        x = v.getX() * cos - v.getY() * sin;
-        y = v.getX() * sin + v.getY() * cos;
-        return v.setX(x).setY(y);
-    }
-
-    public static Vector getBackVector(Location loc) {
+    private static Vector getBackVector(Location loc) {
         final float newZ = (float) (loc.getZ() + (1 * Math.sin(Math.toRadians(loc.getYaw() + 90 * 1))));
         final float newX = (float) (loc.getX() + (1 * Math.cos(Math.toRadians(loc.getYaw() + 90 * 1))));
         return new Vector(newX - loc.getX(), 0, newZ - loc.getZ());
     }
-
-    public static void deactivateCape(Player player) {
-        if (Hero.heroCloaks.containsKey(player.getName())) {
-            Bukkit.getScheduler().cancelTask(((Integer) Hero.heroCloaks.get(player.getName())).intValue());
-            Hero.heroCloaks.remove(player.getName());
-        }
-    }
-
 }

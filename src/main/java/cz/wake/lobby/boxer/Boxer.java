@@ -32,7 +32,7 @@ public class Boxer implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         final Player p = e.getPlayer();
 
-        if (Main.getInstance().getTPS() > 18) {
+        if (Main.getInstance().getTPS() > 19) {
             if (randRange(1, 100) <= 10) { //10% sance na ziskani boxu
                 if ((Main.getInstance().fetchData().getBoxes(p.getUniqueId()) < 12)
                         && (Main.getInstance().fetchData().getNextboxTime(p.getUniqueId()) < System.currentTimeMillis())) {

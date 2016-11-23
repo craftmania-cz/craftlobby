@@ -3,7 +3,7 @@ package cz.wake.lobby.listeners;
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.banners.BannerAPI;
-import cz.wake.lobby.cloaks.Hero;
+import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.particles.*;
 import org.bukkit.Bukkit;
@@ -47,7 +47,6 @@ public class InvClick implements Listener {
     NakupBoxu np = new NakupBoxu();
     Lobby lob = new Lobby();
     BannerAPI bannerAPI = new BannerAPI();
-    Hero cape = new Hero();
     HeadsAPI hAPI = new HeadsAPI();
 
     @EventHandler
@@ -251,23 +250,6 @@ public class InvClick implements Listener {
             if (event.getSlot() == 49) {
                 //this.np.openNakup(player);
                 player.sendMessage("§cDeaktivovano...");
-            }
-            if (event.getSlot() == 51) {
-                if (player.hasPermission("craftlobby.cape.majitel")
-                        || player.hasPermission("craftlobby.cape.admin")
-                        || player.hasPermission("craftlobby.cape.builder")
-                        || player.hasPermission("craftlobby.cape.helper")
-                        || player.hasPermission("craftlobby.cape.vip")
-                        || player.hasPermission("craftlobby.cape.spirit")) {
-                    if (Hero.heroCloaks.containsKey(player.getName())) {
-                        Bukkit.getScheduler().cancelTask(((Integer) Hero.heroCloaks.get(player.getName())).intValue());
-                        Hero.heroCloaks.remove(player.getName());
-                        player.getInventory().setArmorContents(null);
-                        player.closeInventory();
-                    } else {
-                        this.cape.activate(player);
-                    }
-                }
             }
             event.setCancelled(true);
             player.updateInventory();
@@ -493,7 +475,7 @@ public class InvClick implements Listener {
             if (event.getSlot() == 49) {
                 this.gadgetsMenu.openGadgetsMenu(player);
             }
-            Hero.deactivateCape(player);
+            RankCape.deactivateCape(player);
         }
         //**************************** MOUNT MENU ****************************//
         if (event.getInventory().getTitle().equals("Mounts")) {
