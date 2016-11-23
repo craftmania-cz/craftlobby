@@ -20,6 +20,7 @@ public class SQLManager {
         this.plugin = plugin;
         pool = new ConnectionPoolManager(plugin);
     }
+
     public void onDisable() {
         pool.closePool();
     }
@@ -32,7 +33,7 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT * FROM craftboxer_buys WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
             return ps.getResultSet().next();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
@@ -47,10 +48,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT balance FROM CraftCoins WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("balance");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -65,10 +66,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT pocet FROM craftboxer WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("pocet");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -83,10 +84,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT dalsiBox FROM craftboxer WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong("dalsiBox");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -102,7 +103,7 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT * FROM craftboxer WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
             return ps.getResultSet().next();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         } finally {
@@ -117,10 +118,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT time FROM craftboxer_nextReset WHERE id = 1;");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong("time");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -135,10 +136,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT time FROM craftboxer_buys WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong("time");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -153,10 +154,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT skykeys FROM CraftCoins WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("skykeys");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -171,10 +172,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT week FROM votes WHERE uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("week");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -189,10 +190,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT month FROM votes WHERE uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("month");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -207,10 +208,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT votes FROM votes WHERE uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("votes");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -225,10 +226,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT PlayedGames FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("PlayedGames");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -243,10 +244,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT MinedDiamond FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("MinedDiamond");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -261,10 +262,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT KillBoss FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("KillBoss");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -279,10 +280,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Destroyed FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Destroyed");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -297,10 +298,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Losses FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Losses");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -315,10 +316,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Wins FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Wins");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -333,10 +334,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Deaths FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Deaths");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -351,10 +352,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Kills FROM annihilation_stats WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Kills");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -369,10 +370,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT normal_played FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_played");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -387,10 +388,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT normal_deaths FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_deaths");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -405,10 +406,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT normal_wins FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_wins");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -423,10 +424,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT normal_kills FROM skywars_players WHERE player_uuid = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_kills");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -441,10 +442,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT kills FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("kills");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -459,10 +460,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT wins FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("wins");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -477,10 +478,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT score FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("score");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -495,10 +496,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT loses FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("loses");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -513,10 +514,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT deaths FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("deaths");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -531,10 +532,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT destroyedBeds FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("destroyedBeds");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -549,10 +550,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT games FROM bw_stats_players WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("games");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -567,10 +568,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT points FROM GuessNDraw WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("points");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -585,10 +586,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT victories FROM GuessNDraw WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("victories");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -603,10 +604,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT losses FROM GuessNDraw WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("losses");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -621,10 +622,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT right_guesses FROM GuessNDraw WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("right_guesses");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -639,10 +640,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT wrong_guesses FROM GuessNDraw WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("wrong_guesses");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -657,10 +658,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT plays FROM GuessNDraw WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("plays");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -675,10 +676,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT Wins FROM masterbuilders WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Wins");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -693,10 +694,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT PlayedGames FROM masterbuilders WHERE UUID = '" + uuid.toString() + "'");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("PlayedGames");
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
@@ -879,10 +880,10 @@ public class SQLManager {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT " + s + " FROM MysteryBoxes WHERE UUID = '" + p.getUniqueId().toString() + "';");
             ps.executeQuery();
-            if(ps.getResultSet().next()){
+            if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(s);
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);

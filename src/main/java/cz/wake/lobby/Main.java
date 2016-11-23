@@ -1,12 +1,16 @@
 package cz.wake.lobby;
 
-import cz.wake.lobby.GUI.*;
+import cz.wake.lobby.GUI.GadgetsMenu;
+import cz.wake.lobby.GUI.MorphsMenu;
+import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.banners.BannerAPI;
 import cz.wake.lobby.boxer.Boxer;
 import cz.wake.lobby.boxer.SkyKeys;
 import cz.wake.lobby.cloaks.CloaksAPI;
-import cz.wake.lobby.cloaks.RankCape;
-import cz.wake.lobby.commands.*;
+import cz.wake.lobby.commands.CBPerms_command;
+import cz.wake.lobby.commands.ProfilCMD;
+import cz.wake.lobby.commands.SBPerms_command;
+import cz.wake.lobby.commands.Stats_Command;
 import cz.wake.lobby.gadgets.*;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.listeners.InvClick;

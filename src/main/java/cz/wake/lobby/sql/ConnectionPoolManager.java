@@ -3,6 +3,7 @@ package cz.wake.lobby.sql;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import cz.wake.lobby.Main;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class ConnectionPoolManager {
     private int maximumConnections;
     private long connectionTimeout;
 
-    public ConnectionPoolManager(Main plugin){
+    public ConnectionPoolManager(Main plugin) {
         this.plugin = plugin;
         init();
         setupPool();
@@ -53,6 +54,7 @@ public class ConnectionPoolManager {
     public Connection getConnection() throws SQLException {
         return dataSource.getConnection();
     }
+
     public void closePool() {
         if (dataSource != null && !dataSource.isClosed()) {
             dataSource.close();
@@ -60,8 +62,17 @@ public class ConnectionPoolManager {
     }
 
     public void close(Connection conn, PreparedStatement ps, ResultSet res) {
-        if (conn != null) try { conn.close(); } catch (SQLException ignored) {}
-        if (ps != null) try { ps.close(); } catch (SQLException ignored) {}
-        if (res != null) try { res.close(); } catch (SQLException ignored) {}
+        if (conn != null) try {
+            conn.close();
+        } catch (SQLException ignored) {
+        }
+        if (ps != null) try {
+            ps.close();
+        } catch (SQLException ignored) {
+        }
+        if (res != null) try {
+            res.close();
+        } catch (SQLException ignored) {
+        }
     }
 }

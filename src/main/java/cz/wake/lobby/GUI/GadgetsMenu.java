@@ -2,7 +2,6 @@ package cz.wake.lobby.GUI;
 
 import cz.wake.lobby.API.TimeUtils;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
