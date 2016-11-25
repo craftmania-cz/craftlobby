@@ -12,11 +12,11 @@ import java.util.Random;
 public class Boxer implements Listener {
 
     private void giveBox(final Player p, int boxes, int sance) {
-        if (sance >= 0 && sance <= 80) {
+        if (sance >= 0 && sance <= 70) {
             Bukkit.broadcastMessage("§bCraftBox §8┃ §e" + p.getName() + "§f nasel §aBasic CraftBox");
             Main.getInstance().setData().addCraftBox(p, "Basic_CraftBox", 1);
 
-        } else if (sance > 80) {
+        } else if (sance > 70) {
             Bukkit.broadcastMessage("§bCraftBox §8┃ §e" + p.getName() + "§f nasel §9Rare CraftBox");
             Main.getInstance().setData().addCraftBox(p, "Rare_CraftBox", 1);
         }

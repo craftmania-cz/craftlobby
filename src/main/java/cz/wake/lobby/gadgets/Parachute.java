@@ -16,18 +16,16 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Parachute implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
     java.util.HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static Random random = new Random();
-    List<Chicken> chickens = new ArrayList<>();
-    boolean active;
+    private HashMap<Player, ArrayList<Chicken>> chickens = new HashMap<>();
+    private boolean active;
+    int task1, task2;
 
     private Main plugin;
 
@@ -59,6 +57,10 @@ public class Parachute implements Listener {
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
+            if (Main.getInstance().getTPS() < 17) {
+                player.sendMessage("§cServer je pretizeny, nelze pouzivat gadgets!");
+                return;
+            }
             if (this._time.containsKey(player)) {
                 MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double) this._time.get(player)).doubleValue(), 1)));
                 return;
@@ -68,31 +70,33 @@ public class Parachute implements Listener {
             Location loc = player.getLocation();
             player.teleport(loc.clone().add(0, 35, 0));
             player.setVelocity(new Vector(0, 0, 0));
+            this.chickens.put(player, new ArrayList<Chicken>());
             for (int i = 0; i < 20; i++) {
-                Chicken chicken = (Chicken) player.getWorld().spawnEntity(player.getLocation().add(UtilMath.randomDouble(0, 0.5), 3, UtilMath.randomDouble(0, 0.5)), EntityType.CHICKEN);
-                chickens.add(chicken);
+                final Chicken chicken = (Chicken) player.getWorld().spawnEntity(player.getLocation().add(UtilMath.randomDouble(0, 0.5), 3, UtilMath.randomDouble(0, 0.5)), EntityType.CHICKEN);
+                this.chickens.get(player).add(chicken);
                 chicken.setLeashHolder(player);
             }
-            Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getPlugin(), new Runnable() {
+            task1 = Bukkit.getScheduler().runTaskLaterAsynchronously(Main.getPlugin(), new Runnable() {
                 @Override
                 public void run() {
                     active = true;
                 }
-            }, 5);
+            }, 5).getTaskId();
 
-            Bukkit.getScheduler().runTaskTimerAsynchronously(Main.getPlugin(), new Runnable() {
+            task2 = Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
                 @Override
                 public void run() {
-                    if (active) {
+                    if (chickens.containsKey(player)) {
                         if (!player.isOnGround() && player.getVelocity().getY() < -0.3) {
                             UtilMath.applyVelocity(player, player.getVelocity().add(new Vector(0, 0.1, 0)));
                         }
                         if (player.isOnGround()) {
                             killParachute(player);
+                            Bukkit.getScheduler().cancelTask(task2);
                         }
                     }
                 }
-            }, 0L, 1L);
+            }, 0L, 1L).getTaskId();
 
 
             this._cdRunnable.put(player, new BukkitRunnable() {
@@ -114,18 +118,20 @@ public class Parachute implements Listener {
 
     @EventHandler
     public void onLeashBreak(EntityUnleashEvent event) {
-        if (chickens.contains(event.getEntity())) {
+        if (chickens.containsValue(event.getEntity())) {
             event.getEntity().getNearbyEntities(1, 1, 1).stream().filter(ent -> ent instanceof Item
                     && ((Item) ent).getItemStack().getType() == Material.LEASH).forEachOrdered(Entity::remove);
         }
     }
 
-    private void killParachute(Player player) {
-        for (Chicken chicken : chickens) {
-            chicken.setLeashHolder(null);
-            chicken.remove();
+    private void killParachute(final Player player) {
+        for (Iterator localIterator1 = chickens.get(player).iterator(); localIterator1.hasNext();) {
+            Chicken ch = (Chicken) localIterator1.next();
+            ch.setLeashHolder(null);
+            ch.remove();
         }
         UtilMath.applyVelocity(player, new Vector(0, 0.15, 0));
+        chickens.remove(player);
         active = false;
     }
 
