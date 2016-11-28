@@ -42,7 +42,8 @@ public class HeadsAPI implements Listener {
         bh2Lore.add("");
         bh2Lore.add("§7Seznam zakladnich headek.");
         bh2Lore.add("");
-        bh2Lore.add("§cJiz brzy...");
+        bh2Lore.add("§7Odemknuto: §cNedostupne");
+        bh2Lore.add("§ePro zobrazeni klikni!");
         bh2Meta.setLore(bh2Lore);
         winterHeads.setItemMeta(bh2Meta);
 
@@ -436,7 +437,115 @@ public class HeadsAPI implements Listener {
 
         ItemStack zpet = new ItemStack(Material.ARROW);
         ItemMeta zpetMeta = zpet.getItemMeta();
-        zpetMeta.setDisplayName(ChatColor.RED + "Zpet do Gadgets menu");
+        zpetMeta.setDisplayName(ChatColor.RED + "Zpet na predchozi stranku");
+        zpet.setItemMeta(zpetMeta);
+
+        ItemStack dalsi = new ItemStack(Material.ARROW);
+        ItemMeta dalsiMeta = dalsi.getItemMeta();
+        dalsiMeta.setDisplayName(ChatColor.RED + "Dalsi stranka");
+        dalsi.setItemMeta(dalsiMeta);
+
+        ItemStack deaktivace = new ItemStack(Material.BARRIER);
+        ItemMeta deaktivaceMeta = deaktivace.getItemMeta();
+        deaktivaceMeta.setDisplayName(ChatColor.RED + "✖ Sundat headku z hlavy ✖");
+        ArrayList<String> deaktivaceLore = new ArrayList<String>();
+        deaktivaceLore.add(ChatColor.GRAY + "Kliknutim sundas nasazenou headku.");
+        deaktivaceMeta.setLore(deaktivaceLore);
+        deaktivace.setItemMeta(deaktivaceMeta);
+
+        ItemStack shopItem = new ItemStack(Material.CHEST, 1);
+        ItemMeta shopItemMeta = shopItem.getItemMeta();
+        shopItemMeta.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "Gadgets");
+        ArrayList<String> shopLore = new ArrayList<String>();
+        shopLore.add(ChatColor.GRAY + "Gadgety jsou doplnky do lobby");
+        shopLore.add(ChatColor.GRAY + "daji se ziskat z CraftBoxu nebo na");
+        shopLore.add(ChatColor.GRAY + "specialnich eventech.");
+        shopLore.add("");
+        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
+        shopItemMeta.setLore(shopLore);
+        shopItem.setItemMeta(shopItemMeta);
+
+        inv.setItem(49, shopItem);
+        inv.setItem(40, deaktivace);
+        //inv.setItem(41, dalsi);
+        inv.setItem(39, zpet);
+
+        p.openInventory(inv);
+    }
+
+    private void openChristmasHeads(final Player p){
+
+        Inventory inv = Bukkit.createInventory(null, 54, "Vanocni Heads (1 z 1)");
+
+        if(p.hasPermission("craftlobby.heads.vanocni.santa")){
+            inv.setItem(0, createHead("Santa", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0="));
+        } else {
+            inv.setItem(0,noPermW("Santa"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.piratesanta")){
+            inv.setItem(1, createHead("PirateSanta", "0eac3133-65c6-44a4-44ee-db7dfd74208d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc5NTMzNGVmZDkyYWFmMzhkZjk2ZTg2YTYzNjFmYTc3NmUwNTJhOTBlNjIyYTUyZWQ5ZjMxZDY3OWU1OTUifX19"));
+        } else {
+            inv.setItem(1, noPermW("PirateSanta"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.commandblock")){
+            inv.setItem(2, createHead("CommandBlock", "5bbf064c-4cd7-4e37-b7f3-44f53b588f53", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjBlZDg3NmFiYzRhZWIyMThkYzUxZTZlY2E0NGNjZjUxY2YwYmQ2NmM2ZDc1Y2JiYjBkYjlhZDNkNmYwOTMifX19"));
+        } else {
+            inv.setItem(2, noPermW("CommandBlock"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.elfboy")){
+            inv.setItem(3, createHead("ElfBoy", "367ea5a0-cf6f-4993-9c7e-9f3466bf30ef", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmNlNjg1YmVhOGY2ZDk2NmU1MzNlMmFmNWJhYTU1NzdlMWE5OGY2Y2FkMTFiOGYwZjdmMjAxYmJlZjZlODIyIn19fQ=="));
+        } else {
+            inv.setItem(3, noPermW("ElfBoy"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.elfgirl")){
+            inv.setItem(4, createHead("ElfGirl", "e13aa36e-7804-4f00-a9c0-668f24ffb0a7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTg5YTRjMWE3YzgxZjM3NjVmNWE1ZTJjOTJlNGQ0OGVkOTczMGRhYzE4NzhkZmY0MWExOTFkNzhhMTY5ZDg5In19fQ=="));
+        } else {
+            inv.setItem(4, noPermW("ElfGirl"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.sob")){
+            inv.setItem(5, createHead("Sob", "5ddb61e0-4e65-4097-8026-489261d7d278", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDQ5MjdjZTViYTIyYWQxZTc1N2Q2YTMzM2UyNzViMzZkYTFhODQzNmZjZWYwNzczNDBhYjUzZTNmYiJ9fX0="));
+        } else {
+            inv.setItem(5, noPermW("Sob"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.snowman")){
+            inv.setItem(6, createHead("Snowman", "2d141b1e-86d1-48e9-964c-5d9db8655e04", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOThlMzM0ZTRiZWUwNDI2NDc1OWE3NjZiYzE5NTVjZmFmM2Y1NjIwMTQyOGZhZmVjOGQ0YmYxYmIzNmFlNiJ9fX0="));
+        } else {
+            inv.setItem(6, noPermW("Snowman"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.snowglobe")){
+            inv.setItem(7, createHead("Snowglobe", "be6b6cbc-223a-4c98-b205-b00b7c545579", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRkNjYzMTM2Y2FmYTExODA2ZmRiY2E2YjU5NmFmZDg1MTY2YjRlYzAyMTQyYzhkNWFjODk0MWQ4OWFiNyJ9fX0="));
+        } else {
+            inv.setItem(7, noPermW("Snowglobe"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.snowglobe2")){
+            inv.setItem(8, createHead("Snowglobe2", "2a2b9900-73a3-44d9-957f-47ba7f54497b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTg2MTU2ZDdmMjEzMjY2OWMzNjdhYjg5NTIzYzJlMWI5ODY2ZTQwYjJiODkxMzkzNzQ0NjU3ZjFjMzU1In19fQ=="));
+        } else {
+            inv.setItem(8, noPermW("Snowglobe2"));
+        }
+        if(p.hasPermission("craftloby.heads.vanocni.blackpresent")){
+            inv.setItem(9, createHead("BlackPresent", "ee53f881-8b67-4604-bfb9-a43a6966eae2", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWM3MTJiMTk3MWM1ZjQyZWVmZjgwNTUxMTc5MjIwYzA4YjgyMTNlYWNiZTZiYzE5ZDIzOGMxM2Y4NmUyYzAifX19"));
+        } else {
+            inv.setItem(9, noPermW("BlackPresent"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.bluepresent")){
+            inv.setItem(10, createHead("BluePresent", "9e7cfed7-6eab-419e-ade9-dcdd59c3949d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTEyZTk0NTFjZGIxOTZiNzgxOTVhOGYwYTRiOWMxYzBhMDRmNTgyNzg4NzkyN2I2YTgyYWFkMzljYWIyZjQzMCJ9fX0="));
+        } else {
+            inv.setItem(10, noPermW("BluePresent"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.greenpresent")){
+            inv.setItem(11, createHead("GreenPresent", "434b9c7c-d287-4d61-b4c3-7be1da79b9e5", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTcxNWY1MzdmZTdhZjZmNWFhNmViOThhZDY5MDJjMTNkMDVmYjM2YzE2YjMxMWVkODMyYjA5YjU5ODgyOCJ9fX0="));
+        } else {
+            inv.setItem(11, noPermW("GreenPresent"));
+        }
+        if(p.hasPermission("craftlobby.heads.vanocni.goldpresent")) {
+            inv.setItem(12, createHead("GoldPresent", "d8b36e98-b8ee-4cdc-ac57-f4ef5a6e74b1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmI0Y2RlMTZhNDAxNGRlMGE3NjUxZjYwNjdmMTI2OTViYjVmZWQ2ZmVhZWMxZTk0MTNjYTQyNzFlN2M4MTkifX19"));
+        } else {
+            inv.setItem(12, noPermW("GoldPresent"));
+        }
+
+        ItemStack zpet = new ItemStack(Material.ARROW);
+        ItemMeta zpetMeta = zpet.getItemMeta();
+        zpetMeta.setDisplayName(ChatColor.RED + "Zpet na predchozi stranku");
         zpet.setItemMeta(zpetMeta);
 
         ItemStack dalsi = new ItemStack(Material.ARROW);
@@ -485,6 +594,9 @@ public class HeadsAPI implements Listener {
             }
             if(e.getSlot() == 11){
                 openHeads(p);
+            }
+            if(e.getSlot() == 15){
+                openChristmasHeads(p);
             }
             if(e.getSlot() == 31){
                 Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
@@ -725,6 +837,61 @@ public class HeadsAPI implements Listener {
                 setupHead(p, "craftlobby.heads.mrwakecz", "MrWakeCZ","43d05dab-2dbc-418b-9e6f-dc73ab916dbc", "eyJ0aW1lc3RhbXAiOjE0NTQ3MTIwOTIzMjksInByb2ZpbGVJZCI6IjQzZDA1ZGFiMmRiYzQxOGI5ZTZmZGM3M2FiOTE2ZGJjIiwicHJvZmlsZU5hbWUiOiJNcldha2VDWiIsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzQ5ODM2MDliYjY2ZTBmNDY3ZmEzYmYyNmQ5NzBkOWI1OWYyODdjZDhiYTk0MWU4ZWE4NTliZTgwNmM5MCJ9fX0=");
             }
         }
+        if (e.getInventory().getTitle().equals("Vanocni Heads (1 z 1)")) {
+            if (e.getCurrentItem() == null){
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR){
+                return;
+            }
+            if(e.getSlot() == 40){
+                p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
+                p.getInventory().setHelmet(null);
+                p.closeInventory();
+            }
+            if(e.getSlot() == 39){
+                openMainHeadsMenu(p);
+            }
+            if(e.getSlot() == 0){
+                setupHead(p, "craftlobby.heads.vanocni.santa", "Santa", "fd9c8a5c-cd32-4902-a55e-b48e18cc4ce6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2JjYmIzZTRhMzhhYzJhMDVmNjk1NWNkMmM5ODk1YWQ5ZjI4NGM2ZTgyZTc1NWM5NGM1NDljNWJkYzg1MyJ9fX0=");
+            }
+            if(e.getSlot() == 1){
+                setupHead(p, "craftlobby.heads.vanocni.piratesanta", "PirateSanta", "0eac3133-65c6-44a4-44ee-db7dfd74208d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzc5NTMzNGVmZDkyYWFmMzhkZjk2ZTg2YTYzNjFmYTc3NmUwNTJhOTBlNjIyYTUyZWQ5ZjMxZDY3OWU1OTUifX19");
+            }
+            if(e.getSlot() == 2){
+                setupHead(p, "craftlobby.heads.vanocni.commandblock", "CommandBlock", "5bbf064c-4cd7-4e37-b7f3-44f53b588f53", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjBlZDg3NmFiYzRhZWIyMThkYzUxZTZlY2E0NGNjZjUxY2YwYmQ2NmM2ZDc1Y2JiYjBkYjlhZDNkNmYwOTMifX19");
+            }
+            if(e.getSlot() == 3){
+                setupHead(p, "craftlobby.heads.vanocni.elfboy", "ElfBoy", "367ea5a0-cf6f-4993-9c7e-9f3466bf30ef", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmNlNjg1YmVhOGY2ZDk2NmU1MzNlMmFmNWJhYTU1NzdlMWE5OGY2Y2FkMTFiOGYwZjdmMjAxYmJlZjZlODIyIn19fQ==");
+            }
+            if(e.getSlot() == 4){
+                setupHead(p, "craftlobby.heads.vanocni.elfgirl", "ElfGirl", "e13aa36e-7804-4f00-a9c0-668f24ffb0a7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTg5YTRjMWE3YzgxZjM3NjVmNWE1ZTJjOTJlNGQ0OGVkOTczMGRhYzE4NzhkZmY0MWExOTFkNzhhMTY5ZDg5In19fQ==");
+            }
+            if(e.getSlot() == 5){
+                setupHead(p, "craftlobby.heads.vanocni.sob", "Sob", "5ddb61e0-4e65-4097-8026-489261d7d278", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDQ5MjdjZTViYTIyYWQxZTc1N2Q2YTMzM2UyNzViMzZkYTFhODQzNmZjZWYwNzczNDBhYjUzZTNmYiJ9fX0=");
+            }
+            if(e.getSlot() == 6){
+                setupHead(p, "craftlobby.heads.vanocni.snowman", "Snowman", "2d141b1e-86d1-48e9-964c-5d9db8655e04", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOThlMzM0ZTRiZWUwNDI2NDc1OWE3NjZiYzE5NTVjZmFmM2Y1NjIwMTQyOGZhZmVjOGQ0YmYxYmIzNmFlNiJ9fX0=");
+            }
+            if(e.getSlot() == 7){
+                setupHead(p, "craftlobby.heads.vanocni.snowglobe", "Snowglobe", "be6b6cbc-223a-4c98-b205-b00b7c545579", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRkNjYzMTM2Y2FmYTExODA2ZmRiY2E2YjU5NmFmZDg1MTY2YjRlYzAyMTQyYzhkNWFjODk0MWQ4OWFiNyJ9fX0=");
+            }
+            if(e.getSlot() == 8){
+                setupHead(p, "craftlobby.heads.vanocni.snowglobe2", "Snowglobe2", "2a2b9900-73a3-44d9-957f-47ba7f54497b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTg2MTU2ZDdmMjEzMjY2OWMzNjdhYjg5NTIzYzJlMWI5ODY2ZTQwYjJiODkxMzkzNzQ0NjU3ZjFjMzU1In19fQ==");
+            }
+            if(e.getSlot() == 9){
+                setupHead(p, "craftloby.heads.vanocni.blackpresent", "BlackPresent", "ee53f881-8b67-4604-bfb9-a43a6966eae2", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWM3MTJiMTk3MWM1ZjQyZWVmZjgwNTUxMTc5MjIwYzA4YjgyMTNlYWNiZTZiYzE5ZDIzOGMxM2Y4NmUyYzAifX19");
+            }
+            if(e.getSlot() == 10){
+                setupHead(p, "craftlobby.heads.vanocni.bluepresent", "BluePresent", "9e7cfed7-6eab-419e-ade9-dcdd59c3949d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTEyZTk0NTFjZGIxOTZiNzgxOTVhOGYwYTRiOWMxYzBhMDRmNTgyNzg4NzkyN2I2YTgyYWFkMzljYWIyZjQzMCJ9fX0=");
+            }
+            if(e.getSlot() == 11){
+                setupHead(p, "craftlobby.heads.vanocni.greenpresent", "GreenPresent", "434b9c7c-d287-4d61-b4c3-7be1da79b9e5", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTcxNWY1MzdmZTdhZjZmNWFhNmViOThhZDY5MDJjMTNkMDVmYjM2YzE2YjMxMWVkODMyYjA5YjU5ODgyOCJ9fX0=");
+            }
+            if(e.getSlot() == 12){
+                setupHead(p, "craftlobby.heads.vanocni.goldpresent", "GoldPresent", "d8b36e98-b8ee-4cdc-ac57-f4ef5a6e74b1", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmI0Y2RlMTZhNDAxNGRlMGE3NjUxZjYwNjdmMTI2OTViYjVmZWQ2ZmVhZWMxZTk0MTNjYTQyNzFlN2M4MTkifX19");
+            }
+        }
     }
 
     private ItemStack createHead(String name, String uuid, String value){
@@ -743,6 +910,17 @@ public class HeadsAPI implements Listener {
         noPermMeta.setDisplayName("§c" + name);
         ArrayList<String> noPermLore = new ArrayList<String>();
         noPermLore.add("§7Vybranou headku lze ziskat v CraftBoxu!");
+        noPermMeta.setLore(noPermLore);
+        noPerm.setItemMeta(noPermMeta);
+        return noPerm;
+    }
+
+    private ItemStack noPermW(String name){
+        ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
+        ItemMeta noPermMeta = noPerm.getItemMeta();
+        noPermMeta.setDisplayName("§c" + name);
+        ArrayList<String> noPermLore = new ArrayList<String>();
+        noPermLore.add("§7Vybranou headku lze ziskat ve Vanocnim kalendari 2016!");
         noPermMeta.setLore(noPermLore);
         noPerm.setItemMeta(noPermMeta);
         return noPerm;
