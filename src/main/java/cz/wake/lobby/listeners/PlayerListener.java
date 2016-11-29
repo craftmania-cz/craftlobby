@@ -5,6 +5,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.utils.UtilTablist;
+import cz.wake.lobby.vanoce.Kalendar;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
@@ -115,6 +116,9 @@ public class PlayerListener implements Listener {
         p.setGameMode(GameMode.ADVENTURE);
 
         UtilTablist.setupPrefixInTab(p);
+
+        // Kalendar
+        Main.getInstance().fetchData().addCalendarDefaultValue(p);
     }
 
     @EventHandler

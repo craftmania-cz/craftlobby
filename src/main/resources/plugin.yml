@@ -17,6 +17,8 @@ commands:
     description: Addon na CraftBoxy
   changepassword:
     description: Prikaz na zmenu hesla pro Warez
+  kalendar:
+    description: Kalendar ne...
 permissions:
   craftlobby.pristup:
     description: Beta test
