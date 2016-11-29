@@ -15,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
 
 public class Kalendar implements Listener {
 
@@ -22,7 +23,7 @@ public class Kalendar implements Listener {
 
     public void openKalendar(final Player p){
 
-        Inventory inv = Bukkit.createInventory(null, 54, "Vanocni kalendar");
+        Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
 
         inv.setItem(2, canOpen(p, 1, 1480546800000L)); //Den 1.
         inv.setItem(40, canOpen(p, 2, 1480633200000L)); // Den 2.
@@ -148,14 +149,18 @@ public class Kalendar implements Listener {
     }
 
     @EventHandler
-    private void onClicked4(InventoryClickEvent e){
-        Player p = (Player) e.getWhoClicked();
-        if (e.getInventory().getTitle().equals("Vanocni kalendar")) {
+    private void onClick(InventoryClickEvent e) {
+        final Player p = (Player) e.getWhoClicked();
+        if (e.getInventory().getTitle().equals("Kalendar")) {
             e.setCancelled(true);
             if (e.getCurrentItem() == null){
                 return;
             }
             if (e.getCurrentItem().getType() == Material.AIR){
+                return;
+            }
+            if(e.getCurrentItem().isSimilar(glass())){
+                System.out.println("test");
                 return;
             }
             if(e.getSlot() == 2){
@@ -524,13 +529,10 @@ public class Kalendar implements Listener {
                     // Event
                     return;
                 } else {
-                    p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
-            } else {
-                p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
-                p.closeInventory();
             }
             if(e.getSlot() == 48){
                 if(System.currentTimeMillis() >= 1482274800000L){ // 21.den
@@ -599,16 +601,11 @@ public class Kalendar implements Listener {
                     // Event
                     return;
                 } else {
-                    p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
-            } else {
-                p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
-                p.closeInventory();
-                return;
             }
-
         }
     }
 
