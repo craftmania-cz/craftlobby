@@ -17,9 +17,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Kalendar implements Listener {
-    
+
     //TODO: Ticket system na odmeny
-    //TODO: Vanocni gadgets
 
     public void openKalendar(final Player p){
 
