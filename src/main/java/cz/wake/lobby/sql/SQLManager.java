@@ -8,6 +8,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 public class SQLManager {
@@ -976,6 +979,192 @@ public class SQLManager {
                 }
             }
         }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final String getTicketProgramPerDay(final String day) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + day + " FROM ticket_program;");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getString(day);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return "";
+    }
+
+    public final String getWinner() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT vitez_vcera FROM ticket_program;");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getString("vitez_vcera");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return "";
+    }
+
+
+
+    public final String getFinalTodayWinner() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT nick FROM ticket_game ORDER BY RAND() LIMIT 1;");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getString("nick");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return "";
+    }
+
+    public final int countTickets(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT COUNT(nick) AS total FROM ticket_game WHERE nick = '" + p.getName() + "';");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final int countAllTickets() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT COUNT(nick) AS total FROM ticket_game;");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final int priceTickets() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT cena_za_ticket FROM ticket_program;");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("cena_za_ticket");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final void addPlayerToWinnersTable(final String p, final String game) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("INSERT INTO ticket_winners (nick,game,date) VALUES (?,?,NOW());");
+                    ps.setString(1, p);
+                    ps.setString(2, game);
+                    ps.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+
+    public final void addPlayerToTicketGame(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("INSERT INTO ticket_game (nick) VALUES (?);");
+                    ps.setString(1, p.getName());
+                    ps.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final long endTicketing() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT konec_nakupu FROM ticket_program;");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getLong("konec_nakupu");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0L;
+    }
+
+    public final boolean isWinner(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM ticket_winners WHERE nick = '" + p.getName() + "';");
+            ps.executeQuery();
+            return ps.getResultSet().next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            pool.close(conn, ps, null);
+        }
     }
 
 

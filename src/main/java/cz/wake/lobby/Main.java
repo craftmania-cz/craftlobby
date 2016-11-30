@@ -21,6 +21,8 @@ import cz.wake.lobby.pets.PetsAPI;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
 import cz.wake.lobby.vanoce.Kalendar;
+import cz.wake.lobby.vanoce.TicketSystem;
+import cz.wake.lobby.vanoce.WinnerTask;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -94,7 +96,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Automaticka zmena casu v lobby podle Real casu
-        //tt.initTimeSetter();
+        tt.initTimeSetter();
+
+        // Ticket system
+        if(getConfig().getBoolean("ticket-winner")){
+            Bukkit.getScheduler().runTaskTimerAsynchronously(this, new WinnerTask(), 400L, 1200L);
+        }
 
         //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
@@ -181,6 +188,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new HeadsAPI(), this);
         pm.registerEvents(new Kalendar(), this);
         pm.registerEvents(new SnowBall(this), this);
+        pm.registerEvents(new TicketSystem(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {
@@ -197,6 +205,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("sbperms").setExecutor(new SBPerms_command());
         getCommand("cbperms").setExecutor(new CBPerms_command());
         getCommand("kalendar").setExecutor(new Kalendar_command());
+        getCommand("ticket").setExecutor(new Ticket_Command());
     }
 
     public static Main getInstance() {

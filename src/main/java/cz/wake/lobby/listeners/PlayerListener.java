@@ -119,6 +119,17 @@ public class PlayerListener implements Listener {
 
         // Kalendar
         Main.getInstance().fetchData().addCalendarDefaultValue(p);
+
+        // Ticket vyherce
+        if(Main.getInstance().fetchData().isWinner(p)){
+            p.sendMessage("§c§m--------------------------------------------");
+            p.sendMessage("§e§lGratulujeme! §6Vyhral/a jsi hru!");
+            p.sendMessage("§7Vyzvedni si ji na webu u Majitele!");
+            p.sendMessage("§7Pokud nejsi registrovany/a musis se registrovat!");
+            p.sendMessage("§7Automaticky ti napiseme do zprav klic do 24h! :)");
+            p.sendMessage("§8Hru muzes vybrat do 24.12.!");
+            p.sendMessage("§c§m--------------------------------------------");
+        }
     }
 
     @EventHandler

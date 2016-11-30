@@ -18,8 +18,6 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
-    //TODO: Ticket system na odmeny
-
     public void openKalendar(final Player p){
 
         Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
@@ -228,9 +226,9 @@ public class Kalendar implements Listener {
                 if(System.currentTimeMillis() >= 1480806000000L){ // 4.Den
                     if(Main.getInstance().fetchData().checkDay(p, 4) == 0){
                         Main.getInstance().fetchData().addCalendarDay(p,4);
-                        p.sendMessage("§eZiskal jsi: §b2000CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b2000CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 2000");
+                        p.sendMessage("§eZiskal jsi: §b1000CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b1000CC");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 1000");
                         p.closeInventory();
                         return;
                     } else {
@@ -322,12 +320,12 @@ public class Kalendar implements Listener {
                     if(Main.getInstance().fetchData().checkDay(p, 9) == 0){
                         Main.getInstance().fetchData().addCalendarDay(p,9);
                         p.sendMessage("§eZiskal jsi: §bPresent Heads + 200CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPresent Heads + 500CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPresent Heads + 200CC");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftloby.heads.vanocni.blackpresent");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.bluepresent");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.greenpresent");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.goldpresent");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 200");
                         p.closeInventory();
                         return;
                     } else {
@@ -396,9 +394,9 @@ public class Kalendar implements Listener {
                 if(System.currentTimeMillis() >= 1481583600000L){ // 13.den
                     if(Main.getInstance().fetchData().checkDay(p, 13) == 0){
                         Main.getInstance().fetchData().addCalendarDay(p,13);
-                        p.sendMessage("§eZiskal jsi: §b2000CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b2000CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 2000");
+                        p.sendMessage("§eZiskal jsi: §b200CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b200CC");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 200");
                         p.closeInventory();
                         return;
                     } else {
@@ -578,9 +576,9 @@ public class Kalendar implements Listener {
                 if(System.currentTimeMillis() >= 1482447600000L){ // 23.den
                     if(Main.getInstance().fetchData().checkDay(p, 23) == 0){
                         Main.getInstance().fetchData().addCalendarDay(p,23);
-                        p.sendMessage("§eZiskal jsi: §b5000CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b5000CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 5000");
+                        p.sendMessage("§eZiskal jsi: §b500CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b500CC");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
                         p.closeInventory();
                         return;
                     } else {

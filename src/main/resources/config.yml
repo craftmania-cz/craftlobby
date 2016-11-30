@@ -17,3 +17,6 @@ debug: false
 
 # Typ serveru
 server: lobby
+
+# Generator vitezu! POUZE OHUB!
+ticket-winner: false
