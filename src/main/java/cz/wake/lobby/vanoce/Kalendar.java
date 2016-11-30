@@ -15,7 +15,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
 
 public class Kalendar implements Listener {
 
@@ -160,7 +159,6 @@ public class Kalendar implements Listener {
                 return;
             }
             if(e.getCurrentItem().isSimilar(glass())){
-                System.out.println("test");
                 return;
             }
             if(e.getSlot() == 2){

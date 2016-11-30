@@ -14,7 +14,7 @@ public class Kalendar_command implements CommandExecutor {
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
         if ((Command.getName().equalsIgnoreCase("kalendar"))) {
             if(Sender instanceof Player){
-                k.openKalendar((Player)Sender);
+                k.openKalendar(((Player) Sender).getPlayer());
                 return true;
             } else {
                 Sender.sendMessage("No tak asi tady tezko :D");
