@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class TicketSystem implements Listener {
 
-    public void openTicketMenu(final Player p){
+    public void openTicketMenu(final Player p) {
 
         Inventory inv = Bukkit.createInventory(null, 45, "Ticket system");
 
@@ -48,8 +48,8 @@ public class TicketSystem implements Listener {
 
         int prc = (count * 100 / all);
 
-        ItemStack tickets = ItemFactory.create(Material.GOLD_INGOT, (byte)0, "§eDnes pouzite tickety");
-        ItemMeta  tM = tickets.getItemMeta();
+        ItemStack tickets = ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "§eDnes pouzite tickety");
+        ItemMeta tM = tickets.getItemMeta();
         ArrayList<String> tL = new ArrayList<>();
         tL.add("§7Pocet ticketu: §f" + count);
         tL.add("§7Celkova cena ticketu: §f" + price * count + " CC");
@@ -57,7 +57,7 @@ public class TicketSystem implements Listener {
         tM.setLore(tL);
         tickets.setItemMeta(tM);
 
-        ItemStack nakup = ItemFactory.create(Material.PAPER, (byte)0, "§bZakoupit 1x ticket");
+        ItemStack nakup = ItemFactory.create(Material.PAPER, (byte) 0, "§bZakoupit 1x ticket");
         ItemMeta nM = nakup.getItemMeta();
         ArrayList<String> nL = new ArrayList<>();
         nL.add("§7Cena za ticket: §f" + price + " CC");
@@ -66,8 +66,8 @@ public class TicketSystem implements Listener {
         nM.setLore(nL);
         nakup.setItemMeta(nM);
 
-        ItemStack info = ItemFactory.create(Material.COMMAND_REPEATING, (byte)0, "§9Informace",
-                "","§7Kazdy den muze 1 hrac vyhrat 1 hru!","§7Do (automatickeho) losovani se zaradis nakupem ticketu.",
+        ItemStack info = ItemFactory.create(Material.COMMAND_REPEATING, (byte) 0, "§9Informace",
+                "", "§7Kazdy den muze 1 hrac vyhrat 1 hru!", "§7Do (automatickeho) losovani se zaradis nakupem ticketu.",
                 "§7Kazdy den priblizne ve §a20:30 §7server vybere", "§7hrace, ktery vyhraje klic ke hre!",
                 "", "§cPokud vyhrajes, bude ti to oznamovano pri pripojovani!",
                 "§eVyherce obdrzi klic ve zpravach na webu!");
@@ -83,22 +83,22 @@ public class TicketSystem implements Listener {
     }
 
     @EventHandler
-    private void onClick(InventoryClickEvent e){
+    private void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
         if (e.getInventory().getTitle().equals("Ticket system")) {
             e.setCancelled(true);
-            if (e.getCurrentItem() == null){
+            if (e.getCurrentItem() == null) {
                 return;
             }
-            if (e.getCurrentItem().getType() == Material.AIR){
+            if (e.getCurrentItem().getType() == Material.AIR) {
                 return;
             }
-            if(e.getSlot() == 33){
+            if (e.getSlot() == 33) {
                 int price = Main.getInstance().fetchData().priceTickets();
-                if(Main.getInstance().fetchData().getCraftCoins(p.getUniqueId())
-                        >= price){ // Pokud si muze zkoupit ticket
-                    if(System.currentTimeMillis() <= Main.getInstance().fetchData().endTicketing()){ // Kontrola jestli neni po konci
-                        if(Main.getInstance().fetchData().countTickets(p) < 10){ // Max 10 ticketu
+                if (Main.getInstance().fetchData().getCraftCoins(p.getUniqueId())
+                        >= price) { // Pokud si muze zkoupit ticket
+                    if (System.currentTimeMillis() <= Main.getInstance().fetchData().endTicketing()) { // Kontrola jestli neni po konci
+                        if (Main.getInstance().fetchData().countTickets(p) < 10) { // Max 10 ticketu
                             Main.getInstance().fetchData().takeCoins(p, price);
                             Main.getInstance().fetchData().addPlayerToTicketGame(p);
                             p.sendMessage("§eZakoupil jsi si ticket za §f" + price + " CC§e!");

@@ -96,12 +96,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Automaticka zmena casu v lobby podle Real casu
-        if(getConfig().getBoolean("timer")){
+        if (getConfig().getBoolean("timer")) {
             tt.initTimeSetter();
         }
 
         // Ticket system
-        if(getConfig().getBoolean("ticket-winner")){
+        if (getConfig().getBoolean("ticket-winner")) {
             Bukkit.getScheduler().runTaskTimerAsynchronously(this, new WinnerTask(), 400L, 1200L);
         }
 

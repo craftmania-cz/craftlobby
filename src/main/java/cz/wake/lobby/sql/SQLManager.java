@@ -8,9 +8,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.UUID;
 
 public class SQLManager {
@@ -28,7 +25,7 @@ public class SQLManager {
         pool.closePool();
     }
 
-    public ConnectionPoolManager getPool(){
+    public ConnectionPoolManager getPool() {
         return pool;
     }
 
@@ -926,7 +923,7 @@ public class SQLManager {
         String selector = "day" + String.valueOf(day);
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + selector +" FROM kalendar_vyber WHERE nick = '" + p.getName() + "';");
+            ps = conn.prepareStatement("SELECT " + selector + " FROM kalendar_vyber WHERE nick = '" + p.getName() + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(selector);
@@ -1016,7 +1013,6 @@ public class SQLManager {
         }
         return "";
     }
-
 
 
     public final String getFinalTodayWinner() {
