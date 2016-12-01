@@ -218,6 +218,13 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lParachute", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(27, i);
         }
+        if(p.hasPermission("craftlobby.gadgets.snowball")){
+            ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§e§lSnowBall", "§7Sestrel vsechny! :P");
+            gadgetsInv.setItem(28, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lSnowBall", "§7Gadget lze ziskat v CraftBoxu!");
+            gadgetsInv.setItem(28, i);
+        }
 
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§cZpet do menu");
 
@@ -453,6 +460,13 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "Parachute", Material.LEASH, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "Parachute");
+                }
+            }
+            if(e.getSlot() == 28){
+                if(p.hasPermission("craftlobby.gadgets.snowball")){
+                    this.ml.prepareGadget(p, "SnowBall", Material.SNOW_BALL, (byte)0);
+                } else {
+                    this.ml.messageNoPerm(p, "SnowBall");
                 }
             }
 

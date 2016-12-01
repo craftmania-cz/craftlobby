@@ -7,10 +7,7 @@ import cz.wake.lobby.banners.BannerAPI;
 import cz.wake.lobby.boxer.Boxer;
 import cz.wake.lobby.boxer.SkyKeys;
 import cz.wake.lobby.cloaks.CloaksAPI;
-import cz.wake.lobby.commands.CBPerms_command;
-import cz.wake.lobby.commands.ProfilCMD;
-import cz.wake.lobby.commands.SBPerms_command;
-import cz.wake.lobby.commands.Stats_Command;
+import cz.wake.lobby.commands.*;
 import cz.wake.lobby.gadgets.*;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.listeners.InvClick;
@@ -23,6 +20,9 @@ import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.pets.PetsAPI;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
+import cz.wake.lobby.vanoce.Kalendar;
+import cz.wake.lobby.vanoce.TicketSystem;
+import cz.wake.lobby.vanoce.WinnerTask;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -81,7 +81,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
 
         //CraftBoxy reset
-        boxer.runTaskDelete();
+        //boxer.runTaskDelete();
 
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
@@ -96,7 +96,14 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Automaticka zmena casu v lobby podle Real casu
-        //tt.initTimeSetter();
+        if(getConfig().getBoolean("timer")){
+            tt.initTimeSetter();
+        }
+
+        // Ticket system
+        if(getConfig().getBoolean("ticket-winner")){
+            Bukkit.getScheduler().runTaskTimerAsynchronously(this, new WinnerTask(), 400L, 1200L);
+        }
 
         //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
@@ -170,7 +177,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new DiscoBall(this), this);
         pm.registerEvents(new PartyCoins(this), this);
         pm.registerEvents(new WakeArmy(this), this);
-        pm.registerEvents(new Boxer(), this);
+        //pm.registerEvents(new Boxer(), this);
         pm.registerEvents(new CloaksAPI(), this);
         pm.registerEvents(new GadgetsAPI(), this);
         pm.registerEvents(new PetsAPI(), this);
@@ -181,6 +188,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Rocket(this), this);
         pm.registerEvents(new Parachute(this), this);
         pm.registerEvents(new HeadsAPI(), this);
+        pm.registerEvents(new Kalendar(), this);
+        pm.registerEvents(new SnowBall(this), this);
+        pm.registerEvents(new TicketSystem(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {
@@ -196,6 +206,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("stats").setExecutor(new Stats_Command());
         getCommand("sbperms").setExecutor(new SBPerms_command());
         getCommand("cbperms").setExecutor(new CBPerms_command());
+        getCommand("kalendar").setExecutor(new Kalendar_command());
+        getCommand("ticket").setExecutor(new Ticket_Command());
     }
 
     public static Main getInstance() {
