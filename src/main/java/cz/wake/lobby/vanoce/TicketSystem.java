@@ -1,5 +1,6 @@
 package cz.wake.lobby.vanoce;
 
+import cz.wake.lobby.API.TimeUtils;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
@@ -46,21 +47,27 @@ public class TicketSystem implements Listener {
         int price = Main.getInstance().fetchData().priceTickets();
         int all = Main.getInstance().fetchData().countAllTickets();
 
-        int prc = (count * 100 / all);
+        if(all == 0){
+            all = 1;
+        }
+
+        float prc = (count * 100.0f / all);
 
         ItemStack tickets = ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "§eDnes pouzite tickety");
         ItemMeta tM = tickets.getItemMeta();
         ArrayList<String> tL = new ArrayList<>();
-        tL.add("§7Pocet ticketu: §f" + count);
+        tL.add("§7Pocet tvych ticketu: §f" + count);
         tL.add("§7Celkova cena ticketu: §f" + price * count + " CC");
         tL.add("§7Sance na vyhru: §f" + prc + "%");
+        tL.add("§7Aktualni pocet vsech ticketu: §f" + all);
+        tL.add("§7Do konce zbyva: §f" + TimeUtils.formatTime("%h hodin a %d minut",((Main.getInstance().fetchData().endTicketing() - System.currentTimeMillis())/1000),false));
         tM.setLore(tL);
         tickets.setItemMeta(tM);
 
         ItemStack nakup = ItemFactory.create(Material.PAPER, (byte) 0, "§bZakoupit 1x ticket");
         ItemMeta nM = nakup.getItemMeta();
         ArrayList<String> nL = new ArrayList<>();
-        nL.add("§7Cena za ticket: §f" + price + " CC");
+        nL.add("§7Cena za ticket: §e" + price + " CC");
         nL.add("");
         nL.add("§aKliknutim zakoupis ticket (max. 10)!");
         nM.setLore(nL);
