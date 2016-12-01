@@ -25,8 +25,8 @@ public class WinnerTask implements Runnable{
                         broadcast("§b[Server] §eVitezem hry §6" + game + " §eje §c" + winner);
                     }
                 }, 60L);
+                run = false;
             }
-            run = false;
         }
     }
 

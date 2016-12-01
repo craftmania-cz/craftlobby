@@ -96,7 +96,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Automaticka zmena casu v lobby podle Real casu
-        tt.initTimeSetter();
+        if(getConfig().getBoolean("timer")){
+            tt.initTimeSetter();
+        }
 
         // Ticket system
         if(getConfig().getBoolean("ticket-winner")){
