@@ -244,18 +244,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 50) {
                 if (System.currentTimeMillis() >= 1480892400000L) { // 5.den
-                    // Event!
-                    return;
-                } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
-                    p.closeInventory();
-                    return;
-                }
-            }
-            if (e.getSlot() == 33) {
-                if (System.currentTimeMillis() >= 1480978800000L) { // 6.den
-                    if (Main.getInstance().fetchData().checkDay(p, 6) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 6);
+                    if (Main.getInstance().fetchData().checkDay(p, 5) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 5);
                         p.sendMessage("§eZiskal jsi: §bElfBoy & ElfGirl Heads");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bElfBoy & ElfGirl Heads");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.elfboy");
@@ -273,10 +263,10 @@ public class Kalendar implements Listener {
                     return;
                 }
             }
-            if (e.getSlot() == 15) {
-                if (System.currentTimeMillis() >= 1481065200000L) { // 7.den
-                    if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 7);
+            if (e.getSlot() == 33) {
+                if (System.currentTimeMillis() >= 1480978800000L) { // 6.den
+                    if (Main.getInstance().fetchData().checkDay(p, 6) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 6);
                         p.sendMessage("§eZiskal jsi: §bSnowman Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Pet");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.snowman");
@@ -287,6 +277,15 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     }
+                } else {
+                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.closeInventory();
+                    return;
+                }
+            }
+            if (e.getSlot() == 15) {
+                if (System.currentTimeMillis() >= 1481065200000L) { // 7.den
+                    // Event
                 } else {
                     p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
