@@ -60,7 +60,6 @@ public class TicketSystem implements Listener {
         tL.add("§7Celkova cena ticketu: §f" + price * count + " CC");
         tL.add("§7Sance na vyhru: §f" + prc + "%");
         tL.add("§7Aktualni pocet vsech ticketu: §f" + all);
-        tL.add("§7Do konce zbyva: §f" + TimeUtils.formatTime("%h hodin a %d minut",((Main.getInstance().fetchData().endTicketing() - System.currentTimeMillis())/1000),false));
         tM.setLore(tL);
         tickets.setItemMeta(tM);
 
