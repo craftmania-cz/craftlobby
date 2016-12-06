@@ -288,7 +288,13 @@ public class Kalendar implements Listener {
             if (e.getSlot() == 15) {
                 if (System.currentTimeMillis() >= 1481065200000L) { // 7.den
                     if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
-                        ep.sendToParkourEvent(p);
+                        if(Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")){
+                            ep.sendToParkourEvent(p);
+                        } else {
+                            p.sendMessage("§cEvent lze aktivovat pouze na Hl.Lobby");
+                            p.closeInventory();
+                            return;
+                        }
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();

@@ -48,7 +48,7 @@ public class EventParkour {
         UtilBook.giveBook(p, 4, "§8MrWakeCZ", "§e§lEvent (Bludiste)",
                 "§lPopis eventu:\n\n§rTvym jedinym ukolem je se prosplest nasim mega bludistem. " +
                         "Je mozne ze misty najdes nejake pasti, tak se nelekni! Na konci te ceka velka odmena!\n\nZ eventu " +
-                        "se odpojis §c/quest");
+                        "se odpojis §c/leave");
 
         for(Player p2 : Bukkit.getOnlinePlayers()){
             p2.hidePlayer(p);

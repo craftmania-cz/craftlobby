@@ -208,6 +208,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("cbperms").setExecutor(new CBPerms_command());
         getCommand("kalendar").setExecutor(new Kalendar_command());
         getCommand("ticket").setExecutor(new Ticket_Command());
+        getCommand("leave").setExecutor(new Leave_command());
     }
 
     public static Main getInstance() {
