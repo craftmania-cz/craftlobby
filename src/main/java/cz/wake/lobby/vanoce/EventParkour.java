@@ -2,7 +2,10 @@ package cz.wake.lobby.vanoce;
 
 import cz.wake.lobby.API.TitleAPI;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.cloaks.RankCape;
+import cz.wake.lobby.listeners.InvClick;
 import cz.wake.lobby.listeners.PlayerListener;
+import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.utils.UtilBook;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -14,6 +17,7 @@ public class EventParkour {
 
     Location start = new Location(Bukkit.getWorld("LobbyEventy"), -592.5, 99.0, 117.5, 90, 10);
     private static ArrayList<Player> list = new ArrayList<>();
+    InvClick ic = new InvClick();
 
     public void sendToParkourEvent(final Player p){
 
@@ -21,6 +25,16 @@ public class EventParkour {
         p.getInventory().clear();
 
         list.add(p);
+
+        //Deaktivace particles
+        ic.deactivateParticles(p);
+
+        //Deaktivace cloaks
+        Main.getInstance().getCloaksAPI().deactivateCloaks(p);
+        RankCape.deactivateCape(p);
+
+        //Deaktivatce mazlíčka
+        PetManager.forceRemovePet(p);
 
         p.sendMessage(" ");
         p.sendMessage(" ");
