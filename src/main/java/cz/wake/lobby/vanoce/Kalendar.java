@@ -18,6 +18,8 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
+    EventParkour ep = new EventParkour();
+
     public void openKalendar(final Player p) {
 
         Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
@@ -285,7 +287,13 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 15) {
                 if (System.currentTimeMillis() >= 1481065200000L) { // 7.den
-                    // Event
+                    if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
+                        ep.sendToParkourEvent(p);
+                    } else {
+                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.closeInventory();
+                        return;
+                    }
                 } else {
                     p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
