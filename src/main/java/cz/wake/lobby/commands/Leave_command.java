@@ -14,7 +14,7 @@ public class Leave_command implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
-        if ((Command.getName().equalsIgnoreCase("leave"))) {
+        if ((Command.getName().equalsIgnoreCase("quit"))) {
             if(Sender instanceof Player){
                 if(ep.getList().contains((Player)Sender)){
                     ((Player)Sender).performCommand("spawn");
