@@ -21,6 +21,8 @@ commands:
     description: Kalendar ne...
   ticket:
     description: Ticketyyy
+  leave:
+    description: Leave nee
 permissions:
   craftlobby.pristup:
     description: Beta test

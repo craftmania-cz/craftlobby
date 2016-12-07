@@ -5,7 +5,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.utils.UtilTablist;
-import cz.wake.lobby.vanoce.Kalendar;
+import cz.wake.lobby.vanoce.EventParkour;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
@@ -21,7 +21,6 @@ import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.potion.PotionEffect;
@@ -39,6 +38,7 @@ public class PlayerListener implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
     HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private Location end = new Location(Bukkit.getWorld("LobbyEventy"), -931, 99, 83);
 
     Menu hlavniMenu = new Menu();
     GadgetsMenu gadgetsMenu = new GadgetsMenu();
@@ -46,67 +46,25 @@ public class PlayerListener implements Listener {
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
     Lobby lb = new Lobby();
+    EventParkour ep = new EventParkour();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
 
+        Player p = e.getPlayer();
+
         //Deaktivace Join zprav
         e.setJoinMessage(null);
-
-        Player p = e.getPlayer();
-        PlayerInventory inv = p.getInventory();
-
 
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
         p.updateInventory();
 
-        ItemStack compass = new ItemStack(Material.COMPASS, 1);
-        ItemMeta compassMeta = compass.getItemMeta();
-
-        ItemStack playerHead = new ItemStack(Material.SKULL_ITEM, 1);
-        playerHead.setDurability((short) 3);
-        SkullMeta playerHeadMeta = (SkullMeta) playerHead.getItemMeta();
-
-        ItemStack gadgets = new ItemStack(Material.NETHER_STAR);
-        ItemMeta gadgetsMeta = gadgets.getItemMeta();
-
-        ItemStack hider = new ItemStack(Material.INK_SACK, 1, (byte) 10);
-        ItemMeta hiderMeta = hider.getItemMeta();
-
-        ItemStack shopVip = new ItemStack(Material.EMERALD);
-        ItemMeta svMeta = shopVip.getItemMeta();
-
-        ItemStack servers = new ItemStack(Material.WATCH);
-        ItemMeta serMeta = servers.getItemMeta();
-        serMeta.setDisplayName("§ePrehled lobby §7(Klikni pravym)");
-        servers.setItemMeta(serMeta);
-
-        compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
-        compass.setItemMeta(compassMeta);
-
-        playerHeadMeta.setDisplayName("§aProfil §7(Klikni pravym)");
-        playerHead.setItemMeta(playerHeadMeta);
-
-        svMeta.setDisplayName("§aVIP Shop §7(Klikni pravym)");
-        shopVip.setItemMeta(svMeta);
-
-        gadgetsMeta.setDisplayName("§5Gadgets §7(Klikni pravym)");
-        gadgets.setItemMeta(gadgetsMeta);
-
-        hiderMeta.setDisplayName("§7Hraci: §a§lVIDITELNY");
-        hider.setItemMeta(hiderMeta);
+       setupDefaultItems(p);
 
         for (PotionEffect ep : p.getActivePotionEffects()) {
             p.removePotionEffect(ep.getType());
         }
-
-        p.getInventory().setItem(0, compass);
-        p.getInventory().setItem(1, playerHead);
-        p.getInventory().setItem(2, shopVip);
-        p.getInventory().setItem(4, gadgets);
-        p.getInventory().setItem(7, hider);
-        p.getInventory().setItem(8, servers);
 
         p.setFlying(false);
         p.setWalkSpeed(0.3F);
@@ -121,7 +79,7 @@ public class PlayerListener implements Listener {
         Main.getInstance().fetchData().addCalendarDefaultValue(p);
 
         // Ticket vyherce
-        if(Main.getInstance().fetchData().isWinner(p)){
+        if (Main.getInstance().fetchData().isWinner(p)) {
             p.sendMessage("§c§m--------------------------------------------");
             p.sendMessage("§e§lGratulujeme! §6Vyhral/a jsi hru!");
             p.sendMessage("§7Vyzvedni si ji na webu u Majitele!");
@@ -129,6 +87,14 @@ public class PlayerListener implements Listener {
             p.sendMessage("§7Automaticky ti napiseme do zprav klic do 24h! :)");
             p.sendMessage("§8Hru muzes vybrat do 24.12.!");
             p.sendMessage("§c§m--------------------------------------------");
+        }
+
+        // BludisteEvent
+        for (Player p2 : Bukkit.getOnlinePlayers()) {
+            if (ep.getList().contains(p2)) {
+                p.hidePlayer(p2);
+                p2.hidePlayer(p);
+            }
         }
     }
 
@@ -333,6 +299,11 @@ public class PlayerListener implements Listener {
 
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
+
+        // EventParkour
+        if(ep.getList().contains(p)){
+            ep.getList().remove(p);
+        }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
@@ -348,6 +319,11 @@ public class PlayerListener implements Listener {
 
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
+
+        // EventParkour
+        if(ep.getList().contains(p)){
+            ep.getList().remove(p);
+        }
     }
 
     @EventHandler
@@ -383,12 +359,68 @@ public class PlayerListener implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
     public void onMove(PlayerMoveEvent e) {
-        final Player p = e.getPlayer();
-        if (p.getLocation().getY() <= 10) {
+        Player p = e.getPlayer();
+
+        // Teleport na spawn
+        if (p.getLocation().getY() <= 0) {
             p.performCommand("spawn");
         }
+
+        // Konec EventBludiste
+        if ((p.getLocation().getX() <= -931 && p.getLocation().getX() >= -932)
+                && (p.getLocation().getZ() >= 83 && p.getLocation().getZ() <= 84) ){
+            if(ep.getList().contains(p)){
+                ep.endParkour(p);
+            }
+        }
+    }
+
+    public static void setupDefaultItems(final Player p){
+
+        ItemStack compass = new ItemStack(Material.COMPASS, 1);
+        ItemMeta compassMeta = compass.getItemMeta();
+
+        ItemStack playerHead = new ItemStack(Material.SKULL_ITEM, 1);
+        playerHead.setDurability((short) 3);
+        SkullMeta playerHeadMeta = (SkullMeta) playerHead.getItemMeta();
+
+        ItemStack gadgets = new ItemStack(Material.NETHER_STAR);
+        ItemMeta gadgetsMeta = gadgets.getItemMeta();
+
+        ItemStack hider = new ItemStack(Material.INK_SACK, 1, (byte) 10);
+        ItemMeta hiderMeta = hider.getItemMeta();
+
+        ItemStack shopVip = new ItemStack(Material.EMERALD);
+        ItemMeta svMeta = shopVip.getItemMeta();
+
+        ItemStack servers = new ItemStack(Material.WATCH);
+        ItemMeta serMeta = servers.getItemMeta();
+        serMeta.setDisplayName("§ePrehled lobby §7(Klikni pravym)");
+        servers.setItemMeta(serMeta);
+
+        compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
+        compass.setItemMeta(compassMeta);
+
+        playerHeadMeta.setDisplayName("§aProfil §7(Klikni pravym)");
+        playerHead.setItemMeta(playerHeadMeta);
+
+        svMeta.setDisplayName("§aVIP Shop §7(Klikni pravym)");
+        shopVip.setItemMeta(svMeta);
+
+        gadgetsMeta.setDisplayName("§5Gadgets §7(Klikni pravym)");
+        gadgets.setItemMeta(gadgetsMeta);
+
+        hiderMeta.setDisplayName("§7Hraci: §a§lVIDITELNY");
+        hider.setItemMeta(hiderMeta);
+
+        p.getInventory().setItem(0, compass);
+        p.getInventory().setItem(1, playerHead);
+        p.getInventory().setItem(2, shopVip);
+        p.getInventory().setItem(4, gadgets);
+        p.getInventory().setItem(7, hider);
+        p.getInventory().setItem(8, servers);
     }
 
 }
