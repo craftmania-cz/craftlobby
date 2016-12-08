@@ -6,10 +6,14 @@ import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.listeners.InvClick;
 import cz.wake.lobby.listeners.PlayerListener;
 import cz.wake.lobby.pets.PetManager;
+import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilBook;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 
@@ -83,6 +87,25 @@ public class EventParkour {
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.sheep.*");
 
         PlayerListener.setupDefaultItems(p);
+    }
+
+    public void openEventMenu(final Player p){
+
+        Inventory inv = Bukkit.createInventory(null,45,"Potvrdit vstup (Bludiste)");
+
+        ItemStack info = ItemFactory.create(Material.REDSTONE,(byte)0, "§c§lVarovani","","§7Nasledujici event je extremne tezky!",
+                "§7Prumerny cas splneni: §c55 minut!","§7Z eventu odejdes pomoci prikazu §a/quit","",
+                "§7Za splneni dostanes: §62k CC + vsechny ovecky v Pets","","§eKliknutim vstoupis na Event!");
+
+        ItemStack potvrd = ItemFactory.create(Material.WOOL,(byte)5,"§a§lVstoupit na event");
+        ItemStack zamitnout = ItemFactory.create(Material.WOOL, (byte)14, "§c§lNechci na event");
+
+        inv.setItem(13, info);
+        inv.setItem(30, potvrd);
+        inv.setItem(32, zamitnout);
+
+        p.openInventory(inv);
+
     }
 
 }

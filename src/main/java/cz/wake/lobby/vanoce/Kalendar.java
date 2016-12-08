@@ -289,7 +289,7 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= 1481065200000L) { // 7.den
                     if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
                         if(Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")){
-                            ep.sendToParkourEvent(p);
+                            ep.openEventMenu(p);
                         } else {
                             p.sendMessage("§cEvent lze aktivovat pouze na Hl.Lobby");
                             p.closeInventory();
@@ -614,6 +614,24 @@ public class Kalendar implements Listener {
                     p.closeInventory();
                     return;
                 }
+            }
+        }
+        if (e.getInventory().getTitle().equals("Potvrdit vstup (Bludiste)")) {
+            e.setCancelled(true);
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR) {
+                return;
+            }
+            if (e.getCurrentItem().isSimilar(glass())) {
+                return;
+            }
+            if(e.getSlot() == 30){
+                ep.sendToParkourEvent(p);
+            }
+            if(e.getSlot() == 32){
+                p.closeInventory();
             }
         }
     }
