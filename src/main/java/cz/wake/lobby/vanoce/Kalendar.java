@@ -354,18 +354,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (System.currentTimeMillis() >= 1481324400000L) { // 10.den
-                    // Event
-                    return;
-                } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
-                    p.closeInventory();
-                    return;
-                }
-            }
-            if (e.getSlot() == 26) {
-                if (System.currentTimeMillis() >= 1481410800000L) { // 11.den
-                    if (Main.getInstance().fetchData().checkDay(p, 11) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 11);
+                    if (Main.getInstance().fetchData().checkDay(p, 10) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 10);
                         p.sendMessage("§eZiskal jsi: §bFire Trail Gadget");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bFire Trail Gadget");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.gadgets.firetrail");
@@ -382,16 +372,31 @@ public class Kalendar implements Listener {
                     return;
                 }
             }
-            if (e.getSlot() == 52) {
-                if (System.currentTimeMillis() >= 1481497200000L) { // 12.den
-                    if (Main.getInstance().fetchData().checkDay(p, 12) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 12);
+            if (e.getSlot() == 26) {
+                if (System.currentTimeMillis() >= 1481410800000L) { // 11.den
+                    if (Main.getInstance().fetchData().checkDay(p, 11) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 11);
                         p.sendMessage("§eZiskal jsi: §bHorse White Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bHorse White Pet");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.horse.white");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.horse.white.baby");
                         p.closeInventory();
                         return;
+                    } else {
+                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.closeInventory();
+                        return;
+                    }
+                } else {
+                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.closeInventory();
+                    return;
+                }
+            }
+            if (e.getSlot() == 52) {
+                if (System.currentTimeMillis() >= 1481497200000L) { // 12.den
+                    if (Main.getInstance().fetchData().checkDay(p, 12) == 0) {
+                        //
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();

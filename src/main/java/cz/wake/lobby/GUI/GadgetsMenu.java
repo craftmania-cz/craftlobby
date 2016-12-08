@@ -143,7 +143,7 @@ public class GadgetsMenu implements Listener {
         gadgetsMenu.setItem(32, morphs);
         gadgetsMenu.setItem(34, particlesItem);
         gadgetsMenu.setItem(48, shopItem);
-        gadgetsMenu.setItem(50, box);
+        //gadgetsMenu.setItem(50, box);
 
         p.openInventory(gadgetsMenu);
 
