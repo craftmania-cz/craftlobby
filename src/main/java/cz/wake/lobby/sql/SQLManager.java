@@ -936,6 +936,24 @@ public class SQLManager {
         return 0;
     }
 
+    public int getOnlinePlayers(final String server) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT pocet_hracu FROM stav_survival_server WHERE nazev = '" + server + "';");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("pocet_hracu");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
     public final void addCalendarDefaultValue(final Player p) {
         new BukkitRunnable() {
             @Override

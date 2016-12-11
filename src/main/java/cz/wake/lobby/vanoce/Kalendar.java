@@ -396,22 +396,7 @@ public class Kalendar implements Listener {
             if (e.getSlot() == 52) {
                 if (System.currentTimeMillis() >= 1481497200000L) { // 12.den
                     if (Main.getInstance().fetchData().checkDay(p, 12) == 0) {
-                        //
-                    } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
-                        p.closeInventory();
-                        return;
-                    }
-                } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
-                    p.closeInventory();
-                    return;
-                }
-            }
-            if (e.getSlot() == 5) {
-                if (System.currentTimeMillis() >= 1481583600000L) { // 13.den
-                    if (Main.getInstance().fetchData().checkDay(p, 13) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 13);
+                        Main.getInstance().fetchData().addCalendarDay(p, 12);
                         p.sendMessage("§eZiskal jsi: §b200CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b200CC");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 200");
@@ -428,14 +413,29 @@ public class Kalendar implements Listener {
                     return;
                 }
             }
-            if (e.getSlot() == 12) {
-                if (System.currentTimeMillis() >= 1481670000000L) { // 14.den
-                    if (Main.getInstance().fetchData().checkDay(p, 14) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 14);
+            if (e.getSlot() == 5) {
+                if (System.currentTimeMillis() >= 1481583600000L) { // 13.den
+                    if (Main.getInstance().fetchData().checkDay(p, 13) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 13);
                         p.sendMessage("§eZiskal jsi: §bAngel Cloak");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAngel Cloak");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.cloaks.angel");
                         p.closeInventory();
+                    } else {
+                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.closeInventory();
+                        return;
+                    }
+                } else {
+                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.closeInventory();
+                    return;
+                }
+            }
+            if (e.getSlot() == 12) {
+                if (System.currentTimeMillis() >= 1481670000000L) { // 14.den
+                    if (Main.getInstance().fetchData().checkDay(p, 14) == 0) {
+                        // Event
                         return;
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
