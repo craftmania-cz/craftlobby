@@ -117,20 +117,6 @@ public class GadgetsMenu implements Listener {
         cMeta.setLore(cLore);
         cloaks.setItemMeta(cMeta);
 
-        ItemStack box = new ItemStack(Material.ENDER_CHEST);
-        ItemMeta bMeta = box.getItemMeta();
-        bMeta.setDisplayName("§c§lNakup CraftBoxu");
-        ArrayList<String> bLore = new ArrayList<String>();
-        bLore.add("§7Primy nakup jednoho CrafBoxu,");
-        bLore.add("§7ktery muzes okamzite otevrit!");
-        bLore.add("");
-        bLore.add("§ePouze 1x za 24h!");
-        bLore.add("");
-        bLore.add("§7Muzes si zakoupit " + getStatusBox(p));
-        bLore.add("§8Cena CraftBoxu je 750 CC");
-        bMeta.setLore(bLore);
-        box.setItemMeta(bMeta);
-
         ItemStack morphs = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lMorphs", "", "§8Aktualne nedostupne!");
         ItemStack suits = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lSuits", "", "§8Aktualne nedostupne!");
 
@@ -142,8 +128,7 @@ public class GadgetsMenu implements Listener {
         gadgetsMenu.setItem(30, gadgetsItem);
         gadgetsMenu.setItem(32, morphs);
         gadgetsMenu.setItem(34, particlesItem);
-        gadgetsMenu.setItem(48, shopItem);
-        //gadgetsMenu.setItem(50, box);
+        gadgetsMenu.setItem(49, shopItem);
 
         p.openInventory(gadgetsMenu);
 
