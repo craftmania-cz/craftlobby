@@ -5,7 +5,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.utils.UtilTablist;
-import cz.wake.lobby.vanoce.EventParkour;
+import cz.wake.lobby.vanoce.EventBludiste;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
@@ -44,7 +44,7 @@ public class PlayerListener implements Listener {
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
     Lobby lb = new Lobby();
-    EventParkour ep = new EventParkour();
+    EventBludiste ep = new EventBludiste();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -298,7 +298,7 @@ public class PlayerListener implements Listener {
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
 
-        // EventParkour
+        // EventBludiste
         if(ep.getList().contains(p)){
             ep.getList().remove(p);
         }
@@ -318,7 +318,7 @@ public class PlayerListener implements Listener {
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
 
-        // EventParkour
+        // EventBludiste
         if(ep.getList().contains(p)){
             ep.getList().remove(p);
         }

@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
-    EventParkour ep = new EventParkour();
+    EventBludiste ep = new EventBludiste();
 
     public void openKalendar(final Player p) {
 
