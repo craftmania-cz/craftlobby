@@ -17,7 +17,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 
-public class EventParkour {
+public class EventBludiste {
 
     Location start = new Location(Bukkit.getWorld("LobbyEventy"), -592.5, 99.0, 117.5, 90, 10);
     private static ArrayList<Player> list = new ArrayList<>();

@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
-    EventParkour ep = new EventParkour();
+    EventBludiste ep = new EventBludiste();
 
     public void openKalendar(final Player p) {
 
@@ -435,7 +435,11 @@ public class Kalendar implements Listener {
             if (e.getSlot() == 12) {
                 if (System.currentTimeMillis() >= 1481670000000L) { // 14.den
                     if (Main.getInstance().fetchData().checkDay(p, 14) == 0) {
-                        // Event
+                        Main.getInstance().fetchData().addCalendarDay(p, 14);
+                        p.sendMessage("§eZiskal jsi: §bVsechny Bannery v Gagdets");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bVsechny Bannery");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.banner.*");
+                        p.closeInventory();
                         return;
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
@@ -450,8 +454,18 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 20) {
                 if (System.currentTimeMillis() >= 1481756400000L) { // 15.den
-                    // Event
-                    return;
+                    if (Main.getInstance().fetchData().checkDay(p, 15) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 15);
+                        p.sendMessage("§eZiskal jsi: §bAntiGravity Gadget");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAntiGravity Gadget");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.gadget.antigravity");
+                        p.closeInventory();
+                        return;
+                    } else {
+                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.closeInventory();
+                        return;
+                    }
                 } else {
                     p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();

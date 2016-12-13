@@ -1,7 +1,7 @@
 package cz.wake.lobby.commands;
 
 import cz.wake.lobby.listeners.PlayerListener;
-import cz.wake.lobby.vanoce.EventParkour;
+import cz.wake.lobby.vanoce.EventBludiste;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class Leave_command implements CommandExecutor {
 
-    EventParkour ep = new EventParkour();
+    EventBludiste ep = new EventBludiste();
 
     @Override
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
