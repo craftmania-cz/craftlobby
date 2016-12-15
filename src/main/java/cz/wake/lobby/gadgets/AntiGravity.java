@@ -61,7 +61,7 @@ public class AntiGravity implements Listener{
 			  	MessagesListener.messageCooldown(player, String.valueOf(arrondi(((Double)this._time.get(player)).doubleValue(), 1)));
 			  		return;
 			  	}
-	    	this._time.put(player, Double.valueOf(20D + 0.1D));
+	    	this._time.put(player, Double.valueOf(50D + 0.1D));
 	    	
 	    	final ArmorStand as = player.getWorld().spawn(player.getLocation(), ArmorStand.class);
 	        as.setGravity(false);
