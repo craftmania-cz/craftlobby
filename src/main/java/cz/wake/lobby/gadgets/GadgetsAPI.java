@@ -386,8 +386,7 @@ public class GadgetsAPI implements Listener {
             }
             if (e.getSlot() == 17) {
                 if (p.hasPermission("craftlobby.gadgets.trampoline")) {
-                    //this.ml.prepareGadget(p, "Trampoline", Material.HOPPER, (byte) 0);
-                    p.sendMessage("§cTento gadget je aktualne deaktivovany!");
+                    this.ml.prepareGadget(p, "Trampoline", Material.HOPPER, (byte) 0);
                 } else {
                     this.ml.messageNoPerm(p, "Trampoline");
                 }

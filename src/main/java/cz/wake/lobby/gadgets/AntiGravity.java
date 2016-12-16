@@ -50,6 +50,10 @@ public class AntiGravity implements Listener{
 	    if (!item.getItemMeta().getDisplayName().contains("AntiGravity")) {
 	        return;
 	    }
+	    if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+	        player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
+	        return;
+        }
 	    e.setCancelled(true);
 	    player.updateInventory();
 	    if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))){
