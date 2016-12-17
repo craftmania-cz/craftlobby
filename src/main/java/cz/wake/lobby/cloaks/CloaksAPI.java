@@ -17,6 +17,7 @@ public class CloaksAPI implements Listener {
 
     private AngleCloak angel = new AngleCloak();
     private SantaCloak santa = new SantaCloak();
+    private DevilCloak devil = new DevilCloak();
     private MessagesListener ml = new MessagesListener();
     private RankCape cape = new RankCape();
     private TurnajCape tc = new TurnajCape();
@@ -50,6 +51,19 @@ public class CloaksAPI implements Listener {
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lAngel Cloak", "§7Tento Cloak se da ziskat v CraftBoxu.");
             cloakMenu.setItem(11, i);
+        }
+        if (p.hasPermission("craftlobby.cloaks.devil")) {
+            if (DevilCloak.devilCloaks.containsKey(p.getName())) {
+                ItemStack i = ItemFactory.create(Material.COAL, (byte) 0, "§a§lDevil Cloak", "", "§7Kdyz existuje Andel,", "§7musi i dabel.", "", "§cAktivovano!");
+                i = ItemFactory.addGlow(i);
+                cloakMenu.setItem(12, i);
+            } else {
+                ItemStack i = ItemFactory.create(Material.COAL, (byte) 0, "§a§lDevil Cloak", "", "§7Kdyz existuje Andel,", "§7musi i dabel.", "", "§eKliknutim aktivujes!");
+                cloakMenu.setItem(12, i);
+            }
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDevil Cloak", "§7Tento Cloak se da ziskat v CraftBoxu.");
+            cloakMenu.setItem(12, i);
         }
         if (p.hasPermission("craftlobby.cape.majitel")
                 || p.hasPermission("craftlobby.cape.admin")
@@ -143,6 +157,15 @@ public class CloaksAPI implements Listener {
                     this.ml.messageNoPerm(p, "Angel Cloak");
                 }
             }
+            if (e.getSlot() == 12) {
+                if (p.hasPermission("craftlobby.cloaks.devil")) {
+                    deactivateCloaks(p);
+                    this.devil.activate(p);
+                    p.closeInventory();
+                } else {
+                    this.ml.messageNoPerm(p, "Devil Cloak");
+                }
+            }
             if (e.getSlot() == 14) {
                 if (p.hasPermission("craftlobby.cape.majitel")
                         || p.hasPermission("craftlobby.cape.admin")
@@ -191,6 +214,12 @@ public class CloaksAPI implements Listener {
         if (TurnajCape.turnajCloaks.containsKey(p.getName())) {
             Bukkit.getScheduler().cancelTask(((Integer) TurnajCape.turnajCloaks.get(p.getName())).intValue());
             TurnajCape.turnajCloaks.remove(p.getName());
+            p.getInventory().setArmorContents(null);
+            p.closeInventory();
+        }
+        if (DevilCloak.devilCloaks.containsKey(p.getName())) {
+            Bukkit.getScheduler().cancelTask(((Integer) DevilCloak.devilCloaks.get(p.getName())).intValue());
+            DevilCloak.devilCloaks.remove(p.getName());
             p.getInventory().setArmorContents(null);
             p.closeInventory();
         }
