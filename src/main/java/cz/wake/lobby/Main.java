@@ -57,6 +57,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     public VillagerMorph VillagerMorph;
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
+    private String idServer;
     private SQLManager sql;
 
 
@@ -104,6 +105,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         if (getConfig().getBoolean("ticket-winner")) {
             Bukkit.getScheduler().runTaskTimerAsynchronously(this, new WinnerTask(), 400L, 1200L);
         }
+
+        // Id serveru
+        idServer = getConfig().getString("server");
 
         //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
@@ -282,6 +286,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     private void initDatabase() {
         sql = new SQLManager(this);
+    }
+
+    public String getIdServer() {
+        return idServer;
     }
 
 }
