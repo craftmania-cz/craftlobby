@@ -1,6 +1,7 @@
 package cz.wake.lobby;
 
 import cz.wake.lobby.GUI.GadgetsMenu;
+import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.MorphsMenu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.banners.BannerAPI;
@@ -18,6 +19,7 @@ import cz.wake.lobby.morphs.PigMorph;
 import cz.wake.lobby.morphs.VillagerMorph;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.pets.PetsAPI;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
 import cz.wake.lobby.vanoce.Kalendar;
@@ -48,6 +50,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private PetsAPI pets = new PetsAPI();
     private GadgetsMenu gMenu = new GadgetsMenu();
     private Servers s = new Servers();
+    private Menu m = new Menu();
     private TimeTask tt = new TimeTask();
     public boolean debug;
     public HashMap<Block, String> _BlocksToRestore = new HashMap();
@@ -191,6 +194,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Kalendar(), this);
         pm.registerEvents(new SnowBall(this), this);
         pm.registerEvents(new TicketSystem(), this);
+        pm.registerEvents(new SettingsMenu(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {
@@ -266,6 +270,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public Servers getServerMenu() {
         return s;
+    }
+
+    public Menu getMenu(){
+        return m;
     }
 
     public void addPortal(Player p) {

@@ -1,11 +1,14 @@
 package cz.wake.lobby.settings;
 
+import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -30,6 +33,7 @@ public class SettingsMenu implements Listener {
 
         ItemStack enabled = ItemFactory.create(Material.STAINED_GLASS_PANE,(byte)5,"§a§lZapnuto");
         ItemStack disabled = ItemFactory.create(Material.STAINED_GLASS_PANE,(byte)14,"§c§lVypnuto");
+        ItemStack nedostupne = ItemFactory.create(Material.BARRIER, (byte)0, "§c§lNedostupne");
 
         ItemStack zpet = ItemFactory.create(Material.ARROW,(byte)0,"§eZpet");
 
@@ -41,17 +45,33 @@ public class SettingsMenu implements Listener {
         inv.setItem(15, speed);
         inv.setItem(16, novinky);
 
-        inv.setItem(19, enabled);
-        inv.setItem(20, disabled);
-        inv.setItem(21, disabled);
-        inv.setItem(22, enabled);
-        inv.setItem(23, enabled);
-        inv.setItem(24, disabled);
-        inv.setItem(25, enabled);
+        inv.setItem(19, nedostupne);
+        inv.setItem(20, nedostupne);
+        inv.setItem(21, nedostupne);
+        inv.setItem(22, nedostupne);
+        inv.setItem(23, nedostupne);
+        inv.setItem(24, nedostupne);
+        inv.setItem(25, nedostupne);
 
         inv.setItem(40, zpet);
 
         p.openInventory(inv);
+    }
 
+    @EventHandler
+    private void onInventoryClick(InventoryClickEvent e) {
+        Player p = (Player) e.getWhoClicked();
+        if (e.getInventory().getTitle().equals("Osobni nastaveni")) {
+            e.setCancelled(true);
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR) {
+                return;
+            }
+            if(e.getSlot() == 40){
+                Main.getInstance().getMenu().openMenu(p);
+            }
+        }
     }
 }
