@@ -540,8 +540,18 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 42) {
                 if (System.currentTimeMillis() >= 1482188400000L) { // 20.den
-                    // Event
-                    return;
+                    if (Main.getInstance().fetchData().checkDay(p, 20) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 20);
+                        p.sendMessage("§eZiskal jsi: §bDevil Cloak");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bDevil Cloak");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.cloaks.devil");
+                        p.closeInventory();
+                        return;
+                    } else {
+                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.closeInventory();
+                        return;
+                    }
                 } else {
                     p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
@@ -611,9 +621,20 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 38) {
-                if (System.currentTimeMillis() >= 1482534000000L) {
-                    // Event
-                    return;
+                if (System.currentTimeMillis() >= 1482534000000L) { // 24.den
+                    if (Main.getInstance().fetchData().checkDay(p, 24) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 24);
+                        p.sendMessage("§eZiskal jsi: §bSlime Pet");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSlime Pet");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.slime.*");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
+                        p.closeInventory();
+                        return;
+                    } else {
+                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.closeInventory();
+                        return;
+                    }
                 } else {
                     p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
