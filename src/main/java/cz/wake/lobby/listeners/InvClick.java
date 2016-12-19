@@ -6,6 +6,7 @@ import cz.wake.lobby.banners.BannerAPI;
 import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.heads.HeadsAPI;
 import cz.wake.lobby.particles.*;
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -48,6 +49,7 @@ public class InvClick implements Listener {
     Lobby lob = new Lobby();
     BannerAPI bannerAPI = new BannerAPI();
     HeadsAPI hAPI = new HeadsAPI();
+    SettingsMenu st = new SettingsMenu();
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -56,6 +58,9 @@ public class InvClick implements Listener {
         if (event.getInventory().getTitle().equals(player.getName())) {
             if (event.getSlot() == 10) {
                 this.statistics.openMinigamesMenu(player);
+            }
+            if (event.getSlot() == 31){
+                st.openSettingsMenu(player);
             }
             event.setCancelled(true);
             player.updateInventory();

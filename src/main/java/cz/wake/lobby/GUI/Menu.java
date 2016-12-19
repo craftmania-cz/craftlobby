@@ -58,10 +58,12 @@ public class Menu {
 
         ItemStack nastaveni = new ItemStack(Material.REDSTONE_COMPARATOR);
         ItemMeta nMeta = nastaveni.getItemMeta();
-        nMeta.setDisplayName("§aNastaveni");
+        nMeta.setDisplayName("§aNastaveni uctu");
         ArrayList<String> nLore = new ArrayList<String>();
+        nLore.add("§7Diky nastaveni si muzes prispusobit");
+        nLore.add("§7lobby/hry podle sebe. ");
         nLore.add("");
-        nLore.add("§7Pripravujeme...");
+        nLore.add("§eKlikni pro zobrazeni/nastaveni");
         nMeta.setLore(nLore);
         nastaveni.setItemMeta(nMeta);
 
