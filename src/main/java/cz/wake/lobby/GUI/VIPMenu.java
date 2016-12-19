@@ -141,11 +141,11 @@ public class VIPMenu {
         wt.setDisplayName("§b§lVIP §7na §a§lNAVZDY §c§lVANOCNI AKCE!");
         ArrayList<String> wi = new ArrayList<String>();
         wi.add("");
-        wi.add("§cSMS CZ §f-> §c§m249kc §a149kc");
+        wi.add("§cSMS CZ §f-> §c§m249kc§a 149kc");
         wi.add("§fPM CMG VA §b" + p.getName());
         wi.add("§7na cislo: §f90333");
         wi.add("");
-        wi.add("§aSMS SK §f-> §c§m10e §a6e");
+        wi.add("§aSMS SK §f-> §c§m10e§a 6e");
         wi.add("§fFAKAHEDA Y58473 6 MVA §b" + p.getName());
         wi.add("§7na cislo: §f8866");
         wt.setLore(wi);
