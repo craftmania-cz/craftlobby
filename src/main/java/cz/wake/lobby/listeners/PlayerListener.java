@@ -181,10 +181,6 @@ public class PlayerListener implements Listener {
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.COMPASS) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))) {
             this.servers.openServersMenu(p);
         }
-        if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATCH) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§ePrehled lobby §7(Klikni pravym)"))) {
-            this.lb.openMenu(p);
-        }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
             if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.INK_SACK && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
                 if (!this._time.containsKey(e.getPlayer())) {
@@ -403,9 +399,10 @@ public class PlayerListener implements Listener {
         ItemStack shopVip = new ItemStack(Material.EMERALD);
         ItemMeta svMeta = shopVip.getItemMeta();
 
-        ItemStack servers = new ItemStack(Material.WATCH);
+        ItemStack servers = new ItemStack(Material.SKULL_ITEM);
         ItemMeta serMeta = servers.getItemMeta();
-        serMeta.setDisplayName("§ePrehled lobby §7(Klikni pravym)");
+
+        serMeta.setDisplayName("§bFriends &7(Klikni pravym)");
         servers.setItemMeta(serMeta);
 
         compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
