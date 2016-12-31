@@ -25,7 +25,7 @@ public class TimeTask {
                 for (World w : Bukkit.getWorlds()) {
                     if (w != null) {
                         if(!w.getName().equalsIgnoreCase("LobbyEventy")){
-                            w.setTime(time + 2600); //+ Zimni cas
+                            w.setTime(20000); //+ Zimni cas time + 2600
                         }
                     }
                 }
