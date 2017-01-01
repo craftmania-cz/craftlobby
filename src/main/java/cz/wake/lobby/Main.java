@@ -115,7 +115,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         idServer = getConfig().getString("server");
 
         if (idServer.equalsIgnoreCase("main")){
-            st.runLauncher();
+            //st.runLauncher();
         }
 
         //Register custom entit pro Pets
