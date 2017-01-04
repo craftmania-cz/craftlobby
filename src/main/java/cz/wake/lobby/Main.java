@@ -22,10 +22,7 @@ import cz.wake.lobby.pets.PetsAPI;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
-import cz.wake.lobby.vanoce.Kalendar;
-import cz.wake.lobby.vanoce.SilvesterTask;
-import cz.wake.lobby.vanoce.TicketSystem;
-import cz.wake.lobby.vanoce.WinnerTask;
+import cz.wake.lobby.utils.SilvesterTask;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -201,9 +198,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Rocket(this), this);
         pm.registerEvents(new Parachute(this), this);
         pm.registerEvents(new HeadsAPI(), this);
-        pm.registerEvents(new Kalendar(), this);
         pm.registerEvents(new SnowBall(this), this);
-        pm.registerEvents(new TicketSystem(), this);
         pm.registerEvents(new SettingsMenu(), this);
 
         //SkyKeys pro SLOBBY
@@ -237,16 +232,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return this.sql;
     }
 
-    public void activeteDebug() {
-        debug = true;
-    }
-
     public boolean isDebug() {
         return debug;
-    }
-
-    public void deactivateDebug() {
-        debug = false;
     }
 
     public static Plugin getPlugin() {

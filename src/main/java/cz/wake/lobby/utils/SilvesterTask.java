@@ -1,4 +1,4 @@
-package cz.wake.lobby.vanoce;
+package cz.wake.lobby.utils;
 
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
