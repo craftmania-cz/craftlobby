@@ -60,7 +60,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private static DataOutputStream out = new DataOutputStream(b);
     private String idServer;
     private SQLManager sql;
-    private SilvesterTask st = new SilvesterTask();
 
 
     public void onEnable() {
@@ -103,17 +102,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             tt.initTimeSetter();
         }
 
-        // Ticket system
-        if (getConfig().getBoolean("ticket-winner")) {
-            //Bukkit.getScheduler().runTaskTimerAsynchronously(this, new WinnerTask(), 400L, 1200L);
-        }
-
         // Id serveru
         idServer = getConfig().getString("server");
-
-        if (idServer.equalsIgnoreCase("main")){
-            //st.runLauncher();
-        }
 
         //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
