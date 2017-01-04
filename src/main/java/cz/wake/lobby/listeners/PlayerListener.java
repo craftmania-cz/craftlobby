@@ -5,7 +5,6 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.pets.PetManager;
 import cz.wake.lobby.utils.UtilTablist;
-import cz.wake.lobby.vanoce.EventBludiste;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
@@ -44,7 +43,6 @@ public class PlayerListener implements Listener {
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
     Lobby lb = new Lobby();
-    EventBludiste ep = new EventBludiste();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -71,29 +69,8 @@ public class PlayerListener implements Listener {
         p.setFoodLevel(20);
         p.setGameMode(GameMode.ADVENTURE);
 
+        // Prefix v tablistu
         UtilTablist.setupPrefixInTab(p);
-
-        // Kalendar
-        Main.getInstance().fetchData().addCalendarDefaultValue(p);
-
-        // Ticket vyherce
-        if (Main.getInstance().fetchData().isWinner(p)) {
-            p.sendMessage("§c§m--------------------------------------------");
-            p.sendMessage("§e§lGratulujeme! §6Vyhral/a jsi hru!");
-            p.sendMessage("§7Vyzvedni si ji na webu u Majitele!");
-            p.sendMessage("§7Pokud nejsi registrovany/a musis se registrovat!");
-            p.sendMessage("§7Automaticky ti napiseme do zprav klic do 24h! :)");
-            p.sendMessage("§8Hru muzes vybrat do 24.12.!");
-            p.sendMessage("§c§m--------------------------------------------");
-        }
-
-        // BludisteEvent
-        for (Player p2 : Bukkit.getOnlinePlayers()) {
-            if (ep.getList().contains(p2)) {
-                p.hidePlayer(p2);
-                p2.hidePlayer(p);
-            }
-        }
     }
 
     @EventHandler
@@ -294,10 +271,6 @@ public class PlayerListener implements Listener {
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
 
-        // EventBludiste
-        if(ep.getList().contains(p)){
-            ep.getList().remove(p);
-        }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
@@ -313,11 +286,6 @@ public class PlayerListener implements Listener {
 
         //Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
-
-        // EventBludiste
-        if(ep.getList().contains(p)){
-            ep.getList().remove(p);
-        }
     }
 
     @EventHandler
@@ -370,14 +338,6 @@ public class PlayerListener implements Listener {
         // Teleport na spawn
         if (p.getLocation().getY() <= 0) {
             p.performCommand("spawn");
-        }
-
-        // Konec EventBludiste
-        if ((p.getLocation().getX() <= -931 && p.getLocation().getX() >= -932)
-                && (p.getLocation().getZ() >= 83 && p.getLocation().getZ() <= 84) ){
-            if(ep.getList().contains(p)){
-                ep.endParkour(p);
-            }
         }
     }
 
