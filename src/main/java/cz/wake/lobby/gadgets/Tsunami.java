@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import cz.wake.lobby.utils.UtilParticles;
 import net.minecraft.server.v1_10_R1.Block;
@@ -111,13 +112,15 @@ public class Tsunami implements Listener {
                     }, 20L);
                     for (final Entity ent : as.getNearbyEntities(0.5D, 0.5D, 0.5D)) {
                         if ((!Tsunami.this.cooldownJump.contains(ent)) && (ent != player) && (!(ent instanceof ArmorStand))) {
-                            UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
-                            Tsunami.this.cooldownJump.add(ent);
-                            Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
-                                public void run() {
-                                    Tsunami.this.cooldownJump.remove(ent);
-                                }
-                            }, 20L);
+                            if(SettingsMenu.gadgets.contains((Player)ent)){
+                                UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
+                                Tsunami.this.cooldownJump.add(ent);
+                                Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
+                                    public void run() {
+                                        Tsunami.this.cooldownJump.remove(ent);
+                                    }
+                                }, 20L);
+                            }
                         }
                     }
                     loc.add(v);

@@ -1,6 +1,7 @@
 package cz.wake.lobby.utils;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -65,11 +66,11 @@ public class UtilParticles {
     }
 
     public static void display(ParticleEffect effect, Location location, int amount, float speed) {
-        effect.display(0, 0, 0, speed, amount, location, 128);
+        effect.display(0, 0, 0, speed, amount, location, SettingsMenu.particles);
     }
 
     public static void display(ParticleEffect effect, Location location, int amount) {
-        effect.display(0, 0, 0, 0, amount, location, 128);
+        effect.display(0, 0, 0, 0, amount, location, SettingsMenu.particles);
     }
 
     public static void display(ParticleEffect effect, Location location) {
@@ -77,12 +78,12 @@ public class UtilParticles {
     }
 
     public static void display(ParticleEffect effect, double x, double y, double z, Location location, int amount) {
-        effect.display((float) x, (float) y, (float) z, 0f, amount, location, 128);
+        effect.display((float) x, (float) y, (float) z, 0f, amount, location, SettingsMenu.particles);
     }
 
     public static void display(ParticleEffect effect, int red, int green, int blue, Location location, int amount) {
         for (int i = 0; i < amount; i++)
-            effect.display(new ParticleEffect.OrdinaryColor(red, green, blue), location, DEF_RADIUS);
+            effect.display(new ParticleEffect.OrdinaryColor(red, green, blue), location, SettingsMenu.particles);
     }
 
     public static void display(int red, int green, int blue, Location location) {

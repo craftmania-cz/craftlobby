@@ -4,6 +4,7 @@ import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.cloaks.RankCape;
 import cz.wake.lobby.pets.PetManager;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -33,8 +34,8 @@ public class PlayerListener implements Listener {
         this.plugin = plugin;
     }
 
-    private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, Double> _time = new HashMap<>();
+    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap<>();
     private Location end = new Location(Bukkit.getWorld("LobbyEventy"), -931, 99, 83);
 
     Menu hlavniMenu = new Menu();
@@ -42,7 +43,7 @@ public class PlayerListener implements Listener {
     Servers servers = new Servers();
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
-    Lobby lb = new Lobby();
+    SettingsMenu sm = new SettingsMenu();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -62,15 +63,19 @@ public class PlayerListener implements Listener {
             p.removePotionEffect(ep.getType());
         }
 
-        p.setFlying(false);
-        p.setWalkSpeed(0.3F);
         p.setHealth(20F);
         p.setSaturation(20F);
         p.setFoodLevel(20);
         p.setGameMode(GameMode.ADVENTURE);
 
+        // Player settings
+        Main.getInstance().setData().addSettingsDefault(p);
+
         // Prefix v tablistu
         UtilTablist.setupPrefixInTab(p);
+
+        // Setting setttings :D
+        setupPlayerOnJoin(p);
     }
 
     @EventHandler
@@ -258,34 +263,39 @@ public class PlayerListener implements Listener {
     public void onLeave(final PlayerQuitEvent e) {
         Player p = e.getPlayer();
 
-        //Deaktivace leave zprav
+        // Deaktivace leave zprav
         e.setQuitMessage(null);
 
-        //Deaktivace particles
+        // Deaktivace particles
         ic.deactivateParticles(p);
 
-        //Deaktivace cloaks
+        // Deaktivace cloaks
         Main.getInstance().getCloaksAPI().deactivateCloaks(p);
         RankCape.deactivateCape(p);
 
-        //Deaktivatce mazlíčka
+        // Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
 
+        // Odebrani settings
+        sm.removePlayer(p);
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onKick(PlayerKickEvent e) {
         Player p = e.getPlayer();
 
-        //Deaktivace particles
+        // Deaktivace particles
         ic.deactivateParticles(p);
 
-        //Deaktivace cloaks
+        // Deaktivace cloaks
         Main.getInstance().getCloaksAPI().deactivateCloaks(p);
         RankCape.deactivateCape(p);
 
-        //Deaktivatce mazlíčka
+        // Deaktivatce mazlíčka
         PetManager.forceRemovePet(p);
+
+        // Odebrani settings
+        sm.removePlayer(p);
     }
 
     @EventHandler
@@ -386,6 +396,50 @@ public class PlayerListener implements Listener {
         p.getInventory().setItem(4, gadgets);
         p.getInventory().setItem(7, hider);
         p.getInventory().setItem(8, servers);
+    }
+
+    private void setupPlayerOnJoin(final Player p){
+
+        // Fly na lobby
+        if(Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1){
+            p.setAllowFlight(true);
+            p.setFlying(true);
+        } else {
+            p.setAllowFlight(false);
+            p.setFlying(false);
+        }
+
+        // Nastaveni skryti hracu
+        if(Main.getInstance().fetchData().getSettings(p, "lobby_players") == 1){
+            SettingsMenu.hiden.add(p);
+            for (Player p2 : Bukkit.getOnlinePlayers()){
+                p.hidePlayer(p2);
+            }
+        }
+
+        // Skryti pokud nekdo ma nastaveny skryti
+        for(Player p3 : Bukkit.getOnlinePlayers()){
+            if(SettingsMenu.hiden.contains(p3)){
+                p3.hidePlayer(p);
+            }
+        }
+
+        // Zobrazovani particles
+        if(Main.getInstance().fetchData().getSettings(p, "lobby_particles") == 1){
+            SettingsMenu.particles.add(p);
+        }
+
+        // Lobby speed
+        if (Main.getInstance().fetchData().getSettings(p, "lobby_speed") == 1){
+            p.setWalkSpeed(0.3F);
+        } else {
+            p.setWalkSpeed(0.2F);
+        }
+
+        // Gadgets
+        if (Main.getInstance().fetchData().getSettings(p, "lobby_gadgets") == 1){
+            SettingsMenu.gadgets.add(p);
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
@@ -79,7 +80,10 @@ public class AntiGravity implements Listener{
 	                as.getWorld().spigot().playEffect(as.getEyeLocation(), Effect.PORTAL, 0, 0, 3, 3, 3, 0, 150, 64);
 	                as.getWorld().spigot().playEffect(as.getEyeLocation(), Effect.WITCH_MAGIC, 0, 0, .3f, 0.3f, 0.3f, 0, 5, 64);
 	                for(Entity ent : as.getNearbyEntities(3, 2, 3)) {
-	                    UtilMath.applyVector(ent, new Vector(0, 0.1, 0));
+	                    Player p2 = (Player)ent;
+	                    if(SettingsMenu.gadgets.contains(p2)){
+                            UtilMath.applyVector(ent, new Vector(0, 0.1, 0));
+                        }
 	                }
 	            }
 	        }, 0, 2).getTaskId();

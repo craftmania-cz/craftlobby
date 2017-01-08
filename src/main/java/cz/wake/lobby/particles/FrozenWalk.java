@@ -2,6 +2,7 @@ package cz.wake.lobby.particles;
 
 import java.util.HashMap;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -29,8 +30,8 @@ public class FrozenWalk{
 				        locationLeft.setY(p.getLocation().getY());
 				        locationRight.setY(p.getLocation().getY());
 				        
-				        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.SNOW, (byte) 0), 0, 0, 0, 0f, 0, locationLeft, 32);
-				        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.SNOW, (byte)0), 0, 0, 0, 0f, 0, locationRight, 32);
+				        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.SNOW, (byte) 0), 0, 0, 0, 0f, 0, locationLeft, SettingsMenu.particles);
+				        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.SNOW, (byte)0), 0, 0, 0, 0f, 0, locationRight, SettingsMenu.particles);
 				}
 				
 			}}, 0L, 1L);

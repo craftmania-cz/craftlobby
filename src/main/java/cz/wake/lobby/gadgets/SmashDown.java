@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilBlock;
 import cz.wake.lobby.utils.UtilMath;
@@ -156,8 +157,11 @@ public class SmashDown implements Listener {
                             fb.setDropItem(false);
                             fallingBlocks.add(fb);
                             for (Entity ent : fb.getNearbyEntities(1, 1, 1)) {
-                                if (ent != entity && ent.getType() != EntityType.FALLING_BLOCK)
-                                    UtilMath.applyVector(ent, new Vector(0, 0.5, 0));
+                                if (ent != entity && ent.getType() != EntityType.FALLING_BLOCK){
+                                    if(SettingsMenu.gadgets.contains((Player)ent)){
+                                        UtilMath.applyVector(ent, new Vector(0, 0.5, 0));
+                                    }
+                                }
                             }
                         }
                     }

@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.*;
 import org.bukkit.entity.Bat;
@@ -98,7 +99,9 @@ public class BatBlaster implements Listener {
                                         }
                                         other.setFallDistance(0.0F);
                                         if (affectPlayers) {
-                                            UtilMath.applyVelocity(other, bat.getLocation().getDirection().add(new Vector(0.0F, 0.4F, 0.0F)));
+                                            if(SettingsMenu.gadgets.contains(other)){
+                                                UtilMath.applyVelocity(other, bat.getLocation().getDirection().add(new Vector(0.0F, 0.4F, 0.0F)));
+                                            }
                                         }
                                         bat.getWorld().playSound(bat.getLocation(), Sound.ENTITY_BAT_HURT, 1F, 1F);
                                         bat.getWorld().spigot().playEffect(bat.getLocation(), Effect.SMOKE);

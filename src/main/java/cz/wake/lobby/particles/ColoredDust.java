@@ -2,6 +2,7 @@ package cz.wake.lobby.particles;
 
 import java.util.HashMap;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -21,7 +22,7 @@ public class ColoredDust{
 				@Override
 				public void run() {
 					if(cd.containsKey(p.getName()) && p.isOnline()){
-						ParticleEffect.REDSTONE.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), 15.0D);
+						ParticleEffect.REDSTONE.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), SettingsMenu.particles);
 					} 
 				}
 				

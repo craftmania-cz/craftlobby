@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import net.minecraft.server.v1_10_R1.Block;
 import org.bukkit.Bukkit;
@@ -106,14 +107,16 @@ public class BlizzardBlaster implements Listener {
                         }, 20);
                         for (final Entity ent : as.getNearbyEntities(0.5, 0.5, 0.5)) {
                             if ((!cooldownJump.contains(ent)) && (ent != player) && (!(ent instanceof ArmorStand))) {
-                                UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
-                                cooldownJump.add(ent);
-                                Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        cooldownJump.remove(ent);
-                                    }
-                                }, 20);
+                                if(SettingsMenu.gadgets.contains((Player)ent)){
+                                    UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
+                                    cooldownJump.add(ent);
+                                    Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            cooldownJump.remove(ent);
+                                        }
+                                    }, 20);
+                                }
                             }
                         }
                     }

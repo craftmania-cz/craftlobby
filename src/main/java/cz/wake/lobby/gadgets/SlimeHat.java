@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
@@ -176,11 +177,15 @@ public class SlimeHat implements Listener {
         Player p = e.getPlayer();
         Item item = e.getItem();
         if ((item.getItemStack().getType() == Material.SLIME_BALL) && (item.getItemStack().getItemMeta().getDisplayName().contains("slimeHat"))) {
-            p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 30.0F, 1.0F);
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 200, 2);
-            potionEffect.apply(p);
-            e.setCancelled(true);
-            e.getItem().remove();
+            if(SettingsMenu.gadgets.contains(p)){
+                p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 30.0F, 1.0F);
+                PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 200, 2);
+                potionEffect.apply(p);
+                e.setCancelled(true);
+                e.getItem().remove();
+            } else {
+                e.setCancelled(true);
+            }
         }
     }
 

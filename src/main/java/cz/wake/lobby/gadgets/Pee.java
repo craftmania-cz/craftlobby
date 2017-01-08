@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -126,10 +127,14 @@ public class Pee implements Listener {
         Player p = e.getPlayer();
         Item item = e.getItem();
         if ((item.getItemStack().getType() == Material.STAINED_GLASS) && (item.getItemStack().getItemMeta().getDisplayName().contains("Peee"))) {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.CONFUSION, 150, 2);
-            potionEffect.apply(p);
-            e.setCancelled(true);
-            e.getItem().remove();
+            if(SettingsMenu.gadgets.contains(p)){
+                PotionEffect potionEffect = new PotionEffect(PotionEffectType.CONFUSION, 150, 2);
+                potionEffect.apply(p);
+                e.setCancelled(true);
+                e.getItem().remove();
+            } else {
+                e.setCancelled(true);
+            }
         }
     }
 }

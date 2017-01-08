@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -64,7 +65,7 @@ public class DiscoBall implements Listener {
             this._time.put(player, Double.valueOf(15D + 0.1D));
             final Location localLocation = player.getLocation().add(0.0D, 5.0D, 0.0D);
             if (!localLocation.getBlock().isEmpty()) {
-                player.sendMessage("�cNad tebou musi byt misto!");
+                player.sendMessage("§cNad tebou musi byt misto!");
                 return;
             }
             new BukkitRunnable() {
@@ -82,7 +83,7 @@ public class DiscoBall implements Listener {
                             localPlayer.sendBlockChange(localLocation, Material.STAINED_GLASS, (byte) getRandomInt(0, 15));
                         }
                         if (this.step2 == 3) {
-                            ParticleEffect.FIREWORKS_SPARK.display(2.0F, 0.0F, 2.0F, 0.2F, 70, localLocation, 15.0D);
+                            ParticleEffect.FIREWORKS_SPARK.display(2.0F, 0.0F, 2.0F, 0.2F, 70, localLocation, SettingsMenu.particles);
                             this.step2 = 0;
                         }
                     } else {

@@ -2,6 +2,7 @@ package cz.wake.lobby.particles;
 
 import java.util.HashMap;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -66,14 +67,14 @@ public class Lily {
 			                int step2 = UtilMath.randRange(100, 255);
 			                if (step % 2 == 0)
 			                {
-			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(step, step2, 0), location, 5.0D);
-			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(step, step2, 0), location2, 5.0D);
+			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(step, step2, 0), location, SettingsMenu.particles);
+			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(step, step2, 0), location2, SettingsMenu.particles);
 			                  
 			                }
 			                else
 			                {
-			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(0, step2, step), location, 5.0D);
-			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(0, step2, step), location2, 5.0D);
+			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(0, step2, step), location, SettingsMenu.particles);
+			                  ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(0, step2, step), location2, SettingsMenu.particles);
 			                }
 			                if (step2 % 2 == 0){
 			                  UtilParticles.play(location, Effect.FLAME, 0.0F, 0.0F, 0.0f);

@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
@@ -113,7 +114,9 @@ public class ColorBomb implements Listener {
                                         i.getWorld().playSound(i.getLocation(), Sound.ENTITY_CHICKEN_EGG, 0.2F, 1.0F);
                                         for (Entity entity : ColorBomb.this.bomb.getNearbyEntities(1.5D, 1.0D, 1.5D)) {
                                             if (((entity instanceof Player)) && (affectPlayers)) {
-                                                entity.setVelocity(new Vector(0.0D, 0.5D, 0.0D).add(UtilMath.getRandomCircleVector().multiply(0.1D)));
+                                                if(SettingsMenu.gadgets.contains((Player)entity)){
+                                                    entity.setVelocity(new Vector(0.0D, 0.5D, 0.0D).add(UtilMath.getRandomCircleVector().multiply(0.1D)));
+                                                }
                                             }
                                         }
                                     }

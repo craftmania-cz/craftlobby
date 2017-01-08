@@ -2,6 +2,7 @@ package cz.wake.lobby.particles;
 
 import java.util.HashMap;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -22,7 +23,7 @@ public class MobSpell{
 				@Override
 				public void run() {
 					if(ms.containsKey(p.getName()) && p.isOnline()){
-						ParticleEffect.SPELL_MOB.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), 15.0D);
+						ParticleEffect.SPELL_MOB.display(1.0F, 1.0F, 1.0F, 0.1F, 15, p.getLocation(), SettingsMenu.particles);
 					} 
 				}
 			}, 0L, 1L).getTaskId();

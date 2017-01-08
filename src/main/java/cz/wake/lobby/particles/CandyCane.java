@@ -3,6 +3,7 @@ package cz.wake.lobby.particles;
 import java.util.HashMap;
 import java.util.Random;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -35,7 +36,7 @@ public class CandyCane {
 				        double z = Math.sin(angle) * 1.1f;
 				        center.add(x, 0, z);
 				        for (int i = 0; i < 15; i++)
-                        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.INK_SACK, getRandomColor()), 0.2f, 0.2f, 0.2f, 0, 1, center, 128);
+                        ParticleEffect.ITEM_CRACK.display(new ParticleEffect.ItemData(Material.INK_SACK, getRandomColor()), 0.2f, 0.2f, 0.2f, 0, 1, center, SettingsMenu.particles);
                         step++;
 					}
 					

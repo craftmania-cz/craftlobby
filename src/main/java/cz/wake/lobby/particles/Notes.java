@@ -3,6 +3,7 @@ package cz.wake.lobby.particles;
 import java.util.HashMap;
 import java.util.Random;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -27,7 +28,7 @@ public class Notes{
 							 Random random = new Random();
 					         int j = random.nextInt(25);
 					         ParticleEffect.ParticleColor pc = new ParticleEffect.NoteColor(j);
-					         ParticleEffect.NOTE.display(pc, p.getLocation().add(UtilMath.randomDouble(-1.5, 1.5), UtilMath.randomDouble(0, 2.5), UtilMath.randomDouble(-1.5, 1.5)), 32);
+					         ParticleEffect.NOTE.display(pc, p.getLocation().add(UtilMath.randomDouble(-1.5, 1.5), UtilMath.randomDouble(0, 2.5), UtilMath.randomDouble(-1.5, 1.5)), SettingsMenu.particles);
 						}
 					} 
 					

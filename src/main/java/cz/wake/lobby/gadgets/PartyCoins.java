@@ -192,7 +192,7 @@ public class PartyCoins implements Listener {
         if ((event.getItem().getItemStack().hasItemMeta()) &&
                 (event.getItem().getItemStack().getItemMeta().hasLore()) &&
                 (event.getItem().getItemStack().getItemMeta().getLore().contains("Bomb"))) {
-            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "addbalance " + player.getName() + " 1");
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "coins give " + player.getName() + " 1");
             event.getPlayer().getWorld().playSound(event.getItem().getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0F, 1.0F);
             event.setCancelled(true);
             event.getItem().remove();
