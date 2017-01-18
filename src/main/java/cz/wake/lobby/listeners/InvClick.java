@@ -45,7 +45,6 @@ public class InvClick implements Listener {
     Lily lil = new Lily();
     SantaHat sh = new SantaHat();
     CandyCane cc = new CandyCane();
-    NakupBoxu np = new NakupBoxu();
     Lobby lob = new Lobby();
     BannerAPI bannerAPI = new BannerAPI();
     HeadsAPI hAPI = new HeadsAPI();
