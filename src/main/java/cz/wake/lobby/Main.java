@@ -22,7 +22,6 @@ import cz.wake.lobby.pets.PetsAPI;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
-import cz.wake.lobby.utils.SilvesterTask;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -184,7 +183,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new FunCannonIce(this), this);
         pm.registerEvents(new BannerAPI(), this);
         pm.registerEvents(new DiamondsFountain(this), this);
-        pm.registerEvents(new FireTrail(this), this);
         pm.registerEvents(new Rocket(this), this);
         pm.registerEvents(new Parachute(this), this);
         pm.registerEvents(new HeadsAPI(), this);

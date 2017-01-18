@@ -401,9 +401,14 @@ public class PlayerListener implements Listener {
     private void setupPlayerOnJoin(final Player p){
 
         // Fly na lobby
-        if(Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1){
-            p.setAllowFlight(true);
-            p.setFlying(true);
+        if(p.hasPermission("craftlobby.vip.fly")){
+            if(Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1){
+                p.setAllowFlight(true);
+                p.setFlying(true);
+            } else {
+                p.setAllowFlight(false);
+                p.setFlying(false);
+            }
         } else {
             p.setAllowFlight(false);
             p.setFlying(false);

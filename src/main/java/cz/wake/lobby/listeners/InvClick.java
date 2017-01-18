@@ -45,7 +45,6 @@ public class InvClick implements Listener {
     Lily lil = new Lily();
     SantaHat sh = new SantaHat();
     CandyCane cc = new CandyCane();
-    NakupBoxu np = new NakupBoxu();
     Lobby lob = new Lobby();
     BannerAPI bannerAPI = new BannerAPI();
     HeadsAPI hAPI = new HeadsAPI();
@@ -208,7 +207,7 @@ public class InvClick implements Listener {
                 sendToServer(player, "vanilla");
             }
             if (event.getSlot() == 31) {
-                sendToServer(player, "lobby2");
+                sendToServer(player, "alobby");
             }
             if (event.getSlot() == 30) {
                 sendToServer(player, "slobby");
