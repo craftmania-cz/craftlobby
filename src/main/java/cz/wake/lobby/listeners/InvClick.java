@@ -208,7 +208,7 @@ public class InvClick implements Listener {
                 sendToServer(player, "vanilla");
             }
             if (event.getSlot() == 31) {
-                sendToServer(player, "lobby2");
+                sendToServer(player, "alobby");
             }
             if (event.getSlot() == 30) {
                 sendToServer(player, "slobby");
