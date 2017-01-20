@@ -29,7 +29,7 @@ public class SettingsMenu implements Listener {
         ItemStack part = ItemFactory.create(Material.REDSTONE, (byte)0,"§e§lParticles", "§7Viditelnost efektu","","§cDocasne nefunguje na vsechny!");
         ItemStack fly = ItemFactory.create(Material.ELYTRA, (byte)0, "§e§lFly", "§7Nastavuje FLY na lobby serverech.", "§7Fly dostanes pri kazdem",
                 "§7vstupu na lobby","","§cVyzaduje MiniGames VIP!");
-        ItemStack gadgets = ItemFactory.create(Material.PISTON_BASE, (byte)0, "§e§lGadgets", "§7Nastavuje zda na tebe", "§7budou fungovat gadgets lobby.");
+        ItemStack gadgets = ItemFactory.create(Material.PISTON_BASE, (byte)0, "§e§lGadgets", "§7Nastavuje zda na tebe", "§7budou fungovat gadget lobby.");
         ItemStack speed = ItemFactory.create(Material.GOLD_BOOTS, (byte)0, "§e§lSpeed", "§7Povoluje rychlost chozeni", "§7na lobby.");
         ItemStack novinky = ItemFactory.create(Material.MAP,(byte)0, "§e§lReklama", "§7Nastavuje zobrazovani reklamy", "§7na VIP na MiniGames.","", "§cVyzaduje MiniGames VIP!");
 

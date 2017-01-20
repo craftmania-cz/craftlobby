@@ -1,8 +1,8 @@
 package cz.wake.lobby.GUI;
 
-import cz.wake.lobby.API.TimeUtils;
+import cz.wake.lobby.utils.TimeUtils;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.heads.HeadsAPI;
+import cz.wake.lobby.gadgets.heads.HeadsAPI;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -249,70 +249,70 @@ public class GadgetsMenu implements Listener {
 
     public int getGadgetsCount(Player p) {
         int c = 0;
-        if (p.hasPermission("craftlobby.gadgets.teleportstick")) {
+        if (p.hasPermission("craftlobby.gadget.teleportstick")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.funcannon")) {
+        if (p.hasPermission("craftlobby.gadget.funcannon")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.colorbomb")) {
+        if (p.hasPermission("craftlobby.gadget.colorbomb")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.cookiefountain")) {
+        if (p.hasPermission("craftlobby.gadget.cookiefountain")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.chikenator")) {
+        if (p.hasPermission("craftlobby.gadget.chikenator")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.pee")) {
+        if (p.hasPermission("craftlobby.gadget.pee")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.pigfly")) {
+        if (p.hasPermission("craftlobby.gadget.pigfly")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.firework")) {
+        if (p.hasPermission("craftlobby.gadget.firework")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.poopbomb")) {
+        if (p.hasPermission("craftlobby.gadget.poopbomb")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.tnt")) {
+        if (p.hasPermission("craftlobby.gadget.tnt")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.slimehat")) {
+        if (p.hasPermission("craftlobby.gadget.slimehat")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.withercatapult")) {
+        if (p.hasPermission("craftlobby.gadget.withercatapult")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.discoball")) {
+        if (p.hasPermission("craftlobby.gadget.discoball")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.blizzardblaster")) {
+        if (p.hasPermission("craftlobby.gadget.blizzardblaster")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.ghosts")) {
+        if (p.hasPermission("craftlobby.gadget.ghosts")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.tsunami")) {
+        if (p.hasPermission("craftlobby.gadget.tsunami")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.batblaster")) {
+        if (p.hasPermission("craftlobby.gadget.batblaster")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.trampoline")) {
+        if (p.hasPermission("craftlobby.gadget.trampoline")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.explosivesheep")) {
+        if (p.hasPermission("craftlobby.gadget.explosivesheep")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.smashdown")) {
+        if (p.hasPermission("craftlobby.gadget.smashdown")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.flowerpopper")) {
+        if (p.hasPermission("craftlobby.gadget.flowerpopper")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.funcannon.ender")) {
+        if (p.hasPermission("craftlobby.gadget.funcannon.ender")) {
             c++;
         }
         if (p.hasPermission("craftlobby.gadget.antigravity")) {
@@ -321,16 +321,16 @@ public class GadgetsMenu implements Listener {
         if (p.hasPermission("craftlobby.gadget.blackhole")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.diamondfountain")) {
+        if (p.hasPermission("craftlobby.gadget.diamondfountain")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.rocket")) {
+        if (p.hasPermission("craftlobby.gadget.rocket")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.parachute")) {
+        if (p.hasPermission("craftlobby.gadget.parachute")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadgets.snowball")) {
+        if (p.hasPermission("craftlobby.gadget.snowball")) {
             c++;
         }
         return c;

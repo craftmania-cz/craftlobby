@@ -2,8 +2,8 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.cloaks.RankCape;
-import cz.wake.lobby.pets.PetManager;
+import cz.wake.lobby.gadgets.cloaks.RankCape;
+import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
