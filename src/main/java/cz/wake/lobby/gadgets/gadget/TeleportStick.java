@@ -45,7 +45,7 @@ public class TeleportStick implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("TeleportStick")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.teleportstick")) {
+        if (!player.hasPermission("craftlobby.gadgets.teleportstick")) {
             return;
         }
         e.setCancelled(true);

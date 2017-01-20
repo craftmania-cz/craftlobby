@@ -54,7 +54,7 @@ public class BatBlaster implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("BatBlaster")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.batblaster")) {
+        if (!player.hasPermission("craftlobby.gadgets.batblaster")) {
             return;
         }
         e.setCancelled(true);

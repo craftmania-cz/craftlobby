@@ -51,7 +51,7 @@ public class CookieFountain implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("CookieFountain")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.cookiefountain")) {
+        if (!player.hasPermission("craftlobby.gadgets.cookiefountain")) {
             return;
         }
         e.setCancelled(true);

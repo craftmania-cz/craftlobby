@@ -48,7 +48,7 @@ public class DiscoBall implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("DiscoBall")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.discoball")) {
+        if (!player.hasPermission("craftlobby.gadgets.discoball")) {
             return;
         }
         e.setCancelled(true);

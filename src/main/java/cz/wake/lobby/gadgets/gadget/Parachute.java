@@ -51,7 +51,7 @@ public class Parachute implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Parachute")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.parachute")) {
+        if (!player.hasPermission("craftlobby.gadgets.parachute")) {
             return;
         }
         e.setCancelled(true);

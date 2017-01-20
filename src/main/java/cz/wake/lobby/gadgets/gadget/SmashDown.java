@@ -57,7 +57,7 @@ public class SmashDown implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("SmashDown")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.smashdown")) {
+        if (!player.hasPermission("craftlobby.gadgets.smashdown")) {
             return;
         }
         e.setCancelled(true);

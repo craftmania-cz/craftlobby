@@ -54,7 +54,7 @@ public class FunCannonIce implements Listener {
                 player.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
                 return;
             }
-            if (!player.hasPermission("craftlobby.gadget.funcannon.ender")) {
+            if (!player.hasPermission("craftlobby.gadgets.funcannon.ender")) {
                 return;
             }
             if (this._time.containsKey(player)) {

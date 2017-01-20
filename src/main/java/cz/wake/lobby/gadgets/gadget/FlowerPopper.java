@@ -55,7 +55,7 @@ public class FlowerPopper implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("FlowerPopper")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.flowerpopper")) {
+        if (!player.hasPermission("craftlobby.gadgets.flowerpopper")) {
             return;
         }
         e.setCancelled(true);

@@ -51,7 +51,7 @@ public class DiamondsFountain implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("DiamondFountain")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.diamondfountain")) {
+        if (!player.hasPermission("craftlobby.gadgets.diamondfountain")) {
             return;
         }
         e.setCancelled(true);

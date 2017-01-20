@@ -49,7 +49,7 @@ public class PigFly implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("PigFly")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.pigfly")) {
+        if (!player.hasPermission("craftlobby.gadgets.pigfly")) {
             return;
         }
         e.setCancelled(true);

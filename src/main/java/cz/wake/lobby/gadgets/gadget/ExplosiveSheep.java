@@ -57,7 +57,7 @@ public class ExplosiveSheep implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("ExplosiveSheep")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.explosivesheep")) {
+        if (!player.hasPermission("craftlobby.gadgets.explosivesheep")) {
             return;
         }
         e.setCancelled(true);

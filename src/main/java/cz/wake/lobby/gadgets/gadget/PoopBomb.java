@@ -55,7 +55,7 @@ public class PoopBomb implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("PoopBomb")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.poopbomb")) {
+        if (!player.hasPermission("craftlobby.gadgets.poopbomb")) {
             return;
         }
         e.setCancelled(true);

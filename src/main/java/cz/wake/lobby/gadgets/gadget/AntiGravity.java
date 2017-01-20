@@ -42,7 +42,7 @@ public class AntiGravity implements Listener{
 	    if (!item.hasItemMeta()) {
 	        return;
 	    }
-	    if (!player.hasPermission("craftlobby.gadget.antigravity")){
+	    if (!player.hasPermission("craftlobby.gadgets.antigravity")){
 	    	return;
 	    }
 	    if (!item.getType().equals(Material.EYE_OF_ENDER)) {

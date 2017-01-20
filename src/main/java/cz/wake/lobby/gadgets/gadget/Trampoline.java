@@ -57,7 +57,7 @@ public class Trampoline implements Listener {
             player.sendMessage("§cTento gadget je jiz nekde aktivovany!");
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.trampoline")) {
+        if (!player.hasPermission("craftlobby.gadgets.trampoline")) {
             return;
         }
         if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){

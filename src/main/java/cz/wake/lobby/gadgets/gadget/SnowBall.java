@@ -43,7 +43,7 @@ public class SnowBall implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("SnowBall")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.snowball")) {
+        if (!player.hasPermission("craftlobby.gadgets.snowball")) {
             return;
         }
         e.setCancelled(true);

@@ -93,7 +93,7 @@ public class TNTBomb implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("TNT")) {
             return;
         }
-        if (!p.hasPermission("craftlobby.gadget.tnt")) {
+        if (!p.hasPermission("craftlobby.gadgets.tnt")) {
             return;
         }
         event.setCancelled(true);

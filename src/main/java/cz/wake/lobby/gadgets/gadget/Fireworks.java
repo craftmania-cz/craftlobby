@@ -55,7 +55,7 @@ public class Fireworks implements Listener {
                 player.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
                 return;
             }
-            if (!player.hasPermission("craftlobby.gadget.firework")) {
+            if (!player.hasPermission("craftlobby.gadgets.firework")) {
                 return;
             }
 

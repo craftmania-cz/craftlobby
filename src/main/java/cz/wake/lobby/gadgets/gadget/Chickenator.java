@@ -49,7 +49,7 @@ public class Chickenator implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Chickenator")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.chikenator")) {
+        if (!player.hasPermission("craftlobby.gadgets.chikenator")) {
             return;
         }
         e.setCancelled(true);

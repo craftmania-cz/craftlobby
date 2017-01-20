@@ -59,7 +59,7 @@ public class Pee implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Pee")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.pee")) {
+        if (!player.hasPermission("craftlobby.gadgets.pee")) {
             return;
         }
         e.setCancelled(true);

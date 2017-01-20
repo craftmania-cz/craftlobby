@@ -56,7 +56,7 @@ public class BlackHole implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("BlackHole")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.blackhole")) {
+        if (!player.hasPermission("craftlobby.gadgets.blackhole")) {
             return;
         }
         e.setCancelled(true);

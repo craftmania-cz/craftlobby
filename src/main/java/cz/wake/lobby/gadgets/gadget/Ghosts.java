@@ -53,7 +53,7 @@ public class Ghosts implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Ghosts")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.ghosts")) {
+        if (!player.hasPermission("craftlobby.gadgets.ghosts")) {
             return;
         }
         e.setCancelled(true);

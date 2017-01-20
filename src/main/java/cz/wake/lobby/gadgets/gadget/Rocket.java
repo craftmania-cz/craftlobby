@@ -59,7 +59,7 @@ public class Rocket implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Rocket")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.rocket")) {
+        if (!player.hasPermission("craftlobby.gadgets.rocket")) {
             return;
         }
         e.setCancelled(true);

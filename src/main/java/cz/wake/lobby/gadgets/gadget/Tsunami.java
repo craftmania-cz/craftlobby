@@ -60,7 +60,7 @@ public class Tsunami implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Tsunami")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.tsunami")) {
+        if (!player.hasPermission("craftlobby.gadgets.tsunami")) {
             return;
         }
         e.setCancelled(true);

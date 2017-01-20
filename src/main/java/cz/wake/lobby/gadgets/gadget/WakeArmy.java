@@ -53,7 +53,7 @@ public class WakeArmy implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("WakeArmy")) {
             return;
         }
-        if (!player.hasPermission("craftlobby.gadget.wakearmy")) {
+        if (!player.hasPermission("craftlobby.gadgets.wakearmy")) {
             return;
         }
         e.setCancelled(true);
