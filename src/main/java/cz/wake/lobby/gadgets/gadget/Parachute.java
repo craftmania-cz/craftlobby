@@ -70,6 +70,8 @@ public class Parachute implements Listener {
             Location loc = player.getLocation();
             player.teleport(loc.clone().add(0, 35, 0));
             player.setVelocity(new Vector(0, 0, 0));
+            player.setAllowFlight(false);
+            player.setFlying(false);
             this.chickens.put(player, new ArrayList<Chicken>());
             for (int i = 0; i < 20; i++) {
                 final Chicken chicken = (Chicken) player.getWorld().spawnEntity(player.getLocation().add(UtilMath.randomDouble(0, 0.5), 3, UtilMath.randomDouble(0, 0.5)), EntityType.CHICKEN);
@@ -93,6 +95,10 @@ public class Parachute implements Listener {
                         if (player.isOnGround()) {
                             killParachute(player);
                             Bukkit.getScheduler().cancelTask(task2);
+                            if(Main.getInstance().fetchData().getSettings(player, "lobby_fly") == 1){
+                                player.setAllowFlight(true);
+                                player.setFlying(true);
+                            }
                         }
                     }
                 }
