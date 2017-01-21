@@ -2,10 +2,10 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.banners.BannerAPI;
-import cz.wake.lobby.cloaks.RankCape;
-import cz.wake.lobby.heads.HeadsAPI;
-import cz.wake.lobby.particles.*;
+import cz.wake.lobby.gadgets.banners.BannerAPI;
+import cz.wake.lobby.gadgets.cloaks.RankCape;
+import cz.wake.lobby.gadgets.heads.HeadsAPI;
+import cz.wake.lobby.gadgets.particles.*;
 import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

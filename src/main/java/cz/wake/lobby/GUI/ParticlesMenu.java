@@ -1,7 +1,7 @@
 package cz.wake.lobby.GUI;
 
 import cz.wake.lobby.Main;
-import cz.wake.lobby.particles.*;
+import cz.wake.lobby.gadgets.particles.*;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
