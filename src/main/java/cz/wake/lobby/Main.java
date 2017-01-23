@@ -156,7 +156,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Fireworks(this), this);
         pm.registerEvents(new BlizzardBlaster(this), this);
         pm.registerEvents(new AntiGravity(this), this);
-        pm.registerEvents(new SmashDown(this), this);
         pm.registerEvents(new Servers(), this);
         pm.registerEvents(new Trampoline(this), this);
         pm.registerEvents(new PetManager(this), this);

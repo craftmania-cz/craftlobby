@@ -155,68 +155,61 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lExplosiveSheep", "§7Gadget lze ziskat v CraftBoxu!");
             gadgetsInv.setItem(18, i);
         }
-        if (p.hasPermission("craftlobby.gadgets.smashdown")) {
-            ItemStack i = ItemFactory.create(Material.FIREWORK_CHARGE, (byte) 0, "§e§lSmashDown", "§7Odstrel vsechny z tveho okoli.");
-            gadgetsInv.setItem(19, i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lSmashDown", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(19, i);
-        }
         if (p.hasPermission("craftlobby.gadgets.flowerpopper")) {
             ItemStack i = ItemFactory.create(Material.RED_ROSE, (byte) 0, "§e§lFlowerPopper", "§7Ten pocit, kdyz ti z hlavy", "§7strili kytky.");
-            gadgetsInv.setItem(20, i);
+            gadgetsInv.setItem(19, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFlowerPopper", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(20, i);
+            gadgetsInv.setItem(19, i);
         }
         if(p.hasPermission("craftlobby.gadgets.funcannon.ender")) {
             ItemStack i = ItemFactory.create(Material.DIAMOND_HOE, (byte) 0, "§e§lFunCannon Ender", "§7Efekty, efekty, vsude jenom efekty!");
-            gadgetsInv.setItem(21, i);
+            gadgetsInv.setItem(20, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lFunCannon Ender", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(21, i);
+            gadgetsInv.setItem(20, i);
         }
         if(p.hasPermission("craftlobby.gadgets.antigravity")){
             ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§e§lAntiGravity", "§7Zrus gravitaci okolo sebe...");
-            gadgetsInv.setItem(22, i);
+            gadgetsInv.setItem(21, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lAntiGravity", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(22, i);
+            gadgetsInv.setItem(21, i);
         }
         if(p.hasPermission("craftlobby.gadgets.blackhole")){
             ItemStack i = ItemFactory.create(Material.STAINED_CLAY, (byte) 15, "§e§lBlackHole", "§7Vhod vsechny do cerne diry a uvezni je tam!");
-            gadgetsInv.setItem(23, i);
+            gadgetsInv.setItem(22, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lBlackHole", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(23, i);
+            gadgetsInv.setItem(22, i);
         }
         if(p.hasPermission("craftlobby.gadgets.diamondfountain")){
             ItemStack i = ItemFactory.create(Material.DIAMOND, (byte) 0, "§e§lDiamondFountain", "§7Vsude jenom veci z dia! OMG");
-            gadgetsInv.setItem(24, i);
+            gadgetsInv.setItem(23, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDiamondFountain", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(24, i);
+            gadgetsInv.setItem(23, i);
         }
         if(p.hasPermission("craftlobby.gadgets.rocket")){
             ItemStack i = ItemFactory.create(Material.COAL, (byte) 1, "§e§lRocket", "§7NASA te potrebuje, my ale take!");
-            gadgetsInv.setItem(25, i);
+            gadgetsInv.setItem(24, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lRocket", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(25, i);
+            gadgetsInv.setItem(24, i);
         }
         if(p.hasPermission("craftlobby.gadgets.parachute")){
             ItemStack i = ItemFactory.create(Material.LEASH, (byte) 0, "§e§lParachute", "§7Nikdo ti nedal padak, kurata staci!");
-            gadgetsInv.setItem(26, i);
+            gadgetsInv.setItem(25, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lParachute", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(26, i);
+            gadgetsInv.setItem(25, i);
         }
         if(p.hasPermission("craftlobby.gadgets.snowball")){
             ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§e§lSnowBall", "§7Sestrel vsechny! :P");
-            gadgetsInv.setItem(27, i);
+            gadgetsInv.setItem(26, i);
         } else {
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lSnowBall", "§7Gadget lze ziskat v CraftBoxu!");
-            gadgetsInv.setItem(27, i);
+            gadgetsInv.setItem(26, i);
         }
 
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§cZpet do menu");
@@ -392,62 +385,55 @@ public class GadgetsAPI implements Listener {
                 }
             }
             if (e.getSlot() == 19) {
-                if (p.hasPermission("craftlobby.gadgets.smashdown")) {
-                    this.ml.prepareGadget(p, "SmashDown", Material.FIREWORK_CHARGE, (byte) 0);
-                } else {
-                    this.ml.messageNoPerm(p, "SmashDown");
-                }
-            }
-            if (e.getSlot() == 20) {
                 if (p.hasPermission("craftlobby.gadgets.flowerpopper")) {
                     this.ml.prepareGadget(p, "FlowerPopper", Material.RED_ROSE, (byte) 0);
                 } else {
                     this.ml.messageNoPerm(p, "FlowerPopper");
                 }
             }
-            if(e.getSlot() == 21) {
+            if(e.getSlot() == 20) {
                 if (p.hasPermission("craftlobby.gadgets.funcannon.ender")){
                     this.ml.prepareGadget(p, "FunCannon Ender", Material.DIAMOND_HOE, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "FunCannon Ender");
                 }
             }
-            if(e.getSlot() == 22){
+            if(e.getSlot() == 21){
                 if(p.hasPermission("craftlobby.gadgets.antigravity")){
                     this.ml.prepareGadget(p, "AntiGravity", Material.EYE_OF_ENDER, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "AntiGravity");
                 }
             }
-            if(e.getSlot() == 23){
+            if(e.getSlot() == 22){
                 if(p.hasPermission("craftlobby.gadgets.blackhole")){
                     this.ml.prepareGadget(p, "BlackHole", Material.STAINED_CLAY, (byte)15);
                 } else {
                     this.ml.messageNoPerm(p, "BlackHole");
                 }
             }
-            if(e.getSlot() == 24){
+            if(e.getSlot() == 23){
                 if(p.hasPermission("craftlobby.gadgets.diamondfountain")){
                     this.ml.prepareGadget(p, "DiamondFountain", Material.DIAMOND, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "DiamondFountain");
                 }
             }
-            if(e.getSlot() == 25){
+            if(e.getSlot() == 24){
                 if(p.hasPermission("craftlobby.gadgets.rocket")){
                     this.ml.prepareGadget(p, "Rocket", Material.COAL, (byte)1);
                 } else {
                     this.ml.messageNoPerm(p, "Rocket");
                 }
             }
-            if(e.getSlot() == 26){
+            if(e.getSlot() == 25){
                 if(p.hasPermission("craftlobby.gadgets.parachute")){
                     this.ml.prepareGadget(p, "Parachute", Material.LEASH, (byte)0);
                 } else {
                     this.ml.messageNoPerm(p, "Parachute");
                 }
             }
-            if(e.getSlot() == 27){
+            if(e.getSlot() == 26){
                 if(p.hasPermission("craftlobby.gadgets.snowball")){
                     this.ml.prepareGadget(p, "SnowBall", Material.SNOW_BALL, (byte)0);
                 } else {
