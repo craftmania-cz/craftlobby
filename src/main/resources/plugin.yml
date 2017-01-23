@@ -15,14 +15,9 @@ commands:
     description: Addon na Skybox
   cbperms:
     description: Addon na CraftBoxy
-  changepassword:
-    description: Prikaz na zmenu hesla pro Warez
-  kalendar:
-    description: Kalendar ne...
-  ticket:
-    description: Ticketyyy
-  quit:
-    description: Leave nee
+  vip:
+    description: Menu pro nakup VIP
+
 permissions:
   craftlobby.pristup:
     description: Beta test

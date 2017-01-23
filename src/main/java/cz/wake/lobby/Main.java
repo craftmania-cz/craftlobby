@@ -203,6 +203,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("stats").setExecutor(new Stats_Command());
         getCommand("sbperms").setExecutor(new SBPerms_command());
         getCommand("cbperms").setExecutor(new CBPerms_command());
+        getCommand("vip").setExecutor(new VIP_Command());
     }
 
     public static Main getInstance() {
