@@ -84,6 +84,10 @@ public class Servers implements Listener {
         an = ItemFactory.addGlow(an);
         inv.setItem(31, an);
 
+        ItemStack sg = ItemFactory.create(Material.SKULL_ITEM, (byte)2, "§a§lSkyGiants §c§lBETA","§8Team PVP","",
+                "§7Kazdy team ma vlastniho Gianta,","§7ktereho musi ochranit a zaroven","§7znicit ostatni! Zvladnes to?!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+        inv.setItem(33, sg);
+
         new BukkitRunnable() {
             int c = 1;
 

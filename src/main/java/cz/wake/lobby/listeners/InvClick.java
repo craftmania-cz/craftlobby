@@ -218,6 +218,9 @@ public class InvClick implements Listener {
             if (event.getSlot() == 32) {
                 sendToServer(player, "dlobby");
             }
+            if (event.getSlot() == 33) {
+                sendToServer(player, "globby");
+            }
             if (event.getSlot() == 18) {
                 this.lob.openMenu(player);
             }
