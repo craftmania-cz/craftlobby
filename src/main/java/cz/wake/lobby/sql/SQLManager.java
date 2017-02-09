@@ -993,4 +993,22 @@ public class SQLManager {
         }
         return 0;
     }
+
+    public final int getSkyGiantsStats(final Player p, final String stat) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + stat + " FROM SkyGiants_stats WHERE Player = '" + p.getName() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt(stat);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
 }

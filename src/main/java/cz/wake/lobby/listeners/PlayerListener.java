@@ -2,6 +2,7 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.armorstands.statistics.SkyGiants;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.settings.SettingsMenu;
@@ -76,6 +77,12 @@ public class PlayerListener implements Listener {
 
         // Setting setttings :D
         setupPlayerOnJoin(p);
+
+        // ArmorStand statistiky
+        if(Main.getInstance().getIdServer().equalsIgnoreCase("globby")){
+            Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
+            SkyGiants.spawn(loc, p);
+        }
     }
 
     @EventHandler
