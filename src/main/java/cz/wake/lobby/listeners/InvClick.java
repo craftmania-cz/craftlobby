@@ -6,15 +6,19 @@ import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
 import cz.wake.lobby.gadgets.particles.*;
+import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -314,7 +318,8 @@ public class InvClick implements Listener {
                     fl.activateFrost(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "FrostLord");
+                    ItemStack i = ItemFactory.create(Material.ICE, (byte)0, "§a§lFrostLord");
+                    Shop.open(player, "FrostLord", "craftlobby.particles.frostlord", i, 700);
                 }
             }
             if (event.getSlot() == 11) {
@@ -323,7 +328,8 @@ public class InvClick implements Listener {
                     fr.activateFlame(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "FlameRings");
+                    ItemStack i = ItemFactory.create(Material.BLAZE_POWDER, (byte)0, "§a§lFlameRings");
+                    Shop.open(player, "FlameRings", "craftlobby.particles.flamerings", i,1000);
                 }
             }
             if (event.getSlot() == 12) {
@@ -332,7 +338,8 @@ public class InvClick implements Listener {
                     ss.activateSnowCloud(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "SnowClouds");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte)0, "§a§lSnowClouds");
+                    Shop.open(player, "SnowClouds", "craftlobby.particles.snowclouds", i, 600);
                 }
             }
             if (event.getSlot() == 13) {
@@ -341,7 +348,8 @@ public class InvClick implements Listener {
                     rc.activateRainCloud(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "RainClouds");
+                    ItemStack i = ItemFactory.create(Material.WATER_BUCKET, (byte)0, "§a§lRainClouds");
+                    Shop.open(player, "RainClouds", "craftlobby.particles.rainclouds", i, 600);
                 }
             }
             if (event.getSlot() == 14) {
@@ -350,7 +358,8 @@ public class InvClick implements Listener {
                     bh.activateHelix(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "BloodHelix");
+                    ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lBloodhelix");
+                    Shop.open(player, "Bloodhelix", "craftlobby.particles.bloodhelix", i, 2000);
                 }
             }
             if (event.getSlot() == 15) {
@@ -359,7 +368,8 @@ public class InvClick implements Listener {
                     gs.activateGreenSparks(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "GreenSparks");
+                    ItemStack i = ItemFactory.create(Material.EMERALD, (byte)0, "§a§lGreenSparks");
+                    Shop.open(player, "GreenSparks", "craftlobby.particles.greensparks", i, 700);
                 }
             }
             if (event.getSlot() == 16) {
@@ -368,7 +378,8 @@ public class InvClick implements Listener {
                     es.activateSignal(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "EnderSignal");
+                    ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte)0, "§a§lEnderSignal");
+                    Shop.open(player, "EnderSignal", "craftlobby.particles.endersignal", i, 1500);
                 }
             }
             if (event.getSlot() == 19) {
@@ -377,7 +388,8 @@ public class InvClick implements Listener {
                     e.activateEnchanted(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Enchanted");
+                    ItemStack i = ItemFactory.create(Material.BOOK, (byte)0, "§a§lEnchanted");
+                    Shop.open(player, "Enchanted", "craftlobby.particles.enchanted", i, 1200);
                 }
             }
             if (event.getSlot() == 20) {
@@ -386,7 +398,8 @@ public class InvClick implements Listener {
                     l.activateLove(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Love");
+                    ItemStack i = ItemFactory.create(Material.RED_ROSE, (byte)0, "§a§lLove");
+                    Shop.open(player, "Love", "craftlobby.particles.love", i, 500);
                 }
             }
             if (event.getSlot() == 21) {
@@ -395,7 +408,8 @@ public class InvClick implements Listener {
                     n.activateNotes(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Notes");
+                    ItemStack i = ItemFactory.create(Material.JUKEBOX, (byte)0, "§a§lNotes");
+                    Shop.open(player, "Notes", "craftlobby.particles.notes", i, 500);
                 }
             }
             if (event.getSlot() == 22) {
@@ -404,7 +418,8 @@ public class InvClick implements Listener {
                     c.activateClouds(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Clouds");
+                    ItemStack i = ItemFactory.create(Material.QUARTZ, (byte)0, "§a§lClouds");
+                    Shop.open(player, "Clouds", "craftlobby.particles.clouds", i, 500);
                 }
             }
             if (event.getSlot() == 23) {
@@ -413,7 +428,8 @@ public class InvClick implements Listener {
                     cd.activateDust(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "ColoredDust");
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)0, "§a§lColoredDust");
+                    Shop.open(player, "ColoredDust", "craftlobby.particles.coloreddust", i, 700);
                 }
             }
             if (event.getSlot() == 24) {
@@ -422,7 +438,8 @@ public class InvClick implements Listener {
                     lp.activateDust(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "LavaPop");
+                    ItemStack i = ItemFactory.create(Material.LAVA_BUCKET, (byte)0, "§a§lLavaPop");
+                    Shop.open(player, "LavaPop", "craftlobby.particles.lavapop", i, 500);
                 }
             }
             if (event.getSlot() == 25) {
@@ -431,7 +448,8 @@ public class InvClick implements Listener {
                     p.activatePortal(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Portal");
+                    ItemStack i = ItemFactory.create(Material.OBSIDIAN, (byte)0, "§a§lPortal");
+                    Shop.open(player, "Portal", "craftlobby.particles.portal", i, 500);
                 }
             }
             if (event.getSlot() == 28) {
@@ -440,7 +458,8 @@ public class InvClick implements Listener {
                     sp.activateSpell(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Spell");
+                    ItemStack i = ItemFactory.create(Material.POTION, (byte)0, "§a§lSpell");
+                    Shop.open(player, "Spell", "craftlobby.particles.spell", i, 600);
                 }
             }
             if (event.getSlot() == 29) {
@@ -449,7 +468,8 @@ public class InvClick implements Listener {
                     fw.activateFrozen(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "FrozenWalk");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BLOCK, (byte)0, "§a§lFrozenWalk");
+                    Shop.open(player, "FrozenWalk", "craftlobby.particles.frozenwalk", i, 300);
                 }
             }
             if (event.getSlot() == 30) {
@@ -458,7 +478,8 @@ public class InvClick implements Listener {
                     lil.activateSignal(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "Lilly");
+                    ItemStack i = ItemFactory.create(Material.WATER_LILY, (byte)0, "§a§lLilly");
+                    Shop.open(player, "Lilly", "craftlobby.particles.lilly", i, 1200);
                 }
             }
             if (event.getSlot() == 31) {
@@ -467,7 +488,8 @@ public class InvClick implements Listener {
                     sh.activateHat(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "SantaHat");
+                    ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)1, "§a§lSantaHat");
+                    Shop.open(player, "SantaHat", "craftlobby.particles.santahat", i, 1500);
                 }
             }
             if (event.getSlot() == 32) {
@@ -476,7 +498,8 @@ public class InvClick implements Listener {
                     cc.activate(player);
                     player.closeInventory();
                 } else {
-                    //MessagesListener.messageNoPerm(player, "CandyCane");
+                    ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)2, "§a§lCandyCane");
+                    Shop.open(player, "CandyCane", "craftlobby.particles.candycane", i, 1000);
                 }
             }
             if (event.getSlot() == 49) {

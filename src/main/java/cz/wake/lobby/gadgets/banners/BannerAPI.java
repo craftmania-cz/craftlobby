@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.banners;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
@@ -41,116 +42,97 @@ public class BannerAPI implements Listener {
         if (p.hasPermission("craftlobby.banner.tardis")) {
             inv.setItem(0, tardis());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lTardis", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(0, i);
+            inv.setItem(0, nakup("Tardis", 200));
         }
         if (p.hasPermission("craftlobby.banner.duck")) {
             inv.setItem(1, duck());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDuck", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(1, i);
+            inv.setItem(1, nakup("Duck", 200));
         }
         if (p.hasPermission("craftlobby.banner.king")) {
             inv.setItem(2, king());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lKing", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(2, i);
+            inv.setItem(2, nakup("King", 300));
         }
         if (p.hasPermission("craftlobby.banner.creeper")) {
             inv.setItem(3, creeper());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lCreeper", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(3, i);
+            inv.setItem(3, nakup("Creeper", 100));
         }
         if (p.hasPermission("craftlobby.banner.rabbit")) {
             inv.setItem(4, rabbit());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lRabbit", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(4, i);
+            inv.setItem(4, nakup("Rabbit", 300));
         }
         if (p.hasPermission("craftlobby.banner.panda")) {
             inv.setItem(5, panda());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lPanda", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(5, i);
+            inv.setItem(5, nakup("Panda", 300));
         }
         if (p.hasPermission("craftlobby.banner.assassin")) {
             inv.setItem(6, assassin());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lAssassin", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(6, i);
+            inv.setItem(6, nakup("Assassin", 400));
         }
         if (p.hasPermission("craftlobby.banner.dragon")) {
             inv.setItem(7, dragon());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDragon", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(7, i);
+            inv.setItem(7, nakup("Dragon", 300));
         }
         if (p.hasPermission("craftlobby.banner.slime")) {
             inv.setItem(8, slime());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lSlime", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(8, i);
+            inv.setItem(8, nakup("Slime", 100));
         }
         if (p.hasPermission("craftlobby.banner.bumbum")) {
             inv.setItem(9, bumbum());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lBumbum", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(9, i);
+            inv.setItem(9, nakup("BumBum", 200));
         }
         if (p.hasPermission("craftlobby.banner.zoidberg")) {
             inv.setItem(10, zoidberg());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lZoidberg", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(10, i);
+            inv.setItem(10, nakup("Zoidberg", 300));
         }
         if (p.hasPermission("craftlobby.banner.smile")) {
             inv.setItem(11, smile());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lSmile", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(11, i);
+            inv.setItem(11, nakup("Slime", 200));
         }
         if (p.hasPermission("craftlobby.banner.bear")) {
             inv.setItem(12, bear());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lBear", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(12, i);
+            inv.setItem(12, nakup("Bear", 200));
         }
         if (p.hasPermission("craftlobby.banner.grumpy")) {
             inv.setItem(13, grumpy());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lGrumpy", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(13, i);
+            inv.setItem(13, nakup("Grumpy", 300));
         }
         if (p.hasPermission("craftlobby.banner.pencil")) {
             inv.setItem(14, pencil());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lPencil", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(14, i);
+            inv.setItem(14, nakup("Pencil", 100));
         }
         if (p.hasPermission("craftlobby.banner.batman")) {
             inv.setItem(15, batman());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lBatman", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(15, i);
+            inv.setItem(15, nakup("Batman", 300));
         }
         if (p.hasPermission("craftlobby.banner.twitch")) {
             inv.setItem(16, twitch());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lTwitch", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(16, i);
+            inv.setItem(16, nakup("Twitch", 200));
         }
         if (p.hasPermission("craftlobby.banner.penguin")) {
             inv.setItem(17, penguin());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lPenguin", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(17, i);
+            inv.setItem(17, nakup("Penguin", 200));
         }
         if (p.hasPermission("craftlobby.banner.thunder")) {
             inv.setItem(18, thunder());
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lThunder", "§7Banner lze ziskat v CraftBoxu!");
-            inv.setItem(18, i);
+            inv.setItem(18, nakup("Thunder", 200));
         }
 
         inv.setItem(49, shopItem);
@@ -186,7 +168,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(tardis());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Tardis");
+                    Shop.open(p,"Tardis","craftlobby.banner.tardis", tardis(), 200);
                 }
             }
             if (e.getSlot() == 1) {
@@ -194,7 +176,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(duck());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Duck");
+                    Shop.open(p, "Duck", "craftlobby.banner.duck", duck(), 200);
                 }
             }
             if (e.getSlot() == 2) {
@@ -202,7 +184,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(king());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "King");
+                    Shop.open(p, "King", "craftlobby.banner.king", king(), 300);
                 }
             }
             if (e.getSlot() == 3) {
@@ -210,7 +192,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(creeper());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Creeper");
+                    Shop.open(p, "Creeper", "craftlobby.banner.creeper", creeper(), 100);
                 }
             }
             if (e.getSlot() == 4) {
@@ -218,7 +200,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(rabbit());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Rabbit");
+                    Shop.open(p, "Rabbit", "craftlobby.banner.rabbit", rabbit(), 300);
                 }
             }
             if (e.getSlot() == 5) {
@@ -226,7 +208,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(panda());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Panda");
+                    Shop.open(p, "Panda", "craftlobby.banner.panda", panda(), 300);
                 }
             }
             if (e.getSlot() == 6) {
@@ -234,7 +216,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(assassin());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Assassin");
+                    Shop.open(p, "Assassin", "craftlobby.banner.assassin", assassin(), 400);
                 }
             }
             if (e.getSlot() == 7) {
@@ -242,7 +224,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(dragon());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Dragon");
+                    Shop.open(p, "Dragon", "craftlobby.banner.dragon", dragon(), 300);
                 }
             }
             if (e.getSlot() == 8) {
@@ -250,7 +232,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(slime());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Slime");
+                    Shop.open(p, "Slime", "craftlobby.banner.slime", slime(), 100);
                 }
             }
             if (e.getSlot() == 9) {
@@ -258,7 +240,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(bumbum());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Bumbum");
+                    Shop.open(p, "BumBum", "craftlobby.banner.bumbum", bumbum(), 200);
                 }
             }
             if (e.getSlot() == 10) {
@@ -266,7 +248,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(zoidberg());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Zoidberg");
+                    Shop.open(p, "Zoidberg", "craftlobby.banner.zoidberg", zoidberg(), 300);
                 }
             }
             if (e.getSlot() == 11) {
@@ -274,7 +256,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(smile());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Slime");
+                    Shop.open(p, "Smile", "craftlobby.banner.smile", smile(), 200);
                 }
             }
             if (e.getSlot() == 12) {
@@ -282,7 +264,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(bear());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Bear");
+                    Shop.open(p, "Bear", "craftlobby.banner.bear", bear(), 200);
                 }
             }
             if (e.getSlot() == 13) {
@@ -290,7 +272,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(grumpy());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Grumpy");
+                    Shop.open(p, "Grumpy", "craftlobby.banner.grumpy", grumpy(), 300);
                 }
             }
             if (e.getSlot() == 14) {
@@ -298,7 +280,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(pencil());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Pencil");
+                    Shop.open(p, "Pencil", "craftlobby.banner.pencil", pencil(), 100);
                 }
             }
             if (e.getSlot() == 15) {
@@ -306,7 +288,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(batman());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Batman");
+                    Shop.open(p, "Batman", "craftlobby.banner.batman", batman(), 300);
                 }
             }
             if (e.getSlot() == 16) {
@@ -314,7 +296,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(twitch());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Twitch");
+                    Shop.open(p, "Twitch", "craftlobby.banner.twitch", twitch(), 200);
                 }
             }
             if (e.getSlot() == 17) {
@@ -322,7 +304,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(penguin());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Penguin");
+                    Shop.open(p, "Penguin", "craftlobby.banner.penguin", penguin(), 200);
                 }
             }
             if (e.getSlot() == 18) {
@@ -330,7 +312,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(thunder());
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Thunder");
+                    Shop.open(p, "Thunder", "craftlobby.banner.thunder", thunder(), 200);
                 }
             }
 
@@ -670,5 +652,10 @@ public class BannerAPI implements Listener {
         bm.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
         b.setItemMeta(bm);
         return b;
+    }
+
+    private ItemStack nakup(final String name, final int price){
+        ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
+        return i;
     }
 }

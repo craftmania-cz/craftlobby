@@ -51,14 +51,7 @@ public class ParticlesMenu {
                 pInv.setItem(15, sparks);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lGreenSparks");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(15, noPerm);
+            pInv.setItem(15, nakup("GreenSparks", 700));
         }
         if (p.hasPermission("craftlobby.particles.frostlord")) {
             if (FrostLord.fl.containsKey(p.getName())) {
@@ -90,14 +83,7 @@ public class ParticlesMenu {
                 pInv.setItem(10, frost);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lFrostLord");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(10, noPerm);
+            pInv.setItem(10, nakup("FrostLord", 1000));
         }
         if (p.hasPermission("craftlobby.particles.flamerings")) {
             if (FlameRings.fr.containsKey(p.getName())) {
@@ -129,14 +115,7 @@ public class ParticlesMenu {
                 pInv.setItem(11, flames);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lFlameRings");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(11, noPerm);
+            pInv.setItem(11, nakup("FlameRings", 1200));
         }
         if (p.hasPermission("craftlobby.particles.snowclouds")) {
             if (SnowCloud.sc.containsKey(p.getName())) {
@@ -170,14 +149,7 @@ public class ParticlesMenu {
                 pInv.setItem(12, snowcloud);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lSnowClouds");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(12, noPerm);
+            pInv.setItem(12, nakup("SnowClouds", 600));
         }
         if (p.hasPermission("craftlobby.particles.rainclouds")) {
             if (RainCloud.rc.containsKey(p.getName())) {
@@ -211,14 +183,7 @@ public class ParticlesMenu {
                 pInv.setItem(13, raincloud);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lRainClouds");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(13, noPerm);
+            pInv.setItem(13, nakup("RainClouds", 600));
         }
         if (p.hasPermission("craftlobby.particles.bloodhelix")) {
             if (BloodHelix.bh.containsKey(p.getName())) {
@@ -250,14 +215,7 @@ public class ParticlesMenu {
                 pInv.setItem(14, helix);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lBloodHelix");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(14, noPerm);
+            pInv.setItem(14, nakup("BloodHelix", 2000));
         }
         if (p.hasPermission("craftlobby.particles.endersignal")) {
             if (EnderSignal.es.containsKey(p.getName())) {
@@ -289,14 +247,7 @@ public class ParticlesMenu {
                 pInv.setItem(16, steps);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lEnderSignal");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(16, noPerm);
+            pInv.setItem(16, nakup("EnderSignal", 1500));
         }
         if (p.hasPermission("craftlobby.particles.enchanted")) {
             if (Enchanted.e.containsKey(p.getName())) {
@@ -330,14 +281,7 @@ public class ParticlesMenu {
                 pInv.setItem(19, enchanted);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lEnchanted");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(19, noPerm);
+            pInv.setItem(19, nakup("Enchanted", 1200));
         }
         if (p.hasPermission("craftlobby.particles.love")) {
             if (Love.l.containsKey(p.getName())) {
@@ -369,14 +313,7 @@ public class ParticlesMenu {
                 pInv.setItem(20, love);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lLove");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(20, noPerm);
+            pInv.setItem(20, nakup("Love", 500));
         }
         if (p.hasPermission("craftlobby.particles.notes")) {
             if (Notes.no.containsKey(p.getName())) {
@@ -408,14 +345,7 @@ public class ParticlesMenu {
                 pInv.setItem(21, notes);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lNotes");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(21, noPerm);
+            pInv.setItem(21, nakup("Notes", 500));
         }
         if (p.hasPermission("craftlobby.particles.clouds")) {
             if (Clouds.c.containsKey(p.getName())) {
@@ -447,14 +377,7 @@ public class ParticlesMenu {
                 pInv.setItem(22, clouds);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lClouds");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(22, noPerm);
+            pInv.setItem(22, nakup("Clouds", 500));
         }
         if (p.hasPermission("craftlobby.particles.coloreddust")) {
             if (ColoredDust.cd.containsKey(p.getName())) {
@@ -486,14 +409,7 @@ public class ParticlesMenu {
                 pInv.setItem(23, dust);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lColoredDust");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(23, noPerm);
+            pInv.setItem(23, nakup("ColoredDust", 700));
         }
         if (p.hasPermission("craftlobby.particles.lavapop")) {
             if (LavaPop.lp.containsKey(p.getName())) {
@@ -525,14 +441,7 @@ public class ParticlesMenu {
                 pInv.setItem(24, lava);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lLavaPop");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(24, noPerm);
+            pInv.setItem(24, nakup("LavaPop", 500));
         }
         if (p.hasPermission("craftlobby.particles.portal")) {
             if (Portal.port.containsKey(p.getName())) {
@@ -564,14 +473,7 @@ public class ParticlesMenu {
                 pInv.setItem(25, portal);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lPortal");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(25, noPerm);
+            pInv.setItem(25, nakup("Portal", 500));
         }
         if (p.hasPermission("craftlobby.particles.spell")) {
             if (MobSpell.ms.containsKey(p.getName())) {
@@ -603,14 +505,7 @@ public class ParticlesMenu {
                 pInv.setItem(28, spell);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lSpell");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(28, noPerm);
+            pInv.setItem(28, nakup("Spell", 600));
         }
         if (p.hasPermission("craftlobby.particles.frozenwalk")) {
             if (FrozenWalk.fw.containsKey(p.getName())) {
@@ -644,14 +539,7 @@ public class ParticlesMenu {
                 pInv.setItem(29, walker);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lFrozenWalk");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(29, noPerm);
+            pInv.setItem(29, nakup("FrozenWalk", 300));
         }
         if (p.hasPermission("craftlobby.particles.lilly")) {
             if (Lily.li.containsKey(p.getName())) {
@@ -683,14 +571,7 @@ public class ParticlesMenu {
                 pInv.setItem(30, lilly);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lLilly");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(30, noPerm);
+            pInv.setItem(30, nakup("Lilly", 1200));
         }
         if (p.hasPermission("craftlobby.particles.santahat")) {
             if (SantaHat.sh.containsKey(p.getName())) {
@@ -722,14 +603,7 @@ public class ParticlesMenu {
                 pInv.setItem(31, lilly);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lSantaHat");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(31, noPerm);
+            pInv.setItem(31, nakup("SantaHat", 1500));
         }
         if (p.hasPermission("craftlobby.particles.candycane")) {
             if (CandyCane.cd.containsKey(p.getName())) {
@@ -759,14 +633,7 @@ public class ParticlesMenu {
                 pInv.setItem(32, lilly);
             }
         } else {
-            ItemStack noPerm = new ItemStack(Material.INK_SACK, 1, (byte) 8);
-            ItemMeta noPermMeta = noPerm.getItemMeta();
-            noPermMeta.setDisplayName("§c§lCandyCane");
-            ArrayList<String> noPermLore = new ArrayList<String>();
-            noPermLore.add(ChatColor.GRAY + "Efekt lze ziskat v CraftBoxu!");
-            noPermMeta.setLore(noPermLore);
-            noPerm.setItemMeta(noPermMeta);
-            pInv.setItem(32, noPerm);
+            pInv.setItem(32, nakup("CandyCane", 1000));
         }
         ItemStack zpet = new ItemStack(Material.ARROW);
         ItemMeta zpetMeta = zpet.getItemMeta();
@@ -799,6 +666,11 @@ public class ParticlesMenu {
         pInv.setItem(39, zpet);
 
         p.openInventory(pInv);
+    }
+
+    private ItemStack nakup(final String name, final int price){
+        ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
+        return i;
     }
 
 }

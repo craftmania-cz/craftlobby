@@ -5,16 +5,13 @@ import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.MorphsMenu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
-import cz.wake.lobby.manager.Boxer;
-import cz.wake.lobby.manager.SkyKeys;
+import cz.wake.lobby.manager.*;
 import cz.wake.lobby.gadgets.cloaks.CloaksAPI;
 import cz.wake.lobby.commands.*;
 import cz.wake.lobby.gadgets.gadget.*;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
 import cz.wake.lobby.listeners.InvClick;
 import cz.wake.lobby.listeners.PlayerListener;
-import cz.wake.lobby.manager.LagManager;
-import cz.wake.lobby.manager.TimeTask;
 import cz.wake.lobby.gadgets.morphs.PigMorph;
 import cz.wake.lobby.gadgets.morphs.VillagerMorph;
 import cz.wake.lobby.gadgets.pets.PetManager;
@@ -187,6 +184,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new HeadsAPI(), this);
         pm.registerEvents(new SnowBall(this), this);
         pm.registerEvents(new SettingsMenu(), this);
+        pm.registerEvents(new Shop(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {

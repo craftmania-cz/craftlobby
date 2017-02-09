@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.cloaks;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -36,8 +37,7 @@ public class CloaksAPI implements Listener {
                 cloakMenu.setItem(10, i);
             }
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lSanta Cloak", "§7Tento Cloak se ziskat o Vanocich 2015.");
-            cloakMenu.setItem(10, i);
+            cloakMenu.setItem(10, nakup("Santa", 700));
         }
         if (p.hasPermission("craftlobby.cloaks.angel")) {
             if (AngleCloak.angelCloaks.containsKey(p.getName())) {
@@ -49,8 +49,7 @@ public class CloaksAPI implements Listener {
                 cloakMenu.setItem(11, i);
             }
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lAngel Cloak", "§7Tento Cloak se da ziskat v CraftBoxu.");
-            cloakMenu.setItem(11, i);
+            cloakMenu.setItem(11, nakup("Angel", 800));
         }
         if (p.hasPermission("craftlobby.cloaks.devil")) {
             if (DevilCloak.devilCloaks.containsKey(p.getName())) {
@@ -62,8 +61,7 @@ public class CloaksAPI implements Listener {
                 cloakMenu.setItem(12, i);
             }
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lDevil Cloak", "§7Tento Cloak se da ziskat v CraftBoxu.");
-            cloakMenu.setItem(12, i);
+            cloakMenu.setItem(12, nakup("Devil", 900));
         }
         if (p.hasPermission("craftlobby.cape.majitel")
                 || p.hasPermission("craftlobby.cape.admin")
@@ -145,7 +143,8 @@ public class CloaksAPI implements Listener {
                     this.santa.activateSanta(p);
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Santa Cloak");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§a§lSanta Cloak", "", "§7S timto budes vypadat jako", "§7opravdovy santa.");
+                    Shop.open(p,"Santa", "craftlobby.cloaks.santa", i, 700);
                 }
             }
             if (e.getSlot() == 11) {
@@ -154,7 +153,8 @@ public class CloaksAPI implements Listener {
                     this.angel.activate(p);
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Angel Cloak");
+                    ItemStack i = ItemFactory.create(Material.BREAD, (byte) 0, "§a§lAngel Cloak", "", "§7Jako ten pravy andel,", "§7budes vypadat.");
+                    Shop.open(p, "Angel", "craftlobby.cloaks.angel", i, 800);
                 }
             }
             if (e.getSlot() == 12) {
@@ -163,7 +163,8 @@ public class CloaksAPI implements Listener {
                     this.devil.activate(p);
                     p.closeInventory();
                 } else {
-                    this.ml.messageNoPerm(p, "Devil Cloak");
+                    ItemStack i = ItemFactory.create(Material.COAL, (byte) 0, "§a§lDevil Cloak", "", "§7Kdyz existuje Andel,", "§7musi i dabel.");
+                    Shop.open(p, "Devil", "craftlobby.cloaks.devil", i, 900);
                 }
             }
             if (e.getSlot() == 14) {
@@ -223,6 +224,11 @@ public class CloaksAPI implements Listener {
             p.getInventory().setArmorContents(null);
             p.closeInventory();
         }
+    }
+
+    private ItemStack nakup(final String name, final int price){
+        ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
+        return i;
     }
 
 }
