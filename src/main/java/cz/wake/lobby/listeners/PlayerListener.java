@@ -37,7 +37,6 @@ public class PlayerListener implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap<>();
     HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap<>();
-    private Location end = new Location(Bukkit.getWorld("LobbyEventy"), -931, 99, 83);
 
     Menu hlavniMenu = new Menu();
     GadgetsMenu gadgetsMenu = new GadgetsMenu();

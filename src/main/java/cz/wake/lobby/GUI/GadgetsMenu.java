@@ -249,85 +249,85 @@ public class GadgetsMenu implements Listener {
 
     public int getGadgetsCount(Player p) {
         int c = 0;
-        if (p.hasPermission("craftlobby.gadget.teleportstick")) {
+        if (p.hasPermission("craftlobby.gadgets.teleportstick")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.funcannon")) {
+        if (p.hasPermission("craftlobby.gadgets.funcannon")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.colorbomb")) {
+        if (p.hasPermission("craftlobby.gadgets.colorbomb")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.cookiefountain")) {
+        if (p.hasPermission("craftlobby.gadgets.cookiefountain")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.chikenator")) {
+        if (p.hasPermission("craftlobby.gadgets.chikenator")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.pee")) {
+        if (p.hasPermission("craftlobby.gadgets.pee")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.pigfly")) {
+        if (p.hasPermission("craftlobby.gadgets.pigfly")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.firework")) {
+        if (p.hasPermission("craftlobby.gadgets.firework")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.poopbomb")) {
+        if (p.hasPermission("craftlobby.gadgets.poopbomb")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.tnt")) {
+        if (p.hasPermission("craftlobby.gadgets.tnt")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.slimehat")) {
+        if (p.hasPermission("craftlobby.gadgets.slimehat")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.withercatapult")) {
+        if (p.hasPermission("craftlobby.gadgets.withercatapult")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.discoball")) {
+        if (p.hasPermission("craftlobby.gadgets.discoball")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.blizzardblaster")) {
+        if (p.hasPermission("craftlobby.gadgets.blizzardblaster")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.ghosts")) {
+        if (p.hasPermission("craftlobby.gadgets.ghosts")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.tsunami")) {
+        if (p.hasPermission("craftlobby.gadgets.tsunami")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.batblaster")) {
+        if (p.hasPermission("craftlobby.gadgets.batblaster")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.trampoline")) {
+        if (p.hasPermission("craftlobby.gadgets.trampoline")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.explosivesheep")) {
+        if (p.hasPermission("craftlobby.gadgets.explosivesheep")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.flowerpopper")) {
+        if (p.hasPermission("craftlobby.gadgets.flowerpopper")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.funcannon.ender")) {
+        if (p.hasPermission("craftlobby.gadgets.funcannon.ender")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.antigravity")) {
+        if (p.hasPermission("craftlobby.gadgets.antigravity")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.blackhole")) {
+        if (p.hasPermission("craftlobby.gadgets.blackhole")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.diamondfountain")) {
+        if (p.hasPermission("craftlobby.gadgets.diamondfountain")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.rocket")) {
+        if (p.hasPermission("craftlobby.gadgets.rocket")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.parachute")) {
+        if (p.hasPermission("craftlobby.gadgets.parachute")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.gadget.snowball")) {
+        if (p.hasPermission("craftlobby.gadgets.snowball")) {
             c++;
         }
         return c;

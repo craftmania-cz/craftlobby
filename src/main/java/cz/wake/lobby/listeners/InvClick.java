@@ -10,10 +10,8 @@ import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -49,7 +47,6 @@ public class InvClick implements Listener {
     Lily lil = new Lily();
     SantaHat sh = new SantaHat();
     CandyCane cc = new CandyCane();
-    Lobby lob = new Lobby();
     BannerAPI bannerAPI = new BannerAPI();
     HeadsAPI hAPI = new HeadsAPI();
     SettingsMenu st = new SettingsMenu();
@@ -62,7 +59,7 @@ public class InvClick implements Listener {
             if (event.getSlot() == 10) {
                 this.statistics.openMinigamesMenu(player);
             }
-            if (event.getSlot() == 31){
+            if (event.getSlot() == 31) {
                 st.openSettingsMenu(player);
             }
             event.setCancelled(true);
@@ -149,37 +146,6 @@ public class InvClick implements Listener {
                 player.closeInventory();
             }
         }
-        //**************************** LOBBY MENU ****************************//
-        if (event.getInventory().getTitle().equals("Prehled lobby serveru")) {
-            if (event.getCurrentItem().getType() == Material.AIR)
-                return;
-            if (event.getSlot() == 0) {
-                //sendToServer(player, "ohub");
-            }
-            if (event.getSlot() == 1) {
-                sendToServer(player, "mainlobby", "frontend");
-            }
-            if (event.getSlot() == 2) {
-                sendToServer(player, "mainlobby", "frontend");
-            }
-            if (event.getSlot() == 3) {
-                sendToServer(player, "mainlobby", "frontend");
-            }
-            if (event.getSlot() == 4) {
-                sendToServer(player, "mainlobby", "frontend");
-            }
-            if (event.getSlot() == 5) {
-                sendToServer(player, "bedwars", "frontend");
-            }
-            if (event.getSlot() == 6) {
-                sendToServer(player, "arcade", "frontend");
-            }
-            if (event.getSlot() == 7) {
-                sendToServer(player, "skywars", "frontend");
-            }
-            event.setCancelled(true);
-            player.updateInventory();
-        }
         //**************************** MINIGAMES STATS ****************************//
         if (event.getInventory().getTitle().equals(player.getName())) {
             if (event.getCurrentItem().getType() == Material.AIR)
@@ -191,7 +157,7 @@ public class InvClick implements Listener {
             player.updateInventory();
         }
         //**************************** SERVERS MENU ****************************//
-        if (event.getInventory().getTitle().equals("           §0§nVyber serveru")) {
+        if (event.getInventory().getTitle().equals("Vyber serveru")) {
             if (event.getSlot() == 20) {
                 sendToServer(player, "survival");
             }
@@ -224,9 +190,6 @@ public class InvClick implements Listener {
             }
             if (event.getSlot() == 33) {
                 sendToServer(player, "globby");
-            }
-            if (event.getSlot() == 18) {
-                this.lob.openMenu(player);
             }
             if (event.getSlot() == 26) {
                 sendToServer(player, "factions");
@@ -318,7 +281,7 @@ public class InvClick implements Listener {
                     fl.activateFrost(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.ICE, (byte)0, "§a§lFrostLord");
+                    ItemStack i = ItemFactory.create(Material.ICE, (byte) 0, "§a§lFrostLord");
                     Shop.open(player, "FrostLord", "craftlobby.particles.frostlord", i, 700);
                 }
             }
@@ -328,8 +291,8 @@ public class InvClick implements Listener {
                     fr.activateFlame(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.BLAZE_POWDER, (byte)0, "§a§lFlameRings");
-                    Shop.open(player, "FlameRings", "craftlobby.particles.flamerings", i,1000);
+                    ItemStack i = ItemFactory.create(Material.BLAZE_POWDER, (byte) 0, "§a§lFlameRings");
+                    Shop.open(player, "FlameRings", "craftlobby.particles.flamerings", i, 1000);
                 }
             }
             if (event.getSlot() == 12) {
@@ -338,7 +301,7 @@ public class InvClick implements Listener {
                     ss.activateSnowCloud(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte)0, "§a§lSnowClouds");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§a§lSnowClouds");
                     Shop.open(player, "SnowClouds", "craftlobby.particles.snowclouds", i, 600);
                 }
             }
@@ -348,7 +311,7 @@ public class InvClick implements Listener {
                     rc.activateRainCloud(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.WATER_BUCKET, (byte)0, "§a§lRainClouds");
+                    ItemStack i = ItemFactory.create(Material.WATER_BUCKET, (byte) 0, "§a§lRainClouds");
                     Shop.open(player, "RainClouds", "craftlobby.particles.rainclouds", i, 600);
                 }
             }
@@ -358,7 +321,7 @@ public class InvClick implements Listener {
                     bh.activateHelix(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.REDSTONE, (byte)0, "§a§lBloodhelix");
+                    ItemStack i = ItemFactory.create(Material.REDSTONE, (byte) 0, "§a§lBloodhelix");
                     Shop.open(player, "Bloodhelix", "craftlobby.particles.bloodhelix", i, 2000);
                 }
             }
@@ -368,7 +331,7 @@ public class InvClick implements Listener {
                     gs.activateGreenSparks(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.EMERALD, (byte)0, "§a§lGreenSparks");
+                    ItemStack i = ItemFactory.create(Material.EMERALD, (byte) 0, "§a§lGreenSparks");
                     Shop.open(player, "GreenSparks", "craftlobby.particles.greensparks", i, 700);
                 }
             }
@@ -378,7 +341,7 @@ public class InvClick implements Listener {
                     es.activateSignal(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte)0, "§a§lEnderSignal");
+                    ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§a§lEnderSignal");
                     Shop.open(player, "EnderSignal", "craftlobby.particles.endersignal", i, 1500);
                 }
             }
@@ -388,7 +351,7 @@ public class InvClick implements Listener {
                     e.activateEnchanted(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.BOOK, (byte)0, "§a§lEnchanted");
+                    ItemStack i = ItemFactory.create(Material.BOOK, (byte) 0, "§a§lEnchanted");
                     Shop.open(player, "Enchanted", "craftlobby.particles.enchanted", i, 1200);
                 }
             }
@@ -398,7 +361,7 @@ public class InvClick implements Listener {
                     l.activateLove(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.RED_ROSE, (byte)0, "§a§lLove");
+                    ItemStack i = ItemFactory.create(Material.RED_ROSE, (byte) 0, "§a§lLove");
                     Shop.open(player, "Love", "craftlobby.particles.love", i, 500);
                 }
             }
@@ -408,7 +371,7 @@ public class InvClick implements Listener {
                     n.activateNotes(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.JUKEBOX, (byte)0, "§a§lNotes");
+                    ItemStack i = ItemFactory.create(Material.JUKEBOX, (byte) 0, "§a§lNotes");
                     Shop.open(player, "Notes", "craftlobby.particles.notes", i, 500);
                 }
             }
@@ -418,7 +381,7 @@ public class InvClick implements Listener {
                     c.activateClouds(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.QUARTZ, (byte)0, "§a§lClouds");
+                    ItemStack i = ItemFactory.create(Material.QUARTZ, (byte) 0, "§a§lClouds");
                     Shop.open(player, "Clouds", "craftlobby.particles.clouds", i, 500);
                 }
             }
@@ -428,7 +391,7 @@ public class InvClick implements Listener {
                     cd.activateDust(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)0, "§a§lColoredDust");
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte) 0, "§a§lColoredDust");
                     Shop.open(player, "ColoredDust", "craftlobby.particles.coloreddust", i, 700);
                 }
             }
@@ -438,7 +401,7 @@ public class InvClick implements Listener {
                     lp.activateDust(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.LAVA_BUCKET, (byte)0, "§a§lLavaPop");
+                    ItemStack i = ItemFactory.create(Material.LAVA_BUCKET, (byte) 0, "§a§lLavaPop");
                     Shop.open(player, "LavaPop", "craftlobby.particles.lavapop", i, 500);
                 }
             }
@@ -448,7 +411,7 @@ public class InvClick implements Listener {
                     p.activatePortal(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.OBSIDIAN, (byte)0, "§a§lPortal");
+                    ItemStack i = ItemFactory.create(Material.OBSIDIAN, (byte) 0, "§a§lPortal");
                     Shop.open(player, "Portal", "craftlobby.particles.portal", i, 500);
                 }
             }
@@ -458,7 +421,7 @@ public class InvClick implements Listener {
                     sp.activateSpell(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.POTION, (byte)0, "§a§lSpell");
+                    ItemStack i = ItemFactory.create(Material.POTION, (byte) 0, "§a§lSpell");
                     Shop.open(player, "Spell", "craftlobby.particles.spell", i, 600);
                 }
             }
@@ -468,7 +431,7 @@ public class InvClick implements Listener {
                     fw.activateFrozen(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.SNOW_BLOCK, (byte)0, "§a§lFrozenWalk");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BLOCK, (byte) 0, "§a§lFrozenWalk");
                     Shop.open(player, "FrozenWalk", "craftlobby.particles.frozenwalk", i, 300);
                 }
             }
@@ -478,7 +441,7 @@ public class InvClick implements Listener {
                     lil.activateSignal(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.WATER_LILY, (byte)0, "§a§lLilly");
+                    ItemStack i = ItemFactory.create(Material.WATER_LILY, (byte) 0, "§a§lLilly");
                     Shop.open(player, "Lilly", "craftlobby.particles.lilly", i, 1200);
                 }
             }
@@ -488,7 +451,7 @@ public class InvClick implements Listener {
                     sh.activateHat(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)1, "§a§lSantaHat");
+                    ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 1, "§a§lSantaHat");
                     Shop.open(player, "SantaHat", "craftlobby.particles.santahat", i, 1500);
                 }
             }
@@ -498,7 +461,7 @@ public class InvClick implements Listener {
                     cc.activate(player);
                     player.closeInventory();
                 } else {
-                    ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)2, "§a§lCandyCane");
+                    ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 2, "§a§lCandyCane");
                     Shop.open(player, "CandyCane", "craftlobby.particles.candycane", i, 1000);
                 }
             }
@@ -507,45 +470,6 @@ public class InvClick implements Listener {
             }
             RankCape.deactivateCape(player);
         }
-        //**************************** MOUNT MENU ****************************//
-        if (event.getInventory().getTitle().equals("Mounts")) {
-            if (event.getSlot() == 39) {
-                this.gadgetsMenu.openGadgetsMenu(player);
-            }
-            if (event.getSlot() == 49) {
-                this.gadgetsMenu.openGadgetsMenu(player);
-            }
-        }
-        //**************************** MORPHS MENU ****************************//
-        if (event.getInventory().getTitle().equals("Morphs")) {
-            if (event.getSlot() == 39) {
-                this.gadgetsMenu.openGadgetsMenu(player);
-            }
-            if (event.getSlot() == 40) {
-                //DisguiseAPI.undisguiseToAll(player);
-                player.sendMessage(ChatColor.GRAY + "Zrusil jsi aktualni premenu.");
-                player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 15.0F, 15.0F);
-                player.closeInventory();
-            }
-            if (event.getSlot() == 10) {
-                //VillagerMorph.activate(player);
-                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 15.0F, 15.0F);
-                player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Villager Morph.");
-                player.closeInventory();
-            }
-            if (event.getSlot() == 11) {
-                //PigMorph.activate(player);
-                player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_LAND, 15.0F, 15.0F);
-                player.sendMessage(ChatColor.BLUE + "Aktivoval jsi Pig Morph.");
-                player.closeInventory();
-            }
-            if (event.getSlot() == 49) {
-                this.gadgetsMenu.openGadgetsMenu(player);
-            }
-            event.setCancelled(true);
-            player.updateInventory();
-        }
-        return;
     }
 
     public void sendToServer(Player player, String group, String end) {

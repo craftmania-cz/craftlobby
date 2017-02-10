@@ -20,7 +20,7 @@ public class SkyGiants {
         stand.setCustomNameVisible(true);
         stand.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0,-0.2,0);
 
         EntityArmorStand stand2 = new EntityArmorStand(s);
         stand2.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
@@ -28,7 +28,7 @@ public class SkyGiants {
         stand2.setCustomNameVisible(true);
         stand2.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0,-0.2,0);
 
         EntityArmorStand stand3 = new EntityArmorStand(s);
         stand3.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
@@ -36,7 +36,7 @@ public class SkyGiants {
         stand3.setCustomNameVisible(true);
         stand3.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0,-0.2,0);
 
         EntityArmorStand stand4 = new EntityArmorStand(s);
         stand4.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
@@ -44,7 +44,7 @@ public class SkyGiants {
         stand4.setCustomNameVisible(true);
         stand4.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0,-0.2,0);
 
         EntityArmorStand stand5 = new EntityArmorStand(s);
         stand5.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
@@ -52,7 +52,7 @@ public class SkyGiants {
         stand5.setCustomNameVisible(true);
         stand5.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0,-0.2,0);
 
         EntityArmorStand stand6 = new EntityArmorStand(s);
         stand6.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
@@ -60,7 +60,7 @@ public class SkyGiants {
         stand6.setCustomNameVisible(true);
         stand6.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0,-0.2,0);
 
         EntityArmorStand stand7 = new EntityArmorStand(s);
         stand7.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);

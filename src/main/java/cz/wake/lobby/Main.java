@@ -2,7 +2,6 @@ package cz.wake.lobby;
 
 import cz.wake.lobby.GUI.GadgetsMenu;
 import cz.wake.lobby.GUI.Menu;
-import cz.wake.lobby.GUI.MorphsMenu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.manager.*;
@@ -146,7 +145,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new TeleportStick(this), this);
         pm.registerEvents(new FunCannon(this), this);
         pm.registerEvents(new TNTBomb(this), this);
-        pm.registerEvents(new MorphsMenu(), this);
         pm.registerEvents(new VillagerMorph(this), this);
         pm.registerEvents(new PigMorph(this), this);
         pm.registerEvents(new Pee(this), this);

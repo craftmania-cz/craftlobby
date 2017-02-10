@@ -18,7 +18,7 @@ public class Servers implements Listener {
 
     public void openServersMenu(Player p) {
 
-        Inventory inv = Bukkit.createInventory(null, 54, "           §0§nVyber serveru");
+        Inventory inv = Bukkit.createInventory(null, 54, "Vyber serveru");
 
         ItemStack colorful = ItemFactory.create(Material.STAINED_GLASS_PANE, randomByte((byte) 1, (byte) 15), " ");
 
@@ -112,7 +112,7 @@ public class Servers implements Listener {
             }
         }.runTaskTimerAsynchronously(Main.getPlugin(), 0, 25);
 
-        ItemStack lobby = ItemFactory.create(Material.BOOKSHELF, (byte) 0, "§c§lLobby", "", "§7Kliknutim zobrazis prehled", "§7vsech lobby na CM.", "", "§b▸ Pro zobrazeni klikni");
+        ItemStack lobby = ItemFactory.create(Material.BOOKSHELF, (byte) 0, "§c§lLobby", "", "§7Kliknutim zobrazis prehled", "§7vsech lobby na CM.", "", "§c▸ Nedostupne");
         inv.setItem(18, lobby);
 
         ItemStack event = ItemFactory.create(Material.FIREWORK, (byte) 0, "§c§lEventy", "", "§7Server urceny pro pro", "§7celoserverove eventy.", "", "§e§nAktualne se zadny event nekona!");
