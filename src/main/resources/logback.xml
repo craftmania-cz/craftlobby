@@ -1,0 +1,15 @@
+<configuration packagingData="true">
+    <appender name="Sentry" class="com.getsentry.raven.logback.SentryAppender">
+        <dsn>http://0ed8c4eee52b4510832f4f9e6e4270ab:bf6960c9768c42749c95680c780d9677@sentry.craftmania.cz/3?options</dsn>
+        <tags></tags>
+        <extraTags>version,players,server</extraTags>
+        <!-- Optional, allows to select the ravenFactory -->
+        <ravenFactory>com.getsentry.raven.DefaultRavenFactory</ravenFactory>
+    </appender>
+    <root level="info">
+        <appender-ref ref="Sentry"/>
+    </root>
+    <DynamicThresholdFilter key="trace-logging-enabled" onMatch="ACCEPT" onMismatch="NEUTRAL">
+        <KeyValuePair key="true" value="TRACE" />
+    </DynamicThresholdFilter>
+</configuration>

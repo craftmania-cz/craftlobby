@@ -17,6 +17,7 @@ import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.gadgets.pets.PetsAPI;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
+import cz.wake.lobby.utils.ExceptionHandler;
 import cz.wake.lobby.utils.mobs.*;
 import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
@@ -28,6 +29,9 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -37,7 +41,6 @@ import java.util.HashMap;
 public class Main extends JavaPlugin implements PluginMessageListener {
 
     private static Main instance;
-    private Boxer boxer = new Boxer();
     private CloaksAPI cloaks = new CloaksAPI();
     private GadgetsAPI gadgets = new GadgetsAPI();
     private PetsAPI pets = new PetsAPI();
@@ -50,7 +53,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
     public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
     private static ArrayList<Player> inPortal = new ArrayList<>();
-    public VillagerMorph VillagerMorph;
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
     private String idServer;
@@ -100,6 +102,14 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Id serveru
         idServer = getConfig().getString("server");
 
+        // Zachytavac unhandled exceptions
+        ExceptionHandler.enable(instance);
+
+        // MDC tagy pro Sentry
+        MDC.put("server", idServer);
+        MDC.put("players", String.valueOf(Bukkit.getOnlinePlayers().size()));
+        MDC.put("version", Bukkit.getBukkitVersion());
+
         //Register custom entit pro Pets
         NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
         NMSUtils.registerEntity("Chicken", 93, EntityChicken.class, RideableChicken.class);
@@ -128,13 +138,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     }
 
     public void onDisable() {
-        instance = null;
-
         sql.onDisable();
-
+        ExceptionHandler.disable(instance);
         for (Entity e : Bukkit.getWorld("OfficialLobby").getEntities()) {
             e.remove();
         }
+        instance = null;
     }
 
     private void loadListeners() {

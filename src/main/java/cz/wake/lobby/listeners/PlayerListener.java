@@ -24,12 +24,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 
 public class PlayerListener implements Listener {
 
     private Main plugin;
+    static final Logger log = LoggerFactory.getLogger(PlayerListener.class);
 
     public PlayerListener(Main plugin) {
         this.plugin = plugin;
@@ -47,40 +50,44 @@ public class PlayerListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
+        try {
+            Player p = e.getPlayer();
 
-        Player p = e.getPlayer();
+            //Deaktivace Join zprav
+            e.setJoinMessage(null);
 
-        //Deaktivace Join zprav
-        e.setJoinMessage(null);
+            p.getInventory().clear();
+            p.getInventory().setArmorContents(null);
+            p.updateInventory();
 
-        p.getInventory().clear();
-        p.getInventory().setArmorContents(null);
-        p.updateInventory();
+            setupDefaultItems(p);
 
-       setupDefaultItems(p);
+            for (PotionEffect ep : p.getActivePotionEffects()) {
+                p.removePotionEffect(ep.getType());
+            }
 
-        for (PotionEffect ep : p.getActivePotionEffects()) {
-            p.removePotionEffect(ep.getType());
-        }
+            p.setHealth(20F);
+            p.setSaturation(20F);
+            p.setFoodLevel(20);
+            p.setGameMode(GameMode.ADVENTURE);
 
-        p.setHealth(20F);
-        p.setSaturation(20F);
-        p.setFoodLevel(20);
-        p.setGameMode(GameMode.ADVENTURE);
+            // Player settings
+            Main.getInstance().setData().addSettingsDefault(p);
 
-        // Player settings
-        Main.getInstance().setData().addSettingsDefault(p);
+            // Prefix v tablistu
+            UtilTablist.setupPrefixInTab(p);
 
-        // Prefix v tablistu
-        UtilTablist.setupPrefixInTab(p);
+            // Setting setttings :D
+            setupPlayerOnJoin(p);
 
-        // Setting setttings :D
-        setupPlayerOnJoin(p);
+            // ArmorStand statistiky
+            if(Main.getInstance().getIdServer().equalsIgnoreCase("globby")){
+                Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
+                SkyGiants.spawn(loc, p);
+            }
 
-        // ArmorStand statistiky
-        if(Main.getInstance().getIdServer().equalsIgnoreCase("globby")){
-            Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
-            SkyGiants.spawn(loc, p);
+        } catch (Exception ex){
+            log.error("", ex);
         }
     }
 

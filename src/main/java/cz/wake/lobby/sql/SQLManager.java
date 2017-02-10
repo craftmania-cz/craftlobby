@@ -4,6 +4,8 @@ import com.zaxxer.hikari.HikariDataSource;
 import cz.wake.lobby.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +17,7 @@ public class SQLManager {
     private final Main plugin;
     private final ConnectionPoolManager pool;
     private HikariDataSource dataSource;
+    static final Logger log = LoggerFactory.getLogger(SQLManager.class);
 
     public SQLManager(Main plugin) {
         this.plugin = plugin;
@@ -37,8 +40,8 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT * FROM craftboxer_buys WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
             return ps.getResultSet().next();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
             return false;
         } finally {
             pool.close(conn, ps, null);
@@ -55,8 +58,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("balance");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -73,8 +76,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("pocet");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -91,8 +94,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong("dalsiBox");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -107,8 +110,8 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT * FROM craftboxer WHERE uuid = '" + uuid.toString() + "';");
             ps.executeQuery();
             return ps.getResultSet().next();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
             return false;
         } finally {
             pool.close(conn, ps, null);
@@ -125,8 +128,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong("time");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -143,8 +146,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong("time");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -161,8 +164,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("skykeys");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -179,8 +182,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("week");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -197,8 +200,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("month");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -215,8 +218,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("votes");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -233,8 +236,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("PlayedGames");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -251,8 +254,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("MinedDiamond");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -269,8 +272,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("KillBoss");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -287,8 +290,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Destroyed");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -305,8 +308,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Losses");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -341,8 +344,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Deaths");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -359,8 +362,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Kills");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -377,8 +380,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_played");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -395,8 +398,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_deaths");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -413,8 +416,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_wins");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -431,8 +434,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("normal_kills");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -449,8 +452,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("kills");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -467,8 +470,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("wins");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -503,8 +506,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("loses");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -521,8 +524,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("deaths");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -539,8 +542,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("destroyedBeds");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -557,8 +560,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("games");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -575,8 +578,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("points");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -593,8 +596,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("victories");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -611,8 +614,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("losses");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -629,8 +632,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("right_guesses");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -647,8 +650,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("wrong_guesses");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -665,8 +668,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("plays");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -683,8 +686,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("Wins");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -701,8 +704,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("PlayedGames");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -721,8 +724,8 @@ public class SQLManager {
                     ps.setString(1, p.getUniqueId().toString());
                     ps.setLong(2, milis);
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -741,8 +744,8 @@ public class SQLManager {
                     ps = conn.prepareStatement("UPDATE craftboxer_buys SET time = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
                     ps.setLong(1, time);
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -761,8 +764,8 @@ public class SQLManager {
                     ps = conn.prepareStatement("UPDATE CraftCoins SET balance = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
                     ps.setInt(1, getCraftCoins(p.getUniqueId()) - coins);
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -804,8 +807,8 @@ public class SQLManager {
                     ps.setInt(3, amount + getBoxes(p.getUniqueId()));
                     ps.setLong(4, milis);
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -829,8 +832,8 @@ public class SQLManager {
                     ps.setInt(5, amount + getBoxes(p.getUniqueId()));
                     ps.setLong(6, milis);
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -848,8 +851,8 @@ public class SQLManager {
                     conn = pool.getConnection();
                     ps = conn.prepareStatement("UPDATE craftboxer SET pocet = '0';");
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -868,8 +871,8 @@ public class SQLManager {
                     ps = conn.prepareStatement("UPDATE craftboxer_nextReset SET time = ? WHERE id = 1;");
                     ps.setLong(1, time);
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -887,8 +890,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(s);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -908,8 +911,8 @@ public class SQLManager {
                     ps.setInt(2, n);
                     ps.setInt(3, n + getCraftBoxes(p, name));
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -927,8 +930,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("pocet_hracu");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -967,8 +970,8 @@ public class SQLManager {
                     ps = conn.prepareStatement("UPDATE player_settings SET " + settings + " = " + value + " WHERE nick = ?;");
                     ps.setString(1, p.getName());
                     ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                } catch (Exception e) {
+                    log.error("", e);
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -986,8 +989,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(settings);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
@@ -1004,8 +1007,8 @@ public class SQLManager {
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(stat);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("", e);
         } finally {
             pool.close(conn, ps, null);
         }
