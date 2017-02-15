@@ -3,7 +3,10 @@ package cz.wake.lobby;
 import cz.wake.lobby.GUI.GadgetsMenu;
 import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.Servers;
+import cz.wake.lobby.armorstands.ArmorStandManager;
+import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
+import cz.wake.lobby.listeners.ArmorStandInteract;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.gadgets.cloaks.CloaksAPI;
 import cz.wake.lobby.commands.*;
@@ -23,6 +26,7 @@ import net.minecraft.server.v1_10_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -45,14 +49,16 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private GadgetsAPI gadgets = new GadgetsAPI();
     private PetsAPI pets = new PetsAPI();
     private GadgetsMenu gMenu = new GadgetsMenu();
-    private Servers s = new Servers();
+    private ArmorStandManager asm = new ArmorStandManager();
     private Menu m = new Menu();
     private TimeTask tt = new TimeTask();
     public boolean debug;
     public HashMap<Block, String> _BlocksToRestore = new HashMap();
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
     public static ArrayList<ExplosiveSheep> explosiveSheep = new ArrayList();
-    private static ArrayList<Player> inPortal = new ArrayList<>();
+    public static ArrayList<Player> preQuest = new ArrayList();
+    public static ArrayList<Player> inQuest = new ArrayList();
+    private static ArrayList<Player> inPortal = new ArrayList();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
     private String idServer;
@@ -60,6 +66,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
 
     public void onEnable() {
+
+        // Instance
         instance = this;
 
         // Config
@@ -88,10 +96,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "PlayerBalancer");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "PlayerBalancer", this);
 
-        // Deaktivace fire
+        // Deaktivace fire + bezpecnostni odebrani vsech entit
         for (World w : Bukkit.getWorlds()) {
             w.setGameRuleValue("doFireTick", "false");
             w.setGameRuleValue("doDaylightCycle", "false");
+            for(Entity e : w.getEntities()){
+                e.remove();
+            }
         }
 
         // Automaticka zmena casu v lobby podle Real casu
@@ -135,14 +146,21 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         NMSUtils.registerEntity("LavaSlime", 62, EntityMagmaCube.class, RideableMagmaCube.class);
         NMSUtils.registerEntity("PolarBear", 102, EntityPolarBear.class, RideableBear.class);
         NMSUtils.registerEntity("Guardian", 68, EntityGuardian.class, RideableGuardian.class);
+
+        if(getConfig().getString("server").equalsIgnoreCase("main")){
+
+            // Spawn armorstandu
+            ArmorStandManager.init();
+            ArmorStandManager.spawn();
+
+            // Update ArmorStandu
+            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L,1200L);
+        }
     }
 
     public void onDisable() {
         sql.onDisable();
         ExceptionHandler.disable(instance);
-        for (Entity e : Bukkit.getWorld("OfficialLobby").getEntities()) {
-            e.remove();
-        }
         instance = null;
     }
 
@@ -192,6 +210,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new SnowBall(this), this);
         pm.registerEvents(new SettingsMenu(), this);
         pm.registerEvents(new Shop(), this);
+        pm.registerEvents(new ArmorStandInteract(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {
@@ -255,10 +274,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return pets;
     }
 
-    public Servers getServerMenu() {
-        return s;
-    }
-
     public Menu getMenu(){
         return m;
     }
@@ -281,6 +296,18 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public String getIdServer() {
         return idServer;
+    }
+
+    public ArrayList<Player> getPreQuestPlayers(){
+        return preQuest;
+    }
+
+    public ArrayList<Player> getInQuestPlayers(){
+        return inQuest;
+    }
+
+    public ArmorStandManager getASM(){
+        return asm;
     }
 
 }

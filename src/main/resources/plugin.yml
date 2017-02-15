@@ -3,6 +3,7 @@ main: cz.wake.lobby.Main
 version: 1.6
 author: MrWakeCZ
 softdepend: [CrateKeys]
+depend: [Multiverse-Core]
 commands:
   wlobby:
     description: Info o profilu!

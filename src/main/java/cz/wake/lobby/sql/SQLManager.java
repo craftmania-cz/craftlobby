@@ -1014,4 +1014,40 @@ public class SQLManager {
         }
         return 0;
     }
+
+    public int getOnlinePlayersSum(final String table) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT SUM(pocet_hracu) AS total FROM " + table + "");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("total");
+            }
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public int getMaintenance(final String s) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT udrzba FROM stav_survival_server WHERE nazev = '" + s + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("udrzba");
+            }
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
 }
