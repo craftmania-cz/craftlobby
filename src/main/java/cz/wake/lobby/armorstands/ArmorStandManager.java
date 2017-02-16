@@ -29,7 +29,6 @@ public class ArmorStandManager {
         armorstands.add(new Unknown2());
         armorstands.add(new Unknown3());
         armorstands.add(new Unknown4());
-        armorstands.add(new Unknown5());
         armorstands.add(new Vanilla());
         armorstands.add(new DJClub());
         armorstands.add(new Drunkers());
