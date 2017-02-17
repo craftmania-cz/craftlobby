@@ -123,8 +123,9 @@ public class Parachute implements Listener {
     }
 
     @EventHandler
-    public void onLeashBreak(EntityUnleashEvent event) {
-        if (chickens.containsValue(event.getEntity())) {
+    public void onLeashBreak(final EntityUnleashEvent event) {
+        final Player p = (Player)event.getEntity();
+        if (chickens.containsValue(p)) {
             event.getEntity().getNearbyEntities(1, 1, 1).stream().filter(ent -> ent instanceof Item
                     && ((Item) ent).getItemStack().getType() == Material.LEASH).forEachOrdered(Entity::remove);
         }

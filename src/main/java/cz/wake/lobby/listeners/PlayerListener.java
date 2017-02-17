@@ -2,7 +2,9 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.*;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.armorstands.statistics.BedWars;
 import cz.wake.lobby.armorstands.statistics.SkyGiants;
+import cz.wake.lobby.armorstands.statistics.SkyWars;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.settings.SettingsMenu;
@@ -84,6 +86,12 @@ public class PlayerListener implements Listener {
             if(Main.getInstance().getIdServer().equalsIgnoreCase("globby")){
                 Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
                 SkyGiants.spawn(loc, p);
+            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")){
+                Location loc = new Location(Bukkit.getWorld("osw"), -618.5, 102, 116.5);
+                SkyWars.spawn(loc, p);
+            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")){
+                Location loc = new Location(Bukkit.getWorld("obw"), -614.5, 101, 117.5);
+                BedWars.spawn(loc, p);
             }
 
         } catch (Exception ex){

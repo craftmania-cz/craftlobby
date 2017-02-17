@@ -997,12 +997,12 @@ public class SQLManager {
         return 0;
     }
 
-    public final int getSkyGiantsStats(final Player p, final String stat) {
+    public final int getMiniGamesStats(final Player p, final String table, final String playerRow, final String stat) {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + stat + " FROM SkyGiants_stats WHERE Player = '" + p.getName() + "'");
+            ps = conn.prepareStatement("SELECT " + stat + " FROM " + table + " WHERE " + playerRow + " = '" + p.getName() + "'");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(stat);
