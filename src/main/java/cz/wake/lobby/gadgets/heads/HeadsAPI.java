@@ -42,7 +42,7 @@ public class HeadsAPI implements Listener {
         bh2Lore.add("");
         bh2Lore.add("§7Seznam zakladnich headek.");
         bh2Lore.add("");
-        bh2Lore.add("§7Odemknuto: §cNedostupne");
+        bh2Lore.add(counChristmasHeadsString(p));
         bh2Lore.add("§ePro zobrazeni klikni!");
         bh2Meta.setLore(bh2Lore);
         winterHeads.setItemMeta(bh2Meta);
@@ -944,6 +944,58 @@ public class HeadsAPI implements Listener {
         int prc = (heads * 100 / sum);
 
         return "§7Odemknuto: §f" + heads + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    public String counChristmasHeadsString(final Player p) {
+        int heads = countChristmasHeads(p);
+        int sum = 13;
+        int prc = (heads * 100 / sum);
+
+        return "§7Odemknuto: §f" + heads + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private int countChristmasHeads(final Player p) {
+        int c = 0;
+        if (p.hasPermission("craftlobby.heads.vanocni.santa")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.piratesanta")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.commandblock")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.elfboy")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.elfgirl")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.sob")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.snowman")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.snowglobe")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.snowglobe2")){
+            c++;
+        }
+        if (p.hasPermission("craftloby.heads.vanocni.blackpresent")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.bluepresent")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.greenpresent")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.heads.vanocni.goldpresent")){
+            c++;
+        }
+        return c;
     }
 
     private int countHeads(final Player p) {
