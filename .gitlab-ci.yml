@@ -19,11 +19,12 @@ cache:
   paths:
     - /root/.m2/repository/
 
-mvn-package:
+build:
   image: maven:3.3.9-jdk-8
   stage: build
   script:
     - 'mvn $MAVEN_CLI_OPTS package'
   artifacts:
+    expire_in: 1 week
     paths:
       - target/*.jar
