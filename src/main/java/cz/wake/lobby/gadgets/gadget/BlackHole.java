@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilMath;
 import cz.wake.lobby.utils.UtilParticles;
@@ -104,10 +105,13 @@ public class BlackHole implements Listener {
                             }
                         }
                         for (Entity ent : i.getNearbyEntities(5, 3, 5)) {
-                            Vector vector = i.getLocation().toVector().subtract(ent.getLocation().toVector());
-                            UtilMath.applyVelocity(ent, vector);
-                            if (ent instanceof Player)
-                                ((Player) ent).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 40, 40));
+                            if (ent instanceof Player){
+                                if(SettingsMenu.gadgets.contains((Player)ent)){
+                                    Vector vector = i.getLocation().toVector().subtract(ent.getLocation().toVector());
+                                    UtilMath.applyVelocity(ent, vector);
+                                    ((Player) ent).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 40, 40));
+                                }
+                            }
                         }
                     }
                 }

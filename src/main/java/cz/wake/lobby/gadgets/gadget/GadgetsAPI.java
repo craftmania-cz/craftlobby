@@ -171,7 +171,9 @@ public class GadgetsAPI implements Listener {
             ItemStack i = ItemFactory.create(Material.COAL, (byte) 1, "§e§lRocket", "§7NASA te potrebuje, my ale take!");
             gadgetsInv.setItem(24, i);
         } else {
-            gadgetsInv.setItem(24, nakup("Rocket", 8000));
+            //gadgetsInv.setItem(24, nakup("Rocket", 8000));
+            ItemStack i = ItemFactory.create(Material.BARRIER, (byte) 1, "§c§lRocket", "§8Nelze si zakoupit. (Docasne)");
+            gadgetsInv.setItem(24, i);
         }
         if(p.hasPermission("craftlobby.gadgets.snowball")){
             ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§e§lSnowBall", "§7Sestrel vsechny! :P");
@@ -416,7 +418,8 @@ public class GadgetsAPI implements Listener {
                     this.ml.prepareGadget(p, "Rocket", Material.COAL, (byte)1);
                 } else {
                     ItemStack i = ItemFactory.create(Material.COAL, (byte) 1, "§e§lRocket", "§7NASA te potrebuje, my ale take!");
-                    Shop.open(p, "Rocket", "craftlobby.gadgets.rocket", i, 8000);
+                    //Shop.open(p, "Rocket", "craftlobby.gadgets.rocket", i, 8000);
+                    p.sendMessage("§cNelze si docasne tento Gadget zakoupit.");
                 }
             }
             if(e.getSlot() == 25){

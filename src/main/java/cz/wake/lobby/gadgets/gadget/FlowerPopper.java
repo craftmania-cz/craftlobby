@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
@@ -101,7 +102,7 @@ public class FlowerPopper implements Listener {
                         for (Entity localEntity : FlowerPopper.this.flowers.get(player)) {
                             Location localLocation = localEntity.getLocation();
 
-                            ParticleEffect.FIREWORKS_SPARK.display(0.5F, 0.5F, 0.5F, 0.0F, 5, localLocation, 15.0D);
+                            ParticleEffect.FIREWORKS_SPARK.display(0.5F, 0.5F, 0.5F, 0.0F, 5, localLocation, SettingsMenu.particles);
 
                             localEntity.remove();
                         }
