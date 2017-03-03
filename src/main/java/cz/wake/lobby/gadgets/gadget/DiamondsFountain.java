@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -54,6 +55,10 @@ public class DiamondsFountain implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.diamondfountain")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -66,6 +71,7 @@ public class DiamondsFountain implements Listener {
                 return;
             }
             this._time.put(player, 25D + 0.1D);
+            SettingsMenu.activeGadgets.add(player);
             final ArrayList localArrayList = new ArrayList();
             new BukkitRunnable() {
                 int step = 0;
@@ -124,6 +130,7 @@ public class DiamondsFountain implements Listener {
                             localItem = (Item) localIterator.next();
                             localItem.remove();
                         }
+                        SettingsMenu.activeGadgets.remove(player);
                         cancel();
                     }
                 }

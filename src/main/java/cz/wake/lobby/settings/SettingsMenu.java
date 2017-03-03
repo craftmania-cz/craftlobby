@@ -19,6 +19,7 @@ public class SettingsMenu implements Listener {
     public static ArrayList<Player> hiden = new ArrayList<>();
     public static ArrayList<Player> particles = new ArrayList<>();
     public static ArrayList<Player> gadgets = new ArrayList<>();
+    public static ArrayList<Player> activeGadgets = new ArrayList<>();
 
     public void openSettingsMenu(final Player p){
 

@@ -57,6 +57,10 @@ public class BatBlaster implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.batblaster")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -69,6 +73,7 @@ public class BatBlaster implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(60D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             this.playerVelocity.put(player, player.getEyeLocation());
             this.isActive.put(player, Long.valueOf(System.currentTimeMillis()));
             this.bats.put(player, new ArrayList<Bat>());
@@ -127,6 +132,7 @@ public class BatBlaster implements Listener {
                             bat.remove();
                         }
                         bats.remove(player);
+                        SettingsMenu.activeGadgets.remove(player);
                         Bukkit.getScheduler().cancelTask(q);
                     }
                 }

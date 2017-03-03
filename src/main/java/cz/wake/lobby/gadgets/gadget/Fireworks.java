@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
@@ -46,6 +47,10 @@ public class Fireworks implements Listener {
             return;
         }
         if (!item.getItemMeta().getDisplayName().contains("Firework")) {
+            return;
+        }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
         event.setCancelled(true);

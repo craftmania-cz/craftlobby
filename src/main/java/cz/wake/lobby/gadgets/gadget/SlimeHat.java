@@ -61,6 +61,10 @@ public class SlimeHat implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.slimehat")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -73,6 +77,7 @@ public class SlimeHat implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(35D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             this.slim.put(player, new ArrayList());
             Slime localSlime1 = (Slime) player.getWorld().spawn(player.getLocation(), Slime.class);
             localSlime1.setSize(1);
@@ -135,6 +140,7 @@ public class SlimeHat implements Listener {
                             ParticleEffect.SLIME.display(0.5F, 0.5F, 0.5F, 0.3F, 2, localLocation, 15.0D);
                             localEntity.remove();
                         }
+                        SettingsMenu.activeGadgets.remove(player);
                         SlimeHat.this.slimeball.remove(player);
                     }
                 }

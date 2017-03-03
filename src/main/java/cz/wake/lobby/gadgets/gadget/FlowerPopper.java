@@ -59,6 +59,10 @@ public class FlowerPopper implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.flowerpopper")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -72,6 +76,7 @@ public class FlowerPopper implements Listener {
             }
             this._time.put(player, Double.valueOf(20D + 0.1D));
             this.flowers.put(player, new ArrayList());
+            SettingsMenu.activeGadgets.add(player);
 
             final int i = Bukkit.getServer().getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
                 @Override
@@ -91,6 +96,7 @@ public class FlowerPopper implements Listener {
             Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
                 @Override
                 public void run() {
+                    SettingsMenu.activeGadgets.remove(player);
                     Bukkit.getScheduler().cancelTask(i);
                 }
             }, 200L);

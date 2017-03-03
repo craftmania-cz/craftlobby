@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -45,6 +46,10 @@ public class FunCannonIce implements Listener {
             return;
         }
         if (!item.getItemMeta().getDisplayName().contains("FunCannon Ender")) {
+            return;
+        }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
         event.setCancelled(true);

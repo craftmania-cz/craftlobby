@@ -61,6 +61,10 @@ public class BlizzardBlaster implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("BlizzardBlaster")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -73,7 +77,7 @@ public class BlizzardBlaster implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(30D + 0.1D));
-
+            SettingsMenu.activeGadgets.add(player);
             final Vector v = player.getLocation().getDirection().normalize().multiply(0.3);
             v.setY(0);
             final Location loc = player.getLocation().subtract(0, 1, 0).add(v);
@@ -127,6 +131,7 @@ public class BlizzardBlaster implements Listener {
             Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
                 @Override
                 public void run() {
+                    SettingsMenu.activeGadgets.remove(player);
                     Bukkit.getScheduler().cancelTask(i);
                 }
             }, 40);

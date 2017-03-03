@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -62,6 +63,10 @@ public class Rocket implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.rocket")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -74,7 +79,7 @@ public class Rocket implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(40D + 0.1D));
-
+            SettingsMenu.activeGadgets.add(player);
             player.setVelocity(new Vector(0, 1, 0));
             final Location loc = player.getLocation();
             loc.setX(loc.getBlockX() + 0.5);
@@ -189,6 +194,7 @@ public class Rocket implements Listener {
                     final int cancelTask = Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
                         @Override
                         public void run() {
+                            SettingsMenu.activeGadgets.remove(player);
                             Bukkit.getScheduler().cancelTask(task3);
                         }
                     }, 120L).getTaskId();

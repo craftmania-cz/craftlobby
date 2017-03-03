@@ -60,6 +60,14 @@ public class BlackHole implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.blackhole")) {
             return;
         }
+        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+            player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
+            return;
+        }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -72,6 +80,7 @@ public class BlackHole implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(75D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             if (i != null) {
                 i.remove();
                 i = null;
@@ -120,6 +129,7 @@ public class BlackHole implements Listener {
                 @Override
                 public void run() {
                     Bukkit.getScheduler().cancelTask(w);
+                    SettingsMenu.activeGadgets.remove(player);
                     clear();
                 }
             }, 160L);

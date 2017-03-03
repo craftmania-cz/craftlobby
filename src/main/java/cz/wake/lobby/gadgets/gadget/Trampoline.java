@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -64,6 +65,10 @@ public class Trampoline implements Listener {
             player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -78,10 +83,12 @@ public class Trampoline implements Listener {
             if (canBuild(player)) {
                 this.enabled = true;
                 this._time.put(player, Double.valueOf(60D + 0.1D));
+                SettingsMenu.activeGadgets.add(player);
                 buildTrampoline(player);
                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
                     @Override
                     public void run() {
+                        SettingsMenu.activeGadgets.remove(player);
                         Trampoline.this.removeTrampoline(player.getName());
                     }
                 }, 400L);

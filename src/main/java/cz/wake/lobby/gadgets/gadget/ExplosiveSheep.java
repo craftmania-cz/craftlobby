@@ -3,6 +3,7 @@ package cz.wake.lobby.gadgets.gadget;
 import com.google.common.collect.Sets;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import net.minecraft.server.v1_10_R1.EntityCreature;
 import net.minecraft.server.v1_10_R1.EntityInsentient;
@@ -60,6 +61,10 @@ public class ExplosiveSheep implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.explosivesheep")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -72,6 +77,7 @@ public class ExplosiveSheep implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(30D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             Location loc = player.getLocation().add(player.getEyeLocation().getDirection().multiply(0.5D));
             loc.setY(player.getLocation().getBlockY() + 1);
             Sheep s = (Sheep) player.getWorld().spawn(loc, Sheep.class);
@@ -168,6 +174,7 @@ public class ExplosiveSheep implements Listener {
                 }
                 ExplosiveSheep.this.sheepArrayList.remove(this.s);
                 this.s.remove();
+                SettingsMenu.activeGadgets.remove(player);
                 cancel();
             } else {
                 Bukkit.getScheduler().cancelTask(getTaskId());

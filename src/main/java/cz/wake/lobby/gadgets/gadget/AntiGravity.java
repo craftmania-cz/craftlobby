@@ -55,6 +55,10 @@ public class AntiGravity implements Listener{
 	        player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
 	        return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+	        player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+	        return;
+        }
 	    e.setCancelled(true);
 	    player.updateInventory();
 	    if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))){
@@ -67,7 +71,7 @@ public class AntiGravity implements Listener{
 			  		return;
 			  	}
 	    	this._time.put(player, Double.valueOf(50D + 0.1D));
-	    	
+	    	SettingsMenu.activeGadgets.add(player);
 	    	final ArmorStand as = player.getWorld().spawn(player.getLocation(), ArmorStand.class);
 	        as.setGravity(false);
 	        as.setSmall(true);
@@ -91,6 +95,7 @@ public class AntiGravity implements Listener{
 	            @Override
 	            public void run() {
 	                as.remove();
+                    SettingsMenu.activeGadgets.remove(player);
 	                Bukkit.getScheduler().cancelTask(taskId);
 	            }
 	        }, 220);

@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Location;
@@ -58,6 +59,10 @@ public class PoopBomb implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.poopbomb")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -70,6 +75,7 @@ public class PoopBomb implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(20D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             final ArrayList localArrayList = new ArrayList();
             final ItemStack localItemStack = ItemFactory.create(Material.INK_SACK, (byte) 3, "nopickup");
 
@@ -107,6 +113,7 @@ public class PoopBomb implements Listener {
                             localItem1.getWorld().playSound(localItem1.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F);
                             localItem1.remove();
                         }
+                        SettingsMenu.activeGadgets.remove(player);
                         cancel();
                     }
                 }

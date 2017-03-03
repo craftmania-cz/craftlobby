@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -54,6 +55,10 @@ public class Parachute implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.parachute")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -66,7 +71,7 @@ public class Parachute implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(40D + 0.1D));
-
+            SettingsMenu.activeGadgets.add(player);
             Location loc = player.getLocation();
             player.teleport(loc.clone().add(0, 35, 0));
             player.setVelocity(new Vector(0, 0, 0));
@@ -99,6 +104,7 @@ public class Parachute implements Listener {
                                 player.setAllowFlight(true);
                                 player.setFlying(true);
                             }
+                            SettingsMenu.activeGadgets.remove(player);
                         }
                     }
                 }

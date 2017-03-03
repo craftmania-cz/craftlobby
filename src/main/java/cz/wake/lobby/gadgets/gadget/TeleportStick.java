@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -46,6 +47,10 @@ public class TeleportStick implements Listener {
             return;
         }
         if (!player.hasPermission("craftlobby.gadgets.teleportstick")) {
+            return;
+        }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
         e.setCancelled(true);

@@ -62,6 +62,10 @@ public class Pee implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.pee")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -74,6 +78,7 @@ public class Pee implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(35D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             new BukkitRunnable() {
                 @Override
                 public void run() {
@@ -98,6 +103,7 @@ public class Pee implements Listener {
                     if (counter == 350) {
                         cancel();
                         counter = 0;
+                        SettingsMenu.activeGadgets.remove(player);
                     }
                 }
             }.runTaskTimer(plugin, 0, 1L).getTaskId();

@@ -1,5 +1,6 @@
 package cz.wake.lobby.gadgets.gadget;
 
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.CustomEntityFirework;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
@@ -53,6 +54,10 @@ public class WitherCatapult implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.withercatapult")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -65,6 +70,7 @@ public class WitherCatapult implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(25D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             player.getWorld().playSound(player.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0F, 1.0F);
             for (Entity e1 : player.getNearbyEntities(5.0D, 5.0D, 5.0D)) {
                 if ((e1 instanceof Player)) {
@@ -94,6 +100,7 @@ public class WitherCatapult implements Listener {
             Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
                 @Override
                 public void run() {
+                    SettingsMenu.activeGadgets.remove(player);
                     Bukkit.getScheduler().cancelTask(task);
                 }
             }, 240L);

@@ -51,6 +51,10 @@ public class DiscoBall implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.discoball")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -63,6 +67,7 @@ public class DiscoBall implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(15D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             final Location localLocation = player.getLocation().add(0.0D, 5.0D, 0.0D);
             if (!localLocation.getBlock().isEmpty()) {
                 player.sendMessage("§cNad tebou musi byt misto!");
@@ -91,6 +96,7 @@ public class DiscoBall implements Listener {
                             localPlayer = (Player) localIterator.next();
                             localPlayer.sendBlockChange(localLocation, Material.AIR, (byte) 0);
                         }
+                        SettingsMenu.activeGadgets.remove(player);
                         cancel();
                     }
                 }

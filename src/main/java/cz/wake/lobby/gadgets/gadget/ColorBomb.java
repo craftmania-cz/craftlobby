@@ -61,6 +61,10 @@ public class ColorBomb implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.colorbomb")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -73,6 +77,7 @@ public class ColorBomb implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(20D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             final Item bomb = player.getWorld().dropItem(player.getEyeLocation(), ItemFactory.create(Material.WOOL, (byte) this.random.nextInt(15), UUID.randomUUID().toString()));
             bomb.setPickupDelay(50000);
             bomb.setVelocity(player.getEyeLocation().getDirection().multiply(0.7532D));
@@ -148,6 +153,7 @@ public class ColorBomb implements Listener {
                         }
                         items.clear();
                     }
+                    SettingsMenu.activeGadgets.remove(player);
                     running = false;
                 }
             }, 200L);

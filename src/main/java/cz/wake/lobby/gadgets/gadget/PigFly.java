@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.*;
 import org.bukkit.entity.*;
@@ -52,6 +53,10 @@ public class PigFly implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.pigfly")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -64,6 +69,7 @@ public class PigFly implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(40D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             Pig localPig = (Pig) player.getWorld().spawn(player.getLocation(), Pig.class);
             final Bat localBat = (Bat) player.getWorld().spawn(player.getLocation(), Bat.class);
             localPig.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.valueOf(true)));
@@ -78,6 +84,7 @@ public class PigFly implements Listener {
                     sendStepSound(localBat.getLocation(), Material.REDSTONE_BLOCK, 5);
                     localPig.remove();
                     localBat.remove();
+                    SettingsMenu.activeGadgets.remove(player);
                 }
             }.runTaskLater(Main.getPlugin(), 140L);
             this._cdRunnable.put(player, new BukkitRunnable() {

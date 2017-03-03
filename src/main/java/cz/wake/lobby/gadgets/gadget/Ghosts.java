@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilParticles;
 import org.bukkit.Bukkit;
@@ -56,6 +57,10 @@ public class Ghosts implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.ghosts")) {
             return;
         }
+        if (SettingsMenu.activeGadgets.contains(player)){
+            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
@@ -68,6 +73,7 @@ public class Ghosts implements Listener {
                 return;
             }
             this._time.put(player, Double.valueOf(25D + 0.1D));
+            SettingsMenu.activeGadgets.add(player);
             for (int i = 0; i < 20; i++) {
                 Bat bat = player.getWorld().spawn(player.getLocation().add(0, 1, 0), Bat.class);
                 ArmorStand ghost = bat.getWorld().spawn(bat.getLocation(), ArmorStand.class);
@@ -98,6 +104,7 @@ public class Ghosts implements Listener {
                 @Override
                 public void run() {
                     killBats();
+                    SettingsMenu.activeGadgets.remove(player);
                     Bukkit.getScheduler().cancelTask(i);
                 }
             }, 160);

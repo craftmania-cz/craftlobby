@@ -2,6 +2,7 @@ package cz.wake.lobby.gadgets.gadget;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -46,7 +47,7 @@ public class TNTBomb implements Listener {
         e.setCancelled(true);
         for (Entity ent : e.getEntity().getNearbyEntities(6.0D, 6.0D, 6.0D)) {
             if ((ent instanceof Player)) {
-                if (ent.hasMetadata("NPC")) {
+                if (ent.hasMetadata("NPC") || !SettingsMenu.gadgets.contains((Player)ent)) {
                     e.setCancelled(true);
                 } else {
                     double dX = e.getEntity().getLocation().getX() - ent.getLocation().getX();
@@ -94,6 +95,10 @@ public class TNTBomb implements Listener {
             return;
         }
         if (!p.hasPermission("craftlobby.gadgets.tnt")) {
+            return;
+        }
+        if (SettingsMenu.activeGadgets.contains(p)){
+            p.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
         event.setCancelled(true);
