@@ -122,7 +122,7 @@ public class BlackHole implements Listener {
                     Bukkit.getScheduler().cancelTask(w);
                     clear();
                 }
-            }, 240L);
+            }, 160L);
 
             this._cdRunnable.put(player, new BukkitRunnable() {
                 @Override
