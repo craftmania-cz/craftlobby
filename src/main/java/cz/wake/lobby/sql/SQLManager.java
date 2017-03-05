@@ -1050,4 +1050,97 @@ public class SQLManager {
         }
         return 0;
     }
+
+    public final boolean isAT(Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM at_table WHERE nick = '" + p.getName() + "';");
+            ps.executeQuery();
+            return ps.getResultSet().next();
+        } catch (Exception e) {
+            log.error("", e);
+            return false;
+        } finally {
+            pool.close(conn, ps, null);
+        }
+    }
+
+    public final int getAtPlayerTime(Player p, String table) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT minigames" + table + " FROM at_table WHERE nick = '" + p.getName() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("minigames_played_time");
+            }
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final void updateAtLastActive(Player p, long time) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE at_table SET minigames_pos_aktivita = '" + time + "' WHERE nick = " + p.getName() + ";");
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    log.error("", e);
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final void updateAtPlayerTime(Player p) {
+        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "_played_time") + 1;
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE at_table SET minigames_played_time = '" + cas + "' WHERE nick = " + p.getName() + ";");
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    log.error("", e);
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final void updateAtPoints(Player p) {
+        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "_chat_body") + 1;
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE at_table SET minigames_chat_body = '" + cas + "' WHERE nick = " + p.getName() + ";");
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    log.error("", e);
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
 }

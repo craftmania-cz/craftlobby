@@ -94,6 +94,12 @@ public class PlayerListener implements Listener {
                 BedWars.spawn(loc, p);
             }
 
+            //AT
+            if(Main.getInstance().fetchData().isAT(p)){
+                Main.getInstance().at_list.add(p);
+                Main.getInstance().fetchData().updateAtLastActive(p, System.currentTimeMillis());
+            }
+
         } catch (Exception ex){
             log.error("", ex);
         }
@@ -299,6 +305,11 @@ public class PlayerListener implements Listener {
 
         // Odebrani settings
         sm.removePlayer(p);
+
+        //AT
+        if(Main.getInstance().at_list.contains(p)){
+            Main.getInstance().at_list.remove(p);
+        }
     }
 
     @EventHandler(priority = EventPriority.NORMAL)
@@ -317,6 +328,11 @@ public class PlayerListener implements Listener {
 
         // Odebrani settings
         sm.removePlayer(p);
+
+        //AT
+        if(Main.getInstance().at_list.contains(p)){
+            Main.getInstance().at_list.remove(p);
+        }
     }
 
     @EventHandler

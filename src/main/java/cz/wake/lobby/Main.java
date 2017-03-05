@@ -7,6 +7,7 @@ import cz.wake.lobby.armorstands.ArmorStandManager;
 import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.listeners.ArmorStandInteract;
+import cz.wake.lobby.listeners.ChatListener;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.gadgets.cloaks.CloaksAPI;
 import cz.wake.lobby.commands.*;
@@ -61,9 +62,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private static ArrayList<Player> inPortal = new ArrayList();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     private static DataOutputStream out = new DataOutputStream(b);
+    public ArrayList<Player> at_list = new ArrayList<>();
     private String idServer;
     private SQLManager sql;
-
 
     public void onEnable() {
 
@@ -156,6 +157,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             // Update ArmorStandu
             getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L,1200L);
         }
+
+        // Update AT time
+        getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
     }
 
     public void onDisable() {
@@ -211,6 +215,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new SettingsMenu(), this);
         pm.registerEvents(new Shop(), this);
         pm.registerEvents(new ArmorStandInteract(), this);
+        pm.registerEvents(new ChatListener(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {
