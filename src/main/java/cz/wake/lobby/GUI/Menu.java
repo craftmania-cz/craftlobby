@@ -1,6 +1,7 @@
 package cz.wake.lobby.GUI;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -47,15 +48,13 @@ public class Menu {
         achievementsMeta.setLore(achievementsLore);
         achievements.setItemMeta(achievementsMeta);
 
-        ItemStack guild = new ItemStack(Material.PAINTING, 1);
-        ItemMeta guildMeta = guild.getItemMeta();
-        guildMeta.setDisplayName("§aGuilds");
-        ArrayList<String> guildLore = new ArrayList<String>();
-        guildLore.add("");
-        guildLore.add(ChatColor.GRAY + "Pripravujeme...");
-        guildMeta.setLore(guildLore);
-        guild.setItemMeta(guildMeta);
-
+        if(Main.getInstance().fetchData().isAT(p)){
+            ItemStack i = ItemFactory.create(Material.PAINTING, (byte)0, "§aAT Stalker","§7Prehled tve aktivity", "§7na serveru.","","§eKlikni pro zobrazeni");
+            menu.setItem(33,i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.BARRIER, (byte)0, "§cAT Sekce","§7K zobrazeni teto sekce", "§7musis byt v AT.");
+            menu.setItem(33,i);
+        }
         ItemStack nastaveni = new ItemStack(Material.REDSTONE_COMPARATOR);
         ItemMeta nMeta = nastaveni.getItemMeta();
         nMeta.setDisplayName("§aNastaveni uctu");
@@ -79,7 +78,6 @@ public class Menu {
         menu.setItem(13, headItem);
         menu.setItem(10, statistics);
         menu.setItem(16, achievements);
-        menu.setItem(33, guild);
         menu.setItem(29, multiplier);
         menu.setItem(31, nastaveni);
 

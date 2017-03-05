@@ -52,6 +52,7 @@ public class InvClick implements Listener {
     BannerAPI bannerAPI = new BannerAPI();
     HeadsAPI hAPI = new HeadsAPI();
     SettingsMenu st = new SettingsMenu();
+    Stalker stalker = new Stalker();
 
     static final Logger log = LoggerFactory.getLogger(InvClick.class);
 
@@ -66,6 +67,16 @@ public class InvClick implements Listener {
                 }
                 if (event.getSlot() == 31) {
                     st.openSettingsMenu(player);
+                }
+                if (event.getSlot() == 33) {
+                    stalker.openStalker(player);
+                }
+                event.setCancelled(true);
+                player.updateInventory();
+            }
+            if (event.getInventory().getTitle().equals("Stalker")) {
+                if (event.getSlot() == 40) {
+                    stalker.openAdminStalker(player);
                 }
                 event.setCancelled(true);
                 player.updateInventory();
@@ -475,7 +486,7 @@ public class InvClick implements Listener {
                 }
                 RankCape.deactivateCape(player);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("", e);
         }
 
@@ -604,7 +615,7 @@ public class InvClick implements Listener {
                 CandyCane.cd.remove(player.getName());
                 player.closeInventory();
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("", e);
         }
     }

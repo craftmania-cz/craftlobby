@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class SQLManager {
@@ -1072,10 +1074,10 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT minigames" + table + " FROM at_table WHERE nick = '" + p.getName() + "'");
+            ps = conn.prepareStatement("SELECT " + table + " FROM at_table WHERE nick = '" + p.getName() + "'");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt("minigames_played_time");
+                return ps.getResultSet().getInt(table);
             }
         } catch (Exception e) {
             log.error("", e);
@@ -1093,7 +1095,8 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE at_table SET minigames_pos_aktivita = '" + time + "' WHERE nick = " + p.getName() + ";");
+                    ps = conn.prepareStatement("UPDATE at_table SET minigames_pos_aktivita = '" + time + "' WHERE nick = ?;");
+                    ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
                     log.error("", e);
@@ -1105,7 +1108,7 @@ public class SQLManager {
     }
 
     public final void updateAtPlayerTime(Player p) {
-        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "_played_time") + 1;
+        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "minigames_played_time") + 1;
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -1113,7 +1116,8 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE at_table SET minigames_played_time = '" + cas + "' WHERE nick = " + p.getName() + ";");
+                    ps = conn.prepareStatement("UPDATE at_table SET minigames_played_time = '" + cas + "' WHERE nick = ?;");
+                    ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
                     log.error("", e);
@@ -1125,7 +1129,7 @@ public class SQLManager {
     }
 
     public final void updateAtPoints(Player p) {
-        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "_chat_body") + 1;
+        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "minigames_chat_body") + 1;
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -1133,7 +1137,8 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE at_table SET minigames_chat_body = '" + cas + "' WHERE nick = " + p.getName() + ";");
+                    ps = conn.prepareStatement("UPDATE at_table SET minigames_chat_body = '" + cas + "' WHERE nick = ?;");
+                    ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
                     log.error("", e);
@@ -1142,5 +1147,62 @@ public class SQLManager {
                 }
             }
         }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final int getStalkerStats(String p, String stats) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + stats + " FROM at_table WHERE nick = ?");
+            ps.setString(1, p);
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt(stats);
+            }
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final Long getStalkerStatsTime(String p, String stats) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + stats + " FROM at_table WHERE nick = '" + p + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getLong(stats);
+            }
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return (long) 0;
+    }
+
+    public final List<String> getAllAdminTeam() {
+        List<String> names = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT nick FROM at_table");
+            ps.executeQuery();
+            while (ps.getResultSet().next()) {
+                names.add(ps.getResultSet().getString(1));
+            }
+        } catch (Exception e) {
+            log.error("", e);
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return names;
     }
 }
