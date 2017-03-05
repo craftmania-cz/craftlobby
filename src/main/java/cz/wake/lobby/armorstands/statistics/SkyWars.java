@@ -24,7 +24,7 @@ public class SkyWars {
 
         EntityArmorStand stand2 = new EntityArmorStand(s);
         stand2.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
-        stand2.setCustomName("§7Vyhry (Solo): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players", "player_name","normal_wins"));
+        stand2.setCustomName("§7Vyhry (S+I): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players", "player_name","normal_wins"));
         stand2.setCustomNameVisible(true);
         stand2.setInvisible(true);
 
@@ -32,7 +32,7 @@ public class SkyWars {
 
         EntityArmorStand stand3 = new EntityArmorStand(s);
         stand3.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
-        stand3.setCustomName("§7Zabiti (Solo): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players","player_name","normal_kills"));
+        stand3.setCustomName("§7Zabiti (S+I): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players","player_name","normal_kills"));
         stand3.setCustomNameVisible(true);
         stand3.setInvisible(true);
 
@@ -40,7 +40,7 @@ public class SkyWars {
 
         EntityArmorStand stand4 = new EntityArmorStand(s);
         stand4.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
-        stand4.setCustomName("§7Smrti (Solo): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players","player_name","normal_deaths"));
+        stand4.setCustomName("§7Smrti (S+I): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players","player_name","normal_deaths"));
         stand4.setCustomNameVisible(true);
         stand4.setInvisible(true);
 
@@ -48,7 +48,7 @@ public class SkyWars {
 
         EntityArmorStand stand5 = new EntityArmorStand(s);
         stand5.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
-        stand5.setCustomName("§7Odehrano (Solo): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players","player_name","normal_played"));
+        stand5.setCustomName("§7Odehrano (S+I): §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"skywars_players","player_name","normal_played"));
         stand5.setCustomNameVisible(true);
         stand5.setInvisible(true);
 
