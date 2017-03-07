@@ -35,9 +35,9 @@ public class Stalker implements Listener {
         menu.setItem(12, i2);
 
         ItemStack i3 = ItemFactory.create(Material.LAVA_BUCKET, (byte) 0, "§c§lCreative",
-                "§7Chat body: §f" + Main.getInstance().fetchData().getStalkerStats(p.getName(), "sky_chat_body"),
-                "§7Odehrano: §f" + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().fetchData().getStalkerStats(p.getName(), "sky_played_time"), false),
-                "§7Posledni aktivita: §f" + getDate(Main.getInstance().fetchData().getStalkerStatsTime(p.getName(), "sky_pos_aktivita")));
+                "§7Chat body: §f" + Main.getInstance().fetchData().getStalkerStats(p.getName(), "crea_chat_body"),
+                "§7Odehrano: §f" + TimeUtils.formatTime("%d dni, %hh %mm", Main.getInstance().fetchData().getStalkerStats(p.getName(), "crea_played_time"), false),
+                "§7Posledni aktivita: §f" + getDate(Main.getInstance().fetchData().getStalkerStatsTime(p.getName(), "crea_pos_aktivita")));
         menu.setItem(13, i3);
 
         ItemStack i4 = ItemFactory.create(Material.IRON_BARDING, (byte) 0, "§c§lPrison",
