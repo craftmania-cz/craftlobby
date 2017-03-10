@@ -69,7 +69,11 @@ public class InvClick implements Listener {
                     st.openSettingsMenu(player);
                 }
                 if (event.getSlot() == 33) {
-                    stalker.openStalker(player);
+                    if(Main.getInstance().fetchData().isAT(player)){
+                        stalker.openStalker(player);
+                    } else {
+                        player.sendMessage("§cK pouzivani teto sekce musis byt v AT!");
+                    }
                 }
                 event.setCancelled(true);
                 player.updateInventory();
