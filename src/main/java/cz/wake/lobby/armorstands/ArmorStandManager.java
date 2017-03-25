@@ -20,7 +20,7 @@ public class ArmorStandManager {
         armorstands.add(new Creative2());
         armorstands.add(new Factions());
         armorstands.add(new Prison());
-        armorstands.add(new PVPGames());
+        //armorstands.add(new PVPGames());
         armorstands.add(new SkyBlock());
         armorstands.add(new SkyGiants());
         armorstands.add(new SkyWars());

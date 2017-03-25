@@ -61,7 +61,7 @@ public class Servers implements Listener {
                 "§7se zlepsovat a kopat", "§7jinak budes pozadu.", "", "§b▸ Kliknutim te portnu", getPlayers("prison"));
         inv.setItem(24, pris);
 
-        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§e§lVanilla (1.11)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
+        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§e§lVanilla", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
                 "§7poznas co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
         inv.setItem(25, van);
 
@@ -75,18 +75,13 @@ public class Servers implements Listener {
         inv.setItem(29, bedw);
 
         ItemStack sw = ItemFactory.create(Material.BOW, (byte) 0, "§a§lSkyWars", "§8Minihra, PVP", "", "§7Kazdy sam za sebe,", "§7vyhraje pouze ten nejlepsi.", "", "§bSolo: §fKlasicky SkyWars",
-                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§eMultiplier: §62.0x", "", "§b▸ Kliknutim te portnu");
+                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         sw = ItemFactory.addGlow(sw);
         inv.setItem(30, sw);
 
-        ItemStack an = ItemFactory.create(Material.ENDER_STONE, (byte) 0, "§a§lAnnihilation", "§8Minihra, Team PVP", "", "§7Hlavnim ukolem je znicit", "§7Nexus jineho teamu. Stihnes to,",
-                "§7nez znici oni tebe?", "", "§eMultiplier: §62.0x", "", "§b▸ Kliknutim te portnu");
-        an = ItemFactory.addGlow(an);
-        inv.setItem(31, an);
-
-        ItemStack sg = ItemFactory.create(Material.SKULL_ITEM, (byte)2, "§a§lSkyGiants §c§lBETA","§8Team PVP","",
+        ItemStack sg = ItemFactory.create(Material.SKULL_ITEM, (byte)2, "§a§lSkyGiants","§8Team PVP","",
                 "§7Kazdy team ma vlastniho Gianta,","§7ktereho musi ochranit a zaroven","§7znicit ostatni! Zvladnes to?!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
-        inv.setItem(33, sg);
+        inv.setItem(31, sg);
 
         new BukkitRunnable() {
             int c = 1;

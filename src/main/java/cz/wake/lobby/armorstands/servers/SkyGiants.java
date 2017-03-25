@@ -13,8 +13,8 @@ import org.bukkit.util.EulerAngle;
 
 public class SkyGiants implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1525.5, 18, -1214.5, -130, 0);
-    ArmorStand as, as2, as3, as4;
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1216.5, -90, 0);
+    ArmorStand as, as2, as3;
 
     @Override
     public void spawn() {
@@ -51,7 +51,6 @@ public class SkyGiants implements ASInterface {
 
         subtextSpawn();
         hologramSpawn();
-        novinka();
     }
 
     @Override
@@ -67,7 +66,7 @@ public class SkyGiants implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§2§lSkyGiants §c§lBETA");
+        as2.setCustomName("§2§lSkyGiants");
     }
 
     @Override
@@ -85,20 +84,6 @@ public class SkyGiants implements ASInterface {
         as3.setCustomName("§7Nacitani...");
     }
 
-    public void novinka() {
-        loc1.add(0, 0.3, 0);
-
-        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as4.setGravity(false);
-        as4.setCanPickupItems(false);
-        as4.setBasePlate(false);
-        as4.setVisible(false);
-        as4.setCustomNameVisible(true);
-
-        as4.setCustomName("§e§lNOVINKA");
-    }
-
     @Override
     public boolean isActive() {
         return false;
@@ -114,7 +99,6 @@ public class SkyGiants implements ASInterface {
         as.remove();
         as2.remove();
         as3.remove();
-        as4.remove();
     }
 
     @Override
