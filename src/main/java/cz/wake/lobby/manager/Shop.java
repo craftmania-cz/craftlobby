@@ -58,7 +58,7 @@ public class Shop implements Listener {
                 e.setCancelled(true);
             }
             if (e.getSlot() == 30){
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add " + permission);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pp user " + p.getName() + " add " + permission);
                 Main.getInstance().fetchData().takeCoins(p, coin);
                 p.sendMessage("§eZakoupil jsi si §a" + name + " §eza §6" + coin + " CC.");
                 p.closeInventory();
