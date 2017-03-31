@@ -11,6 +11,7 @@ import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -99,7 +100,6 @@ public class PlayerListener implements Listener {
                 Main.getInstance().at_list.add(p);
                 Main.getInstance().fetchData().updateAtLastActive(p, System.currentTimeMillis());
             }
-
         } catch (Exception ex){
             log.error("", ex);
         }
@@ -361,20 +361,23 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onPortal(EntityPortalEnterEvent e) {
-        Player p = (Player) e.getEntity();
-        if (!Main.getInstance().inPortal(p)) {
-            if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")) {
-                Main.getInstance().addPortal(p);
-                //Main.getInstance().getServerMenu().openServersMenu(p);
-            } else {
-                ic.sendToServer(p, "mainlobby", "frontend");
-            }
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    Main.getInstance().removePortal(p);
+        Entity ent = e.getEntity();
+        if(ent instanceof Player){
+            Player p = ((Player) ent).getPlayer();
+            if (!Main.getInstance().inPortal(p)) {
+                if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")) {
+                    Main.getInstance().addPortal(p);
+                    //Main.getInstance().getServerMenu().openServersMenu(p);
+                } else {
+                    ic.sendToServer(p, "mainlobby", "frontend");
                 }
-            }.runTaskLater(Main.getInstance(), 100L);
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        Main.getInstance().removePortal(p);
+                    }
+                }.runTaskLater(Main.getInstance(), 100L);
+            }
         }
     }
 
