@@ -552,9 +552,6 @@ public class ArmorStandInteract implements Listener {
             if(e.getRightClicked().hasMetadata("skywars")){
                 sendToServer(p,"slobby");
             }
-            if(e.getRightClicked().hasMetadata("pvparcade")){
-                sendToServer(p,"alobby");
-            }
             if(e.getRightClicked().hasMetadata("skygiants")){
                 sendToServer(p, "globby");
             }

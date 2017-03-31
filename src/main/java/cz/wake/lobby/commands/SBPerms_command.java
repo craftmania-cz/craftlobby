@@ -32,7 +32,7 @@ public class SBPerms_command implements CommandExecutor {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 50");
                             return true;
                         } else {
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add " + perm);
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pp user " + p.getName() + " add " + perm);
                             for (Player pl : Bukkit.getOnlinePlayers()) {
                                 if (pl == p) {
                                     p.sendMessage("§eNasel jsi novy doplnek: §b" + finalNazev);
