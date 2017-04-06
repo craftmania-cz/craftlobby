@@ -86,30 +86,30 @@ public class SkyWars {
 
 
         PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
 
         PacketPlayOutSpawnEntityLiving packet2 = new PacketPlayOutSpawnEntityLiving(stand2);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet2);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet2);
 
         PacketPlayOutSpawnEntityLiving packet3 = new PacketPlayOutSpawnEntityLiving(stand3);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet3);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet3);
 
         PacketPlayOutSpawnEntityLiving packet4 = new PacketPlayOutSpawnEntityLiving(stand4);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet4);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet4);
 
         PacketPlayOutSpawnEntityLiving packet5 = new PacketPlayOutSpawnEntityLiving(stand5);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet5);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet5);
 
         PacketPlayOutSpawnEntityLiving packet6 = new PacketPlayOutSpawnEntityLiving(stand6);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet6);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet6);
 
         PacketPlayOutSpawnEntityLiving packet7 = new PacketPlayOutSpawnEntityLiving(stand7);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet7);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet7);
 
         PacketPlayOutSpawnEntityLiving packet8 = new PacketPlayOutSpawnEntityLiving(stand8);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet8);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet8);
 
         PacketPlayOutSpawnEntityLiving packet9 = new PacketPlayOutSpawnEntityLiving(stand9);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet9);
+        //((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet9);
     }
 }

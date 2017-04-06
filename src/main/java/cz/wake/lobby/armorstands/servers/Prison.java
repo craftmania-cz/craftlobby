@@ -41,7 +41,7 @@ public class Prison implements ASInterface {
         subtextSpawn();
         hologramSpawn();
 
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Prison ArmorStand uspesne spawnut!");
+        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Prison_command ArmorStand uspesne spawnut!");
 
     }
 

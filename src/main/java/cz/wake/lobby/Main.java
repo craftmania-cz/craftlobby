@@ -5,6 +5,7 @@ import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.armorstands.ArmorStandManager;
 import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
+import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.listeners.ArmorStandInteract;
 import cz.wake.lobby.listeners.ChatListener;
@@ -232,6 +233,16 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("sbperms").setExecutor(new SBPerms_command());
         getCommand("cbperms").setExecutor(new CBPerms_command());
         getCommand("vip").setExecutor(new VIP_Command());
+        getCommand("survival").setExecutor(new Survival_command());
+        getCommand("skyblock").setExecutor(new Skyblock_command());
+        getCommand("creative").setExecutor(new Creative_command());
+        getCommand("creative2").setExecutor(new Creative2_command());
+        getCommand("prison").setExecutor(new Prison_command());
+        getCommand("vanilla").setExecutor(new Vanilla_command());
+        getCommand("bedwars").setExecutor(new BedWars_command());
+        getCommand("skywars").setExecutor(new SkyWars_command());
+        getCommand("arcade").setExecutor(new Arcade_command());
+        getCommand("skygiants").setExecutor(new SkyGiants_command());
     }
 
     public static Main getInstance() {
@@ -313,6 +324,19 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public ArmorStandManager getASM(){
         return asm;
+    }
+
+    public void sendToServer(Player player, String target) {
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        DataOutputStream out = new DataOutputStream(b);
+        try {
+            out.writeUTF("Connect");
+            out.writeUTF(target);
+        } catch (Exception e) {
+            //TODO Napojit na Sentry
+            e.printStackTrace();
+        }
+        player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());
     }
 
 }

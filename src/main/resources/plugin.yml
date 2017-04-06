@@ -17,6 +17,26 @@ commands:
     description: Addon na CraftBoxy
   vip:
     description: Menu pro nakup VIP
+  survival:
+    description: Server teleport
+  skyblock:
+    description: Server teleport
+  creative:
+    description: Server teleport
+  creative2:
+    description: Server teleport
+  prison:
+    description: Server teleport
+  vanilla:
+    description: Server teleport
+  bedwars:
+    description: Server teleport
+  skywars:
+    description: Server teleport
+  arcade:
+    description: Server teleport
+  skygiants:
+    description: Server teleport
 
 permissions:
   craftlobby.pristup:
