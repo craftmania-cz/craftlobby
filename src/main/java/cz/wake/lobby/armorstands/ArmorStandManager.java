@@ -18,7 +18,7 @@ public class ArmorStandManager {
         armorstands.add(new BedWars());
         armorstands.add(new Creative1());
         armorstands.add(new Creative2());
-        armorstands.add(new Factions());
+        //armorstands.add(new Factions());
         armorstands.add(new Prison());
         //armorstands.add(new PVPGames());
         armorstands.add(new SkyBlock());

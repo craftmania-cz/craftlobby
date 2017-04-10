@@ -65,10 +65,6 @@ public class Servers implements Listener {
                 "§7poznas co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
         inv.setItem(25, van);
 
-        ItemStack fac = ItemFactory.create(Material.TNT, (byte) 0, "§e§lFactions", "§8Frakce, PVP, souboje", "", "§7Zde nikdy nevis", "§7kdo ti jde po krku.",
-                "§7Az to zjistis, bude pozde.", "", "§b▸ Kliknutim te portnu", getPlayers("factions"));
-        inv.setItem(26, fac);
-
         ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§a§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
                 "", "§eMultiplier: §62.0x", "", "§b▸ Kliknutim te portnu");
         bedw = ItemFactory.addGlow(bedw);
