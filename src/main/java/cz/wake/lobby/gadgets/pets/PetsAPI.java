@@ -2,6 +2,7 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.manager.Shop;
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -930,15 +931,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)0,"§aSkeleton", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Skeleton", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.skeleton.wither")){
 			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1,"§aWither Skeleton", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither Skeleton", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Wither Skeleton", 600));
 		}
 
 		//Deaktivace
@@ -970,15 +969,13 @@ public class PetsAPI implements Listener{
             ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS,(byte)0,"§aGuardian", "", "§eKliknutim spawnes!");
             inv.setItem(0,i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cGuardian", "§7Tento typ nevlastnis.");
-            inv.setItem(0, i);
+            inv.setItem(0, nakup("Guardian", 500));
         }
         if(p.hasPermission("craftlobby.pets.guardian.elder")){
             ItemStack i = ItemFactory.create(Material.PRISMARINE_SHARD,(byte)0,"§aGuardian Elder", "", "§eKliknutim spawnes!");
             inv.setItem(1,i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cGuardian Elder", "§7Tento typ nevlastnis.");
-            inv.setItem(1, i);
+            inv.setItem(1, nakup("Guardian (Elder)", 1000));
         }
 
         //Deaktivace
@@ -1010,15 +1007,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0,"§aCreeper", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Creeper", 400));
 		}
 		if(p.hasPermission("craftlobby.pets.creeper.powered")){
 			ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0,"§aCreeper (Powered)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCreeper (Powered)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Creeper (Powered)", 500));
 		}
 
 		//Deaktivace
@@ -1048,66 +1043,57 @@ public class PetsAPI implements Listener{
 
 		if(p.hasPermission("craftlobby.pets.zombie")){
 			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0,"§aZombie", "", "§eKliknutim spawnes!");
-			inv.setItem(0,i);
-		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie", "§7Tento typ nevlastnis.");
 			inv.setItem(0, i);
+		} else {
+			inv.setItem(0, nakup("Zombie", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.zombie.baby")){
 			ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0,"§aZombie (Baby)", "", "§eKliknutim spawnes!");
-			inv.setItem(1,i);
-		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie (Baby)", "§7Tento typ nevlastnis.");
 			inv.setItem(1, i);
+		} else {
+			inv.setItem(1, nakup("Zombie (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.zombie.husk")){
             ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk", "", "§eKliknutim spawnes!");
-            inv.setItem(2,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Husk", "§7Tento typ nevlastnis.");
             inv.setItem(2, i);
+        } else {
+            inv.setItem(2, nakup("Zombie Husk", 300));
         }
         if(p.hasPermission("craftlobby.pets.zombie.husk.baby")){
             ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk (Baby)", "", "§eKliknutim spawnes!");
-            inv.setItem(3,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Husk (Baby)", "§7Tento typ nevlastnis.");
             inv.setItem(3, i);
+        } else {
+            inv.setItem(3, nakup("Zombie Husk (Baby)", 350));
         }
         if(p.hasPermission("craftlobby.pets.zombie.blacksmith")){
             ItemStack i = ItemFactory.create(Material.ANVIL,(byte)0,"§aZombie Blacksmith", "", "§eKliknutim spawnes!");
-            inv.setItem(4,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Blacksmith", "§7Tento typ nevlastnis.");
             inv.setItem(4, i);
+        } else {
+            inv.setItem(4, nakup("Zombie Blacksmith", 200));
         }
         if(p.hasPermission("craftlobby.pets.zombie.butcher")){
             ItemStack i = ItemFactory.create(Material.RAW_BEEF,(byte)0,"§aZombie Butcher", "", "§eKliknutim spawnes!");
-            inv.setItem(5,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Butcher", "§7Tento typ nevlastnis.");
             inv.setItem(5, i);
+        } else {
+            inv.setItem(5, nakup("Zombie Butcher", 200));
         }
         if(p.hasPermission("craftlobby.pets.zombie.farmer")){
             ItemStack i = ItemFactory.create(Material.GOLD_HOE,(byte)0,"§aZombie Farmer", "", "§eKliknutim spawnes!");
-            inv.setItem(6,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Farmer", "§7Tento typ nevlastnis.");
             inv.setItem(6, i);
+        } else {
+            inv.setItem(6, nakup("Zombie Farmer", 200));
         }
         if(p.hasPermission("craftlobby.pets.zombie.librarian")){
             ItemStack i = ItemFactory.create(Material.BOOK_AND_QUILL,(byte)0,"§aZombie Librarian", "", "§eKliknutim spawnes!");
-            inv.setItem(7,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Librarian", "§7Tento typ nevlastnis.");
             inv.setItem(7, i);
+        } else {
+            inv.setItem(7, nakup("Zombie Librarian", 200));
         }
         if(p.hasPermission("craftlobby.pets.zombie.priest")){
             ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aZombie Priest", "", "§eKliknutim spawnes!");
-            inv.setItem(8,i);
-        } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Priest", "§7Tento typ nevlastnis.");
             inv.setItem(8, i);
+        } else {
+            inv.setItem(8, nakup("Zombie Priest", 200));
         }
 
 
@@ -1140,99 +1126,85 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Black", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Rabbit Black", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.black.baby")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Black (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Rabbit Black (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_STEW,(byte)0,"§aRabbit Black & White", "", "§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black & White", "§7Tento typ nevlastnis.");
-			inv.setItem(2, i);
+			inv.setItem(2, nakup("Rabbit Black & White", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite.baby")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_STEW,(byte)0,"§aRabbit Black & White (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(3,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Black & White (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(3, i);
+			inv.setItem(3, nakup("Rabbit Black & White (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.brown")){
 			ItemStack i = ItemFactory.create(Material.COOKED_RABBIT,(byte)0,"§aRabbit Brown", "", "§eKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Brown", "§7Tento typ nevlastnis.");
-			inv.setItem(4, i);
+			inv.setItem(4, nakup("Rabbit Brown", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.brown.baby")){
 			ItemStack i = ItemFactory.create(Material.COOKED_RABBIT,(byte)0,"§aRabbit Brown (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Brown (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(5, i);
+			inv.setItem(5, nakup("Rabbit Brown (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper")){
 			ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Salt & Pepper", "", "§eKliknutim spawnes!");
 			inv.setItem(6,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Salt & Pepper", "§7Tento typ nevlastnis.");
-			inv.setItem(6, i);
+			inv.setItem(6, nakup("Rabbit Salt & Pepper", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper.baby")){
 			ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Salt & Pepper (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(7,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Salt & Pepper (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(7, i);
+			inv.setItem(7, nakup("Rabbit Salt & Pepper (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.killer")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Killer", "", "§eKliknutim spawnes!");
 			inv.setItem(8,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Killer", "§7Tento typ nevlastnis.");
-			inv.setItem(8, i);
+			inv.setItem(8, nakup("Rabbit Killer", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.killer.baby")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Killer (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(9,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Killer (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(9, i);
+			inv.setItem(9, nakup("Rabbit Killer (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.white")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0,"§aRabbit White", "", "§eKliknutim spawnes!");
 			inv.setItem(10,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit White", "§7Tento typ nevlastnis.");
-			inv.setItem(10, i);
+			inv.setItem(10, nakup("Rabbit White", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.rabbit.white.baby")){
 			ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0,"§aRabbit White (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(11,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit White (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(11, i);
+			inv.setItem(11, nakup("Rabbit White (Baby)", 250));
 		}
         if(p.hasPermission("craftlobby.pets.rabbit.gold")){
             ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Gold", "", "§eKliknutim spawnes!");
             inv.setItem(12,i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Gold", "§7Tento typ nevlastnis.");
-            inv.setItem(12, i);
+            inv.setItem(12, nakup("Rabbit Gold", 200));
         }
         if(p.hasPermission("craftlobby.pets.rabbit.gold.baby")){
             ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Gold (Baby)", "", "§eKliknutim spawnes!");
             inv.setItem(13,i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cRabbit Gold (Baby)", "§7Tento typ nevlastnis.");
-            inv.setItem(13, i);
+            inv.setItem(13, nakup("Rabbit Gold (Baby)", 250));
         }
 
 		//Deaktivace
@@ -1265,15 +1237,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.BONE,(byte)0,"§aWolf", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWolf", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Wolf", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.wolf.baby")){
 			ItemStack i = ItemFactory.create(Material.BONE,(byte)0,"§aWolf (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWolf (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Wolf (Baby)", 350));
 		}
 
 		//Deaktivace
@@ -1306,15 +1276,13 @@ public class PetsAPI implements Listener{
             ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0,"§aPolarBear", "", "§eKliknutim spawnes!");
             inv.setItem(0,i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPolarBear", "§7Tento typ nevlastnis.");
-            inv.setItem(0, i);
+            inv.setItem(0, nakup("PolarBear", 400));
         }
         if(p.hasPermission("craftlobby.pets.polarbear.baby")){
             ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0,"§aPolarBear (Baby)", "", "§eKliknutim spawnes!");
             inv.setItem(1,i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPolarBear (Baby)", "§7Tento typ nevlastnis.");
-            inv.setItem(1, i);
+            inv.setItem(1, nakup("PolarBear (Baby)", 500));
         }
 
         //Deaktivace
@@ -1346,15 +1314,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.EGG,(byte)0,"§aChicken", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cChicken", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Chicken", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.chicken.baby")){
 			ItemStack i = ItemFactory.create(Material.EGG,(byte)0,"§aChicken (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cChicken (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Chicken (Baby)", 150));
 		}
 
 		//Deaktivace
@@ -1387,15 +1353,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.GRILLED_PORK,(byte)0,"§aPig", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPig", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Pig", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.pig.baby")){
 			ItemStack i = ItemFactory.create(Material.PORK,(byte)0,"§aPig (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cPig (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Pig", 250));
 		}
 
 		//Deaktivace
@@ -1428,29 +1392,25 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0,"§aCow", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Cow", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.cow.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_BEEF,(byte)0,"§aCow (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Cow (Baby)", 250));
 		}
 		if(p.hasPermission("craftlobby.pets.cow.mushroom")){
 			ItemStack i = ItemFactory.create(Material.RED_MUSHROOM,(byte)0,"§aCow Mushroom", "", "§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow Mushroom", "§7Tento typ nevlastnis.");
-			inv.setItem(2, i);
+			inv.setItem(2, nakup("Cow Mushroom", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
 			ItemStack i = ItemFactory.create(Material.BROWN_MUSHROOM,(byte)0,"§aCow Mushroom (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(3,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCow Mushroom (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(3, i);
+			inv.setItem(3, nakup("Cow Mushroom", 350));
 		}
 
 		//Deaktivace
@@ -1482,57 +1442,49 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Black", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Black", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+			inv.setItem(0, nakup("Cat: Black", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.black.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Black (Baby)", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Black (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+			inv.setItem(1, nakup("Cat: Black (Baby)", 350));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.red")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Red", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Red", "§7Tento typ nevlastnis.");
-			inv.setItem(2, i);
+			inv.setItem(2, nakup("Cat: Red", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.red.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Red (Baby)", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
 			inv.setItem(3,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Red (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(3, i);
+			inv.setItem(3, nakup("Cat: Red (Baby)", 350));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.siamese")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Siamese", "§7Tento typ nevlastnis.");
-			inv.setItem(4, i);
+			inv.setItem(4, nakup("Cat: SIamese", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.siamese.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese (Baby)", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Siamese (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(5, i);
+			inv.setItem(5, nakup("Cat: Siamese (Baby)", 350));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.wild")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Wild", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
 			inv.setItem(6,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Wild", "§7Tento typ nevlastnis.");
-			inv.setItem(6, i);
+			inv.setItem(6, nakup("Cat: Wild", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.wild.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Wild (Baby)", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
 			inv.setItem(7,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCat: Wild (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(7, i);
+			inv.setItem(7, nakup("Cat: Wild (Baby)", 350));
 		}
 
 		//Deaktivace
@@ -1724,56 +1676,64 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.cat.black")){
 					Cat.activate(p, false, Ocelot.Type.BLACK_CAT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Black");
-				}
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Black", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Black", "craftlobby.pets.cat.black", i, 300);
+                }
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.cat.black.baby")){
 					Cat.activate(p, true, Ocelot.Type.BLACK_CAT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Black (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Black (Baby)", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Black (Baby)", "craftlobby.pets.cat.black.baby", i, 350);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.cat.red")){
 					Cat.activate(p, false, Ocelot.Type.RED_CAT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Red");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Red", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Red", "craftlobby.pets.cat.red", i, 300);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.cat.red.baby")){
 					Cat.activate(p, true, Ocelot.Type.RED_CAT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Red (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Red (Baby)", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Red (Baby)", "craftlobby.pets.cat.red.baby", i, 350);
 				}
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.cat.siamese")){
 					Cat.activate(p, false, Ocelot.Type.SIAMESE_CAT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Siamese");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Siamese", "craftlobby.pets.cat.siamese", i, 300);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.cat.siamese.baby")){
 					Cat.activate(p, true, Ocelot.Type.SIAMESE_CAT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Siamese (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese (Baby)", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Siamese (Baby)", "craftlobby.pets.cat.siamese.baby", i, 350);
 				}
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.cat.wild")){
 					Cat.activate(p, false, Ocelot.Type.WILD_OCELOT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Wild");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Wild", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Wild", "craftlobby.pets.cat.wild", i, 300);
 				}
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.cat.wild.baby")){
 					Cat.activate(p, true, Ocelot.Type.WILD_OCELOT);
 				} else {
-					this.ml.messageNoPerm(p,"Cat Wild (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Wild (Baby)", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
+                    Shop.open(p, "Cat: Wild (Baby)", "craftlobby.pets.cat.wild.baby", i, 350);
 				}
 			}
 		}
@@ -1798,28 +1758,32 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.cow")){
 					CowNormal.activateCow(p,false);
 				} else {
-					this.ml.messageNoPerm(p,"Cow");
+                    ItemStack i = ItemFactory.create(Material.COOKED_BEEF,(byte)0,"§aCow", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Cow", "craftlobby.pets.cow", i, 200);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.cow.baby")){
 					CowNormal.activateCow(p,true);
 				} else {
-					this.ml.messageNoPerm(p,"Cow (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RAW_BEEF,(byte)0,"§aCow (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Cow (Baby)", "craftlobby.pets.cow.baby", i, 250);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.cow.mushroom")){
 					MushroomNormal.activateCow(p,false);
 				} else {
-					this.ml.messageNoPerm(p,"Cow Mushroom");
+                    ItemStack i = ItemFactory.create(Material.RED_MUSHROOM,(byte)0,"§aCow Mushroom", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Cow Mushroom", "craftlobby.pets.cow.mushroom", i, 300);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
 					MushroomNormal.activateCow(p,true);
 				} else {
-					this.ml.messageNoPerm(p,"Cow Mushroom (Baby)");
+                    ItemStack i = ItemFactory.create(Material.BROWN_MUSHROOM,(byte)0,"§aCow Mushroom (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Cow Mushroom (Baby)", "craftlobby.pets.cow.mushroom.baby", i, 350);
 				}
 			}
 		}
@@ -1844,14 +1808,16 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.pig")){
 					PigNormal.activatePig(p,false);
 				} else {
-					this.ml.messageNoPerm(p,"Pig");
+                    ItemStack i = ItemFactory.create(Material.GRILLED_PORK,(byte)0,"§aPig", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Pig", "craftlobby.pets.pig", i, 200);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.pig.baby")){
 					PigNormal.activatePig(p,true);
 				} else {
-					this.ml.messageNoPerm(p,"Pig (Baby)");
+                    ItemStack i = ItemFactory.create(Material.PORK,(byte)0,"§aPig (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Pig (Baby)", "craftlobby.pets.pig.baby", i, 250);
 				}
 			}
 		}
@@ -1876,14 +1842,16 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.chicken")){
 					ChickenNormal.activateChicken(p,false);
 				} else {
-					this.ml.messageNoPerm(p,"Chicken");
+                    ItemStack i = ItemFactory.create(Material.EGG,(byte)0,"§aChicken", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Chicken", "craftlobby.pets.chicken", i, 100);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.chicken.baby")){
 					ChickenNormal.activateChicken(p,true);
 				} else {
-					this.ml.messageNoPerm(p,"Chicken (Baby)");
+                    ItemStack i = ItemFactory.create(Material.EGG,(byte)0,"§aChicken (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Chicken (Baby)", "craftlobby.pets.chicken.baby", i, 150);
 				}
 			}
 		}
@@ -1908,14 +1876,16 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.wolf")){
 					WolfNormal.activate(p,false);
 				} else {
-					this.ml.messageNoPerm(p,"Wolf");
+                    ItemStack i = ItemFactory.create(Material.BONE,(byte)0,"§aWolf", "", "§eKliknutim spawnes!");
+                    Shop.open(p,"Wolf", "craftlobby.pets.wolf", i, 300);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.wolf.baby")){
 					WolfNormal.activate(p,true);
 				} else {
-					this.ml.messageNoPerm(p,"Wolf (Baby)");
+                    ItemStack i = ItemFactory.create(Material.BONE,(byte)0,"§aWolf (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p,"Wolf (Baby)", "craftlobby.pets.wolf.baby", i, 300);
 				}
 			}
 		}
@@ -1940,98 +1910,112 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.rabbit.black")){
 					RabbitNormal.activate(p,false, Rabbit.Type.BLACK);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Black");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Black", "", "§eKliknutim spawnes!");
+					Shop.open(p, "Rabbit Black", "craftlobby.pets.rabbit.black", i, 200);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.rabbit.black.baby")){
 					RabbitNormal.activate(p,true, Rabbit.Type.BLACK);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Black (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Black (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Black (Baby)", "craftlobby.pets.rabbit.black.baby", i, 250);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite")){
 					RabbitNormal.activate(p,false, Rabbit.Type.BLACK_AND_WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Black & White");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_STEW,(byte)0,"§aRabbit Black & White", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Rabbit Black & White", "craftlobby.pets.rabbit.blackandwhite", i, 200);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.rabbit.blackandwhite.baby")){
 					RabbitNormal.activate(p,true, Rabbit.Type.BLACK_AND_WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Black & White (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_STEW,(byte)0,"§aRabbit Black & White (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Black & White (Baby)", "craftlobby.pets.rabbit.blackandwhite.baby", i, 250);
 				}
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.rabbit.brown")){
 					RabbitNormal.activate(p,false, Rabbit.Type.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Brown");
+                    ItemStack i = ItemFactory.create(Material.COOKED_RABBIT,(byte)0,"§aRabbit Brown", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Brown", "craftlobby.pets.rabbit.brown", i, 200);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.rabbit.brown.baby")){
 					RabbitNormal.activate(p,true, Rabbit.Type.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Brown (Baby)");
+                    ItemStack i = ItemFactory.create(Material.COOKED_RABBIT,(byte)0,"§aRabbit Brown (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Brown (Baby)", "craftlobby.pets.rabbit.brown.baby", i, 250);
 				}
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper")){
 					RabbitNormal.activate(p,false, Rabbit.Type.SALT_AND_PEPPER);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Salt & Pepper");
+                    ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Salt & Pepper", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Rabbit Salt & Pepper", "craftlobby.pets.rabbit.saltandpepper", i, 200);
 				}
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.rabbit.saltandpepper.baby")){
 					RabbitNormal.activate(p,true, Rabbit.Type.SALT_AND_PEPPER);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Salt & Pepper (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Salt & Pepper (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Salt & Pepper (Baby)", "craftlobby.pets.rabbit.saltandpepper.baby", i, 250);
 				}
 			}
 			if(e.getSlot() == 8){
 				if(p.hasPermission("craftlobby.pets.rabbit.killer")){
 					RabbitNormal.activate(p,false, Rabbit.Type.THE_KILLER_BUNNY);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Killer");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Killer", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Rabbit Killer", "craftlobby.pets.rabbit.killer", i, 200);
 				}
 			}
 			if(e.getSlot() == 9){
 				if(p.hasPermission("craftlobby.pets.rabbit.killer.baby")){
 					RabbitNormal.activate(p,true, Rabbit.Type.THE_KILLER_BUNNY);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit Killer (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_FOOT,(byte)0,"§aRabbit Killer (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Killer (Baby)", "craftlobby.pets.rabbit.killer.baby", i, 250);
 				}
 			}
 			if(e.getSlot() == 10){
 				if(p.hasPermission("craftlobby.pets.rabbit.white")){
 					RabbitNormal.activate(p,false, Rabbit.Type.WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit White");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0,"§aRabbit White", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Rabbit White", "craftlobby.pets.rabbit.white", i, 200);
 				}
 			}
 			if(e.getSlot() == 11){
 				if(p.hasPermission("craftlobby.pets.rabbit.white.baby")){
 					RabbitNormal.activate(p,true, Rabbit.Type.WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Rabbit White (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RABBIT_HIDE,(byte)0,"§aRabbit White (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit White (Baby)", "craftlobby.pets.rabbit.white.baby", i, 250);
 				}
 			}
             if(e.getSlot() == 12){
                 if(p.hasPermission("craftlobby.pets.rabbit.gold")){
                     RabbitNormal.activate(p,false, Rabbit.Type.GOLD);
                 } else {
-                    this.ml.messageNoPerm(p,"Rabbit Gold");
+                    ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Gold", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Gold", "craftlobby.pets.rabbit.gold", i, 200);
                 }
             }
             if(e.getSlot() == 13){
                 if(p.hasPermission("craftlobby.pets.rabbit.gold.baby")){
                     RabbitNormal.activate(p,true, Rabbit.Type.GOLD);
                 } else {
-                    this.ml.messageNoPerm(p,"Rabbit Gold (Baby)");
+                    ItemStack i = ItemFactory.create(Material.RABBIT,(byte)0,"§aRabbit Gold (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Rabbit Gold (Baby)", "craftlobby.pets.rabbit.gold.baby", i, 250);
                 }
             }
 		}
@@ -2056,63 +2040,72 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.zombie")){
 					ZombieNormal.activate(p,false, Villager.Profession.NORMAL);
 				} else {
-					this.ml.messageNoPerm(p,"Zombie");
+                    ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0,"§aZombie", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie", "craftlobby.pets.zombie", i, 200);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.zombie.baby")){
 					ZombieNormal.activate(p,true,Villager.Profession.NORMAL);
 				} else {
-					this.ml.messageNoPerm(p,"Zombie Baby");
+                    ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0,"§aZombie (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie (Baby)", "craftlobby.pets.zombie.baby", i, 2500);
 				}
 			}
 			if(e.getSlot() == 2){
                 if(p.hasPermission("craftlobby.pets.zombie.husk")){
                     ZombieNormal.activate(p, false, Villager.Profession.HUSK);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Husk");
+                    ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Husk", "craftlobby.pets.zombie.husk", i, 300);
                 }
             }
             if(e.getSlot() == 3){
                 if(p.hasPermission("craftlobby.pets.zombie.husk.baby")){
                     ZombieNormal.activate(p, true, Villager.Profession.HUSK);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Husk");
+                    ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Husk (Baby)", "craftlobby.pets.zombie.husk.baby", i, 350);
                 }
             }
             if(e.getSlot() == 4){
                 if(p.hasPermission("craftlobby.pets.zombie.blacksmith")){
                     ZombieNormal.activate(p, false, Villager.Profession.BLACKSMITH);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Blacksmith");
+                    ItemStack i = ItemFactory.create(Material.ANVIL,(byte)0,"§aZombie Blacksmith", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Blacksmith", "craftlobby.pets.zombie.blacksmith", i, 200);
                 }
             }
             if(e.getSlot() == 5){
                 if(p.hasPermission("craftlobby.pets.zombie.butcher")){
                     ZombieNormal.activate(p, false, Villager.Profession.BUTCHER);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Butcher");
+                    ItemStack i = ItemFactory.create(Material.RAW_BEEF,(byte)0,"§aZombie Butcher", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Butcher", "craftlobby.pets.zombie.butcher", i, 200);
                 }
             }
             if(e.getSlot() == 6){
                 if(p.hasPermission("craftlobby.pets.zombie.farmer")){
                     ZombieNormal.activate(p, false, Villager.Profession.FARMER);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Farmer");
+                    ItemStack i = ItemFactory.create(Material.GOLD_HOE,(byte)0,"§aZombie Farmer", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Farmer", "craftlobby.pets.zombie.farmer", i, 200);
                 }
             }
             if(e.getSlot() == 7){
                 if(p.hasPermission("craftlobby.pets.zombie.librarian")){
                     ZombieNormal.activate(p, false, Villager.Profession.LIBRARIAN);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Librarian");
+                    ItemStack i = ItemFactory.create(Material.BOOK_AND_QUILL,(byte)0,"§aZombie Librarian", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Librarian", "craftlobby.pets.zombie.librarian", i, 200);
                 }
             }
             if(e.getSlot() == 8){
                 if(p.hasPermission("craftlobby.pets.zombie.priest")){
                     ZombieNormal.activate(p, false, Villager.Profession.PRIEST);
                 } else {
-                    this.ml.messageNoPerm(p,"Zombie Priest");
+                    ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aZombie Priest", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Zombie Priest", "craftlobby.pets.zombie.priest", i, 200);
                 }
             }
 		}
@@ -2650,14 +2643,16 @@ public class PetsAPI implements Listener{
                 if(p.hasPermission("craftlobby.pets.guardian")){
                     GuardianNormal.activateGuardian(p, false);
                 } else {
-                    this.ml.messageNoPerm(p,"Guardian");
+                    ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS,(byte)0,"§aGuardian", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Guardian", "craftlobby.pets.guardian", i, 500);
                 }
             }
             if(e.getSlot() == 1){
                 if(p.hasPermission("craftlobby.pets.guardian.elder")){
                     GuardianNormal.activateGuardian(p, true);
                 } else {
-                    this.ml.messageNoPerm(p,"Guardian Elder");
+                    ItemStack i = ItemFactory.create(Material.PRISMARINE_SHARD,(byte)0,"§aGuardian (Elder)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Guardian (Elder)", "craftlobby.pets.guardian.elder", i, 1000);
                 }
             }
         }
@@ -2682,14 +2677,16 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.creeper")){
 					CreeperNormal.activateWitch(p,false);
 				} else {
-					this.ml.messageNoPerm(p,"Creeper");
+                    ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0,"§aCreeper", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Creeper", "craftlobby.pets.creeper", i, 400);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.creeper.powered")){
 					CreeperNormal.activateWitch(p,true);
 				} else {
-					this.ml.messageNoPerm(p,"Creeper (Powered)");
+                    ItemStack i = ItemFactory.create(Material.getMaterial(289),(byte)0,"§aCreeper (Powered)", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Creeper (Powered)", "craftlobby.pets.creeper.powered", i, 500);
 				}
 			}
 		}
@@ -2714,14 +2711,16 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.skeleton")){
 					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.NORMAL);
 				} else {
-					this.ml.messageNoPerm(p,"Skeleton");
+                    ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)0,"§aSkeleton", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Skeleton", "craftlobby.pets.skeleton", i, 300);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.skeleton.wither")){
 					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.WITHER);
 				} else {
-					this.ml.messageNoPerm(p,"Wither Skeleton");
+                    ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1,"§aWither Skeleton", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Wither Skeleton", "craftlobby.pets.skeleton.wither", i, 600);
 				}
 			}
 		}
@@ -2746,14 +2745,16 @@ public class PetsAPI implements Listener{
                 if(p.hasPermission("craftlobby.pets.polarbear")){
                     BearNormal.activateGolem(p,false);
                 } else {
-                    this.ml.messageNoPerm(p,"Polar Bear");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0,"§aPolarBear", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "PolarBear", "craftlobby.pets.polarbear", i, 400);
                 }
             }
             if(e.getSlot() == 1){
                 if(p.hasPermission("craftlobby.pets.polarbear.baby")){
                     BearNormal.activateGolem(p,true);
                 } else {
-                    this.ml.messageNoPerm(p,"Polar Bear (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BLOCK,(byte)0,"§aPolarBear (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "PolarBear (Baby)", "craftlobby.pets.polarbear.baby", i, 500);
                 }
             }
 
@@ -3353,6 +3354,11 @@ public class PetsAPI implements Listener{
             c++;
         }
         return c;
+    }
+
+    private ItemStack nakup(final String name, final int price){
+        ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
+        return i;
     }
 
 }
