@@ -1,6 +1,9 @@
 package cz.wake.lobby.listeners;
 
-import cz.wake.lobby.GUI.*;
+import cz.wake.lobby.GUI.GadgetsMenu;
+import cz.wake.lobby.GUI.Menu;
+import cz.wake.lobby.GUI.Servers;
+import cz.wake.lobby.GUI.VIPMenu;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.statistics.BedWars;
 import cz.wake.lobby.armorstands.statistics.SkyGiants;
@@ -84,23 +87,32 @@ public class PlayerListener implements Listener {
             setupPlayerOnJoin(p);
 
             // ArmorStand statistiky
-            if(Main.getInstance().getIdServer().equalsIgnoreCase("globby")){
+            if (Main.getInstance().getIdServer().equalsIgnoreCase("globby")) {
                 Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
                 SkyGiants.spawn(loc, p);
-            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")){
+            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")) {
                 Location loc = new Location(Bukkit.getWorld("osw"), -618.5, 102, 116.5);
                 SkyWars.spawn(loc, p);
-            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")){
+            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")) {
                 Location loc = new Location(Bukkit.getWorld("obw"), -614.5, 101, 117.5);
                 BedWars.spawn(loc, p);
             }
 
             //AT
-            if(Main.getInstance().fetchData().isAT(p)){
+            if (Main.getInstance().fetchData().isAT(p)) {
                 Main.getInstance().at_list.add(p);
                 Main.getInstance().fetchData().updateAtLastActive(p, System.currentTimeMillis());
             }
-        } catch (Exception ex){
+
+            //TODO Dodelat do nastaveni
+            //Clearchat
+            if(Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+                for (int i = 0; i < 30; i++) {
+                    p.sendMessage(" ");
+                }
+            }
+
+        } catch (Exception ex) {
             log.error("", ex);
         }
     }
@@ -307,7 +319,7 @@ public class PlayerListener implements Listener {
         sm.removePlayer(p);
 
         //AT
-        if(Main.getInstance().at_list.contains(p)){
+        if (Main.getInstance().at_list.contains(p)) {
             Main.getInstance().at_list.remove(p);
         }
     }
@@ -330,7 +342,7 @@ public class PlayerListener implements Listener {
         sm.removePlayer(p);
 
         //AT
-        if(Main.getInstance().at_list.contains(p)){
+        if (Main.getInstance().at_list.contains(p)) {
             Main.getInstance().at_list.remove(p);
         }
     }
@@ -346,12 +358,12 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onChange(BlockFadeEvent e){
+    public void onChange(BlockFadeEvent e) {
         e.setCancelled(true);
     }
 
     @EventHandler
-    public void onLeaf(LeavesDecayEvent e){
+    public void onLeaf(LeavesDecayEvent e) {
         e.setCancelled(true);
     }
 
@@ -362,7 +374,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void onPortal(EntityPortalEnterEvent e) {
         Entity ent = e.getEntity();
-        if(ent instanceof Player){
+        if (ent instanceof Player) {
             Player p = ((Player) ent).getPlayer();
             if (!Main.getInstance().inPortal(p)) {
                 if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")) {
@@ -391,7 +403,7 @@ public class PlayerListener implements Listener {
         }
     }
 
-    public static void setupDefaultItems(final Player p){
+    public static void setupDefaultItems(final Player p) {
 
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         ItemMeta compassMeta = compass.getItemMeta();
@@ -438,11 +450,11 @@ public class PlayerListener implements Listener {
         p.getInventory().setItem(8, servers);
     }
 
-    private void setupPlayerOnJoin(final Player p){
+    private void setupPlayerOnJoin(final Player p) {
 
         // Fly na lobby
-        if(p.hasPermission("craftlobby.vip.fly")){
-            if(Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1){
+        if (p.hasPermission("craftlobby.vip.fly")) {
+            if (Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             } else {
@@ -455,34 +467,34 @@ public class PlayerListener implements Listener {
         }
 
         // Nastaveni skryti hracu
-        if(Main.getInstance().fetchData().getSettings(p, "lobby_players") == 1){
+        if (Main.getInstance().fetchData().getSettings(p, "lobby_players") == 1) {
             SettingsMenu.hiden.add(p);
-            for (Player p2 : Bukkit.getOnlinePlayers()){
+            for (Player p2 : Bukkit.getOnlinePlayers()) {
                 p.hidePlayer(p2);
             }
         }
 
         // Skryti pokud nekdo ma nastaveny skryti
-        for(Player p3 : Bukkit.getOnlinePlayers()){
-            if(SettingsMenu.hiden.contains(p3)){
+        for (Player p3 : Bukkit.getOnlinePlayers()) {
+            if (SettingsMenu.hiden.contains(p3)) {
                 p3.hidePlayer(p);
             }
         }
 
         // Zobrazovani particles
-        if(Main.getInstance().fetchData().getSettings(p, "lobby_particles") == 1){
+        if (Main.getInstance().fetchData().getSettings(p, "lobby_particles") == 1) {
             SettingsMenu.particles.add(p);
         }
 
         // Lobby speed
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_speed") == 1){
+        if (Main.getInstance().fetchData().getSettings(p, "lobby_speed") == 1) {
             p.setWalkSpeed(0.3F);
         } else {
             p.setWalkSpeed(0.2F);
         }
 
         // Gadgets
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_gadgets") == 1){
+        if (Main.getInstance().fetchData().getSettings(p, "lobby_gadgets") == 1) {
             SettingsMenu.gadgets.add(p);
         }
     }
