@@ -1,7 +1,9 @@
 <configuration packagingData="true">
     <appender name="Sentry" class="com.getsentry.raven.logback.SentryAppender">
-        <dsn>http://0ed8c4eee52b4510832f4f9e6e4270ab:bf6960c9768c42749c95680c780d9677@sentry.craftmania.cz/3?options</dsn>
-        <tags></tags>
+        <dsn>https://2b9a1916bf6b409d8ac5b1a346923c28:c923cd8e6a3c4efc9fb20eec9ef63a45@sentry.io/162056</dsn>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
         <extraTags>version,players,server</extraTags>
         <!-- Optional, allows to select the ravenFactory -->
         <ravenFactory>com.getsentry.raven.DefaultRavenFactory</ravenFactory>
