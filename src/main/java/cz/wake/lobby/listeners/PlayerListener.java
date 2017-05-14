@@ -288,7 +288,8 @@ public class PlayerListener implements Listener {
                     || (b.getType() == Material.NETHER_FENCE)
                     || (b.getType() == Material.SPRUCE_FENCE_GATE)
                     || (b.getType() == Material.TRAPPED_CHEST)
-                    || (b.getType() == Material.HOPPER)) {
+                    || (b.getType() == Material.HOPPER)
+                    || (b.getType() == Material.FLOWER_POT)) {
                 if (Main.getInstance().isDebug()) {
                     e.setCancelled(false);
                 } else {
