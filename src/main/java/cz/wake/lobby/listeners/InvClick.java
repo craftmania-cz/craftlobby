@@ -65,18 +65,26 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 10) {
                     this.statistics.openMinigamesMenu(player);
                 }
-                if (event.getSlot() == 31) {
+                if (event.getSlot() == 30) {
                     st.openSettingsMenu(player);
                 }
-                if (event.getSlot() == 33) {
+                if (event.getSlot() == 32) {
                     if(Main.getInstance().fetchData().isAT(player)){
                         stalker.openStalker(player);
                     } else {
                         player.sendMessage("§cK pouzivani teto sekce musis byt v AT!");
                     }
                 }
+                if (event.getSlot() == 34){
+                    profilMenu.openLanguageMenu(player);
+                }
                 event.setCancelled(true);
                 player.updateInventory();
+            }
+            if (event.getInventory().getTitle().equals("Nastaveni jazyka")) {
+                if (event.getSlot() == 40){
+                    profilMenu.openMenu(player);
+                }
             }
             if (event.getInventory().getTitle().equals("Stalker")) {
                 if (event.getSlot() == 40) {
