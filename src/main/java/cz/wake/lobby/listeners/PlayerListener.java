@@ -382,7 +382,7 @@ public class PlayerListener implements Listener {
                     Main.getInstance().addPortal(p);
                     //Main.getInstance().getServerMenu().openServersMenu(p);
                 } else {
-                    ic.sendToServer(p, "mainlobby", "frontend");
+                    ic.sendToServerBalancer(p, "main-lobby");
                 }
                 new BukkitRunnable() {
                     @Override

@@ -572,20 +572,6 @@ public class ArmorStandInteract implements Listener {
         return randomNum;
     }
 
-    public void sendToServer(Player player, String group, String end) {
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        DataOutputStream out = new DataOutputStream(b);
-        try {
-            out.writeUTF("Connect");
-            out.writeUTF(group);
-            out.writeUTF(end);
-
-        } catch (Exception e) {
-            //log.error("", e);
-        }
-        player.sendPluginMessage(Main.getPlugin(), "PlayerBalancer", b.toByteArray());
-    }
-
     public void sendToServer(Player player, String target) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);

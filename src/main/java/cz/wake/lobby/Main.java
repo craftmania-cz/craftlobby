@@ -95,8 +95,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "PlayerBalancer");
-        Bukkit.getMessenger().registerIncomingPluginChannel(this, "PlayerBalancer", this);
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "LobbyBalancer");
+        Bukkit.getMessenger().registerIncomingPluginChannel(this, "LobbyBalancer", this);
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         for (World w : Bukkit.getWorlds()) {
