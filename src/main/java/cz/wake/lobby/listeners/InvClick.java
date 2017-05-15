@@ -85,6 +85,19 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 40){
                     profilMenu.openMenu(player);
                 }
+                if (event.getSlot() == 36){
+                    player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                    player.sendMessage("");
+                    player.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                    player.sendMessage("");
+                    player.sendMessage("");
+                    player.sendMessage("§eOdkaz na nas Crowdin projekt:");
+                    player.sendMessage("§bhttps://crowdin.com/project/craftmaniacz");
+                    player.sendMessage("");
+                    player.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                    player.sendMessage("");
+                    player.closeInventory();
+                }
             }
             if (event.getInventory().getTitle().equals("Stalker")) {
                 if (event.getSlot() == 40) {
@@ -491,6 +504,45 @@ public class InvClick implements Listener {
                     this.gadgetsMenu.openGadgetsMenu(player);
                 }
                 RankCape.deactivateCape(player);
+            }
+            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Web"))){
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.sendMessage("");
+                player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.sendMessage("");
+                player.sendMessage("§eOdkaz na nas web:");
+                player.sendMessage("§fhttps://craftmania.cz");
+                player.sendMessage("");
+                player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.closeInventory();
+            }
+            if ((event.getSlot() == 22) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))){
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.sendMessage("");
+                player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.sendMessage("");
+                player.sendMessage("§eOdkaz na nas Discord server:");
+                player.sendMessage("§fhttps://discord.gg/craftmania");
+                player.sendMessage("");
+                player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.closeInventory();
+            }
+            if ((event.getSlot() == 24) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))){
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.sendMessage("");
+                player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.sendMessage("");
+                player.sendMessage("§eOdkaz na nasi Facebook Page:");
+                player.sendMessage("§fhttps://www.fb.com/craftmaniacz/");
+                player.sendMessage("");
+                player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.closeInventory();
             }
         } catch (Exception e) {
             log.error("", e);

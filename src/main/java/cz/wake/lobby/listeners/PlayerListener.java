@@ -11,6 +11,7 @@ import cz.wake.lobby.armorstands.statistics.SkyWars;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -33,6 +34,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PlayerListener implements Listener {
@@ -443,12 +445,46 @@ public class PlayerListener implements Listener {
         hiderMeta.setDisplayName("§7Hraci: §a§lVIDITELNY");
         hider.setItemMeta(hiderMeta);
 
+        ItemStack web = ItemFactory.createHead("§aWeb", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19");
+        ItemMeta webMeta = web.getItemMeta();
+        ArrayList<String> webLore = new ArrayList();
+        webLore.add("§7Odkaz na nas web:");
+        webLore.add("§fhttps://craftmania.cz");
+        webLore.add("");
+        webLore.add("§eKliknutim zobrazis odkaz v chatu");
+        webMeta.setLore(webLore);
+        web.setItemMeta(webMeta);
+
+        ItemStack discord = ItemFactory.createHead("§9Discord", "de431cd1-ae1d-49f6-9339-a96daeacc32b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19");
+        ItemMeta discordMeta = discord.getItemMeta();
+        ArrayList<String> discordLore = new ArrayList();
+        discordLore.add("§7Odkaz na nas Discord server:");
+        discordLore.add("§fhttps://discord.gg/craftmania");
+        discordLore.add("");
+        discordLore.add("§eKliknutim zobrazis odkaz v chatu");
+        discordMeta.setLore(discordLore);
+        discord.setItemMeta(discordMeta);
+
+        ItemStack facebook = ItemFactory.createHead("§bFacebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=");
+        ItemMeta facebookMeta = facebook.getItemMeta();
+        ArrayList<String> facebookLore = new ArrayList();
+        facebookLore.add("§7Odkaz na nasi Facebook Page:");
+        facebookLore.add("§fhttps://www.fb.com/craftmaniacz/");
+        facebookLore.add("");
+        facebookLore.add("§eKliknutim zobrazis odkaz v chatu");
+        facebookMeta.setLore(facebookLore);
+        facebook.setItemMeta(facebookMeta);
+
         p.getInventory().setItem(0, compass);
         p.getInventory().setItem(1, playerHead);
         p.getInventory().setItem(2, shopVip);
         p.getInventory().setItem(4, gadgets);
         p.getInventory().setItem(7, hider);
         p.getInventory().setItem(8, servers);
+
+        p.getInventory().setItem(20, web);
+        p.getInventory().setItem(22, discord);
+        p.getInventory().setItem(24, facebook);
     }
 
     private void setupPlayerOnJoin(final Player p) {
