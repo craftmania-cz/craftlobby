@@ -44,6 +44,17 @@ public class ArmorStandInteract implements Listener {
         Player p = e.getPlayer();
         if(e.getRightClicked() instanceof ArmorStand){
             Location locationOfAS = ((ArmorStand) e.getRightClicked()).getEyeLocation().add(-.5d, -.5d, -.5d);
+            if(e.getRightClicked().hasMetadata("vanilla-skyblock")){
+                p.sendMessage("");
+                p.sendMessage("§6▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                p.sendMessage("");
+                p.sendMessage("§eSkyblock bez ekonomiky? Ano to je Vanilla-Skyblock!");
+                p.sendMessage("§eDokazes tedy projit vsemi questy a vyrovnat se tak");
+                p.sendMessage("§evsem ostatnim blaznum?");
+                p.sendMessage("");
+                p.sendMessage("§6▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                p.sendMessage("");
+            }
             if(e.getRightClicked().hasMetadata("Farmer")){
                 if(!farmer){
                     mu.sendMessageNearby(locationOfAS, 8d, "§eFarmar: §fJdi pryc! Jinak si nebudu mit za co koupit VIP!");
@@ -536,9 +547,6 @@ public class ArmorStandInteract implements Listener {
             }
             if(e.getRightClicked().hasMetadata("prison")){
                 sendToServer(p,"prison");
-            }
-            if(e.getRightClicked().hasMetadata("factions")){
-                sendToServer(p,"factions");
             }
             if(e.getRightClicked().hasMetadata("vanilla")){
                 sendToServer(p,"vanilla");

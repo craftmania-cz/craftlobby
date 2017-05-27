@@ -18,7 +18,7 @@ public class ArmorStandManager {
         armorstands.add(new BedWars());
         armorstands.add(new Creative1());
         armorstands.add(new Creative2());
-        //armorstands.add(new Factions());
+        armorstands.add(new VanillaSkyblock());
         armorstands.add(new Prison());
         //armorstands.add(new PVPGames());
         armorstands.add(new SkyBlock());
@@ -74,8 +74,8 @@ public class ArmorStandManager {
                 i.updateArmorStand("creative2", Main.getInstance().fetchData().getOnlinePlayers("creative2"));
             } else if (i instanceof  Prison){
                 i.updateArmorStand("prison", Main.getInstance().fetchData().getOnlinePlayers("prison"));
-            } else if (i instanceof  Factions){
-                i.updateArmorStand("factions", Main.getInstance().fetchData().getOnlinePlayers("factions"));
+            } else if (i instanceof VanillaSkyblock){
+                //i.updateArmorStand("factions", Main.getInstance().fetchData().getOnlinePlayers("factions"));
             } else if (i instanceof Vanilla){
                 i.updateArmorStand("vanilla", Main.getInstance().fetchData().getOnlinePlayers("vanilla"));
             } else if (i instanceof BedWars) {
