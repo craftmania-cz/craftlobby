@@ -93,7 +93,7 @@ public class PlayerListener implements Listener {
                 Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
                 SkyGiants.spawn(loc, p);
             } else if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")) {
-                Location loc = new Location(Bukkit.getWorld("osw"), -599.5, 101.6, 116.5);
+                Location loc = new Location(Bukkit.getWorld("osw"), -599.5, 102.3, 116.5);
                 SkyWars.spawn(loc, p);
             } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")) {
                 Location loc = new Location(Bukkit.getWorld("obw"), -599.75, 100.6, 116.5);
