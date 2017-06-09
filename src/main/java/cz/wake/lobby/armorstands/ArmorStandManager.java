@@ -75,7 +75,7 @@ public class ArmorStandManager {
             } else if (i instanceof  Prison){
                 i.updateArmorStand("prison", Main.getInstance().fetchData().getOnlinePlayers("prison"));
             } else if (i instanceof VanillaSkyblock){
-                //i.updateArmorStand("factions", Main.getInstance().fetchData().getOnlinePlayers("factions"));
+                i.updateArmorStand("vanillasb", Main.getInstance().fetchData().getOnlinePlayers("vanillasb"));
             } else if (i instanceof Vanilla){
                 i.updateArmorStand("vanilla", Main.getInstance().fetchData().getOnlinePlayers("vanilla"));
             } else if (i instanceof BedWars) {

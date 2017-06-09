@@ -229,6 +229,9 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 32) {
                     sendToServer(player, "dlobby");
                 }
+                if (event.getSlot() == 26) {
+                    sendToServer(player, "vanillasb");
+                }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//
             if (event.getInventory().getTitle().equals("Hlavni menu")) {

@@ -78,7 +78,7 @@ public class VanillaSkyblock implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§8Uverejneni: 9.6.2017");
+        as3.setCustomName("§7Nacitani...");
     }
 
     @Override

@@ -103,6 +103,10 @@ public class Servers implements Listener {
             }
         }.runTaskTimerAsynchronously(Main.getPlugin(), 0, 25);
 
+        ItemStack vanillasb = ItemFactory.create(Material.PUMPKIN, (byte)0, "§6§lVanilla Skyblock", "§8Vanilla, Skyblock, RPG", "",
+                "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem","§7ostrove a plnit ukoly?", "", "§b▸ Kliknutim te portnu", getPlayers("vanillasb"));
+        inv.setItem(26, vanillasb);
+
         ItemStack lobby = ItemFactory.create(Material.BOOKSHELF, (byte) 0, "§c§lLobby", "", "§7Kliknutim zobrazis prehled", "§7vsech lobby na CM.", "", "§c▸ Nedostupne");
         inv.setItem(18, lobby);
 
