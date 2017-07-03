@@ -37,6 +37,8 @@ commands:
     description: Server teleport
   skygiants:
     description: Server teleport
+  vanillasb:
+    description: Server teleport
 
 permissions:
   craftlobby.pristup:
