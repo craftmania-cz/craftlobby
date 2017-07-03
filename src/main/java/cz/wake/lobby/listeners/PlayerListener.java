@@ -374,6 +374,7 @@ public class PlayerListener implements Listener {
         return (int) (A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
     }
 
+    //TODO: Dodelat portal
     @EventHandler
     public void onPortal(EntityPortalEnterEvent e) {
         Entity ent = e.getEntity();
@@ -384,7 +385,7 @@ public class PlayerListener implements Listener {
                     Main.getInstance().addPortal(p);
                     //Main.getInstance().getServerMenu().openServersMenu(p);
                 } else {
-                    ic.sendToServerBalancer(p, "main-lobby");
+                    //ic.sendToServerBalancer(p, "main-lobby");
                 }
                 new BukkitRunnable() {
                     @Override

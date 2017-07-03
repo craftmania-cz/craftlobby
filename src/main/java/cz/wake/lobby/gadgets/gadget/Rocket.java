@@ -63,8 +63,16 @@ public class Rocket implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.rocket")) {
             return;
         }
+        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+            player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
+            return;
+        }
         if (SettingsMenu.activeGadgets.contains(player)){
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            return;
+        }
+        if(!canBuild(player)){
+            player.sendMessage("§cNemas dostatecny prostor okolo sebe!");
             return;
         }
         e.setCancelled(true);
@@ -237,6 +245,84 @@ public class Rocket implements Listener {
 
     private static double arrondi(double A, int B) {
         return (int) (A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
+    }
+
+    public static boolean canBuild(Player p) {
+        ArrayList<Location> s0 = createSquare(p.getLocation().getBlock(), 0);
+        ArrayList<Location> s1 = createSquare(p.getLocation().getBlock(), 1);
+        ArrayList<Location> s2 = createSquare(p.getLocation().getBlock(), 2);
+        ArrayList<Location> s3 = createSquare(p.getLocation().getBlock(), 3);
+        ArrayList<Location> s4 = createSquare(p.getLocation().getBlock(), 4);
+
+        ArrayList<Location> y0 = createSquare(p.getLocation().add(0.0D, 1.0D, 0.0D).getBlock(), 0);
+        ArrayList<Location> y1 = createSquare(p.getLocation().add(0.0D, 1.0D, 0.0D).getBlock(), 1);
+        ArrayList<Location> y2 = createSquare(p.getLocation().add(0.0D, 1.0D, 0.0D).getBlock(), 2);
+        ArrayList<Location> y3 = createSquare(p.getLocation().add(0.0D, 1.0D, 0.0D).getBlock(), 3);
+        ArrayList<Location> y4 = createSquare(p.getLocation().add(0.0D, 1.0D, 0.0D).getBlock(), 4);
+        for (Location l0 : s0) {
+            if (!l0.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location l1 : s1) {
+            if (!l1.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location l2 : s2) {
+            if (!l2.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location l3 : s3) {
+            if (!l3.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location l4 : s4) {
+            if (!l4.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location Y0 : y0) {
+            if (!Y0.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location Y1 : y1) {
+            if (!Y1.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location Y2 : y2) {
+            if (!Y2.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location Y3 : y3) {
+            if (!Y3.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        for (Location Y4 : y4) {
+            if (!Y4.getBlock().isEmpty()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static ArrayList<Location> createSquare(Block center, int radius) {
+        ArrayList<Location> locs = new ArrayList();
+        for (int x = -radius; x <= radius; x++) {
+            for (int z = -radius; z <= radius; z++) {
+                if ((x == -radius) || (x == radius) || (z == -radius) || (z == radius)) {
+                    Block block = center.getWorld().getBlockAt(center.getX() + x, center.getY(), center.getZ() + z);
+                    locs.add(block.getLocation());
+                }
+            }
+        }
+        return locs;
     }
 
 }
