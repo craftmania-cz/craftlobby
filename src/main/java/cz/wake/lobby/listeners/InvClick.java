@@ -553,17 +553,20 @@ public class InvClick implements Listener {
 
     }
 
-    public void sendToServerBalancer(Player player, String section) {
+    public void sendToServer(Player player, String group, String end) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
         try {
             out.writeUTF("Connect");
-            out.writeUTF(section);
+            out.writeUTF(group);
+            out.writeUTF(end);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        player.sendPluginMessage(Main.getInstance(), "LobbyBalancer", b.toByteArray());
+        player.sendPluginMessage(Main.getPlugin(), "PlayerBalancer", b.toByteArray());
     }
+
 
     public void sendToServer(Player player, String target) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();

@@ -61,8 +61,8 @@ public class Servers implements Listener {
                 "§7se zlepsovat a kopat", "§7jinak budes pozadu.", "", "§b▸ Kliknutim te portnu", getPlayers("prison"));
         inv.setItem(24, pris);
 
-        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§e§lVanilla", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
-                "§7poznas co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
+        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§e§lVanilla (1.12)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
+                "§7poznas co to je zit", "§7na vlastni pest.","","§cTento server vyzaduje verzi 1.12", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
         inv.setItem(25, van);
 
         ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§a§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
