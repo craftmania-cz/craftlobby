@@ -1,10 +1,10 @@
 package cz.wake.lobby.utils.mobs;
 
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftSkeleton;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftSkeleton;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
@@ -27,7 +27,7 @@ public class RideableSkeleton extends EntitySkeleton{
         }
     }
 
-    @Override
+    /*@Override
     public void g(float f, float f1) {
         Entity passenger = null;
         for (Entity ent : this.passengers) {
@@ -88,7 +88,7 @@ public class RideableSkeleton extends EntitySkeleton{
             super.g(f, f1);
         }
 
-    }
+    }*/
 
     public static Skeleton spawn(Location location) {
         World mcWorld = (World) ((CraftWorld) location.getWorld()).getHandle();

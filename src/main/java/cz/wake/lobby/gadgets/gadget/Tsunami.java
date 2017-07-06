@@ -5,7 +5,7 @@ import cz.wake.lobby.listeners.MessagesListener;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import cz.wake.lobby.utils.UtilParticles;
-import net.minecraft.server.v1_10_R1.Block;
+import net.minecraft.server.v1_11_R1.Block;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;

@@ -22,21 +22,17 @@ import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.gadgets.pets.PetsAPI;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
-import cz.wake.lobby.utils.ExceptionHandler;
 import cz.wake.lobby.utils.mobs.*;
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 import java.io.ByteArrayOutputStream;
@@ -115,9 +111,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Id serveru
         idServer = getConfig().getString("server");
 
-        // Zachytavac unhandled exceptions
-        ExceptionHandler.enable(instance);
-
         // MDC tagy pro Sentry
         MDC.put("server", idServer);
         MDC.put("players", String.valueOf(Bukkit.getOnlinePlayers().size()));
@@ -165,7 +158,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public void onDisable() {
         sql.onDisable();
-        ExceptionHandler.disable(instance);
         instance = null;
     }
 
@@ -334,7 +326,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             out.writeUTF("Connect");
             out.writeUTF(target);
         } catch (Exception e) {
-            //TODO Napojit na Sentry
             e.printStackTrace();
         }
         player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());

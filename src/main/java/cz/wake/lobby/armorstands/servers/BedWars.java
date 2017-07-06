@@ -6,7 +6,6 @@ import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.Overridden;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -72,7 +71,7 @@ public class BedWars implements ASInterface {
         as2.setCustomName("§c§lBedWars");
     }
 
-    @Overridden
+    @Override
     public void subtextSpawn() {
         loc1.add(0, 0.3, 0);
 

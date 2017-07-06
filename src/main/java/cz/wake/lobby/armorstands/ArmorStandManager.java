@@ -22,7 +22,7 @@ public class ArmorStandManager {
         armorstands.add(new Prison());
         //armorstands.add(new PVPGames());
         armorstands.add(new SkyBlock());
-        armorstands.add(new SkyGiants());
+        //armorstands.add(new SkyGiants());
         armorstands.add(new SkyWars());
         armorstands.add(new Survival());
         armorstands.add(new Unknown1());

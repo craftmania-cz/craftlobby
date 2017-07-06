@@ -1,7 +1,7 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Endermite;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
