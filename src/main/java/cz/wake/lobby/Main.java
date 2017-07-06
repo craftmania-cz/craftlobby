@@ -5,25 +5,24 @@ import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.armorstands.ArmorStandManager;
 import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
+import cz.wake.lobby.commands.*;
 import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
-import cz.wake.lobby.listeners.ArmorStandInteract;
-import cz.wake.lobby.listeners.ChatListener;
-import cz.wake.lobby.manager.*;
 import cz.wake.lobby.gadgets.cloaks.CloaksAPI;
-import cz.wake.lobby.commands.*;
 import cz.wake.lobby.gadgets.gadget.*;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
-import cz.wake.lobby.listeners.InvClick;
-import cz.wake.lobby.listeners.PlayerListener;
 import cz.wake.lobby.gadgets.morphs.PigMorph;
 import cz.wake.lobby.gadgets.morphs.VillagerMorph;
 import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.gadgets.pets.PetsAPI;
+import cz.wake.lobby.listeners.ArmorStandInteract;
+import cz.wake.lobby.listeners.ChatListener;
+import cz.wake.lobby.listeners.InvClick;
+import cz.wake.lobby.listeners.PlayerListener;
+import cz.wake.lobby.manager.*;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.mobs.*;
-import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -98,7 +97,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         for (World w : Bukkit.getWorlds()) {
             w.setGameRuleValue("doFireTick", "false");
             w.setGameRuleValue("doDaylightCycle", "false");
-            for(Entity e : w.getEntities()){
+            for (Entity e : w.getEntities()) {
                 e.remove();
             }
         }
@@ -111,45 +110,46 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Id serveru
         idServer = getConfig().getString("server");
 
+        //TODO: Odebrat Sentry
         // MDC tagy pro Sentry
         MDC.put("server", idServer);
         MDC.put("players", String.valueOf(Bukkit.getOnlinePlayers().size()));
         MDC.put("version", Bukkit.getBukkitVersion());
 
-        //Register custom entit pro Pets
-        NMSUtils.registerEntity("Cow", 92, EntityCow.class, RideableCow.class);
-        NMSUtils.registerEntity("Chicken", 93, EntityChicken.class, RideableChicken.class);
-        NMSUtils.registerEntity("Pig", 90, EntityPig.class, RideablePig.class);
-        NMSUtils.registerEntity("Silverfish", 60, EntitySilverfish.class, RideableSilverfish.class);
-        NMSUtils.registerEntity("Wolf", 95, EntityWolf.class, RideableWolf.class);
-        NMSUtils.registerEntity("Zombie", 54, EntityZombie.class, RideableZombie.class);
-        NMSUtils.registerEntity("Rabbit", 101, EntityRabbit.class, RideableRabbit.class);
-        NMSUtils.registerEntity("Ozelot", 98, EntityOcelot.class, RideableCat.class);
-        NMSUtils.registerEntity("EntityHorse", 100, EntityHorse.class, RideableHorse.class);
-        NMSUtils.registerEntity("Sheep", 91, EntitySheep.class, RideableSheep.class);
-        NMSUtils.registerEntity("MushroomCow", 96, EntityMushroomCow.class, RideableMushroomCow.class);
-        NMSUtils.registerEntity("Slime", 55, EntitySlime.class, RideableSlime.class);
-        NMSUtils.registerEntity("Spider", 52, EntitySpider.class, RideableSpider.class);
-        NMSUtils.registerEntity("CaveSpider", 59, EntityCaveSpider.class, RideableCaveSpider.class);
-        NMSUtils.registerEntity("VillagerGolem", 99, EntityIronGolem.class, RideableGolem.class);
-        NMSUtils.registerEntity("Witch", 66, EntityWitch.class, RideableWitch.class);
-        NMSUtils.registerEntity("Enderman", 58, EntityEnderman.class, RideableEnderman.class);
-        NMSUtils.registerEntity("Blaze", 61, EntityBlaze.class, RideableBlaze.class);
-        NMSUtils.registerEntity("Villager", 120, EntityVillager.class, RideableVillager.class);
-        NMSUtils.registerEntity("Creeper", 50, EntityCreeper.class, RideableCreeper.class);
-        NMSUtils.registerEntity("Skeleton", 51, EntitySkeleton.class, RideableSkeleton.class);
-        NMSUtils.registerEntity("LavaSlime", 62, EntityMagmaCube.class, RideableMagmaCube.class);
-        NMSUtils.registerEntity("PolarBear", 102, EntityPolarBear.class, RideableBear.class);
-        NMSUtils.registerEntity("Guardian", 68, EntityGuardian.class, RideableGuardian.class);
+        //Register custom entit pro Pets (1.11.2)
+        CustomEntityRegistry.registerCustomEntity(92, "Cow", RideableCow.class);
+        CustomEntityRegistry.registerCustomEntity(91, "Sheep", RideableSheep.class);
+        CustomEntityRegistry.registerCustomEntity(93, "Chicken", RideableChicken.class);
+        CustomEntityRegistry.registerCustomEntity(90, "Pig", RideablePig.class);
+        CustomEntityRegistry.registerCustomEntity(60, "Silverfish", RideableSilverfish.class);
+        CustomEntityRegistry.registerCustomEntity(95, "Wolf", RideableWolf.class);
+        CustomEntityRegistry.registerCustomEntity(54, "Zombie", RideableZombie.class);
+        CustomEntityRegistry.registerCustomEntity(101, "Rabbit", RideableRabbit.class);
+        CustomEntityRegistry.registerCustomEntity(98, "Ozelot", RideableCat.class);
+        CustomEntityRegistry.registerCustomEntity(100, "EntityHorse", RideableHorse.class);
+        CustomEntityRegistry.registerCustomEntity(96, "MushroomCow", RideableMushroomCow.class);
+        CustomEntityRegistry.registerCustomEntity(55, "Slime", RideableSlime.class);
+        CustomEntityRegistry.registerCustomEntity(52, "Spider", RideableSpider.class);
+        CustomEntityRegistry.registerCustomEntity(59, "CaveSpider", RideableCaveSpider.class);
+        CustomEntityRegistry.registerCustomEntity(99, "VillagerGolem", RideableGolem.class);
+        CustomEntityRegistry.registerCustomEntity(66, "Witch", RideableWitch.class);
+        CustomEntityRegistry.registerCustomEntity(58, "Enderman", RideableEnderman.class);
+        CustomEntityRegistry.registerCustomEntity(61, "Blaze", RideableBlaze.class);
+        CustomEntityRegistry.registerCustomEntity(120, "Villager", RideableVillager.class);
+        CustomEntityRegistry.registerCustomEntity(50, "Creeper", RideableCreeper.class);
+        CustomEntityRegistry.registerCustomEntity(51, "Skeleton", RideableSkeleton.class);
+        CustomEntityRegistry.registerCustomEntity(62, "LavaSlime", RideableMagmaCube.class);
+        CustomEntityRegistry.registerCustomEntity(102, "PolarBear", RideableBear.class);
+        CustomEntityRegistry.registerCustomEntity(68, "Guardian", RideableGuardian.class);
 
-        if(getConfig().getString("server").equalsIgnoreCase("main")){
+        if (getConfig().getString("server").equalsIgnoreCase("main")) {
 
             // Spawn armorstandu
             ArmorStandManager.init();
             ArmorStandManager.spawn();
 
             // Update ArmorStandu
-            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L,1200L);
+            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
         }
 
         // Update AT time
@@ -283,7 +283,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return pets;
     }
 
-    public Menu getMenu(){
+    public Menu getMenu() {
         return m;
     }
 
@@ -307,15 +307,15 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return idServer;
     }
 
-    public ArrayList<Player> getPreQuestPlayers(){
+    public ArrayList<Player> getPreQuestPlayers() {
         return preQuest;
     }
 
-    public ArrayList<Player> getInQuestPlayers(){
+    public ArrayList<Player> getInQuestPlayers() {
         return inQuest;
     }
 
-    public ArmorStandManager getASM(){
+    public ArmorStandManager getASM() {
         return asm;
     }
 
