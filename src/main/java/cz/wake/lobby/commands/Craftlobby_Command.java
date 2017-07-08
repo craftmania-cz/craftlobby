@@ -13,17 +13,17 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.text.DecimalFormat;
 
-public class ProfilCMD implements CommandExecutor {
+public class Craftlobby_Command implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
         if (Sender instanceof Player) {
             Player player = (Player) Sender;
-            if ((Command.getName().equalsIgnoreCase("wlobby")) || (Command.getName().equalsIgnoreCase("wl"))) {
+            if ((Command.getName().equalsIgnoreCase("clobby")) || (Command.getName().equalsIgnoreCase("cl"))) {
                 if (ArrayOfString.length == 0) {
                     player.sendMessage("");
                     player.sendMessage(ChatColor.YELLOW + "Pouzij nasledujici prikazy:");
-                    player.sendMessage(ChatColor.AQUA + "/wlobby debug" + ChatColor.GRAY + " - Aktivuje debug rezim");
+                    player.sendMessage(ChatColor.AQUA + "/clobby debug" + ChatColor.GRAY + " - Aktivuje debug rezim");
                     player.sendMessage("");
                     return true;
                 } else if (ArrayOfString[0].equalsIgnoreCase("debug")) {

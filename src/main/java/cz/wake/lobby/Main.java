@@ -32,7 +32,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.slf4j.MDC;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -109,12 +108,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Id serveru
         idServer = getConfig().getString("server");
-
-        //TODO: Odebrat Sentry
-        // MDC tagy pro Sentry
-        MDC.put("server", idServer);
-        MDC.put("players", String.valueOf(Bukkit.getOnlinePlayers().size()));
-        MDC.put("version", Bukkit.getBukkitVersion());
 
         //Register custom entit pro Pets (1.11.2)
         CustomEntityRegistry.registerCustomEntity(92, "Cow", RideableCow.class);
@@ -219,8 +212,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     }
 
     private void loadCommands() {
-        getCommand("wlobby").setExecutor(new ProfilCMD());
-        getCommand("wl").setExecutor(new ProfilCMD());
+        getCommand("clobby").setExecutor(new Craftlobby_Command());
+        getCommand("cl").setExecutor(new Craftlobby_Command());
         getCommand("stats").setExecutor(new Stats_Command());
         getCommand("sbperms").setExecutor(new SBPerms_command());
         getCommand("cbperms").setExecutor(new CBPerms_command());
