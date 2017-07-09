@@ -33,7 +33,7 @@ public class CatNormal {
         }
         ((Ocelot) ocelot).setCatType(type);
         ((Ocelot) ocelot).setCustomNameVisible(true);
-        ((Ocelot) ocelot).setCustomName(p.getName().toString());
+        ((Ocelot) ocelot).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) ocelot);
         cb.add(p.getName());
         p.closeInventory();

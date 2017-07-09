@@ -311,15 +311,57 @@ public class PetsAPI implements Listener{
             ItemStack i = ItemFactory.create(Material.IRON_AXE, (byte)0, "§eVindicator", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
             inv.setItem(27, i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVindicator", "§7Nevlastnis ani jeden druh.");
-            inv.setItem(27, i);
+            inv.setItem(27, nakup("Vindicator", 100));
         }
         if(p.hasPermission("craftlobby.pets.evoker")){
             ItemStack i = ItemFactory.create(Material.TOTEM, (byte)0, "§eEvoker", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
             inv.setItem(28, i);
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEvoker", "§7Nevlastnis ani jeden druh.");
-            inv.setItem(28, i);
+            inv.setItem(28, nakup("Evoker", 400));
+        }
+        if(p.hasPermission("craftlobby.pets.vex")){
+            ItemStack i = ItemFactory.create(Material.IRON_SWORD, (byte)0, "§eVex", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+            inv.setItem(29, i);
+        } else {
+            inv.setItem(29, nakup("Vex", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.white")
+                || p.hasPermission("craftlobby.pets.llama.orange")
+                || p.hasPermission("craftlobby.pets.llama.magenta")
+                || p.hasPermission("craftlobby.pets.llama.lightblue")
+                || p.hasPermission("craftlobby.pets.llama.yellow")
+                || p.hasPermission("craftlobby.pets.llama.lime")
+                || p.hasPermission("craftlobby.pets.llama.pink")
+                || p.hasPermission("craftlobby.pets.llama.gray")
+                || p.hasPermission("craftlobby.pets.llama.lightgray")
+                || p.hasPermission("craftlobby.pets.llama.cyan")
+                || p.hasPermission("craftlobby.pets.llama.purple")
+                || p.hasPermission("craftlobby.pets.llama.blue")
+                || p.hasPermission("craftlobby.pets.llama.brown")
+                || p.hasPermission("craftlobby.pets.llama.green")
+                || p.hasPermission("craftlobby.pets.llama.red")
+                || p.hasPermission("craftlobby.pets.llama.black")
+                || p.hasPermission("craftlobby.pets.llama.white.baby")
+                || p.hasPermission("craftlobby.pets.llama.orange.baby")
+                || p.hasPermission("craftlobby.pets.llama.magenta.baby")
+                || p.hasPermission("craftlobby.pets.llama.lightblue.baby")
+                || p.hasPermission("craftlobby.pets.llama.yellow.baby")
+                || p.hasPermission("craftlobby.pets.llama.lime.baby")
+                || p.hasPermission("craftlobby.pets.llama.pink.baby")
+                || p.hasPermission("craftlobby.pets.llama.gray.baby")
+                || p.hasPermission("craftlobby.pets.llama.lightgray.baby")
+                || p.hasPermission("craftlobby.pets.llama.cyan.baby")
+                || p.hasPermission("craftlobby.pets.llama.purple.baby")
+                || p.hasPermission("craftlobby.pets.llama.blue.baby")
+                || p.hasPermission("craftlobby.pets.llama.brown.baby")
+                || p.hasPermission("craftlobby.pets.llama.green.baby")
+                || p.hasPermission("craftlobby.pets.llama.red.baby")
+                || p.hasPermission("craftlobby.pets.llama.black.baby")){
+            ItemStack i = ItemFactory.create(Material.getMaterial(420), (byte)0,  "§eLlama","", getCountLlama(p), "","§aKliknutim zobrazis prehled.");
+            inv.setItem(30, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cLlama", "§7Nevlastnis ani jeden druh.");
+            inv.setItem(30, i);
         }
 
 		//Deaktivace
@@ -343,7 +385,225 @@ public class PetsAPI implements Listener{
 		p.openInventory(inv);
 	}
 
-	public void openVillagerMenu(final Player p){
+    private void openLlamaMenu(final Player p){
+
+        Inventory inv = Bukkit.createInventory(null, 54, "Pets - Llama");
+
+        if(p.hasPermission("craftlobby.pets.llama.white")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)0, "§aLlama: White","", "§eKliknutim spawnes!");
+            inv.setItem(0, i);
+        } else {
+            inv.setItem(0, nakup("Llama: White", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.orange")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)1, "§aLlama: Orange","", "§eKliknutim spawnes!");
+            inv.setItem(1, i);
+        } else {
+            inv.setItem(1, nakup("Llama: Orange", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.magenta")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)2, "§aLlama: Magenta","", "§eKliknutim spawnes!");
+            inv.setItem(2, i);
+        } else {
+            inv.setItem(2, nakup("Llama: Magenta", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightblue")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)3, "§aLlama: Light Blue","", "§eKliknutim spawnes!");
+            inv.setItem(3, i);
+        } else {
+            inv.setItem(3, nakup("Llama: Light Blue", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.yellow")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)4, "§aLlama: Yellow","", "§eKliknutim spawnes!");
+            inv.setItem(4, i);
+        } else {
+            inv.setItem(4, nakup("Llama: Yellow", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lime")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)5, "§aLlama: Lime","", "§eKliknutim spawnes!");
+            inv.setItem(5, i);
+        } else {
+            inv.setItem(5, nakup("Llama: Lime", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.pink")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)6, "§aLlama: Pink","", "§eKliknutim spawnes!");
+            inv.setItem(6, i);
+        } else {
+            inv.setItem(6, nakup("Llama: Pink", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.gray")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)7, "§aLlama: Gray","", "§eKliknutim spawnes!");
+            inv.setItem(7, i);
+        } else {
+            inv.setItem(7, nakup("Llama: Gray", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightgray")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)8, "§aLlama: Light Gray","", "§eKliknutim spawnes!");
+            inv.setItem(8, i);
+        } else {
+            inv.setItem(8, nakup("Llama: Light Gray", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.cyan")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)9, "§aLlama: Cyan","", "§eKliknutim spawnes!");
+            inv.setItem(9, i);
+        } else {
+            inv.setItem(9, nakup("Llama: Cyan", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.purple")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)10, "§aLlama: Purple","", "§eKliknutim spawnes!");
+            inv.setItem(10, i);
+        } else {
+            inv.setItem(10, nakup("Llama: Purple", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.blue")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)11, "§aLlama: Blue","", "§eKliknutim spawnes!");
+            inv.setItem(11, i);
+        } else {
+            inv.setItem(11, nakup("Llama: Blue", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.brown")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)12, "§aLlama: Brown","", "§eKliknutim spawnes!");
+            inv.setItem(12, i);
+        } else {
+            inv.setItem(12, nakup("Llama: Brown", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.green")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)13, "§aLlama: Green","", "§eKliknutim spawnes!");
+            inv.setItem(13, i);
+        } else {
+            inv.setItem(13, nakup("Llama: Green", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.red")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)14, "§aLlama: Red","", "§eKliknutim spawnes!");
+            inv.setItem(14, i);
+        } else {
+            inv.setItem(14, nakup("Llama: Red", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.black")){
+            ItemStack i = ItemFactory.create(Material.WOOL, (byte)15, "§aLlama: Black","", "§eKliknutim spawnes!");
+            inv.setItem(15, i);
+        } else {
+            inv.setItem(15, nakup("Llama: Black", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.white.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)0, "§aLlama: White (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(16, i);
+        } else {
+            inv.setItem(16, nakup("Llama: White (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.orange.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)1, "§aLlama: Orange (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(17, i);
+        } else {
+            inv.setItem(17, nakup("Llama: Orange (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.magenta.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)2, "§aLlama: Magenta (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(18, i);
+        } else {
+            inv.setItem(18, nakup("Llama: Magenta (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightblue.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)3, "§aLlama: Light Blue (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(19, i);
+        } else {
+            inv.setItem(19, nakup("Llama: Light Blue (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.yellow.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)4, "§aLlama: Yellow (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(20, i);
+        } else {
+            inv.setItem(20, nakup("Llama: Yellow (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lime.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)5, "§aLlama: Lime (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(21, i);
+        } else {
+            inv.setItem(21, nakup("Llama: Lime (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.pink.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)6, "§aLlama: Pink (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(22, i);
+        } else {
+            inv.setItem(22, nakup("Llama: Pink (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.gray.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)7, "§aLlama: Gray (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(23, i);
+        } else {
+            inv.setItem(23, nakup("Llama: Gray (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightgray.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)8, "§aLlama: Light Gray (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(24, i);
+        } else {
+            inv.setItem(24, nakup("Llama: Light Gray (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.cyan.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)9, "§aLlama: Cyan (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(25, i);
+        } else {
+            inv.setItem(25, nakup("Llama: Cyan (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.purple.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)10, "§aLlama: Purple (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(26, i);
+        } else {
+            inv.setItem(26, nakup("Llama: Purple (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.blue.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)11, "§aLlama: Blue (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(27, i);
+        } else {
+            inv.setItem(27, nakup("Llama: Blue (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.brown.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)12, "§aLlama: Brown (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(28, i);
+        } else {
+            inv.setItem(28, nakup("Llama: Brown (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.green.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)13, "§aLlama: Green (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(29, i);
+        } else {
+            inv.setItem(29, nakup("Llama: Green (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.red.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)14, "§aLlama: Red (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(30, i);
+        } else {
+            inv.setItem(30, nakup("Llama: Red (Baby)", 100));
+        }
+        if(p.hasPermission("craftlobby.pets.llama.black.baby")){
+            ItemStack i = ItemFactory.create(Material.CARPET, (byte)15, "§aLlama: Black (Baby)","", "§eKliknutim spawnes!");
+            inv.setItem(31, i);
+        } else {
+            inv.setItem(31, nakup("Llama: Red (Baby)", 100));
+        }
+
+        //Deaktivace
+        ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
+
+        //Zpet do menu
+        ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet do Gadgets menu");
+
+        //Shop
+        ItemStack shopItem = ItemFactory.create(Material.CHEST, (byte)0, "§a§lGadgets",
+                "§7Gadgety jsou doplnky do lobby",
+                "§7daji se ziskat z CraftBoxu nebo na",
+                "§7specialnich eventech.",
+                "",
+                "§7Aktualni stav: §6" +  Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
+
+        inv.setItem(50, dea);
+        inv.setItem(49, shopItem);
+        inv.setItem(48, zpet);
+
+        p.openInventory(inv);
+    }
+
+	private void openVillagerMenu(final Player p){
 
 		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Villager");
 
@@ -1672,15 +1932,28 @@ public class PetsAPI implements Listener{
                 if(p.hasPermission("craftlobby.pets.vindicator")){
                     VindicatorNormal.activateWitch(p);
                 } else {
-                    this.ml.messageNoPerm(p,"Vindicator");
+                    ItemStack i = ItemFactory.create(Material.IRON_AXE, (byte)0, "§eVindicator", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Vindicator", "craftlobby.pets.vindicator", i, 100);
                 }
             }
             if(e.getSlot() == 28){
                 if(p.hasPermission("craftlobby.pets.evoker")){
                     EvokerNormal.activateWitch(p);
                 } else {
-                    this.ml.messageNoPerm(p,"Vindicator");
+                    ItemStack i = ItemFactory.create(Material.TOTEM, (byte)0, "§eEvoker", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Evoker", "craftlobby.pets.evoker", i, 400);
                 }
+            }
+            if(e.getSlot() == 29){
+                if(p.hasPermission("craftlobby.pets.vex")){
+                    VexNormal.activate(p);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.IRON_SWORD, (byte)0, "§eVex", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Vex", "craftlobby.pets.vex", i, 100);
+                }
+            }
+            if(e.getSlot() == 30){
+                this.openLlamaMenu(p);
             }
 		}
 		if(e.getInventory().getTitle().equals("Pets - CatNormal")){
@@ -1883,6 +2156,312 @@ public class PetsAPI implements Listener{
 				}
 			}
 		}
+        if(e.getInventory().getTitle().equals("Pets - Llama")){
+            if (e.getCurrentItem() == null){
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR){
+                return;
+            }
+            if(e.getSlot() == 49){
+                Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
+            }
+            if(e.getSlot() == 48){
+                this.openMainInv(p);
+            }
+            if(e.getSlot() == 50){
+                PetManager.forceRemovePet(p);
+                p.closeInventory();
+            }
+            if(e.getSlot() == 0){
+                if(p.hasPermission("craftlobby.pets.llama.white")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)0, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)0, "§aLlama: White","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: White", "craftlobby.pets.llama.white", i, 100);
+                }
+            }
+            if(e.getSlot() == 1){
+                if(p.hasPermission("craftlobby.pets.llama.orange")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)1, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)1, "§aLlama: Orange","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Orange", "craftlobby.pets.llama.orange", i, 100);
+                }
+            }
+            if(e.getSlot() == 2){
+                if(p.hasPermission("craftlobby.pets.llama.magenta")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)2, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)2, "§aLlama: Magenta","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Magenta", "craftlobby.pets.llama.magenta", i, 100);
+                }
+            }
+            if(e.getSlot() == 3){
+                if(p.hasPermission("craftlobby.pets.llama.lightblue")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)3, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)3, "§aLlama: Light Blue","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Light Blue", "craftlobby.pets.llama.lightblue", i, 100);
+                }
+            }
+            if(e.getSlot() == 4){
+                if(p.hasPermission("craftlobby.pets.llama.yellow")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)4, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)4, "§aLlama: Yellow","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Yellow", "craftlobby.pets.llama.yellow", i, 100);
+                }
+            }
+            if(e.getSlot() == 5){
+                if(p.hasPermission("craftlobby.pets.llama.lime")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)5, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)5, "§aLlama: Lime","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Lime", "craftlobby.pets.llama.lime", i, 100);
+                }
+            }
+            if(e.getSlot() == 6){
+                if(p.hasPermission("craftlobby.pets.llama.pink")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)6, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)6, "§aLlama: Pink","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Pink", "craftlobby.pets.llama.pink", i, 100);
+                }
+            }
+            if(e.getSlot() == 7){
+                if(p.hasPermission("craftlobby.pets.llama.gray")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)7, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)7, "§aLlama: Gray","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Gray", "craftlobby.pets.llama.gray", i, 100);
+                }
+            }
+            if(e.getSlot() == 8){
+                if(p.hasPermission("craftlobby.pets.llama.lightgray")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)8, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)8, "§aLlama: Light Gray","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Light Gray", "craftlobby.pets.llama.lightgray", i, 100);
+                }
+            }
+            if(e.getSlot() == 9){
+                if(p.hasPermission("craftlobby.pets.llama.cyan")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)9, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)9, "§aLlama: Cyan","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Cyan", "craftlobby.pets.llama.cyan", i, 100);
+                }
+            }
+            if(e.getSlot() == 10){
+                if(p.hasPermission("craftlobby.pets.llama.purple")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)10, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)10, "§aLlama: Purple","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Purple", "craftlobby.pets.llama.purple", i, 100);
+                }
+            }
+            if(e.getSlot() == 11){
+                if(p.hasPermission("craftlobby.pets.llama.blue")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)11, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)11, "§aLlama: Blue","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Blue", "craftlobby.pets.llama.blue", i, 100);
+                }
+            }
+            if(e.getSlot() == 12){
+                if(p.hasPermission("craftlobby.pets.llama.brown")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)12, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)12, "§aLlama: Brown","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Brown", "craftlobby.pets.llama.brown", i, 100);
+                }
+            }
+            if(e.getSlot() == 13){
+                if(p.hasPermission("craftlobby.pets.llama.green")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)13, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)13, "§aLlama: Green","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Green", "craftlobby.pets.llama.green", i, 100);
+                }
+            }
+            if(e.getSlot() == 14){
+                if(p.hasPermission("craftlobby.pets.llama.red")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)14, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)14, "§aLlama: Red","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Red", "craftlobby.pets.llama.red", i, 100);
+                }
+            }
+            if(e.getSlot() == 15){
+                if(p.hasPermission("craftlobby.pets.llama.black")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)15, "Super secret");
+                    LlamaNormal.activate(p,false, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.WOOL, (byte)15, "§aLlama: Black","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Black", "craftlobby.pets.llama.black", i, 100);
+                }
+            }
+            if(e.getSlot() == 16){
+                if(p.hasPermission("craftlobby.pets.llama.white.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)0, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)0, "§aLlama: White (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: White (Baby)", "craftlobby.pets.llama.white.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 17){
+                if(p.hasPermission("craftlobby.pets.llama.orange.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)1, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)1, "§aLlama: Orange (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Orange (Baby)", "craftlobby.pets.llama.orange.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 18){
+                if(p.hasPermission("craftlobby.pets.llama.magenta.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)2, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)2, "§aLlama: Magenta (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Magenta (Baby)", "craftlobby.pets.llama.magenta.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 19){
+                if(p.hasPermission("craftlobby.pets.llama.lightblue.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)3, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)3, "§aLlama: Light Blue (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Light Blue (Baby)", "craftlobby.pets.llama.lightblue.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 20){
+                if(p.hasPermission("craftlobby.pets.llama.yellow.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)4, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)4, "§aLlama: Yellow (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Yellow (Baby)", "craftlobby.pets.llama.yellow.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 21){
+                if(p.hasPermission("craftlobby.pets.llama.lime.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)5, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)5, "§aLlama: Lime (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Lime (Baby)", "craftlobby.pets.llama.lime.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 22){
+                if(p.hasPermission("craftlobby.pets.llama.pink.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)6, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)6, "§aLlama: Pink (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Pink (Baby)", "craftlobby.pets.llama.pink.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 23){
+                if(p.hasPermission("craftlobby.pets.llama.gray.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)7, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)7, "§aLlama: Gray (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Gray (Baby)", "craftlobby.pets.llama.gray.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 24){
+                if(p.hasPermission("craftlobby.pets.llama.lightgray.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)8, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)8, "§aLlama: Light Gray (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Light Gray (Baby)", "craftlobby.pets.llama.lightgray.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 25){
+                if(p.hasPermission("craftlobby.pets.llama.cyan.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)9, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)9, "§aLlama: Cyan (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Cyan (Baby)", "craftlobby.pets.llama.cyan.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 26){
+                if(p.hasPermission("craftlobby.pets.llama.purple.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)10, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)10, "§aLlama: Purple (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Purple (Baby)", "craftlobby.pets.llama.purple.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 27){
+                if(p.hasPermission("craftlobby.pets.llama.blue.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)11, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)11, "§aLlama: Blue (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Blue (Baby)", "craftlobby.pets.llama.blue.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 28){
+                if(p.hasPermission("craftlobby.pets.llama.brown.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)12, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)12, "§aLlama: Brown (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Brown (Baby)", "craftlobby.pets.llama.brown.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 29){
+                if(p.hasPermission("craftlobby.pets.llama.green.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)13, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)13, "§aLlama: Green (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Green (Baby)", "craftlobby.pets.llama.green.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 30){
+                if(p.hasPermission("craftlobby.pets.llama.red.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)14, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)14, "§aLlama: Red (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Red (Baby)", "craftlobby.pets.llama.red.baby", i, 100);
+                }
+            }
+            if(e.getSlot() == 31){
+                if(p.hasPermission("craftlobby.pets.llama.black.baby")){
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)15, "Super secret");
+                    LlamaNormal.activate(p,true, Llama.Color.WHITE,i);
+                } else {
+                    ItemStack i = ItemFactory.create(Material.CARPET, (byte)15, "§aLlama: Black (Baby)","", "§eKliknutim spawnes!");
+                    Shop.open(p, "Llama: Black (Baby)", "craftlobby.pets.llama.black.baby", i, 100);
+                }
+            }
+        }
 		if(e.getInventory().getTitle().equals("Pets - Wolf")){
 			if (e.getCurrentItem() == null){
 				return;
@@ -2956,6 +3535,14 @@ public class PetsAPI implements Listener{
         return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
     }
 
+    private String getCountLlama(Player p){
+        int i = this.countLlamaPermissions(p);
+        int sum = 32;
+        int prc = (i * 100 / sum);
+
+        return "§7Odemknuto: §f" + i + "/" + sum + " §8(" + prc + "%)";
+    }
+
 
     private int countCowPermissions(Player p){
         int c = 0;
@@ -2969,6 +3556,107 @@ public class PetsAPI implements Listener{
             c++;
         }
         if (p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+            c++;
+        }
+        return c;
+    }
+
+    private int countLlamaPermissions(Player p){
+        int c = 0;
+        if(p.hasPermission("craftlobby.pets.llama.white")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.orange")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.magenta")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightblue")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.yellow")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lime")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.pink")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.gray")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightgray")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.cyan")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.purple")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.blue")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.brown")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.green")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.red")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.black")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.white.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.orange.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.magenta.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightblue.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.yellow.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lime.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.pink.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.gray.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightgray.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.cyan.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.purple.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.blue.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.brown.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.green.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.red.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.black.baby")){
             c++;
         }
         return c;

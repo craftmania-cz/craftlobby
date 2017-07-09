@@ -24,6 +24,7 @@ public class VexNormal {
         PetManager.PetFollow(p, (CraftEntity) vex, 0.16D, 1.5D);
         setMetadata((CraftVex) vex, "Pet", "Pet", Main.getInstance());
         PetManager.pet.put(p, (CraftEntity) vex);
+        p.closeInventory();
     }
 
     public static void setMetadata(Vex paramPig, String paramString, Object paramObject, Main paramMain) {

@@ -19,6 +19,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PetManager implements Listener {
@@ -171,12 +172,14 @@ public class PetManager implements Listener {
         if (mob.getType() == EntityType.WITHER_SKULL) {
             return;
         }
+        if (mob.getType() == EntityType.VEX) {
+            return;
+        }
         if (mob.getType() == EntityType.WITHER) {
             player.sendMessage("§cNa tohoto moba nelze nasednou!");
             return;
         }
         if (mob.getType() == EntityType.BAT) {
-            player.sendMessage("§cNa tohoto moba nelze nasednou!");
             return;
         }
         if ((mob.getName().contains(player.getName()))) {
