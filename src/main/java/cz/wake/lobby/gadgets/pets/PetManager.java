@@ -11,6 +11,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityCombustEvent;
+import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.event.entity.EntityTeleportEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerKickEvent;
@@ -87,8 +88,8 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void PetRemoveOnLeave(PlayerQuitEvent paramPlayerQuitEvent) {
-        Player localPlayer = paramPlayerQuitEvent.getPlayer();
+    public void PetRemoveOnLeave(PlayerQuitEvent e) {
+        Player localPlayer = e.getPlayer();
         for (Entity localEntity : localPlayer.getWorld().getEntities()) {
             if (localEntity == pet.get(localPlayer)) {
                 pet.remove(localEntity);
@@ -98,8 +99,8 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void PetRemoveOnLeave(PlayerKickEvent paramPlayerKickEvent) {
-        Player localPlayer = paramPlayerKickEvent.getPlayer();
+    public void PetRemoveOnLeave(PlayerKickEvent e) {
+        Player localPlayer = e.getPlayer();
         for (Entity localEntity : localPlayer.getWorld().getEntities()) {
             if (localEntity == pet.get(localPlayer)) {
                 pet.remove(localEntity);
@@ -109,13 +110,30 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void MobOnFire(EntityCombustEvent paramEntityCombustEvent) {
-        Entity localEntity = paramEntityCombustEvent.getEntity();
+    public void MobOnFire(EntityCombustEvent e) {
+        Entity localEntity = e.getEntity();
         if ((!(localEntity instanceof Skeleton)) && (!(localEntity instanceof Zombie))) {
             return;
         }
         if (localEntity.hasMetadata("Pet")) {
-            paramEntityCombustEvent.setCancelled(true);
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onTarget(EntityTargetEvent e) {
+        Entity entity = e.getEntity();
+
+        if(!(e.getTarget() instanceof Player)){
+            e.setCancelled(true);
+        }
+
+        if(entity instanceof Evoker){
+            if(PetManager.pet.containsKey((Player)e.getTarget())){
+                e.setCancelled(true);
+            }
+        } else {
+            e.setCancelled(true);
         }
     }
 
@@ -128,7 +146,23 @@ public class PetManager implements Listener {
             player.sendMessage("§cNa tohoto moba nelze nasednou!");
             return;
         }
+        //Easter Egg
         if (mob.getType() == EntityType.PLAYER) {
+            if(player.isSneaking()){
+                if(PetManager.pet.containsKey(player)){
+                    Entity ent = PetManager.pet.get(player);
+                    if(ent instanceof Evoker){
+                        ((Evoker)ent).setTarget(mob);
+                        player.sendMessage("§eEvoker ted bude minutu utocit na §f" + mob.getName());
+                        Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                ((Evoker)ent).setTarget(null);
+                            }
+                        }, 1200L);
+                    }
+                }
+            }
             return;
         }
         if (mob.getType() == EntityType.PRIMED_TNT) {
@@ -175,8 +209,8 @@ public class PetManager implements Listener {
         if (PigNormal.pn.contains(p.getName())) {
             PigNormal.pn.remove(p.getName());
         }
-        if (Cat.cb.contains(p.getName())) {
-            Cat.cb.remove(p.getName());
+        if (CatNormal.cb.contains(p.getName())) {
+            CatNormal.cb.remove(p.getName());
         }
         if (ChickenNormal.cn.contains(p.getName())) {
             ChickenNormal.cn.remove(p.getName());
@@ -237,6 +271,12 @@ public class PetManager implements Listener {
         }
         if (EndermiteNormal.en.contains(p.getName())) {
             EndermiteNormal.en.remove(p.getName());
+        }
+        if (VindicatorNormal.cn.contains(p.getName())) {
+            VindicatorNormal.cn.remove(p.getName());
+        }
+        if (EvokerNormal.cn.contains(p.getName())) {
+            EvokerNormal.cn.remove(p.getName());
         }
     }
 }

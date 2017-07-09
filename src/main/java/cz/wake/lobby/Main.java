@@ -134,6 +134,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(62, "LavaSlime", RideableMagmaCube.class);
         CustomEntityRegistry.registerCustomEntity(102, "PolarBear", RideableBear.class);
         CustomEntityRegistry.registerCustomEntity(68, "Guardian", RideableGuardian.class);
+        CustomEntityRegistry.registerCustomEntity(36, "Vindicator", RideableVindicator.class);
+        CustomEntityRegistry.registerCustomEntity(34, "Evoker", RideableEvoker.class);
+        CustomEntityRegistry.registerCustomEntity(103, "Llama", RideableLlama.class);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")) {
 
@@ -248,7 +251,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     }
 
     public static Plugin getPlugin() {
-        return Bukkit.getPluginManager().getPlugin("WakesLobby");
+        return Bukkit.getPluginManager().getPlugin("CraftLobby");
     }
 
     public double getTPS() {

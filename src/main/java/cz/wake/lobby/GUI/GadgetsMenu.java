@@ -162,7 +162,7 @@ public class GadgetsMenu implements Listener {
 
     private String countPets(Player p) {
         int part = getPetsCount(p);
-        int sum = 126;
+        int sum = 127;
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
@@ -710,6 +710,9 @@ public class GadgetsMenu implements Listener {
             c++;
         }
         if (p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.vindicator")){
             c++;
         }
         return c;

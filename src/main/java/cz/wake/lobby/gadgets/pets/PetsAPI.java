@@ -307,6 +307,20 @@ public class PetsAPI implements Listener{
             ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cGuardian", "§7Nevlastnis ani jeden druh.");
             inv.setItem(26, i);
         }
+        if(p.hasPermission("craftlobby.pets.vindicator")){
+            ItemStack i = ItemFactory.create(Material.IRON_AXE, (byte)0, "§eVindicator", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+            inv.setItem(27, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVindicator", "§7Nevlastnis ani jeden druh.");
+            inv.setItem(27, i);
+        }
+        if(p.hasPermission("craftlobby.pets.evoker")){
+            ItemStack i = ItemFactory.create(Material.TOTEM, (byte)0, "§eEvoker", "", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+            inv.setItem(28, i);
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEvoker", "§7Nevlastnis ani jeden druh.");
+            inv.setItem(28, i);
+        }
 
 		//Deaktivace
 		ItemStack dea = ItemFactory.create(Material.STAINED_GLASS,(byte)14,"§cDeaktivovat");
@@ -1436,55 +1450,55 @@ public class PetsAPI implements Listener{
 
 	public void openCatMenu(final Player p){
 
-		Inventory inv = Bukkit.createInventory(null, 27, "Pets - Cat");
+		Inventory inv = Bukkit.createInventory(null, 27, "Pets - CatNormal");
 
 		if(p.hasPermission("craftlobby.pets.cat.black")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Black", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			inv.setItem(0, nakup("Cat: Black", 300));
+			inv.setItem(0, nakup("CatNormal: Black", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.black.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Black (Baby)", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			inv.setItem(1, nakup("Cat: Black (Baby)", 350));
+			inv.setItem(1, nakup("CatNormal: Black (Baby)", 350));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.red")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Red", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			inv.setItem(2, nakup("Cat: Red", 300));
+			inv.setItem(2, nakup("CatNormal: Red", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.red.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Red (Baby)", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
 			inv.setItem(3,i);
 		} else {
-			inv.setItem(3, nakup("Cat: Red (Baby)", 350));
+			inv.setItem(3, nakup("CatNormal: Red (Baby)", 350));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.siamese")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			inv.setItem(4, nakup("Cat: SIamese", 300));
+			inv.setItem(4, nakup("CatNormal: SIamese", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.siamese.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese (Baby)", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
-			inv.setItem(5, nakup("Cat: Siamese (Baby)", 350));
+			inv.setItem(5, nakup("CatNormal: Siamese (Baby)", 350));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.wild")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Wild", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
 			inv.setItem(6,i);
 		} else {
-			inv.setItem(6, nakup("Cat: Wild", 300));
+			inv.setItem(6, nakup("CatNormal: Wild", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.cat.wild.baby")){
 			ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Wild (Baby)", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
 			inv.setItem(7,i);
 		} else {
-			inv.setItem(7, nakup("Cat: Wild (Baby)", 350));
+			inv.setItem(7, nakup("CatNormal: Wild (Baby)", 350));
 		}
 
 		//Deaktivace
@@ -1654,8 +1668,22 @@ public class PetsAPI implements Listener{
             if(e.getSlot() == 26){
                 this.openGuardianMenu(p);
             }
+            if(e.getSlot() == 27){
+                if(p.hasPermission("craftlobby.pets.vindicator")){
+                    VindicatorNormal.activateWitch(p);
+                } else {
+                    this.ml.messageNoPerm(p,"Vindicator");
+                }
+            }
+            if(e.getSlot() == 28){
+                if(p.hasPermission("craftlobby.pets.evoker")){
+                    EvokerNormal.activateWitch(p);
+                } else {
+                    this.ml.messageNoPerm(p,"Vindicator");
+                }
+            }
 		}
-		if(e.getInventory().getTitle().equals("Pets - Cat")){
+		if(e.getInventory().getTitle().equals("Pets - CatNormal")){
 			if (e.getCurrentItem() == null){
 				return;
 			}
@@ -1674,66 +1702,66 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 0){
 				if(p.hasPermission("craftlobby.pets.cat.black")){
-					Cat.activate(p, false, Ocelot.Type.BLACK_CAT);
+					CatNormal.activate(p, false, Ocelot.Type.BLACK_CAT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Black", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Black", "craftlobby.pets.cat.black", i, 300);
+                    Shop.open(p, "CatNormal: Black", "craftlobby.pets.cat.black", i, 300);
                 }
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.cat.black.baby")){
-					Cat.activate(p, true, Ocelot.Type.BLACK_CAT);
+					CatNormal.activate(p, true, Ocelot.Type.BLACK_CAT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Black (Baby)", "", "§7Barva: §8Black","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Black (Baby)", "craftlobby.pets.cat.black.baby", i, 350);
+                    Shop.open(p, "CatNormal: Black (Baby)", "craftlobby.pets.cat.black.baby", i, 350);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.cat.red")){
-					Cat.activate(p, false, Ocelot.Type.RED_CAT);
+					CatNormal.activate(p, false, Ocelot.Type.RED_CAT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Red", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Red", "craftlobby.pets.cat.red", i, 300);
+                    Shop.open(p, "CatNormal: Red", "craftlobby.pets.cat.red", i, 300);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.cat.red.baby")){
-					Cat.activate(p, true, Ocelot.Type.RED_CAT);
+					CatNormal.activate(p, true, Ocelot.Type.RED_CAT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Red (Baby)", "", "§7Barva: §8Red","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Red (Baby)", "craftlobby.pets.cat.red.baby", i, 350);
+                    Shop.open(p, "CatNormal: Red (Baby)", "craftlobby.pets.cat.red.baby", i, 350);
 				}
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.cat.siamese")){
-					Cat.activate(p, false, Ocelot.Type.SIAMESE_CAT);
+					CatNormal.activate(p, false, Ocelot.Type.SIAMESE_CAT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Siamese", "craftlobby.pets.cat.siamese", i, 300);
+                    Shop.open(p, "CatNormal: Siamese", "craftlobby.pets.cat.siamese", i, 300);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.cat.siamese.baby")){
-					Cat.activate(p, true, Ocelot.Type.SIAMESE_CAT);
+					CatNormal.activate(p, true, Ocelot.Type.SIAMESE_CAT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)2, "§aCat: Siamese (Baby)", "", "§7Barva: §8Seda","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Siamese (Baby)", "craftlobby.pets.cat.siamese.baby", i, 350);
+                    Shop.open(p, "CatNormal: Siamese (Baby)", "craftlobby.pets.cat.siamese.baby", i, 350);
 				}
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.cat.wild")){
-					Cat.activate(p, false, Ocelot.Type.WILD_OCELOT);
+					CatNormal.activate(p, false, Ocelot.Type.WILD_OCELOT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)0, "§aCat: Wild", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Wild", "craftlobby.pets.cat.wild", i, 300);
+                    Shop.open(p, "CatNormal: Wild", "craftlobby.pets.cat.wild", i, 300);
 				}
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.cat.wild.baby")){
-					Cat.activate(p, true, Ocelot.Type.WILD_OCELOT);
+					CatNormal.activate(p, true, Ocelot.Type.WILD_OCELOT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte)1, "§aCat: Wild (Baby)", "", "§7Barva: §8Zlata","","§eKliknutim spawnes!");
-                    Shop.open(p, "Cat: Wild (Baby)", "craftlobby.pets.cat.wild.baby", i, 350);
+                    Shop.open(p, "CatNormal: Wild (Baby)", "craftlobby.pets.cat.wild.baby", i, 350);
 				}
 			}
 		}

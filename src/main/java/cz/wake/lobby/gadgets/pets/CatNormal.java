@@ -11,7 +11,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Cat {
+public class CatNormal {
 
     public static ArrayList<String> cb = new ArrayList();
 

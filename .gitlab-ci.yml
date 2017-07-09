@@ -48,7 +48,7 @@ original-hub:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $OHUB_USERNAME,$FTP_PASSWORD $OHUB_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $OHUB_USERNAME,$FTP_PASSWORD $OHUB_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: original-hub
   only:
@@ -59,7 +59,7 @@ lobby-1:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $LOBBY1_USERNAME,$FTP_PASSWORD $LOBBY1_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $LOBBY1_USERNAME,$FTP_PASSWORD $LOBBY1_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: lobby-1
   only:
@@ -70,7 +70,7 @@ lobby-2:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $LOBBY2_USERNAME,$FTP_PASSWORD $LOBBY2_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $LOBBY2_USERNAME,$FTP_PASSWORD $LOBBY2_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: lobby-2
   only:
@@ -81,7 +81,7 @@ lobby-3:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $LOBBY3_USERNAME,$FTP_PASSWORD $LOBBY3_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $LOBBY3_USERNAME,$FTP_PASSWORD $LOBBY3_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: lobby-3
   only:
@@ -92,7 +92,7 @@ lobby-4:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $LOBBY4_USERNAME,$FTP_PASSWORD $LOBBY4_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $LOBBY4_USERNAME,$FTP_PASSWORD $LOBBY4_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: lobby-4
   only:
@@ -103,7 +103,7 @@ bw-lobby:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $BWLOBBY_USERNAME,$FTP_PASSWORD $BWLOBBY_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $BWLOBBY_USERNAME,$FTP_PASSWORD $BWLOBBY_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: bw-lobby
   only:
@@ -114,7 +114,7 @@ d-lobby:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $DLOBBY_USERNAME,$FTP_PASSWORD $DLOBBY_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $DLOBBY_USERNAME,$FTP_PASSWORD $DLOBBY_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: d-lobby
   only:
@@ -125,7 +125,7 @@ sw-lobby:
   script:
     - apt-get update
     - apt-get update -qq && apt-get install -y -qq lftp
-    - lftp -u $SWLOBBY_USERNAME,$FTP_PASSWORD $SWLOBBY_IP/plugins -e 'put -a target/CraftLobby-1.6.jar;quit'
+    - lftp -u $SWLOBBY_USERNAME,$FTP_PASSWORD $SWLOBBY_IP/plugins -e 'put -a target/CraftLobby-1.7.jar;quit'
   environment:
     name: sw-lobby
   only:
