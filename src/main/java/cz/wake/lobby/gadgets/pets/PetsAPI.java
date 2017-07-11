@@ -68,15 +68,13 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER,(byte)0, "§eEndermite","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEndermite", "§aNevlastnis ani jeden druh.");
-			inv.setItem(4, i);
+            inv.setItem(4, nakup("Endermite", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.silverfish")){
 			ItemStack i = ItemFactory.create(Material.FLINT,(byte)0, "§eSilverfish","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSilverfish", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(5, i);
+            inv.setItem(5, nakup("Silverfish", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.wolf")
 				|| p.hasPermission("craftlobby.pets.wolf")){
@@ -182,8 +180,7 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1, "§eWither","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(11,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWither", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(11, i);
+            inv.setItem(11, nakup("Wither", 2000));
 		}
 		if(p.hasPermission("craftlobby.pets.slime.small")
 				|| p.hasPermission("craftlobby.pets.slime.normal")
@@ -198,50 +195,43 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SPIDER_EYE,(byte)0, "§eSpider","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(13,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSpider", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(13, i);
+            inv.setItem(13, nakup("Iron Golem", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.cavespider")){
 			ItemStack i = ItemFactory.create(Material.FERMENTED_SPIDER_EYE,(byte)0, "§eCaveSpider","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(14,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cCaveSpider", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(14, i);
+            inv.setItem(14, nakup("Iron Golem", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.irongolem")){
 			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0, "§eIronGolem","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(15,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cIronGolem", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(15, i);
+            inv.setItem(15, nakup("Iron Golem", 500));
 		}
 		if(p.hasPermission("craftlobby.pets.witch")){
 			ItemStack i = ItemFactory.create(Material.SPLASH_POTION,(byte)0, "§eWitch","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(16,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cWitch", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(16, i);
+            inv.setItem(16, nakup("Witch", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.enderman")){
 			ItemStack i = ItemFactory.create(Material.ENDER_PEARL,(byte)0, "§eEnderman","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(17,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cEnderman", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(17, i);
+            inv.setItem(17, nakup("Enderman", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.blaze")){
 			ItemStack i = ItemFactory.create(Material.BLAZE_POWDER,(byte)0, "§eBlaze","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(18,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cBlaze", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(18, i);
+            inv.setItem(18, nakup("Blaze", 300));
 		}
 		if(p.hasPermission("craftlobby.pets.bat")){
 			ItemStack i = ItemFactory.create(Material.FEATHER,(byte)0, "§eBat","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(19,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cBat", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(19, i);
+            inv.setItem(19, nakup("Bat", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.blacksmith")
 				|| p.hasPermission("craftlobby.pets.villager.blacksmith.baby")
@@ -271,8 +261,7 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SNOW_BALL,(byte)0, "§eSnowman","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
 			inv.setItem(22,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSnowman", "§7Nevlastnis ani jeden druh.");
-			inv.setItem(22, i);
+            inv.setItem(22, nakup("Snowman", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.skeleton")
 				|| p.hasPermission("craftlobby.pets.skeleton.wither")){
@@ -611,71 +600,61 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aVillager: Blacksmith", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Blacksmith", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+            inv.setItem(0, nakup("Villager: Blacksmith", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.blacksmith.baby")){
 			ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aVillager: Blacksmith (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Blacksmith (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(1, nakup("Villager: Blacksmith (Baby)", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.butcher")){
 			ItemStack i = ItemFactory.create(Material.MUTTON,(byte)0,"§aVillager: Butcher", "", "§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Butcher", "§7Tento typ nevlastnis.");
-			inv.setItem(2, i);
+            inv.setItem(2, nakup("Villager: Butcher", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.butcher.baby")){
 			ItemStack i = ItemFactory.create(Material.MUTTON,(byte)0,"§aVillager: Butcher (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(3,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Butcher (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(3, i);
+            inv.setItem(3, nakup("Villager: Butcher (Baby)", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.farmer")){
 			ItemStack i = ItemFactory.create(Material.SEEDS,(byte)0,"§aVillager: Farmer", "", "§eKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Farmer", "§7Tento typ nevlastnis.");
-			inv.setItem(4, i);
+            inv.setItem(4, nakup("Villager: Farmer", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.farmer.baby")){
 			ItemStack i = ItemFactory.create(Material.SEEDS,(byte)0,"§aVillager: Farmer (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Farmer (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(5, i);
+            inv.setItem(5, nakup("Villager: Farmer (Baby)", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.librarian")){
 			ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK,(byte)0,"§aVillager: Librarian", "", "§eKliknutim spawnes!");
 			inv.setItem(6,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Librarian", "§7Tento typ nevlastnis.");
-			inv.setItem(6, i);
+            inv.setItem(6, nakup("Villager: Librarian", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.librarian.baby")){
 			ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK,(byte)0,"§aVillager: Librarian (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(7,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Librarian (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(7, i);
+            inv.setItem(7, nakup("Villager: Librarian (Baby)", 200));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.priest")){
 			ItemStack i = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§aVillager: Priest", "", "§eKliknutim spawnes!");
 			inv.setItem(8,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Priest", "§7Tento typ nevlastnis.");
-			inv.setItem(8, i);
+            inv.setItem(8, nakup("Villager: Priest (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.villager.priest.baby")){
 			ItemStack i = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§aVillager: Priest (Baby)", "", "§eKliknutim spawnes!");
 			inv.setItem(9,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cVillager: Priest (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(9, i);
+            inv.setItem(9, nakup("Villager: Priest (Baby)", 200));
 		}
 
 		//Deaktivace
@@ -708,22 +687,19 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Small", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube: Small", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+            inv.setItem(0, nakup("Slime (Small)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.magmacube.normal")){
 			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Normal", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube: Normal", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(1, nakup("Slime (Normal)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.magmacube.big")){
 			ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Big", "", "§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMagmaCube: Big", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(2, nakup("Slime (Big)", 150));
 		}
 
 		//Deaktivace
@@ -755,22 +731,19 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Small", "", "§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime: Small", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+            inv.setItem(5, nakup("Slime (Small)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.slime.normal")){
 			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Normal", "", "§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime: Normal", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(5, nakup("Slime (Normal)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.slime.big")){
 			ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Big", "", "§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSlime: Big", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(5, nakup("Slime (Big)", 200));
 		}
 
 		//Deaktivace
@@ -802,225 +775,193 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep White","","§eKliknutim spawnes!");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep White", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+            inv.setItem(0, nakup("Sheep: White", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.white.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep White (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep White (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(1, nakup("Sheep: White (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.black")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)15, "§aSheep Black","","§eKliknutim spawnes!");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Black", "§7Tento typ nevlastnis.");
-			inv.setItem(2, i);
+            inv.setItem(2, nakup("Sheep: Black", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.black.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)15, "§aSheep Black (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(3,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Black (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(3, i);
+            inv.setItem(3, nakup("Sheep: Black (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.blue")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)11, "§aSheep Blue","","§eKliknutim spawnes!");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Blue", "§7Tento typ nevlastnis.");
-			inv.setItem(4, i);
+            inv.setItem(4, nakup("Sheep: Blue", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.blue.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)11, "§aSheep Blue (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(5,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Blue (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(5, i);
+            inv.setItem(5, nakup("Sheep: Blue (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.brown")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)12, "§aSheep Brown","","§eKliknutim spawnes!");
 			inv.setItem(6,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Brown", "§7Tento typ nevlastnis.");
-			inv.setItem(6, i);
+            inv.setItem(6, nakup("Sheep: Brown", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.brown.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)12, "§aSheep Brown (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(7,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Brown (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(7, i);
+            inv.setItem(7, nakup("Sheep: Brown (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.cyan")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)9, "§aSheep Cyan","","§eKliknutim spawnes!");
 			inv.setItem(8,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Cyan", "§7Tento typ nevlastnis.");
-			inv.setItem(8, i);
+            inv.setItem(8, nakup("Sheep: Cyan", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.cyan.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)9, "§aSheep Cyan (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(9,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Cyan (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(9, i);
+            inv.setItem(9, nakup("Sheep: Cyan (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.green")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)13, "§aSheep Green","","§eKliknutim spawnes!");
 			inv.setItem(10,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Green", "§7Tento typ nevlastnis.");
-			inv.setItem(10, i);
+            inv.setItem(10, nakup("Sheep: Green", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.green.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)13, "§aSheep Green (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(11,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Green (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(11, i);
+            inv.setItem(11, nakup("Sheep: Green (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.lightblue")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)3, "§aSheep LightBlue","","§eKliknutim spawnes!");
 			inv.setItem(12,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep LightBlue", "§7Tento typ nevlastnis.");
-			inv.setItem(12, i);
+            inv.setItem(12, nakup("Sheep: Light Blue", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.lightblue.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)3, "§aSheep LightBlue (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(13,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep LightBlue (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(13, i);
+            inv.setItem(13, nakup("Sheep: Light Blue (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.lime")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)5, "§aSheep Lime","","§eKliknutim spawnes!");
 			inv.setItem(14,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Lime", "§7Tento typ nevlastnis.");
-			inv.setItem(14, i);
+            inv.setItem(14, nakup("Sheep: Lime", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.lime.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)5, "§aSheep Lime (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(15,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Lime (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(15, i);
+            inv.setItem(15, nakup("Sheep: Lime (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.magenta")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)2, "§aSheep Magenta","","§eKliknutim spawnes!");
 			inv.setItem(16,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Magenta", "§7Tento typ nevlastnis.");
-			inv.setItem(16, i);
+            inv.setItem(16, nakup("Sheep: Magenta", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.magenta.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)2, "§aSheep Magenta (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(17,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Magenta (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(17, i);
+            inv.setItem(17, nakup("Sheep: Magenta (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.orange")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)1, "§aSheep Orange","","§eKliknutim spawnes!");
 			inv.setItem(18,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Orange", "§7Tento typ nevlastnis.");
-			inv.setItem(18, i);
+            inv.setItem(18, nakup("Sheep: Orange", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.orange.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)1, "§aSheep Orange (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(19,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Orange (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(19, i);
+            inv.setItem(19, nakup("Sheep: Orange (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.pink")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)6, "§aSheep Pink","","§eKliknutim spawnes!");
 			inv.setItem(20,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Pink", "§7Tento typ nevlastnis.");
-			inv.setItem(20, i);
+            inv.setItem(20, nakup("Sheep: Pink", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.pink.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)6, "§aSheep Pink (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(21,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Pink (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(21, i);
+            inv.setItem(21, nakup("Sheep: Pink (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.purple")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)10, "§aSheep Purple","","§eKliknutim spawnes!");
 			inv.setItem(22,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Purple", "§7Tento typ nevlastnis.");
-			inv.setItem(22, i);
+            inv.setItem(22, nakup("Sheep: Purple", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.purple.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)10, "§aSheep Purple (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(23,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Purple (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(23, i);
+            inv.setItem(23, nakup("Sheep: Purple (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.red")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)14, "§aSheep Red","","§eKliknutim spawnes!");
 			inv.setItem(24,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Red", "§7Tento typ nevlastnis.");
-			inv.setItem(24, i);
+            inv.setItem(24, nakup("Sheep: Red", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.red.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)14, "§aSheep Red (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(25,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Red (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(25, i);
+            inv.setItem(25, nakup("Sheep: Red (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.silver")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)8, "§aSheep Silver","","§eKliknutim spawnes!");
 			inv.setItem(26,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Silver", "§7Tento typ nevlastnis.");
-			inv.setItem(26, i);
+            inv.setItem(26, nakup("Sheep: Silver", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.silver.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)8, "§aSheep Silver (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(27,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Silver (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(27, i);
+            inv.setItem(27, nakup("Sheep: Silver (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.yellow")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)4, "§aSheep Yellow","","§eKliknutim spawnes!");
 			inv.setItem(28,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Yellow", "§7Tento typ nevlastnis.");
-			inv.setItem(28, i);
+            inv.setItem(28, nakup("Sheep: Yellow", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.yellow.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)4, "§aSheep Yellow (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(29,i);
 		} else{
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Yellow (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(29, i);
+            inv.setItem(29, nakup("Sheep: Yellow (Baby)", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.gray")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)7, "§aSheep Gray","","§eKliknutim spawnes!");
 			inv.setItem(30,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Gray", "§7Tento typ nevlastnis.");
-			inv.setItem(30, i);
+            inv.setItem(30, nakup("Sheep: Gray", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.sheep.gray.baby")){
 			ItemStack i = ItemFactory.create(Material.WOOL,(byte)7, "§aSheep Gray (Baby)","","§eKliknutim spawnes!");
 			inv.setItem(31,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSheep Gray (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(31, i);
+            inv.setItem(31, nakup("Sheep: Gray (Baby)", 100));
 		}
 
 		//Deaktivace
@@ -1053,127 +994,109 @@ public class PetsAPI implements Listener{
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(0,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Black", "§7Tento typ nevlastnis.");
-			inv.setItem(0, i);
+            inv.setItem(0, nakup("Horse: Black", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.black.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(1,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Black (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(1, i);
+            inv.setItem(1, nakup("Horse: Black (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.brown")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(2,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Brown", "§7Tento typ nevlastnis.");
-			inv.setItem(2, i);
+            inv.setItem(2, nakup("Horse: Brown", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.brown.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(3,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Brown (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(3, i);
+            inv.setItem(3, nakup("Horse: Brown (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.chestnut")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(4,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Chestnut", "§7Tento typ nevlastnis.");
-			inv.setItem(4, i);
+            inv.setItem(4, nakup("Horse: Chestnut", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.chestnut.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(5,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Chestnut (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(5, i);
+            inv.setItem(5, nakup("Horse: Chestnut (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.creamy")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(6,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Creamy", "§7Tento typ nevlastnis.");
-			inv.setItem(6, i);
+            inv.setItem(6, nakup("Horse: Cramy", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.creamy.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(7,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Creamy (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(7, i);
+            inv.setItem(7, nakup("Horse: Cramy (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.darkbrown")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse DarkBrown","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(8,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse DarkBrown", "§7Tento typ nevlastnis.");
-			inv.setItem(8, i);
+            inv.setItem(8, nakup("Horse: Dark Brown", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.darkbrown.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse DarkBrown (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(9,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse DarkBrown (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(9, i);
+            inv.setItem(9, nakup("Horse: Dark Brown (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.gray")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(10,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Gray", "§7Tento typ nevlastnis.");
-			inv.setItem(10, i);
+            inv.setItem(10, nakup("Horse: Gray", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.gray.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(11,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse Gray (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(11, i);
+            inv.setItem(10, nakup("Horse: Gray (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.white")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(12,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse White", "§7Tento typ nevlastnis.");
-			inv.setItem(12, i);
+            inv.setItem(12, nakup("Horse: White", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.white.baby")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White (Baby)","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(13,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cHorse White (Baby)", "§7Tento typ nevlastnis.");
-			inv.setItem(13, i);
+            inv.setItem(13, nakup("Horse: White (Baby)", 150));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.donkey")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eDonkey","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(14,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cDonkey", "§7Tento typ nevlastnis.");
-			inv.setItem(14, i);
+            inv.setItem(14, nakup("Donkey", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.mule")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eMule","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(15,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cMule", "§7Tento typ nevlastnis.");
-			inv.setItem(15, i);
+            inv.setItem(15, nakup("Mule", 100));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.zombie")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eZombie Horse","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(16,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cZombie Horse", "§7Tento typ nevlastnis.");
-			inv.setItem(16, i);
+            inv.setItem(16, nakup("Horse: Zombie", 400));
 		}
 		if(p.hasPermission("craftlobby.pets.horse.skeleton")){
 			ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eSkeleton Horse","","§7Kliknutim zobrazis preshled.");
 			inv.setItem(17,i);
 		} else {
-			ItemStack i = ItemFactory.create(Material.INK_SACK, (byte)8, "§cSkeleton Horse", "§7Tento typ nevlastnis.");
-			inv.setItem(17, i);
+            inv.setItem(17, nakup("Horse: Skeleton", 400));
 		}
 
 		//Deaktivace
@@ -1818,14 +1741,16 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.endermite")){
 					EndermiteNormal.activate(p);
 				} else {
-					this.ml.messageNoPerm(p,"Endermite");
+                    ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER,(byte)0, "§eEndermite","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+					Shop.open(p, "Endermite", "craftlobby.pets.endermite", i, 100);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.silverfish")){
 					SilverfishNormal.activate(p);
 				} else {
-					this.ml.messageNoPerm(p,"Silverfish");
+                    ItemStack i = ItemFactory.create(Material.FLINT,(byte)0, "§eSilverfish","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Silverfish", "craftlobby.pets.silverfish", i, 100);
 				}
 			}
 			if(e.getSlot() == 6){
@@ -1848,7 +1773,8 @@ public class PetsAPI implements Listener{
 					Widder.activateCow(p);
 					p.closeInventory();
 				} else {
-					this.ml.messageNoPerm(p,"Wither");
+                    ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1, "§eWither","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Wither", "craftlobby.pets.wither", i, 2000);
 				}
 			}
 			if(e.getSlot() == 12){
@@ -1858,49 +1784,56 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.spider")){
 					SpiderNormal.activateSpider(p);
 				} else {
-					this.ml.messageNoPerm(p,"Spider");
+                    ItemStack i = ItemFactory.create(Material.SPIDER_EYE,(byte)0, "§eSpider","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Spider", "craftlobby.pets.spider", i, 200);
 				}
 			}
 			if(e.getSlot() == 14){
 				if(p.hasPermission("craftlobby.pets.cavespider")){
 					CaveSpiderNormal.activateCave(p);
 				} else {
-					this.ml.messageNoPerm(p,"CaveSpider");
+                    ItemStack i = ItemFactory.create(Material.FERMENTED_SPIDER_EYE,(byte)0, "§eCaveSpider","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Cave Spider", "craftlobby.pets.cavespider", i, 200);
 				}
 			}
 			if(e.getSlot() == 15){
 				if(p.hasPermission("craftlobby.pets.irongolem")){
 					IronGolemNormal.activateGolem(p);
 				} else {
-					this.ml.messageNoPerm(p,"Iron Golem");
+                    ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0, "§eIronGolem","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Iron Golem", "craftlobby.pets.irongolem", i, 500);
 				}
 			}
 			if(e.getSlot() == 16){
 				if(p.hasPermission("craftlobby.pets.witch")){
 					WitchNormal.activateWitch(p);
 				} else {
-					this.ml.messageNoPerm(p,"Witch");
+                    ItemStack i = ItemFactory.create(Material.SPLASH_POTION,(byte)0, "§eWitch","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Witch", "craftlobby.pets.witch", i, 300);
 				}
 			}
 			if(e.getSlot() == 17){
 				if(p.hasPermission("craftlobby.pets.enderman")){
 					EndermanNormal.activateWitch(p);
 				} else {
-					this.ml.messageNoPerm(p,"Enderman");
+                    ItemStack i = ItemFactory.create(Material.ENDER_PEARL,(byte)0, "§eEnderman","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Enderman", "craftlobby.pets.enderman", i, 300);
 				}
 			}
 			if(e.getSlot() == 18){
 				if(p.hasPermission("craftlobby.pets.blaze")){
 					BlazeNormal.activateWitch(p);
 				} else {
-					this.ml.messageNoPerm(p,"Blaze");
+                    ItemStack i = ItemFactory.create(Material.BLAZE_POWDER,(byte)0, "§eBlaze","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+					Shop.open(p, "Blaze", "craftlobby.pets.blaze", i, 300);
 				}
 			}
 			if(e.getSlot() == 19){
 				if(p.hasPermission("craftlobby.pets.bat")){
 					BatNormal.activate(p);
 				} else {
-					this.ml.messageNoPerm(p,"Bat");
+                    ItemStack i = ItemFactory.create(Material.FEATHER,(byte)0, "§eBat","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Bat", "craftlobby.pets.bat", i, 200);
 				}
 			}
 			if(e.getSlot() == 20){
@@ -1913,7 +1846,8 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.snowman")){
 					SnowmanNormal.activate(p);
 				} else {
-					this.ml.messageNoPerm(p,"Snowman");
+                    ItemStack i = ItemFactory.create(Material.SNOW_BALL,(byte)0, "§eSnowman","", "§7Odemknuto: §f1/1 §8(100%)","","§aKliknutim spawnes!");
+                    Shop.open(p, "Snowman", "craftlobby.pets.snowman", i, 100);
 				}
 			}
 			if(e.getSlot() == 23){
@@ -2737,126 +2671,144 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.horse.black")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.BLACK);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Black");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black");
+                    Shop.open(p, "Horse Black", "craftlobby.pets.horse.black", i, 100);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.horse.black.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.BLACK);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Black (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black (Baby)");
+                    Shop.open(p, "Horse Black (Baby)", "craftlobby.pets.horse.black.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.horse.brown")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Brown");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown");
+                    Shop.open(p, "Horse Brown", "craftlobby.pets.horse.brown", i, 100);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.horse.brown.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Brown (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown (Baby)");
+                    Shop.open(p, "Horse Brown (Baby)", "craftlobby.pets.horse.brown.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.horse.chestnut")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.CHESTNUT);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Chestnut");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut");
+                    Shop.open(p, "Horse Chestnut", "craftlobby.pets.horse.chestnut", i, 100);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.horse.chestnut.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.CHESTNUT);
 				} else {
-					this.ml.messageNoPerm(p,"Hrose Chestnut (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut (Baby)");
+                    Shop.open(p, "Horse Chestnut (Baby)", "craftlobby.pets.horse.chestnut.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.horse.creamy")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.CREAMY);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Creamy");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy");
+                    Shop.open(p, "Horse Creamy", "craftlobby.pets.horse.creamy", i, 100);
 				}
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.horse.creamy.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.CREAMY);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Creamy (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy (Baby)");
+                    Shop.open(p, "Horse Creamy (Baby)", "craftlobby.pets.horse.creamy.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 8){
 				if(p.hasPermission("craftlobby.pets.horse.darkbrown")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.DARK_BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Horse DarkBrown");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Dark Brown");
+                    Shop.open(p, "Horse Dark Brown", "craftlobby.pets.horse.darkbrown", i, 100);
 				}
 			}
 			if(e.getSlot() == 9){
 				if(p.hasPermission("craftlobby.pets.horse.darkbrown.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.DARK_BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Horse DarkBrown (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Dark Brown (Baby)");
+                    Shop.open(p, "Horse Dark Brown (Baby)", "craftlobby.pets.horse.darkbrown.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 10){
 				if(p.hasPermission("craftlobby.pets.horse.gray")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.GRAY);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Gray");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray");
+                    Shop.open(p, "Horse Gray", "craftlobby.pets.horse.gray", i, 100);
 				}
 			}
 			if(e.getSlot() == 11){
 				if(p.hasPermission("craftlobby.pets.horse.gray.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.GRAY);
 				} else {
-					this.ml.messageNoPerm(p,"Horse Gray (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray (Baby)");
+                    Shop.open(p, "Horse Gray (Baby)", "craftlobby.pets.horse.gray.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 12){
 				if(p.hasPermission("craftlobby.pets.horse.white")){
 					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.WHITE );
 				} else {
-					this.ml.messageNoPerm(p,"Horse White");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White");
+                    Shop.open(p, "Horse White", "craftlobby.pets.horse.white", i, 100);
 				}
 			}
 			if(e.getSlot() == 13){
 				if(p.hasPermission("craftlobby.pets.horse.white.baby")){
 					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Horse White (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White (Baby)");
+                    Shop.open(p, "Horse White (Baby)", "craftlobby.pets.horse.white.baby", i, 150);
 				}
 			}
 			if(e.getSlot() == 14){
 				if(p.hasPermission("craftlobby.pets.horse.donkey")){
 					HorseNormal.activate(p,false, Horse.Variant.DONKEY, Horse.Color.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Donkey");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eDonkey");
+                    Shop.open(p, "Donkey", "craftlobby.pets.horse.donkey", i, 100);
 				}
 			}
 			if(e.getSlot() == 15){
 				if(p.hasPermission("craftlobby.pets.horse.mule")){
 					HorseNormal.activate(p,false, Horse.Variant.MULE, Horse.Color.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Mule");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eMule");
+                    Shop.open(p, "Mule", "craftlobby.pets.horse.mule", i, 100);
 				}
 			}
 			if(e.getSlot() == 16){
 				if(p.hasPermission("craftlobby.pets.horse.zombie")){
 					HorseNormal.activate(p,false, Horse.Variant.UNDEAD_HORSE, Horse.Color.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Zombie Horse");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eZombie Horse");
+                    Shop.open(p, "Zombie Horse", "craftlobby.pets.horse.zombie", i, 400);
 				}
 			}
 			if(e.getSlot() == 17){
 				if(p.hasPermission("craftlobby.pets.horse.skeleton")){
 					HorseNormal.activate(p,false, Horse.Variant.SKELETON_HORSE, Horse.Color.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Skeleton Horse");
+                    ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eSkeleton Horse");
+                    Shop.open(p, "Skeleton Horse", "craftlobby.pets.horse.skeleton", i, 400);
 				}
 			}
 		}
@@ -2881,224 +2833,256 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.sheep.white")){
 					 SheepNormal.activate(p,false, DyeColor.WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep White");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep White","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep White", "craftlobby.pets.sheep.white", i, 100);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.sheep.white.baby")){
 					SheepNormal.activate(p,true,DyeColor.WHITE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep White (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep White (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep White (Baby)", "craftlobby.pets.sheep.white.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.sheep.black")){
 					SheepNormal.activate(p,false,DyeColor.BLACK);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Black");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)15, "§aSheep Black","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Black", "craftlobby.pets.sheep.black", i, 100);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.sheep.black.baby")){
 					SheepNormal.activate(p,true,DyeColor.BLACK);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Black (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)15, "§aSheep Black (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Black (Baby)", "craftlobby.pets.sheep.black.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.sheep.blue")){
 					SheepNormal.activate(p,false,DyeColor.BLUE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Blue");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)11, "§aSheep Blue","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Blue", "craftlobby.pets.sheep.blue", i, 100);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.sheep.blue.baby")){
 					SheepNormal.activate(p,true,DyeColor.BLUE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Blue (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)11, "§aSheep Blue (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Blue (Baby)", "craftlobby.pets.sheep.blue.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.sheep.brown")){
 					SheepNormal.activate(p,false,DyeColor.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Brown");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)12, "§aSheep Brown","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Brown", "craftlobby.pets.sheep.brown", i, 100);
 				}
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.sheep.brown.baby")){
 					SheepNormal.activate(p,true,DyeColor.BROWN);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Brown (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)12, "§aSheep Brown (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Brown (Baby)", "craftlobby.pets.sheep.brown.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 8){
 				if(p.hasPermission("craftlobby.pets.sheep.cyan")){
 					SheepNormal.activate(p,false,DyeColor.CYAN);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Cyan");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)9, "§aSheep Cyan","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Cyan", "craftlobby.pets.sheep.cyan", i, 100);
 				}
 			}
 			if(e.getSlot() == 9){
 				if(p.hasPermission("craftlobby.pets.sheep.cyan.baby")){
 					SheepNormal.activate(p,true,DyeColor.CYAN);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Cyan (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)9, "§aSheep Cyan (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Cyan (Baby)", "craftlobby.pets.sheep.cyan.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 10){
 				if(p.hasPermission("craftlobby.pets.sheep.green")){
 					SheepNormal.activate(p,false,DyeColor.GREEN);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Green");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)13, "§aSheep Green","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Green", "craftlobby.pets.sheep.green", i, 100);
 				}
 			}
 			if(e.getSlot() == 11){
 				if(p.hasPermission("craftlobby.pets.sheep.green.baby")){
 					SheepNormal.activate(p,true,DyeColor.GREEN);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Green (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)13, "§aSheep Green (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Green (Baby)", "craftlobby.pets.sheep.green.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 12){
 				if(p.hasPermission("craftlobby.pets.sheep.lightblue")){
 					SheepNormal.activate(p,false,DyeColor.LIGHT_BLUE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep LightBlue");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)3, "§aSheep Light Blue","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Light Blue", "craftlobby.pets.sheep.lightblue", i, 100);
 				}
 			}
 			if(e.getSlot() == 13){
 				if(p.hasPermission("craftlobby.pets.sheep.lightblue.baby")){
 					SheepNormal.activate(p,true,DyeColor.LIGHT_BLUE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep LightBlue (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)3, "§aSheep Light Blue (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Light Blue (Baby)", "craftlobby.pets.sheep.lightblue.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 14){
 				if(p.hasPermission("craftlobby.pets.sheep.lime")){
 					SheepNormal.activate(p,false,DyeColor.LIME);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Lime");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)5, "§aSheep White","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep White", "craftlobby.pets.sheep.white", i, 100);
 				}
 			}
 			if(e.getSlot() == 15){
 				if(p.hasPermission("craftlobby.pets.sheep.lime.baby")){
 					SheepNormal.activate(p,true,DyeColor.LIME);
 				} else {
-					this.ml.messageNoPerm(p,"Sheel Lime (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)5, "§aSheep White","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep White", "craftlobby.pets.sheep.white", i, 100);
 				}
 			}
 			if(e.getSlot() == 16){
 				if(p.hasPermission("craftlobby.pets.sheep.magenta")){
 					SheepNormal.activate(p,false,DyeColor.MAGENTA);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Magenta");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)2, "§aSheep Magenta","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Magenta", "craftlobby.pets.sheep.magenta", i, 100);
 				}
 			}
 			if(e.getSlot() == 17){
 				if(p.hasPermission("craftlobby.pets.sheep.magenta.baby")){
 					SheepNormal.activate(p,true,DyeColor.MAGENTA);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Magenta (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)2, "§aSheep Magenta (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Magenta (Baby)", "craftlobby.pets.sheep.magenta.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 18){
 				if(p.hasPermission("craftlobby.pets.sheep.orange")){
 					SheepNormal.activate(p,false,DyeColor.ORANGE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Orange");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)1, "§aSheep Orange","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Orange", "craftlobby.pets.sheep.orange", i, 100);
 				}
 			}
 			if(e.getSlot() == 19){
 				if(p.hasPermission("craftlobby.pets.sheep.orange.baby")){
 					SheepNormal.activate(p,true,DyeColor.ORANGE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Orange (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)1, "§aSheep Orange (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Orange (Baby)", "craftlobby.pets.sheep.orange.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 20){
 				if(p.hasPermission("craftlobby.pets.sheep.pink")){
 					SheepNormal.activate(p,false,DyeColor.PINK);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Pink");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep Pink","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Pink", "craftlobby.pets.sheep.pink", i, 100);
 				}
 			}
 			if(e.getSlot() == 21){
 				if(p.hasPermission("craftlobby.pets.sheep.pink.baby")){
 					SheepNormal.activate(p,true,DyeColor.PINK);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Pink (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)0, "§aSheep Pink (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Pink (Baby)", "craftlobby.pets.sheep.pink.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 22){
 				if(p.hasPermission("craftlobby.pets.sheep.purple")){
 					SheepNormal.activate(p,false,DyeColor.PURPLE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Purple");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)6, "§aSheep Purple","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Purple", "craftlobby.pets.sheep.purple", i, 100);
 				}
 			}
 			if(e.getSlot() == 23){
 				if(p.hasPermission("craftlobby.pets.sheep.purple.baby")){
 					SheepNormal.activate(p,true,DyeColor.PURPLE);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Purple (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)6, "§aSheep Purple (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Purple (Baby)", "craftlobby.pets.sheep.purple.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 24){
 				if(p.hasPermission("craftlobby.pets.sheep.red")){
 					SheepNormal.activate(p,false,DyeColor.RED);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Red");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)14, "§aSheep Red","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Red", "craftlobby.pets.sheep.red", i, 100);
 				}
 			}
 			if(e.getSlot() == 25){
 				if(p.hasPermission("craftlobby.pets.sheep.red.baby")){
 					SheepNormal.activate(p,true,DyeColor.RED);
 				} else {
-					this.ml.messageNoPerm(p,"Shep Red (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)14, "§aSheep Red (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Red (Baby)", "craftlobby.pets.sheep.red.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 26){
 				if(p.hasPermission("craftlobby.pets.sheep.silver")){
 					SheepNormal.activate(p,false,DyeColor.SILVER);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Silver");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)8, "§aSheep Silver","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Silver", "craftlobby.pets.sheep.silver", i, 100);
 				}
 			}
 			if(e.getSlot() == 27){
 				if(p.hasPermission("craftlobby.pets.sheep.silver.baby")){
 					SheepNormal.activate(p,true,DyeColor.SILVER);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Silver (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)8, "§aSheep Silver (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Silver (Baby)", "craftlobby.pets.sheep.silver.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 28){
 				if(p.hasPermission("craftlobby.pets.sheep.yellow")){
 					SheepNormal.activate(p,false,DyeColor.YELLOW);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Yellow");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)4, "§aSheep Yellow","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Yellow", "craftlobby.pets.sheep.yellow", i, 100);
 				}
 			}
 			if(e.getSlot() == 29){
 				if(p.hasPermission("craftlobby.pets.sheep.yellow.baby")){
 					SheepNormal.activate(p,true,DyeColor.YELLOW);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Yellow (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)4, "§aSheep Yellow (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Yellow (Baby)", "craftlobby.pets.sheep.yellow.baby", i, 100);
 				}
 			}
 			if(e.getSlot() == 30){
 				if(p.hasPermission("craftlobby.pets.sheep.gray")){
 					SheepNormal.activate(p,false,DyeColor.GRAY);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Gray");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)7, "§aSheep Gray","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Gray", "craftlobby.pets.sheep.gray", i, 100);
 				}
 			}
 			if(e.getSlot() == 31){
 				if(p.hasPermission("craftlobby.pets.sheep.gray.baby")){
 					SheepNormal.activate(p,true,DyeColor.GRAY);
 				} else {
-					this.ml.messageNoPerm(p,"Sheep Gray (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WOOL,(byte)7, "§aSheep Gray (Baby)","","§eKliknutim spawnes!");
+                    Shop.open(p, "Sheep Gray (Baby)", "craftlobby.pets.sheep.gray.baby", i, 100);
 				}
 			}
 		}
@@ -3123,21 +3107,24 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.slime.small")){
 					SlimeNormal.activateSlime(p,1);
 				} else {
-					this.ml.messageNoPerm(p,"Slime Small");
+                    ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Small", "", "§eKliknutim spawnes!");
+				    Shop.open(p, "Slime: Small", "craftlobby.pets.slime.small", i, 100);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.slime.normal")){
 					SlimeNormal.activateSlime(p,2);
 				} else {
-					this.ml.messageNoPerm(p,"Slime Normal");
+                    ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Normal", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Slime: Normal", "craftlobby.pets.slime.normal", i, 150);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.slime.big")){
 					SlimeNormal.activateSlime(p,3);
 				} else {
-					this.ml.messageNoPerm(p,"Slime Big");
+                    ItemStack i = ItemFactory.create(Material.SLIME_BALL,(byte)0,"§aSlime: Big", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Slime: Big", "craftlobby.pets.slime.big", i, 200);
 				}
 			}
 		}
@@ -3162,70 +3149,80 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.villager.blacksmith")){
 					VilagerNormal.activateWitch(p, false, Villager.Profession.BLACKSMITH);
 				} else {
-					this.ml.messageNoPerm(p,"Villager Blacksmith");
+                    ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aVillager: Blacksmith", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Blacksmith", "craftlobby.pets.villager.blacksmith", i, 100);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.villager.blacksmith.baby")){
 					VilagerNormal.activateWitch(p, true, Villager.Profession.BLACKSMITH);
 				} else {
-					this.ml.messageNoPerm(p,"Villager Blacksmith (Baby)");
+                    ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aVillager: Blacksmith (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Blacksmith (Baby)", "craftlobby.pets.villager.blacksmith.baby", i, 200);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.villager.butcher")){
 					VilagerNormal.activateWitch(p, false, Villager.Profession.BUTCHER);
 				} else {
-					this.ml.messageNoPerm(p,"Villager Butcher");
+                    ItemStack i = ItemFactory.create(Material.MUTTON,(byte)0,"§aVillager: Butcher", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Butcher", "craftlobby.pets.villager.butcher", i, 100);
 				}
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.villager.butcher.baby")){
 					VilagerNormal.activateWitch(p, true, Villager.Profession.BUTCHER);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Butcher (Baby)");
+                    ItemStack i = ItemFactory.create(Material.MUTTON,(byte)0,"§aVillager: Butcher (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Butcher (Baby)", "craftlobby.pets.villager.butcher.baby", i, 200);
 				}
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.villager.farmer")){
 					VilagerNormal.activateWitch(p, false, Villager.Profession.FARMER);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Farmer");
+                    ItemStack i = ItemFactory.create(Material.SEEDS,(byte)0,"§aVillager: Farmer", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Farmer", "craftlobby.pets.villager.farmer", i, 100);
 				}
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.villager.farmer.baby")){
 					VilagerNormal.activateWitch(p, true, Villager.Profession.FARMER);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Farmer (Baby)");
+                    ItemStack i = ItemFactory.create(Material.SEEDS,(byte)0,"§aVillager: Farmer (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Farmer (Baby)", "craftlobby.pets.villager.farmer.baby", i, 200);
 				}
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.villager.librarian")){
 					VilagerNormal.activateWitch(p, false, Villager.Profession.LIBRARIAN);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Librarian");
+                    ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK,(byte)0,"§aVillager: Librarian", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Librarian", "craftlobby.pets.villager.librarian", i, 100);
 				}
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.villager.librarian.baby")){
 					VilagerNormal.activateWitch(p, true, Villager.Profession.LIBRARIAN);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Librarian (Baby)");
+                    ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK,(byte)0,"§aVillager: Librarian (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Librarian (Baby)", "craftlobby.pets.villager.librarian.baby", i, 200);
 				}
 			}
 			if(e.getSlot() == 8){
 				if(p.hasPermission("craftlobby.pets.villager.priest")){
 					VilagerNormal.activateWitch(p, false, Villager.Profession.PRIEST);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Priest");
+                    ItemStack i = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§aVillager: Priest", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Priest", "craftlobby.pets.villager.priest", i, 100);
 				}
 			}
 			if(e.getSlot() == 9) {
 				if (p.hasPermission("craftlobby.pets.villager.priest.baby")) {
 					VilagerNormal.activateWitch(p, true, Villager.Profession.PRIEST);
 				} else {
-					this.ml.messageNoPerm(p, "Villager Priest (Baby)");
+                    ItemStack i = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§aVillager: Priest (Baby)", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "Villager: Priest (Baby)", "craftlobby.pets.villager.priest.baby", i, 100);
 				}
 			}
 		}
@@ -3248,7 +3245,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 0){
                 if(p.hasPermission("craftlobby.pets.guardian")){
-                    GuardianNormal.activateGuardian(p, false);
+                    GuardianNormal.activateGuardian(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS,(byte)0,"§aGuardian", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Guardian", "craftlobby.pets.guardian", i, 500);
@@ -3256,7 +3253,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 1){
                 if(p.hasPermission("craftlobby.pets.guardian.elder")){
-                    GuardianNormal.activateGuardian(p, true);
+                    ElderGuardianNormal.activateGuardian(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.PRISMARINE_SHARD,(byte)0,"§aGuardian (Elder)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Guardian (Elder)", "craftlobby.pets.guardian.elder", i, 1000);
@@ -3387,21 +3384,24 @@ public class PetsAPI implements Listener{
 				if(p.hasPermission("craftlobby.pets.magmacube.small")){
 					MagmaCubeNormal.activateSlime(p,1);
 				} else {
-					this.ml.messageNoPerm(p,"MagmaCube: Small");
+                    ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Small", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "MagmaCube: Small", "craftlobby.pets.magmacube.small", i, 150);
 				}
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.magmacube.normal")){
 					MagmaCubeNormal.activateSlime(p,2);
 				} else {
-					this.ml.messageNoPerm(p,"MagmaCube: Normal");
+                    ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Small", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "MagmaCube: Normal", "craftlobby.pets.magmacube.normal", i, 150);
 				}
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.magmacube.big")){
 					MagmaCubeNormal.activateSlime(p,3);
 				} else {
-					this.ml.messageNoPerm(p,"MagmaCube: Big");
+                    ItemStack i = ItemFactory.create(Material.MAGMA_CREAM,(byte)0,"§aMagmaCube: Small", "", "§eKliknutim spawnes!");
+                    Shop.open(p, "MagmaCube: Big", "craftlobby.pets.magmacube.big", i, 150);
 				}
 			}
 		}

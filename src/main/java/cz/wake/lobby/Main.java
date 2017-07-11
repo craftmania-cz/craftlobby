@@ -137,6 +137,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(36, "Vindicator", RideableVindicator.class);
         CustomEntityRegistry.registerCustomEntity(34, "Evoker", RideableEvoker.class);
         CustomEntityRegistry.registerCustomEntity(103, "Llama", RideableLlama.class);
+        CustomEntityRegistry.registerCustomEntity(4,"ElderGuardian", RideableGuardianElder.class);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")) {
 

@@ -281,5 +281,8 @@ public class PetManager implements Listener {
         if (EvokerNormal.cn.contains(p.getName())) {
             EvokerNormal.cn.remove(p.getName());
         }
+        if(ElderGuardianNormal.cp.contains(p.getName())){
+            ElderGuardianNormal.cp.remove(p.getName());
+        }
     }
 }
