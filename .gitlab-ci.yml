@@ -34,6 +34,12 @@ build:
     paths:
       - target/*.jar
 
+codacy:
+  stage: build
+  script:
+    - curl https://api.codacy.com/events/push/fc0963071383483fb51cb3b3432dc939
+  allow_failure: false
+
 review:
   stage: review
   when: manual
