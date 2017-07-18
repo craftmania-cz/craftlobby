@@ -1,5 +1,6 @@
 package cz.wake.lobby.listeners;
 
+import cz.wake.lobby.GUI.ArcadeShopGUI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
@@ -31,6 +32,7 @@ public class ArmorStandInteract implements Listener {
     private boolean farmer,child,ludvik,felix,wake,veverka1,veverka2,flafy,delfik = false;
     ItemStack item = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§bTeleport");
     private ArrayList<Player> wait = new ArrayList<>();
+    ArcadeShopGUI arcadeShop = new ArcadeShopGUI();
 
     //TODO: Opravit kdyz na serveru nikdo neni = null
 
@@ -554,6 +556,12 @@ public class ArmorStandInteract implements Listener {
             }
             if(e.getRightClicked().hasMetadata("vanilla-skyblock")){
                 sendToServer(p, "vanillasb");
+            }
+            if(e.getRightClicked().hasMetadata("getdown")){
+                sendToServer(p, "dlobby");
+            }
+            if(e.getRightClicked().hasMetadata("arcadeshop")){
+                arcadeShop.openMainGUI(p);
             }
             e.setCancelled(true);
         }

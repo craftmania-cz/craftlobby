@@ -79,6 +79,9 @@ public class Servers implements Listener {
                 "§7Kazdy team ma vlastniho Gianta,","§7ktereho musi ochranit a zaroven","§7znicit ostatni! Zvladnes to?!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(31, sg);
 
+        ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte)0, "§e§lGetDown §6§lNOVINKA","§8Arcade PVP","", "§7Dostan se co nejniz","§7a ziskej co nejvic coinu,","§7pak vsechny rozskej!","", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+        inv.setItem(33, getdown);
+
         new BukkitRunnable() {
             int c = 1;
 

@@ -13,7 +13,11 @@ import org.bukkit.util.EulerAngle;
 
 public class PVPGames implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1216.5, -90, 0);
+    /*
+    GETDOWN
+     */
+
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1525.5, 18, -1214.5, -135, 0);
     ArmorStand as, as2, as3, as4;
 
     @Override
@@ -31,29 +35,25 @@ public class PVPGames implements ASInterface {
 
         as.setRightArmPose(new EulerAngle(5.8, 0, 0.3));
 
-        subtextSpawn();
-        hologramSpawn();
-
-        ItemStack head = ItemFactory.createHead("test", "e9084d7c-1bc8-45aa-91c2-092aa162bca7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmU2NTUxNmQ4MWFjOTYzZGJjMjQ4NTEzOGRkZGNmOTQzZDdmNzIxMWUzN2VmZWNkNWE1ZmI4ZjVhZDQ5MjAifX19");
+        ItemStack head = ItemFactory.createHead("test", "daaef8ad-4532-4cc8-bb84-7f8947add9a5", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjg2Yzg0Y2E1OTljYjQ0MGY4ZDkzMTM4ZWQwZmYxZjJiMTM2ZGZhZWRiMWRkNDZlZjFhODVjYzM5ZGNjYzMifX19");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 138, 43, 226);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 232, 239, 54);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 138, 43, 226);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 232, 239, 54);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 138, 43, 226);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 232, 239, 54);
         as.setBoots(boots);
 
-        ItemStack item = new ItemStack(Material.ENDER_STONE);
+        ItemStack item = new ItemStack(Material.IRON_BOOTS);
         as.setItemInHand(item);
 
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "pvparcade", "pvparcade", Main.getInstance());
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "getdown", "getdown", Main.getInstance());
 
-        as2.setCustomName("§5§lPVP Arcade");
-        as3.setCustomName("§fAnnihilation");
-        //as4.setCustomName("§70 §8hracu");
+        subtextSpawn();
+        hologramSpawn();
 
     }
 
@@ -70,13 +70,9 @@ public class PVPGames implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-    }
+        as2.setCustomName("§e§lGetDown");
 
-    @Override
-    public void subtextSpawn() {
-
-        /*
-        loc1.add(0,0.3,0);
+        loc1.add(0, 0.3, 0);
 
         as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
@@ -84,7 +80,13 @@ public class PVPGames implements ASInterface {
         as4.setCanPickupItems(false);
         as4.setBasePlate(false);
         as4.setVisible(false);
-        as4.setCustomNameVisible(true); */
+        as4.setCustomNameVisible(true);
+
+        as4.setCustomName("§6§lNovinka");
+    }
+
+    @Override
+    public void subtextSpawn() {
 
         loc1.add(0, 0.3, 0);
 
@@ -95,6 +97,8 @@ public class PVPGames implements ASInterface {
         as3.setBasePlate(false);
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
+
+        as3.setCustomName("§7Nacitani...");
 
     }
 
@@ -113,12 +117,12 @@ public class PVPGames implements ASInterface {
         as.remove();
         as2.remove();
         as3.remove();
-        //as4.remove();
+        as4.remove();
 
     }
 
     @Override
     public void updateArmorStand(String s, int i) {
-
+        as3.setCustomName(Main.getInstance().getASM().formatPlayers(i));
     }
 }
