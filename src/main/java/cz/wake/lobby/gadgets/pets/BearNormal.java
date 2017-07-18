@@ -23,7 +23,7 @@ public class BearNormal {
             }
         }
         final PolarBear golem = RideableBear.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) golem, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) golem, 0.16D, 2D);
         setMetadata((PolarBear) golem, "Pet", "Pet", Main.getInstance());
         ((PolarBear) golem).setCustomNameVisible(true);
         ((PolarBear) golem).setCustomName(p.getName());

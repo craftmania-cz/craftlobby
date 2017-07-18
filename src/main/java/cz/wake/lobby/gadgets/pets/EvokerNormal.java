@@ -23,7 +23,7 @@ public class EvokerNormal {
             }
         }
         final Evoker e = RideableEvoker.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Evoker) e, "Pet", "Pet", Main.getInstance());
         ((Evoker) e).setCustomNameVisible(true);
         ((Evoker) e).setCustomName(p.getName());

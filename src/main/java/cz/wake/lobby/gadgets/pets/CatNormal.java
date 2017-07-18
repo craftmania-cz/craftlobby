@@ -24,7 +24,7 @@ public class CatNormal {
             }
         }
         final Ocelot ocelot = RideableCat.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) ocelot, 0.18D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) ocelot, 0.18D, 1.0D);
         setMetadata((Ocelot) ocelot, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Ocelot) ocelot).setBaby();

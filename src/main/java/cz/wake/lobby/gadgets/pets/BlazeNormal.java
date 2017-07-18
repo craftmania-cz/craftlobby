@@ -23,7 +23,7 @@ public class BlazeNormal {
             }
         }
         final Blaze e = RideableBlaze.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Blaze) e, "Pet", "Pet", Main.getInstance());
         ((Blaze) e).setCustomNameVisible(true);
         ((Blaze) e).setCustomName(p.getName());

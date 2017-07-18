@@ -21,7 +21,7 @@ public class Widder {
             }
         }
         final CraftWither wither = (CraftWither) p.getWorld().spawnEntity(p.getLocation(), EntityType.WITHER);
-        PetManager.PetFollow(p, (CraftEntity) wither, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) wither, 0.16D, 1.5D);
         setMetadata((CraftWither) wither, "Pet", "Pet", Main.getInstance());
         ((CraftWither) wither).setCustomName(p.getName() + " Wither");
         PetManager.pet.put(p, (CraftEntity) wither);

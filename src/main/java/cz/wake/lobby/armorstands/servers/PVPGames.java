@@ -14,7 +14,7 @@ import org.bukkit.util.EulerAngle;
 public class PVPGames implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1216.5, -90, 0);
-    ArmorStand as, as2, as3, as4;
+    private ArmorStand as, as2, as3, as4;
 
     @Override
     public void spawn() {
@@ -101,11 +101,6 @@ public class PVPGames implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

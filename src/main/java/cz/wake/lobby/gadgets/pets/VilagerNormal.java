@@ -23,7 +23,7 @@ public class VilagerNormal {
             }
         }
         final Villager e = RideableVillager.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Villager) e, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Villager) e).setBaby();

@@ -23,7 +23,7 @@ public class MagmaCubeNormal {
             }
         }
         final MagmaCube slime = RideableMagmaCube.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
         setMetadata((MagmaCube) slime, "Pet", "Pet", Main.getInstance());
         ((MagmaCube) slime).setSize(size);
         ((MagmaCube) slime).setCustomNameVisible(true);

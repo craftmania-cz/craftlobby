@@ -24,7 +24,7 @@ public class LlamaNormal {
             }
         }
         final Llama lama = RideableLlama.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) lama, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) lama, 0.16D, 2D);
         setMetadata((Llama) lama, "Pet", "Pet", Main.getInstance());
         ((Llama) lama).setCustomNameVisible(true);
         ((Llama) lama).setCustomName(p.getName());

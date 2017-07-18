@@ -25,7 +25,7 @@ public class RabbitNormal {
             }
         }
         final Rabbit rabbit = RideableRabbit.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) rabbit, 0.30D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) rabbit, 0.30D, 1.0D);
         setMetadata((Rabbit) rabbit, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Rabbit) rabbit).setBaby();

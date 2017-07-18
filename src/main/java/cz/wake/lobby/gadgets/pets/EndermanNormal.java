@@ -23,7 +23,7 @@ public class EndermanNormal {
             }
         }
         final Enderman e = RideableEnderman.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Enderman) e, "Pet", "Pet", Main.getInstance());
         ((Enderman) e).setCustomNameVisible(true);
         ((Enderman) e).setCustomName(p.getName());

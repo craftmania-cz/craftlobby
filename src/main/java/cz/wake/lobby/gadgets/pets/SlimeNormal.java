@@ -23,7 +23,7 @@ public class SlimeNormal {
             }
         }
         final Slime slime = RideableSlime.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
         setMetadata((Slime) slime, "Pet", "Pet", Main.getInstance());
         ((Slime) slime).setSize(size);
         ((Slime) slime).setCustomNameVisible(true);

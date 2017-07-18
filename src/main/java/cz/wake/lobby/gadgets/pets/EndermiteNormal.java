@@ -23,7 +23,7 @@ public class EndermiteNormal {
             }
         }
         final Endermite ender = (Endermite) p.getWorld().spawnEntity(p.getLocation(), EntityType.ENDERMITE);
-        PetManager.PetFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
         setMetadata((Endermite) ender, "Pet", "Pet", Main.getInstance());
         ((Endermite) ender).setCustomNameVisible(true);
         ((Endermite) ender).setCustomName(p.getName());

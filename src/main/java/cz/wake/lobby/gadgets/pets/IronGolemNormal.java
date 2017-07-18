@@ -23,7 +23,7 @@ public class IronGolemNormal {
             }
         }
         final IronGolem golem = RideableGolem.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) golem, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) golem, 0.16D, 2D);
         setMetadata((IronGolem) golem, "Pet", "Pet", Main.getInstance());
         ((IronGolem) golem).setCustomNameVisible(true);
         ((IronGolem) golem).setCustomName(p.getName());

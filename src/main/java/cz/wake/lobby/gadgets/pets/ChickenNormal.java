@@ -23,7 +23,7 @@ public class ChickenNormal {
             }
         }
         final Chicken chicken = RideableChicken.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) chicken, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) chicken, 0.16D, 2D);
         setMetadata((Chicken) chicken, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Chicken) chicken).setBaby();

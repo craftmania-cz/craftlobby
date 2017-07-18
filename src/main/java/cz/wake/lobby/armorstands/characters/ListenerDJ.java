@@ -20,7 +20,7 @@ public class ListenerDJ implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1542.5, 14, -1256.5, 0, 0);
     private Location loc2 = new Location(Bukkit.getWorld("omain"), 1538.5, 14, -1255.5, 0, 0);
-    ArmorStand as, as2;
+    private ArmorStand as, as2;
 
     @Override
     public void spawn() {
@@ -169,11 +169,6 @@ public class ListenerDJ implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

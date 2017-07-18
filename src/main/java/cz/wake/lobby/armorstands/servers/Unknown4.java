@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class Unknown4 implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1527.5, 18, -1212.5, -135, 0);
-    ArmorStand as, as2;
+    private ArmorStand as, as2;
 
     @Override
     public void spawn() {
@@ -45,11 +45,6 @@ public class Unknown4 implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

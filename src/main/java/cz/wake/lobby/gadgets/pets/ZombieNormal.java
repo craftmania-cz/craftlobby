@@ -24,7 +24,7 @@ public class ZombieNormal {
             }
         }
         final Zombie zomb = RideableZombie.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) zomb, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) zomb, 0.16D, 1.0D);
         setMetadata((Zombie) zomb, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Zombie) zomb).setBaby(true);

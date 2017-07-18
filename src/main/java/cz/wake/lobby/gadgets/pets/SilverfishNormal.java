@@ -23,7 +23,7 @@ public class SilverfishNormal {
             }
         }
         final Silverfish silver = RideableSilverfish.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) silver, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) silver, 0.16D, 1.0D);
         setMetadata((Silverfish) silver, "Pet", "Pet", Main.getInstance());
         ((Silverfish) silver).setCustomNameVisible(true);
         ((Silverfish) silver).setCustomName(p.getName());

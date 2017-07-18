@@ -23,7 +23,7 @@ public class PigNormal {
             }
         }
         final Pig pig = RideablePig.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) pig, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) pig, 0.16D, 1.0D);
         setMetadata((Pig) pig, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Pig) pig).setBaby();

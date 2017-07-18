@@ -23,7 +23,7 @@ public class SkeletonNormal {
             }
         }
         final Skeleton e = RideableSkeleton.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Skeleton)e, "Pet", "Pet", Main.getInstance());
         ((Skeleton) e).setSkeletonType(type);
         ((Skeleton) e).setCustomNameVisible(true);

@@ -24,7 +24,7 @@ public class WitchNormal {
             }
         }
         final Witch e = RideableWitch.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Witch) e, "Pet", "Pet", Main.getInstance());
         ((Witch) e).setCustomNameVisible(true);
         ((Witch) e).setCustomName(p.getName());

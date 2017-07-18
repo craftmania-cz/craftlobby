@@ -23,7 +23,7 @@ public class CreeperNormal {
             }
         }
         final Creeper e = RideableCreeper.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Creeper) e, "Pet", "Pet", Main.getInstance());
         ((Creeper) e).setPowered(powered);
         ((Creeper) e).setCustomNameVisible(true);

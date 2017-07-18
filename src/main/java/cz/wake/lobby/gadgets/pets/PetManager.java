@@ -19,20 +19,13 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class PetManager implements Listener {
 
     public static Map<Player, CraftEntity> pet = new HashMap();
 
-    private Main plugin;
-
-    public PetManager(Main plugin) {
-        this.plugin = plugin;
-    }
-
-    public static void PetFollow(final Player player, final org.bukkit.entity.Entity pet, final double speed, final double distance) {
+    public static void petFollow(final Player player, final org.bukkit.entity.Entity pet, final double speed, final double distance) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -89,7 +82,7 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void PetRemoveOnLeave(PlayerQuitEvent e) {
+    public void petRemoveOnLeave(PlayerQuitEvent e) {
         Player localPlayer = e.getPlayer();
         for (Entity localEntity : localPlayer.getWorld().getEntities()) {
             if (localEntity == pet.get(localPlayer)) {
@@ -100,7 +93,7 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void PetRemoveOnLeave(PlayerKickEvent e) {
+    public void petRemoveOnLeave(PlayerKickEvent e) {
         Player localPlayer = e.getPlayer();
         for (Entity localEntity : localPlayer.getWorld().getEntities()) {
             if (localEntity == pet.get(localPlayer)) {
@@ -111,7 +104,7 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void MobOnFire(EntityCombustEvent e) {
+    public void mobOnFire(EntityCombustEvent e) {
         Entity localEntity = e.getEntity();
         if ((!(localEntity instanceof Skeleton)) && (!(localEntity instanceof Zombie))) {
             return;
@@ -125,12 +118,12 @@ public class PetManager implements Listener {
     public void onTarget(EntityTargetEvent e) {
         Entity entity = e.getEntity();
 
-        if(!(e.getTarget() instanceof Player)){
+        if (!(e.getTarget() instanceof Player)) {
             e.setCancelled(true);
         }
 
-        if(entity instanceof Evoker){
-            if(PetManager.pet.containsKey((Player)e.getTarget())){
+        if (entity instanceof Evoker) {
+            if (PetManager.pet.containsKey((Player) e.getTarget())) {
                 e.setCancelled(true);
             }
         } else {
@@ -149,16 +142,16 @@ public class PetManager implements Listener {
         }
         //Easter Egg
         if (mob.getType() == EntityType.PLAYER) {
-            if(player.isSneaking()){
-                if(PetManager.pet.containsKey(player)){
+            if (player.isSneaking()) {
+                if (PetManager.pet.containsKey(player)) {
                     Entity ent = PetManager.pet.get(player);
-                    if(ent instanceof Evoker){
-                        ((Evoker)ent).setTarget(mob);
+                    if (ent instanceof Evoker) {
+                        ((Evoker) ent).setTarget(mob);
                         player.sendMessage("§eEvoker ted bude minutu utocit na §f" + mob.getName());
                         Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new BukkitRunnable() {
                             @Override
                             public void run() {
-                                ((Evoker)ent).setTarget(null);
+                                ((Evoker) ent).setTarget(null);
                             }
                         }, 1200L);
                     }
@@ -190,7 +183,7 @@ public class PetManager implements Listener {
                 ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
             }
         } else {
-            if(mob instanceof Horse){
+            if (mob instanceof Horse) {
                 e.setCancelled(true);
                 player.sendMessage("§cTento mob neni tvuj!");
                 return;
@@ -281,7 +274,7 @@ public class PetManager implements Listener {
         if (EvokerNormal.cn.contains(p.getName())) {
             EvokerNormal.cn.remove(p.getName());
         }
-        if(ElderGuardianNormal.cp.contains(p.getName())){
+        if (ElderGuardianNormal.cp.contains(p.getName())) {
             ElderGuardianNormal.cp.remove(p.getName());
         }
     }

@@ -174,7 +174,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new AntiGravity(this), this);
         pm.registerEvents(new Servers(), this);
         pm.registerEvents(new Trampoline(this), this);
-        pm.registerEvents(new PetManager(this), this);
+        pm.registerEvents(new PetManager(), this);
         pm.registerEvents(new Chickenator(this), this);
         pm.registerEvents(new Tsunami(this), this);
         pm.registerEvents(new ExplosiveSheep(this), this);

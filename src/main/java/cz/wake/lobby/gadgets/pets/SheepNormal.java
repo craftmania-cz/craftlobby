@@ -24,7 +24,7 @@ public class SheepNormal {
             }
         }
         final Sheep sheep = RideableSheep.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) sheep, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) sheep, 0.16D, 2D);
         setMetadata((Sheep) sheep, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Sheep) sheep).setBaby();

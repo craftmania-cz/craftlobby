@@ -23,7 +23,7 @@ public class SnowmanNormal {
             }
         }
         final Snowman ender = (Snowman) p.getWorld().spawnEntity(p.getLocation(), EntityType.SNOWMAN);
-        PetManager.PetFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
         setMetadata((Snowman) ender, "Pet", "Pet", Main.getInstance());
         ((Snowman) ender).setCustomNameVisible(true);
         ((Snowman) ender).setCustomName(p.getName());

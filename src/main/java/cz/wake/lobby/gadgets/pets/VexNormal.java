@@ -21,7 +21,7 @@ public class VexNormal {
             }
         }
         final CraftVex vex = (CraftVex) p.getWorld().spawnEntity(p.getLocation(), EntityType.VEX);
-        PetManager.PetFollow(p, (CraftEntity) vex, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) vex, 0.16D, 1.5D);
         setMetadata((CraftVex) vex, "Pet", "Pet", Main.getInstance());
         PetManager.pet.put(p, (CraftEntity) vex);
         p.closeInventory();

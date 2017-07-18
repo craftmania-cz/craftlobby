@@ -23,7 +23,7 @@ public class WolfNormal {
             }
         }
         final Wolf wolf = RideableWolf.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) wolf, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) wolf, 0.16D, 1.0D);
         setMetadata((Wolf) wolf, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Wolf) wolf).setBaby();

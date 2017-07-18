@@ -20,7 +20,7 @@ import java.util.logging.Level;
 public class Creative2 implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1216.5, 90, 0);
-    protected ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3;
     private boolean maintenance;
 
     @Override
@@ -78,11 +78,6 @@ public class Creative2 implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

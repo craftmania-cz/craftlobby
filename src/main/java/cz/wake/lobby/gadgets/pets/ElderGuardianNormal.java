@@ -23,7 +23,7 @@ public class ElderGuardianNormal {
             }
         }
         final ElderGuardian e = RideableGuardianElder.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 1.5D);
         setMetadata((ElderGuardian) e, "Pet", "Pet", Main.getInstance());
         ((ElderGuardian) e).setCustomNameVisible(true);
         ((ElderGuardian) e).setCustomName(p.getName());

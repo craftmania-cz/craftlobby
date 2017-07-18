@@ -23,7 +23,7 @@ public class BatNormal {
             }
         }
         final Bat ender = (Bat) p.getWorld().spawnEntity(p.getLocation(), EntityType.BAT);
-        PetManager.PetFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
         setMetadata((Bat) ender, "Pet", "Pet", Main.getInstance());
         ((Bat) ender).setCustomNameVisible(true);
         ((Bat) ender).setCustomName(p.getName());

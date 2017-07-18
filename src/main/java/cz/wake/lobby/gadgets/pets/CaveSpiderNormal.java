@@ -23,7 +23,7 @@ public class CaveSpiderNormal {
             }
         }
         final CaveSpider spider = RideableCaveSpider.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) spider, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) spider, 0.16D, 2D);
         setMetadata((CaveSpider) spider, "Pet", "Pet", Main.getInstance());
         ((CaveSpider) spider).setCustomNameVisible(true);
         ((CaveSpider) spider).setCustomName(p.getName());

@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 public class Pirate implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1537.5, 16, -1333.5, -150, 0);
-    ArmorStand as;
+    private ArmorStand as;
 
     @Override
     public void spawn() {
@@ -58,11 +58,6 @@ public class Pirate implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

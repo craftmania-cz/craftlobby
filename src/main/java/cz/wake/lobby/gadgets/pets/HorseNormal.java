@@ -25,7 +25,7 @@ public class HorseNormal {
             }
         }
         final Horse h = RideableHorse.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) h, 0.23D, 3D);
+        PetManager.petFollow(p, (CraftEntity) h, 0.23D, 3D);
         setMetadata((Horse) h, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Horse) h).setBaby();

@@ -23,7 +23,7 @@ public class GuardianNormal {
             }
         }
         final Guardian e = RideableGuardian.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 1.5D);
         setMetadata((Guardian) e, "Pet", "Pet", Main.getInstance());
         ((Guardian) e).setCustomNameVisible(true);
         ((Guardian) e).setCustomName(p.getName());

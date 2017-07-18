@@ -23,7 +23,7 @@ public class CowNormal {
             }
         }
         final Cow cow = RideableCow.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) cow, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) cow, 0.16D, 1.5D);
         setMetadata((Cow) cow, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Cow) cow).setBaby();

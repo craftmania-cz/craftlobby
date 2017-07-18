@@ -23,7 +23,7 @@ public class VindicatorNormal {
             }
         }
         final Vindicator e = RideableVindicator.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 3D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 3D);
         setMetadata((Vindicator) e, "Pet", "Pet", Main.getInstance());
         ((Vindicator) e).setCustomNameVisible(true);
         ((Vindicator) e).setCustomName(p.getName());

@@ -15,7 +15,7 @@ import org.bukkit.util.EulerAngle;
 public class Bonusy implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"),1540.5, 18, -1222.5, 180, 0);
-    ArmorStand as,as2,as3,as4;
+    private ArmorStand as,as2,as3,as4;
 
     @Override
     public void spawn() {
@@ -115,11 +115,6 @@ public class Bonusy implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

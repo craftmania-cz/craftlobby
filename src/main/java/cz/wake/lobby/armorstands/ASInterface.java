@@ -24,11 +24,6 @@ public interface ASInterface {
     boolean isActive();
 
     /**
-     * Teleport na urcity server nebo lobby.
-     */
-    void serverTeleport();
-
-    /**
      * Odebráni armorstandu
      */
     void remove();
