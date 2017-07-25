@@ -1,5 +1,6 @@
 package cz.wake.lobby;
 
+import cz.wake.lobby.GUI.ArcadeShopGUI;
 import cz.wake.lobby.GUI.GadgetsMenu;
 import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.Servers;
@@ -145,8 +146,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             ArmorStandManager.init();
             ArmorStandManager.spawn();
 
-            // Update ArmorStandu
-            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
+            if(getConfig().getString("server").equalsIgnoreCase("main")){
+                // Update ArmorStandu
+                getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L,1200L);
+            }
         }
 
         // Update AT time
@@ -206,6 +209,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Shop(), this);
         pm.registerEvents(new ArmorStandInteract(), this);
         pm.registerEvents(new ChatListener(), this);
+        pm.registerEvents(new ArcadeShopGUI(), this);
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {
