@@ -92,11 +92,6 @@ public class ArcadeShop implements ASInterface {
     }
 
     @Override
-    public void serverTeleport() {
-
-    }
-
-    @Override
     public void remove() {
         as.remove();
         as2.remove();

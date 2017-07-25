@@ -87,7 +87,7 @@ public class ArmorStandManager {
             } else if (i instanceof  SkyWars) {
                 i.updateArmorStand("skywars", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skywars_server"));
             } else if (i instanceof SkyGiants) {
-                i.updateArmorStand("skygiants", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skygiants_server"));
+                //i.updateArmorStand("skygiants", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skygiants_server"));
             } else if (i instanceof PVPGames) {
                 i.updateArmorStand("getdown", Main.getInstance().fetchData().getOnlinePlayersSum("stav_getdown_server"));
             }

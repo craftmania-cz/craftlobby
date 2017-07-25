@@ -199,40 +199,37 @@ public class InvClick implements Listener {
             }
             //**************************** SERVERS MENU ****************************//
             if (event.getInventory().getTitle().equals("Vyber serveru")) {
-                if (event.getSlot() == 20) {
+                if (event.getSlot() == 10) {
                     sendToServer(player, "survival");
                 }
-                if (event.getSlot() == 21) {
+                if (event.getSlot() == 11) {
                     sendToServer(player, "skyblock");
                 }
-                if (event.getSlot() == 22) {
+                if (event.getSlot() == 12) {
                     sendToServer(player, "creative");
                 }
-                if (event.getSlot() == 23) {
+                if (event.getSlot() == 13) {
                     sendToServer(player, "creative2");
                 }
-                if (event.getSlot() == 24) {
+                if (event.getSlot() == 14) {
                     sendToServer(player, "prison");
                 }
-                if (event.getSlot() == 25) {
+                if (event.getSlot() == 15) {
                     sendToServer(player, "vanilla");
                 }
-                if (event.getSlot() == 31) {
-                    sendToServer(player, "globby");
-                }
-                if (event.getSlot() == 30) {
-                    sendToServer(player, "slobby");
-                }
-                if (event.getSlot() == 29) {
-                    sendToServer(player, "blobby");
-                }
-                if (event.getSlot() == 32) {
-                    sendToServer(player, "dlobby");
-                }
-                if (event.getSlot() == 26) {
+                if (event.getSlot() == 16) {
                     sendToServer(player, "vanillasb");
                 }
-                if (event.getSlot() == 33){
+                if (event.getSlot() == 21) {
+                    sendToServer(player, "slobby");
+                }
+                if (event.getSlot() == 20) {
+                    sendToServer(player, "blobby");
+                }
+                if (event.getSlot() == 23) {
+                    sendToServer(player, "dlobby");
+                }
+                if (event.getSlot() == 24){
                     sendToServer(player, "dlobby");
                 }
             }
