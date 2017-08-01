@@ -12,6 +12,7 @@ import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.CloaksAPI;
 import cz.wake.lobby.gadgets.gadget.*;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
+import cz.wake.lobby.gadgets.morphs.MorphAPI;
 import cz.wake.lobby.gadgets.morphs.PigMorph;
 import cz.wake.lobby.gadgets.morphs.VillagerMorph;
 import cz.wake.lobby.gadgets.pets.PetManager;
@@ -166,8 +167,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new TeleportStick(this), this);
         pm.registerEvents(new FunCannon(this), this);
         pm.registerEvents(new TNTBomb(this), this);
-        pm.registerEvents(new VillagerMorph(this), this);
-        pm.registerEvents(new PigMorph(this), this);
         pm.registerEvents(new Pee(this), this);
         pm.registerEvents(new Fireworks(this), this);
         pm.registerEvents(new BlizzardBlaster(this), this);
@@ -207,6 +206,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new ArmorStandInteract(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new ArcadeShopGUI(), this);
+        pm.registerEvents(new MorphAPI(), this);
+        pm.registerEvents(new VillagerMorph(), this);
+        pm.registerEvents(new PigMorph(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")){

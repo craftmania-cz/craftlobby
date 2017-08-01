@@ -5,6 +5,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
+import cz.wake.lobby.gadgets.morphs.MorphAPI;
 import cz.wake.lobby.gadgets.particles.*;
 import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.settings.SettingsMenu;
@@ -53,6 +54,7 @@ public class InvClick implements Listener {
     HeadsAPI hAPI = new HeadsAPI();
     SettingsMenu st = new SettingsMenu();
     Stalker stalker = new Stalker();
+    MorphAPI morphAPI = new MorphAPI();
 
     static final Logger log = LoggerFactory.getLogger(InvClick.class);
 
@@ -252,7 +254,7 @@ public class InvClick implements Listener {
                     Main.getInstance().getGadgetsAPI().openInventory(player);
                 }
                 if (event.getSlot() == 32) {
-                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+                    morphAPI.openMenu(player);
                 }
                 if (event.getSlot() == 34) {
                     this.pMenu.openParticles(player);

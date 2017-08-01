@@ -57,10 +57,11 @@ public class GadgetsMenu implements Listener {
 
         ItemStack disguisesItem = new ItemStack(Material.SKULL_ITEM, 1);
         SkullMeta disguisesItemMeta = (SkullMeta) disguisesItem.getItemMeta();
-        disguisesItemMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Morphs");
+        disguisesItemMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Morphs (BETA)");
         ArrayList<String> disguisesLore = new ArrayList<String>();
         disguisesLore.add(ChatColor.GRAY + "Premen se a nikdo te nepozna!");
         disguisesLore.add("");
+        disguisesLore.add(countMorph(p));
         disguisesLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
         disguisesItemMeta.setLore(disguisesLore);
         disguisesItem.setItemMeta(disguisesItemMeta);
@@ -125,7 +126,7 @@ public class GadgetsMenu implements Listener {
         gadgetsMenu.setItem(16, cloaks);
         gadgetsMenu.setItem(28, petsItem);
         gadgetsMenu.setItem(30, gadgetsItem);
-        gadgetsMenu.setItem(32, morphs);
+        gadgetsMenu.setItem(32, disguisesItem);
         gadgetsMenu.setItem(34, particlesItem);
         gadgetsMenu.setItem(49, shopItem);
 
@@ -182,6 +183,28 @@ public class GadgetsMenu implements Listener {
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private String countMorph(Player p){
+        int part = getMorphsCount(p);
+        int sum = 3;
+        int prc = (part * 100 / sum);
+
+        return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private int getMorphsCount(Player p){
+        int c = 0;
+        if(p.hasPermission("craftlobby.morphs.pig")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.morphs.villager")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.morphs.irongolem")){
+            c++;
+        }
+        return c;
     }
 
     private int getBannerCount(Player p) {
