@@ -171,7 +171,17 @@ public class InvClick implements Listener {
                 event.setCancelled(true);
                 player.updateInventory();
                 if (event.getSlot() == 11) {
-                    this.vMenu.openMenuSMS(player);
+                    player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);
+                    player.sendMessage("");
+                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                    player.sendMessage("");
+                    player.sendMessage("");
+                    player.sendMessage("§eNakup pomoci Paypal/PSC provedes zde:");
+                    player.sendMessage("§bhttp://store.craftmania.cz");
+                    player.sendMessage("");
+                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                    player.sendMessage("");
+                    player.closeInventory();
                 }
                 if (event.getSlot() == 15) {
                     player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);

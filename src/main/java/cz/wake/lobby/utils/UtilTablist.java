@@ -11,6 +11,8 @@ public class UtilTablist {
             p.setPlayerListName("§c§lHL.ADMIN §f" + p.getName());
         } else if (p.hasPermission("craftlobby.prefix.eventer")){
             p.setPlayerListName("§d§lEVENTER §f" + p.getName());
+        } else if (p.hasPermission("craftlobby.prefix.adminka")){
+            p.setPlayerListName("§c§lADMINKA §f" + p.getName());
         } else if (p.hasPermission("craftlobby.prefix.admin")){
             p.setPlayerListName("§c§lADMIN §f" + p.getName());
         } else if (p.hasPermission("craftlobby.prefix.builder")){
