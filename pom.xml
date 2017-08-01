@@ -97,6 +97,13 @@
             <version>2.6.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>cz.wake</groupId>
+            <artifactId>Parkour</artifactId>
+            <version>1.2</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/lib/Parkour.jar</systemPath>
+        </dependency>
     </dependencies>
 
 

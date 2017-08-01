@@ -176,7 +176,7 @@ public class InvClick implements Listener {
                     player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                     player.sendMessage("");
                     player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci Paypal/PSC provedes zde:");
+                    player.sendMessage("§eNakup pomoci SMS/Paypal/PSC provedes zde:");
                     player.sendMessage("§bhttp://store.craftmania.cz");
                     player.sendMessage("");
                     player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -189,7 +189,7 @@ public class InvClick implements Listener {
                     player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                     player.sendMessage("");
                     player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci Paypal/PSC provedes zde:");
+                    player.sendMessage("§eNakup pomoci SMS/Paypal/PSC provedes zde:");
                     player.sendMessage("§bhttp://store.craftmania.cz");
                     player.sendMessage("");
                     player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");

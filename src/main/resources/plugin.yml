@@ -2,7 +2,7 @@ name: CraftLobby
 main: cz.wake.lobby.Main
 version: 1.7
 author: MrWakeCZ
-softdepend: [CrateKeys]
+softdepend: [CrateKeys,RogueParkour]
 depend: [Multiverse-Core]
 commands:
   clobby:

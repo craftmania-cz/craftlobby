@@ -16,10 +16,7 @@ import cz.wake.lobby.gadgets.morphs.PigMorph;
 import cz.wake.lobby.gadgets.morphs.VillagerMorph;
 import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.gadgets.pets.PetsAPI;
-import cz.wake.lobby.listeners.ArmorStandInteract;
-import cz.wake.lobby.listeners.ChatListener;
-import cz.wake.lobby.listeners.InvClick;
-import cz.wake.lobby.listeners.PlayerListener;
+import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
@@ -210,6 +207,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new ArmorStandInteract(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new ArcadeShopGUI(), this);
+
+        if (getConfig().getString("server").equalsIgnoreCase("main")
+                && pm.isPluginEnabled("RogueParkour")){
+            pm.registerEvents(new ParkourListener(), this);
+
+        }
 
         //SkyKeys pro SLOBBY
         if (pm.isPluginEnabled("CrateKeys")) {

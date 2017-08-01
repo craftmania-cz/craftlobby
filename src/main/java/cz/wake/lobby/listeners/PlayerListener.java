@@ -6,6 +6,7 @@ import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.GUI.VIPMenu;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.statistics.BedWars;
+import cz.wake.lobby.armorstands.statistics.Parkour;
 import cz.wake.lobby.armorstands.statistics.SkyGiants;
 import cz.wake.lobby.armorstands.statistics.SkyWars;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
@@ -98,6 +99,9 @@ public class PlayerListener implements Listener {
             } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")) {
                 Location loc = new Location(Bukkit.getWorld("obw"), -599.75, 100.6, 116.5);
                 BedWars.spawn(loc, p);
+            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
+                Location loc = new Location(Bukkit.getWorld("omain"), 1493.5, 23.6, -1275.5);
+                Parkour.spawn(loc, p);
             }
 
             //AT
@@ -531,5 +535,4 @@ public class PlayerListener implements Listener {
             SettingsMenu.gadgets.add(p);
         }
     }
-
 }
