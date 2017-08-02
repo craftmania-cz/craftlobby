@@ -31,8 +31,8 @@ import java.util.Random;
 public class ExplosiveSheep implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    ArrayList<Sheep> sheepArrayList = new ArrayList();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private ArrayList<Sheep> sheepArrayList = new ArrayList();
 
     private Main plugin;
 

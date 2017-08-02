@@ -31,10 +31,10 @@ import java.util.Random;
 public class Tsunami implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    Random r = new Random();
-    List<Entity> cooldownJump = new ArrayList();
-    List<ArmorStand> armorStands = new ArrayList();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private Random r = new Random();
+    private List<Entity> cooldownJump = new ArrayList();
+    private List<ArmorStand> armorStands = new ArrayList();
 
     private Main plugin;
 

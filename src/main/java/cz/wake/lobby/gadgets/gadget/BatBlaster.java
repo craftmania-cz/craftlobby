@@ -23,7 +23,7 @@ import java.util.Iterator;
 public class BatBlaster implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap<Player, Double>();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap<Player, BukkitRunnable>();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap<Player, BukkitRunnable>();
     private HashMap<Player, Location> playerVelocity = new HashMap<Player, Location>();
     private HashMap<Player, ArrayList<Bat>> bats = new HashMap<Player, ArrayList<Bat>>();
     private HashMap<Player, Long> isActive = new HashMap<Player, Long>();

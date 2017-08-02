@@ -25,7 +25,7 @@ import java.util.Random;
 public class CookieFountain implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static Random random = new Random();
 
     private Main plugin;

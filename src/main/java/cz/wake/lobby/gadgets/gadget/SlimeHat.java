@@ -30,7 +30,7 @@ import java.util.HashMap;
 public class SlimeHat implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     private HashMap<Player, ArrayList<Slime>> slim = new HashMap();
     private HashMap<Player, ArrayList<Entity>> slimeball = new HashMap();
 

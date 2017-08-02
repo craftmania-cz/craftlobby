@@ -26,7 +26,7 @@ import java.util.Iterator;
 public class Trampoline implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     private HashMap<String, ArrayList<Location>> locs = new HashMap();
     private boolean enabled = false;
 

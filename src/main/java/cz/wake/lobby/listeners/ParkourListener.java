@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 
 public class ParkourListener implements Listener {
 
-    InvClick ic = new InvClick();
+    private InvClick ic = new InvClick();
 
     @EventHandler
     public void onParkourStart(ParkourTeleportEvent e){
@@ -37,10 +37,9 @@ public class ParkourListener implements Listener {
     public void onParkourEnd(ParkourEndEvent e){
         Player p = e.getPlayer();
 
-        if (p.hasPermission("craftlobby.vip.fly")) {
-            if (Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
-                p.setAllowFlight(true);
-            }
+        if (p.hasPermission("craftlobby.vip.fly")
+                && Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
+            p.setAllowFlight(true);
         }
     }
 }

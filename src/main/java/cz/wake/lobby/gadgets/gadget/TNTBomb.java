@@ -33,7 +33,7 @@ public class TNTBomb implements Listener {
 
     private ArrayList<TNTPrimed> _tnt = new ArrayList();
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
 
     @EventHandler
     public void onExplosion(EntityExplodeEvent e) {

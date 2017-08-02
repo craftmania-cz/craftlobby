@@ -36,10 +36,10 @@ public class BlizzardBlaster implements Listener {
     }
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    Random r = new Random();
-    List<Entity> cooldownJump = new ArrayList();
-    List<ArmorStand> armorStands = new ArrayList();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private Random r = new Random();
+    private List<Entity> cooldownJump = new ArrayList();
+    private List<ArmorStand> armorStands = new ArrayList();
 
     @EventHandler
     public void onPee(PlayerInteractEvent e) {
