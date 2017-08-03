@@ -39,6 +39,8 @@ commands:
     description: Server teleport
   vanillasb:
     description: Server teleport
+  oldlobby:
+    description: Oldlobby teleport
 
 permissions:
   craftlobby.pristup:

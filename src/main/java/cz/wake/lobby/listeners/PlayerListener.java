@@ -382,9 +382,9 @@ public class PlayerListener implements Listener {
             if (!Main.getInstance().inPortal(p)) {
                 if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")) {
                     Main.getInstance().addPortal(p);
-                    //Main.getInstance().getServerMenu().openServersMenu(p);
+                    //Main.getInstance().getServersMenu().openServersMenu(p);
                 } else {
-                    //ic.sendToServerBalancer(p, "main-lobby");
+                    ic.sendToServer(p,"lobby", "frontend");
                 }
                 new BukkitRunnable() {
                     @Override

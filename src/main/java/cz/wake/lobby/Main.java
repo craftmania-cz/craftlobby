@@ -46,6 +46,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private GadgetsMenu gMenu = new GadgetsMenu();
     private ArmorStandManager asm = new ArmorStandManager();
     private Menu m = new Menu();
+    private Servers servers = new Servers();
     private TimeTask tt = new TimeTask();
     public boolean debug;
     public HashMap<Block, String> _BlocksToRestore = new HashMap();
@@ -242,6 +243,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("arcade").setExecutor(new Arcade_command());
         getCommand("skygiants").setExecutor(new SkyGiants_command());
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
+        getCommand("oldlobby").setExecutor(new OldLobbyCommand());
     }
 
     public static Main getInstance() {
@@ -291,6 +293,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public Menu getMenu() {
         return m;
+    }
+
+    public Servers getServersMenu(){
+        return servers;
     }
 
     public void addPortal(Player p) {
