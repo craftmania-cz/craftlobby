@@ -1319,5 +1319,27 @@ public class SQLManager {
         return 0L;
     }
 
+    public final void resetDailyReward(final long time) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE craftboxer_nextReset SET time = ? WHERE id = 4;");
+                    ps.setLong(1, time);
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+
+
 
 }
