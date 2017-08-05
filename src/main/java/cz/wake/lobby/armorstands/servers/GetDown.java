@@ -11,13 +11,13 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
-public class PVPGames implements ASInterface {
+public class GetDown implements ASInterface {
 
     /*
     GETDOWN
      */
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1525.5, 18, -1214.5, -135, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1216.5, -90, 0);
     ArmorStand as, as2, as3, as4;
 
     @Override
