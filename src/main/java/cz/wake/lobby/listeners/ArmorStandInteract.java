@@ -2,6 +2,7 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.ArcadeShopGUI;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.MessagesUtils;
@@ -28,11 +29,12 @@ import java.util.Random;
 
 public class ArmorStandInteract implements Listener {
 
-    MessagesUtils mu = new MessagesUtils();
+    private MessagesUtils mu = new MessagesUtils();
     private boolean farmer,child,ludvik,felix,wake,veverka1,veverka2,flafy,delfik = false;
-    ItemStack item = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§bTeleport");
+    private ItemStack item = ItemFactory.create(Material.GHAST_TEAR,(byte)0,"§bTeleport");
     private ArrayList<Player> wait = new ArrayList<>();
-    ArcadeShopGUI arcadeShop = new ArcadeShopGUI();
+    private ArcadeShopGUI arcadeShop = new ArcadeShopGUI();
+    private RewardsManager rw = new RewardsManager();
 
     //TODO: Opravit kdyz na serveru nikdo neni = null
 
@@ -523,6 +525,9 @@ public class ArmorStandInteract implements Listener {
                     }
 
                 }
+            }
+            if(e.getRightClicked().hasMetadata("Bonusy")){
+                rw.openRewardManager(p);
             }
             if(e.getRightClicked().hasMetadata("survival")){
                 sendToServer(p,"survival");

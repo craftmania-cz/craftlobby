@@ -214,7 +214,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")){
             pm.registerEvents(new ParkourListener(), this);
-
+            pm.registerEvents(new RewardsManager(), this);
         }
 
         //SkyKeys pro SLOBBY

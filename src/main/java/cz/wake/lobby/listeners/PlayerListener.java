@@ -5,6 +5,7 @@ import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.GUI.VIPMenu;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.armorstands.characters.Bonusy;
 import cz.wake.lobby.armorstands.statistics.BedWars;
 import cz.wake.lobby.armorstands.statistics.Parkour;
 import cz.wake.lobby.armorstands.statistics.SkyGiants;
@@ -56,6 +57,7 @@ public class PlayerListener implements Listener {
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
     SettingsMenu sm = new SettingsMenu();
+    Bonusy b = new Bonusy();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -82,6 +84,11 @@ public class PlayerListener implements Listener {
 
             // Player settings
             Main.getInstance().setData().addSettingsDefault(p);
+
+            //Odmeny
+            Main.getInstance().setData().createRewardsRecord(p, "lobby_denniodmena");
+            Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
+            b.onPlayerSpawn(p);
 
             // Prefix v tablistu
             UtilTablist.setupPrefixInTab(p);
