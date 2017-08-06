@@ -9,13 +9,17 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import java.util.ArrayList;
+
 public class ParkourListener implements Listener {
 
     private InvClick ic = new InvClick();
+    public static ArrayList<Player> in_parkour = new ArrayList<>();
 
     @EventHandler
     public void onParkourStart(ParkourTeleportEvent e){
         Player p = e.getPlayer();
+        in_parkour.add(p);
 
         p.setAllowFlight(false);
         p.setFlying(false);
@@ -41,5 +45,7 @@ public class ParkourListener implements Listener {
                 && Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
             p.setAllowFlight(true);
         }
+
+        in_parkour.remove(p);
     }
 }
