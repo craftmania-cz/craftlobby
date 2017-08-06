@@ -16,7 +16,7 @@ public class HorseNormal {
 
     public static ArrayList<String> hb = new ArrayList();
 
-    public static void activate(Player p, boolean baby, Horse.Variant variant, Horse.Color color) {
+    public static void activate(Player p, boolean baby, Horse.Style style, Horse.Color color) {
         for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
             Object localObject = (CraftEntity) localIterator.next();
             if (localObject == PetManager.pet.get(p)) {
@@ -31,7 +31,7 @@ public class HorseNormal {
             ((Horse) h).setBaby();
         }
         ((Horse) h).setAgeLock(true);
-        ((Horse) h).setVariant(variant);
+        ((Horse) h).setStyle(style);
         ((Horse) h).setColor(color);
         ((Horse) h).getInventory().setSaddle(new ItemStack(Material.SADDLE));
         ((Horse) h).setCustomNameVisible(true);

@@ -2669,7 +2669,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 0){
 				if(p.hasPermission("craftlobby.pets.horse.black")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.BLACK);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.BLACK);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black");
                     Shop.open(p, "Horse Black", "craftlobby.pets.horse.black", i, 100);
@@ -2677,7 +2677,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.horse.black.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.BLACK);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.BLACK);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Black (Baby)");
                     Shop.open(p, "Horse Black (Baby)", "craftlobby.pets.horse.black.baby", i, 150);
@@ -2685,7 +2685,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 2){
 				if(p.hasPermission("craftlobby.pets.horse.brown")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.BROWN);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown");
                     Shop.open(p, "Horse Brown", "craftlobby.pets.horse.brown", i, 100);
@@ -2693,7 +2693,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 3){
 				if(p.hasPermission("craftlobby.pets.horse.brown.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.BROWN);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Brown (Baby)");
                     Shop.open(p, "Horse Brown (Baby)", "craftlobby.pets.horse.brown.baby", i, 150);
@@ -2701,7 +2701,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 4){
 				if(p.hasPermission("craftlobby.pets.horse.chestnut")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.CHESTNUT);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.CHESTNUT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut");
                     Shop.open(p, "Horse Chestnut", "craftlobby.pets.horse.chestnut", i, 100);
@@ -2709,7 +2709,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 5){
 				if(p.hasPermission("craftlobby.pets.horse.chestnut.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.CHESTNUT);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.CHESTNUT);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Chestnut (Baby)");
                     Shop.open(p, "Horse Chestnut (Baby)", "craftlobby.pets.horse.chestnut.baby", i, 150);
@@ -2717,7 +2717,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 6){
 				if(p.hasPermission("craftlobby.pets.horse.creamy")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.CREAMY);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.CREAMY);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy");
                     Shop.open(p, "Horse Creamy", "craftlobby.pets.horse.creamy", i, 100);
@@ -2725,7 +2725,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 7){
 				if(p.hasPermission("craftlobby.pets.horse.creamy.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.CREAMY);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.CREAMY);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Creamy (Baby)");
                     Shop.open(p, "Horse Creamy (Baby)", "craftlobby.pets.horse.creamy.baby", i, 150);
@@ -2733,7 +2733,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 8){
 				if(p.hasPermission("craftlobby.pets.horse.darkbrown")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.DARK_BROWN);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.DARK_BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Dark Brown");
                     Shop.open(p, "Horse Dark Brown", "craftlobby.pets.horse.darkbrown", i, 100);
@@ -2741,7 +2741,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 9){
 				if(p.hasPermission("craftlobby.pets.horse.darkbrown.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.DARK_BROWN);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.DARK_BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Dark Brown (Baby)");
                     Shop.open(p, "Horse Dark Brown (Baby)", "craftlobby.pets.horse.darkbrown.baby", i, 150);
@@ -2749,7 +2749,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 10){
 				if(p.hasPermission("craftlobby.pets.horse.gray")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.GRAY);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.GRAY);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray");
                     Shop.open(p, "Horse Gray", "craftlobby.pets.horse.gray", i, 100);
@@ -2757,7 +2757,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 11){
 				if(p.hasPermission("craftlobby.pets.horse.gray.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.GRAY);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.GRAY);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse Gray (Baby)");
                     Shop.open(p, "Horse Gray (Baby)", "craftlobby.pets.horse.gray.baby", i, 150);
@@ -2765,7 +2765,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 12){
 				if(p.hasPermission("craftlobby.pets.horse.white")){
-					HorseNormal.activate(p,false, Horse.Variant.HORSE, Horse.Color.WHITE );
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.WHITE );
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White");
                     Shop.open(p, "Horse White", "craftlobby.pets.horse.white", i, 100);
@@ -2773,15 +2773,16 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 13){
 				if(p.hasPermission("craftlobby.pets.horse.white.baby")){
-					HorseNormal.activate(p,true, Horse.Variant.HORSE, Horse.Color.WHITE);
+					HorseNormal.activate(p,true, Horse.Style.NONE, Horse.Color.WHITE);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eHorse White (Baby)");
                     Shop.open(p, "Horse White (Baby)", "craftlobby.pets.horse.white.baby", i, 150);
 				}
 			}
+			//TODO: Nefunkcni Donkey, Mule, Zombie Horse, Skeleton Horse
 			if(e.getSlot() == 14){
 				if(p.hasPermission("craftlobby.pets.horse.donkey")){
-					HorseNormal.activate(p,false, Horse.Variant.DONKEY, Horse.Color.BROWN);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eDonkey");
                     Shop.open(p, "Donkey", "craftlobby.pets.horse.donkey", i, 100);
@@ -2789,7 +2790,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 15){
 				if(p.hasPermission("craftlobby.pets.horse.mule")){
-					HorseNormal.activate(p,false, Horse.Variant.MULE, Horse.Color.BROWN);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eMule");
                     Shop.open(p, "Mule", "craftlobby.pets.horse.mule", i, 100);
@@ -2797,7 +2798,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 16){
 				if(p.hasPermission("craftlobby.pets.horse.zombie")){
-					HorseNormal.activate(p,false, Horse.Variant.UNDEAD_HORSE, Horse.Color.BROWN);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eZombie Horse");
                     Shop.open(p, "Zombie Horse", "craftlobby.pets.horse.zombie", i, 400);
@@ -2805,7 +2806,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 17){
 				if(p.hasPermission("craftlobby.pets.horse.skeleton")){
-					HorseNormal.activate(p,false, Horse.Variant.SKELETON_HORSE, Horse.Color.BROWN);
+					HorseNormal.activate(p,false, Horse.Style.NONE, Horse.Color.BROWN);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SADDLE,(byte)0, "§eSkeleton Horse");
                     Shop.open(p, "Skeleton Horse", "craftlobby.pets.horse.skeleton", i, 400);

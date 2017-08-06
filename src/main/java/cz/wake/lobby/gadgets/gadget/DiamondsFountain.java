@@ -55,6 +55,10 @@ public class DiamondsFountain implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.diamondfountain")) {
             return;
         }
+        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+            player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
+            return;
+        }
         if (SettingsMenu.activeGadgets.contains(player)){
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
