@@ -1,13 +1,13 @@
-name: WakesLobby	
+name: CraftLobby
 main: cz.wake.lobby.Main
-version: 1.6
+version: 1.7
 author: MrWakeCZ
-softdepend: [CrateKeys]
+softdepend: [CrateKeys,RogueParkour]
 depend: [Multiverse-Core]
 commands:
-  wlobby:
+  clobby:
     description: Info o profilu!
-  wl:
+  cl:
     description: Info o profilu!
   stats:
     description: Statistiky hracu
@@ -39,6 +39,8 @@ commands:
     description: Server teleport
   vanillasb:
     description: Server teleport
+  oldlobby:
+    description: Oldlobby teleport
 
 permissions:
   craftlobby.pristup:

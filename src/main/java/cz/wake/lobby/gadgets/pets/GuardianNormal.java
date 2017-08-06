@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableGuardian;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Guardian;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -14,7 +14,7 @@ public class GuardianNormal {
 
     public static ArrayList<String> cp = new ArrayList();
 
-    public static void activateGuardian(Player p, boolean elder) {
+    public static void activateGuardian(Player p) {
         for (Iterator localIterator = p.getWorld().getEntities().iterator(); localIterator.hasNext(); ) {
             Object localObject = (CraftEntity) localIterator.next();
             if (localObject == PetManager.pet.get(p)) {
@@ -23,11 +23,8 @@ public class GuardianNormal {
             }
         }
         final Guardian e = RideableGuardian.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 1.5D);
         setMetadata((Guardian) e, "Pet", "Pet", Main.getInstance());
-        if (elder) {
-            ((Guardian) e).setElder(true);
-        }
         ((Guardian) e).setCustomNameVisible(true);
         ((Guardian) e).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) e);

@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableSilverfish;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Silverfish;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class SilverfishNormal {
             }
         }
         final Silverfish silver = RideableSilverfish.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) silver, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) silver, 0.16D, 1.0D);
         setMetadata((Silverfish) silver, "Pet", "Pet", Main.getInstance());
         ((Silverfish) silver).setCustomNameVisible(true);
         ((Silverfish) silver).setCustomName(p.getName());

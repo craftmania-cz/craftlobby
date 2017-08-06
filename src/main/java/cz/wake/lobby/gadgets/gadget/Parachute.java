@@ -22,7 +22,7 @@ import java.util.*;
 public class Parachute implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    java.util.HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private java.util.HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static Random random = new Random();
     private HashMap<Player, ArrayList<Chicken>> chickens = new HashMap<>();
     private boolean active;

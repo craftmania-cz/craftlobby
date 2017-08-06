@@ -6,7 +6,6 @@ import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.Overridden;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -15,7 +14,7 @@ import org.bukkit.util.EulerAngle;
 public class BedWars implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1220.5, -90, 0);
-    ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3;
 
     @Override
     public void spawn() {
@@ -72,7 +71,7 @@ public class BedWars implements ASInterface {
         as2.setCustomName("§c§lBedWars");
     }
 
-    @Overridden
+    @Override
     public void subtextSpawn() {
         loc1.add(0, 0.3, 0);
 
@@ -90,11 +89,6 @@ public class BedWars implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

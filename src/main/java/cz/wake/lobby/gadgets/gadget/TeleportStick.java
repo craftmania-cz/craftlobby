@@ -21,7 +21,7 @@ import java.util.Set;
 public class TeleportStick implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
 
     private Main plugin;
 

@@ -18,7 +18,7 @@ public class Witch implements ASInterface {
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1615.5, 24, -1232.5, 100, 0);
     private Location loc2 = new Location(Bukkit.getWorld("omain"), 1645.5, 21, -1173.5, 75, 0);
     private Location loc3 = new Location(Bukkit.getWorld("omain"), 1453.5, 24, -1174.5, 80, 0);
-    ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3;
 
     @Override
     public void spawn() {
@@ -101,11 +101,6 @@ public class Witch implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

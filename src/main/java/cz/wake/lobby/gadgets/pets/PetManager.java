@@ -1,16 +1,17 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityCombustEvent;
+import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.event.entity.EntityTeleportEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerKickEvent;
@@ -24,20 +25,14 @@ public class PetManager implements Listener {
 
     public static Map<Player, CraftEntity> pet = new HashMap();
 
-    private Main plugin;
-
-    public PetManager(Main plugin) {
-        this.plugin = plugin;
-    }
-
-    public static void PetFollow(final Player player, final org.bukkit.entity.Entity pet, final double speed, final double distance) {
+    public static void petFollow(final Player player, final org.bukkit.entity.Entity pet, final double speed, final double distance) {
         new BukkitRunnable() {
             @Override
             public void run() {
                 if ((!pet.isValid() || (!player.isOnline()))) {
                     this.cancel();
                 }
-                net.minecraft.server.v1_10_R1.Entity pett = ((CraftEntity) pet).getHandle();
+                net.minecraft.server.v1_11_R1.Entity pett = ((CraftEntity) pet).getHandle();
                 ((EntityInsentient) pett).getNavigation().a(2);
                 Object petf = ((CraftEntity) pet).getHandle();
                 Location targetLocation = player.getLocation();
@@ -87,8 +82,8 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void PetRemoveOnLeave(PlayerQuitEvent paramPlayerQuitEvent) {
-        Player localPlayer = paramPlayerQuitEvent.getPlayer();
+    public void petRemoveOnLeave(PlayerQuitEvent e) {
+        Player localPlayer = e.getPlayer();
         for (Entity localEntity : localPlayer.getWorld().getEntities()) {
             if (localEntity == pet.get(localPlayer)) {
                 pet.remove(localEntity);
@@ -98,8 +93,8 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void PetRemoveOnLeave(PlayerKickEvent paramPlayerKickEvent) {
-        Player localPlayer = paramPlayerKickEvent.getPlayer();
+    public void petRemoveOnLeave(PlayerKickEvent e) {
+        Player localPlayer = e.getPlayer();
         for (Entity localEntity : localPlayer.getWorld().getEntities()) {
             if (localEntity == pet.get(localPlayer)) {
                 pet.remove(localEntity);
@@ -109,13 +104,30 @@ public class PetManager implements Listener {
     }
 
     @EventHandler
-    public void MobOnFire(EntityCombustEvent paramEntityCombustEvent) {
-        Entity localEntity = paramEntityCombustEvent.getEntity();
+    public void mobOnFire(EntityCombustEvent e) {
+        Entity localEntity = e.getEntity();
         if ((!(localEntity instanceof Skeleton)) && (!(localEntity instanceof Zombie))) {
             return;
         }
         if (localEntity.hasMetadata("Pet")) {
-            paramEntityCombustEvent.setCancelled(true);
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onTarget(EntityTargetEvent e) {
+        Entity entity = e.getEntity();
+
+        if (!(e.getTarget() instanceof Player)) {
+            e.setCancelled(true);
+        }
+
+        if (entity instanceof Evoker) {
+            if (PetManager.pet.containsKey((Player) e.getTarget())) {
+                e.setCancelled(true);
+            }
+        } else {
+            e.setCancelled(true);
         }
     }
 
@@ -128,7 +140,23 @@ public class PetManager implements Listener {
             player.sendMessage("§cNa tohoto moba nelze nasednou!");
             return;
         }
+        //Easter Egg
         if (mob.getType() == EntityType.PLAYER) {
+            if (player.isSneaking()) {
+                if (PetManager.pet.containsKey(player)) {
+                    Entity ent = PetManager.pet.get(player);
+                    if (ent instanceof Evoker) {
+                        ((Evoker) ent).setTarget(mob);
+                        player.sendMessage("§eEvoker ted bude minutu utocit na §f" + mob.getName());
+                        Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                ((Evoker) ent).setTarget(null);
+                            }
+                        }, 1200L);
+                    }
+                }
+            }
             return;
         }
         if (mob.getType() == EntityType.PRIMED_TNT) {
@@ -137,12 +165,14 @@ public class PetManager implements Listener {
         if (mob.getType() == EntityType.WITHER_SKULL) {
             return;
         }
+        if (mob.getType() == EntityType.VEX) {
+            return;
+        }
         if (mob.getType() == EntityType.WITHER) {
             player.sendMessage("§cNa tohoto moba nelze nasednou!");
             return;
         }
         if (mob.getType() == EntityType.BAT) {
-            player.sendMessage("§cNa tohoto moba nelze nasednou!");
             return;
         }
         if ((mob.getName().contains(player.getName()))) {
@@ -153,7 +183,7 @@ public class PetManager implements Listener {
                 ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
             }
         } else {
-            if(mob instanceof Horse){
+            if (mob instanceof Horse) {
                 e.setCancelled(true);
                 player.sendMessage("§cTento mob neni tvuj!");
                 return;
@@ -175,8 +205,8 @@ public class PetManager implements Listener {
         if (PigNormal.pn.contains(p.getName())) {
             PigNormal.pn.remove(p.getName());
         }
-        if (Cat.cb.contains(p.getName())) {
-            Cat.cb.remove(p.getName());
+        if (CatNormal.cb.contains(p.getName())) {
+            CatNormal.cb.remove(p.getName());
         }
         if (ChickenNormal.cn.contains(p.getName())) {
             ChickenNormal.cn.remove(p.getName());
@@ -237,6 +267,15 @@ public class PetManager implements Listener {
         }
         if (EndermiteNormal.en.contains(p.getName())) {
             EndermiteNormal.en.remove(p.getName());
+        }
+        if (VindicatorNormal.cn.contains(p.getName())) {
+            VindicatorNormal.cn.remove(p.getName());
+        }
+        if (EvokerNormal.cn.contains(p.getName())) {
+            EvokerNormal.cn.remove(p.getName());
+        }
+        if (ElderGuardianNormal.cp.contains(p.getName())) {
+            ElderGuardianNormal.cp.remove(p.getName());
         }
     }
 }

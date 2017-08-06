@@ -26,8 +26,8 @@ import java.util.Map;
 public class WakeArmy implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    Map<Bat, ArmorStand> bats = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private Map<Bat, ArmorStand> bats = new HashMap();
 
     private Main plugin;
 

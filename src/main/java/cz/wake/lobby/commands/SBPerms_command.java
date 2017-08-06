@@ -11,8 +11,6 @@ import org.slf4j.LoggerFactory;
 
 public class SBPerms_command implements CommandExecutor {
 
-    static final Logger log = LoggerFactory.getLogger(SBPerms_command.class);
-
     @Override
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
         if ((Command.getName().equalsIgnoreCase("sbperms"))) {
@@ -34,7 +32,7 @@ public class SBPerms_command implements CommandExecutor {
                         } else {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pp user " + p.getName() + " add " + perm);
                             for (Player pl : Bukkit.getOnlinePlayers()) {
-                                if (pl == p) {
+                                if (pl.equals(p)) {
                                     p.sendMessage("§eNasel jsi novy doplnek: §b" + finalNazev);
                                     TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", finalNazev);
                                 } else {
@@ -44,7 +42,7 @@ public class SBPerms_command implements CommandExecutor {
                         }
                     }
                 } catch (Exception e){
-                    log.error("", e);
+                    e.printStackTrace();
                 }
             } else {
                 Sender.sendMessage("§cNedostatecna prava na provedeni totoho prikazu!");

@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableSlime;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Slime;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class SlimeNormal {
             }
         }
         final Slime slime = RideableSlime.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) slime, 0.16D, 1.0D);
         setMetadata((Slime) slime, "Pet", "Pet", Main.getInstance());
         ((Slime) slime).setSize(size);
         ((Slime) slime).setCustomNameVisible(true);

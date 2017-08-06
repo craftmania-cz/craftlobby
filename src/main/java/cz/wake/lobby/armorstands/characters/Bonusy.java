@@ -2,20 +2,37 @@ package cz.wake.lobby.armorstands.characters;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.ASInterface;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
+import net.minecraft.server.v1_11_R1.EntityArmorStand;
+import net.minecraft.server.v1_11_R1.PacketPlayOutSpawnEntityLiving;
+import net.minecraft.server.v1_11_R1.WorldServer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.EulerAngle;
+import org.bukkit.util.Vector;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Random;
 
 public class Bonusy implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"),1540.5, 18, -1222.5, 180, 0);
-    ArmorStand as,as2,as3,as4;
+    private ArmorStand as,as2,as3,as4;
+    public static Random random = new Random();
+    public static EntityArmorStand stand;
 
     @Override
     public void spawn() {
@@ -54,6 +71,7 @@ public class Bonusy implements ASInterface {
                 if(c == 1){
                     as.getEquipment().setItemInOffHand(null);
                     as.setItemInHand(item);
+                    updateRewardArmorstand();
                     c++;
                 } else if (c == 2){
                     as.setItemInHand(null);
@@ -65,6 +83,8 @@ public class Bonusy implements ASInterface {
 
         subtextSpawn();
         hologramSpawn();
+
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "Bonusy", "Bonusy", Main.getInstance());
     }
 
     @Override
@@ -88,17 +108,6 @@ public class Bonusy implements ASInterface {
     public void subtextSpawn(){
 
         loc1.add(0,0.3,0);
-
-        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as4.setGravity(false);
-        as4.setCanPickupItems(false);
-        as4.setBasePlate(false);
-        as4.setVisible(false);
-        as4.setCustomNameVisible(true);
-
-        as4.setCustomName("§cJiz brzy...");
-
         loc1.add(0,0.3,0);
 
         as3 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
@@ -118,11 +127,6 @@ public class Bonusy implements ASInterface {
     }
 
     @Override
-    public void serverTeleport() {
-
-    }
-
-    @Override
     public void remove() {
         as.remove();
         as2.remove();
@@ -133,5 +137,102 @@ public class Bonusy implements ASInterface {
     @Override
     public void updateArmorStand(String s, int i){
 
+    }
+
+    public ArmorStand getAs() {
+        return as;
+    }
+
+    public void playEffect(Player p){
+        final ArrayList localArrayList = new ArrayList();
+        new BukkitRunnable() {
+            int step = 0;
+            @Override
+            public void run() {
+                this.step += 1;
+                Item localItem;
+                if (this.step <= 30) {
+                    p.getWorld().playSound(loc1, Sound.ENTITY_ITEM_PICKUP, 1.0F, 1.0F);
+                    int number = randRange(0, 6);
+                    switch (number) {
+                        case 0:
+                            localItem = p.getWorld().dropItem(loc1, ItemFactory.create(Material.GOLD_NUGGET, (byte) 0, "nopickup"));
+                            localItem.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.TRUE));
+                            localItem.setVelocity(new Vector((random.nextDouble() - 0.5D) / 3.0D, 0.7D, (random.nextDouble() - 0.5D) / 3.0D));
+                            localArrayList.add(localItem);
+                        case 1:
+                            localItem = p.getWorld().dropItem(loc1, ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "nopickup"));
+                            localItem.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.TRUE));
+                            localItem.setVelocity(new Vector((random.nextDouble() - 0.5D) / 3.0D, 0.7D, (random.nextDouble() - 0.5D) / 3.0D));
+                            localArrayList.add(localItem);
+                        default:
+                            localItem = p.getWorld().dropItem(loc1, ItemFactory.create(Material.GOLD_NUGGET, (byte) 0, "nopickup"));
+                            localItem.setMetadata("gadget", new FixedMetadataValue(Main.getPlugin(), Boolean.TRUE));
+                            localItem.setVelocity(new Vector((random.nextDouble() - 0.5D) / 3.0D, 0.7D, (random.nextDouble() - 0.5D) / 3.0D));
+                            localArrayList.add(localItem);
+                    }
+                } else {
+                    for (Iterator localIterator = localArrayList.iterator(); localIterator.hasNext(); ) {
+                        localItem = (Item) localIterator.next();
+                        localItem.remove();
+                    }
+                    cancel();
+                }
+            }
+        }.runTaskTimer(Main.getPlugin(), 0L, 4L);
+    }
+
+    private static int randRange(int min, int max) {
+        Random rand = new Random();
+        int randomNum = rand.nextInt(max - min + 1) + min;
+        return randomNum;
+    }
+
+    public String getRewards(Player p){
+        int rewards = 0;
+        if (Main.getInstance().setData().hasActiveReward(p, "lobby_denniodmena") == 0) {
+            rewards++;
+        }
+        if (p.hasPermission("craftlobby.vip.odmena")) {
+            if (Main.getInstance().setData().hasActiveReward(p, "lobby_vipodmena") == 0) {
+                rewards++;
+            }
+        }
+
+        if(rewards == 0){
+            return "§7Vsechny odmeny mas jiz vybrane!";
+        } else if (rewards == 1){
+            return "§7Mas nevyzvednutou §b1 odmenu!";
+        } else if (rewards == 2){
+            return "§7Mas nevyzvednute §c2 odmeny!";
+        }
+
+        return "§4Chyba! Wejku oprav to :D";
+
+    }
+
+    public void onPlayerSpawn(Player p){
+
+        Location loc1 = new Location(Bukkit.getWorld("omain"),1540.5, 18.3, -1222.5, 180, 0);
+
+        WorldServer s = ((CraftWorld)loc1.getWorld()).getHandle();
+
+        stand = new EntityArmorStand(s);
+        stand.setLocation(loc1.getX(), loc1.getY(), loc1.getZ(), 0, 0);
+        stand.setCustomName(getRewards(p));
+        stand.setCustomNameVisible(true);
+        stand.setInvisible(true);
+
+        PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
+        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
+    }
+
+    public void updateRewardArmorstand(){
+        for(Player players : Bukkit.getOnlinePlayers()){
+            stand.setCustomName(getRewards(players));
+
+            PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
+            ((CraftPlayer)players).getHandle().playerConnection.sendPacket(packet);
+        }
     }
 }

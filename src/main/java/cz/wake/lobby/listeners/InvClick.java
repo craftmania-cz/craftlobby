@@ -5,6 +5,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
+import cz.wake.lobby.gadgets.morphs.MorphAPI;
 import cz.wake.lobby.gadgets.particles.*;
 import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.settings.SettingsMenu;
@@ -25,34 +26,35 @@ import java.io.DataOutputStream;
 
 public class InvClick implements Listener {
 
-    StatisticsMG statistics = new StatisticsMG();
-    Menu profilMenu = new Menu();
-    GadgetsMenu gadgetsMenu = new GadgetsMenu();
-    ParticlesMenu pMenu = new ParticlesMenu();
-    VIPMenu vMenu = new VIPMenu();
-    GreenSparks gs = new GreenSparks();
-    FrostLord fl = new FrostLord();
-    FlameRings fr = new FlameRings();
-    SnowCloud ss = new SnowCloud();
-    RainCloud rc = new RainCloud();
-    BloodHelix bh = new BloodHelix();
-    Portal p = new Portal();
-    EnderSignal es = new EnderSignal();
-    Enchanted e = new Enchanted();
-    Love l = new Love();
-    Notes n = new Notes();
-    Clouds c = new Clouds();
-    ColoredDust cd = new ColoredDust();
-    LavaPop lp = new LavaPop();
-    MobSpell sp = new MobSpell();
-    FrozenWalk fw = new FrozenWalk();
-    Lily lil = new Lily();
-    SantaHat sh = new SantaHat();
-    CandyCane cc = new CandyCane();
-    BannerAPI bannerAPI = new BannerAPI();
-    HeadsAPI hAPI = new HeadsAPI();
-    SettingsMenu st = new SettingsMenu();
-    Stalker stalker = new Stalker();
+    private StatisticsMG statistics = new StatisticsMG();
+    private Menu profilMenu = new Menu();
+    private GadgetsMenu gadgetsMenu = new GadgetsMenu();
+    private ParticlesMenu pMenu = new ParticlesMenu();
+    private VIPMenu vMenu = new VIPMenu();
+    private GreenSparks gs = new GreenSparks();
+    private FrostLord fl = new FrostLord();
+    private FlameRings fr = new FlameRings();
+    private SnowCloud ss = new SnowCloud();
+    private RainCloud rc = new RainCloud();
+    private BloodHelix bh = new BloodHelix();
+    private Portal p = new Portal();
+    private EnderSignal es = new EnderSignal();
+    private Enchanted e = new Enchanted();
+    private Love l = new Love();
+    private Notes n = new Notes();
+    private Clouds c = new Clouds();
+    private ColoredDust cd = new ColoredDust();
+    private LavaPop lp = new LavaPop();
+    private MobSpell sp = new MobSpell();
+    private FrozenWalk fw = new FrozenWalk();
+    private Lily lil = new Lily();
+    private SantaHat sh = new SantaHat();
+    private CandyCane cc = new CandyCane();
+    private BannerAPI bannerAPI = new BannerAPI();
+    private HeadsAPI hAPI = new HeadsAPI();
+    private SettingsMenu st = new SettingsMenu();
+    private Stalker stalker = new Stalker();
+    private MorphAPI morphAPI = new MorphAPI();
 
     static final Logger log = LoggerFactory.getLogger(InvClick.class);
 
@@ -171,7 +173,17 @@ public class InvClick implements Listener {
                 event.setCancelled(true);
                 player.updateInventory();
                 if (event.getSlot() == 11) {
-                    this.vMenu.openMenuSMS(player);
+                    player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);
+                    player.sendMessage("");
+                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                    player.sendMessage("");
+                    player.sendMessage("");
+                    player.sendMessage("§eNakup pomoci SMS/Paypal/PSC provedes zde:");
+                    player.sendMessage("§bhttp://store.craftmania.cz");
+                    player.sendMessage("");
+                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                    player.sendMessage("");
+                    player.closeInventory();
                 }
                 if (event.getSlot() == 15) {
                     player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);
@@ -179,7 +191,7 @@ public class InvClick implements Listener {
                     player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                     player.sendMessage("");
                     player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci Paypal/PSC provedes zde:");
+                    player.sendMessage("§eNakup pomoci SMS/Paypal/PSC provedes zde:");
                     player.sendMessage("§bhttp://store.craftmania.cz");
                     player.sendMessage("");
                     player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -199,40 +211,37 @@ public class InvClick implements Listener {
             }
             //**************************** SERVERS MENU ****************************//
             if (event.getInventory().getTitle().equals("Vyber serveru")) {
-                if (event.getSlot() == 20) {
+                if (event.getSlot() == 10) {
                     sendToServer(player, "survival");
                 }
-                if (event.getSlot() == 21) {
+                if (event.getSlot() == 11) {
                     sendToServer(player, "skyblock");
                 }
-                if (event.getSlot() == 22) {
+                if (event.getSlot() == 12) {
                     sendToServer(player, "creative");
                 }
-                if (event.getSlot() == 23) {
+                if (event.getSlot() == 13) {
                     sendToServer(player, "creative2");
                 }
-                if (event.getSlot() == 24) {
+                if (event.getSlot() == 14) {
                     sendToServer(player, "prison");
                 }
-                if (event.getSlot() == 25) {
+                if (event.getSlot() == 15) {
                     sendToServer(player, "vanilla");
                 }
-                if (event.getSlot() == 31) {
-                    sendToServer(player, "globby");
-                }
-                if (event.getSlot() == 30) {
-                    sendToServer(player, "slobby");
-                }
-                if (event.getSlot() == 29) {
-                    sendToServer(player, "blobby");
-                }
-                if (event.getSlot() == 32) {
-                    sendToServer(player, "dlobby");
-                }
-                if (event.getSlot() == 26) {
+                if (event.getSlot() == 16) {
                     sendToServer(player, "vanillasb");
                 }
-                if (event.getSlot() == 33){
+                if (event.getSlot() == 21) {
+                    sendToServer(player, "slobby");
+                }
+                if (event.getSlot() == 20) {
+                    sendToServer(player, "blobby");
+                }
+                if (event.getSlot() == 23) {
+                    sendToServer(player, "dlobby");
+                }
+                if (event.getSlot() == 24){
                     sendToServer(player, "dlobby");
                 }
             }
@@ -245,7 +254,7 @@ public class InvClick implements Listener {
                     Main.getInstance().getGadgetsAPI().openInventory(player);
                 }
                 if (event.getSlot() == 32) {
-                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+                    morphAPI.openMenu(player);
                 }
                 if (event.getSlot() == 34) {
                     this.pMenu.openParticles(player);

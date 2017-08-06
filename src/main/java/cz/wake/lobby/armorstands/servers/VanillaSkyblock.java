@@ -21,7 +21,7 @@ import java.util.logging.Level;
 public class VanillaSkyblock implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1551.5, 18, -1211.5, 165, 0);
-    protected ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3;
     private boolean maintenance;
 
     @Override
@@ -84,11 +84,6 @@ public class VanillaSkyblock implements ASInterface {
     @Override
     public boolean isActive() {
         return true;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableRabbit;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Rabbit;
 import org.bukkit.entity.Rabbit.Type;
@@ -25,7 +25,7 @@ public class RabbitNormal {
             }
         }
         final Rabbit rabbit = RideableRabbit.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) rabbit, 0.30D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) rabbit, 0.30D, 1.0D);
         setMetadata((Rabbit) rabbit, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Rabbit) rabbit).setBaby();

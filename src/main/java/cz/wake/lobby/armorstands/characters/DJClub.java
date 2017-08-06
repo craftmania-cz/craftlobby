@@ -17,7 +17,7 @@ import org.bukkit.util.EulerAngle;
 public class DJClub implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 15, -1249.5, 180, 0);
-    ArmorStand as;
+    private ArmorStand as;
 
     @Override
     public void spawn() {
@@ -105,11 +105,6 @@ public class DJClub implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

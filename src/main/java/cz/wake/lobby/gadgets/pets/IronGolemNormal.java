@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableGolem;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.IronGolem;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class IronGolemNormal {
             }
         }
         final IronGolem golem = RideableGolem.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) golem, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) golem, 0.16D, 2D);
         setMetadata((IronGolem) golem, "Pet", "Pet", Main.getInstance());
         ((IronGolem) golem).setCustomNameVisible(true);
         ((IronGolem) golem).setCustomName(p.getName());

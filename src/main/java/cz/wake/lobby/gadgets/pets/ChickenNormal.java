@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableChicken;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Chicken;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class ChickenNormal {
             }
         }
         final Chicken chicken = RideableChicken.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) chicken, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) chicken, 0.16D, 2D);
         setMetadata((Chicken) chicken, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Chicken) chicken).setBaby();

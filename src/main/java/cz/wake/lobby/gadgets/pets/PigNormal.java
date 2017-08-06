@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideablePig;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class PigNormal {
             }
         }
         final Pig pig = RideablePig.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) pig, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) pig, 0.16D, 1.0D);
         setMetadata((Pig) pig, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Pig) pig).setBaby();

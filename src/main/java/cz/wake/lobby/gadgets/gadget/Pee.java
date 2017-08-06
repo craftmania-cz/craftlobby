@@ -29,7 +29,7 @@ import java.util.HashMap;
 public class Pee implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static final HashMap<Player, Integer> countdown = new HashMap();
     private ArrayList<String> cooldown = new ArrayList();
 

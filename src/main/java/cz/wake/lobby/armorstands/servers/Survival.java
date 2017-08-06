@@ -21,7 +21,7 @@ import java.util.logging.Level;
 public class Survival implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1222.5, 90, 0);
-    protected ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3;
     private boolean maintenance;
 
     @Override
@@ -82,10 +82,6 @@ public class Survival implements ASInterface {
     @Override
     public boolean isActive() {
         return true;
-    }
-
-    @Override
-    public void serverTeleport() {
     }
 
     @Override

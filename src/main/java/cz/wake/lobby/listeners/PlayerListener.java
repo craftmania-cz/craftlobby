@@ -5,7 +5,9 @@ import cz.wake.lobby.GUI.Menu;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.GUI.VIPMenu;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.armorstands.characters.Bonusy;
 import cz.wake.lobby.armorstands.statistics.BedWars;
+import cz.wake.lobby.armorstands.statistics.Parkour;
 import cz.wake.lobby.armorstands.statistics.SkyGiants;
 import cz.wake.lobby.armorstands.statistics.SkyWars;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
@@ -55,6 +57,7 @@ public class PlayerListener implements Listener {
     VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
     SettingsMenu sm = new SettingsMenu();
+    Bonusy b = new Bonusy();
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -82,6 +85,11 @@ public class PlayerListener implements Listener {
             // Player settings
             Main.getInstance().setData().addSettingsDefault(p);
 
+            //Odmeny
+            Main.getInstance().setData().createRewardsRecord(p, "lobby_denniodmena");
+            Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
+            b.onPlayerSpawn(p);
+
             // Prefix v tablistu
             UtilTablist.setupPrefixInTab(p);
 
@@ -98,6 +106,9 @@ public class PlayerListener implements Listener {
             } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")) {
                 Location loc = new Location(Bukkit.getWorld("obw"), -599.75, 100.6, 116.5);
                 BedWars.spawn(loc, p);
+            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
+                Location loc = new Location(Bukkit.getWorld("omain"), 1493.5, 23.6, -1275.5);
+                Parkour.spawn(loc, p);
             }
 
             //AT
@@ -157,11 +168,6 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onTarget(EntityTargetEvent e) {
-        e.setCancelled(true);
-    }
-
-    @EventHandler
     public void onItemMove(InventoryClickEvent e) {
         Player p = (Player) e.getInventory().getHolder();
         if (Main.getInstance().isDebug() && p.hasPermission("craftlobby.admin")) {
@@ -197,7 +203,8 @@ public class PlayerListener implements Listener {
             this.vmenu.openVIPMenu(p);
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.NETHER_STAR) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))) {
+                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.NETHER_STAR) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
+                && !ParkourListener.in_parkour.contains(p)) {
             this.gadgetsMenu.openGadgetsMenu(p);
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
@@ -383,9 +390,9 @@ public class PlayerListener implements Listener {
             if (!Main.getInstance().inPortal(p)) {
                 if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")) {
                     Main.getInstance().addPortal(p);
-                    //Main.getInstance().getServerMenu().openServersMenu(p);
+                    //Main.getInstance().getServersMenu().openServersMenu(p);
                 } else {
-                    //ic.sendToServerBalancer(p, "main-lobby");
+                    ic.sendToServer(p,"lobby", "frontend");
                 }
                 new BukkitRunnable() {
                     @Override
@@ -536,5 +543,4 @@ public class PlayerListener implements Listener {
             SettingsMenu.gadgets.add(p);
         }
     }
-
 }

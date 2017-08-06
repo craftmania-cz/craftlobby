@@ -16,7 +16,7 @@ public class Drunkers implements ASInterface {
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1461.5, 16.9, -1255.5, 180, 0);
     private Location loc2 = new Location(Bukkit.getWorld("omain"), 1461.5, 16.9, -1260.5, 0, 0);
     private Location loc3 = new Location(Bukkit.getWorld("omain"), 1459.5, 16.9, -1260.5, 0, 0);
-    ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3;
 
     @Override
     public void spawn() {
@@ -131,11 +131,6 @@ public class Drunkers implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

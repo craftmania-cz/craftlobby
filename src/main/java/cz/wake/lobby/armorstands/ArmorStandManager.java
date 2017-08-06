@@ -23,9 +23,9 @@ public class ArmorStandManager {
             armorstands.add(new Creative2());
             armorstands.add(new VanillaSkyblock());
             armorstands.add(new Prison());
-            armorstands.add(new PVPGames());
+            armorstands.add(new GetDown());
             armorstands.add(new SkyBlock());
-            armorstands.add(new SkyGiants());
+            //armorstands.add(new SkyGiants());
             armorstands.add(new SkyWars());
             armorstands.add(new Survival());
             armorstands.add(new Unknown1());
@@ -87,8 +87,8 @@ public class ArmorStandManager {
             } else if (i instanceof  SkyWars) {
                 i.updateArmorStand("skywars", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skywars_server"));
             } else if (i instanceof SkyGiants) {
-                i.updateArmorStand("skygiants", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skygiants_server"));
-            } else if (i instanceof PVPGames) {
+                //i.updateArmorStand("skygiants", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skygiants_server"));
+            } else if (i instanceof GetDown) {
                 i.updateArmorStand("getdown", Main.getInstance().fetchData().getOnlinePlayersSum("stav_getdown_server"));
             }
         }

@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableVillager;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class VilagerNormal {
             }
         }
         final Villager e = RideableVillager.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Villager) e, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Villager) e).setBaby();
