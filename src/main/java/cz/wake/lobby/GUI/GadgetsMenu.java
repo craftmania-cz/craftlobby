@@ -57,10 +57,11 @@ public class GadgetsMenu implements Listener {
 
         ItemStack disguisesItem = new ItemStack(Material.SKULL_ITEM, 1);
         SkullMeta disguisesItemMeta = (SkullMeta) disguisesItem.getItemMeta();
-        disguisesItemMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Morphs");
+        disguisesItemMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Morphs (BETA)");
         ArrayList<String> disguisesLore = new ArrayList<String>();
         disguisesLore.add(ChatColor.GRAY + "Premen se a nikdo te nepozna!");
         disguisesLore.add("");
+        disguisesLore.add(countMorph(p));
         disguisesLore.add(ChatColor.YELLOW + "▸ Kliknutim zobrazis vyber");
         disguisesItemMeta.setLore(disguisesLore);
         disguisesItem.setItemMeta(disguisesItemMeta);
@@ -125,7 +126,7 @@ public class GadgetsMenu implements Listener {
         gadgetsMenu.setItem(16, cloaks);
         gadgetsMenu.setItem(28, petsItem);
         gadgetsMenu.setItem(30, gadgetsItem);
-        gadgetsMenu.setItem(32, morphs);
+        gadgetsMenu.setItem(32, disguisesItem);
         gadgetsMenu.setItem(34, particlesItem);
         gadgetsMenu.setItem(49, shopItem);
 
@@ -162,7 +163,7 @@ public class GadgetsMenu implements Listener {
 
     private String countPets(Player p) {
         int part = getPetsCount(p);
-        int sum = 126;
+        int sum = 162;
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
@@ -182,6 +183,28 @@ public class GadgetsMenu implements Listener {
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private String countMorph(Player p){
+        int part = getMorphsCount(p);
+        int sum = 3;
+        int prc = (part * 100 / sum);
+
+        return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
+    }
+
+    private int getMorphsCount(Player p){
+        int c = 0;
+        if(p.hasPermission("craftlobby.morphs.pig")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.morphs.villager")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.morphs.irongolem")){
+            c++;
+        }
+        return c;
     }
 
     private int getBannerCount(Player p) {
@@ -710,6 +733,114 @@ public class GadgetsMenu implements Listener {
             c++;
         }
         if (p.hasPermission("craftlobby.pets.cow.mushroom.baby")){
+            c++;
+        }
+        if (p.hasPermission("craftlobby.pets.vindicator")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.white")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.orange")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.magenta")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightblue")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.yellow")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lime")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.pink")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.gray")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightgray")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.cyan")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.purple")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.blue")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.brown")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.green")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.red")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.black")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.white.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.orange.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.magenta.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightblue.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.yellow.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lime.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.pink.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.gray.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.lightgray.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.cyan.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.purple.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.blue.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.brown.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.green.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.red.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.llama.black.baby")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.vex")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.evoker")){
+            c++;
+        }
+        if(p.hasPermission("craftlobby.pets.vindicator")){
             c++;
         }
         return c;

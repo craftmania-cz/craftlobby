@@ -14,7 +14,7 @@ import org.bukkit.util.EulerAngle;
 public class Oliver implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1471.5, 17.7, -1245.5, -90, 0);
-    ArmorStand as;
+    private ArmorStand as;
 
     @Override
     public void spawn() {
@@ -65,11 +65,6 @@ public class Oliver implements ASInterface {
     @Override
     public boolean isActive() {
         return false;
-    }
-
-    @Override
-    public void serverTeleport() {
-
     }
 
     @Override

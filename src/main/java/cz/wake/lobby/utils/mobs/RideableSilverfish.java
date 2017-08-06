@@ -1,10 +1,13 @@
 package cz.wake.lobby.utils.mobs;
 
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_11_R1.EntityHuman;
+import net.minecraft.server.v1_11_R1.EntityLiving;
+import net.minecraft.server.v1_11_R1.EntitySilverfish;
+import net.minecraft.server.v1_11_R1.World;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_10_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftLivingEntity;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftSilverfish;
+import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftLivingEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftSilverfish;
 import org.bukkit.entity.Silverfish;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 
@@ -12,82 +15,53 @@ import java.lang.reflect.Field;
 
 public class RideableSilverfish extends EntitySilverfish {
 
-    protected Field FIELD_JUMP = null;
-
     public RideableSilverfish(World world) {
         super(world);
-
-        if (FIELD_JUMP == null) {
-            try {
-                FIELD_JUMP = EntityLiving.class.getDeclaredField("aY");
-                FIELD_JUMP.setAccessible(true);
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     @Override
-    public void g(float f, float f1) {
-        Entity passenger = null;
-        for (Entity ent : this.passengers) {
-            passenger = ent;
-        }
-        if (passenger != null && passenger instanceof EntityHuman) {
-            this.lastYaw = this.yaw = passenger.yaw;
-            this.pitch = passenger.pitch * 0.5F;
-            this.setYawPitch(this.yaw, this.pitch);
-            this.aK = this.aL = this.yaw;
-            f = ((EntityLiving) passenger).bf * 0.5F;
-            f1 = ((EntityLiving) passenger).bg;
+    public void g(float sideMot, float forMot) {
+        if (this.passengers != null) {
 
-            if (f1 <= 0.0F) {
-                f1 *= 0.25F;
+            if (passengers.isEmpty() || !(passengers.get(0) instanceof EntityHuman)) {
+                super.g(sideMot, forMot);
+                return;
             }
-            Field jump = null;
+
+            EntityLiving passenger = (EntityLiving) this.passengers.get(0);
+            this.yaw = passenger.yaw;
+            this.lastYaw = this.yaw;
+            this.pitch = (passenger.pitch * 0.5F);
+            setYawPitch(this.yaw, this.pitch);
+            this.aN = this.yaw;
+            this.aP = this.aN;
+
+            Float speedmultiplicator = 3F;//Here you can set the speed
+            sideMot = passenger.be * speedmultiplicator;
+            forMot = passenger.bf * speedmultiplicator;
+            if (forMot <= 0.0F) {
+                forMot *= 0.25F;// Make backwards slower
+            }
+            Field jump = null; //Jumping
             try {
-                jump = EntityLiving.class.getDeclaredField("be");
-            } catch (NoSuchFieldException e1) {
-                e1.printStackTrace();
-            } catch (SecurityException e1) {
+                jump = EntityLiving.class.getDeclaredField("bd");
+            } catch (NoSuchFieldException | SecurityException e1) {
                 e1.printStackTrace();
             }
             jump.setAccessible(true);
 
-            if (jump != null && this.onGround) {
+            if (jump != null && this.onGround) {     // Wouldn't want it jumping while on the ground would we?
                 try {
                     if (jump.getBoolean(passenger)) {
-                        double jumpHeight = 0.7D; //vyska skakani!
-                        this.motY = jumpHeight;
+                        double jumpHeight = 0.5D;     //Here you can set the jumpHeight
+                        this.motY = jumpHeight;        // Used all the time in NMS for entity jumping
                     }
-                } catch (IllegalAccessException e1) {
-                    e1.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                 }
             }
-
-            this.P = 1.0F;
-            this.aM = this.yaw * 0.1F;
-            if (!this.world.isClientSide) {
-                this.k((float) this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).getValue());
-                super.g(f, f1);
-            }
-
-            this.av= this.ab;
-            double d0 = this.locX - this.lastX;
-            double d1 = this.locZ - this.lastZ;
-            float f4 = MathHelper.sqrt(d0 * d0 + d1 * d1) * 4.0F;
-            if (f4 > 1.0F) {
-                f4 = 1.0F;
-            }
-
-            this.aD += (f4 - this.aD) * 0.4F;
-            this.aD += this.aD;
-        } else {
-            this.P = 0.5F;
-            this.aM = 0.02F;
-            super.g(f, f1);
+            super.g(sideMot, forMot);
         }
-
     }
 
     public static Silverfish spawn(Location location) {

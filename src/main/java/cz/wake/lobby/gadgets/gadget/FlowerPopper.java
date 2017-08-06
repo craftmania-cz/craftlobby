@@ -7,7 +7,7 @@ import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftFirework;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftFirework;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
@@ -29,7 +29,7 @@ import java.util.Random;
 public class FlowerPopper implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     private HashMap<Player, ArrayList<Entity>> flowers = new HashMap();
 
     private Main plugin;

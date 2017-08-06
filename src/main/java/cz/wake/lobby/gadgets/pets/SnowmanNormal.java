@@ -1,7 +1,7 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowman;
@@ -23,7 +23,7 @@ public class SnowmanNormal {
             }
         }
         final Snowman ender = (Snowman) p.getWorld().spawnEntity(p.getLocation(), EntityType.SNOWMAN);
-        PetManager.PetFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
         setMetadata((Snowman) ender, "Pet", "Pet", Main.getInstance());
         ((Snowman) ender).setCustomNameVisible(true);
         ((Snowman) ender).setCustomName(p.getName());

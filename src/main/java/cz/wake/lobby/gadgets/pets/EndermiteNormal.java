@@ -1,7 +1,7 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Endermite;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -23,7 +23,7 @@ public class EndermiteNormal {
             }
         }
         final Endermite ender = (Endermite) p.getWorld().spawnEntity(p.getLocation(), EntityType.ENDERMITE);
-        PetManager.PetFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
+        PetManager.petFollow(p, (CraftEntity) ender, 0.16D, 1.0D);
         setMetadata((Endermite) ender, "Pet", "Pet", Main.getInstance());
         ((Endermite) ender).setCustomNameVisible(true);
         ((Endermite) ender).setCustomName(p.getName());

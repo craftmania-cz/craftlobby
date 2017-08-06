@@ -2,8 +2,8 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftWither;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftWither;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -21,7 +21,7 @@ public class Widder {
             }
         }
         final CraftWither wither = (CraftWither) p.getWorld().spawnEntity(p.getLocation(), EntityType.WITHER);
-        PetManager.PetFollow(p, (CraftEntity) wither, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) wither, 0.16D, 1.5D);
         setMetadata((CraftWither) wither, "Pet", "Pet", Main.getInstance());
         ((CraftWither) wither).setCustomName(p.getName() + " Wither");
         PetManager.pet.put(p, (CraftEntity) wither);

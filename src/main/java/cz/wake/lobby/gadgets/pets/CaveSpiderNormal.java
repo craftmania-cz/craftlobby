@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableCaveSpider;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.CaveSpider;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class CaveSpiderNormal {
             }
         }
         final CaveSpider spider = RideableCaveSpider.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) spider, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) spider, 0.16D, 2D);
         setMetadata((CaveSpider) spider, "Pet", "Pet", Main.getInstance());
         ((CaveSpider) spider).setCustomNameVisible(true);
         ((CaveSpider) spider).setCustomName(p.getName());

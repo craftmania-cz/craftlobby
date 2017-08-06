@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableSkeleton;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class SkeletonNormal {
             }
         }
         final Skeleton e = RideableSkeleton.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) e, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
         setMetadata((Skeleton)e, "Pet", "Pet", Main.getInstance());
         ((Skeleton) e).setSkeletonType(type);
         ((Skeleton) e).setCustomNameVisible(true);

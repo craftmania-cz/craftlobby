@@ -25,7 +25,7 @@ import java.util.HashMap;
 public class WitherCatapult implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
 
     private Main plugin;
 

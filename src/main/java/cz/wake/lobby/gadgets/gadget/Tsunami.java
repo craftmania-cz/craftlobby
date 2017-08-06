@@ -5,7 +5,7 @@ import cz.wake.lobby.listeners.MessagesListener;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import cz.wake.lobby.utils.UtilParticles;
-import net.minecraft.server.v1_10_R1.Block;
+import net.minecraft.server.v1_11_R1.Block;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -31,10 +31,10 @@ import java.util.Random;
 public class Tsunami implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    Random r = new Random();
-    List<Entity> cooldownJump = new ArrayList();
-    List<ArmorStand> armorStands = new ArrayList();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private Random r = new Random();
+    private List<Entity> cooldownJump = new ArrayList();
+    private List<ArmorStand> armorStands = new ArrayList();
 
     private Main plugin;
 

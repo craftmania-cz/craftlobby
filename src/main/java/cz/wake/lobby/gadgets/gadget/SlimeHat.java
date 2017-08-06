@@ -6,10 +6,10 @@ import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
-import net.minecraft.server.v1_10_R1.PacketPlayOutMount;
+import net.minecraft.server.v1_11_R1.PacketPlayOutMount;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftFirework;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftFirework;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,7 +30,7 @@ import java.util.HashMap;
 public class SlimeHat implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     private HashMap<Player, ArrayList<Slime>> slim = new HashMap();
     private HashMap<Player, ArrayList<Entity>> slimeball = new HashMap();
 

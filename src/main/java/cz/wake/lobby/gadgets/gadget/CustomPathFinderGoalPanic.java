@@ -1,10 +1,7 @@
 package cz.wake.lobby.gadgets.gadget;
 
-import net.minecraft.server.v1_10_R1.*;
+import net.minecraft.server.v1_11_R1.*;
 
-/**
- * Created by sacha on 25/07/15.
- */
 public class CustomPathFinderGoalPanic extends PathfinderGoal {
 
     // NMS Entity

@@ -28,10 +28,10 @@ import java.util.UUID;
 public class ColorBomb implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     private Item bomb;
     private ArrayList<Item> items = new ArrayList();
-    Random random = new Random();
+    private Random random = new Random();
     private boolean running = false;
     private Main plugin;
     private boolean affectPlayers = true;
@@ -107,6 +107,7 @@ public class ColorBomb implements Listener {
                                     break;
                                 case 5:
                                     bomb.getWorld().spigot().playEffect(bomb.getLocation(), Effect.WITCH_MAGIC, 0, 0, 0.0F, 0.0F, 0.0F, 0.2F, 1, 32);
+                                    break;
                             }
                             try {
                                 Bukkit.getScheduler().runTask(Main.getPlugin(), new Runnable() {

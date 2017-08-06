@@ -1,10 +1,10 @@
 package cz.wake.lobby.utils;
 
-import net.minecraft.server.v1_10_R1.NBTTagCompound;
-import net.minecraft.server.v1_10_R1.NBTTagList;
+import net.minecraft.server.v1_11_R1.NBTTagCompound;
+import net.minecraft.server.v1_11_R1.NBTTagList;
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_10_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -46,7 +46,7 @@ public class ItemFactory {
 
     public static org.bukkit.inventory.ItemStack createHead(String name, String uuid, String textureData) {
         try {
-            net.minecraft.server.v1_10_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
+            net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
@@ -81,6 +81,57 @@ public class ItemFactory {
         return null;
     }
 
+    public static org.bukkit.inventory.ItemStack createHead(String name, String uuid, String textureData, String displayName, String... lore) {
+        try {
+            net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
+
+            NBTTagCompound tag = new NBTTagCompound();
+            NBTTagCompound skullOwnerTag = new NBTTagCompound();
+            NBTTagCompound displayTag = new NBTTagCompound();
+            NBTTagCompound propertiesTag = new NBTTagCompound();
+
+            NBTTagList tagList = new NBTTagList();
+
+            NBTTagCompound valueTag = new NBTTagCompound();
+            valueTag.setString("Value", textureData);
+
+            tagList.add(valueTag);
+
+            propertiesTag.set("textures", tagList);
+
+            skullOwnerTag.setString("Id", uuid);
+            skullOwnerTag.setString("Name", name);
+
+            skullOwnerTag.set("Properties", propertiesTag);
+
+            displayTag.setString("Name", name);
+
+            tag.set("SkullOwner", skullOwnerTag);
+
+            tag.set("display", displayTag);
+
+            sHead.setTag(tag);
+
+            ItemStack item = CraftItemStack.asBukkitCopy(sHead);
+
+            ItemMeta itemMeta = item.getItemMeta();
+            itemMeta.setDisplayName(displayName);
+            if (lore != null) {
+                List<String> finalLore = new ArrayList();
+                for (String s : lore)
+                    finalLore.add(s);
+                itemMeta.setLore(finalLore);
+            }
+            itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+            item.setItemMeta(itemMeta);
+
+            return item;
+        } catch (Exception e){
+            log.error("", e);
+        }
+        return null;
+    }
+
     public static ItemStack createColouredLeather(Material armourPart, int red, int green, int blue) {
         ItemStack itemStack = new ItemStack(armourPart);
         LeatherArmorMeta leatherArmorMeta = (LeatherArmorMeta) itemStack.getItemMeta();
@@ -90,7 +141,7 @@ public class ItemFactory {
     }
 
     public static ItemStack addGlow(ItemStack item) {
-        net.minecraft.server.v1_10_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(item);
+        net.minecraft.server.v1_11_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(item);
         NBTTagCompound tag = null;
         if (!nmsStack.hasTag()) {
             tag = new NBTTagCompound();

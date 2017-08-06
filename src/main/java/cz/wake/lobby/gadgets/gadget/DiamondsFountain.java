@@ -25,7 +25,7 @@ import java.util.Random;
 public class DiamondsFountain implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static Random random = new Random();
 
     private Main plugin;
@@ -53,6 +53,10 @@ public class DiamondsFountain implements Listener {
             return;
         }
         if (!player.hasPermission("craftlobby.gadgets.diamondfountain")) {
+            return;
+        }
+        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+            player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
             return;
         }
         if (SettingsMenu.activeGadgets.contains(player)){

@@ -5,14 +5,14 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
-import net.minecraft.server.v1_10_R1.EntityCreature;
-import net.minecraft.server.v1_10_R1.EntityInsentient;
-import net.minecraft.server.v1_10_R1.EntitySheep;
-import net.minecraft.server.v1_10_R1.PathfinderGoalSelector;
+import net.minecraft.server.v1_11_R1.EntityCreature;
+import net.minecraft.server.v1_11_R1.EntityInsentient;
+import net.minecraft.server.v1_11_R1.EntitySheep;
+import net.minecraft.server.v1_11_R1.PathfinderGoalSelector;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftSheep;
-import org.bukkit.craftbukkit.v1_10_R1.util.UnsafeList;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftSheep;
+import org.bukkit.craftbukkit.v1_11_R1.util.UnsafeList;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
@@ -31,8 +31,8 @@ import java.util.Random;
 public class ExplosiveSheep implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    ArrayList<Sheep> sheepArrayList = new ArrayList();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private ArrayList<Sheep> sheepArrayList = new ArrayList();
 
     private Main plugin;
 
@@ -184,7 +184,7 @@ public class ExplosiveSheep implements Listener {
     }
 
     public void clearPathfinders(org.bukkit.entity.Entity entity) {
-        net.minecraft.server.v1_10_R1.Entity nmsEntity = ((CraftEntity) entity).getHandle();
+        net.minecraft.server.v1_11_R1.Entity nmsEntity = ((CraftEntity) entity).getHandle();
         try {
             Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
             bField.setAccessible(true);

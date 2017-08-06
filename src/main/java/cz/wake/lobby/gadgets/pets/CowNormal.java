@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableCow;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Cow;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class CowNormal {
             }
         }
         final Cow cow = RideableCow.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) cow, 0.16D, 1.5D);
+        PetManager.petFollow(p, (CraftEntity) cow, 0.16D, 1.5D);
         setMetadata((Cow) cow, "Pet", "Pet", Main.getInstance());
         if (baby) {
             ((Cow) cow).setBaby();

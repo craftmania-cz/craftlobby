@@ -2,7 +2,7 @@ package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableBear;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.PolarBear;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -23,7 +23,7 @@ public class BearNormal {
             }
         }
         final PolarBear golem = RideableBear.spawn(p.getLocation());
-        PetManager.PetFollow(p, (CraftEntity) golem, 0.16D, 2D);
+        PetManager.petFollow(p, (CraftEntity) golem, 0.16D, 2D);
         setMetadata((PolarBear) golem, "Pet", "Pet", Main.getInstance());
         ((PolarBear) golem).setCustomNameVisible(true);
         ((PolarBear) golem).setCustomName(p.getName());

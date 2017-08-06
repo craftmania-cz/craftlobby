@@ -23,9 +23,9 @@ import java.util.UUID;
 public class Chickenator implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
-    HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
+    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     static Random r = new Random();
-    ArrayList<Item> items = new ArrayList();
+    private ArrayList<Item> items = new ArrayList();
 
     private Main plugin;
 
