@@ -140,12 +140,11 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(103, "Llama", RideableLlama.class);
         CustomEntityRegistry.registerCustomEntity(4,"ElderGuardian", RideableGuardianElder.class);
 
+        // Spawn armorstandu
+        ArmorStandManager.init();
+        ArmorStandManager.spawn();
+
         if (getConfig().getString("server").equalsIgnoreCase("main")) {
-
-            // Spawn armorstandu
-            ArmorStandManager.init();
-            ArmorStandManager.spawn();
-
             getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L,1200L);
         }
 
