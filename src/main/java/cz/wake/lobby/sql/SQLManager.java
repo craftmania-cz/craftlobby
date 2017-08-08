@@ -1339,6 +1339,25 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
+    public final void resetReward() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE lobby_denniodmena SET vybrano = 0;");
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
 
 
 
