@@ -2579,7 +2579,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 0){
 				if(p.hasPermission("craftlobby.pets.zombie")){
-					ZombieNormal.activate(p,false, Villager.Profession.NORMAL);
+					ZombieNormal.activate(p,false);
 				} else {
                     ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0,"§aZombie", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie", "craftlobby.pets.zombie", i, 200);
@@ -2587,7 +2587,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.zombie.baby")){
-					ZombieNormal.activate(p,true,Villager.Profession.NORMAL);
+					ZombieNormal.activate(p,true);
 				} else {
                     ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH,(byte)0,"§aZombie (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie (Baby)", "craftlobby.pets.zombie.baby", i, 2500);
@@ -2595,7 +2595,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 2){
                 if(p.hasPermission("craftlobby.pets.zombie.husk")){
-                    ZombieNormal.activate(p, false, Villager.Profession.HUSK);
+                    ZombieVillagerNormal.activate(p, false, Villager.Profession.HUSK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Husk", "craftlobby.pets.zombie.husk", i, 300);
@@ -2603,7 +2603,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 3){
                 if(p.hasPermission("craftlobby.pets.zombie.husk.baby")){
-                    ZombieNormal.activate(p, true, Villager.Profession.HUSK);
+                    ZombieVillagerNormal.activate(p, true, Villager.Profession.HUSK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SAND,(byte)0,"§aZombie Husk (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Husk (Baby)", "craftlobby.pets.zombie.husk.baby", i, 350);
@@ -2611,7 +2611,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 4){
                 if(p.hasPermission("craftlobby.pets.zombie.blacksmith")){
-                    ZombieNormal.activate(p, false, Villager.Profession.BLACKSMITH);
+                    ZombieVillagerNormal.activate(p, false, Villager.Profession.BLACKSMITH);
                 } else {
                     ItemStack i = ItemFactory.create(Material.ANVIL,(byte)0,"§aZombie Blacksmith", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Blacksmith", "craftlobby.pets.zombie.blacksmith", i, 200);
@@ -2619,7 +2619,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 5){
                 if(p.hasPermission("craftlobby.pets.zombie.butcher")){
-                    ZombieNormal.activate(p, false, Villager.Profession.BUTCHER);
+                    ZombieVillagerNormal.activate(p, false, Villager.Profession.BUTCHER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_BEEF,(byte)0,"§aZombie Butcher", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Butcher", "craftlobby.pets.zombie.butcher", i, 200);
@@ -2627,7 +2627,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 6){
                 if(p.hasPermission("craftlobby.pets.zombie.farmer")){
-                    ZombieNormal.activate(p, false, Villager.Profession.FARMER);
+                    ZombieVillagerNormal.activate(p, false, Villager.Profession.FARMER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.GOLD_HOE,(byte)0,"§aZombie Farmer", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Farmer", "craftlobby.pets.zombie.farmer", i, 200);
@@ -2635,7 +2635,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 7){
                 if(p.hasPermission("craftlobby.pets.zombie.librarian")){
-                    ZombieNormal.activate(p, false, Villager.Profession.LIBRARIAN);
+                    ZombieVillagerNormal.activate(p, false, Villager.Profession.LIBRARIAN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.BOOK_AND_QUILL,(byte)0,"§aZombie Librarian", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Librarian", "craftlobby.pets.zombie.librarian", i, 200);
@@ -2643,7 +2643,7 @@ public class PetsAPI implements Listener{
             }
             if(e.getSlot() == 8){
                 if(p.hasPermission("craftlobby.pets.zombie.priest")){
-                    ZombieNormal.activate(p, false, Villager.Profession.PRIEST);
+                    ZombieVillagerNormal.activate(p, false, Villager.Profession.PRIEST);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_INGOT,(byte)0,"§aZombie Priest", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Priest", "craftlobby.pets.zombie.priest", i, 200);

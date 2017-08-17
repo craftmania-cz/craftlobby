@@ -277,5 +277,8 @@ public class PetManager implements Listener {
         if (ElderGuardianNormal.cp.contains(p.getName())) {
             ElderGuardianNormal.cp.remove(p.getName());
         }
+        if (ZombieVillagerNormal.zn.contains(p.getName())) {
+            ZombieVillagerNormal.zn.remove(p.getName());
+        }
     }
 }

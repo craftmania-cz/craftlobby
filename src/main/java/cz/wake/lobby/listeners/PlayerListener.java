@@ -18,6 +18,7 @@ import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -161,9 +162,16 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    public void onCreatureSpawn(CreatureSpawnEvent event) {
-        if (event.getSpawnReason() == SpawnReason.EGG) {
-            event.setCancelled(true);
+    public void onCreatureSpawn(CreatureSpawnEvent e) {
+        if(!(e.getSpawnReason() == SpawnReason.CUSTOM)){
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onEntitySpawn(EntitySpawnEvent e){
+        if(e.getEntityType() == EntityType.VEX){
+            e.setCancelled(true);
         }
     }
 

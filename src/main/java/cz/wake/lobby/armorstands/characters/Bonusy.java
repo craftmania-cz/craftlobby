@@ -71,7 +71,7 @@ public class Bonusy implements ASInterface {
                 if(c == 1){
                     as.getEquipment().setItemInOffHand(null);
                     as.setItemInHand(item);
-                    updateRewardArmorstand();
+                    //updateRewardArmorstand();
                     c++;
                 } else if (c == 2){
                     as.setItemInHand(null);
