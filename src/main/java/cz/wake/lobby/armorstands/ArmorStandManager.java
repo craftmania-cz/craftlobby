@@ -41,6 +41,7 @@ public class ArmorStandManager {
             armorstands.add(new Pirate());
             armorstands.add(new Witch());
             armorstands.add(new Bonusy());
+            armorstands.add(new Kubrastig());
         }
     }
 

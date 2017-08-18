@@ -74,9 +74,9 @@ public class ArmorStandInteract implements Listener {
                     }.runTaskLaterAsynchronously(Main.getInstance(),60L);
                 }
             }
-            if(e.getRightClicked().hasMetadata("Delfik")){
+            if(e.getRightClicked().hasMetadata("Kubrastig")){
                 if(!delfik){
-                    mu.sendMessageNearby(locationOfAS, 4d, "§eDelfik: §fSlysel jsem, ze je tu pry nekde ukryt poklad.");
+                    mu.sendMessageNearby(locationOfAS, 4d, "§eKubrastig: §fZase mam bobek v kytare.");
                     delfik = true;
                     new BukkitRunnable(){
 
