@@ -3314,7 +3314,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 0){
 				if(p.hasPermission("craftlobby.pets.skeleton")){
-					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.NORMAL);
+					SkeletonNormal.activateWitch(p);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)0,"§aSkeleton", "", "§eKliknutim spawnes!");
 				    Shop.open(p, "Skeleton", "craftlobby.pets.skeleton", i, 300);
@@ -3322,7 +3322,7 @@ public class PetsAPI implements Listener{
 			}
 			if(e.getSlot() == 1){
 				if(p.hasPermission("craftlobby.pets.skeleton.wither")){
-					SkeletonNormal.activateWitch(p, Skeleton.SkeletonType.WITHER);
+					WitherSkeletonNormal.activate(p);
 				} else {
                     ItemStack i = ItemFactory.create(Material.SKULL_ITEM,(byte)1,"§aWither Skeleton", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Wither Skeleton", "craftlobby.pets.skeleton.wither", i, 600);
