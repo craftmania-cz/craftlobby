@@ -2,10 +2,9 @@ package cz.wake.lobby.sql;
 
 import com.zaxxer.hikari.HikariDataSource;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.utils.ProfileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -1356,6 +1355,106 @@ public class SQLManager {
                 }
             }
         }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final void createPlayerProfile(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("INSERT INTO player_profile (discriminator, nick ,uuid, registred, last_online, last_server) VALUES (?,?,?,?,?,?);");
+                    ps.setString(1, ProfileUtils.createDiscriminator());
+                    ps.setString(2, p.getName());
+                    ps.setString(3, p.getUniqueId().toString());
+                    ps.setLong(4, System.currentTimeMillis());
+                    ps.setLong(5, System.currentTimeMillis());
+                    ps.setString(6, "lobby");
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    //e.printStackTrace(); Schvalne duplikace
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final void updatePlayerVersion(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET mc_version = ? WHERE nick = ?;");
+                    ps.setString(1, ProfileUtils.getVersion(p));
+                    ps.setString(2, p.getName());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final int getPlayerProfileDataInt(Player p, String data) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public final String getPlayerProfileDataString(Player p, String data) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getString(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return "";
+    }
+
+    public final Long getPlayerProfileDataLong(Player p, String data) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getLong(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return (long) 0;
     }
 
 

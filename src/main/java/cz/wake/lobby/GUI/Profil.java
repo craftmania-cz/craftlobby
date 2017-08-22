@@ -13,20 +13,31 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 
-public class Menu {
+public class Profil {
 
     public void openMenu(Player p) {
 
-        Inventory menu = Bukkit.createInventory(null, 45, p.getName());
+        Inventory menu = Bukkit.createInventory(null, 54, p.getName());
 
         SkullMeta headItemMeta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
         headItemMeta.setOwner(p.getName());
-        headItemMeta.setDisplayName("§cInformace o tobe");
+        headItemMeta.setDisplayName("§aInformace o tobe");
         ItemStack headItem = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
         ArrayList<String> headLore = new ArrayList<String>();
-        headLore.add("§8Planovano...");
+        headLore.add("");
+        headLore.add("§7ID: §f#" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "discriminator"));
+        //headLore.add("§7UUID: §f" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "uuid"));
+        headLore.add("§7Prvni pripojeni: §f" + "TEST");
+        headLore.add("§7CraftCoins: §f" + "TEST");
+        headLore.add("§7SkyDust: §f" + "TEST");
+        headLore.add("§7Celkem hlasu: §f" + "TEST");
+        headLore.add("§7Web group: §f" + "TEST");
+        headLore.add("§7Celkem odehrany cas: §f" + "TEST");
         headItemMeta.setLore(headLore);
         headItem.setItemMeta(headItemMeta);
+
+        ItemStack soc = ItemFactory.createHead("Test", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§aSocialni site","", "§7Chces vsem poskytnout prime", "§7odkazy na svem profilu?", "", "§bOdkazy se zobrazuji na webu", "§bv profilech.","", "§eKliknutim provedes zmeny");
+        menu.setItem(29, soc);
 
         ItemStack statistics = ItemFactory.create(Material.DIAMOND,(byte)0, "§aStatistiky","§7Zobrazeni vsech dostupnych","§7statistik ze serveru.","","§eKlikni pro zobrazeni");
 
@@ -34,10 +45,10 @@ public class Menu {
 
         if(Main.getInstance().fetchData().isAT(p)){
             ItemStack i = ItemFactory.create(Material.PAINTING, (byte)0, "§aAT Stalker","§7Prehled tve aktivity", "§7na serveru.","","§eKlikni pro zobrazeni");
-            menu.setItem(32,i);
+            menu.setItem(42,i);
         } else {
             ItemStack i = ItemFactory.create(Material.BARRIER, (byte)0, "§cAT Sekce","§7K zobrazeni teto sekce", "§7musis byt v AT.");
-            menu.setItem(32,i);
+            menu.setItem(42,i);
         }
 
         ItemStack nastaveni = ItemFactory.create(Material.REDSTONE_COMPARATOR, (byte)0, "§aNastaveni uctu","§7Diky nastaveni si muzes", "§7prispusobit lobby/hry podle sebe.", "", "§eKlikni pro zobrazeni/nastaveni");
@@ -59,11 +70,11 @@ public class Menu {
         jazyk.setItemMeta(bhMeta);
 
         menu.setItem(13, headItem);
-        menu.setItem(10, statistics);
-        menu.setItem(16, achievements);
-        menu.setItem(28, multiplier);
-        menu.setItem(30, nastaveni);
-        menu.setItem(34, jazyk);
+        //menu.setItem(10, statistics);
+        //menu.setItem(16, achievements);
+        //menu.setItem(28, multiplier);
+        menu.setItem(41, nastaveni);
+        menu.setItem(40, jazyk);
 
         p.openInventory(menu);
     }

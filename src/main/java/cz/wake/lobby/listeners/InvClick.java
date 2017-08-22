@@ -27,7 +27,7 @@ import java.io.DataOutputStream;
 public class InvClick implements Listener {
 
     private StatisticsMG statistics = new StatisticsMG();
-    private Menu profilMenu = new Menu();
+    private Profil profil = new Profil();
     private GadgetsMenu gadgetsMenu = new GadgetsMenu();
     private ParticlesMenu pMenu = new ParticlesMenu();
     private VIPMenu vMenu = new VIPMenu();
@@ -78,14 +78,14 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 34){
-                    profilMenu.openLanguageMenu(player);
+                    profil.openLanguageMenu(player);
                 }
                 event.setCancelled(true);
                 player.updateInventory();
             }
             if (event.getInventory().getTitle().equals("Nastaveni jazyka")) {
                 if (event.getSlot() == 40){
-                    profilMenu.openMenu(player);
+                    profil.openMenu(player);
                 }
                 if (event.getSlot() == 36){
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
@@ -204,7 +204,7 @@ public class InvClick implements Listener {
                 if (event.getCurrentItem().getType() == Material.AIR)
                     return;
                 if (event.getSlot() == 35) {
-                    this.profilMenu.openMenu(player);
+                    this.profil.openMenu(player);
                 }
                 event.setCancelled(true);
                 player.updateInventory();

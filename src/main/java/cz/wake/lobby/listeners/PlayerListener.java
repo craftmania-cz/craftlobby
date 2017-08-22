@@ -1,7 +1,7 @@
 package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.GadgetsMenu;
-import cz.wake.lobby.GUI.Menu;
+import cz.wake.lobby.GUI.Profil;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.GUI.VIPMenu;
 import cz.wake.lobby.Main;
@@ -52,7 +52,7 @@ public class PlayerListener implements Listener {
     private HashMap<Player, Double> _time = new HashMap<>();
     HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap<>();
 
-    Menu hlavniMenu = new Menu();
+    Profil hlavniProfil = new Profil();
     GadgetsMenu gadgetsMenu = new GadgetsMenu();
     Servers servers = new Servers();
     VIPMenu vmenu = new VIPMenu();
@@ -118,9 +118,15 @@ public class PlayerListener implements Listener {
                 Main.getInstance().fetchData().updateAtLastActive(p, System.currentTimeMillis());
             }
 
-            //TODO Dodelat do nastaveni
-            //Clearchat
+            //Profiles
+            Main.getInstance().fetchData().createPlayerProfile(p);
+
             if(Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+
+                //Update MC verze
+                Main.getInstance().fetchData().updatePlayerVersion(p);
+
+                //Clear chat
                 for (int i = 0; i < 30; i++) {
                     p.sendMessage(" ");
                 }
@@ -204,7 +210,7 @@ public class PlayerListener implements Listener {
         final Player p = e.getPlayer();
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.SKULL_ITEM) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {
-            this.hlavniMenu.openMenu(p);
+            this.hlavniProfil.openMenu(p);
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.EMERALD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aVIP Shop §7(Klikni pravym)"))) {
