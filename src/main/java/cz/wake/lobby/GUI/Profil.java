@@ -2,22 +2,33 @@ package cz.wake.lobby.GUI;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
+import cz.wake.lobby.utils.TimeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashSet;
 
-public class Profil {
+public class Profil implements Listener {
+
+    public static HashSet<Player> editor = new HashSet<>();
 
     public void openMenu(Player p) {
 
-        Inventory menu = Bukkit.createInventory(null, 54, p.getName());
+        Inventory menu = Bukkit.createInventory(null, 54, "Profil: " + p.getName());
 
         SkullMeta headItemMeta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
         headItemMeta.setOwner(p.getName());
@@ -26,22 +37,39 @@ public class Profil {
         ArrayList<String> headLore = new ArrayList<String>();
         headLore.add("");
         headLore.add("§7ID: §f#" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "discriminator"));
-        //headLore.add("§7UUID: §f" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "uuid"));
-        headLore.add("§7Prvni pripojeni: §f" + "TEST");
-        headLore.add("§7CraftCoins: §f" + "TEST");
-        headLore.add("§7SkyDust: §f" + "TEST");
-        headLore.add("§7Celkem hlasu: §f" + "TEST");
-        headLore.add("§7Web group: §f" + "TEST");
-        headLore.add("§7Celkem odehrany cas: §f" + "TEST");
+        headLore.add("§7Prvni pripojeni: §f" + getDate(Main.getInstance().fetchData().getPlayerProfileDataLong(p, "registred")));
+        headLore.add("§7CraftCoins: §f" + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()));
+        headLore.add("§7SkyDust: §f" + Main.getInstance().fetchData().getSkyKeysDust(p.getUniqueId()));
+        headLore.add("§7Celkem hlasu: §f" + Main.getInstance().fetchData().getVotesAll(p.getUniqueId()));
+        headLore.add("§7Web group: §f" + getWebGroup(Main.getInstance().fetchData().getPlayerProfileDataInt(p, "web_group")));
+        headLore.add("§7Celkem odehrany cas: §f" + TimeUtils.formatTime("%dd, %hh %mm", Main.getInstance().fetchData().getPlayerProfileDataInt(p, "played_time"),false));
         headItemMeta.setLore(headLore);
         headItem.setItemMeta(headItemMeta);
+        menu.setItem(12, headItem);
+
+        ItemStack status = ItemFactory.create(Material.PAPER, (byte)0, "§aTvuj status","§8Status je viditelny na webu","§8v profilech", "", "§f" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "status"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        menu.setItem(14, status);
 
         ItemStack soc = ItemFactory.createHead("Test", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§aSocialni site","", "§7Chces vsem poskytnout prime", "§7odkazy na svem profilu?", "", "§bOdkazy se zobrazuji na webu", "§bv profilech.","", "§eKliknutim provedes zmeny");
         menu.setItem(29, soc);
 
-        ItemStack statistics = ItemFactory.create(Material.DIAMOND,(byte)0, "§aStatistiky","§7Zobrazeni vsech dostupnych","§7statistik ze serveru.","","§eKlikni pro zobrazeni");
+        ItemStack statistiky = ItemFactory.create(Material.BOOK, (byte)0, "§aStatistiky", "", "§7Zobrazi vsechny tve statistiky", "§7ze serveru.", "", "§cPredelava se...");
+        menu.setItem(30, statistiky);
 
-        ItemStack achievements = ItemFactory.create(Material.BARRIER, (byte)0, "§cAchievementy", "§8Planovano...");
+        ItemStack multipliers = ItemFactory.create(Material.POTION, (byte)0, "§aMultipliery", "", "§7Chces vydelavat vic?", "§7Zde je to prave misto...", "", "§cPlanovano...");
+        menu.setItem(32, multipliers);
+
+        ItemStack levels = ItemFactory.create(Material.BREWING_STAND_ITEM,(byte)0, "§aCraftLevels", "", "§7Ziskavanim levelu", "§7si odemknes nove veci na serveru.", "", "§cPlanovano...");
+        menu.setItem(31, levels);
+
+        ItemStack achievements = ItemFactory.create(Material.EMERALD, (byte)0, "§aAchievementy", "", "§7Chces videt, ktery ukoly", "§7jsi splnil a ktere", "§7musis splnit?", "", "§cPlanovano...");
+        menu.setItem(33, achievements);
+
+        ItemStack questy = ItemFactory.create(Material.DIAMOND, (byte)0, "§aQuesty","", "§7Nuda? No tak zkus kazdy den", "§7splnit nektery z techto Questu!", "", "§cPlanovano...");
+        menu.setItem(39,questy);
+
+        ItemStack villages = ItemFactory.create(Material.DARK_OAK_DOOR_ITEM, (byte)0, "§aVillages", "", "§7Kdo vi.. co to bude?", "", "§cPlanovano...");
+        menu.setItem(38, villages);
 
         if(Main.getInstance().fetchData().isAT(p)){
             ItemStack i = ItemFactory.create(Material.PAINTING, (byte)0, "§aAT Stalker","§7Prehled tve aktivity", "§7na serveru.","","§eKlikni pro zobrazeni");
@@ -51,7 +79,7 @@ public class Profil {
             menu.setItem(42,i);
         }
 
-        ItemStack nastaveni = ItemFactory.create(Material.REDSTONE_COMPARATOR, (byte)0, "§aNastaveni uctu","§7Diky nastaveni si muzes", "§7prispusobit lobby/hry podle sebe.", "", "§eKlikni pro zobrazeni/nastaveni");
+        ItemStack nastaveni = ItemFactory.create(Material.REDSTONE_COMPARATOR, (byte)0, "§aNastaveni uctu","","§7Diky nastaveni si muzes", "§7prispusobit lobby/hry podle sebe.", "", "§eKlikni pro zobrazeni/nastaveni");
 
         ItemStack multiplier = ItemFactory.create(Material.BARRIER,(byte)0, "§cMultipliers","§8Planovano...");
 
@@ -69,7 +97,6 @@ public class Profil {
         bhMeta.setLore(bhLore);
         jazyk.setItemMeta(bhMeta);
 
-        menu.setItem(13, headItem);
         //menu.setItem(10, statistics);
         //menu.setItem(16, achievements);
         //menu.setItem(28, multiplier);
@@ -110,7 +137,7 @@ public class Profil {
         ItemStack jazyk3 = ItemFactory.createHead("§aEnglish", "3c30484a-76d3-4cfe-88e5-e7599bc9ac4d", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNhYzk3NzRkYTEyMTcyNDg1MzJjZTE0N2Y3ODMxZjY3YTEyZmRjY2ExY2YwY2I0YjM4NDhkZTZiYzk0YjQifX19");
         ItemMeta bhMeta3 = jazyk3.getItemMeta();
         ArrayList<String> bhLore3 = new ArrayList();
-        bhLore3.add("§7Change you language to English.");
+        bhLore3.add("§7Change your language to English.");
         bhLore3.add("");
         bhLore3.add("§7Currently available:");
         bhLore3.add(" §7• §fNothing");
@@ -125,9 +152,85 @@ public class Profil {
         inv.setItem(11, jazyk);
         inv.setItem(13, jazyk2);
         inv.setItem(15, jazyk3);
-        inv.setItem( 40, zpet);
+        inv.setItem(40, zpet);
         inv.setItem(36, help);
 
         p.openInventory(inv);
     }
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent e) {
+        Player p = (Player) e.getWhoClicked();
+        if (e.getInventory().getTitle().equals("Profil: " + p.getName())) {
+            if(e.getSlot() == 14){
+                if(e.isLeftClick()){
+                    if(!editor.contains(p)){
+                        editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis zpravu, co chces nastavit jako status!");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()){
+                    p.closeInventory();
+                    Main.getInstance().fetchData().updateStatus(p, "Tento hrác nemá nastavený status...");
+                    p.sendMessage("§eStatus byl vyresetovany na default!");
+                }
+            }
+        }
+    }
+
+    //TODO: Dodělat omezení na 100 znaků
+
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
+    public void onChat(AsyncPlayerChatEvent e){
+        Player p = e.getPlayer();
+        String m = e.getMessage();
+        if(editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                editor.remove(p);
+                p.sendMessage("§cZmena statusu zrusena!");
+                return;
+            }
+            Main.getInstance().fetchData().updateStatus(p, m);
+            editor.remove(p);
+            p.sendMessage("§eStatus nastaven na: §f" + m);
+        }
+    }
+
+    private String getDate(long time) {
+        final Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(time);
+        final String timeString = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(cal.getTime());
+        return timeString;
+    }
+
+    private String getWebGroup(int id){
+        switch (id){
+            case 0:
+                return "§fHrac";
+            case 1:
+                return "§5Premium";
+            case 2:
+                return "§aHelper";
+            case 3:
+                return "§aHelperka";
+            case 4:
+                return "§cAdmin";
+            case 5:
+                return "§cAdminka";
+            case 6:
+                return "§5Builder";
+            case 7:
+                return "§cHl.Admin";
+            case 8:
+                return "§eSprávce webu";
+            case 9:
+                return "§bMajitel";
+            default:
+                return "§fHrac";
+        }
+    }
+
 }

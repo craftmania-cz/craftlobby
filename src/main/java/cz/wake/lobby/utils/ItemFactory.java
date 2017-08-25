@@ -32,6 +32,7 @@ public class ItemFactory {
                 itemMeta.setLore(finalLore);
             }
             itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+            itemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
             itemStack.setItemMeta(itemMeta);
             return itemStack;
         } catch (Exception e){

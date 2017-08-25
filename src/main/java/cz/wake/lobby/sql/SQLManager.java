@@ -1457,6 +1457,27 @@ public class SQLManager {
         return (long) 0;
     }
 
+    public final void updateStatus(final Player p, final String status) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET status = ? WHERE nick = ?;");
+                    ps.setString(1, status);
+                    ps.setString(2, p.getName());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
 
 
 

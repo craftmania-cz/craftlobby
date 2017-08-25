@@ -212,6 +212,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new MorphAPI(), this);
         pm.registerEvents(new VillagerMorph(), this);
         pm.registerEvents(new PigMorph(), this);
+        pm.registerEvents(new Profil(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")){

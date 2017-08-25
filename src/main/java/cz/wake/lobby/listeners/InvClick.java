@@ -27,7 +27,6 @@ import java.io.DataOutputStream;
 public class InvClick implements Listener {
 
     private StatisticsMG statistics = new StatisticsMG();
-    private Profil profil = new Profil();
     private GadgetsMenu gadgetsMenu = new GadgetsMenu();
     private ParticlesMenu pMenu = new ParticlesMenu();
     private VIPMenu vMenu = new VIPMenu();
@@ -62,30 +61,9 @@ public class InvClick implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         try {
-            //**************************** PROFILE MENU ****************************//
-            if (event.getInventory().getTitle().equals(player.getName())) {
-                if (event.getSlot() == 10) {
-                    this.statistics.openMinigamesMenu(player);
-                }
-                if (event.getSlot() == 30) {
-                    st.openSettingsMenu(player);
-                }
-                if (event.getSlot() == 32) {
-                    if(Main.getInstance().fetchData().isAT(player)){
-                        stalker.openStalker(player);
-                    } else {
-                        player.sendMessage("§cK pouzivani teto sekce musis byt v AT!");
-                    }
-                }
-                if (event.getSlot() == 34){
-                    profil.openLanguageMenu(player);
-                }
-                event.setCancelled(true);
-                player.updateInventory();
-            }
             if (event.getInventory().getTitle().equals("Nastaveni jazyka")) {
                 if (event.getSlot() == 40){
-                    profil.openMenu(player);
+                    //profil.openMenu(player);
                 }
                 if (event.getSlot() == 36){
                     player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
@@ -204,7 +182,7 @@ public class InvClick implements Listener {
                 if (event.getCurrentItem().getType() == Material.AIR)
                     return;
                 if (event.getSlot() == 35) {
-                    this.profil.openMenu(player);
+                    //this.profil.openMenu(player);
                 }
                 event.setCancelled(true);
                 player.updateInventory();
