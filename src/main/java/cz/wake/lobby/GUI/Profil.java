@@ -1,11 +1,13 @@
 package cz.wake.lobby.GUI;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.TimeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -24,7 +26,9 @@ import java.util.HashSet;
 
 public class Profil implements Listener {
 
-    public static HashSet<Player> editor = new HashSet<>();
+    private static HashSet<Player> editor = new HashSet<>();
+    private Stalker stalker = new Stalker();
+    private SettingsMenu settings = new SettingsMenu();
 
     public void openMenu(Player p) {
 
@@ -81,8 +85,6 @@ public class Profil implements Listener {
 
         ItemStack nastaveni = ItemFactory.create(Material.REDSTONE_COMPARATOR, (byte)0, "§aNastaveni uctu","","§7Diky nastaveni si muzes", "§7prispusobit lobby/hry podle sebe.", "", "§eKlikni pro zobrazeni/nastaveni");
 
-        ItemStack multiplier = ItemFactory.create(Material.BARRIER,(byte)0, "§cMultipliers","§8Planovano...");
-
         ItemStack jazyk = ItemFactory.createHead("§aNastaveni jazyka", "0ceac85e-159d-4f9d-a1c2-c8acde792f23", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjFkZDRmZTRhNDI5YWJkNjY1ZGZkYjNlMjEzMjFkNmVmYTZhNmI1ZTdiOTU2ZGI5YzVkNTljOWVmYWIyNSJ9fX0=");
         ItemMeta bhMeta = jazyk.getItemMeta();
         ArrayList<String> bhLore = new ArrayList();
@@ -97,16 +99,44 @@ public class Profil implements Listener {
         bhMeta.setLore(bhLore);
         jazyk.setItemMeta(bhMeta);
 
-        //menu.setItem(10, statistics);
-        //menu.setItem(16, achievements);
-        //menu.setItem(28, multiplier);
         menu.setItem(41, nastaveni);
         menu.setItem(40, jazyk);
 
         p.openInventory(menu);
     }
 
-    public void openLanguageMenu(Player p){
+    private void openSocialMenu(Player p){
+
+        Inventory inv = Bukkit.createInventory(null, 45, "Socialni site");
+
+        ItemStack facebook = ItemFactory.createHead("Facebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§bFacebook", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        inv.setItem(10, facebook);
+
+        ItemStack twitter = ItemFactory.createHead("Twitter", "11fce6c7-71ad-464e-98e7-c8e579de4758", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ==", "§bTwitter", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        inv.setItem(12, twitter);
+
+        ItemStack youtube = ItemFactory.createHead("Youtube", "6486882a-2871-4db3-922d-98ebc3166c6b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJmNmMwN2EzMjZkZWY5ODRlNzJmNzcyZWQ2NDU0NDlmNWVjOTZjNmNhMjU2NDk5YjVkMmI4NGE4ZGNlIn19fQ==", "§bYoutube", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        inv.setItem(14, youtube);
+
+        ItemStack twitch = ItemFactory.createHead("Twitch", "e57c6078-0b1f-4f88-976d-977a5834717f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiZTY1ZjQ0Y2QyMTAxNGM4Y2RkZDAxNThiZjc1MjI3YWRjYjFmZDE3OWY0YzFhY2QxNThjODg4NzFhMTNmIn19fQ==", "§bTwitch", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        inv.setItem(16, twitch);
+
+        ItemStack web = ItemFactory.createHead("Web", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19", "§bWeb (vlastni URL)", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        inv.setItem(20, web);
+
+        ItemStack steam = ItemFactory.createHead("Steam", "73bec8bd-bced-44cc-b3ad-3489b846efc4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzRkYjRhZGZhOWJmNDhmZjVkNDE3MDdhZTM0ZWE3OGJkMjM3MTY1OWZjZDhjZDg5MzQ3NDlhZjRjY2U5YiJ9fX0=", "§bSteam", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        inv.setItem(24, steam);
+
+        ItemStack warn = ItemFactory.createHead("Warning", "76815220-3812-436d-90f8-3264867d7bc0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWY0NDZhOGY5Mjg0YzYyY2Y4ZDQ5MWZiZGIzMzhmZDM5ZWJiZWJlMzVlOTU5YzJmYzRmNzg2YzY3NTIyZWZiIn19fQ==", "§cVarovani", "", "§fVsechny zde uverejnene", "§finformace jsou verejne dostupne", "§fna tvem webovem profilu", "§fnebo pomoci §a/profil <nick>");
+        inv.setItem(22, warn);
+
+        ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
+        inv.setItem(40, zpet);
+
+        p.openInventory(inv);
+    }
+
+    private void openLanguageMenu(Player p){
 
         Inventory inv = Bukkit.createInventory(null, 45, "Nastaveni jazyka");
 
@@ -169,18 +199,59 @@ public class Profil implements Listener {
                         p.closeInventory();
                         p.sendMessage("");
                         p.sendMessage("§eNyni napis zpravu, co chces nastavit jako status!");
+                        p.sendMessage("§7Editaci zrusis napsanim -> exit");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()){
                     p.closeInventory();
-                    Main.getInstance().fetchData().updateStatus(p, "Tento hrác nemá nastavený status...");
+                    Main.getInstance().fetchData().updateStatus(p, "Tento hráč nemá nastavený status...");
                     p.sendMessage("§eStatus byl vyresetovany na default!");
                 }
             }
+            if (e.getSlot() == 29) {
+                openSocialMenu(p);
+            }
+            if (e.getSlot() == 40){
+                openLanguageMenu(p);
+            }
+            if (e.getSlot() == 41){
+                settings.openSettingsMenu(p);
+            }
+            if (e.getSlot() == 42){
+                if(Main.getInstance().fetchData().isAT(p)){
+                    stalker.openStalker(p);
+                } else {
+                    p.sendMessage("§cK pouzivani teto sekce musis byt v AT!");
+                }
+            }
+        }
+        if (e.getInventory().getTitle().equals("Nastaveni jazyka")) {
+            if (e.getSlot() == 36){
+                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                p.sendMessage("");
+                p.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                p.sendMessage("");
+                p.sendMessage("");
+                p.sendMessage("§eOdkaz na nas Crowdin projekt:");
+                //p.sendMessage("§bhttps://crowdin.com/project/craftmaniacz");
+                p.sendMessage("§cAktualne nedostupny...");
+                p.sendMessage("");
+                p.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                p.sendMessage("");
+                p.closeInventory();
+            }
+            if (e.getSlot() == 40){
+                openMenu(p);
+            }
+        }
+        if (e.getInventory().getTitle().equals("Stalker")) {
+            if (e.getSlot() == 40) {
+                stalker.openAdminStalker(p);
+            }
+            e.setCancelled(true);
+            p.updateInventory();
         }
     }
-
-    //TODO: Dodělat omezení na 100 znaků
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
     public void onChat(AsyncPlayerChatEvent e){
@@ -193,6 +264,10 @@ public class Profil implements Listener {
                 p.sendMessage("§cZmena statusu zrusena!");
                 return;
             }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
             Main.getInstance().fetchData().updateStatus(p, m);
             editor.remove(p);
             p.sendMessage("§eStatus nastaven na: §f" + m);
@@ -202,8 +277,7 @@ public class Profil implements Listener {
     private String getDate(long time) {
         final Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(time);
-        final String timeString = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(cal.getTime());
-        return timeString;
+        return new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(cal.getTime());
     }
 
     private String getWebGroup(int id){
