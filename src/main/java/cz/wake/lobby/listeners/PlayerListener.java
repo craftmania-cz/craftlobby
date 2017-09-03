@@ -89,7 +89,12 @@ public class PlayerListener implements Listener {
             //Odmeny
             Main.getInstance().setData().createRewardsRecord(p, "lobby_denniodmena");
             Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
-            b.onPlayerSpawn(p);
+
+            if(Main.getInstance().getIdServer().equalsIgnoreCase("arcade")){
+
+                // Arcade shop
+                b.onPlayerSpawn(p);
+            }
 
             // Prefix v tablistu
             UtilTablist.setupPrefixInTab(p);

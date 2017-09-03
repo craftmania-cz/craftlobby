@@ -109,7 +109,7 @@ public class RewardsManager implements Listener {
                     Main.getInstance().setData().addCoins(p, 50);
                     Bonusy b = new Bonusy();
                     b.playEffect(p);
-                    p.updateInventory();
+                    p.closeInventory();
                 } else {
                     p.sendMessage("§cTuto odmenu jsi si jiz vybral!");
                 }
@@ -122,7 +122,7 @@ public class RewardsManager implements Listener {
                         Main.getInstance().setData().addCoins(p, 2000);
                         Bonusy b = new Bonusy();
                         b.playEffect(p);
-                        p.updateInventory();
+                        p.closeInventory();
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral!");
                     }
