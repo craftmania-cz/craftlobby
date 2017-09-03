@@ -26,11 +26,8 @@ import java.io.DataOutputStream;
 
 public class InvClick implements Listener {
 
-    private StatisticsMG statistics = new StatisticsMG();
-    private Menu profilMenu = new Menu();
     private GadgetsMenu gadgetsMenu = new GadgetsMenu();
     private ParticlesMenu pMenu = new ParticlesMenu();
-    private VIPMenu vMenu = new VIPMenu();
     private GreenSparks gs = new GreenSparks();
     private FrostLord fl = new FrostLord();
     private FlameRings fr = new FlameRings();
@@ -52,7 +49,6 @@ public class InvClick implements Listener {
     private CandyCane cc = new CandyCane();
     private BannerAPI bannerAPI = new BannerAPI();
     private HeadsAPI hAPI = new HeadsAPI();
-    private SettingsMenu st = new SettingsMenu();
     private Stalker stalker = new Stalker();
     private MorphAPI morphAPI = new MorphAPI();
 
@@ -62,112 +58,6 @@ public class InvClick implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         try {
-            //**************************** PROFILE MENU ****************************//
-            if (event.getInventory().getTitle().equals(player.getName())) {
-                if (event.getSlot() == 10) {
-                    this.statistics.openMinigamesMenu(player);
-                }
-                if (event.getSlot() == 30) {
-                    st.openSettingsMenu(player);
-                }
-                if (event.getSlot() == 32) {
-                    if(Main.getInstance().fetchData().isAT(player)){
-                        stalker.openStalker(player);
-                    } else {
-                        player.sendMessage("§cK pouzivani teto sekce musis byt v AT!");
-                    }
-                }
-                if (event.getSlot() == 34){
-                    profilMenu.openLanguageMenu(player);
-                }
-                event.setCancelled(true);
-                player.updateInventory();
-            }
-            if (event.getInventory().getTitle().equals("Nastaveni jazyka")) {
-                if (event.getSlot() == 40){
-                    profilMenu.openMenu(player);
-                }
-                if (event.getSlot() == 36){
-                    player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
-                    player.sendMessage("");
-                    player.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.sendMessage("");
-                    player.sendMessage("§eOdkaz na nas Crowdin projekt:");
-                    player.sendMessage("§bhttps://crowdin.com/project/craftmaniacz");
-                    player.sendMessage("");
-                    player.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.closeInventory();
-                }
-            }
-            if (event.getInventory().getTitle().equals("Stalker")) {
-                if (event.getSlot() == 40) {
-                    stalker.openAdminStalker(player);
-                }
-                event.setCancelled(true);
-                player.updateInventory();
-            }
-            //**************************** MiniGames VIP MENU ****************************//
-            if (event.getInventory().getTitle().equals("§lSMS > MiniGames VIP")) {
-                if (event.getSlot() == 26) {
-                    this.vMenu.openMenuSMS(player);
-                }
-            }
-            //**************************** SMS SERVERS MENU ****************************//
-            if (event.getInventory().getTitle().equals("§lSMS > Vyber serveru")) {
-                event.setCancelled(true);
-                player.updateInventory();
-                if (event.getSlot() == 26) {
-                    this.vMenu.openVIPMenu(player);
-                }
-                if (event.getSlot() == 15) {
-                    this.vMenu.openMinigamesSMS(player);
-                }
-                if (event.getSlot() == 11) {
-                    player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 13.0F, 1.0F);
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci SMS provedes na serveru pomoci:");
-                    player.sendMessage("§b/vip");
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.closeInventory();
-                }
-                if (event.getSlot() == 12) {
-                    player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 13.0F, 1.0F);
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci SMS provedes na serveru pomoci:");
-                    player.sendMessage("§b/vip");
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.closeInventory();
-                }
-                if (event.getSlot() == 13) {
-                    player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 13.0F, 1.0F);
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci SMS provedes na serveru pomoci:");
-                    player.sendMessage("§b/vip");
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.closeInventory();
-                }
-                if (event.getSlot() == 14) {
-                    player.sendMessage("§cV soucasne dobe nedostupne!");
-                }
-
-            }
             //**************************** VIP MENU ****************************//
             if (event.getInventory().getTitle().equals("§lVIP Shop")) {
                 event.setCancelled(true);
@@ -204,7 +94,7 @@ public class InvClick implements Listener {
                 if (event.getCurrentItem().getType() == Material.AIR)
                     return;
                 if (event.getSlot() == 35) {
-                    this.profilMenu.openMenu(player);
+                    //this.profil.openMenu(player);
                 }
                 event.setCancelled(true);
                 player.updateInventory();
@@ -520,7 +410,7 @@ public class InvClick implements Listener {
                 }
                 RankCape.deactivateCape(player);
             }
-            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Web"))){
+            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))){
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");

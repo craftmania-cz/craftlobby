@@ -114,7 +114,7 @@ public class VIPMenu {
         iLore.add("§e▪ §fPristup ke vsem kitum.");
         iLore.add("§e▪ §fVIP Slot");
         iLore.add("§7BedWars:");
-        iLore.add("§e▪ §fVIP Menu ve Villagerovi");
+        iLore.add("§e▪ §fVIP Profil ve Villagerovi");
         iLore.add("§e▪ §fVIP Slot");
         iLore.add("§7DrawIt:");
         iLore.add("§e▪ §fPridan cas na kresleni - 75 vterin.");

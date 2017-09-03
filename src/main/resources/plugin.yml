@@ -16,7 +16,7 @@ commands:
   cbperms:
     description: Addon na CraftBoxy
   vip:
-    description: Menu pro nakup VIP
+    description: Profil pro nakup VIP
   survival:
     description: Server teleport
   skyblock:

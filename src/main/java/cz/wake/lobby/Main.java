@@ -2,7 +2,7 @@ package cz.wake.lobby;
 
 import cz.wake.lobby.GUI.ArcadeShopGUI;
 import cz.wake.lobby.GUI.GadgetsMenu;
-import cz.wake.lobby.GUI.Menu;
+import cz.wake.lobby.GUI.Profil;
 import cz.wake.lobby.GUI.Servers;
 import cz.wake.lobby.armorstands.ArmorStandManager;
 import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
@@ -45,7 +45,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private PetsAPI pets = new PetsAPI();
     private GadgetsMenu gMenu = new GadgetsMenu();
     private ArmorStandManager asm = new ArmorStandManager();
-    private Menu m = new Menu();
+    private Profil m = new Profil();
     private Servers servers = new Servers();
     private TimeTask tt = new TimeTask();
     public boolean debug;
@@ -212,6 +212,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new MorphAPI(), this);
         pm.registerEvents(new VillagerMorph(), this);
         pm.registerEvents(new PigMorph(), this);
+        pm.registerEvents(new Profil(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")){
@@ -293,7 +294,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return pets;
     }
 
-    public Menu getMenu() {
+    public Profil getMenu() {
         return m;
     }
 

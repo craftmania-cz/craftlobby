@@ -13,7 +13,7 @@ Jeden z nejhlavnějších pluginů na serveru Craftmania.cz. Jeho hlavním úkol
 - **HikariCP** - Jeden z nejrychlejších JDBC připojení do SQL.
  
 ### Verze pluginu
-Aktualizovaná verze pluginu je podle verze serveru. Aktuálně tedy `1.10`
+Aktualizovaná verze pluginu je podle verze serveru. Aktuálně tedy `1.11`
 
 ### Stažení source
 Plugin není vhodný na používání na normálních lobby, je primárně sestavený pro lobby na Craftmania.cz
