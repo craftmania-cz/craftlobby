@@ -410,7 +410,7 @@ public class InvClick implements Listener {
                 }
                 RankCape.deactivateCape(player);
             }
-            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Web"))){
+            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))){
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");

@@ -27,6 +27,12 @@ import java.util.HashSet;
 public class Profil implements Listener {
 
     private static HashSet<Player> editor = new HashSet<>();
+    private static HashSet<Player> fb_editor = new HashSet<>();
+    private static HashSet<Player> tw_editor = new HashSet<>();
+    private static HashSet<Player> twitch_editor = new HashSet<>();
+    private static HashSet<Player> youtube_editor = new HashSet<>();
+    private static HashSet<Player> steam_editor = new HashSet<>();
+    private static HashSet<Player> web_editor = new HashSet<>();
     private Stalker stalker = new Stalker();
     private SettingsMenu settings = new SettingsMenu();
 
@@ -109,25 +115,25 @@ public class Profil implements Listener {
 
         Inventory inv = Bukkit.createInventory(null, 45, "Socialni site");
 
-        ItemStack facebook = ItemFactory.createHead("Facebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§bFacebook", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack facebook = ItemFactory.createHead("Facebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§bFacebook", "", getSocialLinks(p, "soc_facebook"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         inv.setItem(10, facebook);
 
-        ItemStack twitter = ItemFactory.createHead("Twitter", "11fce6c7-71ad-464e-98e7-c8e579de4758", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ==", "§bTwitter", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack twitter = ItemFactory.createHead("Twitter", "11fce6c7-71ad-464e-98e7-c8e579de4758", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ==", "§bTwitter", "", getSocialLinks(p, "soc_twitter"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         inv.setItem(12, twitter);
 
-        ItemStack youtube = ItemFactory.createHead("Youtube", "6486882a-2871-4db3-922d-98ebc3166c6b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJmNmMwN2EzMjZkZWY5ODRlNzJmNzcyZWQ2NDU0NDlmNWVjOTZjNmNhMjU2NDk5YjVkMmI4NGE4ZGNlIn19fQ==", "§bYoutube", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack youtube = ItemFactory.createHead("Youtube", "6486882a-2871-4db3-922d-98ebc3166c6b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJmNmMwN2EzMjZkZWY5ODRlNzJmNzcyZWQ2NDU0NDlmNWVjOTZjNmNhMjU2NDk5YjVkMmI4NGE4ZGNlIn19fQ==", "§bYoutube", "", getSocialLinks(p, "soc_ytb"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         inv.setItem(14, youtube);
 
-        ItemStack twitch = ItemFactory.createHead("Twitch", "e57c6078-0b1f-4f88-976d-977a5834717f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiZTY1ZjQ0Y2QyMTAxNGM4Y2RkZDAxNThiZjc1MjI3YWRjYjFmZDE3OWY0YzFhY2QxNThjODg4NzFhMTNmIn19fQ==", "§bTwitch", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack twitch = ItemFactory.createHead("Twitch", "e57c6078-0b1f-4f88-976d-977a5834717f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDZiZTY1ZjQ0Y2QyMTAxNGM4Y2RkZDAxNThiZjc1MjI3YWRjYjFmZDE3OWY0YzFhY2QxNThjODg4NzFhMTNmIn19fQ==", "§bTwitch", "", getSocialLinks(p, "soc_twitch"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         inv.setItem(16, twitch);
 
-        ItemStack web = ItemFactory.createHead("Web", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19", "§bWeb (vlastni URL)", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack web = ItemFactory.createHead("Web", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19", "§bWeb (vlastni URL)", "", getSocialLinks(p, "soc_web"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         inv.setItem(20, web);
 
-        ItemStack steam = ItemFactory.createHead("Steam", "73bec8bd-bced-44cc-b3ad-3489b846efc4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzRkYjRhZGZhOWJmNDhmZjVkNDE3MDdhZTM0ZWE3OGJkMjM3MTY1OWZjZDhjZDg5MzQ3NDlhZjRjY2U5YiJ9fX0=", "§bSteam", "", "§fNastaveno XXX", "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack steam = ItemFactory.createHead("Steam", "73bec8bd-bced-44cc-b3ad-3489b846efc4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzRkYjRhZGZhOWJmNDhmZjVkNDE3MDdhZTM0ZWE3OGJkMjM3MTY1OWZjZDhjZDg5MzQ3NDlhZjRjY2U5YiJ9fX0=", "§bSteam", "", getSocialLinks(p, "soc_steam"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         inv.setItem(24, steam);
 
-        ItemStack warn = ItemFactory.createHead("Warning", "76815220-3812-436d-90f8-3264867d7bc0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWY0NDZhOGY5Mjg0YzYyY2Y4ZDQ5MWZiZGIzMzhmZDM5ZWJiZWJlMzVlOTU5YzJmYzRmNzg2YzY3NTIyZWZiIn19fQ==", "§cVarovani", "", "§fVsechny zde uverejnene", "§finformace jsou verejne dostupne", "§fna tvem webovem profilu", "§fnebo pomoci §a/profil <nick>");
+        ItemStack warn = ItemFactory.createHead("Warning", "76815220-3812-436d-90f8-3264867d7bc0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWY0NDZhOGY5Mjg0YzYyY2Y4ZDQ5MWZiZGIzMzhmZDM5ZWJiZWJlMzVlOTU5YzJmYzRmNzg2YzY3NTIyZWZiIn19fQ==", "§cVarovani",  "§7Vsechny zde uverejnene", "§7finformace jsou verejne dostupne", "§7na tvem webovem profilu", "§7nebo pomoci §a/profil <nick>");
         inv.setItem(22, warn);
 
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte)0, "§cZpet");
@@ -251,6 +257,109 @@ public class Profil implements Listener {
             e.setCancelled(true);
             p.updateInventory();
         }
+        if (e.getInventory().getTitle().equals("Socialni site")){
+            if (e.getSlot() == 40) {
+                openMenu(p);
+            }
+            if(e.getSlot() == 10){
+                if(e.isLeftClick()){
+                    if(!fb_editor.contains(p)){
+                        fb_editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis svuj nick na Faceboku. Pozor na tvar!");
+                        p.sendMessage("§8https://www.facebook.com/§cNICK");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()){
+                    Main.getInstance().fetchData().updateSocLinks(p,"soc_facebook", "0");
+                    p.sendMessage("§eTvuj Facebook odkaz byl smazan!");
+                    openSocialMenu(p);
+                }
+            }
+            if(e.getSlot() == 12){
+                if(e.isLeftClick()){
+                    if(!tw_editor.contains(p)){
+                        tw_editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis svuj nick na Twitteru. Pozor na tvar!");
+                        p.sendMessage("§8https://twitter.com/§cNICK");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()){
+                    Main.getInstance().fetchData().updateSocLinks(p,"soc_twitter", "0");
+                    p.sendMessage("§eTvuj Twitter odkaz byl smazan!");
+                    openSocialMenu(p);
+                }
+            }
+            if(e.getSlot() == 14){
+                if(e.isLeftClick()){
+                    if(!youtube_editor.contains(p)){
+                        youtube_editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis svuj nick na Youtube. Pozor na tvar!");
+                        p.sendMessage("§8https://www.youtube.com/user/§cNICK");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()){
+                    Main.getInstance().fetchData().updateSocLinks(p,"soc_ytb", "0");
+                    p.sendMessage("§eTvuj Youtube odkaz byl smazan!");
+                    openSocialMenu(p);
+                }
+            }
+            if(e.getSlot() == 16){
+                if(e.isLeftClick()){
+                    if(!twitch_editor.contains(p)){
+                        twitch_editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis svuj nick na Twitch. Pozor na tvar!");
+                        p.sendMessage("§8https://www.twitch.tv/§cNICK");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()){
+                    Main.getInstance().fetchData().updateSocLinks(p,"soc_twitch", "0");
+                    p.sendMessage("§eTvuj Twitch odkaz byl smazan!");
+                    openSocialMenu(p);
+                }
+            }
+            if(e.getSlot() == 20){
+                if(e.isLeftClick()){
+                    if(!web_editor.contains(p)){
+                        web_editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis svuj na jakoukoliv stranku!");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()
+                        && e.getCurrentItem().getItemMeta().getDisplayName().equals("§bWeb (vlastni URL)")){
+                    Main.getInstance().fetchData().updateSocLinks(p,"soc_web", "0");
+                    p.sendMessage("§eTvuj Web odkaz byl smazan!");
+                    openSocialMenu(p);
+                }
+            }
+            if(e.getSlot() == 24){
+                if(e.isLeftClick()){
+                    if(!steam_editor.contains(p)){
+                        steam_editor.add(p);
+                        p.closeInventory();
+                        p.sendMessage("");
+                        p.sendMessage("§eNyni napis svuj nick na Steam. Pozor na tvar!");
+                        p.sendMessage("§8https://steamcommunity.com/id/§cNICK");
+                        p.sendMessage("");
+                    }
+                } else if (e.isRightClick()){
+                    Main.getInstance().fetchData().updateSocLinks(p,"soc_steam", "0");
+                    p.sendMessage("§eTvuj Steam odkaz byl smazan!");
+                    openSocialMenu(p);
+                }
+            }
+            e.setCancelled(true);
+            p.updateInventory();
+        }
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
@@ -271,6 +380,96 @@ public class Profil implements Listener {
             Main.getInstance().fetchData().updateStatus(p, m);
             editor.remove(p);
             p.sendMessage("§eStatus nastaven na: §f" + m);
+        }
+        if(fb_editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                fb_editor.remove(p);
+                p.sendMessage("§cZmena odkazu na Facebook byl zrusen!");
+                return;
+            }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
+            Main.getInstance().fetchData().updateSocLinks(p, "soc_facebook", m);
+            fb_editor.remove(p);
+            p.sendMessage("§eFacebook link nastaven na: §fhttps://www.facebook.com/§b" + m);
+        }
+        if(twitch_editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                twitch_editor.remove(p);
+                p.sendMessage("§cZmena odkazu na Twitch byl zrusen!");
+                return;
+            }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
+            Main.getInstance().fetchData().updateSocLinks(p, "soc_twitch", m);
+            twitch_editor.remove(p);
+            p.sendMessage("§eTwitch link nastaven na: §fhttps://www.twitch.tv/§b" + m);
+        }
+        if(youtube_editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                youtube_editor.remove(p);
+                p.sendMessage("§cZmena odkazu na Youtube byl zrusen!");
+                return;
+            }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
+            Main.getInstance().fetchData().updateSocLinks(p, "soc_ytb", m);
+            youtube_editor.remove(p);
+            p.sendMessage("§eYoutube link nastaven na: §fhttps://www.youtube.com/user/§b" + m);
+        }
+        if(tw_editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                tw_editor.remove(p);
+                p.sendMessage("§cZmena odkazu na Twitter byl zrusen!");
+                return;
+            }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
+            Main.getInstance().fetchData().updateSocLinks(p, "soc_twitter", m);
+            tw_editor.remove(p);
+            p.sendMessage("§eTwitter link nastaven na: §fhttps://twitter.com/§b" + m);
+        }
+        if(web_editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                web_editor.remove(p);
+                p.sendMessage("§cZmena odkazu na svuj web byl zrusen!");
+                return;
+            }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
+            Main.getInstance().fetchData().updateSocLinks(p, "soc_web", m);
+            web_editor.remove(p);
+            p.sendMessage("§eWeb link nastaven na: §b" + m);
+        }
+        if(steam_editor.contains(p)){
+            e.setCancelled(true);
+            if(m.equalsIgnoreCase("exit")){
+                steam_editor.remove(p);
+                p.sendMessage("§cZmena odkazu na Steam byl zrusen!");
+                return;
+            }
+            if(m.length() > 100){
+                p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
+                return;
+            }
+            Main.getInstance().fetchData().updateSocLinks(p, "soc_steam", m);
+            steam_editor.remove(p);
+            p.sendMessage("§eSteam link nastaven na: §fhttps://steamcommunity.com/id/§b" + m);
         }
     }
 
@@ -305,6 +504,32 @@ public class Profil implements Listener {
             default:
                 return "§fHrac";
         }
+    }
+
+    private String getSocialLinks(Player p, String table){
+        String data = Main.getInstance().fetchData().getPlayerProfileDataString(p, table);
+        if(data.equalsIgnoreCase("0")){
+            return "§8Nenastaveno";
+        }
+        if(table.equalsIgnoreCase("soc_facebook")){
+            return "§7https://www.facebook.com/§f" + data;
+        }
+        if(table.equalsIgnoreCase("soc_twitter")){
+            return "§7https://twitter.com/§f" + data;
+        }
+        if(table.equalsIgnoreCase("soc_ytb")){
+            return "§7https://www.youtube.com/user/§f" + data;
+        }
+        if(table.equalsIgnoreCase("soc_steam")){
+            return "§7https://steamcommunity.com/id/§f" + data;
+        }
+        if(table.equalsIgnoreCase("soc_twitch")){
+            return "§7https://www.twitch.tv/§f" + data;
+        }
+        if(table.equalsIgnoreCase("soc_web")){
+            return "§f" + data;
+        }
+        return "§fNenastaveno";
     }
 
 }
