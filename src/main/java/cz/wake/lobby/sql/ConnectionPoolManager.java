@@ -41,7 +41,7 @@ public class ConnectionPoolManager {
 
     private void setupPool() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding=UTF-8");
+        config.setJdbcUrl("jdbc:mysql://" + host + ":" + port + "/" + database + "?characterEncoding=UTF-8&autoReconnect=true");
         config.setDriverClassName("com.mysql.jdbc.Driver");
         config.setUsername(username);
         config.setPassword(password);
