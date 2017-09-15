@@ -90,9 +90,9 @@ public class PlayerListener implements Listener {
             Main.getInstance().setData().createRewardsRecord(p, "lobby_denniodmena");
             Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
 
-            if(Main.getInstance().getIdServer().equalsIgnoreCase("arcade")){
+            if(!Main.getInstance().getIdServer().equalsIgnoreCase("arcade")){
 
-                // Arcade shop
+                // Info o odmene
                 b.onPlayerSpawn(p);
             }
 
