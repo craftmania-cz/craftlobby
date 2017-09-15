@@ -171,7 +171,7 @@ public class Survival implements ASInterface {
         ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 61, 145, 64);
         as.setBoots(boots);
 
-        ItemStack item = new ItemStack(Material.IRON_SWORD);
+        ItemStack item = new ItemStack(Material.WOOD_SWORD);
         as.setItemInHand(item);
     }
 

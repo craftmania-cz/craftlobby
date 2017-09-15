@@ -31,7 +31,7 @@ public class ArmorStandManager {
             armorstands.add(new Unknown1());
             armorstands.add(new Unknown2());
             armorstands.add(new Unknown3());
-            armorstands.add(new Unknown4());
+            armorstands.add(new Murder());
             armorstands.add(new Vanilla());
             armorstands.add(new DJClub());
             armorstands.add(new Drunkers());
@@ -42,6 +42,7 @@ public class ArmorStandManager {
             armorstands.add(new Witch());
             armorstands.add(new Bonusy());
             armorstands.add(new Kubrastig());
+            armorstands.add(new TeamBuildBattle());
         }
     }
 

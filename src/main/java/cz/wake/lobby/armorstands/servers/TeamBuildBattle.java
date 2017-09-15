@@ -11,9 +11,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
-public class GetDown implements ASInterface {
+public class TeamBuildBattle implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1216.5, -90, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1525.5, 18, -1214.5, -130, 0);
     ArmorStand as, as2, as3;
 
     @Override
@@ -31,22 +31,22 @@ public class GetDown implements ASInterface {
 
         as.setRightArmPose(new EulerAngle(5.8, 0, 0.3));
 
-        ItemStack head = ItemFactory.createHead("test", "daaef8ad-4532-4cc8-bb84-7f8947add9a5", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjg2Yzg0Y2E1OTljYjQ0MGY4ZDkzMTM4ZWQwZmYxZjJiMTM2ZGZhZWRiMWRkNDZlZjFhODVjYzM5ZGNjYzMifX19");
+        ItemStack head = ItemFactory.createHead("test", "9ef87154-8d59-424a-8af6-1cab6a49353a", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjNjOWVlNzJmZjI3YjUwZmYzYTk4Y2E0OTJhNTQ1MTQ5NzRjYzMwZmE4Mzk3YjI3ZWYzMWQ1OTg4N2VlM2ZiIn19fQ==");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 232, 239, 54);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 146, 76, 198);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 232, 239, 54);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 146, 76, 198);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 232, 239, 54);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 146, 76, 198);
         as.setBoots(boots);
 
-        ItemStack item = new ItemStack(Material.IRON_BOOTS);
+        ItemStack item = new ItemStack(Material.PAINTING);
         as.setItemInHand(item);
 
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "getdown", "getdown", Main.getInstance());
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "buildbattle", "buildbattle", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
@@ -66,7 +66,8 @@ public class GetDown implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§e§lGetDown");
+        as2.setCustomName("§5§l§kTeam BuildBattle");
+
     }
 
     @Override
@@ -82,7 +83,7 @@ public class GetDown implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Nacitani...");
+        as3.setCustomName("§8Jiz brzy...");
 
     }
 
@@ -100,6 +101,6 @@ public class GetDown implements ASInterface {
 
     @Override
     public void updateArmorStand(String s, int i) {
-        as3.setCustomName(Main.getInstance().getASM().formatPlayers(i));
+
     }
 }

@@ -103,10 +103,7 @@ public class PlayerListener implements Listener {
             setupPlayerOnJoin(p);
 
             // ArmorStand statistiky
-            if (Main.getInstance().getIdServer().equalsIgnoreCase("globby")) {
-                Location loc = new Location(Bukkit.getWorld("ogiants"), -616.5, 111, 121.5);
-                SkyGiants.spawn(loc, p);
-            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")) {
+            if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")) {
                 Location loc = new Location(Bukkit.getWorld("osw"), -599.5, 102.3, 116.5);
                 SkyWars.spawn(loc, p);
             } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")) {
