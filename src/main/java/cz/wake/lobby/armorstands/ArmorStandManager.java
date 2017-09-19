@@ -13,8 +13,8 @@ public class ArmorStandManager {
 
     public static List<ASInterface> armorstands = new ArrayList<ASInterface>();
 
-    public static void init(){
-        if(Main.getInstance().getConfig().getString("server").equalsIgnoreCase("arcade")){
+    public static void init() {
+        if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("arcade")) {
             armorstands.add(new ArcadeShop());
         } else {
             armorstands.add(new Arcade());
@@ -46,8 +46,8 @@ public class ArmorStandManager {
         }
     }
 
-    public static void spawn(){
-        for(ASInterface i : armorstands){
+    public static void spawn() {
+        for (ASInterface i : armorstands) {
             i.spawn();
         }
     }
@@ -57,36 +57,36 @@ public class ArmorStandManager {
     }
 
     public String formatPlayers(final int p) {
-        if(p == 0){
+        if (p == 0) {
             return "§8Nikdo :( ";
-        } else if (p == 1){
+        } else if (p == 1) {
             return "§7" + p + " §8hrac";
-        } else if (p >= 2 && p <= 4){
+        } else if (p >= 2 && p <= 4) {
             return "§7" + p + " §8hraci";
         } else {
             return "§7" + p + " §8hracu";
         }
     }
 
-    public void updatePlayers(){
-        for(ASInterface i : armorstands){
-            if(i instanceof Survival){
+    public void updatePlayers() {
+        for (ASInterface i : armorstands) {
+            if (i instanceof Survival) {
                 i.updateArmorStand("survival", Main.getInstance().fetchData().getOnlinePlayers("survival"));
-            } else if (i instanceof SkyBlock){
+            } else if (i instanceof SkyBlock) {
                 i.updateArmorStand("skyblock", Main.getInstance().fetchData().getOnlinePlayers("skyblock"));
-            } else if (i instanceof Creative1){
+            } else if (i instanceof Creative1) {
                 i.updateArmorStand("creative", Main.getInstance().fetchData().getOnlinePlayers("creative"));
-            } else if (i instanceof  Creative2){
+            } else if (i instanceof Creative2) {
                 i.updateArmorStand("creative2", Main.getInstance().fetchData().getOnlinePlayers("creative2"));
-            } else if (i instanceof  Prison){
+            } else if (i instanceof Prison) {
                 i.updateArmorStand("prison", Main.getInstance().fetchData().getOnlinePlayers("prison"));
-            } else if (i instanceof VanillaSkyblock){
+            } else if (i instanceof VanillaSkyblock) {
                 i.updateArmorStand("vanillasb", Main.getInstance().fetchData().getOnlinePlayers("vanillasb"));
-            } else if (i instanceof Vanilla){
+            } else if (i instanceof Vanilla) {
                 i.updateArmorStand("vanilla", Main.getInstance().fetchData().getOnlinePlayers("vanilla"));
             } else if (i instanceof BedWars) {
                 i.updateArmorStand("bedwars", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars_server"));
-            } else if (i instanceof  SkyWars) {
+            } else if (i instanceof SkyWars) {
                 i.updateArmorStand("skywars", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skywars_server"));
             } else if (i instanceof SkyGiants) {
                 //i.updateArmorStand("skygiants", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skygiants_server"));

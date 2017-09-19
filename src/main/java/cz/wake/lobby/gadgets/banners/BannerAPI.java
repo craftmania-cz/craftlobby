@@ -143,7 +143,7 @@ public class BannerAPI implements Listener {
     }
 
     @EventHandler
-    private void onClick(InventoryClickEvent e) {
+    public void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
         if (e.getInventory().getTitle().equals("Bannery")) {
             if (e.getCurrentItem() == null) {

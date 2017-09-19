@@ -10,15 +10,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.material.MaterialData;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemFactory {
-
-    static final Logger log = LoggerFactory.getLogger(ItemFactory.class);
 
     public static ItemStack create(Material material, byte data, String displayName, String... lore) {
         try {
@@ -36,7 +32,7 @@ public class ItemFactory {
             itemStack.setItemMeta(itemMeta);
             return itemStack;
         } catch (Exception e){
-            log.error("", e);
+            e.printStackTrace();
         }
         return null;
     }
@@ -45,7 +41,7 @@ public class ItemFactory {
         return create(material, data, displayName, null);
     }
 
-    public static org.bukkit.inventory.ItemStack createHead(String name, String uuid, String textureData) {
+    public static ItemStack createHead(String name, String uuid, String textureData) {
         try {
             net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
 
@@ -77,12 +73,12 @@ public class ItemFactory {
             sHead.setTag(tag);
             return CraftItemStack.asBukkitCopy(sHead);
         } catch (Exception e){
-            log.error("", e);
+            e.printStackTrace();
         }
         return null;
     }
 
-    public static org.bukkit.inventory.ItemStack createHead(String name, String uuid, String textureData, String displayName, String... lore) {
+    public static ItemStack createHead(String name, String uuid, String textureData, String displayName, String... lore) {
         try {
             net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
 
@@ -128,7 +124,7 @@ public class ItemFactory {
 
             return item;
         } catch (Exception e){
-            log.error("", e);
+            e.printStackTrace();
         }
         return null;
     }

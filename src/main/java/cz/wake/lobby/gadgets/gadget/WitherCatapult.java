@@ -1,9 +1,9 @@
 package cz.wake.lobby.gadgets.gadget;
 
-import cz.wake.lobby.settings.SettingsMenu;
-import cz.wake.lobby.utils.CustomEntityFirework;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
+import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.utils.CustomEntityFirework;
 import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
 import org.apache.commons.lang.math.RandomUtils;
@@ -54,7 +54,7 @@ public class WitherCatapult implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.withercatapult")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -90,7 +90,7 @@ public class WitherCatapult implements Listener {
                     Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {
                         public void run() {
                             if (wSkull.isValid()) {
-                                LaunchRandomFirework(wSkull.getLocation());
+                                launchRandomFirework(wSkull.getLocation());
                                 wSkull.remove();
                             }
                         }
@@ -123,7 +123,7 @@ public class WitherCatapult implements Listener {
     @EventHandler
     public void onEntityExplode(EntityExplodeEvent e) {
         if (e.getEntity().hasMetadata("WITHERCATAPULT")) {
-            LaunchRandomFirework(e.getEntity().getLocation());
+            launchRandomFirework(e.getEntity().getLocation());
         }
         e.setCancelled(true);
     }
@@ -133,7 +133,7 @@ public class WitherCatapult implements Listener {
         return (int) (A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
     }
 
-    public void LaunchRandomFirework(Location location) {
+    public void launchRandomFirework(Location location) {
         FireworkEffect.Builder builder = FireworkEffect.builder();
         if (RandomUtils.nextInt(3) == 0) {
             builder.withTrail();

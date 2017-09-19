@@ -17,7 +17,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Random;
 
 public class Parachute implements Listener {
 
@@ -55,7 +58,7 @@ public class Parachute implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.parachute")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -100,7 +103,7 @@ public class Parachute implements Listener {
                         if (player.isOnGround()) {
                             killParachute(player);
                             Bukkit.getScheduler().cancelTask(task2);
-                            if(Main.getInstance().fetchData().getSettings(player, "lobby_fly") == 1){
+                            if (Main.getInstance().fetchData().getSettings(player, "lobby_fly") == 1) {
                                 player.setAllowFlight(true);
                                 player.setFlying(true);
                             }
@@ -130,7 +133,7 @@ public class Parachute implements Listener {
 
     @EventHandler
     public void onLeashBreak(final EntityUnleashEvent event) {
-        final Player p = (Player)event.getEntity();
+        final Player p = (Player) event.getEntity();
         if (chickens.containsValue(p)) {
             event.getEntity().getNearbyEntities(1, 1, 1).stream().filter(ent -> ent instanceof Item
                     && ((Item) ent).getItemStack().getType() == Material.LEASH).forEachOrdered(Entity::remove);
@@ -138,7 +141,7 @@ public class Parachute implements Listener {
     }
 
     private void killParachute(final Player player) {
-        for (Iterator localIterator1 = chickens.get(player).iterator(); localIterator1.hasNext();) {
+        for (Iterator localIterator1 = chickens.get(player).iterator(); localIterator1.hasNext(); ) {
             Chicken ch = (Chicken) localIterator1.next();
             ch.setLeashHolder(null);
             ch.remove();

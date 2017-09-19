@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 public class Unknown2 implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1531.5, 18, -1211.5, 180, 0);
-    private ArmorStand as, as2;
+    private ArmorStand as;
 
     @Override
     public void spawn() {
@@ -29,16 +29,6 @@ public class Unknown2 implements ASInterface {
         ItemStack item = ItemFactory.createHead("test", "5d43c6dd-ca01-466c-9614-764449140917", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTllYjlkYTI2Y2YyZDMzNDEzOTdhN2Y0OTEzYmEzZDM3ZDFhZDEwZWFlMzBhYjI1ZmEzOWNlYjg0YmMifX19");
         as.setHelmet(head);
         as.setItemInHand(item);
-
-    }
-
-    @Override
-    public void hologramSpawn() {
-
-    }
-
-    @Override
-    public void subtextSpawn() {
 
     }
 

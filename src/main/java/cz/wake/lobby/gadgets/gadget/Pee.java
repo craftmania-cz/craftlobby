@@ -30,8 +30,6 @@ public class Pee implements Listener {
 
     private HashMap<Player, Double> _time = new HashMap();
     private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-    public static final HashMap<Player, Integer> countdown = new HashMap();
-    private ArrayList<String> cooldown = new ArrayList();
 
     private int counter = 0;
 
@@ -129,7 +127,7 @@ public class Pee implements Listener {
     }
 
     @EventHandler
-    private void onPlayerPickup(PlayerPickupItemEvent e) {
+    public void onPlayerPickup(PlayerPickupItemEvent e) {
         Player p = e.getPlayer();
         Item item = e.getItem();
         if ((item.getItemStack().getType() == Material.STAINED_GLASS) && (item.getItemStack().getItemMeta().getDisplayName().contains("Peee"))) {

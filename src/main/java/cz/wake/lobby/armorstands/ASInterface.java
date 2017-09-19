@@ -10,18 +10,23 @@ public interface ASInterface {
     /**
      * Spawn hologramu
      */
-    void hologramSpawn();
+    default void hologramSpawn() {
+        return;
+    }
 
     /**
      * Text pod hl. hologramem
      */
-    void subtextSpawn();
+    default void subtextSpawn() {
+        return;
+    }
 
     /**
-     * Detekce spawnuteho ArmorStandu.
-     * @return
+     * Detekce spawnuteho ArmorStandu
      */
-    boolean isActive();
+    default boolean isActive() {
+        return false;
+    }
 
     /**
      * Odebráni armorstandu
@@ -29,7 +34,7 @@ public interface ASInterface {
     void remove();
 
     /**
-     Update Armorstand a automaticke prepinani do rezimu udrzby
+     * Update Armorstand a automaticke prepinani do rezimu udrzby
      */
     void updateArmorStand(String s, int i);
 }

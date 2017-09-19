@@ -27,14 +27,12 @@ public class BatBlaster implements Listener {
     private HashMap<Player, Location> playerVelocity = new HashMap<Player, Location>();
     private HashMap<Player, ArrayList<Bat>> bats = new HashMap<Player, ArrayList<Bat>>();
     private HashMap<Player, Long> isActive = new HashMap<Player, Long>();
-
+    private boolean affectPlayers = true;
     private Main plugin;
 
     public BatBlaster(Main plugin) {
         this.plugin = plugin;
     }
-
-    private boolean affectPlayers = true;
 
     @EventHandler
     public void onBatBlaster(PlayerInteractEvent e) {
@@ -103,10 +101,8 @@ public class BatBlaster implements Listener {
                                             v.setY(v.getY() + 0.2D);
                                         }
                                         other.setFallDistance(0.0F);
-                                        if (affectPlayers) {
-                                            if(SettingsMenu.gadgets.contains(other)){
-                                                UtilMath.applyVelocity(other, bat.getLocation().getDirection().add(new Vector(0.0F, 0.4F, 0.0F)));
-                                            }
+                                        if (affectPlayers && SettingsMenu.gadgets.contains(other)) {
+                                            UtilMath.applyVelocity(other, bat.getLocation().getDirection().add(new Vector(0.0F, 0.4F, 0.0F)));
                                         }
                                         bat.getWorld().playSound(bat.getLocation(), Sound.ENTITY_BAT_HURT, 1F, 1F);
                                         bat.getWorld().spigot().playEffect(bat.getLocation(), Effect.SMOKE);
