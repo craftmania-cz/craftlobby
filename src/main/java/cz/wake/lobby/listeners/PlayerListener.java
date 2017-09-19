@@ -90,12 +90,6 @@ public class PlayerListener implements Listener {
             Main.getInstance().setData().createRewardsRecord(p, "lobby_denniodmena");
             Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
 
-            if(!Main.getInstance().getIdServer().equalsIgnoreCase("arcade")){
-
-                // Info o odmene
-                b.onPlayerSpawn(p);
-            }
-
             // Prefix v tablistu
             UtilTablist.setupPrefixInTab(p);
 
@@ -124,6 +118,9 @@ public class PlayerListener implements Listener {
             Main.getInstance().fetchData().createPlayerProfile(p);
 
             if(Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+
+                // Info o odmene
+                b.onPlayerSpawn(p);
 
                 //Update MC verze
                 Main.getInstance().fetchData().updatePlayerVersion(p);
