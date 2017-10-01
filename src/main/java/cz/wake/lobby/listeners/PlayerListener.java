@@ -60,7 +60,7 @@ public class PlayerListener implements Listener {
     SettingsMenu sm = new SettingsMenu();
     Bonusy b = new Bonusy();
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerJoin(PlayerJoinEvent e) {
         try {
             Player p = e.getPlayer();
