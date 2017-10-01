@@ -1,4 +1,5 @@
 CraftLobby
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b59e570d2b7c4344bec2d9d9e5709825)](https://www.codacy.com/app/craftmania-cz/CraftLobby?utm_source=github.com&utm_medium=referral&utm_content=craftmania-cz/CraftLobby&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/craftmania-cz/CraftLobby.svg?branch=travis-builds)](https://travis-ci.org/craftmania-cz/CraftLobby)
 ======
 Jeden z nejhlavnějších pluginů na serveru Craftmania.cz. Jeho hlavním úkolem je se starat o chod všech hlavních lobby a podlobby.
