@@ -51,7 +51,7 @@ public class DiscoBall implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.discoball")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

@@ -78,7 +78,7 @@ public class Witch implements ASInterface {
 
             @Override
             public void run() {
-                if(Bukkit.getOnlinePlayers().size() >= 1){
+                if (Bukkit.getOnlinePlayers().size() >= 1) {
                     ParticleEffect.PORTAL.display(0.3f, 0.3f, 0.3f, 0.0f, 50, as.getLocation(), SettingsMenu.particles);
                     ParticleEffect.PORTAL.display(0.3f, 0.3f, 0.3f, 0.0f, 50, as2.getLocation(), SettingsMenu.particles);
                     ParticleEffect.PORTAL.display(0.3f, 0.3f, 0.3f, 0.0f, 50, as3.getLocation(), SettingsMenu.particles);

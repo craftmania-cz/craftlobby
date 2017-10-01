@@ -6,7 +6,10 @@ import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
+import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -49,7 +52,7 @@ public class FunCannon implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("FunCannon")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

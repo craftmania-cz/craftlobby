@@ -61,7 +61,7 @@ public class SlimeHat implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.slimehat")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -183,7 +183,7 @@ public class SlimeHat implements Listener {
         Player p = e.getPlayer();
         Item item = e.getItem();
         if ((item.getItemStack().getType() == Material.SLIME_BALL) && (item.getItemStack().getItemMeta().getDisplayName().contains("slimeHat"))) {
-            if(SettingsMenu.gadgets.contains(p)){
+            if (SettingsMenu.gadgets.contains(p)) {
                 p.playSound(p.getLocation(), Sound.ENTITY_GENERIC_EAT, 30.0F, 1.0F);
                 PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 200, 2);
                 potionEffect.apply(p);

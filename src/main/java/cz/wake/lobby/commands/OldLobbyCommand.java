@@ -14,8 +14,8 @@ public class OldLobbyCommand implements CommandExecutor {
         if (Sender instanceof Player) {
             Player player = (Player) Sender;
             if ((Command.getName().equalsIgnoreCase("oldlobby"))) {
-                if(Bukkit.getServer().getWorlds().contains(Bukkit.getWorld("OfficialLobby"))){
-                    Location loc = new Location(Bukkit.getWorld("OfficialLobby"),1249.5, 39.5, 498.5, 90, 0);
+                if (Bukkit.getServer().getWorlds().contains(Bukkit.getWorld("OfficialLobby"))) {
+                    Location loc = new Location(Bukkit.getWorld("OfficialLobby"), 1249.5, 39.5, 498.5, 90, 0);
                     player.teleport(loc);
                     player.sendMessage("§eDostal jsi se na stare lobby CM, ktere slouzilo na serveru v letech 2015-2016!");
                 } else {

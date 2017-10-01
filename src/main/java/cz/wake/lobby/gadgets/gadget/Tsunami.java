@@ -63,7 +63,7 @@ public class Tsunami implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.tsunami")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -116,7 +116,7 @@ public class Tsunami implements Listener {
                     }, 20L);
                     for (final Entity ent : as.getNearbyEntities(0.5D, 0.5D, 0.5D)) {
                         if ((!Tsunami.this.cooldownJump.contains(ent)) && (ent != player) && (!(ent instanceof ArmorStand))) {
-                            if(SettingsMenu.gadgets.contains((Player)ent)){
+                            if (SettingsMenu.gadgets.contains((Player) ent)) {
                                 UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
                                 Tsunami.this.cooldownJump.add(ent);
                                 Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new Runnable() {

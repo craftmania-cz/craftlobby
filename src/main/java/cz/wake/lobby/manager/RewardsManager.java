@@ -137,7 +137,7 @@ public class RewardsManager implements Listener {
         Bukkit.getScheduler().runTaskTimerAsynchronously(Main.getInstance(), new Runnable() {
             @Override
             public void run() {
-                if(Main.getInstance().setData().getNextRewardReset(4) < System.currentTimeMillis()){
+                if (Main.getInstance().setData().getNextRewardReset(4) < System.currentTimeMillis()) {
                     Main.getInstance().setData().resetDailyReward(System.currentTimeMillis() + 82800000); //23h
                     Main.getInstance().setData().resetReward();
                 }

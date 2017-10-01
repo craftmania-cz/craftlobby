@@ -55,7 +55,7 @@ public class BatBlaster implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.batblaster")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

@@ -4,22 +4,22 @@ import org.bukkit.entity.Player;
 
 public class UtilTablist {
 
-    public static void setupPrefixInTab(final Player p){
-        if(p.hasPermission("craftlobby.prefix.majitel")){
+    public static void setupPrefixInTab(final Player p) {
+        if (p.hasPermission("craftlobby.prefix.majitel")) {
             p.setPlayerListName("§3§lMAJITEL §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.hladmin")){
+        } else if (p.hasPermission("craftlobby.prefix.hladmin")) {
             p.setPlayerListName("§c§lHL.ADMIN §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.eventer")){
+        } else if (p.hasPermission("craftlobby.prefix.eventer")) {
             p.setPlayerListName("§d§lEVENTER §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.adminka")){
+        } else if (p.hasPermission("craftlobby.prefix.adminka")) {
             p.setPlayerListName("§c§lADMINKA §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.admin")){
+        } else if (p.hasPermission("craftlobby.prefix.admin")) {
             p.setPlayerListName("§c§lADMIN §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.builder")){
+        } else if (p.hasPermission("craftlobby.prefix.builder")) {
             p.setPlayerListName("§5§lBUILDER §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.helper")){
+        } else if (p.hasPermission("craftlobby.prefix.helper")) {
             p.setPlayerListName("§2§lHELPER §f" + p.getName());
-        } else if (p.hasPermission("craftlobby.prefix.vip")){
+        } else if (p.hasPermission("craftlobby.prefix.vip")) {
             p.setPlayerListName("§a§lVIP §f" + p.getName());
         } else {
             p.setPlayerListName("§f" + p.getName());

@@ -144,7 +144,7 @@ public class CloaksAPI implements Listener {
                     p.closeInventory();
                 } else {
                     ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§a§lSanta Cloak", "", "§7S timto budes vypadat jako", "§7opravdovy santa.");
-                    Shop.open(p,"Santa", "craftlobby.cloaks.santa", i, 700);
+                    Shop.open(p, "Santa", "craftlobby.cloaks.santa", i, 700);
                 }
             }
             if (e.getSlot() == 11) {
@@ -226,7 +226,7 @@ public class CloaksAPI implements Listener {
         }
     }
 
-    private ItemStack nakup(final String name, final int price){
+    private ItemStack nakup(final String name, final int price) {
         ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
         return i;
     }

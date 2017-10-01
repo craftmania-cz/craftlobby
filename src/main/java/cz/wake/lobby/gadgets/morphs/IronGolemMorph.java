@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 
 public class IronGolemMorph implements Listener {
 
-    public static void activate(Player p){
+    public static void activate(Player p) {
         MobDisguise localDisguise = new MobDisguise(DisguiseType.IRON_GOLEM);
         DisguiseAPI.undisguiseToAll(p);
         LivingWatcher localLivingWatcher = localDisguise.getWatcher();

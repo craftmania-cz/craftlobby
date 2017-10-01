@@ -1498,6 +1498,4 @@ public class SQLManager {
     }
 
 
-
-
 }

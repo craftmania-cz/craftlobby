@@ -668,7 +668,7 @@ public class ParticlesMenu {
         p.openInventory(pInv);
     }
 
-    private ItemStack nakup(final String name, final int price){
+    private ItemStack nakup(final String name, final int price) {
         ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
         return i;
     }

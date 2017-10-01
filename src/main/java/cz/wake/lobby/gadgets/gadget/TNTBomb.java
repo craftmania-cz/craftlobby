@@ -47,7 +47,7 @@ public class TNTBomb implements Listener {
         e.setCancelled(true);
         for (Entity ent : e.getEntity().getNearbyEntities(6.0D, 6.0D, 6.0D)) {
             if ((ent instanceof Player)) {
-                if (ent.hasMetadata("NPC") || !SettingsMenu.gadgets.contains((Player)ent)) {
+                if (ent.hasMetadata("NPC") || !SettingsMenu.gadgets.contains((Player) ent)) {
                     e.setCancelled(true);
                 } else {
                     double dX = e.getEntity().getLocation().getX() - ent.getLocation().getX();
@@ -97,7 +97,7 @@ public class TNTBomb implements Listener {
         if (!p.hasPermission("craftlobby.gadgets.tnt")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(p)){
+        if (SettingsMenu.activeGadgets.contains(p)) {
             p.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

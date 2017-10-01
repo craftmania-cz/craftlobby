@@ -61,7 +61,7 @@ public class ColorBomb implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.colorbomb")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -120,7 +120,7 @@ public class ColorBomb implements Listener {
                                         i.getWorld().playSound(i.getLocation(), Sound.ENTITY_CHICKEN_EGG, 0.2F, 1.0F);
                                         for (Entity entity : ColorBomb.this.bomb.getNearbyEntities(1.5D, 1.0D, 1.5D)) {
                                             if (((entity instanceof Player)) && (affectPlayers)) {
-                                                if(SettingsMenu.gadgets.contains((Player)entity)){
+                                                if (SettingsMenu.gadgets.contains((Player) entity)) {
                                                     entity.setVelocity(new Vector(0.0D, 0.5D, 0.0D).add(UtilMath.getRandomCircleVector().multiply(0.1D)));
                                                 }
                                             }

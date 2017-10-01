@@ -23,7 +23,6 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Pee implements Listener {
@@ -60,7 +59,7 @@ public class Pee implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.pee")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -131,7 +130,7 @@ public class Pee implements Listener {
         Player p = e.getPlayer();
         Item item = e.getItem();
         if ((item.getItemStack().getType() == Material.STAINED_GLASS) && (item.getItemStack().getItemMeta().getDisplayName().contains("Peee"))) {
-            if(SettingsMenu.gadgets.contains(p)){
+            if (SettingsMenu.gadgets.contains(p)) {
                 PotionEffect potionEffect = new PotionEffect(PotionEffectType.CONFUSION, 150, 2);
                 potionEffect.apply(p);
                 e.setCancelled(true);

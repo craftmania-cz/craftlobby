@@ -4,7 +4,6 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableZombie;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
 import org.bukkit.entity.Zombie;
 import org.bukkit.metadata.FixedMetadataValue;
 

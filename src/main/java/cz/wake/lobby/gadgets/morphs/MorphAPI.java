@@ -22,7 +22,7 @@ public class MorphAPI implements Listener {
 
         ItemStack pig = ItemFactory.createHead("pig", "fe235c9f-d021-461b-9c22-d265bc867e21", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTI3YWQ1MWRkNzczYjcyZGNhMWMxM2U2ZjM1NDdhODMxODFhYWQ5MTE2NTI4Mjk5OWJiZGYxM2EzYjNjOSJ9fX0=", "§e§lPig Morph", "", "§7Premen se na prase", "§7a ochrochtej vsechny dokola!", "", "§8Levym kliknutim strilis sunku!", "", "§aKlikni pro aktivaci!");
 
-        ItemStack villager = ItemFactory.createHead("villager", "27e2e46c-18b8-4257-b74b-aa3b3383b327", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjNiMzY0MjVjYmZhNDhlNDY4NGM4ZTFhNzE0Nzc5MTllMGE0NmI2MTM1MTFhODQzNmM3NzViMTVmNTYxNSJ9fX0=", "§e§lVillager Morph", "", "§7Premen se na Villagera", "§7a rozdavej lasku.", "", "§8Pouzij prave ale leve","§8tlacitko k zjisteni nalady!", "", "§aKlikni pro aktivaci");
+        ItemStack villager = ItemFactory.createHead("villager", "27e2e46c-18b8-4257-b74b-aa3b3383b327", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjNiMzY0MjVjYmZhNDhlNDY4NGM4ZTFhNzE0Nzc5MTllMGE0NmI2MTM1MTFhODQzNmM3NzViMTVmNTYxNSJ9fX0=", "§e§lVillager Morph", "", "§7Premen se na Villagera", "§7a rozdavej lasku.", "", "§8Pouzij prave ale leve", "§8tlacitko k zjisteni nalady!", "", "§aKlikni pro aktivaci");
 
         ItemStack golem = ItemFactory.createHead("golem", "cb6bbe69-f97f-4635-854c-5cee7f75ee2e", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzQ0MmMyMjhmMDk5ZmRmYzFjNmI0NmRmYzgwYjI1MmQ4MWY3ZmIxNzM5ZGViMTZlZTdhNTk3YzE3ZjdjOSJ9fX0=", "§e§lIronGolem Morph", "", "§7Premen se na IronGolema", "§7nez se usmazis v lave!", "", "§aKlikni pro aktivaci!");
 
@@ -37,17 +37,17 @@ public class MorphAPI implements Listener {
                 "",
                 "§7Aktualni stav: §6" + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
 
-        if(p.hasPermission("craftlobby.morphs.pig")){
+        if (p.hasPermission("craftlobby.morphs.pig")) {
             inv.setItem(10, pig);
-        } else{
+        } else {
             inv.setItem(10, nakup("Pig Morph", 600));
         }
-        if(p.hasPermission("craftlobby.morphs.villager")){
+        if (p.hasPermission("craftlobby.morphs.villager")) {
             inv.setItem(11, villager);
         } else {
             inv.setItem(11, nakup("Villager Morph", 600));
         }
-        if(p.hasPermission("craftlobby.morphs.irongolem")){
+        if (p.hasPermission("craftlobby.morphs.irongolem")) {
             inv.setItem(12, golem);
         } else {
             inv.setItem(12, nakup("Iron Golem Morph", 900));
@@ -79,23 +79,23 @@ public class MorphAPI implements Listener {
                 Main.getInstance().getMainGadgetsMenu().openGadgetsMenu(p);
             }
             if (e.getSlot() == 10) {
-                if(p.hasPermission("craftlobby.morphs.pig")){
+                if (p.hasPermission("craftlobby.morphs.pig")) {
                     PigMorph.activate(p);
                 } else {
                     ItemStack pig = ItemFactory.createHead("pig", "fe235c9f-d021-461b-9c22-d265bc867e21", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTI3YWQ1MWRkNzczYjcyZGNhMWMxM2U2ZjM1NDdhODMxODFhYWQ5MTE2NTI4Mjk5OWJiZGYxM2EzYjNjOSJ9fX0=", "§e§lPig Morph", "", "§7Premen se na prase", "§7a ochrochtej vsechny dokola!", "", "§8Levym kliknutim strilis sunku!", "", "§aKlikni pro aktivaci!");
                     Shop.open(p, "Pig Morph", "craftlobby.morphs.pig", pig, 600);
                 }
             }
-            if(e.getSlot() == 11){
-                if(p.hasPermission("craftlobby.morphs.villager")){
+            if (e.getSlot() == 11) {
+                if (p.hasPermission("craftlobby.morphs.villager")) {
                     VillagerMorph.activate(p);
                 } else {
-                    ItemStack villager = ItemFactory.createHead("villager", "27e2e46c-18b8-4257-b74b-aa3b3383b327", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjNiMzY0MjVjYmZhNDhlNDY4NGM4ZTFhNzE0Nzc5MTllMGE0NmI2MTM1MTFhODQzNmM3NzViMTVmNTYxNSJ9fX0=", "§e§lVillager Morph", "", "§7Premen se na Villagera", "§7a rozdavej lasku.", "", "§8Pouzij prave ale leve","§8tlacitko k zjisteni nalady!", "", "§aKlikni pro aktivaci");
+                    ItemStack villager = ItemFactory.createHead("villager", "27e2e46c-18b8-4257-b74b-aa3b3383b327", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjNiMzY0MjVjYmZhNDhlNDY4NGM4ZTFhNzE0Nzc5MTllMGE0NmI2MTM1MTFhODQzNmM3NzViMTVmNTYxNSJ9fX0=", "§e§lVillager Morph", "", "§7Premen se na Villagera", "§7a rozdavej lasku.", "", "§8Pouzij prave ale leve", "§8tlacitko k zjisteni nalady!", "", "§aKlikni pro aktivaci");
                     Shop.open(p, "Villager Morph", "craftlobby.morphs.villager", villager, 600);
                 }
             }
-            if(e.getSlot() == 12){
-                if(p.hasPermission("craftlobby.morphs.irongolem")){
+            if (e.getSlot() == 12) {
+                if (p.hasPermission("craftlobby.morphs.irongolem")) {
                     IronGolemMorph.activate(p);
                 } else {
                     ItemStack golem = ItemFactory.createHead("golem", "cb6bbe69-f97f-4635-854c-5cee7f75ee2e", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzQ0MmMyMjhmMDk5ZmRmYzFjNmI0NmRmYzgwYjI1MmQ4MWY3ZmIxNzM5ZGViMTZlZTdhNTk3YzE3ZjdjOSJ9fX0=", "§e§lIronGolem Morph", "", "§7Premen se na IronGolema", "§7nez se usmazis v lave!", "", "§aKlikni pro aktivaci!");
@@ -106,7 +106,7 @@ public class MorphAPI implements Listener {
         }
     }
 
-    private ItemStack nakup(final String name, final int price){
+    private ItemStack nakup(final String name, final int price) {
         ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
         return i;
     }

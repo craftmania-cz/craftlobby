@@ -34,7 +34,7 @@ public class Stats_Command implements CommandExecutor {
                             return false;
                         }
                     }
-                } catch (Exception e){
+                } catch (Exception e) {
                     log.error("", e);
                 }
 

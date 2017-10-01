@@ -31,7 +31,7 @@ public class ItemFactory {
             itemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
             itemStack.setItemMeta(itemMeta);
             return itemStack;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -72,7 +72,7 @@ public class ItemFactory {
 
             sHead.setTag(tag);
             return CraftItemStack.asBukkitCopy(sHead);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -123,7 +123,7 @@ public class ItemFactory {
             item.setItemMeta(itemMeta);
 
             return item;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

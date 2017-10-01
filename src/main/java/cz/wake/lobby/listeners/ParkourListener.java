@@ -17,7 +17,7 @@ public class ParkourListener implements Listener {
     public static ArrayList<Player> in_parkour = new ArrayList<>();
 
     @EventHandler
-    public void onParkourStart(ParkourTeleportEvent e){
+    public void onParkourStart(ParkourTeleportEvent e) {
         Player p = e.getPlayer();
         in_parkour.add(p);
 
@@ -38,7 +38,7 @@ public class ParkourListener implements Listener {
     }
 
     @EventHandler
-    public void onParkourEnd(ParkourEndEvent e){
+    public void onParkourEnd(ParkourEndEvent e) {
         Player p = e.getPlayer();
 
         if (p.hasPermission("craftlobby.vip.fly")

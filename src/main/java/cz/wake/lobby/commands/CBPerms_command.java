@@ -21,17 +21,17 @@ public class CBPerms_command implements CommandExecutor {
                     String perm = ArrayOfString[1];
                     String nazev = ArrayOfString[2];
                     String finalNazev = nazev.replaceAll("_", " ");
-                    if(p.hasPermission(perm)){
+                    if (p.hasPermission(perm)) {
                         p.sendMessage("§bCraftBox §8┃ §7Tento gadget jiz vlastnis! Nasel jsi: " + finalNazev);
                         Sender.sendMessage("§eHrac jiz §f" + finalNazev + " §evlastni.");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"coins give " + p.getName() + " 50");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 50");
                         return true;
                     } else {
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add " + perm);
-                        for (Player pl : Bukkit.getOnlinePlayers()){
-                            if(pl == p){
+                        for (Player pl : Bukkit.getOnlinePlayers()) {
+                            if (pl == p) {
                                 p.sendMessage("§bCraftBox §8┃ §7Nasel jsi novy gadget: " + finalNazev);
-                                TitleAPI.sendFullTitlePlayer(p,10,70,10,"§eNasel jsi",finalNazev);
+                                TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", finalNazev);
                             } else {
                                 pl.sendMessage("§bCraftBox §8┃ §e" + p.getName() + " §7nasel v CraftBoxu " + finalNazev);
                             }

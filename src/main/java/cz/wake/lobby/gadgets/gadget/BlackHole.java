@@ -60,11 +60,11 @@ public class BlackHole implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.blackhole")) {
             return;
         }
-        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -90,8 +90,7 @@ public class BlackHole implements Listener {
             item2.setVelocity(player.getEyeLocation().getDirection().multiply(1.3d));
             i = item2;
 
-            @SuppressWarnings("deprecation")
-            final int w = Bukkit.getServer().getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable() {
+            @SuppressWarnings("deprecation") final int w = Bukkit.getServer().getScheduler().runTaskTimer(Main.getPlugin(), new BukkitRunnable() {
                 @Override
                 public void run() {
                     if (i != null && i.isOnGround()) {
@@ -114,8 +113,8 @@ public class BlackHole implements Listener {
                             }
                         }
                         for (Entity ent : i.getNearbyEntities(5, 3, 5)) {
-                            if (ent instanceof Player){
-                                if(SettingsMenu.gadgets.contains((Player)ent)){
+                            if (ent instanceof Player) {
+                                if (SettingsMenu.gadgets.contains((Player) ent)) {
                                     Vector vector = i.getLocation().toVector().subtract(ent.getLocation().toVector());
                                     UtilMath.applyVelocity(ent, vector);
                                     ((Player) ent).addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 40, 40));

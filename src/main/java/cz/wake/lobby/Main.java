@@ -138,7 +138,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(36, "Vindicator", RideableVindicator.class);
         CustomEntityRegistry.registerCustomEntity(34, "Evoker", RideableEvoker.class);
         CustomEntityRegistry.registerCustomEntity(103, "Llama", RideableLlama.class);
-        CustomEntityRegistry.registerCustomEntity(4,"ElderGuardian", RideableGuardianElder.class);
+        CustomEntityRegistry.registerCustomEntity(4, "ElderGuardian", RideableGuardianElder.class);
         CustomEntityRegistry.registerCustomEntity(27, "ZombieVillager", RideableZombieVillager.class);
         CustomEntityRegistry.registerCustomEntity(5, "WitherSkeleton", RideableWitherSkeleton.class);
 
@@ -147,7 +147,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         ArmorStandManager.spawn();
 
         if (getConfig().getString("server").equalsIgnoreCase("main")) {
-            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L,1200L);
+            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
         }
 
         // Update AT time
@@ -215,7 +215,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Profil(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
-                && pm.isPluginEnabled("RogueParkour")){
+                && pm.isPluginEnabled("RogueParkour")) {
             pm.registerEvents(new ParkourListener(), this);
             pm.registerEvents(new RewardsManager(), this);
         }
@@ -298,7 +298,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return m;
     }
 
-    public Servers getServersMenu(){
+    public Servers getServersMenu() {
         return servers;
     }
 

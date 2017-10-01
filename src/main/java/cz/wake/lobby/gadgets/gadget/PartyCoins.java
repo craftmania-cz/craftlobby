@@ -1,7 +1,7 @@
 package cz.wake.lobby.gadgets.gadget;
 
-import cz.wake.lobby.utils.CustomEntityFirework;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.utils.CustomEntityFirework;
 import cz.wake.lobby.utils.UtilColor;
 import org.bukkit.*;
 import org.bukkit.entity.Item;

@@ -29,7 +29,7 @@ public class LlamaNormal {
         ((Llama) lama).setCustomNameVisible(true);
         ((Llama) lama).setCustomName(p.getName());
         ((Llama) lama).setTamed(true);
-        if(baby){
+        if (baby) {
             ((Llama) lama).setBaby();
         }
         ((Llama) lama).setColor(color);

@@ -53,7 +53,7 @@ public class Chickenator implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.chikenator")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

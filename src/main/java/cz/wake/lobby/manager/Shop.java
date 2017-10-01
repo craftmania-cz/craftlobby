@@ -19,9 +19,9 @@ public class Shop implements Listener {
     private static int coin;
     private static String name;
 
-    public static void open(final Player p, final String names, final String permissions, final ItemStack i, final int coins){
+    public static void open(final Player p, final String names, final String permissions, final ItemStack i, final int coins) {
 
-        if(Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) >= coins){
+        if (Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) >= coins) {
             coin = coins;
             player = p;
             permission = permissions;
@@ -32,11 +32,11 @@ public class Shop implements Listener {
 
             inv.setItem(13, item);
 
-            ItemStack nakup = ItemFactory.create(Material.STAINED_GLASS_PANE,(byte)5,"§a§lZakoupit","§7Zakoupis Gadget za §e" + coin + " CC.");
-            ItemStack zamitnout = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte)14, "§c§lZrusit", "§7Zpet do menu");
+            ItemStack nakup = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 5, "§a§lZakoupit", "§7Zakoupis Gadget za §e" + coin + " CC.");
+            ItemStack zamitnout = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lZrusit", "§7Zpet do menu");
 
             inv.setItem(30, nakup);
-            inv.setItem(32,zamitnout);
+            inv.setItem(32, zamitnout);
 
             player.openInventory(inv);
         } else {
@@ -57,13 +57,13 @@ public class Shop implements Listener {
             if (e.getSlot() == 13) {
                 e.setCancelled(true);
             }
-            if (e.getSlot() == 30){
+            if (e.getSlot() == 30) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set " + permission + " true");
                 Main.getInstance().fetchData().takeCoins(p, coin);
                 p.sendMessage("§eZakoupil jsi si §a" + name + " §eza §6" + coin + " CC.");
                 p.closeInventory();
             }
-            if (e.getSlot() == 32){
+            if (e.getSlot() == 32) {
                 p.closeInventory();
             }
         }

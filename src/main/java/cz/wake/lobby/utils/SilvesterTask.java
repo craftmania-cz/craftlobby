@@ -11,30 +11,29 @@ import org.bukkit.inventory.meta.FireworkMeta;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class SilvesterTask{
+public class SilvesterTask {
 
     public static int delay = 1; //vte¯in
     static Random r = new Random();
 
-    public static FireworkEffect getRandomFireworkEffect(){
+    public static FireworkEffect getRandomFireworkEffect() {
         FireworkEffect.Builder builder = FireworkEffect.builder();
         FireworkEffect effect = builder.flicker(false).trail(false).with(FireworkEffect.Type.BALL_LARGE).withColor(Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))).withFade(Color.fromRGB(r.nextInt(255), r.nextInt(255), r.nextInt(255))).build();
         return effect;
     }
 
-    public void spawnRandomFirework(Location location){
+    public void spawnRandomFirework(Location location) {
 
         final ArrayList<Firework> fireworks = new ArrayList();
-        for (int i = 0; i < 4; i++){
-            Firework f = (Firework)location.getWorld().spawn(location, Firework.class);
+        for (int i = 0; i < 4; i++) {
+            Firework f = (Firework) location.getWorld().spawn(location, Firework.class);
             FireworkMeta fm = f.getFireworkMeta();
             fm.addEffect(getRandomFireworkEffect());
             f.setFireworkMeta(fm);
             fireworks.add(f);
         }
-        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable(){
-            public void run()
-            {
+        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
+            public void run() {
                 for (Firework f : fireworks) {
                     f.detonate();
                 }
@@ -42,9 +41,9 @@ public class SilvesterTask{
         }, 2L);
     }
 
-    public void runLauncher(){
+    public void runLauncher() {
 
-        Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable(){
+        Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
             @Override
             public void run() {
                 Random r = new Random();

@@ -49,7 +49,7 @@ public class Fireworks implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("Firework")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

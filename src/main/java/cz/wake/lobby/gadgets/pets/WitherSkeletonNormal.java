@@ -24,7 +24,7 @@ public class WitherSkeletonNormal {
         }
         final WitherSkeleton e = RideableWitherSkeleton.spawn(p.getLocation());
         PetManager.petFollow(p, (CraftEntity) e, 0.16D, 2D);
-        setMetadata((WitherSkeleton)e, "Pet", "Pet", Main.getInstance());
+        setMetadata((WitherSkeleton) e, "Pet", "Pet", Main.getInstance());
         ((WitherSkeleton) e).setCustomNameVisible(true);
         ((WitherSkeleton) e).setCustomName(p.getName());
         PetManager.pet.put(p, (CraftEntity) e);

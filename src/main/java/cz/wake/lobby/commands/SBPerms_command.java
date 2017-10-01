@@ -6,8 +6,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class SBPerms_command implements CommandExecutor {
 
@@ -41,7 +39,7 @@ public class SBPerms_command implements CommandExecutor {
                             }
                         }
                     }
-                } catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else {

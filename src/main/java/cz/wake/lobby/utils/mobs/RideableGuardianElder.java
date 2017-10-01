@@ -65,7 +65,7 @@ public class RideableGuardianElder extends EntityGuardianElder {
     }
 
     @Override
-    public void M(){
+    public void M() {
         //Deaktivace davani hracu efektu MiningSpeed
     }
 

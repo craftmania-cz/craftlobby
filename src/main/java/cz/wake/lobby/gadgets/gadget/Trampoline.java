@@ -61,11 +61,11 @@ public class Trampoline implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.trampoline")) {
             return;
         }
-        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+        if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

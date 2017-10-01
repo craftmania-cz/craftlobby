@@ -8,7 +8,6 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.characters.Bonusy;
 import cz.wake.lobby.armorstands.statistics.BedWars;
 import cz.wake.lobby.armorstands.statistics.Parkour;
-import cz.wake.lobby.armorstands.statistics.SkyGiants;
 import cz.wake.lobby.armorstands.statistics.SkyWars;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
 import cz.wake.lobby.gadgets.pets.PetManager;
@@ -117,7 +116,7 @@ public class PlayerListener implements Listener {
             //Profiles
             Main.getInstance().fetchData().createPlayerProfile(p);
 
-            if(Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+            if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
                 // Info o odmene
                 b.onPlayerSpawn(p);
@@ -168,14 +167,14 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onCreatureSpawn(CreatureSpawnEvent e) {
-        if(!(e.getSpawnReason() == SpawnReason.CUSTOM)){
+        if (!(e.getSpawnReason() == SpawnReason.CUSTOM)) {
             e.setCancelled(true);
         }
     }
 
     @EventHandler
-    public void onEntitySpawn(EntitySpawnEvent e){
-        if(e.getEntityType() == EntityType.VEX){
+    public void onEntitySpawn(EntitySpawnEvent e) {
+        if (e.getEntityType() == EntityType.VEX) {
             e.setCancelled(true);
         }
     }
@@ -405,7 +404,7 @@ public class PlayerListener implements Listener {
                     Main.getInstance().addPortal(p);
                     //Main.getInstance().getServersMenu().openServersMenu(p);
                 } else {
-                    ic.sendToServer(p,"lobby", "frontend");
+                    ic.sendToServer(p, "lobby", "frontend");
                 }
                 new BukkitRunnable() {
                     @Override

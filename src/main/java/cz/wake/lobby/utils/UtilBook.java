@@ -7,9 +7,9 @@ import org.bukkit.inventory.meta.BookMeta;
 
 public class UtilBook {
 
-    public static void giveBook(Player p, int slot, String Autor, String Title, String... pages){
+    public static void giveBook(Player p, int slot, String Autor, String Title, String... pages) {
         ItemStack book = new ItemStack(Material.WRITTEN_BOOK, 1);
-        BookMeta bm = (BookMeta)book.getItemMeta();
+        BookMeta bm = (BookMeta) book.getItemMeta();
         bm.setAuthor(Autor);
         bm.setTitle(Title);
         bm.setPages(pages);

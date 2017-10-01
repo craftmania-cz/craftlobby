@@ -41,11 +41,11 @@ public class Servers implements Listener {
         inv.setItem(14, pris);
 
         ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§e§lVanilla (1.12)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
-                "§7poznas co to je zit", "§7na vlastni pest.","","§cTento server vyzaduje verzi 1.12", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
+                "§7poznas co to je zit", "§7na vlastni pest.", "", "§cTento server vyzaduje verzi 1.12", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
         inv.setItem(15, van);
 
-        ItemStack vanillasb = ItemFactory.create(Material.PUMPKIN, (byte)0, "§e§lVanilla Skyblock", "§8Vanilla, Skyblock, RPG", "",
-                "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem","§7ostrove a plnit ukoly?", "", "§b▸ Kliknutim te portnu", getPlayers("vanillasb"));
+        ItemStack vanillasb = ItemFactory.create(Material.PUMPKIN, (byte) 0, "§e§lVanilla Skyblock", "§8Vanilla, Skyblock, RPG", "",
+                "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem", "§7ostrove a plnit ukoly?", "", "§b▸ Kliknutim te portnu", getPlayers("vanillasb"));
         inv.setItem(16, vanillasb);
 
         ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§a§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
@@ -58,12 +58,12 @@ public class Servers implements Listener {
         sw = ItemFactory.addGlow(sw);
         inv.setItem(21, sw);
 
-        ItemStack sg = ItemFactory.create(Material.SKULL_ITEM, (byte)2, "§c?","", "§8Jiz brzy...");
+        ItemStack sg = ItemFactory.create(Material.SKULL_ITEM, (byte) 2, "§c?", "", "§8Jiz brzy...");
         ItemStack otaznik = ItemFactory.createHead("test", "8f4ab92d-fc8d-4321-87fb-d6f819fe7eab",
-                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNlYzg1YmM4MDYxYmRhM2UxZDQ5Zjc1NDQ2NDllNjVjODI3MmNhNTZmNzJkODM4Y2FmMmNjNDgxNmI2OSJ9fX0=","§c?","§8Jiz brzy...");
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNlYzg1YmM4MDYxYmRhM2UxZDQ5Zjc1NDQ2NDllNjVjODI3MmNhNTZmNzJkODM4Y2FmMmNjNDgxNmI2OSJ9fX0=", "§c?", "§8Jiz brzy...");
         inv.setItem(22, otaznik);
 
-        ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte)0, "§e§lGetDown §6§lNOVINKA","§8Arcade PVP","", "§7Dostan se co nejniz","§7a ziskej co nejvic coinu,","§7pak vsechny rozskej!","", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+        ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte) 0, "§e§lGetDown §6§lNOVINKA", "§8Arcade PVP", "", "§7Dostan se co nejniz", "§7a ziskej co nejvic coinu,", "§7pak vsechny rozskej!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(24, getdown);
 
         new BukkitRunnable() {
@@ -105,13 +105,13 @@ public class Servers implements Listener {
         return (byte) cislo;
     }
 
-    private String getPlayers(final String server){
+    private String getPlayers(final String server) {
         int pl = Main.getInstance().fetchData().getOnlinePlayers(server);
-        if(pl == 0){
+        if (pl == 0) {
             return "§8Nikdo na serveru neni!";
-        } else if (pl == 1){
+        } else if (pl == 1) {
             return "§8Aktualne hraje " + pl + " hrac.";
-        } else if (pl >= 2 && pl <= 4){
+        } else if (pl >= 2 && pl <= 4) {
             return "§8Aktualne hraje " + pl + " hraci.";
         } else {
             return "§8Aktualne hraje " + pl + " hracu.";

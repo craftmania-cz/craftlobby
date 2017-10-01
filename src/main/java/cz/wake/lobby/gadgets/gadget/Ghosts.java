@@ -57,7 +57,7 @@ public class Ghosts implements Listener {
         if (!player.hasPermission("craftlobby.gadgets.ghosts")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }

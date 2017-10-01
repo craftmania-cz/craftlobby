@@ -1,6 +1,8 @@
 package cz.wake.lobby.listeners;
 
-import cz.wake.lobby.GUI.*;
+import cz.wake.lobby.GUI.GadgetsMenu;
+import cz.wake.lobby.GUI.ParticlesMenu;
+import cz.wake.lobby.GUI.Stalker;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
@@ -8,7 +10,6 @@ import cz.wake.lobby.gadgets.heads.HeadsAPI;
 import cz.wake.lobby.gadgets.morphs.MorphAPI;
 import cz.wake.lobby.gadgets.particles.*;
 import cz.wake.lobby.manager.Shop;
-import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -131,7 +132,7 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 23) {
                     sendToServer(player, "dlobby");
                 }
-                if (event.getSlot() == 24){
+                if (event.getSlot() == 24) {
                     sendToServer(player, "dlobby");
                 }
             }
@@ -410,7 +411,7 @@ public class InvClick implements Listener {
                 }
                 RankCape.deactivateCape(player);
             }
-            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))){
+            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -423,7 +424,7 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 22) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))){
+            if ((event.getSlot() == 22) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -436,7 +437,7 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 24) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))){
+            if ((event.getSlot() == 24) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");

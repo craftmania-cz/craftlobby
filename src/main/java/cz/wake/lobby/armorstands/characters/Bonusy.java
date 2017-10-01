@@ -2,7 +2,6 @@ package cz.wake.lobby.armorstands.characters;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.ASInterface;
-import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import net.minecraft.server.v1_11_R1.EntityArmorStand;
 import net.minecraft.server.v1_11_R1.PacketPlayOutSpawnEntityLiving;
@@ -29,8 +28,8 @@ import java.util.Random;
 
 public class Bonusy implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"),1540.5, 18, -1222.5, 180, 0);
-    private ArmorStand as,as2,as3,as4;
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 18, -1222.5, 180, 0);
+    private ArmorStand as, as2, as3, as4;
     public static Random random = new Random();
     public static EntityArmorStand stand;
 
@@ -46,19 +45,19 @@ public class Bonusy implements ASInterface {
 
         // x - nahoru/dolu, y - rotace, z - otáčení v ose
 
-        as.setRightArmPose(new EulerAngle(5.8,0,0.3));
-        as.setLeftArmPose(new EulerAngle(5.8,0,5.9));
+        as.setRightArmPose(new EulerAngle(5.8, 0, 0.3));
+        as.setLeftArmPose(new EulerAngle(5.8, 0, 5.9));
 
-        ItemStack head = ItemFactory.createHead("test","22a6d531-e947-4e01-ace0-019593c9c7d3","eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjk1NjUyZGRlMDRmNzQ1Zjk1NGI2OTgxMGUwMjBlYTZiOTNlYjJkMzM0YjlkYjczODBiYmZmNTJjMmIwZjQifX19");
+        ItemStack head = ItemFactory.createHead("test", "22a6d531-e947-4e01-ace0-019593c9c7d3", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjk1NjUyZGRlMDRmNzQ1Zjk1NGI2OTgxMGUwMjBlYTZiOTNlYjJkMzM0YjlkYjczODBiYmZmNTJjMmIwZjQifX19");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE,255,255,0);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 255, 255, 0);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS,255,255,0);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 255, 255, 0);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS,255,255,0);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 255, 255, 0);
         as.setBoots(boots);
 
         ItemStack item = new ItemStack(Material.GOLD_INGOT);
@@ -67,13 +66,13 @@ public class Bonusy implements ASInterface {
             int c = 1;
 
             @Override
-            public void run(){
-                if(c == 1){
+            public void run() {
+                if (c == 1) {
                     as.getEquipment().setItemInOffHand(null);
                     as.setItemInHand(item);
                     //updateRewardArmorstand();
                     c++;
-                } else if (c == 2){
+                } else if (c == 2) {
                     as.setItemInHand(null);
                     as.getEquipment().setItemInOffHand(item);
                     c--;
@@ -90,7 +89,7 @@ public class Bonusy implements ASInterface {
     @Override
     public void hologramSpawn() {
 
-        loc1.add(0,0.3,0);
+        loc1.add(0, 0.3, 0);
 
         as2 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
@@ -105,10 +104,10 @@ public class Bonusy implements ASInterface {
     }
 
     @Override
-    public void subtextSpawn(){
+    public void subtextSpawn() {
 
-        loc1.add(0,0.3,0);
-        loc1.add(0,0.3,0);
+        loc1.add(0, 0.3, 0);
+        loc1.add(0, 0.3, 0);
 
         as3 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
@@ -135,7 +134,7 @@ public class Bonusy implements ASInterface {
     }
 
     @Override
-    public void updateArmorStand(String s, int i){
+    public void updateArmorStand(String s, int i) {
 
     }
 
@@ -143,10 +142,11 @@ public class Bonusy implements ASInterface {
         return as;
     }
 
-    public void playEffect(Player p){
+    public void playEffect(Player p) {
         final ArrayList localArrayList = new ArrayList();
         new BukkitRunnable() {
             int step = 0;
+
             @Override
             public void run() {
                 this.step += 1;
@@ -188,7 +188,7 @@ public class Bonusy implements ASInterface {
         return randomNum;
     }
 
-    public String getRewards(Player p){
+    public String getRewards(Player p) {
         int rewards = 0;
         if (Main.getInstance().setData().hasActiveReward(p, "lobby_denniodmena") == 0) {
             rewards++;
@@ -199,11 +199,11 @@ public class Bonusy implements ASInterface {
             }
         }
 
-        if(rewards == 0){
+        if (rewards == 0) {
             return "§7Vsechny odmeny mas jiz vybrane!";
-        } else if (rewards == 1){
+        } else if (rewards == 1) {
             return "§7Mas nevyzvednutou §b1 odmenu!";
-        } else if (rewards == 2){
+        } else if (rewards == 2) {
             return "§7Mas nevyzvednute §c2 odmeny!";
         }
 
@@ -211,11 +211,11 @@ public class Bonusy implements ASInterface {
 
     }
 
-    public void onPlayerSpawn(Player p){
+    public void onPlayerSpawn(Player p) {
 
-        Location loc1 = new Location(Bukkit.getWorld("omain"),1540.5, 18.3, -1222.5, 180, 0);
+        Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 18.3, -1222.5, 180, 0);
 
-        WorldServer s = ((CraftWorld)loc1.getWorld()).getHandle();
+        WorldServer s = ((CraftWorld) loc1.getWorld()).getHandle();
 
         stand = new EntityArmorStand(s);
         stand.setLocation(loc1.getX(), loc1.getY(), loc1.getZ(), 0, 0);
@@ -224,15 +224,15 @@ public class Bonusy implements ASInterface {
         stand.setInvisible(true);
 
         PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
+        ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
     }
 
-    public void updateRewardArmorstand(){
-        for(Player players : Bukkit.getOnlinePlayers()){
+    public void updateRewardArmorstand() {
+        for (Player players : Bukkit.getOnlinePlayers()) {
             stand.setCustomName(getRewards(players));
 
             PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
-            ((CraftPlayer)players).getHandle().playerConnection.sendPacket(packet);
+            ((CraftPlayer) players).getHandle().playerConnection.sendPacket(packet);
         }
     }
 }

@@ -956,43 +956,43 @@ public class HeadsAPI implements Listener {
 
     private int countChristmasHeads(final Player p) {
         int c = 0;
-        if (p.hasPermission("craftlobby.heads.vanocni.santa")){
+        if (p.hasPermission("craftlobby.heads.vanocni.santa")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.piratesanta")){
+        if (p.hasPermission("craftlobby.heads.vanocni.piratesanta")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.commandblock")){
+        if (p.hasPermission("craftlobby.heads.vanocni.commandblock")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.elfboy")){
+        if (p.hasPermission("craftlobby.heads.vanocni.elfboy")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.elfgirl")){
+        if (p.hasPermission("craftlobby.heads.vanocni.elfgirl")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.sob")){
+        if (p.hasPermission("craftlobby.heads.vanocni.sob")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.snowman")){
+        if (p.hasPermission("craftlobby.heads.vanocni.snowman")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.snowglobe")){
+        if (p.hasPermission("craftlobby.heads.vanocni.snowglobe")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.snowglobe2")){
+        if (p.hasPermission("craftlobby.heads.vanocni.snowglobe2")) {
             c++;
         }
-        if (p.hasPermission("craftloby.heads.vanocni.blackpresent")){
+        if (p.hasPermission("craftloby.heads.vanocni.blackpresent")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.bluepresent")){
+        if (p.hasPermission("craftlobby.heads.vanocni.bluepresent")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.greenpresent")){
+        if (p.hasPermission("craftlobby.heads.vanocni.greenpresent")) {
             c++;
         }
-        if (p.hasPermission("craftlobby.heads.vanocni.goldpresent")){
+        if (p.hasPermission("craftlobby.heads.vanocni.goldpresent")) {
             c++;
         }
         return c;

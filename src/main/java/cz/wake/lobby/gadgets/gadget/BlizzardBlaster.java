@@ -61,7 +61,7 @@ public class BlizzardBlaster implements Listener {
         if (!item.getItemMeta().getDisplayName().contains("BlizzardBlaster")) {
             return;
         }
-        if (SettingsMenu.activeGadgets.contains(player)){
+        if (SettingsMenu.activeGadgets.contains(player)) {
             player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
             return;
         }
@@ -111,7 +111,7 @@ public class BlizzardBlaster implements Listener {
                         }, 20);
                         for (final Entity ent : as.getNearbyEntities(0.5, 0.5, 0.5)) {
                             if ((!cooldownJump.contains(ent)) && (ent != player) && (!(ent instanceof ArmorStand))) {
-                                if(SettingsMenu.gadgets.contains((Player)ent)){
+                                if (SettingsMenu.gadgets.contains((Player) ent)) {
                                     UtilMath.applyVector(ent, new Vector(0, 1, 0).add(v));
                                     cooldownJump.add(ent);
                                     Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {

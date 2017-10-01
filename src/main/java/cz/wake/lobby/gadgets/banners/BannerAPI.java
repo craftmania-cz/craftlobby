@@ -168,7 +168,7 @@ public class BannerAPI implements Listener {
                     p.getInventory().setHelmet(tardis());
                     p.closeInventory();
                 } else {
-                    Shop.open(p,"Tardis","craftlobby.banner.tardis", tardis(), 200);
+                    Shop.open(p, "Tardis", "craftlobby.banner.tardis", tardis(), 200);
                 }
             }
             if (e.getSlot() == 1) {
@@ -654,7 +654,7 @@ public class BannerAPI implements Listener {
         return b;
     }
 
-    private ItemStack nakup(final String name, final int price){
+    private ItemStack nakup(final String name, final int price) {
         ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
         return i;
     }

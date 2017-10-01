@@ -28,7 +28,7 @@ public class BearNormal {
         ((PolarBear) golem).setCustomNameVisible(true);
         ((PolarBear) golem).setCustomName(p.getName());
         ((PolarBear) golem).setAgeLock(true);
-        if(baby){
+        if (baby) {
             ((PolarBear) golem).setBaby();
         }
         PetManager.pet.put(p, (CraftEntity) golem);

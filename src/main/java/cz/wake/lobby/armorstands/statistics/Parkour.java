@@ -11,8 +11,8 @@ import org.bukkit.entity.Player;
 
 public class Parkour {
 
-    public static void spawn(Location loc, Player p){
-        WorldServer s = ((CraftWorld)loc.getWorld()).getHandle();
+    public static void spawn(Location loc, Player p) {
+        WorldServer s = ((CraftWorld) loc.getWorld()).getHandle();
 
         EntityArmorStand stand = new EntityArmorStand(s);
         stand.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
@@ -20,18 +20,18 @@ public class Parkour {
         stand.setCustomNameVisible(true);
         stand.setInvisible(true);
 
-        loc.add(0,-0.3,0);
+        loc.add(0, -0.3, 0);
 
         EntityArmorStand stand2 = new EntityArmorStand(s);
         stand2.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
-        stand2.setCustomName("§7Tvoje nejlepsi skore: §f" + Main.getInstance().fetchData().getMiniGamesStats(p,"RPScore", "player","score"));
+        stand2.setCustomName("§7Tvoje nejlepsi skore: §f" + Main.getInstance().fetchData().getMiniGamesStats(p, "RPScore", "player", "score"));
         stand2.setCustomNameVisible(true);
         stand2.setInvisible(true);
 
         PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
+        ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
 
         PacketPlayOutSpawnEntityLiving packet2 = new PacketPlayOutSpawnEntityLiving(stand2);
-        ((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet2);
+        ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet2);
     }
 }
