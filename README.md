@@ -1,4 +1,5 @@
 CraftLobby
+[![Build Status](https://travis-ci.org/craftmania-cz/CraftLobby.svg?branch=travis-builds)](https://travis-ci.org/craftmania-cz/CraftLobby)
 ======
 Jeden z nejhlavnějších pluginů na serveru Craftmania.cz. Jeho hlavním úkolem je se starat o chod všech hlavních lobby a podlobby.
 
