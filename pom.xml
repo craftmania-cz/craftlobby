@@ -65,11 +65,13 @@
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.7</version>
                 <configuration>
+                    <quiet>true</quiet>
                     <formats>
-                        <format>html</format>
                         <format>xml</format>
                     </formats>
-                    <check />
+                    <instrumentation>
+                        <ignoreTrivial>true</ignoreTrivial>
+                    </instrumentation>
                 </configuration>
             </plugin>
         </plugins>
