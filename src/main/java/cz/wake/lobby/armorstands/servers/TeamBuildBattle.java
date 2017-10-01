@@ -43,7 +43,7 @@ public class TeamBuildBattle implements ASInterface {
         ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 146, 76, 198);
         as.setBoots(boots);
 
-        ItemStack item = new ItemStack(Material.PAINTING);
+        ItemStack item = new ItemStack(Material.WORKBENCH);
         as.setItemInHand(item);
 
         Main.getInstance().getASM().setMetadata((ArmorStand) as, "buildbattle", "buildbattle", Main.getInstance());
