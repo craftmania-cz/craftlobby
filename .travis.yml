@@ -1,9 +1,13 @@
 language: java
 sudo: false # faster builds
 
-script:
-  - ./mvnw clean install
-  - bash <(curl -s https://codecov.io/bash)
+script: "mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
 
 jdk:
   - oraclejdk8
+
+before_script:
+  - pip install --user codecov
+
+after_success:
+  - codecov
