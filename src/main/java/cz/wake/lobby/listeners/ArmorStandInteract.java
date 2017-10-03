@@ -87,6 +87,19 @@ public class ArmorStandInteract implements Listener {
                     }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
                 }
             }
+            if (e.getRightClicked().hasMetadata("Filip6")) {
+                if (!delfik) {
+                    mu.sendMessageNearby(locationOfAS, 4d, "§eFilip6_CZ: §fBAF!......Lek!");
+                    delfik = true;
+                    new BukkitRunnable() {
+
+                        @Override
+                        public void run() {
+                            delfik = false;
+                        }
+                    }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
+                }
+            }
             if (e.getRightClicked().hasMetadata("Child")) {
                 if (!child) {
                     mu.sendMessageNearby(locationOfAS, 4d, "§eOliver: §fTesim se na Jeziska! Dostanu originalku a budu mit AutoLogin!");
