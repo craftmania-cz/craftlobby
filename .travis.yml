@@ -3,13 +3,10 @@ sudo: false # faster builds
 
 script:
   # - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - mvn clean verify -P integration-test
+  - mvn install verify -P integration-test
 
 jdk:
   - oraclejdk8
-
-before_script:
-  - pip install --user codecov
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
