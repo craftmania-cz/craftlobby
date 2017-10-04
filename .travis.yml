@@ -2,11 +2,14 @@ language: java
 sudo: false # faster builds
 
 script:
-  # - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - mvn install verify -P integration-test
+  - mvn package -Dmaven.javadoc.skip=true -V -B
 
 jdk:
   - oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.m2/repository
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
