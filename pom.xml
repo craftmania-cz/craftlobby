@@ -68,6 +68,7 @@
                 <executions>
                     <!-- Prepares the property pointing to the JaCoCo runtime agent which is passed as VM argument when Maven the Surefire plugin is executed. -->
                     <execution>
+                        <id>default-prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -101,10 +102,8 @@
                     <version>2.20</version>
                     <configuration>
                         <!-- Sets the VM argument line used when unit tests are run. -->
-                        <argLine></argLine>
                         <!-- Skips unit tests if the value of skip.unit.tests property is true -->
                         <skipTests>false</skipTests>
-                        <reuseForks>${sureFireForks9}</reuseForks>
                     </configuration>
                 </plugin>
             </plugins>
