@@ -21,8 +21,6 @@ import org.bukkit.inventory.meta.BannerMeta;
 
 public class BannerAPI implements Listener {
 
-    private MessagesListener ml = new MessagesListener();
-
     public void openInventory(Player p) {
 
         Inventory inv = Bukkit.createInventory(null, 54, "Bannery");

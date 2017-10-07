@@ -50,10 +50,7 @@ public class InvClick implements Listener {
     private CandyCane cc = new CandyCane();
     private BannerAPI bannerAPI = new BannerAPI();
     private HeadsAPI hAPI = new HeadsAPI();
-    private Stalker stalker = new Stalker();
     private MorphAPI morphAPI = new MorphAPI();
-
-    static final Logger log = LoggerFactory.getLogger(InvClick.class);
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -89,16 +86,6 @@ public class InvClick implements Listener {
                     player.sendMessage("");
                     player.closeInventory();
                 }
-            }
-            //**************************** MINIGAMES STATS ****************************//
-            if (event.getInventory().getTitle().equals(player.getName())) {
-                if (event.getCurrentItem().getType() == Material.AIR)
-                    return;
-                if (event.getSlot() == 35) {
-                    //this.profil.openMenu(player);
-                }
-                event.setCancelled(true);
-                player.updateInventory();
             }
             //**************************** SERVERS MENU ****************************//
             if (event.getInventory().getTitle().equals("Vyber serveru")) {
@@ -451,7 +438,7 @@ public class InvClick implements Listener {
                 player.closeInventory();
             }
         } catch (Exception e) {
-            log.error("", e);
+            e.printStackTrace();
         }
 
     }
@@ -478,7 +465,7 @@ public class InvClick implements Listener {
             out.writeUTF("Connect");
             out.writeUTF(target);
         } catch (Exception e) {
-            log.error("", e);
+            e.printStackTrace();
         }
         player.sendPluginMessage(Main.getPlugin(), "BungeeCord", b.toByteArray());
     }
@@ -486,102 +473,102 @@ public class InvClick implements Listener {
     public void deactivateParticles(Player player) {
         try {
             if (GreenSparks.greenPlayers.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) GreenSparks.greenPlayers.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(GreenSparks.greenPlayers.get(player.getName()));
                 GreenSparks.greenPlayers.remove(player.getName());
                 player.closeInventory();
             }
             if (BloodHelix.bh.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) BloodHelix.bh.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(BloodHelix.bh.get(player.getName()));
                 BloodHelix.bh.remove(player.getName());
                 player.closeInventory();
             }
             if (RainCloud.rc.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) RainCloud.rc.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(RainCloud.rc.get(player.getName()));
                 RainCloud.rc.remove(player.getName());
                 player.closeInventory();
             }
             if (FrostLord.fl.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) FrostLord.fl.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(FrostLord.fl.get(player.getName()));
                 FrostLord.fl.remove(player.getName());
                 player.closeInventory();
             }
             if (FlameRings.fr.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) FlameRings.fr.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(FlameRings.fr.get(player.getName()));
                 FlameRings.fr.remove(player.getName());
                 player.closeInventory();
             }
             if (SnowCloud.sc.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) SnowCloud.sc.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(SnowCloud.sc.get(player.getName()));
                 SnowCloud.sc.remove(player.getName());
                 player.closeInventory();
             }
             if (EnderSignal.es.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) EnderSignal.es.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(EnderSignal.es.get(player.getName()));
                 EnderSignal.es.remove(player.getName());
                 player.closeInventory();
             }
             if (Enchanted.e.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) Enchanted.e.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(Enchanted.e.get(player.getName()));
                 Enchanted.e.remove(player.getName());
                 player.closeInventory();
             }
             if (Love.l.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) Love.l.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(Love.l.get(player.getName()));
                 Love.l.remove(player.getName());
                 player.closeInventory();
             }
             if (Notes.no.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) Notes.no.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(Notes.no.get(player.getName()));
                 Notes.no.remove(player.getName());
                 player.closeInventory();
             }
             if (Clouds.c.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) Clouds.c.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(Clouds.c.get(player.getName()));
                 Clouds.c.remove(player.getName());
                 player.closeInventory();
             }
             if (ColoredDust.cd.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) ColoredDust.cd.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(ColoredDust.cd.get(player.getName()));
                 ColoredDust.cd.remove(player.getName());
                 player.closeInventory();
             }
             if (LavaPop.lp.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) LavaPop.lp.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(LavaPop.lp.get(player.getName()));
                 LavaPop.lp.remove(player.getName());
                 player.closeInventory();
             }
             if (Portal.port.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) Portal.port.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(Portal.port.get(player.getName()));
                 Portal.port.remove(player.getName());
                 player.closeInventory();
             }
             if (MobSpell.ms.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) MobSpell.ms.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(MobSpell.ms.get(player.getName()));
                 MobSpell.ms.remove(player.getName());
                 player.closeInventory();
             }
             if (FrozenWalk.fw.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) FrozenWalk.fw.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(FrozenWalk.fw.get(player.getName()));
                 FrozenWalk.fw.remove(player.getName());
                 player.closeInventory();
             }
             if (Lily.li.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) Lily.li.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(Lily.li.get(player.getName()));
                 Lily.li.remove(player.getName());
                 player.closeInventory();
             }
             if (SantaHat.sh.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) SantaHat.sh.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(SantaHat.sh.get(player.getName()));
                 SantaHat.sh.remove(player.getName());
                 player.closeInventory();
             }
             if (CandyCane.cd.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(((Integer) CandyCane.cd.get(player.getName())).intValue());
+                Bukkit.getScheduler().cancelTask(CandyCane.cd.get(player.getName()));
                 CandyCane.cd.remove(player.getName());
                 player.closeInventory();
             }
         } catch (Exception e) {
-            log.error("", e);
+            e.printStackTrace();
         }
     }
 

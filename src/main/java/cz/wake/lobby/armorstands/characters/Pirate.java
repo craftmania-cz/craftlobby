@@ -38,9 +38,6 @@ public class Pirate implements ASInterface {
         ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 81, 81, 81);
         as.setBoots(boots);
 
-        ItemStack item = ItemFactory.createHead("test", "a37123b2-8033-48bb-942f-d7e033528004", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjFkYTM4YjFiYzc1YTM5ZTcxYzdkY2IzY2FiNzNjMjZjODI2ZjgyNmM1OWU4YTQ0MTRjMThjNDU1Y2VlOWE2MiJ9fX0=");
-        //as.setItemInHand(item);
-
         Main.getInstance().getASM().setMetadata((ArmorStand) as, "OPirate", "OPirate", Main.getInstance());
 
     }

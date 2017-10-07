@@ -45,7 +45,7 @@ public class Shop implements Listener {
     }
 
     @EventHandler
-    private void onClick(InventoryClickEvent e) {
+    public void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
         if (e.getInventory().getTitle().equals("[S] Nakup za coiny")) {
             if (e.getCurrentItem() == null) {

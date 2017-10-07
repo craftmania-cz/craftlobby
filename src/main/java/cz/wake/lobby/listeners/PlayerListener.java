@@ -204,7 +204,7 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler
-    private void interactMain(PlayerInteractEvent e) {
+    public void onInteract(PlayerInteractEvent e) {
         final Player p = e.getPlayer();
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.SKULL_ITEM) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {

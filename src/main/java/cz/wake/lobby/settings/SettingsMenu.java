@@ -93,7 +93,7 @@ public class SettingsMenu implements Listener {
     }
 
     @EventHandler
-    private void onInventoryClick(InventoryClickEvent e) {
+    public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         if (e.getInventory().getTitle().equals("Osobni nastaveni")) {
             e.setCancelled(true);

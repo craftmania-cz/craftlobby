@@ -62,7 +62,7 @@ public class RewardsManager implements Listener {
         return "§cDalsi vyber za " + getDurationBreakdown(next);
     }
 
-    public static String getDurationBreakdown(long millis) {
+    private static String getDurationBreakdown(long millis) {
         if (millis < 0) {
             throw new IllegalArgumentException("Duration must be greater than zero!");
         }
@@ -93,7 +93,7 @@ public class RewardsManager implements Listener {
     }
 
     @EventHandler
-    private void onClick(InventoryClickEvent e) {
+    public void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
         if (e.getInventory().getTitle().equals("Odmeny pro hrace")) {
             if (e.getCurrentItem() == null) {

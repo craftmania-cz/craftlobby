@@ -90,12 +90,6 @@ public class Servers implements Listener {
             }
         }.runTaskTimerAsynchronously(Main.getPlugin(), 0, 25);
 
-        ItemStack lobby = ItemFactory.create(Material.BOOKSHELF, (byte) 0, "§c§lLobby", "", "§7Kliknutim zobrazis prehled", "§7vsech lobby na CM.", "", "§c▸ Nedostupne");
-        //inv.setItem(18, lobby);
-
-        ItemStack event = ItemFactory.create(Material.FIREWORK, (byte) 0, "§c§lEventy", "", "§7Server urceny pro pro", "§7celoserverove eventy.", "", "§e§nAktualne se zadny event nekona!");
-        //inv.setItem(27, event);
-
         p.openInventory(inv);
 
     }

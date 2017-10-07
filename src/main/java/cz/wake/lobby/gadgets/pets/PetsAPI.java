@@ -16,8 +16,6 @@ import org.bukkit.inventory.ItemStack;
 
 public class PetsAPI implements Listener {
 
-    private MessagesListener ml = new MessagesListener();
-
     public void openMainInv(Player p) {
 
         Inventory inv = Bukkit.createInventory(null, 54, "Pets");

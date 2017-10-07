@@ -89,7 +89,7 @@ public class Tsunami implements Listener {
                             (Block.getByCombinedId(loc.getBlock().getTypeId()).getMaterial().isSolid())) {
                         loc.add(0.0D, 1.0D, 0.0D);
                     }
-                    if (loc.clone().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == org.bukkit.Material.AIR) {
+                    if (loc.clone().subtract(0.0D, 1.0D, 0.0D).getBlock().getType() == Material.AIR) {
                         loc.add(0.0D, -1.0D, 0.0D);
                     }
                     final ArmorStand as = (ArmorStand) loc.getWorld().spawnEntity(loc.clone().add(UtilMath.randomDouble(-1.5D, 1.5D), UtilMath.randomDouble(0.0D, 0.5D) - 0.75D, UtilMath.randomDouble(-1.5D, 1.5D)), EntityType.ARMOR_STAND);

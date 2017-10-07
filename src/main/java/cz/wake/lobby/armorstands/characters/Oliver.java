@@ -40,14 +40,8 @@ public class Oliver implements ASInterface {
         ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 171, 130, 255);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 171, 130, 255);
-        //as.setLeggings(leggins);
-
         ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 171, 130, 255);
         as.setBoots(boots);
-
-        ItemStack item = new ItemStack(Material.STONE_HOE);
-        //as.setItemInHand(item);
 
         Main.getInstance().getASM().setMetadata((ArmorStand) as, "Child", "Child", Main.getInstance());
     }

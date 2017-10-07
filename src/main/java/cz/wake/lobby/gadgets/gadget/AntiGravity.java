@@ -32,7 +32,7 @@ public class AntiGravity implements Listener {
     }
 
     @EventHandler
-    private void antiGravity(PlayerInteractEvent e) {
+    public void antiGravity(PlayerInteractEvent e) {
         final Player player = e.getPlayer();
         ItemStack item = e.getItem();
         Action action = e.getAction();

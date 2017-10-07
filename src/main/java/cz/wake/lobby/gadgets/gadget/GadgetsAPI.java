@@ -201,7 +201,7 @@ public class GadgetsAPI implements Listener {
     }
 
     @EventHandler
-    private void onClick(InventoryClickEvent e) {
+    public void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
         if (e.getInventory().getTitle().equals("Gadgets")) {
             if (e.getCurrentItem() == null) {

@@ -16,9 +16,6 @@ import java.util.HashMap;
 
 public class SnowBall implements Listener {
 
-    private HashMap<Player, Double> _time = new HashMap();
-    private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
-
     private Main plugin;
 
     public SnowBall(Main plugin) {

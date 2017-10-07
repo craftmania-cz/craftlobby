@@ -29,7 +29,6 @@ public class PoopBomb implements Listener {
     private HashMap<Player, Double> _time = new HashMap();
     private HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static final HashMap<Player, Integer> countdown = new HashMap();
-    private ArrayList<String> cooldown = new ArrayList();
     public static Random random = new Random();
 
     private Main plugin;

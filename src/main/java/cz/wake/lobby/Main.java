@@ -57,7 +57,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private static ArrayList<Player> inPortal = new ArrayList();
     public RewardsManager rm = new RewardsManager();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
-    private static DataOutputStream out = new DataOutputStream(b);
     public ArrayList<Player> at_list = new ArrayList<>();
     private String idServer;
     private SQLManager sql;

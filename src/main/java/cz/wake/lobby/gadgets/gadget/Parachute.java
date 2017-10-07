@@ -28,7 +28,7 @@ public class Parachute implements Listener {
     private java.util.HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap();
     public static Random random = new Random();
     private HashMap<Player, ArrayList<Chicken>> chickens = new HashMap<>();
-    private boolean active;
+    private static boolean active;
     int task1, task2;
 
     private Main plugin;

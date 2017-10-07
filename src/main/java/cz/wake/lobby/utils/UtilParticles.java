@@ -9,8 +9,6 @@ import org.bukkit.util.Vector;
 
 public class UtilParticles {
 
-    private final static int DEF_RADIUS = 128;
-
     public static void drawParticleLine(Location from, Location to, ParticleEffect effect, int particles, int r, int g, int b) {
         Location location = from.clone();
         Location target = to.clone();

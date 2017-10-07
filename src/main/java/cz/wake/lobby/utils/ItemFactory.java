@@ -43,7 +43,7 @@ public class ItemFactory {
 
     public static ItemStack createHead(String name, String uuid, String textureData) {
         try {
-            net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
+            net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.SKULL_ITEM, 1, (short) 3));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();

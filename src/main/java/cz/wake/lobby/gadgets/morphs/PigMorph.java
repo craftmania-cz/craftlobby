@@ -32,7 +32,7 @@ public class PigMorph implements Listener {
     }
 
     @EventHandler
-    private void onPlayerLeftInteract(PlayerInteractEvent e) {
+    public void onPlayerLeftInteract(PlayerInteractEvent e) {
         Player p = e.getPlayer();
         if ((e.getAction() == Action.LEFT_CLICK_AIR) || (e.getAction() == Action.LEFT_CLICK_BLOCK)) {
             if (!DisguiseAPI.isDisguised(p)) {
@@ -61,7 +61,7 @@ public class PigMorph implements Listener {
     }
 
     @EventHandler
-    private void onPlayerInteractRight(PlayerInteractEvent e) {
+    public void onPlayerInteractRight(PlayerInteractEvent e) {
         Player p = e.getPlayer();
         if ((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
             if (!DisguiseAPI.isDisguised(p)) {
@@ -76,7 +76,7 @@ public class PigMorph implements Listener {
     }
 
     @EventHandler
-    private void onPlayerPickup(PlayerPickupItemEvent e) {
+    public void onPlayerPickup(PlayerPickupItemEvent e) {
         Player p = e.getPlayer();
         Item item = e.getItem();
         if ((item.getItemStack().getType() == Material.PORK) && (item.getItemStack().getItemMeta().getDisplayName().contains("PIG_PORK"))) {
