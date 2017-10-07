@@ -5,6 +5,7 @@ import me.picknchew.cratekeys.CrateOpenEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
@@ -12,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class SkyKeys implements Listener {
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent e) {
         final Player p = e.getPlayer();
 
@@ -28,7 +29,7 @@ public class SkyKeys implements Listener {
     }
 
     private ItemStack giveKeys(int amount) {
-        ItemStack i = new ItemStack(Material.NETHER_STAR);
+        ItemStack i = new ItemStack(Material.TRIPWIRE_HOOK);
         ItemMeta m = i.getItemMeta();
         m.setDisplayName("§aSkyKey §8(Klikni pravym na SkyBox)");
         i.setItemMeta(m);
