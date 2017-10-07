@@ -16,7 +16,7 @@ public class ArmorStandManager {
     public static void init() {
         if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("arcade")) {
             armorstands.add(new ArcadeShop());
-        } else {
+        } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")){
             armorstands.add(new Arcade());
             armorstands.add(new BedWars());
             armorstands.add(new Creative1());
@@ -25,7 +25,6 @@ public class ArmorStandManager {
             armorstands.add(new Prison());
             armorstands.add(new GetDown());
             armorstands.add(new SkyBlock());
-            //armorstands.add(new SkyGiants());
             armorstands.add(new SkyWars());
             armorstands.add(new Survival());
             armorstands.add(new Unknown1());
