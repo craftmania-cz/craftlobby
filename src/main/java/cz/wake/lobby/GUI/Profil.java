@@ -495,10 +495,14 @@ public class Profil implements Listener {
             case 6:
                 return "§5Builder";
             case 7:
-                return "§cHl.Admin";
+                return "§eEventer";
             case 8:
-                return "§eSprávce webu";
+                return "&6Moderator";
             case 9:
+                return "§cHl.Admin";
+            case 10:
+                return "§eSprávce webu";
+            case 11:
                 return "§bMajitel";
             default:
                 return "§fHrac";
