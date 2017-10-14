@@ -36,12 +36,12 @@ public class Prison implements ASInterface {
 
         defaultItems();
 
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "prison", "prison", Main.getInstance());
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "prison2", "prison2", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
 
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Prison_command ArmorStand uspesne spawnut!");
+        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Prison ArmorStand uspesne spawnut!");
 
     }
 
@@ -57,7 +57,7 @@ public class Prison implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§9§lPrison");
+        as2.setCustomName("§8§lPrison 2.0");
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Prison implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Nacitani...");
+        as3.setCustomName("§711/2017");
     }
 
     @Override
@@ -155,19 +155,19 @@ public class Prison implements ASInterface {
     }
 
     private void defaultItems() {
-        ItemStack head = ItemFactory.createHead("test", "fe2ac5ee-5c55-4916-b007-38be0592e75c", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjcxNTdjZmZiMDYwNjNiMzUyZGM2ODQ3OGY0NzZlN2QyMDJjM2JhNmU3Y2JmMjk3MjQxYmU4MTY4MTA3NGJmIn19fQ==");
+        ItemStack head = ItemFactory.createHead("test", "8afde947-d0e5-4507-837c-c1bbec43d7e4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQyNzY0M2IxZWVjZmE3NGVlOTUxZDhkZmVmYjZkOWJjZjU4MjZiZWQyNzM0MjJjZWQ3ZWJlY2YxNzY1YzkifX19");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 16, 78, 139);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 47, 47, 47);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 16, 78, 139);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 47, 47, 47);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 16, 78, 139);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 47, 47, 47);
         as.setBoots(boots);
 
-        ItemStack item = new ItemStack(Material.IRON_FENCE);
+        ItemStack item = new ItemStack(Material.IRON_PICKAXE);
         as.setItemInHand(item);
     }
 
