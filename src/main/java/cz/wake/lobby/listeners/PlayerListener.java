@@ -123,6 +123,7 @@ public class PlayerListener implements Listener {
 
                 //Update MC verze
                 Main.getInstance().fetchData().updatePlayerVersion(p);
+                Main.getInstance().fetchData().updateForceNick(p);
 
                 //Clear chat
                 for (int i = 0; i < 30; i++) {
