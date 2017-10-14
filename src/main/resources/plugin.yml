@@ -41,6 +41,8 @@ commands:
     description: Server teleport
   oldlobby:
     description: Oldlobby teleport
+  crafttokens:
+    description: Jjjj tokeny
 
 permissions:
   craftlobby.pristup:

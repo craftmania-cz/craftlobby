@@ -1517,7 +1517,7 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void addTokens(final Player p, final int tokens) {
+    public final void addTokens(final String p, final int tokens) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -1525,8 +1525,8 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE CraftCoins SET tokens = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
-                    ps.setInt(1, getTokens(p.getUniqueId()) + tokens);
+                    ps = conn.prepareStatement("UPDATE CraftCoins SET tokens = ? WHERE nick = '" + p + "';");
+                    ps.setInt(1, getTokens(p) + tokens);
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1537,12 +1537,12 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final int getTokens(final UUID uuid) {
+    public final int getTokens(final String p) {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT tokens FROM CraftCoins WHERE uuid = '" + uuid.toString() + "';");
+            ps = conn.prepareStatement("SELECT tokens FROM CraftCoins WHERE nick = '" + p + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("tokens");

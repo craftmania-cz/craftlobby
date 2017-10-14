@@ -246,6 +246,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("skygiants").setExecutor(new SkyGiants_command());
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
+        getCommand("crafttokens").setExecutor(new CraftTokens_command());
     }
 
     public static Main getInstance() {
