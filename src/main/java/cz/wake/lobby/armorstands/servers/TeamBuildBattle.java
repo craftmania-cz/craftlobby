@@ -66,7 +66,7 @@ public class TeamBuildBattle implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§5§l§kTeam BuildBattle");
+        as2.setCustomName("§5§lTeam BuildBattle");
 
     }
 
@@ -83,7 +83,7 @@ public class TeamBuildBattle implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§8Jiz brzy...");
+        as3.setCustomName("§810/2017");
 
     }
 
