@@ -16,7 +16,7 @@ public class CraftTokens_command implements CommandExecutor {
                     return false;
                 } else {
                     String name = ArrayOfString[0];
-                    String castka = ArrayOfString[0];
+                    String castka = ArrayOfString[1];
                     int sum = Integer.valueOf(castka);
                     try {
                         Main.getInstance().fetchData().addTokens(name, sum);
