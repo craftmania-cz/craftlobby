@@ -103,7 +103,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Automaticka zmena casu v lobby podle Real casu
         if (getConfig().getBoolean("timer")) {
-            tt.initTimeSetter();
+            //tt.initTimeSetter();
         }
 
         // Id serveru
@@ -247,6 +247,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
+        getCommand("craftcoins").setExecutor(new Coins_command());
     }
 
     public static Main getInstance() {
