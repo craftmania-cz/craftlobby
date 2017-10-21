@@ -29,5 +29,6 @@ public class Coins_command implements CommandExecutor {
                 }
             }
         }
+        return false;
     }
 }
