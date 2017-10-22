@@ -80,7 +80,7 @@ public class PlayerListener implements Listener {
             p.setHealth(20F);
             p.setSaturation(20F);
             p.setFoodLevel(20);
-            p.setGameMode(GameMode.ADVENTURE);
+            p.setGameMode(GameMode.SURVIVAL);
 
             // Player settings
             Main.getInstance().setData().addSettingsDefault(p);
@@ -122,8 +122,8 @@ public class PlayerListener implements Listener {
                 //b.onPlayerSpawn(p);
 
                 // Halloween Extra
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lb user " + p.getName() + " permissions set craftlobby.cloaks.devil true");
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lb user " + p.getName() + " permissions set craftlobby.pets.witch true");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftlobby.cloaks.devil true");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftlobby.pets.witch true");
 
                 //Update MC verze
                 Main.getInstance().fetchData().updatePlayerVersion(p);

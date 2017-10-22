@@ -147,6 +147,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         if (getConfig().getString("server").equalsIgnoreCase("main")) {
             getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
+            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new CleanBats(), 200L, 1200L);
         }
 
         // Update AT time
@@ -248,6 +249,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
         getCommand("craftcoins").setExecutor(new Coins_command());
+        getCommand("completehalloween").setExecutor(new CompleteHalloween());
     }
 
     public static Main getInstance() {

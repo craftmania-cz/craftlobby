@@ -79,7 +79,7 @@ public class HalloweenGames implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Tvuj pocet bodu: 0");
+        as3.setCustomName("§7Informace");
     }
 
     @Override

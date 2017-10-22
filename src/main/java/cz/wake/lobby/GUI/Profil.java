@@ -535,4 +535,26 @@ public class Profil implements Listener {
         return "§fNenastaveno";
     }
 
+    public void openHalloweenMenu(Player p){
+
+        Inventory inv = Bukkit.createInventory(null, 45, "[H] Halloween");
+
+        ItemStack head1 = ItemFactory.createHead("head1", "7e152955-f5f5-43c6-9a7c-e8db43f1404f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQxYWQxNDhlMzNjODFkY2EzZjFhNmNlMTNhYTcwZTRmZTZiYzJjNzllODcxODVkOGQxNzZiZGRhMWM5OGEzIn19fQ==", "§6§lHledacka", "§7Na lobby se nachazi", "§7celkem 50 takovyhle hlav.","", "§eZa kazdou nalezenou", "§eziskas 100CC!", "", "§cPri uspesnem splneni ziskas", "§cspecialni badge na profil", "§cve statistikach!");
+        ItemStack head2 = ItemFactory.createHead("head1", "4c6c28a8-50d5-4d83-bdd9-5d605c18d420", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2NlZDRiY2ZkMjExNjQ2NGRlZGYxNTdiZmM2MmRiMjZjOTU3YTlhNmFjOGJiYzUyNTYzNDY3MDg1YmUyMyJ9fX0=", "§6§lHledacka", "§7Na lobby se nachazi", "§7celkem 50 takovyhle hlav.","", "§eZa kazdou nalezenou", "§eziskas 100CC!", "", "§cPri uspesnem splneni ziskas", "§cspecialni badge na profil", "§cve statistikach!");
+        ItemStack head3 = ItemFactory.createHead("head1", "31152fb2-cb1e-45c3-86dd-b23f7a20a6f8", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjhkMjE4MzY0MDIxOGFiMzMwYWM1NmQyYWFiN2UyOWE5NzkwYTU0NWY2OTE2MTllMzg1NzhlYTRhNjlhZTBiNiJ9fX0=", "§6§lHledacka", "§7Na lobby se nachazi", "§7celkem 50 takovyhle hlav.","", "§eZa kazdou nalezenou", "§eziskas 100CC!", "", "§cPri uspesnem splneni ziskas", "§cspecialni badge na profil", "§cve statistikach!");
+
+        inv.setItem(10, head1);
+        inv.setItem(19, head2);
+        inv.setItem(28, head3);
+
+        ItemStack info = ItemFactory.create(Material.PUMPKIN, (byte)0, "§e§lLobby", "§7Na lobby jsou pridany", "§7specialni efekty!", "§7Staci chodit a klikat! :3");
+        inv.setItem(21, info);
+
+        ItemStack bonusy = ItemFactory.create(Material.GOLD_INGOT, (byte)0, "§6§lBonusy", "§7Kazdy hrac, co se pripoji", "§7behem naseho Halloween lobby", "§7obdrzi §eWitch Pet + Devil Cloak!");
+        inv.setItem(23, bonusy);
+
+        p.openInventory(inv);
+
+    }
+
 }
