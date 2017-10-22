@@ -103,7 +103,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Automaticka zmena casu v lobby podle Real casu
         if (getConfig().getBoolean("timer")) {
-            tt.initTimeSetter();
+            //tt.initTimeSetter();
         }
 
         // Id serveru
@@ -147,6 +147,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         if (getConfig().getString("server").equalsIgnoreCase("main")) {
             getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
+            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new CleanBats(), 200L, 1200L);
         }
 
         // Update AT time
@@ -247,6 +248,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
+        getCommand("craftcoins").setExecutor(new Coins_command());
+        getCommand("completehalloween").setExecutor(new CompleteHalloween());
     }
 
     public static Main getInstance() {

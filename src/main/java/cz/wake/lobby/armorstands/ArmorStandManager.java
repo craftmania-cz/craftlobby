@@ -43,6 +43,7 @@ public class ArmorStandManager {
             armorstands.add(new Kubrastig());
             armorstands.add(new TeamBuildBattle());
             armorstands.add(new Filip6());
+            armorstands.add(new HalloweenGames());
         }
     }
 

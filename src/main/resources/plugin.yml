@@ -43,6 +43,10 @@ commands:
     description: Oldlobby teleport
   crafttokens:
     description: Jjjj tokeny
+  craftcoins:
+    description: JJJJ coinyyy
+  completehalloween:
+    description: Halloween
 
 permissions:
   craftlobby.pristup:

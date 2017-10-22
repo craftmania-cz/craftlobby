@@ -1,6 +1,7 @@
 package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.GUI.ArcadeShopGUI;
+import cz.wake.lobby.GUI.Profil;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.settings.SettingsMenu;
@@ -541,6 +542,10 @@ public class ArmorStandInteract implements Listener {
             }
             if (e.getRightClicked().hasMetadata("Bonusy")) {
                 rw.openRewardManager(p);
+            }
+            if (e.getRightClicked().hasMetadata("halloween")) {
+                Profil pr = new Profil();
+                pr.openHalloweenMenu(p);
             }
             if (e.getRightClicked().hasMetadata("survival")) {
                 sendToServer(p, "survival");
