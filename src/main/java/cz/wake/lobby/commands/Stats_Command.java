@@ -12,8 +12,7 @@ import org.slf4j.LoggerFactory;
 
 public class Stats_Command implements CommandExecutor {
 
-    StatisticsMG minigamesMenu = new StatisticsMG();
-    static final Logger log = LoggerFactory.getLogger(Stats_Command.class);
+    private StatisticsMG minigamesMenu = new StatisticsMG();
 
     @Override
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
@@ -35,7 +34,7 @@ public class Stats_Command implements CommandExecutor {
                         }
                     }
                 } catch (Exception e) {
-                    log.error("", e);
+                    e.printStackTrace();
                 }
 
             }

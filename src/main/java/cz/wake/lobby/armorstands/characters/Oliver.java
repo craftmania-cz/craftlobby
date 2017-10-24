@@ -48,12 +48,12 @@ public class Oliver implements ASInterface {
 
     @Override
     public void hologramSpawn() {
-
+        return;
     }
 
     @Override
     public void subtextSpawn() {
-
+        return;
     }
 
     @Override

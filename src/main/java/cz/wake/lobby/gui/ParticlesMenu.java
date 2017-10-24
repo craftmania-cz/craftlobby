@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ParticlesMenu {
 
-    GreenSparks gs = new GreenSparks();
+    private GreenSparks gs = new GreenSparks();
 
     public void openParticles(Player p) {
 

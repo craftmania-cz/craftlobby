@@ -13,10 +13,22 @@ import java.util.HashMap;
 
 public class AngleCloak {
 
-    public static final HashMap<String, Integer> angelCloaks = new HashMap();
-    int particles;
-    boolean x = true;
-    boolean o = false;
+    private static final HashMap<String, Integer> angelCloaks = new HashMap();
+    private int particles;
+    private boolean x = true;
+    private boolean o = false;
+
+    private boolean[][] shape = {
+            {o, o, o, o, o, o, o, o, o, o, o, o, o, o, o, o, o, o},
+            {o, x, x, x, x, o, o, o, o, o, o, o, x, x, x, x, o, o},
+            {o, o, x, x, x, x, x, o, o, o, x, x, x, x, x, o, o, o},
+            {o, o, o, x, x, x, x, x, x, x, x, x, x, x, o, o, o, o},
+            {o, o, o, o, x, x, x, x, x, x, x, x, x, o, o, o, o, o},
+            {o, o, o, o, x, x, x, x, o, x, x, x, x, o, o, o, o, o},
+            {o, o, o, o, o, x, x, x, o, x, x, x, o, o, o, o, o, o},
+            {o, o, o, o, o, x, x, o, o, o, x, x, o, o, o, o, o, o},
+            {o, o, o, o, x, x, o, o, o, o, o, x, x, o, o, o, o, o}
+    };
 
     @SuppressWarnings("deprecation")
     public void activate(Player p) {
@@ -71,18 +83,6 @@ public class AngleCloak {
             angelCloaks.put(p.getName(), Integer.valueOf(particles));
         }
     }
-
-    private boolean[][] shape = {
-            {o, o, o, o, o, o, o, o, o, o, o, o, o, o, o, o, o, o},
-            {o, x, x, x, x, o, o, o, o, o, o, o, x, x, x, x, o, o},
-            {o, o, x, x, x, x, x, o, o, o, x, x, x, x, x, o, o, o},
-            {o, o, o, x, x, x, x, x, x, x, x, x, x, x, o, o, o, o},
-            {o, o, o, o, x, x, x, x, x, x, x, x, x, o, o, o, o, o},
-            {o, o, o, o, x, x, x, x, o, x, x, x, x, o, o, o, o, o},
-            {o, o, o, o, o, x, x, x, o, x, x, x, o, o, o, o, o, o},
-            {o, o, o, o, o, x, x, o, o, o, x, x, o, o, o, o, o, o},
-            {o, o, o, o, x, x, o, o, o, o, o, x, x, o, o, o, o, o}
-    };
 
     private void drawParticles(Location location) {
         double space = 0.2;
