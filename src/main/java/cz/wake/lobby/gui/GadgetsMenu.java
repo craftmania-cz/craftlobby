@@ -1,4 +1,4 @@
-package cz.wake.lobby.GUI;
+package cz.wake.lobby.gui;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;

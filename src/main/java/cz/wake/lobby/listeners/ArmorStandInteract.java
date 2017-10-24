@@ -1,7 +1,7 @@
 package cz.wake.lobby.listeners;
 
-import cz.wake.lobby.GUI.ArcadeShopGUI;
-import cz.wake.lobby.GUI.Profil;
+import cz.wake.lobby.gui.ArcadeShopGUI;
+import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.settings.SettingsMenu;

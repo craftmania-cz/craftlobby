@@ -1,4 +1,4 @@
-package cz.wake.lobby.GUI;
+package cz.wake.lobby.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

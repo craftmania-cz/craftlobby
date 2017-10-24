@@ -1,6 +1,6 @@
 package cz.wake.lobby.commands;
 
-import cz.wake.lobby.GUI.StatisticsMG;
+import cz.wake.lobby.gui.StatisticsMG;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;

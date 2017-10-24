@@ -1,9 +1,9 @@
 package cz.wake.lobby;
 
-import cz.wake.lobby.GUI.ArcadeShopGUI;
-import cz.wake.lobby.GUI.GadgetsMenu;
-import cz.wake.lobby.GUI.Profil;
-import cz.wake.lobby.GUI.Servers;
+import cz.wake.lobby.gui.ArcadeShopGUI;
+import cz.wake.lobby.gui.GadgetsMenu;
+import cz.wake.lobby.gui.Profil;
+import cz.wake.lobby.gui.Servers;
 import cz.wake.lobby.armorstands.ArmorStandManager;
 import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
 import cz.wake.lobby.commands.*;

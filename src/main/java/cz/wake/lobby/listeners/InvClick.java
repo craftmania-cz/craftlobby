@@ -1,8 +1,7 @@
 package cz.wake.lobby.listeners;
 
-import cz.wake.lobby.GUI.GadgetsMenu;
-import cz.wake.lobby.GUI.ParticlesMenu;
-import cz.wake.lobby.GUI.Stalker;
+import cz.wake.lobby.gui.GadgetsMenu;
+import cz.wake.lobby.gui.ParticlesMenu;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.RankCape;
@@ -19,8 +18,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

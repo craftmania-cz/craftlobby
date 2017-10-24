@@ -1,9 +1,9 @@
 package cz.wake.lobby.listeners;
 
-import cz.wake.lobby.GUI.GadgetsMenu;
-import cz.wake.lobby.GUI.Profil;
-import cz.wake.lobby.GUI.Servers;
-import cz.wake.lobby.GUI.VIPMenu;
+import cz.wake.lobby.gui.GadgetsMenu;
+import cz.wake.lobby.gui.Profil;
+import cz.wake.lobby.gui.Servers;
+import cz.wake.lobby.gui.VIPMenu;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.characters.Bonusy;
 import cz.wake.lobby.armorstands.statistics.BedWars;

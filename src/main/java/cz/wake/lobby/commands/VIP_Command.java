@@ -1,6 +1,6 @@
 package cz.wake.lobby.commands;
 
-import cz.wake.lobby.GUI.VIPMenu;
+import cz.wake.lobby.gui.VIPMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
