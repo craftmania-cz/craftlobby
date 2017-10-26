@@ -13,7 +13,7 @@ import java.util.HashMap;
 
 public class AngleCloak {
 
-    private static final HashMap<String, Integer> angelCloaks = new HashMap();
+    public static final HashMap<String, Integer> angelCloaks = new HashMap();
     private int particles;
     private boolean x = true;
     private boolean o = false;
