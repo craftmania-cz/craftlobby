@@ -65,9 +65,9 @@ public class Arcade implements ASInterface {
 
                     Location loc = new Location(Bukkit.getWorld("omain"), 1524, 17, -1223);
 
-                    //Block block = loc.getBlock();
-                    //block.setType(Material.STAINED_GLASS);
-                    //block.setData((byte) 3);
+                    Block block = loc.getBlock();
+                    block.setType(Material.STAINED_GLASS);
+                    block.setData((byte) 3);
 
                     c++;
                 } else if (c == 2) {
@@ -92,9 +92,9 @@ public class Arcade implements ASInterface {
 
                     Location loc = new Location(Bukkit.getWorld("omain"), 1524, 17, -1223);
 
-                    //Block block = loc.getBlock();
-                    //block.setType(Material.STAINED_GLASS);
-                    //block.setData((byte) 1);
+                    Block block = loc.getBlock();
+                    block.setType(Material.STAINED_GLASS);
+                    block.setData((byte) 1);
 
                     c++;
                 } else if (c == 3) {
@@ -119,9 +119,9 @@ public class Arcade implements ASInterface {
 
                     Location loc = new Location(Bukkit.getWorld("omain"), 1524, 17, -1223);
 
-                    //Block block = loc.getBlock();
-                    //block.setType(Material.STAINED_GLASS);
-                    //block.setData((byte) 11);
+                    Block block = loc.getBlock();
+                    block.setType(Material.STAINED_GLASS);
+                    block.setData((byte) 11);
 
                     c = 1;
                 }

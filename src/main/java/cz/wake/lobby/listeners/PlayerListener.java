@@ -119,11 +119,7 @@ public class PlayerListener implements Listener {
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
                 // Info o odmene
-                //b.onPlayerSpawn(p);
-
-                // Halloween Extra
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftlobby.cloaks.devil true");
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftlobby.pets.witch true");
+                b.onPlayerSpawn(p);
 
                 //Update MC verze
                 Main.getInstance().fetchData().updatePlayerVersion(p);

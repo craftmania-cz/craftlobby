@@ -836,26 +836,6 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void completeHalloween(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("INSERT INTO complete_halloween (nick) VALUES (?);");
-                    ps.setString(1, p.getName());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
     public final void addBoxesWithTime(final Player p, final int amount, final long milis) {
         new BukkitRunnable() {
             @Override
