@@ -543,10 +543,6 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("Bonusy")) {
                 rw.openRewardManager(p);
             }
-            if (e.getRightClicked().hasMetadata("halloween")) {
-                Profil pr = new Profil();
-                pr.openHalloweenMenu(p);
-            }
             if (e.getRightClicked().hasMetadata("survival")) {
                 sendToServer(p, "survival");
             }
