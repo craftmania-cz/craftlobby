@@ -58,12 +58,10 @@ public class Servers implements Listener {
         sw = ItemFactory.addGlow(sw);
         inv.setItem(21, sw);
 
-        ItemStack sg = ItemFactory.create(Material.SKULL_ITEM, (byte) 2, "§c?", "", "§8Jiz brzy...");
-        ItemStack otaznik = ItemFactory.createHead("test", "8f4ab92d-fc8d-4321-87fb-d6f819fe7eab",
-                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNlYzg1YmM4MDYxYmRhM2UxZDQ5Zjc1NDQ2NDllNjVjODI3MmNhNTZmNzJkODM4Y2FmMmNjNDgxNmI2OSJ9fX0=", "§c?", "§8Jiz brzy...");
-        inv.setItem(22, otaznik);
+        ItemStack tbb = ItemFactory.create(Material.WORKBENCH, (byte) 2, "§e§lTeam BuildBattle §6§lNOVINKA", "§8Arcade ","", "§7Zvladnes stavet sam?", "§7Dobra, a co takhle v s nekym?","", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+        inv.setItem(22, tbb);
 
-        ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte) 0, "§e§lGetDown §6§lNOVINKA", "§8Arcade PVP", "", "§7Dostan se co nejniz", "§7a ziskej co nejvic coinu,", "§7pak vsechny rozskej!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+        ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte) 0, "§a§lGetDown", "§8Arcade PVP", "", "§7Dostan se co nejniz", "§7a ziskej co nejvic coinu,", "§7pak vsechny rozskej!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(24, getdown);
 
         new BukkitRunnable() {

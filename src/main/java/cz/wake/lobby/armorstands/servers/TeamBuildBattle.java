@@ -14,7 +14,7 @@ import org.bukkit.util.EulerAngle;
 public class TeamBuildBattle implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1525.5, 18, -1214.5, -130, 0);
-    ArmorStand as, as2, as3;
+    ArmorStand as, as2, as3, as4;
 
     @Override
     public void spawn() {
@@ -46,7 +46,7 @@ public class TeamBuildBattle implements ASInterface {
         ItemStack item = new ItemStack(Material.WORKBENCH);
         as.setItemInHand(item);
 
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "buildbattle", "buildbattle", Main.getInstance());
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "teambuildbattle", "teambuildbattle", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
@@ -68,6 +68,18 @@ public class TeamBuildBattle implements ASInterface {
 
         as2.setCustomName("§5§lTeam BuildBattle");
 
+        loc1.add(0, 0.3, 0);
+
+        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
+
+        as4.setGravity(false);
+        as4.setCanPickupItems(false);
+        as4.setBasePlate(false);
+        as4.setVisible(false);
+        as4.setCustomNameVisible(true);
+
+        as4.setCustomName("§6§lNOVINKA!");
+
     }
 
     @Override
@@ -83,7 +95,7 @@ public class TeamBuildBattle implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§810/2017");
+        as3.setCustomName("§8Nacitani...");
 
     }
 
@@ -101,6 +113,6 @@ public class TeamBuildBattle implements ASInterface {
 
     @Override
     public void updateArmorStand(String s, int i) {
-
+        as3.setCustomName(Main.getInstance().getASM().formatPlayers(i));
     }
 }

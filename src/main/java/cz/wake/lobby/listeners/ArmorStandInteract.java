@@ -582,6 +582,9 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("arcadeshop")) {
                 arcadeShop.openMainGUI(p);
             }
+            if (e.getRightClicked().hasMetadata("teambuildbattle")) {
+                sendToServer(p, "dlobby");
+            }
             e.setCancelled(true);
         }
     }
