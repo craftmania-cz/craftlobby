@@ -103,7 +103,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Automaticka zmena casu v lobby podle Real casu
         if (getConfig().getBoolean("timer")) {
-            //tt.initTimeSetter();
+            tt.initTimeSetter();
         }
 
         // Id serveru
