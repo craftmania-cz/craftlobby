@@ -343,10 +343,12 @@ public class GadgetsAPI implements Listener {
             }
             if (e.getSlot() == 15) {
                 if (p.hasPermission("craftlobby.gadgets.tsunami")) {
-                    this.ml.prepareGadget(p, "Tsunami", Material.WATER_BUCKET, (byte) 0);
+                    //this.ml.prepareGadget(p, "Tsunami", Material.WATER_BUCKET, (byte) 0);
+                    p.sendMessage("§cTento Gadget je docasne deaktivovany!");
                 } else {
                     ItemStack i = ItemFactory.create(Material.WATER_BUCKET, (byte) 0, "§e§lTsunami", "§7Odsun vsechny jako tsunami.");
-                    Shop.open(p, "Tsunami", "craftlobby.gadgets.tsunami", i, 500);
+                    //Shop.open(p, "Tsunami", "craftlobby.gadgets.tsunami", i, 500);
+                    p.sendMessage("§cTento Gadget je docasne deaktivovany!");
                 }
             }
             if (e.getSlot() == 16) {
