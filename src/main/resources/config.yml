@@ -20,3 +20,8 @@ server: lobby
 
 # Cas timer
 timer: false
+
+## EVENTY ##
+events:
+ # Vanocni update zahrnujici kalendar + efekty
+ christmas: false

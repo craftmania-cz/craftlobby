@@ -1,5 +1,7 @@
 package cz.wake.lobby;
 
+import cz.wake.lobby.events.christmas.Kalendar;
+import cz.wake.lobby.events.christmas.Kalendar_command;
 import cz.wake.lobby.gui.ArcadeShopGUI;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -154,6 +156,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Daily Reward Reset
         rm.runTaskDelete();
+
+        if(getConfig().getBoolean("events.christmas")){
+
+        }
     }
 
     public void onDisable() {
@@ -225,6 +231,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
                 pm.registerEvents(new SkyKeys(), this);
             }
         }
+
+        if(getConfig().getBoolean("events.christmas")){
+            pm.registerEvents(new Kalendar(), this);
+        }
     }
 
     private void loadCommands() {
@@ -248,6 +258,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
         getCommand("craftcoins").setExecutor(new Coins_command());
+
+        if(getConfig().getBoolean("events.christmas")){
+            getCommand("kalendar").setExecutor(new Kalendar_command());
+        }
     }
 
     public static Main getInstance() {
