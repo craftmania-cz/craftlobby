@@ -443,6 +443,7 @@ public class InvClick implements Listener {
 
     }
 
+    @Deprecated
     public void sendToServer(Player player, String group, String end) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
@@ -458,12 +459,19 @@ public class InvClick implements Listener {
     }
 
 
-    public void sendToServer(Player player, String target) {
+    /**
+     Teleportuje hrace na server podle sekce
+
+     @param player Player
+     @param section Výběr sekce podle configu v Bungeecordu
+
+     **/
+    public void sendToServer(Player player, String section) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
         try {
             out.writeUTF("Connect");
-            out.writeUTF(target);
+            out.writeUTF(section);
         } catch (Exception e) {
             e.printStackTrace();
         }

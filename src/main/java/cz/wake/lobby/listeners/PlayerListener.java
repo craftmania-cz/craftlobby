@@ -405,7 +405,7 @@ public class PlayerListener implements Listener {
                     Main.getInstance().addPortal(p);
                     //Main.getInstance().getServersMenu().openServersMenu(p);
                 } else {
-                    ic.sendToServer(p, "lobby", "frontend");
+                    ic.sendToServer(p, "lobby4"); // @general-lobbies - hlavni lobby
                 }
                 new BukkitRunnable() {
                     @Override
