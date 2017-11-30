@@ -791,6 +791,7 @@ public class SQLManager {
                 }
             }
         }.runTaskAsynchronously(Main.getInstance());
+        p.sendMessage("§eDostal jsi " + coins + "CC.");
     }
 
     public final void takeSkyKeys(final Player p, final int coins) {

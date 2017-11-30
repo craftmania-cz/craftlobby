@@ -45,6 +45,8 @@ commands:
     description: Jjjj tokeny
   craftcoins:
     description: JJJJ coinyyy
+  kalendar:
+    description: Vanoce! :D
 
 permissions:
   craftlobby.pristup:

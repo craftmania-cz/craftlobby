@@ -2,6 +2,7 @@ package cz.wake.lobby.events.christmas;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
+import cz.wake.lobby.utils.TitleAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -17,39 +18,37 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
-    //TODO: Kompletne novy kalendar (animace)
-    //TODO: Novy Santa s efekty + soby + jezich atd..
-    //TODO: Zjednodusit SQL procesy
-    //TODO: Novy Gadgety, cloaks, headky atd.
+    //TODO: Questy
+    //TODO: Kocka hazejici rybu, sheep s oveckou, netopyr, parrot jako pet*, wake jako moprh, dog s dogem, kure kadici vejce
 
     public void openKalendar(final Player p) {
 
         Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
 
-        inv.setItem(2, canOpen(p, 1, 1480546800000L)); //Den 1.
-        inv.setItem(40, canOpen(p, 2, 1480633200000L)); // Den 2.
-        inv.setItem(28, canOpen(p, 3, 1480719600000L)); // Den 3.
-        inv.setItem(9, canOpen(p, 4, 1480806000000L)); // Den 4
-        inv.setItem(50, canOpen(p, 5, 1480892400000L)); // Den 5.
-        inv.setItem(33, canOpen(p, 6, 1480978800000L));
-        inv.setItem(15, canOpen(p, 7, 1481065200000L));
-        inv.setItem(46, canOpen(p, 8, 1481151600000L));
-        inv.setItem(36, canOpen(p, 9, 1481238000000L));
-        inv.setItem(8, canOpen(p, 10, 1481324400000L));
-        inv.setItem(26, canOpen(p, 11, 1481410800000L));
-        inv.setItem(52, canOpen(p, 12, 1481497200000L));
-        inv.setItem(5, canOpen(p, 13, 1481583600000L));
-        inv.setItem(12, canOpen(p, 14, 1481670000000L));
-        inv.setItem(20, canOpen(p, 15, 1481756400000L));
-        inv.setItem(44, canOpen(p, 16, 1481842800000L));
-        inv.setItem(30, canOpen(p, 17, 1481929200000L));
-        inv.setItem(23, canOpen(p, 18, 1482015600000L));
-        inv.setItem(18, canOpen(p, 19, 1482102000000L));
-        inv.setItem(42, canOpen(p, 20, 1482188400000L));
-        inv.setItem(48, canOpen(p, 21, 1482274800000L));
-        inv.setItem(22, canOpen(p, 22, 1482361200000L));
-        inv.setItem(25, canOpen(p, 23, 1482447600000L));
-        inv.setItem(38, canOpen(p, 24, 1482534000000L));
+        inv.setItem(2, canOpen(p, 1, 1512082800000L)); //Den 1.
+        inv.setItem(40, canOpen(p, 2, 1512169200000L)); // Den 2.
+        inv.setItem(28, canOpen(p, 3, 1512255600000L)); // Den 3.
+        inv.setItem(9, canOpen(p, 4, 1512342000000L)); // Den 4
+        inv.setItem(50, canOpen(p, 5, 1512428400000L)); // Den 5.
+        inv.setItem(33, canOpen(p, 6, 1512514800000L));
+        inv.setItem(15, canOpen(p, 7, 1512601200000L));
+        inv.setItem(46, canOpen(p, 8, 1512687600000L));
+        inv.setItem(36, canOpen(p, 9, 1512774000000L));
+        inv.setItem(8, canOpen(p, 10, 1512860400000L));
+        inv.setItem(26, canOpen(p, 11, 1512946800000L));
+        inv.setItem(52, canOpen(p, 12, 1513033200000L));
+        inv.setItem(5, canOpen(p, 13, 1513033200000L));
+        inv.setItem(12, canOpen(p, 14, 1513206000000L));
+        inv.setItem(20, canOpen(p, 15, 1513292400000L));
+        inv.setItem(44, canOpen(p, 16, 1513378800000L));
+        inv.setItem(30, canOpen(p, 17, 1513465200000L));
+        inv.setItem(23, canOpen(p, 18, 1513551600000L));
+        inv.setItem(18, canOpen(p, 19, 1513638000000L));
+        inv.setItem(42, canOpen(p, 20, 1513724400000L));
+        inv.setItem(48, canOpen(p, 21, 1513810800000L));
+        inv.setItem(22, canOpen(p, 22, 1513897200000L));
+        inv.setItem(25, canOpen(p, 23, 1513983600000L));
+        inv.setItem(38, canOpen(p, 24, 1514070000000L));
 
         inv.setItem(0, glass());
         inv.setItem(1, glass());
@@ -164,12 +163,13 @@ public class Kalendar implements Listener {
                 return;
             }
             if (e.getSlot() == 2) {
-                if (System.currentTimeMillis() >= 1480546800000L) { // 1.Den
+                if (System.currentTimeMillis() >= 1512082800000L) { // 1.Den
                     if (Main.getInstance().fetchData().checkDay(p, 1) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 1);
-                        p.sendMessage("§eZiskal jsi: §bFunCannon Ice Gagdet!");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bFunCannon Ice Gagdet");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.gadgets.funcannon.ender");
+                        p.sendMessage("§eZiskal jsi: §bEnderman Pet");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bEnderman Pet");
+                        setPermission(p,"craftlobby.pets.enderman");
+                        Main.getInstance().fetchData().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -184,14 +184,14 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 40) {
-                if (System.currentTimeMillis() >= 1480633200000L) { // 2.Den
+                if (System.currentTimeMillis() >= 1512169200000L) { // 2.Den
                     if (Main.getInstance().fetchData().checkDay(p, 2) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 2);
                         p.sendMessage("§eZiskal jsi: §bSanta Heads + 100CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Heads + 100CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.santa");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.piratesanta");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 100");
+                        setPermission(p, "craftlobby.heads.vanocni.piratesanta");
+                        setPermission(p, "craftlobby.heads.vanocni.santa");
+                        Main.getInstance().fetchData().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -206,13 +206,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 28) {
-                if (System.currentTimeMillis() >= 1480719600000L) { // 3.Den
+                if (System.currentTimeMillis() >= 1512255600000L) { // 3.Den
                     if (Main.getInstance().fetchData().checkDay(p, 3) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 3);
-                        p.sendMessage("§eZiskal jsi: §bSanta Cloak + 100CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Cloak + 100CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.cloaks.santa");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 100");
+                        p.sendMessage("§eZiskal jsi: §bSanta Cloak + 200CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Cloak + 200CC");
+                        setPermission(p, "craftlobby.cloaks.santa");
+                        Main.getInstance().fetchData().addCoins(p, 200);
                         p.closeInventory();
                         return;
                     } else {
@@ -227,12 +227,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 9) {
-                if (System.currentTimeMillis() >= 1480806000000L) { // 4.Den
+                if (System.currentTimeMillis() >= 1512342000000L) { // 4.Den
                     if (Main.getInstance().fetchData().checkDay(p, 4) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 4);
-                        p.sendMessage("§eZiskal jsi: §b1000CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b1000CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 1000");
+                        Main.getInstance().fetchData().addCoins(p, 100);
+                        setPermission(p, "craftlobby.morphs.snowman");
+                        p.sendMessage("§eZiskal jsi: §b100CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Morph + 1000CC");
                         p.closeInventory();
                         return;
                     } else {
@@ -247,13 +248,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 50) {
-                if (System.currentTimeMillis() >= 1480892400000L) { // 5.den
+                if (System.currentTimeMillis() >= 1512428400000L) { // 5.den
                     if (Main.getInstance().fetchData().checkDay(p, 5) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 5);
                         p.sendMessage("§eZiskal jsi: §bElfBoy & ElfGirl Heads");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bElfBoy & ElfGirl Heads");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.elfboy");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.elfgirl");
+                        setPermission(p, "craftlobby.heads.vanocni.elfboy");
+                        setPermission(p, "craftlobby.heads.vanocni.elfgirl");
                         p.closeInventory();
                         return;
                     } else {
@@ -268,12 +269,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 33) {
-                if (System.currentTimeMillis() >= 1480978800000L) { // 6.den
+                if (System.currentTimeMillis() >= 1512514800000L) { // 6.den
                     if (Main.getInstance().fetchData().checkDay(p, 6) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 6);
                         p.sendMessage("§eZiskal jsi: §bSnowman Pet");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Pet");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.snowman");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Pet + 100CC");
+                        setPermission(p,"craftlobby.pets.snowman");
+                        Main.getInstance().fetchData().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -288,15 +290,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 15) {
-                if (System.currentTimeMillis() >= 1481065200000L) { // 7.den
+                if (System.currentTimeMillis() >= 1512601200000L) { // 7.den
                     if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
-                        if(Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")){
-                            ep.openEventMenu(p);
-                        } else {
-                            p.sendMessage("§cEvent lze aktivovat pouze na Hl.Lobby");
-                            p.closeInventory();
-                            return;
-                        }
+                        p.sendMessage("§eZiskal jsi: §bChicken Morph + 100CC");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bChicken Morph + 100CC");
+                        Main.getInstance().fetchData().addCoins(p, 100);
+                        setPermission(p, "craftlobby.morphs.chicken");
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
@@ -309,14 +308,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 46) {
-                if (System.currentTimeMillis() >= 1481151600000L) { // 8.den
+                if (System.currentTimeMillis() >= 1512687600000L) { // 8.den
                     if (Main.getInstance().fetchData().checkDay(p, 8) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 8);
-                        p.sendMessage("§eZiskal jsi: §bSnowglobe Heads + 200CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowglobe Heads + 200CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.snowglobe");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.snowglobe2");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 200");
+                        p.sendMessage("§eZiskal jsi: §bSnowglobe Heads");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowglobe Heads");
+                        setPermission(p, "craftlobby.heads.vanocni.snowglobe");
+                        setPermission(p, "craftlobby.heads.vanocni.snowglobe2");
                         p.closeInventory();
                         return;
                     } else {
@@ -331,16 +329,16 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 36) {
-                if (System.currentTimeMillis() >= 1481238000000L) { // 9.den
+                if (System.currentTimeMillis() >= 1512774000000L) { // 9.den
                     if (Main.getInstance().fetchData().checkDay(p, 9) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 9);
                         p.sendMessage("§eZiskal jsi: §bPresent Heads + 200CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPresent Heads + 200CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftloby.heads.vanocni.blackpresent");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.bluepresent");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.greenpresent");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.goldpresent");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 200");
+                        Main.getInstance().fetchData().addCoins(p, 200);
+                        setPermission(p, "craftloby.heads.vanocni.blackpresent");
+                        setPermission(p, "craftlobby.heads.vanocni.bluepresent");
+                        setPermission(p, "craftlobby.heads.vanocni.greenpresent");
+                        setPermission(p, "craftlobby.heads.vanocni.goldpresent");
                         p.closeInventory();
                         return;
                     } else {
@@ -355,12 +353,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 8) {
-                if (System.currentTimeMillis() >= 1481324400000L) { // 10.den
+                if (System.currentTimeMillis() >= 1512860400000L) { // 10.den
                     if (Main.getInstance().fetchData().checkDay(p, 10) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 10);
-                        p.sendMessage("§eZiskal jsi: §bFire Trail Gadget");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bFire Trail Gadget");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.gadgets.firetrail");
+                        p.sendMessage("§eZiskal jsi: §bBlood Helix Particles");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bBlood Helix Particles");
+                        setPermission(p, "craftlobby.particles.bloodhelix");
                         p.closeInventory();
                         return;
                     } else {
@@ -375,13 +373,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 26) {
-                if (System.currentTimeMillis() >= 1481410800000L) { // 11.den
+                if (System.currentTimeMillis() >= 1512946800000L) { // 11.den
                     if (Main.getInstance().fetchData().checkDay(p, 11) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 11);
                         p.sendMessage("§eZiskal jsi: §bHorse White Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bHorse White Pet");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.horse.white");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.horse.white.baby");
+                        setPermission(p, "craftlobby.pets.horse.white");
+                        setPermission(p, "craftlobby.pets.horse.white.baby");
                         p.closeInventory();
                         return;
                     } else {
@@ -396,12 +394,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 52) {
-                if (System.currentTimeMillis() >= 1481497200000L) { // 12.den
+                if (System.currentTimeMillis() >= 1513033200000L) { // 12.den
                     if (Main.getInstance().fetchData().checkDay(p, 12) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 12);
-                        p.sendMessage("§eZiskal jsi: §b200CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b200CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 200");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bIronGolem Morph + 200CC");
+                        Main.getInstance().fetchData().addCoins(p, 200);
+                        setPermission(p, "craftlobby.morphs.irongolem");
                         p.closeInventory();
                         return;
                     } else {
@@ -416,12 +414,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 5) {
-                if (System.currentTimeMillis() >= 1481583600000L) { // 13.den
+                if (System.currentTimeMillis() >= 1513119600000L) { // 13.den
                     if (Main.getInstance().fetchData().checkDay(p, 13) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 13);
                         p.sendMessage("§eZiskal jsi: §bAngel Cloak");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAngel Cloak");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.cloaks.angel");
+                        setPermission(p, "craftlobby.cloaks.angel");
                         p.closeInventory();
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
@@ -435,12 +433,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 12) {
-                if (System.currentTimeMillis() >= 1481670000000L) { // 14.den
+                if (System.currentTimeMillis() >= 1513206000000L) { // 14.den
                     if (Main.getInstance().fetchData().checkDay(p, 14) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 14);
                         p.sendMessage("§eZiskal jsi: §bVsechny Bannery v Gagdets");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bVsechny Bannery");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.banner.*");
+                        setPermission(p, "craftlobby.banner.*");
                         p.closeInventory();
                         return;
                     } else {
@@ -455,12 +453,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 20) {
-                if (System.currentTimeMillis() >= 1481756400000L) { // 15.den
+                if (System.currentTimeMillis() >= 1513292400000L) { // 15.den
                     if (Main.getInstance().fetchData().checkDay(p, 15) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 15);
                         p.sendMessage("§eZiskal jsi: §bAntiGravity Gadget");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAntiGravity Gadget");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.gadget.antigravity");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAntiGravity Gadget + 100CC");
+                        setPermission(p, "craftlobby.gadget.antigravity");
+                        Main.getInstance().fetchData().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -475,12 +474,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 44) {
-                if (System.currentTimeMillis() >= 1481842800000L) { // 16.den
+                if (System.currentTimeMillis() >= 1513378800000L) { // 16.den
                     if (Main.getInstance().fetchData().checkDay(p, 16) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 16);
                         p.sendMessage("§eZiskal jsi: §bSanta Hat Particles");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Hat Particles");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.particles.santahat");
+                        setPermission(p, "craftlobby.particles.santahat");
                         p.closeInventory();
                         return;
                     } else {
@@ -495,12 +494,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 30) {
-                if (System.currentTimeMillis() >= 1481929200000L) { // 17.den
+                if (System.currentTimeMillis() >= 1513465200000L) { // 17.den
                     if (Main.getInstance().fetchData().checkDay(p, 17) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 17);
-                        p.sendMessage("§eZiskal jsi: §bCreeper Pet");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bCreeper Pet");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.creeper");
+                        p.sendMessage("§eZiskal jsi: §6Evoker + Vex Pets");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§6Evoker + Vex Pets");
+                        setPermission(p, "craftlobby.pets.evoker");
+                        setPermission(p, "craftlobby.pets.vex");
                         p.closeInventory();
                         return;
                     } else {
@@ -515,12 +515,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 23) {
-                if (System.currentTimeMillis() >= 1482015600000L) { // 18.den
+                if (System.currentTimeMillis() >= 1513551600000L) { // 18.den
                     if (Main.getInstance().fetchData().checkDay(p, 18) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 18);
                         p.sendMessage("§eZiskal jsi: §bCandy Cane Particles");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bCandy Cane Particles");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.particles.candycane");
+                        setPermission(p, "craftlobby.particles.candycane");
                         p.closeInventory();
                         return;
                     } else {
@@ -535,12 +535,13 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 18) {
-                if (System.currentTimeMillis() >= 1482102000000L) { // 19.den
+                if (System.currentTimeMillis() >= 1513638000000L) { // 19.den
                     if (Main.getInstance().fetchData().checkDay(p, 19) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 19);
                         p.sendMessage("§eZiskal jsi: §bPolar Bear Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPolar Bear Pet");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.polarbear");
+                        setPermission(p, "craftlobby.pets.polarbear");
+                        setPermission(p, "craftlobby.pets.polarbear.baby");
                         p.closeInventory();
                         return;
                     } else {
@@ -555,12 +556,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 42) {
-                if (System.currentTimeMillis() >= 1482188400000L) { // 20.den
+                if (System.currentTimeMillis() >= 1513724400000L) { // 20.den
                     if (Main.getInstance().fetchData().checkDay(p, 20) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 20);
                         p.sendMessage("§eZiskal jsi: §bDevil Cloak");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bDevil Cloak");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.cloaks.devil");
+                        setPermission(p, "craftlobby.cloaks.devil");
                         p.closeInventory();
                         return;
                     } else {
@@ -575,14 +576,14 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 48) {
-                if (System.currentTimeMillis() >= 1482274800000L) { // 21.den
+                if (System.currentTimeMillis() >= 1513810800000L) { // 21.den
                     if (Main.getInstance().fetchData().checkDay(p, 21) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 21);
                         p.sendMessage("§eZiskal jsi: §bSob + CommandBlock + Snowman Head");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSob + CommandBlock + Snowman Head");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.sob");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.snowman");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.heads.vanocni.commandblock");
+                        setPermission(p, "craftlobby.heads.vanocni.sob");
+                        setPermission(p, "craftlobby.heads.vanocni.snowman");
+                        setPermission(p, "craftlobby.heads.vanocni.commandblock");
                         p.closeInventory();
                         return;
                     } else {
@@ -597,12 +598,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 22) {
-                if (System.currentTimeMillis() >= 1482274800000L) { // 22.den
+                if (System.currentTimeMillis() >= 1513897200000L) { // 22.den
                     if (Main.getInstance().fetchData().checkDay(p, 22) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 22);
-                        p.sendMessage("§eZiskal jsi: §bDiamondFountain Gadget");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bDiamondFountain Gadget");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.gadgets.diamondfountain");
+                        p.sendMessage("§eZiskal jsi: §cLlama Pets");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§cLlama Pets");
+                        setPermission(p, "craftlobby.pets.llama.*");
                         p.closeInventory();
                         return;
                     } else {
@@ -617,12 +618,14 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 25) {
-                if (System.currentTimeMillis() >= 1482447600000L) { // 23.den
+                if (System.currentTimeMillis() >= 1513983600000L) { // 23.den
                     if (Main.getInstance().fetchData().checkDay(p, 23) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 23);
-                        p.sendMessage("§eZiskal jsi: §b500CC");
+                        p.sendMessage("§eZiskal jsi: §b500CC + Vsechny Heads!");
+                        Main.getInstance().fetchData().addCoins(p, 500);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b500CC");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
+                        setPermission(p, "craftlobby.heads.*");
                         p.closeInventory();
                         return;
                     } else {
@@ -637,13 +640,12 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 38) {
-                if (System.currentTimeMillis() >= 1482534000000L) { // 24.den
+                if (System.currentTimeMillis() >= 1514070000000L) { // 24.den
                     if (Main.getInstance().fetchData().checkDay(p, 24) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 24);
-                        p.sendMessage("§eZiskal jsi: §bSlime Pet");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSlime Pet");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "pex user " + p.getName() + " add craftlobby.pets.slime.*");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
+                        /*
+                            QUEST! //TODO: :3
+                         */
                         p.closeInventory();
                         return;
                     } else {
@@ -658,6 +660,10 @@ public class Kalendar implements Listener {
                 }
             }
         }
+    }
+
+    private void setPermission(Player p, String permission){
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set " + permission + " true");
     }
 
 }
