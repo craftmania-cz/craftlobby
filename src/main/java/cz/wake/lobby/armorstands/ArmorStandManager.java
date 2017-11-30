@@ -2,6 +2,8 @@ package cz.wake.lobby.armorstands;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.characters.*;
+import cz.wake.lobby.armorstands.events.Matka;
+import cz.wake.lobby.armorstands.events.Otec;
 import cz.wake.lobby.armorstands.events.Santa;
 import cz.wake.lobby.armorstands.servers.*;
 import org.bukkit.entity.ArmorStand;
@@ -45,6 +47,8 @@ public class ArmorStandManager {
             armorstands.add(new TeamBuildBattle());
             armorstands.add(new Filip6());
             armorstands.add(new Santa());
+            armorstands.add(new Otec());
+            armorstands.add(new Matka());
         }
     }
 

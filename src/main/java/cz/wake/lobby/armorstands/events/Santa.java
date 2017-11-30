@@ -8,13 +8,11 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.EulerAngle;
 
 public class Santa implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1498.5, 17, -1211.5, 180, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1497.9, 17, -1211.5, 180, 0);
     private ArmorStand as, as2, as3, as4;
 
     @Override
@@ -92,7 +90,9 @@ public class Santa implements ASInterface {
 
     @Override
     public void remove() {
-
+        as.remove();
+        as2.remove();
+        as3.remove();
     }
 
     @Override
