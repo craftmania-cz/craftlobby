@@ -47,6 +47,8 @@ commands:
     description: JJJJ coinyyy
   kalendar:
     description: Vanoce! :D
+  completevanoce:
+    description: Njn vanoce!
 
 permissions:
   craftlobby.pristup:
