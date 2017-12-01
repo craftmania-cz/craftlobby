@@ -129,10 +129,13 @@ public class PlayerListener implements Listener {
                 for (int i = 0; i < 30; i++) {
                     p.sendMessage(" ");
                 }
+
+                // Vanocni kalendar
+                Main.getInstance().fetchData().addCalendarDefaultValue(p);
             }
 
         } catch (Exception ex) {
-            log.error("", ex);
+            ex.printStackTrace();
         }
     }
 
@@ -201,6 +204,9 @@ public class PlayerListener implements Listener {
         if (((item.getItemStack().getItemMeta().getDisplayName().contains("nopickup"))) && item != null) {
             e.setCancelled(true);
             e.getItem().remove();
+        }
+        if (((item.getItemStack().getItemMeta().getDisplayName().contains("EGG"))) && item != null) {
+            e.setCancelled(true);
         }
     }
 

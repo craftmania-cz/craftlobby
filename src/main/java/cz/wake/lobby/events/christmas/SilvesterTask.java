@@ -1,4 +1,4 @@
-package cz.wake.lobby.utils;
+package cz.wake.lobby.events.christmas;
 
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class SilvesterTask {
 
-    public static int delay = 1; //vte¯in
+    public static int delay = 1; // seconds
     static Random r = new Random();
 
     public static FireworkEffect getRandomFireworkEffect() {

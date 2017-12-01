@@ -26,6 +26,10 @@ public class MorphAPI implements Listener {
 
         ItemStack golem = ItemFactory.createHead("golem", "cb6bbe69-f97f-4635-854c-5cee7f75ee2e", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzQ0MmMyMjhmMDk5ZmRmYzFjNmI0NmRmYzgwYjI1MmQ4MWY3ZmIxNzM5ZGViMTZlZTdhNTk3YzE3ZjdjOSJ9fX0=", "§e§lIronGolem Morph", "", "§7Premen se na IronGolema", "§7nez se usmazis v lave!", "", "§aKlikni pro aktivaci!");
 
+        ItemStack snowman = ItemFactory.createHead("snowman", "30c81c0b-ce4a-4bf8-8af1-4b573e04b373", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTk3ZTkwZTEzNzkzMTg5NGQ1YzA3NWJjMzM3NDE1NzU3MzQ3MjFiNGE1ZmVmOWIzYzk3YTJlZmFkZDU0YTcifX19", "§e§lSnowman Morph", "", "§7Premen se na Snehulaka", "§7a sestrel vsechny!", "", "§aKlikni pro aktivaci!");
+
+        ItemStack chicken = ItemFactory.createHead("chicken", "192e9a04-f27b-4ff2-9402-90df71c3e5cb", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDQyOWZmMWQyMDE1Y2IxMTM5ODQ3MWJiMmY4OTVmN2I0YzNjY2VjMjAxZTRhZDdhODZmZjI0Yjc0NDg3OGMifX19", "§e§lChicken Morph", "", "§7Premen se na kure", "§7a ukaz vsem, kdo tu vyrobi","§7nejvic vajicek!", "", "§aKlikni pro aktivaci!");
+
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§cZpet do menu");
 
         ItemStack deaktivace = ItemFactory.create(Material.BARRIER, (byte) 0, "§c✖ Deaktivace ✖", "§7Kliknutim deaktivujes banner.");
@@ -51,6 +55,16 @@ public class MorphAPI implements Listener {
             inv.setItem(12, golem);
         } else {
             inv.setItem(12, nakup("Iron Golem Morph", 900));
+        }
+        if (p.hasPermission("craftlobby.morphs.snowman")){
+            inv.setItem(13, snowman);
+        } else {
+            inv.setItem(13, nakup("Snowman Morph", 1500));
+        }
+        if (p.hasPermission("craftlobby.morphs.chicken")){
+            inv.setItem(14, chicken);
+        } else {
+            inv.setItem(14, nakup("Chicken Morph", 900));
         }
 
         inv.setItem(49, shopItem);
@@ -100,6 +114,22 @@ public class MorphAPI implements Listener {
                 } else {
                     ItemStack golem = ItemFactory.createHead("golem", "cb6bbe69-f97f-4635-854c-5cee7f75ee2e", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzQ0MmMyMjhmMDk5ZmRmYzFjNmI0NmRmYzgwYjI1MmQ4MWY3ZmIxNzM5ZGViMTZlZTdhNTk3YzE3ZjdjOSJ9fX0=", "§e§lIronGolem Morph", "", "§7Premen se na IronGolema", "§7nez se usmazis v lave!", "", "§aKlikni pro aktivaci!");
                     Shop.open(p, "Iron Golem Morph", "craftlobby.morphs.irongolem", golem, 900);
+                }
+            }
+            if (e.getSlot() == 13){
+                if (p.hasPermission("craftlobby.morphs.snowman")){
+                    SnowmanMorph.activate(p);
+                } else {
+                    ItemStack snowman = ItemFactory.createHead("snowman", "30c81c0b-ce4a-4bf8-8af1-4b573e04b373", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTk3ZTkwZTEzNzkzMTg5NGQ1YzA3NWJjMzM3NDE1NzU3MzQ3MjFiNGE1ZmVmOWIzYzk3YTJlZmFkZDU0YTcifX19", "§b§lSnowman Morph", "", "§7Premen se na Snehulaka", "§7a sestrel vsechny!", "", "§aKlikni pro aktivaci!");
+                    Shop.open(p, "Snowman Morph", "craftlobby.morphs.snowman", snowman, 1500);
+                }
+            }
+            if(e.getSlot() == 14){
+                if(p.hasPermission("craftlobby.morphs.chicken")){
+                    ChickenMorph.activate(p);
+                } else {
+                    ItemStack chicken = ItemFactory.createHead("chicken", "192e9a04-f27b-4ff2-9402-90df71c3e5cb", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDQyOWZmMWQyMDE1Y2IxMTM5ODQ3MWJiMmY4OTVmN2I0YzNjY2VjMjAxZTRhZDdhODZmZjI0Yjc0NDg3OGMifX19", "§e§lChicken Morph", "", "§7Premen se na kure", "§7a ukaz vsem, kdo tu vyrobi","§7nejvic vajicek!", "", "§aKlikni pro aktivaci!");
+                    Shop.open(p, "Chicken Morph", "craftlobby.morphs.chicken", chicken, 900);
                 }
             }
 

@@ -1,5 +1,8 @@
 package cz.wake.lobby;
 
+import cz.wake.lobby.events.christmas.Kalendar;
+import cz.wake.lobby.events.christmas.Kalendar_command;
+import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.ArcadeShopGUI;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -12,9 +15,6 @@ import cz.wake.lobby.gadgets.banners.BannerAPI;
 import cz.wake.lobby.gadgets.cloaks.CloaksAPI;
 import cz.wake.lobby.gadgets.gadget.*;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
-import cz.wake.lobby.gadgets.morphs.MorphAPI;
-import cz.wake.lobby.gadgets.morphs.PigMorph;
-import cz.wake.lobby.gadgets.morphs.VillagerMorph;
 import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.gadgets.pets.PetsAPI;
 import cz.wake.lobby.listeners.*;
@@ -154,6 +154,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Daily Reward Reset
         rm.runTaskDelete();
+
+        if(getConfig().getBoolean("events.christmas")){
+
+        }
     }
 
     public void onDisable() {
@@ -212,6 +216,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new VillagerMorph(), this);
         pm.registerEvents(new PigMorph(), this);
         pm.registerEvents(new Profil(), this);
+        pm.registerEvents(new SnowmanMorph(), this);
+        pm.registerEvents(new ChickenMorph(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {
@@ -224,6 +230,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             if (getConfig().getString("server").contains("slobby")) {
                 pm.registerEvents(new SkyKeys(), this);
             }
+        }
+
+        if(getConfig().getBoolean("events.christmas")){
+            pm.registerEvents(new Kalendar(), this);
         }
     }
 
@@ -248,6 +258,11 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
         getCommand("craftcoins").setExecutor(new Coins_command());
+        getCommand("completevanoce").setExecutor(new Completevanoce());
+
+        if(getConfig().getBoolean("events.christmas")){
+            getCommand("kalendar").setExecutor(new Kalendar_command());
+        }
     }
 
     public static Main getInstance() {

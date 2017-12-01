@@ -1,5 +1,6 @@
 package cz.wake.lobby.listeners;
 
+import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.gui.ArcadeShopGUI;
 import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.Main;
@@ -36,6 +37,7 @@ public class ArmorStandInteract implements Listener {
     private ArrayList<Player> wait = new ArrayList<>();
     private ArcadeShopGUI arcadeShop = new ArcadeShopGUI();
     private RewardsManager rw = new RewardsManager();
+    private Kalendar k = new Kalendar();
 
     //TODO: Opravit kdyz na serveru nikdo neni = null
 
@@ -74,6 +76,9 @@ public class ArmorStandInteract implements Listener {
                         }
                     }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
                 }
+            }
+            if (e.getRightClicked().hasMetadata("Kalendar")){
+                k.openKalendar(p);
             }
             if (e.getRightClicked().hasMetadata("Kubrastig")) {
                 if (!delfik) {
