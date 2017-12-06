@@ -12,7 +12,7 @@ import org.bukkit.util.EulerAngle;
 
 public class Otec implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1495.5, 17, -1259.5, -114, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1495.5, 17, -1258.5, -114, 0);
     private ArmorStand as;
 
     @Override

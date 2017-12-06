@@ -292,10 +292,12 @@ public class Kalendar implements Listener {
             if (e.getSlot() == 15) {
                 if (System.currentTimeMillis() >= 1512601200000L) { // 7.den
                     if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
+                        Main.getInstance().fetchData().addCalendarDay(p, 7);
                         p.sendMessage("§eZiskal jsi: §bChicken Morph + 100CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bChicken Morph + 100CC");
                         Main.getInstance().fetchData().addCoins(p, 100);
                         setPermission(p, "craftlobby.morphs.chicken");
+                        p.closeInventory();
                     } else {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
