@@ -1,4 +1,4 @@
-package cz.wake.lobby.armorstands.servers;
+package cz.wake.lobby.armorstands.characters;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.ASInterface;
@@ -9,16 +9,14 @@ import org.bukkit.Material;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.EulerAngle;
 
-public class Murder implements ASInterface {
+public class WinterGames implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1527.5, 18, -1212.5, -140, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1539.5, 18, -1222.5, 180, 0);
     private ArmorStand as, as2, as3;
 
     @Override
     public void spawn() {
-
         as = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
         as.setGravity(false);
@@ -29,28 +27,22 @@ public class Murder implements ASInterface {
 
         // x - nahoru/dolu, y - rotace, z - otáčení v ose
 
-        as.setRightArmPose(new EulerAngle(5.8, 0, 0.3));
-
-        ItemStack head = ItemFactory.createHead("test", "234d66f5-6767-4201-b649-5f60d3a1433b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhhNGUzNDFkOGNkMzRkYTJkNzEwYzJhYTQ4MzQxNDFhMGQzNzczYTgwZWE3OGNlNmNlZmNiYzY2ZmVjYTIifX19");
+        ItemStack head = ItemFactory.createHead("test", "29c8ebfe-8260-4c9c-8a45-ba2d62c6a8aa", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTg3YmRhNzkzMTY4MzNhYWFjMzQ2YWMxY2ZjYTgyNDI1NGMzMjJhMTA1YjZjODU4YTljNWE3OGU3NTQ2NmY4In19fQ==");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 42, 42, 42);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 176, 23, 31);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 42, 42, 42);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 176, 23, 31);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 42, 42, 42);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 176, 23, 31);
         as.setBoots(boots);
-
-        ItemStack item = new ItemStack(Material.IRON_SWORD);
-        as.setItemInHand(item);
-
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "murder", "murder", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
 
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "Winter", "Winter", Main.getInstance());
     }
 
     @Override
@@ -66,7 +58,7 @@ public class Murder implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§7§lMurder");
+        as2.setCustomName("§c§lVanocni MiniGames");
 
     }
 
@@ -83,7 +75,8 @@ public class Murder implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§812/2017");
+        as3.setCustomName("§7Limitovane minihry");
+
     }
 
     @Override
@@ -94,6 +87,8 @@ public class Murder implements ASInterface {
     @Override
     public void remove() {
         as.remove();
+        as2.remove();
+        as3.remove();
     }
 
     @Override

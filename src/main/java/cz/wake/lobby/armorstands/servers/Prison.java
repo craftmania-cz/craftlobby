@@ -72,7 +72,7 @@ public class Prison implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§711/2017");
+        as3.setCustomName("§712/2017");
     }
 
     @Override

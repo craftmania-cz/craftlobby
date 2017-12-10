@@ -49,6 +49,7 @@ public class ArmorStandManager {
             armorstands.add(new Santa());
             armorstands.add(new Otec());
             armorstands.add(new Matka());
+            armorstands.add(new WinterGames());
         }
     }
 

@@ -18,7 +18,7 @@ public class Servers implements Listener {
 
     public void openServersMenu(Player p) {
 
-        Inventory inv = Bukkit.createInventory(null, 36, "Vyber serveru");
+        Inventory inv = Bukkit.createInventory(null, 45, "Vyber serveru");
 
         ItemStack surv = ItemFactory.create(Material.GOLD_PICKAXE, (byte) 0, "§e§lSurvival", "§8Survival, Economy, PVP", "",
                 "§7Stary dobry survival, s mnoha", "§7vylepsenim a prikazy.", "", "§b▸ Kliknutim te portnu", getPlayers("survival"));
@@ -58,11 +58,14 @@ public class Servers implements Listener {
         sw = ItemFactory.addGlow(sw);
         inv.setItem(21, sw);
 
-        ItemStack tbb = ItemFactory.create(Material.WORKBENCH, (byte) 2, "§e§lTeam BuildBattle §6§lNOVINKA", "§8Arcade ","", "§7Zvladnes stavet sam?", "§7Dobra, a co takhle v s nekym?","", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+        ItemStack tbb = ItemFactory.create(Material.WORKBENCH, (byte) 2, "§e§lTeam BuildBattle", "§8Arcade ","", "§7Zvladnes stavet sam?", "§7Dobra, a co takhle v s nekym?","", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(22, tbb);
 
         ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte) 0, "§a§lGetDown", "§8Arcade PVP", "", "§7Dostan se co nejniz", "§7a ziskej co nejvic coinu,", "§7pak vsechny rozskej!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(24, getdown);
+
+        ItemStack winter = ItemFactory.create(Material.REDSTONE_BLOCK, (byte)0, "§c§lVanocni MiniGames", "§8Arcade", "", "§7Chces nekomu hodit", "§7snehovou kouli do obliceje?", "§7Nebo ho poradne podkopat?", "§7Zde je to prave misto!","","§fSpleef","§fBlockParty","§fPvP", "§fKoulovacka", "§fOre Bringer","","§b▸ Kliknutim te portnu");
+        inv.setItem(31, winter);
 
         new BukkitRunnable() {
             int c = 1;
