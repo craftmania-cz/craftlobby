@@ -149,7 +149,7 @@ public class GadgetsAPI implements Listener {
         } else {
             gadgetsInv.setItem(20, nakup("FunCannon Ender", 200));
         }
-        if (p.hasPermission("craftlobby.gadgets.antigravity")) {
+        if (p.hasPermission("craftlobby.gadgets.antigravity")|| p.hasPermission("craftlobby.gadget.antigravity")) {
             ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§e§lAntiGravity", "§7Zrus gravitaci okolo sebe...");
             gadgetsInv.setItem(21, i);
         } else {
