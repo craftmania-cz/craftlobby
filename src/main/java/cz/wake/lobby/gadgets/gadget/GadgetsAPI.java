@@ -392,7 +392,7 @@ public class GadgetsAPI implements Listener {
                 }
             }
             if (e.getSlot() == 21) {
-                if (p.hasPermission("craftlobby.gadgets.antigravity")) {
+                if (p.hasPermission("craftlobby.gadgets.antigravity") || p.hasPermission("craftlobby.gadget.antigravity")) {
                     this.ml.prepareGadget(p, "AntiGravity", Material.EYE_OF_ENDER, (byte) 0);
                 } else {
                     ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§e§lAntiGravity", "§7Zrus gravitaci okolo sebe...");
