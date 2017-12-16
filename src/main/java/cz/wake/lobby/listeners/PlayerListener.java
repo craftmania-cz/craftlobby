@@ -184,6 +184,13 @@ public class PlayerListener implements Listener {
         }
     }
 
+    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
+    public void onBlockForm(EntityBlockFormEvent e){
+        if (e.getEntity().getType() == EntityType.SNOWMAN) {
+            e.setCancelled(true);
+        }
+    }
+
     @EventHandler
     public void onItemMove(InventoryClickEvent e) {
         Player p = (Player) e.getInventory().getHolder();
