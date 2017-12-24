@@ -645,9 +645,16 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= 1514070000000L) { // 24.den
                     if (Main.getInstance().fetchData().checkDay(p, 24) == 0) {
                         Main.getInstance().fetchData().addCalendarDay(p, 24);
-                        /*
-                            QUEST! //TODO: :3
-                         */
+                        p.sendMessage("§eZiskal jsi: §b3000CC + hoodne Pets!");
+                        Main.getInstance().fetchData().addCoins(p, 3000);
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b3000CC + hoodne Pets!");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 3000");
+                        setPermission(p, "craftlobby.pets.slime.*");
+                        setPermission(p, "craftlobby.pets.slime");
+                        setPermission(p, "craftlobby.pets.zombie.*");
+                        setPermission(p, "craftlobby.pets.zombie");
+                        setPermission(p, "craftlobby.pets.cat.*");
+                        setPermission(p, "craftlobby.pets.villager.*");
                         p.closeInventory();
                         return;
                     } else {
