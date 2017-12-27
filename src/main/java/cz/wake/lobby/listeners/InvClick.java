@@ -122,8 +122,36 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 24) {
                     sendToServer(player, "dlobby");
                 }
-                if (event.getSlot() == 31){
+                if (event.getSlot() == 32){
                     sendToServer(player, "winterlobby");
+                }
+                if (event.getSlot() == 30){
+                    if(event.isLeftClick()){
+                        if(Main.getInstance().fetchData().isInWhitelist(player)){
+                            if(Main.getInstance().fetchData().unlockState().equalsIgnoreCase("1")){
+                                player.sendMessage("§cServer je aktualne uzamknut, pockej prosim na odemknuti!");
+                                player.closeInventory();
+                            } else {
+                                sendToServer(player, "turnaj");
+                            }
+                        } else{
+                            player.sendMessage("§cNejsi na whitelistu nebo tvuj cas jeste nenastal!");
+                            player.closeInventory();
+                        }
+                    } else {
+                        String url = Main.getInstance().fetchData().getSteamURL();
+                        if(url.equalsIgnoreCase("null")){
+                            player.sendMessage("");
+                            player.sendMessage("§cOdkaz na stream neni k dispozici!");
+                            player.sendMessage("");
+                            player.closeInventory();
+                        } else {
+                            player.sendMessage("");
+                            player.sendMessage("§bOdkaz na stream: §f" + Main.getInstance().fetchData().getSteamURL());
+                            player.sendMessage("");
+                            player.closeInventory();
+                        }
+                    }
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//

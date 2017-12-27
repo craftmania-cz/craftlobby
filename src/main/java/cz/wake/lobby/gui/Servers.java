@@ -8,8 +8,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Servers implements Listener {
@@ -65,7 +67,26 @@ public class Servers implements Listener {
         inv.setItem(24, getdown);
 
         ItemStack winter = ItemFactory.create(Material.REDSTONE_BLOCK, (byte)0, "§c§lVanocni MiniGames", "§8Arcade", "", "§7Chces nekomu hodit", "§7snehovou kouli do obliceje?", "§7Nebo ho poradne podkopat?", "§7Zde je to prave misto!","","§fSpleef","§fBlockParty","§fPvP", "§fKoulovacka", "§fOre Bringer","","§b▸ Kliknutim te portnu");
-        inv.setItem(31, winter);
+        inv.setItem(32, winter);
+
+        ItemStack turnaj = new ItemStack(Material.MAGMA_CREAM);
+        ItemMeta metaTurnaj = turnaj.getItemMeta();
+        metaTurnaj.setDisplayName("§6§lGIGA Turnaj 2017");
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add("§c ");
+        lore.add("§7Finalni turnaj v roce 2017");
+        lore.add("§7pro hrace naseho serveru!");
+        lore.add("");
+        lore.add("§fPristup na server: " + getPristup(p));
+        lore.add("");
+        lore.add("§8Pristup dostanou pouze hraci");
+        lore.add("§8ktery maji v tu dobu hrat!");
+        lore.add("");
+        lore.add("§bLevym kliknutim se pripojis!");
+        lore.add("§bPravym kliknutim zobrazis odkaz na stream");
+        metaTurnaj.setLore(lore);
+        turnaj.setItemMeta(metaTurnaj);
+        inv.setItem(30, turnaj);
 
         new BukkitRunnable() {
             int c = 1;
@@ -98,6 +119,17 @@ public class Servers implements Listener {
     private byte randomByte(byte start, byte end) {
         int cislo = start + random.nextInt(end - start + 1);
         return (byte) cislo;
+    }
+
+    private String getPristup(Player p){
+        if(Main.getInstance().fetchData().isInWhitelist(p)){
+            if(Main.getInstance().fetchData().unlockState().equalsIgnoreCase("1")){
+                return "§c§lNE";
+            } else {
+                return "§a§lANO";
+            }
+        }
+        return "§c§lNE";
     }
 
     private String getPlayers(final String server) {
