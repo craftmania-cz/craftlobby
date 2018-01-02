@@ -18,10 +18,12 @@ debug: false
 # Typ serveru
 server: lobby
 
-# Cas timer
+# Zmena casu podle real-time
 timer: false
 
 ## EVENTY ##
 events:
  # Vanocni update zahrnujici kalendar + efekty
  christmas: false
+ # Efekty po lobby (ohnostroje)
+ silvester: false

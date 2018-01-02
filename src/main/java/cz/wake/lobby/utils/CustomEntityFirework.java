@@ -1,10 +1,12 @@
 package cz.wake.lobby.utils;
 
 import net.minecraft.server.v1_11_R1.EntityFireworks;
+import net.minecraft.server.v1_11_R1.PacketPlayOutEntityStatus;
 import net.minecraft.server.v1_11_R1.World;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.craftbukkit.v1_11_R1.CraftWorld;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -37,7 +39,7 @@ public class CustomEntityFirework extends EntityFireworks {
                     world.broadcastEntityEffect(this, (byte) 17);
             this.die();
         }
-    }*/
+    } */
 
     public static void spawn(Location location, FireworkEffect effect, Player... players) {
         try {

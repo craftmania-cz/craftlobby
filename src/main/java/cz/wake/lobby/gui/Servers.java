@@ -20,7 +20,7 @@ public class Servers implements Listener {
 
     public void openServersMenu(Player p) {
 
-        Inventory inv = Bukkit.createInventory(null, 45, "Vyber serveru");
+        Inventory inv = Bukkit.createInventory(null, 36, "Vyber serveru");
 
         ItemStack surv = ItemFactory.create(Material.GOLD_PICKAXE, (byte) 0, "§e§lSurvival", "§8Survival, Economy, PVP", "",
                 "§7Stary dobry survival, s mnoha", "§7vylepsenim a prikazy.", "", "§b▸ Kliknutim te portnu", getPlayers("survival"));
@@ -67,7 +67,7 @@ public class Servers implements Listener {
         inv.setItem(24, getdown);
 
         ItemStack winter = ItemFactory.create(Material.REDSTONE_BLOCK, (byte)0, "§c§lVanocni MiniGames", "§8Arcade", "", "§7Chces nekomu hodit", "§7snehovou kouli do obliceje?", "§7Nebo ho poradne podkopat?", "§7Zde je to prave misto!","","§fSpleef","§fBlockParty","§fPvP", "§fKoulovacka", "§fOre Bringer","","§b▸ Kliknutim te portnu");
-        inv.setItem(32, winter);
+        //inv.setItem(32, winter);
 
         ItemStack turnaj = new ItemStack(Material.MAGMA_CREAM);
         ItemMeta metaTurnaj = turnaj.getItemMeta();
@@ -86,7 +86,7 @@ public class Servers implements Listener {
         lore.add("§bPravym kliknutim zobrazis odkaz na stream");
         metaTurnaj.setLore(lore);
         turnaj.setItemMeta(metaTurnaj);
-        inv.setItem(30, turnaj);
+        //inv.setItem(30, turnaj);
 
         new BukkitRunnable() {
             int c = 1;

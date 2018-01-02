@@ -58,7 +58,7 @@ public class WinterGames implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§c§lVanocni MiniGames");
+        as2.setCustomName("§4§lVanocni MiniGames");
 
     }
 
@@ -75,7 +75,7 @@ public class WinterGames implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Limitovane minihry");
+        as3.setCustomName("§cUkonceno!");
 
     }
 

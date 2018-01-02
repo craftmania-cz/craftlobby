@@ -119,8 +119,7 @@ public class PlayerListener implements Listener {
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
                 // Info o odmene
-                //TODO: Docasne vypnute kvuli vanocum
-                //b.onPlayerSpawn(p);
+                b.onPlayerSpawn(p);
 
                 //Update MC verze
                 Main.getInstance().fetchData().updatePlayerVersion(p);

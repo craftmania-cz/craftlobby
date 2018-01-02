@@ -22,7 +22,7 @@ public class SilvesterTask {
         return effect;
     }
 
-    public void spawnRandomFirework(Location location) {
+    public static void spawnRandomFirework(Location location) {
 
         final ArrayList<Firework> fireworks = new ArrayList();
         for (int i = 0; i < 4; i++) {
@@ -41,7 +41,7 @@ public class SilvesterTask {
         }, 2L);
     }
 
-    public void runLauncher() {
+    public static void runLauncher() {
 
         Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
             @Override

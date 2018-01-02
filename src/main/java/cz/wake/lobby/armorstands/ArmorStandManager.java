@@ -46,10 +46,12 @@ public class ArmorStandManager {
             armorstands.add(new Kubrastig());
             armorstands.add(new TeamBuildBattle());
             armorstands.add(new Filip6());
-            armorstands.add(new Santa());
-            armorstands.add(new Otec());
-            armorstands.add(new Matka());
-            armorstands.add(new WinterGames());
+            if(Main.getInstance().isChristmas()){
+                armorstands.add(new Santa());
+                armorstands.add(new Otec());
+                armorstands.add(new Matka());
+                armorstands.add(new WinterGames());
+            }
         }
     }
 

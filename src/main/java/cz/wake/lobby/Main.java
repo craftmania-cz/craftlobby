@@ -2,6 +2,7 @@ package cz.wake.lobby;
 
 import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.events.christmas.Kalendar_command;
+import cz.wake.lobby.events.christmas.SilvesterTask;
 import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.ArcadeShopGUI;
 import cz.wake.lobby.gui.GadgetsMenu;
@@ -55,11 +56,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     public static ArrayList<Player> preQuest = new ArrayList();
     public static ArrayList<Player> inQuest = new ArrayList();
     private static ArrayList<Player> inPortal = new ArrayList();
-    public RewardsManager rm = new RewardsManager();
+    private RewardsManager rm = new RewardsManager();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     public ArrayList<Player> at_list = new ArrayList<>();
     private String idServer;
     private SQLManager sql;
+    private boolean isSilvester;
+    private boolean isChristmas;
 
     public void onEnable() {
 
@@ -109,6 +112,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Id serveru
         idServer = getConfig().getString("server");
 
+        // Nastaveni specialnich eventu
+        isChristmas = getConfig().getBoolean("events.christmas");
+        isSilvester = getConfig().getBoolean("events.silvester");
+
         //Register custom entit pro Pets (1.11.2)
         CustomEntityRegistry.registerCustomEntity(92, "Cow", RideableCow.class);
         CustomEntityRegistry.registerCustomEntity(91, "Sheep", RideableSheep.class);
@@ -155,8 +162,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Daily Reward Reset
         rm.runTaskDelete();
 
-        if(getConfig().getBoolean("events.christmas")){
-
+        // Silvester ohnostroje
+        if(isSilvester){
+            SilvesterTask.runLauncher();
         }
     }
 
@@ -232,7 +240,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             }
         }
 
-        if(getConfig().getBoolean("events.christmas")){
+        if(isChristmas){
             pm.registerEvents(new Kalendar(), this);
         }
     }
@@ -314,10 +322,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return m;
     }
 
-    public Servers getServersMenu() {
-        return servers;
-    }
-
     public void addPortal(Player p) {
         inPortal.add(p);
     }
@@ -362,4 +366,11 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());
     }
 
+    public boolean isSilvester() {
+        return isSilvester;
+    }
+
+    public boolean isChristmas() {
+        return isChristmas;
+    }
 }
