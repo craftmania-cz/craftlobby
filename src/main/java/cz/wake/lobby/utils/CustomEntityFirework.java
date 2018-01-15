@@ -22,7 +22,7 @@ public class CustomEntityFirework extends EntityFireworks {
 
     boolean gone = false;
 
-    /*@Override
+    @Override
     public void m() {
         if (gone) {
             return;
@@ -39,7 +39,7 @@ public class CustomEntityFirework extends EntityFireworks {
                     world.broadcastEntityEffect(this, (byte) 17);
             this.die();
         }
-    } */
+    }
 
     public static void spawn(Location location, FireworkEffect effect, Player... players) {
         try {

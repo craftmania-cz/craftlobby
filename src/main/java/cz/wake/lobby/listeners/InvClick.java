@@ -156,43 +156,6 @@ public class InvClick implements Listener {
                 event.setCancelled(true);
                 player.updateInventory();
             }
-            //**************************** NAKUP CRAFTBOXU MENU ****************************//
-            if (event.getInventory().getTitle().equals("Nakup CraftBoxu")) {
-                if (event.getSlot() == 15) {
-                    this.gadgetsMenu.openGadgetsMenu(player);
-                }
-                if (event.getSlot() == 11) {
-                    int coins = Main.getInstance().fetchData().getCraftCoins(player.getUniqueId());
-                    if (!Main.getInstance().fetchData().hasData(player.getUniqueId())) { //Nema zaznam
-                        if (coins >= 750) { //Coiny vic jak 750
-                            Main.getInstance().setData().takeCoins(player, 750);
-                            Main.getInstance().setData().createRecordBuy(player, System.currentTimeMillis() + 86400000);
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
-                            player.sendMessage("§eZakoupil jsi si §b1x CraftBox!");
-                            player.closeInventory();
-                        } else {
-                            player.sendMessage("§cNedostatek CraftCoinu k nakupu!");
-                            player.closeInventory();
-                        }
-                    } else {
-                        if (Main.getInstance().fetchData().getTimeToBuy(player.getUniqueId()) < System.currentTimeMillis()) {
-                            if (coins >= 750) {
-                                Main.getInstance().setData().takeCoins(player, 750);
-                                Main.getInstance().setData().updateTimeBuy(player, System.currentTimeMillis() + 86400000);
-                                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mb add " + player.getName() + " 1");
-                                player.sendMessage("§eZakoupil jsi si §b1x CraftBox!");
-                                player.closeInventory();
-                            } else {
-                                player.sendMessage("§cNedostatek CraftCoinu k nakupu!");
-                                player.closeInventory();
-                            }
-                        } else {
-                            player.closeInventory();
-                            player.sendMessage("§cStale neubehlo 24 hodin od nakupu.");
-                        }
-                    }
-                }
-            }
             //**************************** PARTICLES MENU ****************************//
             if (event.getInventory().getTitle().equals("Particles")) {
                 if (event.getSlot() == 40) {
@@ -398,7 +361,7 @@ public class InvClick implements Listener {
                 }
                 RankCape.deactivateCape(player);
             }
-            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))) {
+            if ((event.getSlot() == 19) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -411,7 +374,7 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 22) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))) {
+            if ((event.getSlot() == 21) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -424,7 +387,7 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 24) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))) {
+            if ((event.getSlot() == 23) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -432,6 +395,19 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.sendMessage("§eOdkaz na nasi Facebook Page:");
                 player.sendMessage("§fhttps://www.fb.com/craftmaniacz/");
+                player.sendMessage("");
+                player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.closeInventory();
+            }
+            if ((event.getSlot() == 25) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Twitter"))) {
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.sendMessage("");
+                player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                player.sendMessage("");
+                player.sendMessage("");
+                player.sendMessage("§eOdkaz na nas Twitter ucet:");
+                player.sendMessage("§fhttps://twitter.com/craftmania_cz");
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");

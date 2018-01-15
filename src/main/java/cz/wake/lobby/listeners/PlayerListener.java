@@ -440,7 +440,7 @@ public class PlayerListener implements Listener {
         }
     }
 
-    public static void setupDefaultItems(final Player p) {
+    private static void setupDefaultItems(final Player p) {
 
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         ItemMeta compassMeta = compass.getItemMeta();
@@ -481,7 +481,7 @@ public class PlayerListener implements Listener {
 
         ItemStack web = ItemFactory.createHead("§aWeb", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19");
         ItemMeta webMeta = web.getItemMeta();
-        ArrayList<String> webLore = new ArrayList();
+        ArrayList<String> webLore = new ArrayList<>();
         webLore.add("§7Odkaz na nas web:");
         webLore.add("§fhttps://craftmania.cz");
         webLore.add("");
@@ -491,7 +491,7 @@ public class PlayerListener implements Listener {
 
         ItemStack discord = ItemFactory.createHead("§9Discord", "de431cd1-ae1d-49f6-9339-a96daeacc32b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19");
         ItemMeta discordMeta = discord.getItemMeta();
-        ArrayList<String> discordLore = new ArrayList();
+        ArrayList<String> discordLore = new ArrayList<>();
         discordLore.add("§7Odkaz na nas Discord server:");
         discordLore.add("§fhttps://discord.gg/craftmania");
         discordLore.add("");
@@ -501,13 +501,23 @@ public class PlayerListener implements Listener {
 
         ItemStack facebook = ItemFactory.createHead("§bFacebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=");
         ItemMeta facebookMeta = facebook.getItemMeta();
-        ArrayList<String> facebookLore = new ArrayList();
+        ArrayList<String> facebookLore = new ArrayList<>();
         facebookLore.add("§7Odkaz na nasi Facebook Page:");
         facebookLore.add("§fhttps://www.fb.com/craftmaniacz/");
         facebookLore.add("");
         facebookLore.add("§eKliknutim zobrazis odkaz v chatu");
         facebookMeta.setLore(facebookLore);
         facebook.setItemMeta(facebookMeta);
+
+        ItemStack twitter = ItemFactory.createHead("§bTwitter", "11fce6c7-71ad-464e-98e7-c8e579de4758", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ==");
+        ItemMeta twitterMeta = twitter.getItemMeta();
+        ArrayList<String> twitterLore = new ArrayList<>();
+        twitterLore.add("§7Odkaz na nas Twitter ucet:");
+        twitterLore.add("§fhttps://twitter.com/craftmania_cz");
+        twitterLore.add("");
+        twitterLore.add("§eKliknutim zobrazis odkaz v chatu");
+        twitterMeta.setLore(twitterLore);
+        twitter.setItemMeta(twitterMeta);
 
         p.getInventory().setItem(0, compass);
         p.getInventory().setItem(1, playerHead);
@@ -516,9 +526,10 @@ public class PlayerListener implements Listener {
         p.getInventory().setItem(7, hider);
         p.getInventory().setItem(8, servers);
 
-        p.getInventory().setItem(20, web);
-        p.getInventory().setItem(22, discord);
-        p.getInventory().setItem(24, facebook);
+        p.getInventory().setItem(19, web);
+        p.getInventory().setItem(21, discord);
+        p.getInventory().setItem(23, facebook);
+        p.getInventory().setItem(25, twitter);
     }
 
     private void setupPlayerOnJoin(final Player p) {
