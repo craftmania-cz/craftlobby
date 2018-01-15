@@ -248,7 +248,7 @@ public class PlayerListener implements Listener {
                         ItemMeta im = disable.getItemMeta();
                         im.setDisplayName("§7Hraci: §c§lNEVIDITELNY");
                         disable.setItemMeta(im);
-                        e.getPlayer().getInventory().setItem(7, disable);
+                        e.getPlayer().getInventory().setItem(8, disable);
                         e.getPlayer().updateInventory();
                     }
                     e.getPlayer().sendMessage(ChatColor.RED + "Vsechny aktualni hrace jsi zneviditelnil.");
@@ -279,7 +279,7 @@ public class PlayerListener implements Listener {
                             ItemMeta im = enable.getItemMeta();
                             im.setDisplayName("§7Hraci: §a§lVIDITELNY");
                             enable.setItemMeta(im);
-                            e.getPlayer().getInventory().setItem(7, enable);
+                            e.getPlayer().getInventory().setItem(8, enable);
                             e.getPlayer().updateInventory();
                         }
                         e.getPlayer().sendMessage(ChatColor.GREEN + "Vsechny hrace jsi zviditelnil.");
