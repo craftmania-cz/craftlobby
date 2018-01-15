@@ -23,7 +23,7 @@ public class CustomEntityFirework extends EntityFireworks {
     boolean gone = false;
 
     @Override
-    public void m() {
+    public void A_() {
         if (gone) {
             return;
         }
