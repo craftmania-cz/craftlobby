@@ -458,12 +458,6 @@ public class PlayerListener implements Listener {
         ItemStack shopVip = new ItemStack(Material.EMERALD);
         ItemMeta svMeta = shopVip.getItemMeta();
 
-        ItemStack servers = new ItemStack(Material.SKULL_ITEM);
-        ItemMeta serMeta = servers.getItemMeta();
-
-        serMeta.setDisplayName("§bFriends &7(Klikni pravym)");
-        servers.setItemMeta(serMeta);
-
         compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
         compass.setItemMeta(compassMeta);
 
@@ -523,8 +517,7 @@ public class PlayerListener implements Listener {
         p.getInventory().setItem(1, playerHead);
         p.getInventory().setItem(2, shopVip);
         p.getInventory().setItem(4, gadgets);
-        p.getInventory().setItem(7, hider);
-        p.getInventory().setItem(8, servers);
+        p.getInventory().setItem(8, hider);
 
         p.getInventory().setItem(19, web);
         p.getInventory().setItem(21, discord);

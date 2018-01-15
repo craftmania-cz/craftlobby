@@ -99,7 +99,7 @@ public class InvClick implements Listener {
                     sendToServer(player, "creative2");
                 }
                 if (event.getSlot() == 14) {
-                    sendToServer(player, "prison");
+                    //sendToServer(player, "prison");
                 }
                 if (event.getSlot() == 15) {
                     sendToServer(player, "vanilla");
@@ -107,20 +107,23 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 16) {
                     sendToServer(player, "vanillasb");
                 }
-                if (event.getSlot() == 21) {
+                if (event.getSlot() == 20) { //SKYWARS
                     sendToServer(player, "slobby");
                 }
-                if (event.getSlot() == 20) {
+                if (event.getSlot() == 19) { //BEDWARS
                     sendToServer(player, "blobby");
                 }
-                if (event.getSlot() == 22){
+                if (event.getSlot() == 21){ //BUILDBATTLE
                     sendToServer(player, "dlobby");
                 }
-                if (event.getSlot() == 23) {
+                if (event.getSlot() == 22) { //SPEEDBUILDERS
                     sendToServer(player, "dlobby");
                 }
-                if (event.getSlot() == 24) {
+                if (event.getSlot() == 23) { //GETDOWN
                     sendToServer(player, "dlobby");
+                }
+                if (event.getSlot() == 24) { //DRAWIT
+                    //sendToServer(player, "dlobby");
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//

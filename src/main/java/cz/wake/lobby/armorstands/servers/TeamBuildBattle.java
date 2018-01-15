@@ -58,18 +58,6 @@ public class TeamBuildBattle implements ASInterface {
 
         loc1.add(0, 0.3, 0);
 
-        as2 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as2.setGravity(false);
-        as2.setCanPickupItems(false);
-        as2.setBasePlate(false);
-        as2.setVisible(false);
-        as2.setCustomNameVisible(true);
-
-        as2.setCustomName("§5§lTeam BuildBattle");
-
-        loc1.add(0, 0.3, 0);
-
         as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
         as4.setGravity(false);
@@ -78,7 +66,19 @@ public class TeamBuildBattle implements ASInterface {
         as4.setVisible(false);
         as4.setCustomNameVisible(true);
 
-        as4.setCustomName("§6§lNOVINKA!");
+        as4.setCustomName("§7Team & Solo");
+
+        loc1.add(0, 0.3, 0);
+
+        as2 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
+
+        as2.setGravity(false);
+        as2.setCanPickupItems(false);
+        as2.setBasePlate(false);
+        as2.setVisible(false);
+        as2.setCustomNameVisible(true);
+
+        as2.setCustomName("§5§lBuildBattle");
 
     }
 

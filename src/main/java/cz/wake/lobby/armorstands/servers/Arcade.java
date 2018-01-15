@@ -71,33 +71,6 @@ public class Arcade implements ASInterface {
 
                     c++;
                 } else if (c == 2) {
-                    ItemStack head = ItemFactory.createHead("test", "e5eebf44-14f2-425f-8b2d-81eb6028a048", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2RlOWE1ODA2NWJjMWNjNDUzMTMzNTFhNGRmYWVhY2Q4ZGU5N2U4Yzg5ZWM2ZGQ4Y2Q2MTkyYzMyYjVjIn19fQ==");
-                    as.setHelmet(head);
-
-                    ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 237, 145, 33);
-                    as.setChestplate(chestplate);
-
-                    ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 237, 145, 33);
-                    as.setLeggings(leggins);
-
-                    ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 237, 145, 33);
-                    as.setBoots(boots);
-
-                    ItemStack item = new ItemStack(Material.WORKBENCH);
-                    as.setItemInHand(item);
-
-                    as2.setCustomName("§6§lArcade");
-                    as3.setCustomName("§fBuildBattle");
-                    //as4.setCustomName("§70 §8hracu");
-
-                    Location loc = new Location(Bukkit.getWorld("omain"), 1524, 17, -1223);
-
-                    //Block block = loc.getBlock();
-                    //block.setType(Material.STAINED_GLASS);
-                    //block.setData((byte) 1);
-
-                    c++;
-                } else if (c == 3) {
                     ItemStack head = ItemFactory.createHead("test", "4d43444c-2455-4f6e-b2bd-924b7e5050f3", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGFkYzRhNmY1M2FmYTExNjAyN2I1MWQ2ZjJlNDMzZWU3YWZhNWQ1OWIyZmZhMDQ3ODBiZTQ2NGZhNWQ2MWEifX19");
                     as.setHelmet(head);
 

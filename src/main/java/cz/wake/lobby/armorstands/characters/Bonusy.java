@@ -109,15 +109,6 @@ public class Bonusy implements ASInterface {
         //loc1.add(0, 0.3, 0);
         loc1.add(0, 0.3, 0);
 
-        as3 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as3.setGravity(false);
-        as3.setCanPickupItems(false);
-        as3.setBasePlate(false);
-        as3.setVisible(false);
-        as3.setCustomNameVisible(true);
-
-        as3.setCustomName("§7Bonusy!");
     }
 
     @Override
@@ -129,7 +120,6 @@ public class Bonusy implements ASInterface {
     public void remove() {
         as.remove();
         as2.remove();
-        as3.remove();
         as4.remove();
     }
 

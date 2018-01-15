@@ -83,7 +83,7 @@ public class Murder implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§812/2017");
+        as3.setCustomName("§8Q1/2018");
     }
 
     @Override
