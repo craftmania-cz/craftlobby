@@ -1,10 +1,10 @@
 package cz.wake.lobby.armorstands.characters;
 
+import cz.wake.craftcore.utils.effects.ParticleEffect;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.ASInterface;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
-import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

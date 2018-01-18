@@ -1,10 +1,10 @@
 package cz.wake.lobby.gadgets.particles;
 
+import cz.wake.craftcore.utils.effects.ParticleEffect;
+import cz.wake.craftcore.utils.effects.UtilParticles;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
-import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
-import cz.wake.lobby.utils.UtilParticles;
 import cz.wake.lobby.utils.UtilVelocity;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;

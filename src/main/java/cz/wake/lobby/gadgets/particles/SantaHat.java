@@ -1,8 +1,8 @@
 package cz.wake.lobby.gadgets.particles;
 
+import cz.wake.craftcore.utils.effects.UtilParticles;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.UtilMath;
-import cz.wake.lobby.utils.UtilParticles;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

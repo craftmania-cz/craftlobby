@@ -1,10 +1,10 @@
 package cz.wake.lobby.gadgets.gadget;
 
+import cz.wake.craftcore.utils.effects.ParticleEffect;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.CustomEntityFirework;
-import cz.wake.lobby.utils.ParticleEffect;
 import cz.wake.lobby.utils.UtilMath;
 import org.apache.commons.lang.math.RandomUtils;
 import org.bukkit.*;

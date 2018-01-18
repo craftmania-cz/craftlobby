@@ -3,7 +3,7 @@ main: cz.wake.lobby.Main
 version: 1.7
 author: MrWakeCZ
 softdepend: [CrateKeys,RogueParkour]
-depend: [Multiverse-Core]
+depend: [Multiverse-Core,CraftCore]
 commands:
   clobby:
     description: Info o profilu!

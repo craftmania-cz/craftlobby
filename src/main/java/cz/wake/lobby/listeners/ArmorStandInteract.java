@@ -1,14 +1,13 @@
 package cz.wake.lobby.listeners;
 
+import cz.wake.craftcore.utils.effects.ParticleEffect;
 import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.gui.ArcadeShopGUI;
-import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.MessagesUtils;
-import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

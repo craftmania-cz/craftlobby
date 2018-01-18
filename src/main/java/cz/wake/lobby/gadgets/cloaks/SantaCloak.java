@@ -1,9 +1,9 @@
 package cz.wake.lobby.gadgets.cloaks;
 
+import cz.wake.craftcore.utils.effects.UtilParticles;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilMath;
-import cz.wake.lobby.utils.UtilParticles;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Effect;

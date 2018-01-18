@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.morphs;
 
-import cz.wake.lobby.utils.ParticleEffect;
+import cz.wake.craftcore.utils.effects.ParticleEffect;
 import me.libraryaddict.disguise.DisguiseAPI;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.MobDisguise;

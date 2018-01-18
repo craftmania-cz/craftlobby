@@ -1,7 +1,7 @@
 package cz.wake.lobby.gadgets.cloaks;
 
+import cz.wake.craftcore.utils.effects.ParticleEffect;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.ParticleEffect;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

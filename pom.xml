@@ -87,6 +87,10 @@
             <id>dmulloy2-repo</id>
             <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -136,10 +140,9 @@
             <version>4.3.0</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>com.github.craftmania-cz</groupId>
+            <artifactId>CraftCore</artifactId>
+            <version>0.3.1-alpha</version>
         </dependency>
     </dependencies>
 
