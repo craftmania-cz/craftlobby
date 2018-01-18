@@ -22,6 +22,8 @@ public class CloaksAPI implements Listener {
     private MessagesListener ml = new MessagesListener();
     private RankCape cape = new RankCape();
     private TurnajCape tc = new TurnajCape();
+    private TurnajCape17 tc17 = new TurnajCape17();
+    private VMCape vm17 = new VMCape();
 
     public void openCloaks(Player p) {
 
@@ -83,16 +85,42 @@ public class CloaksAPI implements Listener {
         }
         if (p.hasPermission("craftlobby.cape.gigaturnaj2016")) {
             if (TurnajCape.turnajCloaks.containsKey(p.getName())) {
-                ItemStack i = ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "§6§lGiGa Turnaj Cape", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji 2016", "", "§cAktivovano!");
+                ItemStack i = ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "§6§lGiGa Turnaj Cape (2016)", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji.", "", "§cAktivovano!");
                 i = ItemFactory.addGlow(i);
                 cloakMenu.setItem(15, i);
             } else {
-                ItemStack i = ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "§6§lGiGa Turnaj Cape", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji 2016", "", "§eKliknutim aktivujes!");
+                ItemStack i = ItemFactory.create(Material.GOLD_INGOT, (byte) 0, "§6§lGiGa Turnaj Cape (2016)", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji.", "", "§eKliknutim aktivujes!");
                 cloakMenu.setItem(15, i);
             }
         } else {
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lGiGa Turnaj Cape", "§7Tuto Cape dostali hraci, kteri se ucastnili GiGaturnaje 2016");
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lGiGa Turnaj Cape (2016)", "§7Tuto Cape dostali hraci, kteri se ucastnili GiGaturnaje 2016");
             cloakMenu.setItem(15, i);
+        }
+        if (p.hasPermission("craftlobby.cape.gigaturnaj2017")) {
+            if (TurnajCape17.turnajCloaks.containsKey(p.getName())) {
+                ItemStack i = ItemFactory.create(Material.IRON_INGOT, (byte) 0, "§9§lGiGa Turnaj Cape (2017)", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji.", "", "§cAktivovano!");
+                i = ItemFactory.addGlow(i);
+                cloakMenu.setItem(16, i);
+            } else {
+                ItemStack i = ItemFactory.create(Material.IRON_INGOT, (byte) 0, "§9§lGiGa Turnaj Cape (2017)", "", "§7Cape pro vsechny zucastnene", "§7na GiGa turnaji.", "", "§eKliknutim aktivujes!");
+                cloakMenu.setItem(16, i);
+            }
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lGiGa Turnaj Cape (2017)", "§7Tuto Cape dostali hraci, kteri se ucastnili GiGaturnaje 2017");
+            cloakMenu.setItem(16, i);
+        }
+        if (p.hasPermission("craftlobby.cape.vanocniminigames2017")) {
+            if (TurnajCape17.turnajCloaks.containsKey(p.getName())) {
+                ItemStack i = ItemFactory.create(Material.NETHER_STALK, (byte) 0, "§4§lVanocni Minigames Cape (2017)", "", "§7Cape pro vsechny zucastnene", "§7na Vanocnich minihrach.", "", "§cAktivovano!");
+                i = ItemFactory.addGlow(i);
+                cloakMenu.setItem(23, i);
+            } else {
+                ItemStack i = ItemFactory.create(Material.NETHER_STALK, (byte) 0, "§4§lVanocni Minigames Cape (2017)", "", "§7Cape pro vsechny zucastnene", "§7na Vanocnich minihrach.", "", "§eKliknutim aktivujes!");
+                cloakMenu.setItem(23, i);
+            }
+        } else {
+            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§lVanocni Minigames (2017)", "§7Tuto Cape dostali hraci, kteri se ucastnili Vanocnich miniher 2017");
+            cloakMenu.setItem(23, i);
         }
 
         //Zpet do menu
@@ -190,36 +218,66 @@ public class CloaksAPI implements Listener {
                     this.ml.messageNoPerm(p, "GiGa Turnaj Cape");
                 }
             }
+            if (e.getSlot() == 16) {
+                if (p.hasPermission("craftlobby.cape.gigaturnaj2017")) {
+                    deactivateCloaks(p);
+                    this.tc17.activate(p);
+                    p.closeInventory();
+                } else {
+                    this.ml.messageNoPerm(p, "GiGa Turnaj Cape");
+                }
+            }
+            if (e.getSlot() == 23) {
+                if (p.hasPermission("craftlobby.cape.vanocniminigames2017")) {
+                    deactivateCloaks(p);
+                    this.vm17.activate(p);
+                    p.closeInventory();
+                } else {
+                    this.ml.messageNoPerm(p, "Vanocni Minigames Cape");
+                }
+            }
         }
     }
 
     public void deactivateCloaks(Player p) {
         if (SantaCloak.santaCloaks.containsKey(p.getName())) {
-            Bukkit.getScheduler().cancelTask(((Integer) SantaCloak.santaCloaks.get(p.getName())).intValue());
+            Bukkit.getScheduler().cancelTask((SantaCloak.santaCloaks.get(p.getName())));
             SantaCloak.santaCloaks.remove(p.getName());
             p.getInventory().setArmorContents(null);
             p.closeInventory();
         }
         if (AngleCloak.angelCloaks.containsKey(p.getName())) {
-            Bukkit.getScheduler().cancelTask(((Integer) AngleCloak.angelCloaks.get(p.getName())).intValue());
+            Bukkit.getScheduler().cancelTask((AngleCloak.angelCloaks.get(p.getName())));
             AngleCloak.angelCloaks.remove(p.getName());
             p.getInventory().setArmorContents(null);
             p.closeInventory();
         }
         if (RankCape.heroCloaks.containsKey(p.getName())) {
-            Bukkit.getScheduler().cancelTask(((Integer) RankCape.heroCloaks.get(p.getName())).intValue());
+            Bukkit.getScheduler().cancelTask((RankCape.heroCloaks.get(p.getName())));
             RankCape.heroCloaks.remove(p.getName());
             p.getInventory().setArmorContents(null);
             p.closeInventory();
         }
         if (TurnajCape.turnajCloaks.containsKey(p.getName())) {
-            Bukkit.getScheduler().cancelTask(((Integer) TurnajCape.turnajCloaks.get(p.getName())).intValue());
+            Bukkit.getScheduler().cancelTask((TurnajCape.turnajCloaks.get(p.getName())));
             TurnajCape.turnajCloaks.remove(p.getName());
             p.getInventory().setArmorContents(null);
             p.closeInventory();
         }
+        if (TurnajCape17.turnajCloaks.containsKey(p.getName())) {
+            Bukkit.getScheduler().cancelTask((TurnajCape17.turnajCloaks.get(p.getName())));
+            TurnajCape17.turnajCloaks.remove(p.getName());
+            p.getInventory().setArmorContents(null);
+            p.closeInventory();
+        }
+        if (VMCape.listCloaks.containsKey(p.getName())) {
+            Bukkit.getScheduler().cancelTask((VMCape.listCloaks.get(p.getName())));
+            VMCape.listCloaks.remove(p.getName());
+            p.getInventory().setArmorContents(null);
+            p.closeInventory();
+        }
         if (DevilCloak.devilCloaks.containsKey(p.getName())) {
-            Bukkit.getScheduler().cancelTask(((Integer) DevilCloak.devilCloaks.get(p.getName())).intValue());
+            Bukkit.getScheduler().cancelTask((DevilCloak.devilCloaks.get(p.getName())));
             DevilCloak.devilCloaks.remove(p.getName());
             p.getInventory().setArmorContents(null);
             p.closeInventory();
