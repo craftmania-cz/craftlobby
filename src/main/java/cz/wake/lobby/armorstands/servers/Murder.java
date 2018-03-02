@@ -14,7 +14,7 @@ import org.bukkit.util.EulerAngle;
 public class Murder implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1527.5, 18, -1212.5, -140, 0);
-    private ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3, as4;
 
     @Override
     public void spawn() {
@@ -58,6 +58,18 @@ public class Murder implements ASInterface {
 
         loc1.add(0, 0.3, 0);
 
+        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
+
+        as4.setGravity(false);
+        as4.setCanPickupItems(false);
+        as4.setBasePlate(false);
+        as4.setVisible(false);
+        as4.setCustomNameVisible(true);
+
+        as4.setCustomName("§7Prototype");
+
+        loc1.add(0, 0.3, 0);
+
         as2 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
         as2.setGravity(false);
@@ -66,7 +78,9 @@ public class Murder implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§7§lMurder");
+        as2.setCustomName("§c§lMurder");
+
+        loc1.add(0, 0.3, 0);
 
     }
 
@@ -83,7 +97,7 @@ public class Murder implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§8Q1/2018");
+        as3.setCustomName("§7Nacitani...");
     }
 
     @Override
@@ -94,10 +108,13 @@ public class Murder implements ASInterface {
     @Override
     public void remove() {
         as.remove();
+        as2.remove();
+        as4.remove();
+        as3.remove();
     }
 
     @Override
     public void updateArmorStand(String s, int i) {
-
+        as3.setCustomName(Main.getInstance().getASM().formatPlayers(i));
     }
 }

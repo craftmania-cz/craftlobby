@@ -101,6 +101,8 @@ public class ArmorStandManager {
                 i.updateArmorStand("teambuildbattle", Main.getInstance().fetchData().getOnlinePlayersSum("stav_buildbattle_server"));
             } else if (i instanceof GetDown) {
                 i.updateArmorStand("getdown", Main.getInstance().fetchData().getOnlinePlayersSum("stav_getdown_server"));
+            } else if (i instanceof Murder) {
+                i.updateArmorStand("murder", Main.getInstance().fetchData().getOnlinePlayers("stav_murder_server"));
             }
         }
     }
