@@ -261,7 +261,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("bedwars").setExecutor(new BedWars_command());
         getCommand("skywars").setExecutor(new SkyWars_command());
         getCommand("arcade").setExecutor(new Arcade_command());
-        getCommand("skygiants").setExecutor(new SkyGiants_command());
+        getCommand("murder").setExecutor(new Murder_command());
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
