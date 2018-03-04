@@ -102,7 +102,7 @@ public class ArmorStandManager {
             } else if (i instanceof GetDown) {
                 i.updateArmorStand("getdown", Main.getInstance().fetchData().getOnlinePlayersSum("stav_getdown_server"));
             } else if (i instanceof Murder) {
-                i.updateArmorStand("murder", Main.getInstance().fetchData().getOnlinePlayers("stav_murder_server"));
+                i.updateArmorStand("murder", Main.getInstance().fetchData().getOnlinePlayersSum("stav_murder_server"));
             }
         }
     }
