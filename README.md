@@ -1,6 +1,6 @@
 CraftLobby
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b59e570d2b7c4344bec2d9d9e5709825)](https://www.codacy.com/app/craftmania-cz/CraftLobby?utm_source=github.com&utm_medium=referral&utm_content=craftmania-cz/CraftLobby&utm_campaign=badger)
-[![Build Status](https://travis-ci.org/craftmania-cz/CraftLobby.svg?branch=travis-builds)](https://travis-ci.org/craftmania-cz/CraftLobby)
+[![Build Status](https://semaphoreci.com/api/v1/craftmania/craftlobby/branches/master/badge.svg)](https://semaphoreci.com/craftmania/craftlobby)
 ======
 Jeden z nejhlavnějších pluginů na serveru Craftmania.cz. Jeho hlavním úkolem je se starat o chod všech hlavních lobby a podlobby.
 
@@ -11,7 +11,6 @@ Jeden z nejhlavnějších pluginů na serveru Craftmania.cz. Jeho hlavním úkol
 - **Teleportace** - Teleportuje hráče přes celý server pomocí back-end a front-end serverů.
  
 ### Vestavěné funkce
-- **Sentry** - Automatická detekce chyb a rychlá realizace oprav.
 - **HikariCP** - Jeden z nejrychlejších JDBC připojení do SQL.
  
 ### Verze pluginu
