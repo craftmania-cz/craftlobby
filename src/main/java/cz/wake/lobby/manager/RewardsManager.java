@@ -63,8 +63,9 @@ public class RewardsManager implements Listener {
     }
 
     private static String getDurationBreakdown(long millis) {
+        StringBuilder sb = new StringBuilder(64);
         if (millis < 0) {
-            throw new IllegalArgumentException("Duration must be greater than zero!");
+            sb.append("..."); // Pokud je jiz za terminem noveho vyberu...
         }
 
         long days = TimeUnit.MILLISECONDS.toDays(millis);
@@ -75,7 +76,6 @@ public class RewardsManager implements Listener {
         millis -= TimeUnit.MINUTES.toMillis(minutes);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
 
-        StringBuilder sb = new StringBuilder(64);
         if (days >= 1) {
             sb.append(days);
             sb.append(" dni ");
