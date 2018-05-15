@@ -42,7 +42,7 @@ public class ArmorStandManager {
             armorstands.add(new Survival());
             armorstands.add(new Unknown1());
             armorstands.add(new Unknown2());
-            armorstands.add(new Unknown3());
+            //armorstands.add(new Unknown3());
             armorstands.add(new Murder());
             armorstands.add(new Vanilla());
             armorstands.add(new DJClub());
@@ -56,6 +56,7 @@ public class ArmorStandManager {
             armorstands.add(new Kubrastig());
             armorstands.add(new TeamBuildBattle());
             armorstands.add(new Filip6());
+            armorstands.add(new BedWars2());
             if(Main.getInstance().isChristmas()){
                 armorstands.add(new Santa());
                 armorstands.add(new Otec());
@@ -114,6 +115,8 @@ public class ArmorStandManager {
             } else if (i instanceof Murder) {
                 i.updateArmorStand("murder", Main.getInstance().fetchData().getOnlinePlayersSum("stav_murder_server"));
             } else if (i instanceof BedWars4v4) {
+                i.updateArmorStand("bedwars2", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars2_server"));
+            } else if (i instanceof BedWars2) {
                 i.updateArmorStand("bedwars2", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars2_server"));
             }
         }

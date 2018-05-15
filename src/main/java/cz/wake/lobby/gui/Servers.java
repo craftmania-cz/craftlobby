@@ -63,7 +63,7 @@ public class Servers implements Listener {
                 "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem", "§7ostrove a plnit ukoly?", "", "§b▸ Kliknutim te portnu", getPlayers("vanillasb"));
         inv.setItem(16, vanillasb);
 
-        ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§c§lBedWars", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
+        ItemStack bedw = ItemFactory.create(Material.BED, (byte) 0, "§c§lBedWars §7(Old)", "§8Minihra, PVP", "", "§7Ctyri teamy proti sobe", "§7a jeden vitez! Bude to tvuj team?",
                 "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         bedw = ItemFactory.addGlow(bedw);
         inv.setItem(19, bedw);
@@ -79,10 +79,11 @@ public class Servers implements Listener {
         ItemStack getdown = ItemFactory.create(Material.IRON_BOOTS, (byte) 0, "§d§lGetDown", "§8Arcade PVP", "", "§7Dostan se co nejniz", "§7a ziskej co nejvic coinu,", "§7pak vsechny rozskej!", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
         inv.setItem(23, getdown);
 
-        ItemStack drawit = ItemFactory.create(Material.PAINTING, (byte) 0, "§f§lDraw§5§lIt", "§8Arcade, Kresleni na cas", "", "§7Zvladnes nakreslit zadane", "§7veci/stavby nebo objekty", "§7v cas? A byt tim nej?", "", "§cDocasne vypnuto: Predelavani...");
-        inv.setItem(24, drawit);
+        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars 2.0 §e§lNOVINKA!", "§8PvP, Teams", "", "§7Zcela nove BedWars, ktere se", "§7ti dostanou totalne pod kuzi", "", "§eStandart: §fKlasicke BedWars", "§cRanked: §fJen ta elita, co umi PVP", "", "§7Mody: §f4x4, pozdeji 1x8, 2x12, 2x2", "", "§b▸ Kliknutim te portnu");
+        inv.setItem(25, bedwars2);
 
-        ItemStack murder = ItemFactory.createHead("§c§lMurder §e§lNOVINKA!", "234d66f5-6767-4201-b649-5f60d3a1433b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhhNGUzNDFkOGNkMzRkYTJkNzEwYzJhYTQ4MzQxNDFhMGQzNzczYTgwZWE3OGNlNmNlZmNiYzY2ZmVjYTIifX19");
+
+        ItemStack murder = ItemFactory.createHead("§c§lMurder", "234d66f5-6767-4201-b649-5f60d3a1433b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhhNGUzNDFkOGNkMzRkYTJkNzEwYzJhYTQ4MzQxNDFhMGQzNzczYTgwZWE3OGNlNmNlZmNiYzY2ZmVjYTIifX19");
         ItemMeta murderMeta = murder.getItemMeta();
         ArrayList<String> murderLore = new ArrayList<>();
         murderLore.add("§8Arcade, PVP");
@@ -94,7 +95,7 @@ public class Servers implements Listener {
         murderLore.add("§b▸ Kliknutim te portnu");
         murderMeta.setLore(murderLore);
         murder.setItemMeta(murderMeta);
-        inv.setItem(25, murder);
+        inv.setItem(24, murder);
 
 
         ItemStack turnaj = new ItemStack(Material.MAGMA_CREAM);
