@@ -11,13 +11,15 @@ import cz.wake.lobby.utils.MessagesUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.ExplosionPrimeEvent;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -595,14 +597,39 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("murder")) {
                 sendToServer(p, "mlobby");
             }
+            if (e.getRightClicked().hasMetadata("4v4")) {
+                p.performCommand("join 4v4");
+            }
             e.setCancelled(true);
+        } else if (e.getRightClicked() instanceof ItemFrame){
+            if(!p.hasPermission("craftlobby.admin")){
+                e.setCancelled(true);
+            }
         }
     }
 
     @EventHandler
     public void damage(EntityDamageByEntityEvent e) {
         if (e.getDamager() instanceof Player) {
+            Player p = (Player)e.getDamager();
+            if(!p.hasPermission("craftlobby.admin")){
+                e.setCancelled(true);
+            }
+        }
+        if (e.getDamager() instanceof ExplosionPrimeEvent || e.getDamager() instanceof TNTPrimed || e.getDamager() instanceof Explosive){
             e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void explodes(ExplosionPrimeEvent e){
+        e.setRadius(0);
+    }
+
+    @EventHandler
+    public void onPlayerInteractEntity(final PlayerInteractEntityEvent event) {
+        if (!event.isCancelled() && event.getRightClicked() instanceof ItemFrame && !((ItemFrame)event.getRightClicked()).getItem().getType().equals(Material.AIR) && !event.getPlayer().hasPermission("craftlobby.admin")) {
+            event.setCancelled(true);
         }
     }
 

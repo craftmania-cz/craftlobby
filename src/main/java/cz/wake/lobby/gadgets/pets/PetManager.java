@@ -134,6 +134,9 @@ public class PetManager implements Listener {
     @EventHandler
     public void onEntityClick(PlayerInteractEntityEvent e) {
         Player player = e.getPlayer();
+        if(e.getRightClicked() instanceof ItemFrame || e.getRightClicked() instanceof EnderCrystal){
+            return;
+        }
         LivingEntity mob = (LivingEntity) e.getRightClicked();
 
         if (mob.getType() == EntityType.ENDERMITE) {
@@ -173,6 +176,9 @@ public class PetManager implements Listener {
             return;
         }
         if (mob.getType() == EntityType.BAT) {
+            return;
+        }
+        if (mob.getType() == EntityType.ITEM_FRAME) {
             return;
         }
         if ((mob.getName().contains(player.getName()))) {

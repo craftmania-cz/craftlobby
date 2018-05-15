@@ -5,6 +5,7 @@ import cz.wake.lobby.armorstands.characters.*;
 import cz.wake.lobby.armorstands.events.Matka;
 import cz.wake.lobby.armorstands.events.Otec;
 import cz.wake.lobby.armorstands.events.Santa;
+import cz.wake.lobby.armorstands.podlobby.*;
 import cz.wake.lobby.armorstands.servers.*;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -19,6 +20,15 @@ public class ArmorStandManager {
     public static void init() {
         if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("arcade")) {
             armorstands.add(new ArcadeShop());
+        } else if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")){
+            armorstands.add(new BedWars4v4());
+            armorstands.add(new BedWars2v2());
+            armorstands.add(new BedWars1v8());
+            armorstands.add(new BedWars2v12());
+            BedWarsSheep.spawnSheep();
+            armorstands.add(new BedWars1v8Ranked());
+            armorstands.add(new BedWars4v4Ranked());
+            CrystalBox.spawn();
         } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")){
             armorstands.add(new Arcade());
             armorstands.add(new BedWars());
@@ -103,6 +113,8 @@ public class ArmorStandManager {
                 i.updateArmorStand("getdown", Main.getInstance().fetchData().getOnlinePlayersSum("stav_getdown_server"));
             } else if (i instanceof Murder) {
                 i.updateArmorStand("murder", Main.getInstance().fetchData().getOnlinePlayersSum("stav_murder_server"));
+            } else if (i instanceof BedWars4v4) {
+                i.updateArmorStand("bedwars2", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars2_server"));
             }
         }
     }

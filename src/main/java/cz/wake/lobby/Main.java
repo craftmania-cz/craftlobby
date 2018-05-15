@@ -1,5 +1,6 @@
 package cz.wake.lobby;
 
+import cz.wake.lobby.armorstands.podlobby.CrystalBox;
 import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.events.christmas.Kalendar_command;
 import cz.wake.lobby.events.christmas.SilvesterTask;
@@ -27,6 +28,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -100,7 +102,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             w.setGameRuleValue("doFireTick", "false");
             w.setGameRuleValue("doDaylightCycle", "false");
             for (Entity e : w.getEntities()) {
-                e.remove();
+                if(!(e instanceof ItemFrame)){
+                    e.remove();
+                }
             }
         }
 
@@ -147,14 +151,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(4, "ElderGuardian", RideableGuardianElder.class);
         CustomEntityRegistry.registerCustomEntity(27, "ZombieVillager", RideableZombieVillager.class);
         CustomEntityRegistry.registerCustomEntity(5, "WitherSkeleton", RideableWitherSkeleton.class);
+        CustomEntityRegistry.registerCustomEntity(91, "Sheep", CustomSheep.class);
 
         // Spawn armorstandu
         ArmorStandManager.init();
         ArmorStandManager.spawn();
 
-        if (getConfig().getString("server").equalsIgnoreCase("main")) {
-            getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
-        }
+        getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
 
         // Update AT time
         getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
@@ -226,6 +229,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Profil(), this);
         pm.registerEvents(new SnowmanMorph(), this);
         pm.registerEvents(new ChickenMorph(), this);
+        pm.registerEvents(new CrystalBox(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {
