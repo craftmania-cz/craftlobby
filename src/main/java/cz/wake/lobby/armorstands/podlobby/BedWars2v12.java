@@ -97,7 +97,7 @@ public class BedWars2v12 implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§8SOON");
+        as3.setCustomName("§cSOON!");
     }
 
     @Override
