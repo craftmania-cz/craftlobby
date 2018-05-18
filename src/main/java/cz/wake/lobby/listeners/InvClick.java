@@ -126,7 +126,7 @@ public class InvClick implements Listener {
                     sendToServer(player, "mlobby");
                 }
                 if (event.getSlot() == 25) { // BEDWARS 2
-                    sendToServer(player, "bdlobby");
+                    sendToServer(player, "bedlobby");
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//

@@ -598,10 +598,10 @@ public class ArmorStandInteract implements Listener {
                 sendToServer(p, "mlobby");
             }
             if (e.getRightClicked().hasMetadata("bedwars2")) {
-                sendToServer(p, "bdlobby");
+                sendToServer(p, "bedlobby");
             }
             if (e.getRightClicked().hasMetadata("4v4")) {
-                p.performCommand("join 4v4");
+                p.performCommand("bts joinserver 4v4");
             }
             e.setCancelled(true);
         } else if (e.getRightClicked() instanceof ItemFrame){
