@@ -38,7 +38,25 @@ public class Arcade implements ASInterface {
 
         Main.getInstance().getASM().setMetadata((ArmorStand) as, "arcade", "arcade", Main.getInstance());
 
-        new BukkitRunnable() {
+        ItemStack head = ItemFactory.createHead("test", "4d43444c-2455-4f6e-b2bd-924b7e5050f3", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGFkYzRhNmY1M2FmYTExNjAyN2I1MWQ2ZjJlNDMzZWU3YWZhNWQ1OWIyZmZhMDQ3ODBiZTQ2NGZhNWQ2MWEifX19");
+        as.setHelmet(head);
+
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 51, 89, 171);
+        as.setChestplate(chestplate);
+
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 51, 89, 171);
+        as.setLeggings(leggins);
+
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 51, 89, 171);
+        as.setBoots(boots);
+
+        ItemStack item = new ItemStack(Material.PRISMARINE_CRYSTALS);
+        as.setItemInHand(item);
+
+        as2.setCustomName("§9§lArcade");
+        as3.setCustomName("§fSpeedBuilders");
+
+        /*new BukkitRunnable() {
             int c = 1;
 
             @Override
@@ -99,7 +117,7 @@ public class Arcade implements ASInterface {
                     c = 1;
                 }
             }
-        }.runTaskTimerAsynchronously(Main.getInstance(), 0, 35L);
+        }.runTaskTimerAsynchronously(Main.getInstance(), 0, 35L);*/
 
     }
 
