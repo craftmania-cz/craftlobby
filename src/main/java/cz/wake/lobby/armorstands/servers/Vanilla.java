@@ -20,7 +20,7 @@ import java.util.logging.Level;
 public class Vanilla implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1553.5, 18, -1212.5, 140, 0);
-    private ArmorStand as, as2, as3, as4;
+    private ArmorStand as, as2, as3;
     private boolean maintenance;
 
     @Override
@@ -39,7 +39,6 @@ public class Vanilla implements ASInterface {
         Main.getInstance().getASM().setMetadata((ArmorStand) as, "vanilla", "vanilla", Main.getInstance());
 
         subtextSpawn();
-        version();
         hologramSpawn();
 
         Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Vanilla ArmorStand uspesne spawnut!");
@@ -76,19 +75,6 @@ public class Vanilla implements ASInterface {
         as3.setCustomName("§7Nacitani...");
     }
 
-    public void version() {
-        loc1.add(0, 0.3, 0);
-
-        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as4.setGravity(false);
-        as4.setCanPickupItems(false);
-        as4.setBasePlate(false);
-        as4.setVisible(false);
-        as4.setCustomNameVisible(true);
-
-        as4.setCustomName("§c1.12");
-    }
 
     @Override
     public boolean isActive() {
