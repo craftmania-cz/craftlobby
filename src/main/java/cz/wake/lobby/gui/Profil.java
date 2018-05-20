@@ -157,7 +157,7 @@ public class Profil implements Listener {
         bhMeta.setLore(bhLore);
         jazyk.setItemMeta(bhMeta);
 
-        ItemStack jazyk2 = ItemFactory.createHead("§aSlovencina", "", "");
+        ItemStack jazyk2 = ItemFactory.createHead("§aSlovencina", "8e225e4c-74bc-43db-9b94-87e0e544dba6", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmM3MmE4YzExNWExZmI2NjlhMjU3MTVjNGQxNWYyMjEzNmFjNGMyNDUyNzg0ZTQ4OTRiM2Q1NmJjNWIwYjkifX19");
         ItemMeta bhMeta2 = jazyk2.getItemMeta();
         ArrayList<String> bhLore2 = new ArrayList();
         bhLore2.add("§7Zmen si jazyk serveru na Slovencinu.");
