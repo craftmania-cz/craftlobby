@@ -151,7 +151,7 @@ public class VanillaSkyblock implements ASInterface {
                 block.setType(Material.STAINED_GLASS);
                 block.setData((byte) 12);
 
-                as2.setCustomName("§4§lFactions");
+                as2.setCustomName("§6§lVanilla Skyblock");
                 as3.setCustomName(Main.getInstance().getASM().formatPlayers(i));
 
             } else {
