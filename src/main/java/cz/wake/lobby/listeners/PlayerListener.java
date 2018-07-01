@@ -90,7 +90,7 @@ public class PlayerListener implements Listener {
             Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
 
             // Prefix v tablistu
-            UtilTablist.setupPrefixInTab(p);
+            UtilTablist.setupDefaultTablist(p);
 
             // Setting setttings :D
             setupPlayerOnJoin(p);
