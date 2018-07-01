@@ -17,9 +17,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.logging.Level;
 
-public class Creative2 implements ASInterface {
+public class Creative implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1216.5, 90, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1218.5, 90, 0);
     private ArmorStand as, as2, as3;
     private boolean maintenance;
 
@@ -41,7 +41,7 @@ public class Creative2 implements ASInterface {
         subtextSpawn();
         hologramSpawn();
 
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Creative #2 ArmorStand uspesne spawnut!");
+        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Creative ArmorStand uspesne spawnut!");
 
     }
 
@@ -57,7 +57,7 @@ public class Creative2 implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§c§lCreative #2");
+        as2.setCustomName("§c§lCreative");
     }
 
     @Override
@@ -95,7 +95,7 @@ public class Creative2 implements ASInterface {
     public void updateArmorStand(String s, int i) {
         if (Main.getInstance().fetchData().getMaintenance(s) == 1) {
             if (!maintenance) {
-                Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Creative #2 §caktivovan do rezimu udrzby!");
+                Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Creative §caktivovan do rezimu udrzby!");
                 maintenance = true;
 
                 udrzbaItems();
@@ -133,7 +133,7 @@ public class Creative2 implements ASInterface {
         } else if (Main.getInstance().fetchData().getMaintenance(s) == 0) {
             if (maintenance) {
                 //Restart na default
-                Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Creative #2 §adeaktivovan z rezimu udrzby!");
+                Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Creative §adeaktivovan z rezimu udrzby!");
                 maintenance = false;
                 as.getEquipment().clear();
 
@@ -145,7 +145,7 @@ public class Creative2 implements ASInterface {
                 block.setType(Material.STAINED_GLASS);
                 block.setData((byte) 14);
 
-                as2.setCustomName("§c§lCreative #2");
+                as2.setCustomName("§c§lCreative");
                 as3.setCustomName(Main.getInstance().getASM().formatPlayers(i));
 
             } else {
@@ -175,7 +175,7 @@ public class Creative2 implements ASInterface {
         as.getEquipment().clear();
 
         as2.setCustomName("§7Udrzba");
-        as3.setCustomName("§c§lCreative #2");
+        as3.setCustomName("§c§lCreative");
 
         ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 0, 0, 0);
         as.setChestplate(chestplate);

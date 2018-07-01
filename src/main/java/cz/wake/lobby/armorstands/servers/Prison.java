@@ -19,7 +19,7 @@ import java.util.logging.Level;
 
 public class Prison implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1555.5, 18, -1214.5, 135, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1216.5, 104, 0);
     private ArmorStand as, as2, as3;
     private boolean maintenance;
 

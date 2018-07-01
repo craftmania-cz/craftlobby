@@ -20,7 +20,7 @@ import java.util.logging.Level;
 
 public class VanillaSkyblock implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1551.5, 18, -1211.5, 165, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1553.5, 18, -1212.5, 140, 0);
     private ArmorStand as, as2, as3;
     private boolean maintenance;
 
@@ -78,7 +78,7 @@ public class VanillaSkyblock implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Nacitani...");
+        as3.setCustomName("§cPredelava se...");
     }
 
     @Override

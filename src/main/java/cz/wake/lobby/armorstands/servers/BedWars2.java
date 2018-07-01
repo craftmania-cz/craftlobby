@@ -15,7 +15,7 @@ import org.bukkit.util.EulerAngle;
 
 public class BedWars2 implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1529.5, 18, -1211.5, -160, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1222.5, -90, 0);
     private ArmorStand as, as2, as3, as4;
 
     @Override

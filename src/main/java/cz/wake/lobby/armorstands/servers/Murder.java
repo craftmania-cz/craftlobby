@@ -13,7 +13,7 @@ import org.bukkit.util.EulerAngle;
 
 public class Murder implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1527.5, 18, -1212.5, -140, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1220.5, -90, 0);
     private ArmorStand as, as2, as3, as4;
 
     @Override

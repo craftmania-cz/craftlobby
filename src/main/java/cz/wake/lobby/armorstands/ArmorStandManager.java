@@ -30,13 +30,12 @@ public class ArmorStandManager {
             armorstands.add(new BedWars4v4Ranked());
             CrystalBox.spawn();
         } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")){
-            armorstands.add(new Arcade());
-            armorstands.add(new BedWars());
-            armorstands.add(new Creative1());
-            armorstands.add(new Creative2());
+            //armorstands.add(new Arcade());
+            //armorstands.add(new BedWars());
+            armorstands.add(new Creative());
             armorstands.add(new VanillaSkyblock());
             armorstands.add(new Prison());
-            armorstands.add(new GetDown());
+            //armorstands.add(new GetDown());
             armorstands.add(new SkyBlock());
             armorstands.add(new SkyWars());
             armorstands.add(new Survival());
@@ -54,7 +53,7 @@ public class ArmorStandManager {
             armorstands.add(new Witch());
             armorstands.add(new Bonusy());
             armorstands.add(new Kubrastig());
-            armorstands.add(new TeamBuildBattle());
+            //armorstands.add(new TeamBuildBattle());
             armorstands.add(new Filip6());
             armorstands.add(new BedWars2());
             if(Main.getInstance().isChristmas()){
@@ -94,14 +93,12 @@ public class ArmorStandManager {
                 i.updateArmorStand("survival", Main.getInstance().fetchData().getOnlinePlayers("survival"));
             } else if (i instanceof SkyBlock) {
                 i.updateArmorStand("skyblock", Main.getInstance().fetchData().getOnlinePlayers("skyblock"));
-            } else if (i instanceof Creative1) {
-                i.updateArmorStand("creative", Main.getInstance().fetchData().getOnlinePlayers("creative"));
-            } else if (i instanceof Creative2) {
-                i.updateArmorStand("creative2", Main.getInstance().fetchData().getOnlinePlayers("creative2"));
+            } else if (i instanceof Creative) {
+                i.updateArmorStand("creative", Main.getInstance().fetchData().getOnlinePlayers("creative2"));
             } else if (i instanceof Prison) {
                 //i.updateArmorStand("prison", Main.getInstance().fetchData().getOnlinePlayers("prison"));
             } else if (i instanceof VanillaSkyblock) {
-                i.updateArmorStand("vanillasb", Main.getInstance().fetchData().getOnlinePlayers("vanillasb"));
+                //i.updateArmorStand("vanillasb", Main.getInstance().fetchData().getOnlinePlayers("vanillasb"));
             } else if (i instanceof Vanilla) {
                 i.updateArmorStand("vanilla", Main.getInstance().fetchData().getOnlinePlayers("vanilla"));
             } else if (i instanceof BedWars) {
