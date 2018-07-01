@@ -125,13 +125,9 @@ public class PlayerListener implements Listener {
                 Main.getInstance().fetchData().updatePlayerVersion(p);
                 Main.getInstance().fetchData().updateForceNick(p);
 
-                //Clear chat
-                for (int i = 0; i < 30; i++) {
-                    p.sendMessage(" ");
-                }
-
                 // Vanocni kalendar
-                Main.getInstance().fetchData().addCalendarDefaultValue(p);
+                //TODO: Pouze pri vanocich
+                //Main.getInstance().fetchData().addCalendarDefaultValue(p);
             }
 
         } catch (Exception ex) {
