@@ -255,7 +255,8 @@ public class PlayerListener implements Listener {
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.NETHER_STAR) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
                 && !ParkourListener.in_parkour.contains(p)) {
-            this.gadgetsMenu.openGadgetsMenu(p);
+            //this.gadgetsMenu.openGadgetsMenu(p);
+            p.sendMessage("§c§l(!) §cGadgets jsou docasne deaktivovany!");
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.COMPASS) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))) {
