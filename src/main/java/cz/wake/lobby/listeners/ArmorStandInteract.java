@@ -583,16 +583,11 @@ public class ArmorStandInteract implements Listener {
                 sendToServer(p, "globby");
             }
             if (e.getRightClicked().hasMetadata("vanilla-skyblock")) {
-                sendToServer(p, "vanillasb");
-            }
-            if (e.getRightClicked().hasMetadata("getdown")) {
-                sendToServer(p, "dlobby");
+                //sendToServer(p, "vanillasb");
+                p.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
             }
             if (e.getRightClicked().hasMetadata("arcadeshop")) {
                 arcadeShop.openMainGUI(p);
-            }
-            if (e.getRightClicked().hasMetadata("teambuildbattle")) {
-                sendToServer(p, "dlobby");
             }
             if (e.getRightClicked().hasMetadata("murder")) {
                 sendToServer(p, "mlobby");
