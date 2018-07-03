@@ -128,6 +128,34 @@ public class PlayerListener implements Listener {
                 // Vanocni kalendar
                 //TODO: Pouze pri vanocich
                 //Main.getInstance().fetchData().addCalendarDefaultValue(p);
+
+                p.sendMessage("");
+                p.sendMessage("§c§lUPOZORNENI: §fServer se stale dodelava, a nektere funkce jsou vypnute!");
+                p.sendMessage("§bDekujeme za pochopeni :)");
+                p.sendMessage("");
+
+                int coins = Main.getInstance().fetchData().getCraftCoins(p.getName());
+                if (coins > 0) {
+                    p.sendMessage("");
+                    p.sendMessage("§e§l(?!) §ePrevadim data CraftCoinu...");
+                    Main.getInstance().fetchData().updateUUIDInCraftCoins(p);
+                    System.out.println("Prevadim..." + coins + " CC na nick " + p.getName());
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " " + coins);
+                    p.sendMessage("§e§l(?!) §ePrevadim data CComunity...");
+                    Main.getInstance().fetchData().updateUUIDInProfile(p);
+                    p.sendMessage("§e§l(?!) §ePrevadim data hlasovani...");
+                    Main.getInstance().fetchData().updateUUIDInVotes(p);
+                    Main.getInstance().fetchData().takeCoins(p, coins);
+                    p.sendMessage("§a§l(+) §aPrevod dat dokoncen...");
+                }
+
+                if(Main.getInstance().fetchData().hasOldVIP(p.getName())) {
+                    p.sendMessage("§e§l(?!) §eDetekce stareho VIP. Aktivuje nove...");
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " parent set emerald");
+                    Main.getInstance().fetchData().deleteOdlVIP(p);
+                    p.sendMessage("§a§l(+) §aNove VIP usmesne nastaveno!");
+                    p.sendMessage("");
+                }
             }
 
         } catch (Exception ex) {
