@@ -180,11 +180,11 @@ public class Bonusy implements ASInterface {
 
     public String getRewards(Player p) {
         int rewards = 0;
-        if (Main.getInstance().setData().hasActiveReward(p, "lobby_denniodmena") == 0) {
+        if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
             rewards++;
         }
         if (p.hasPermission("craftlobby.vip.odmena")) {
-            if (Main.getInstance().setData().hasActiveReward(p, "lobby_vipodmena") == 0) {
+            if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                 rewards++;
             }
         }

@@ -53,34 +53,34 @@ public class SettingsMenu implements Listener {
         inv.setItem(17, notify);
 
 
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_fly") == 1) {
             inv.setItem(18, enabled);
         } else {
             inv.setItem(18, disabled);
         }
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_players") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_players") == 1) {
             inv.setItem(19, disabled);
         } else {
             inv.setItem(19, enabled);
         }
         inv.setItem(20, nedostupne); //Pets
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_particles") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_particles") == 1) {
             inv.setItem(21, enabled);
         } else {
             inv.setItem(21, disabled);
         }
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_gadgets") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_gadgets") == 1) {
             inv.setItem(22, enabled);
         } else {
             inv.setItem(22, disabled);
         }
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_speed") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_speed") == 1) {
             inv.setItem(23, enabled);
         } else {
             inv.setItem(23, disabled);
         }
         inv.setItem(24, nedostupne); //Novinky
-        if (Main.getInstance().fetchData().getSettings(p, "death_messages") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "death_messages") == 1) {
             inv.setItem(25, enabled);
         } else {
             inv.setItem(25, disabled);
@@ -108,14 +108,14 @@ public class SettingsMenu implements Listener {
             }
             if (e.getSlot() == 18) {
                 if (p.hasPermission("craftlobby.vip.fly")) {
-                    if (Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
-                        Main.getInstance().fetchData().updateSettings(p, "lobby_fly", 0);
+                    if (Main.getInstance().getSQL().getSettings(p, "lobby_fly") == 1) {
+                        Main.getInstance().getSQL().updateSettings(p, "lobby_fly", 0);
                         p.setAllowFlight(false);
                         p.setFlying(false);
                         p.sendMessage("§cFly na lobby bylo deaktivovano!");
                         p.closeInventory();
                     } else {
-                        Main.getInstance().fetchData().updateSettings(p, "lobby_fly", 1);
+                        Main.getInstance().getSQL().updateSettings(p, "lobby_fly", 1);
                         p.setAllowFlight(true);
                         p.setFlying(true);
                         p.sendMessage("§aFly na lobby bylo aktivovano!");
@@ -127,8 +127,8 @@ public class SettingsMenu implements Listener {
                 }
             }
             if (e.getSlot() == 19) {
-                if (Main.getInstance().fetchData().getSettings(p, "lobby_players") == 1) {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_players", 0);
+                if (Main.getInstance().getSQL().getSettings(p, "lobby_players") == 1) {
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_players", 0);
                     SettingsMenu.hiden.remove(p);
                     for (Player p2 : Bukkit.getOnlinePlayers()) {
                         p.showPlayer(p2);
@@ -136,7 +136,7 @@ public class SettingsMenu implements Listener {
                     p.sendMessage("§aZobrazovani hracu zapnuto!");
                     p.closeInventory();
                 } else {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_players", 1);
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_players", 1);
                     SettingsMenu.hiden.add(p);
                     for (Player p2 : Bukkit.getOnlinePlayers()) {
                         p.hidePlayer(p2);
@@ -146,51 +146,51 @@ public class SettingsMenu implements Listener {
                 }
             }
             if (e.getSlot() == 21) {
-                if (Main.getInstance().fetchData().getSettings(p, "lobby_particles") == 1) {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_particles", 0);
+                if (Main.getInstance().getSQL().getSettings(p, "lobby_particles") == 1) {
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_particles", 0);
                     SettingsMenu.particles.remove(p);
                     p.sendMessage("§cZobrazovani efektu vypnuto!");
                     p.closeInventory();
                 } else {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_particles", 1);
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_particles", 1);
                     SettingsMenu.particles.add(p);
                     p.sendMessage("§aZobrazovani efektu zapnuto!");
                     p.closeInventory();
                 }
             }
             if (e.getSlot() == 22) {
-                if (Main.getInstance().fetchData().getSettings(p, "lobby_gadgets") == 1) {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_gadgets", 0);
+                if (Main.getInstance().getSQL().getSettings(p, "lobby_gadgets") == 1) {
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_gadgets", 0);
                     SettingsMenu.gadgets.remove(p);
                     p.sendMessage("§cGadgety jiz na tebe nebudou reagovat!");
                     p.closeInventory();
                 } else {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_gadgets", 1);
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_gadgets", 1);
                     SettingsMenu.gadgets.add(p);
                     p.sendMessage("§aGadgety nyni na tebe budou reagovat!");
                     p.closeInventory();
                 }
             }
             if (e.getSlot() == 23) {
-                if (Main.getInstance().fetchData().getSettings(p, "lobby_speed") == 1) {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_speed", 0);
+                if (Main.getInstance().getSQL().getSettings(p, "lobby_speed") == 1) {
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_speed", 0);
                     p.setWalkSpeed(0.2F);
                     p.sendMessage("§cRychlost byla nastavena na zakladni!");
                     p.closeInventory();
                 } else {
-                    Main.getInstance().fetchData().updateSettings(p, "lobby_speed", 1);
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_speed", 1);
                     p.setWalkSpeed(0.3F);
                     p.sendMessage("§aRychlost byla nastavena na 2x rychlejsi!");
                     p.closeInventory();
                 }
             }
             if (e.getSlot() == 25) {
-                if (Main.getInstance().fetchData().getSettings(p, "death_messages") == 1) {
-                    Main.getInstance().fetchData().updateSettings(p, "death_messages", 0);
+                if (Main.getInstance().getSQL().getSettings(p, "death_messages") == 1) {
+                    Main.getInstance().getSQL().updateSettings(p, "death_messages", 0);
                     p.sendMessage("§cZablokovano zobrazovani zprav o smrti!");
                     p.closeInventory();
                 } else {
-                    Main.getInstance().fetchData().updateSettings(p, "death_messages", 1);
+                    Main.getInstance().getSQL().updateSettings(p, "death_messages", 1);
                     p.sendMessage("§aNyni uvidis v chatu zpravy o smrti hracu!");
                     p.closeInventory();
                 }

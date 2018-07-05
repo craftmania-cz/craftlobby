@@ -103,7 +103,7 @@ public class Parachute implements Listener {
                         if (player.isOnGround()) {
                             killParachute(player);
                             Bukkit.getScheduler().cancelTask(task2);
-                            if (Main.getInstance().fetchData().getSettings(player, "lobby_fly") == 1) {
+                            if (Main.getInstance().getSQL().getSettings(player, "lobby_fly") == 1) {
                                 player.setAllowFlight(true);
                                 player.setFlying(true);
                             }

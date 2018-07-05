@@ -135,7 +135,7 @@ public class CloaksAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
 
         cloakMenu.setItem(49, shopItem);
         cloakMenu.setItem(40, deaktivace);

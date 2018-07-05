@@ -42,7 +42,7 @@ public class ParkourListener implements Listener {
         Player p = e.getPlayer();
 
         if (p.hasPermission("craftlobby.vip.fly")
-                && Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
+                && Main.getInstance().getSQL().getSettings(p, "lobby_fly") == 1) {
             p.setAllowFlight(true);
         }
 

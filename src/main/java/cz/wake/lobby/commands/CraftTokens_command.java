@@ -19,7 +19,7 @@ public class CraftTokens_command implements CommandExecutor {
                     String castka = ArrayOfString[1];
                     int sum = Integer.valueOf(castka);
                     try {
-                        Main.getInstance().fetchData().addTokens(name, sum);
+                        Main.getInstance().getSQL().addTokens(name, sum);
                         Sender.sendMessage("§eNa ucet §f" + name + " §ebylo pridano §c" + sum + " CT");
                     } catch (Exception e){
                         e.printStackTrace();

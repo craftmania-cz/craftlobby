@@ -99,7 +99,7 @@ public class VanillaSkyblock implements ASInterface {
 
     @Override
     public void updateArmorStand(String s, int i) {
-        if (Main.getInstance().fetchData().getMaintenance(s) == 1) {
+        if (Main.getInstance().getSQL().getMaintenance(s) == 1) {
             if (!maintenance) {
                 Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Vanilla-Skyblock §caktivovan do rezimu udrzby!");
                 maintenance = true;
@@ -136,7 +136,7 @@ public class VanillaSkyblock implements ASInterface {
                     }
                 }.runTaskTimer(Main.getInstance(), 0, 35L);
             }
-        } else if (Main.getInstance().fetchData().getMaintenance(s) == 0) {
+        } else if (Main.getInstance().getSQL().getMaintenance(s) == 0) {
             if (maintenance) {
                 //Restart na default
                 Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Factions §adeaktivovan z rezimu udrzby!");

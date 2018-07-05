@@ -34,7 +34,6 @@ public class ArmorStandInteract implements Listener {
     private boolean farmer, child, ludvik, felix, wake, veverka1, veverka2, flafy, delfik = false;
     private ItemStack item = ItemFactory.create(Material.GHAST_TEAR, (byte) 0, "§bTeleport");
     private ArrayList<Player> wait = new ArrayList<>();
-    private ArcadeShopGUI arcadeShop = new ArcadeShopGUI();
     private RewardsManager rw = new RewardsManager();
     private Kalendar k = new Kalendar();
 
@@ -547,20 +546,14 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("Bonusy")) {
                 rw.openRewardManager(p);
             }
-            if (e.getRightClicked().hasMetadata("Winter")) {
-                sendToServer(p, "winterlobby");
-            }
             if (e.getRightClicked().hasMetadata("survival")) {
                 sendToServer(p, "survival");
             }
             if (e.getRightClicked().hasMetadata("skyblock")) {
                 sendToServer(p, "skyblock");
             }
-            if (e.getRightClicked().hasMetadata("creative1")) {
+            if (e.getRightClicked().hasMetadata("creative")) {
                 sendToServer(p, "creative");
-            }
-            if (e.getRightClicked().hasMetadata("creative2")) {
-                sendToServer(p, "creative2");
             }
             if (e.getRightClicked().hasMetadata("prison")) {
                 sendToServer(p, "prison");
@@ -568,24 +561,15 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("vanilla")) {
                 sendToServer(p, "vanilla");
             }
-            if (e.getRightClicked().hasMetadata("arcade")) {
-                sendToServer(p, "dlobby");
-            }
             if (e.getRightClicked().hasMetadata("bedwars")) {
                 sendToServer(p, "blobby");
             }
             if (e.getRightClicked().hasMetadata("skywars")) {
                 sendToServer(p, "slobby");
             }
-            if (e.getRightClicked().hasMetadata("skygiants")) {
-                sendToServer(p, "globby");
-            }
             if (e.getRightClicked().hasMetadata("vanilla-skyblock")) {
                 //sendToServer(p, "vanillasb");
                 p.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
-            }
-            if (e.getRightClicked().hasMetadata("arcadeshop")) {
-                arcadeShop.openMainGUI(p);
             }
             if (e.getRightClicked().hasMetadata("murder")) {
                 sendToServer(p, "mlobby");

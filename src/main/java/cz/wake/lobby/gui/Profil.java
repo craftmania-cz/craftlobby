@@ -32,7 +32,6 @@ public class Profil implements Listener {
     private static HashSet<Player> youtube_editor = new HashSet<>();
     private static HashSet<Player> steam_editor = new HashSet<>();
     private static HashSet<Player> web_editor = new HashSet<>();
-    private Stalker stalker = new Stalker();
     private SettingsMenu settings = new SettingsMenu();
 
     public void openMenu(Player p) {
@@ -45,18 +44,18 @@ public class Profil implements Listener {
         ItemStack headItem = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
         ArrayList<String> headLore = new ArrayList<String>();
         headLore.add("");
-        headLore.add("§7ID: §f#" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "discriminator"));
-        headLore.add("§7Prvni pripojeni: §f" + getDate(Main.getInstance().fetchData().getPlayerProfileDataLong(p, "registred")));
-        headLore.add("§7CraftCoins: §f" + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()));
-        headLore.add("§7SkyDust: §f" + Main.getInstance().fetchData().getSkyKeysDust(p.getUniqueId()));
-        headLore.add("§7Celkem hlasu: §f" + Main.getInstance().fetchData().getVotesAll(p.getUniqueId()));
-        headLore.add("§7Web group: §f" + getWebGroup(Main.getInstance().fetchData().getPlayerProfileDataInt(p, "web_group")));
-        headLore.add("§7Celkem odehrany cas: §f" + TimeUtils.formatTime("%dd, %hh %mm", Main.getInstance().fetchData().getPlayerProfileDataInt(p, "played_time"), false));
+        headLore.add("§7ID: §f#" + Main.getInstance().getSQL().getPlayerProfileDataString(p, "discriminator"));
+        headLore.add("§7Prvni pripojeni: §f" + getDate(Main.getInstance().getSQL().getPlayerProfileDataLong(p, "registred")));
+        headLore.add("§7CraftCoins: §f" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()));
+        headLore.add("§7SkyDust: §f" + Main.getInstance().getSQL().getSkyKeysDust(p.getUniqueId()));
+        headLore.add("§7Celkem hlasu: §f" + Main.getInstance().getSQL().getVotesAll(p.getUniqueId()));
+        headLore.add("§7Web group: §f" + getWebGroup(Main.getInstance().getSQL().getPlayerProfileDataInt(p, "web_group")));
+        headLore.add("§7Celkem odehrany cas: §f" + TimeUtils.formatTime("%dd, %hh %mm", Main.getInstance().getSQL().getPlayerProfileDataInt(p, "played_time"), false));
         headItemMeta.setLore(headLore);
         headItem.setItemMeta(headItemMeta);
         menu.setItem(12, headItem);
 
-        ItemStack status = ItemFactory.create(Material.PAPER, (byte) 0, "§aTvuj status", "§8Status je viditelny na webu", "§8v profilech", "", "§f" + Main.getInstance().fetchData().getPlayerProfileDataString(p, "status"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
+        ItemStack status = ItemFactory.create(Material.PAPER, (byte) 0, "§aTvuj status", "§8Status je viditelny na webu", "§8v profilech", "", "§f" + Main.getInstance().getSQL().getPlayerProfileDataString(p, "status"), "", "§eLevym kliknutim zmenis", "§ePravym kliknutim smazes");
         menu.setItem(14, status);
 
         ItemStack soc = ItemFactory.createHead("Test", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§aSocialni site", "", "§7Chces vsem poskytnout prime", "§7odkazy na svem profilu?", "", "§bOdkazy se zobrazuji na webu", "§bv profilech.", "", "§eKliknutim provedes zmeny");
@@ -80,7 +79,7 @@ public class Profil implements Listener {
         ItemStack villages = ItemFactory.create(Material.DARK_OAK_DOOR_ITEM, (byte) 0, "§aVillages", "", "§7Kdo vi.. co to bude?", "", "§cPlanovano...");
         menu.setItem(38, villages);
 
-        if (Main.getInstance().fetchData().isAT(p)) {
+        if (Main.getInstance().getSQL().isAT(p)) {
             ItemStack i = ItemFactory.create(Material.PAINTING, (byte) 0, "§aAT Stalker", "§7Prehled tve aktivity", "§7na serveru.", "", "§eKlikni pro zobrazeni");
             menu.setItem(42, i);
         } else {
@@ -209,7 +208,7 @@ public class Profil implements Listener {
                     }
                 } else if (e.isRightClick()) {
                     p.closeInventory();
-                    Main.getInstance().fetchData().updateStatus(p, "Tento hráč nemá nastavený status...");
+                    Main.getInstance().getSQL().updateStatus(p, "Tento hráč nemá nastavený status...");
                     p.sendMessage("§eStatus byl vyresetovany na default!");
                 }
             }
@@ -221,13 +220,6 @@ public class Profil implements Listener {
             }
             if (e.getSlot() == 41) {
                 settings.openSettingsMenu(p);
-            }
-            if (e.getSlot() == 42) {
-                if (Main.getInstance().fetchData().isAT(p)) {
-                    stalker.openStalker(p);
-                } else {
-                    p.sendMessage("§cK pouzivani teto sekce musis byt v AT!");
-                }
             }
         }
         if (e.getInventory().getTitle().equals("Nastaveni jazyka")) {
@@ -249,13 +241,6 @@ public class Profil implements Listener {
                 openMenu(p);
             }
         }
-        if (e.getInventory().getTitle().equals("Stalker")) {
-            if (e.getSlot() == 40) {
-                stalker.openAdminStalker(p);
-            }
-            e.setCancelled(true);
-            p.updateInventory();
-        }
         if (e.getInventory().getTitle().equals("Socialni site")) {
             if (e.getSlot() == 40) {
                 openMenu(p);
@@ -271,7 +256,7 @@ public class Profil implements Listener {
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
-                    Main.getInstance().fetchData().updateSocLinks(p, "soc_facebook", "0");
+                    Main.getInstance().getSQL().updateSocLinks(p, "soc_facebook", "0");
                     p.sendMessage("§eTvuj Facebook odkaz byl smazan!");
                     openSocialMenu(p);
                 }
@@ -287,7 +272,7 @@ public class Profil implements Listener {
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
-                    Main.getInstance().fetchData().updateSocLinks(p, "soc_twitter", "0");
+                    Main.getInstance().getSQL().updateSocLinks(p, "soc_twitter", "0");
                     p.sendMessage("§eTvuj Twitter odkaz byl smazan!");
                     openSocialMenu(p);
                 }
@@ -303,7 +288,7 @@ public class Profil implements Listener {
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
-                    Main.getInstance().fetchData().updateSocLinks(p, "soc_ytb", "0");
+                    Main.getInstance().getSQL().updateSocLinks(p, "soc_ytb", "0");
                     p.sendMessage("§eTvuj Youtube odkaz byl smazan!");
                     openSocialMenu(p);
                 }
@@ -319,7 +304,7 @@ public class Profil implements Listener {
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
-                    Main.getInstance().fetchData().updateSocLinks(p, "soc_twitch", "0");
+                    Main.getInstance().getSQL().updateSocLinks(p, "soc_twitch", "0");
                     p.sendMessage("§eTvuj Twitch odkaz byl smazan!");
                     openSocialMenu(p);
                 }
@@ -335,7 +320,7 @@ public class Profil implements Listener {
                     }
                 } else if (e.isRightClick()
                         && e.getCurrentItem().getItemMeta().getDisplayName().equals("§bWeb (vlastni URL)")) {
-                    Main.getInstance().fetchData().updateSocLinks(p, "soc_web", "0");
+                    Main.getInstance().getSQL().updateSocLinks(p, "soc_web", "0");
                     p.sendMessage("§eTvuj Web odkaz byl smazan!");
                     openSocialMenu(p);
                 }
@@ -351,7 +336,7 @@ public class Profil implements Listener {
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
-                    Main.getInstance().fetchData().updateSocLinks(p, "soc_steam", "0");
+                    Main.getInstance().getSQL().updateSocLinks(p, "soc_steam", "0");
                     p.sendMessage("§eTvuj Steam odkaz byl smazan!");
                     openSocialMenu(p);
                 }
@@ -376,7 +361,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateStatus(p, m);
+            Main.getInstance().getSQL().updateStatus(p, m);
             editor.remove(p);
             p.sendMessage("§eStatus nastaven na: §f" + m);
         }
@@ -391,7 +376,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateSocLinks(p, "soc_facebook", m);
+            Main.getInstance().getSQL().updateSocLinks(p, "soc_facebook", m);
             fb_editor.remove(p);
             p.sendMessage("§eFacebook link nastaven na: §fhttps://www.facebook.com/§b" + m);
         }
@@ -406,7 +391,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateSocLinks(p, "soc_twitch", m);
+            Main.getInstance().getSQL().updateSocLinks(p, "soc_twitch", m);
             twitch_editor.remove(p);
             p.sendMessage("§eTwitch link nastaven na: §fhttps://www.twitch.tv/§b" + m);
         }
@@ -421,7 +406,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateSocLinks(p, "soc_ytb", m);
+            Main.getInstance().getSQL().updateSocLinks(p, "soc_ytb", m);
             youtube_editor.remove(p);
             p.sendMessage("§eYoutube link nastaven na: §fhttps://www.youtube.com/user/§b" + m);
         }
@@ -436,7 +421,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateSocLinks(p, "soc_twitter", m);
+            Main.getInstance().getSQL().updateSocLinks(p, "soc_twitter", m);
             tw_editor.remove(p);
             p.sendMessage("§eTwitter link nastaven na: §fhttps://twitter.com/§b" + m);
         }
@@ -451,7 +436,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateSocLinks(p, "soc_web", m);
+            Main.getInstance().getSQL().updateSocLinks(p, "soc_web", m);
             web_editor.remove(p);
             p.sendMessage("§eWeb link nastaven na: §b" + m);
         }
@@ -466,7 +451,7 @@ public class Profil implements Listener {
                 p.sendMessage("§cMaximalne jde nastavit 100 znaku! Pokud chces zrusit editaci napis - exit");
                 return;
             }
-            Main.getInstance().fetchData().updateSocLinks(p, "soc_steam", m);
+            Main.getInstance().getSQL().updateSocLinks(p, "soc_steam", m);
             steam_editor.remove(p);
             p.sendMessage("§eSteam link nastaven na: §fhttps://steamcommunity.com/id/§b" + m);
         }
@@ -510,7 +495,7 @@ public class Profil implements Listener {
     }
 
     private String getSocialLinks(Player p, String table) {
-        String data = Main.getInstance().fetchData().getPlayerProfileDataString(p, table);
+        String data = Main.getInstance().getSQL().getPlayerProfileDataString(p, table);
         if (data.equalsIgnoreCase("0")) {
             return "§8Nenastaveno";
         }

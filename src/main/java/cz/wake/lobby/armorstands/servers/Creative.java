@@ -36,7 +36,7 @@ public class Creative implements ASInterface {
 
         defaultItems();
 
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "creative2", "creative2", Main.getInstance());
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "creative", "creative", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
@@ -93,7 +93,7 @@ public class Creative implements ASInterface {
 
     @Override
     public void updateArmorStand(String s, int i) {
-        if (Main.getInstance().fetchData().getMaintenance(s) == 1) {
+        if (Main.getInstance().getSQL().getMaintenance(s) == 1) {
             if (!maintenance) {
                 Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Creative §caktivovan do rezimu udrzby!");
                 maintenance = true;
@@ -130,7 +130,7 @@ public class Creative implements ASInterface {
                     }
                 }.runTaskTimer(Main.getInstance(), 0, 35L);
             }
-        } else if (Main.getInstance().fetchData().getMaintenance(s) == 0) {
+        } else if (Main.getInstance().getSQL().getMaintenance(s) == 0) {
             if (maintenance) {
                 //Restart na default
                 Bukkit.getLogger().log(Level.INFO, "§b[CraftStands] §6Creative §adeaktivovan z rezimu udrzby!");

@@ -86,7 +86,7 @@ public class GadgetsMenu implements Listener {
         shopLore.add(ChatColor.GRAY + "daji se zakoupit na kazdem lobby");
         shopLore.add(ChatColor.GRAY + "za CraftCoiny");
         shopLore.add("");
-        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().fetchData().getCraftCoins(p.getUniqueId()) + " CC");
+        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
         shopItemMeta.setLore(shopLore);
         shopItem.setItemMeta(shopItemMeta);
 
@@ -135,7 +135,7 @@ public class GadgetsMenu implements Listener {
 
     public String getStatusBox(Player p) {
         long time = System.currentTimeMillis();
-        long pTime = Main.getInstance().fetchData().getTimeToBuy(p.getUniqueId());
+        long pTime = Main.getInstance().getSQL().getTimeToBuy(p.getUniqueId());
 
         if (time > pTime) {
             return "§a§lIHNED";

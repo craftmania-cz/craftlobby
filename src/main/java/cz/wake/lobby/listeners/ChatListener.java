@@ -20,8 +20,8 @@ public class ChatListener implements Listener {
         if (Main.getInstance().at_list.contains(p)) {
             if (!this._time.containsKey(p)) {
                 this._time.put(p, 60D + 0.1D);
-                Main.getInstance().fetchData().updateAtLastActive(p, System.currentTimeMillis());
-                Main.getInstance().fetchData().updateAtPoints(p);
+                Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
+                Main.getInstance().getSQL().updateAtPoints(p);
                 this._cdRunnable.put(p, new BukkitRunnable() {
                     @Override
                     public void run() {

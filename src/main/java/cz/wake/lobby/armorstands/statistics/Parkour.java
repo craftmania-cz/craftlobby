@@ -24,7 +24,7 @@ public class Parkour {
 
         EntityArmorStand stand2 = new EntityArmorStand(s);
         stand2.setLocation(loc.getX(), loc.getY(), loc.getZ(), 0, 0);
-        stand2.setCustomName("§7Tvoje nejlepsi skore: §f" + Main.getInstance().fetchData().getMiniGamesStats(p, "RPScore", "player", "score"));
+        stand2.setCustomName("§7Tvoje nejlepsi skore: §f" + Main.getInstance().getSQL().getMiniGamesStats(p, "RPScore", "player", "score"));
         stand2.setCustomNameVisible(true);
         stand2.setInvisible(true);
 

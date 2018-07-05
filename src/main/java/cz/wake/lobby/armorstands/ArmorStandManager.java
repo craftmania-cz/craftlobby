@@ -18,9 +18,7 @@ public class ArmorStandManager {
     public static List<ASInterface> armorstands = new ArrayList<ASInterface>();
 
     public static void init() {
-        if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("arcade")) {
-            armorstands.add(new ArcadeShop());
-        } else if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")){
+        if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")){
             armorstands.add(new BedWars4v4());
             armorstands.add(new BedWars2v2());
             armorstands.add(new BedWars1v8());
@@ -30,18 +28,14 @@ public class ArmorStandManager {
             armorstands.add(new BedWars4v4Ranked());
             CrystalBox.spawn();
         } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")){
-            //armorstands.add(new Arcade());
-            //armorstands.add(new BedWars());
             armorstands.add(new Creative());
             armorstands.add(new VanillaSkyblock());
             armorstands.add(new Prison());
-            //armorstands.add(new GetDown());
             armorstands.add(new SkyBlock());
             armorstands.add(new SkyWars());
             armorstands.add(new Survival());
             armorstands.add(new Unknown1());
             armorstands.add(new Unknown2());
-            //armorstands.add(new Unknown3());
             armorstands.add(new Murder());
             armorstands.add(new Vanilla());
             armorstands.add(new DJClub());
@@ -52,15 +46,12 @@ public class ArmorStandManager {
             armorstands.add(new Pirate());
             armorstands.add(new Witch());
             armorstands.add(new Bonusy());
-            armorstands.add(new Kubrastig());
-            //armorstands.add(new TeamBuildBattle());
             armorstands.add(new Filip6());
             armorstands.add(new BedWars2());
             if(Main.getInstance().isChristmas()){
                 armorstands.add(new Santa());
                 armorstands.add(new Otec());
                 armorstands.add(new Matka());
-                armorstands.add(new WinterGames());
             }
         }
     }
@@ -90,31 +81,25 @@ public class ArmorStandManager {
     public void updatePlayers() {
         for (ASInterface i : armorstands) {
             if (i instanceof Survival) {
-                i.updateArmorStand("survival", Main.getInstance().fetchData().getOnlinePlayers("survival"));
+                i.updateArmorStand("survival", Main.getInstance().getSQL().getOnlinePlayers("survival"));
             } else if (i instanceof SkyBlock) {
-                i.updateArmorStand("skyblock", Main.getInstance().fetchData().getOnlinePlayers("skyblock"));
+                i.updateArmorStand("skyblock", Main.getInstance().getSQL().getOnlinePlayers("skyblock"));
             } else if (i instanceof Creative) {
-                i.updateArmorStand("creative", Main.getInstance().fetchData().getOnlinePlayers("creative2"));
+                i.updateArmorStand("creative", Main.getInstance().getSQL().getOnlinePlayers("creative2"));
             } else if (i instanceof Prison) {
-                //i.updateArmorStand("prison", Main.getInstance().fetchData().getOnlinePlayers("prison"));
+                //i.updateArmorStand("prison", Main.getInstance().getSQL().getOnlinePlayers("prison"));
             } else if (i instanceof VanillaSkyblock) {
-                //i.updateArmorStand("vanillasb", Main.getInstance().fetchData().getOnlinePlayers("vanillasb"));
+                //i.updateArmorStand("vanillasb", Main.getInstance().getSQL().getOnlinePlayers("vanillasb"));
             } else if (i instanceof Vanilla) {
-                i.updateArmorStand("vanilla", Main.getInstance().fetchData().getOnlinePlayers("vanilla"));
-            } else if (i instanceof BedWars) {
-                i.updateArmorStand("bedwars", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars_server"));
+                i.updateArmorStand("vanilla", Main.getInstance().getSQL().getOnlinePlayers("vanilla"));
             } else if (i instanceof SkyWars) {
-                i.updateArmorStand("skywars", Main.getInstance().fetchData().getOnlinePlayersSum("stav_skywars_server"));
-            } else if (i instanceof TeamBuildBattle) {
-                i.updateArmorStand("teambuildbattle", Main.getInstance().fetchData().getOnlinePlayersSum("stav_buildbattle_server"));
-            } else if (i instanceof GetDown) {
-                i.updateArmorStand("getdown", Main.getInstance().fetchData().getOnlinePlayersSum("stav_getdown_server"));
+                i.updateArmorStand("skywars", Main.getInstance().getSQL().getOnlinePlayersSum("stav_skywars_server"));
             } else if (i instanceof Murder) {
-                i.updateArmorStand("murder", Main.getInstance().fetchData().getOnlinePlayersSum("stav_murder_server"));
+                i.updateArmorStand("murder", Main.getInstance().getSQL().getOnlinePlayersSum("stav_murder_server"));
             } else if (i instanceof BedWars4v4) {
-                i.updateArmorStand("bedwars2", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars2_server"));
+                i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
             } else if (i instanceof BedWars2) {
-                i.updateArmorStand("bedwars2", Main.getInstance().fetchData().getOnlinePlayersSum("stav_bedwars2_server"));
+                i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
             }
         }
     }

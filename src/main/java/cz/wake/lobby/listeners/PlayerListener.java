@@ -83,11 +83,11 @@ public class PlayerListener implements Listener {
             p.setGameMode(GameMode.SURVIVAL);
 
             // Player settings
-            Main.getInstance().setData().addSettingsDefault(p);
+            Main.getInstance().getSQL().addSettingsDefault(p);
 
             //Odmeny
-            Main.getInstance().setData().createRewardsRecord(p, "lobby_denniodmena");
-            Main.getInstance().setData().createRewardsRecord(p, "lobby_vipodmena");
+            Main.getInstance().getSQL().createRewardsRecord(p, "lobby_denniodmena");
+            Main.getInstance().getSQL().createRewardsRecord(p, "lobby_vipodmena");
 
             // Prefix v tablistu
             UtilTablist.setupDefaultTablist(p);
@@ -108,13 +108,13 @@ public class PlayerListener implements Listener {
             }
 
             //AT
-            if (Main.getInstance().fetchData().isAT(p)) {
+            if (Main.getInstance().getSQL().isAT(p)) {
                 Main.getInstance().at_list.add(p);
-                Main.getInstance().fetchData().updateAtLastActive(p, System.currentTimeMillis());
+                Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
             }
 
             //Profiles
-            Main.getInstance().fetchData().createPlayerProfile(p);
+            Main.getInstance().getSQL().createPlayerProfile(p);
 
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
@@ -122,12 +122,12 @@ public class PlayerListener implements Listener {
                 b.onPlayerSpawn(p);
 
                 //Update MC verze
-                Main.getInstance().fetchData().updatePlayerVersion(p);
-                Main.getInstance().fetchData().updateForceNick(p);
+                Main.getInstance().getSQL().updatePlayerVersion(p);
+                Main.getInstance().getSQL().updateForceNick(p);
 
                 // Vanocni kalendar
                 //TODO: Pouze pri vanocich
-                //Main.getInstance().fetchData().addCalendarDefaultValue(p);
+                //Main.getInstance().getSQL().addCalendarDefaultValue(p);
 
                 p.sendMessage("");
                 p.sendMessage("§c§lUPOZORNENI: §fServer se stale dodelava, a nektere funkce jsou vypnute!");
@@ -531,7 +531,7 @@ public class PlayerListener implements Listener {
 
         // Fly na lobby
         if (p.hasPermission("craftlobby.vip.fly")) {
-            if (Main.getInstance().fetchData().getSettings(p, "lobby_fly") == 1) {
+            if (Main.getInstance().getSQL().getSettings(p, "lobby_fly") == 1) {
                 p.setAllowFlight(true);
                 p.setFlying(true);
             } else {
@@ -544,7 +544,7 @@ public class PlayerListener implements Listener {
         }
 
         // Nastaveni skryti hracu
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_players") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_players") == 1) {
             SettingsMenu.hiden.add(p);
             for (Player p2 : Bukkit.getOnlinePlayers()) {
                 p.hidePlayer(p2);
@@ -559,19 +559,19 @@ public class PlayerListener implements Listener {
         }
 
         // Zobrazovani particles
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_particles") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_particles") == 1) {
             SettingsMenu.particles.add(p);
         }
 
         // Lobby speed
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_speed") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_speed") == 1) {
             p.setWalkSpeed(0.3F);
         } else {
             p.setWalkSpeed(0.2F);
         }
 
         // Gadgets
-        if (Main.getInstance().fetchData().getSettings(p, "lobby_gadgets") == 1) {
+        if (Main.getInstance().getSQL().getSettings(p, "lobby_gadgets") == 1) {
             SettingsMenu.gadgets.add(p);
         }
     }

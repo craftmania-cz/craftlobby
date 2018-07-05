@@ -4,14 +4,11 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -137,8 +134,8 @@ public class Servers implements Listener {
         Pouze pro GIGA Turnaj
      */
     private String getPristup(Player p){
-        if(Main.getInstance().fetchData().isInWhitelist(p)){
-            if(Main.getInstance().fetchData().unlockState().equalsIgnoreCase("1")){
+        if(Main.getInstance().getSQL().isInWhitelist(p)){
+            if(Main.getInstance().getSQL().unlockState().equalsIgnoreCase("1")){
                 return "§c§lNE";
             } else {
                 return "§a§lANO";
@@ -148,7 +145,7 @@ public class Servers implements Listener {
     }
 
     private String getPlayers(final String server) {
-        int pl = Main.getInstance().fetchData().getOnlinePlayers(server);
+        int pl = Main.getInstance().getSQL().getOnlinePlayers(server);
         if (pl == 0) {
             return "§8Nikdo na serveru neni!";
         } else if (pl == 1) {

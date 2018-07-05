@@ -20,7 +20,7 @@ public class RewardsManager implements Listener {
 
         Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
 
-        if (Main.getInstance().setData().hasActiveReward(p, "lobby_denniodmena") == 0) {
+        if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
             ItemStack weekOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lDenni odmena", "§81x za 24 hodin", "",
                     "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC", "", "§aKliknutim vyberes odmenu!");
             inv.setItem(20, weekOdmena);
@@ -30,7 +30,7 @@ public class RewardsManager implements Listener {
             inv.setItem(20, weekOdmena);
         }
         if (p.hasPermission("craftlobby.vip.odmena")) {
-            if (Main.getInstance().setData().hasActiveReward(p, "lobby_vipodmena") == 0) {
+            if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                 ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lMVIP Bonus", "§81x kazdy mesic", "",
                         "§7Odmena pro kazdeho,", "§7kdo si zakoupil MVIP!", "", "§eDostanes: §62000 CC", "", "§aKliknutim vyberes odmenu!");
                 inv.setItem(21, vipOdmena);
@@ -58,7 +58,7 @@ public class RewardsManager implements Listener {
     }
 
     private String dalsiOdmena(int id) {
-        long next = Main.getInstance().setData().getNextRewardReset(id) - System.currentTimeMillis();
+        long next = Main.getInstance().getSQL().getNextRewardReset(id) - System.currentTimeMillis();
         return "§cDalsi vyber za " + getDurationBreakdown(next);
     }
 
@@ -103,9 +103,9 @@ public class RewardsManager implements Listener {
                 return;
             }
             if (e.getSlot() == 20) {
-                if (Main.getInstance().setData().hasActiveReward(p, "lobby_denniodmena") == 0) {
+                if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
                     p.sendMessage("§eVybral jsi si denni odmenu §650 CC");
-                    Main.getInstance().setData().updateRewardRecord(p, "lobby_denniodmena");
+                    Main.getInstance().getSQL().updateRewardRecord(p, "lobby_denniodmena");
                     //Main.getInstance().setData().addCoins(p, 50);
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 50");
                     Bonusy b = new Bonusy();
@@ -117,9 +117,9 @@ public class RewardsManager implements Listener {
             }
             if (e.getSlot() == 21) {
                 if (p.hasPermission("craftlobby.vip.odmena")) {
-                    if (Main.getInstance().setData().hasActiveReward(p, "lobby_vipodmena") == 0) {
+                    if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                         p.sendMessage("§eVybral jsi si MVIP bonus §62000 CC");
-                        Main.getInstance().setData().updateRewardRecord(p, "lobby_vipodmena");
+                        Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                         //Main.getInstance().setData().addCoins(p, 2000);
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 2000");
                         Bonusy b = new Bonusy();
@@ -139,9 +139,9 @@ public class RewardsManager implements Listener {
         Bukkit.getScheduler().runTaskTimerAsynchronously(Main.getInstance(), new Runnable() {
             @Override
             public void run() {
-                if (Main.getInstance().setData().getNextRewardReset(4) < System.currentTimeMillis()) {
-                    Main.getInstance().setData().resetDailyReward(System.currentTimeMillis() + 82800000); //23h
-                    Main.getInstance().setData().resetReward();
+                if (Main.getInstance().getSQL().getNextRewardReset(4) < System.currentTimeMillis()) {
+                    Main.getInstance().getSQL().resetDailyReward(System.currentTimeMillis() + 82800000); //23h
+                    Main.getInstance().getSQL().resetReward();
                 }
             }
         }, 60L, 144000);

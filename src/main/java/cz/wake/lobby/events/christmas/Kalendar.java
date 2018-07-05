@@ -90,7 +90,7 @@ public class Kalendar implements Listener {
 
     private ItemStack canOpen(final Player p, final int day, final long time) {
         if (System.currentTimeMillis() > time) { // Kontrola zda muze otevrit tento den
-            if (Main.getInstance().fetchData().checkDay(p, day) == 0) { // Kontrola zda uz otevrel
+            if (Main.getInstance().getSQL().checkDay(p, day) == 0) { // Kontrola zda uz otevrel
                 ItemStack i = ranomHead("§e§l" + day + ". den");
                 ItemMeta iM = i.getItemMeta();
                 ArrayList<String> iMLore = new ArrayList();
@@ -164,12 +164,12 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (System.currentTimeMillis() >= 1512082800000L) { // 1.Den
-                    if (Main.getInstance().fetchData().checkDay(p, 1) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 1);
+                    if (Main.getInstance().getSQL().checkDay(p, 1) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 1);
                         p.sendMessage("§eZiskal jsi: §bEnderman Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bEnderman Pet");
                         setPermission(p,"craftlobby.pets.enderman");
-                        Main.getInstance().fetchData().addCoins(p, 100);
+                        Main.getInstance().getSQL().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -185,13 +185,13 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 40) {
                 if (System.currentTimeMillis() >= 1512169200000L) { // 2.Den
-                    if (Main.getInstance().fetchData().checkDay(p, 2) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 2);
+                    if (Main.getInstance().getSQL().checkDay(p, 2) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 2);
                         p.sendMessage("§eZiskal jsi: §bSanta Heads + 100CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Heads + 100CC");
                         setPermission(p, "craftlobby.heads.vanocni.piratesanta");
                         setPermission(p, "craftlobby.heads.vanocni.santa");
-                        Main.getInstance().fetchData().addCoins(p, 100);
+                        Main.getInstance().getSQL().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -207,12 +207,12 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 28) {
                 if (System.currentTimeMillis() >= 1512255600000L) { // 3.Den
-                    if (Main.getInstance().fetchData().checkDay(p, 3) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 3);
+                    if (Main.getInstance().getSQL().checkDay(p, 3) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 3);
                         p.sendMessage("§eZiskal jsi: §bSanta Cloak + 200CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Cloak + 200CC");
                         setPermission(p, "craftlobby.cloaks.santa");
-                        Main.getInstance().fetchData().addCoins(p, 200);
+                        Main.getInstance().getSQL().addCoins(p, 200);
                         p.closeInventory();
                         return;
                     } else {
@@ -228,9 +228,9 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 9) {
                 if (System.currentTimeMillis() >= 1512342000000L) { // 4.Den
-                    if (Main.getInstance().fetchData().checkDay(p, 4) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 4);
-                        Main.getInstance().fetchData().addCoins(p, 100);
+                    if (Main.getInstance().getSQL().checkDay(p, 4) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 4);
+                        Main.getInstance().getSQL().addCoins(p, 100);
                         setPermission(p, "craftlobby.morphs.snowman");
                         p.sendMessage("§eZiskal jsi: §b100CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Morph + 1000CC");
@@ -249,8 +249,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 50) {
                 if (System.currentTimeMillis() >= 1512428400000L) { // 5.den
-                    if (Main.getInstance().fetchData().checkDay(p, 5) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 5);
+                    if (Main.getInstance().getSQL().checkDay(p, 5) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 5);
                         p.sendMessage("§eZiskal jsi: §bElfBoy & ElfGirl Heads");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bElfBoy & ElfGirl Heads");
                         setPermission(p, "craftlobby.heads.vanocni.elfboy");
@@ -270,12 +270,12 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 33) {
                 if (System.currentTimeMillis() >= 1512514800000L) { // 6.den
-                    if (Main.getInstance().fetchData().checkDay(p, 6) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 6);
+                    if (Main.getInstance().getSQL().checkDay(p, 6) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 6);
                         p.sendMessage("§eZiskal jsi: §bSnowman Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Pet + 100CC");
                         setPermission(p,"craftlobby.pets.snowman");
-                        Main.getInstance().fetchData().addCoins(p, 100);
+                        Main.getInstance().getSQL().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -291,11 +291,11 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 15) {
                 if (System.currentTimeMillis() >= 1512601200000L) { // 7.den
-                    if (Main.getInstance().fetchData().checkDay(p, 7) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 7);
+                    if (Main.getInstance().getSQL().checkDay(p, 7) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 7);
                         p.sendMessage("§eZiskal jsi: §bChicken Morph + 100CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bChicken Morph + 100CC");
-                        Main.getInstance().fetchData().addCoins(p, 100);
+                        Main.getInstance().getSQL().addCoins(p, 100);
                         setPermission(p, "craftlobby.morphs.chicken");
                         p.closeInventory();
                     } else {
@@ -311,8 +311,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 46) {
                 if (System.currentTimeMillis() >= 1512687600000L) { // 8.den
-                    if (Main.getInstance().fetchData().checkDay(p, 8) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 8);
+                    if (Main.getInstance().getSQL().checkDay(p, 8) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 8);
                         p.sendMessage("§eZiskal jsi: §bSnowglobe Heads");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowglobe Heads");
                         setPermission(p, "craftlobby.heads.vanocni.snowglobe");
@@ -332,11 +332,11 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 36) {
                 if (System.currentTimeMillis() >= 1512774000000L) { // 9.den
-                    if (Main.getInstance().fetchData().checkDay(p, 9) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 9);
+                    if (Main.getInstance().getSQL().checkDay(p, 9) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 9);
                         p.sendMessage("§eZiskal jsi: §bPresent Heads + 200CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPresent Heads + 200CC");
-                        Main.getInstance().fetchData().addCoins(p, 200);
+                        Main.getInstance().getSQL().addCoins(p, 200);
                         setPermission(p, "craftloby.heads.vanocni.blackpresent");
                         setPermission(p, "craftlobby.heads.vanocni.bluepresent");
                         setPermission(p, "craftlobby.heads.vanocni.greenpresent");
@@ -356,8 +356,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (System.currentTimeMillis() >= 1512860400000L) { // 10.den
-                    if (Main.getInstance().fetchData().checkDay(p, 10) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 10);
+                    if (Main.getInstance().getSQL().checkDay(p, 10) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 10);
                         p.sendMessage("§eZiskal jsi: §bBlood Helix Particles");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bBlood Helix Particles");
                         setPermission(p, "craftlobby.particles.bloodhelix");
@@ -376,8 +376,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 26) {
                 if (System.currentTimeMillis() >= 1512946800000L) { // 11.den
-                    if (Main.getInstance().fetchData().checkDay(p, 11) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 11);
+                    if (Main.getInstance().getSQL().checkDay(p, 11) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 11);
                         p.sendMessage("§eZiskal jsi: §bHorse White Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bHorse White Pet");
                         setPermission(p, "craftlobby.pets.horse.white");
@@ -397,10 +397,10 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 52) {
                 if (System.currentTimeMillis() >= 1513033200000L) { // 12.den
-                    if (Main.getInstance().fetchData().checkDay(p, 12) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 12);
+                    if (Main.getInstance().getSQL().checkDay(p, 12) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 12);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bIronGolem Morph + 200CC");
-                        Main.getInstance().fetchData().addCoins(p, 200);
+                        Main.getInstance().getSQL().addCoins(p, 200);
                         setPermission(p, "craftlobby.morphs.irongolem");
                         p.closeInventory();
                         return;
@@ -417,8 +417,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (System.currentTimeMillis() >= 1513119600000L) { // 13.den
-                    if (Main.getInstance().fetchData().checkDay(p, 13) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 13);
+                    if (Main.getInstance().getSQL().checkDay(p, 13) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 13);
                         p.sendMessage("§eZiskal jsi: §bAngel Cloak");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAngel Cloak");
                         setPermission(p, "craftlobby.cloaks.angel");
@@ -436,8 +436,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 12) {
                 if (System.currentTimeMillis() >= 1513206000000L) { // 14.den
-                    if (Main.getInstance().fetchData().checkDay(p, 14) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 14);
+                    if (Main.getInstance().getSQL().checkDay(p, 14) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 14);
                         p.sendMessage("§eZiskal jsi: §bVsechny Bannery v Gagdets");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bVsechny Bannery");
                         setPermission(p, "craftlobby.banner.*");
@@ -456,12 +456,12 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 20) {
                 if (System.currentTimeMillis() >= 1513292400000L) { // 15.den
-                    if (Main.getInstance().fetchData().checkDay(p, 15) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 15);
+                    if (Main.getInstance().getSQL().checkDay(p, 15) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 15);
                         p.sendMessage("§eZiskal jsi: §bAntiGravity Gadget");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAntiGravity Gadget + 100CC");
                         setPermission(p, "craftlobby.gadget.antigravity");
-                        Main.getInstance().fetchData().addCoins(p, 100);
+                        Main.getInstance().getSQL().addCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -477,8 +477,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 44) {
                 if (System.currentTimeMillis() >= 1513378800000L) { // 16.den
-                    if (Main.getInstance().fetchData().checkDay(p, 16) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 16);
+                    if (Main.getInstance().getSQL().checkDay(p, 16) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 16);
                         p.sendMessage("§eZiskal jsi: §bSanta Hat Particles");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Hat Particles");
                         setPermission(p, "craftlobby.particles.santahat");
@@ -497,8 +497,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 30) {
                 if (System.currentTimeMillis() >= 1513465200000L) { // 17.den
-                    if (Main.getInstance().fetchData().checkDay(p, 17) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 17);
+                    if (Main.getInstance().getSQL().checkDay(p, 17) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 17);
                         p.sendMessage("§eZiskal jsi: §6Evoker + Vex Pets");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§6Evoker + Vex Pets");
                         setPermission(p, "craftlobby.pets.evoker");
@@ -518,8 +518,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 23) {
                 if (System.currentTimeMillis() >= 1513551600000L) { // 18.den
-                    if (Main.getInstance().fetchData().checkDay(p, 18) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 18);
+                    if (Main.getInstance().getSQL().checkDay(p, 18) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 18);
                         p.sendMessage("§eZiskal jsi: §bCandy Cane Particles");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bCandy Cane Particles");
                         setPermission(p, "craftlobby.particles.candycane");
@@ -538,8 +538,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 18) {
                 if (System.currentTimeMillis() >= 1513638000000L) { // 19.den
-                    if (Main.getInstance().fetchData().checkDay(p, 19) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 19);
+                    if (Main.getInstance().getSQL().checkDay(p, 19) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 19);
                         p.sendMessage("§eZiskal jsi: §bPolar Bear Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPolar Bear Pet");
                         setPermission(p, "craftlobby.pets.polarbear");
@@ -559,8 +559,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 42) {
                 if (System.currentTimeMillis() >= 1513724400000L) { // 20.den
-                    if (Main.getInstance().fetchData().checkDay(p, 20) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 20);
+                    if (Main.getInstance().getSQL().checkDay(p, 20) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 20);
                         p.sendMessage("§eZiskal jsi: §bDevil Cloak");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bDevil Cloak");
                         setPermission(p, "craftlobby.cloaks.devil");
@@ -579,8 +579,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 48) {
                 if (System.currentTimeMillis() >= 1513810800000L) { // 21.den
-                    if (Main.getInstance().fetchData().checkDay(p, 21) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 21);
+                    if (Main.getInstance().getSQL().checkDay(p, 21) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 21);
                         p.sendMessage("§eZiskal jsi: §bSob + CommandBlock + Snowman Head");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSob + CommandBlock + Snowman Head");
                         setPermission(p, "craftlobby.heads.vanocni.sob");
@@ -601,8 +601,8 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 22) {
                 if (System.currentTimeMillis() >= 1513897200000L) { // 22.den
-                    if (Main.getInstance().fetchData().checkDay(p, 22) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 22);
+                    if (Main.getInstance().getSQL().checkDay(p, 22) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 22);
                         p.sendMessage("§eZiskal jsi: §cLlama Pets");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§cLlama Pets");
                         setPermission(p, "craftlobby.pets.llama.*");
@@ -621,10 +621,10 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 25) {
                 if (System.currentTimeMillis() >= 1513983600000L) { // 23.den
-                    if (Main.getInstance().fetchData().checkDay(p, 23) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 23);
+                    if (Main.getInstance().getSQL().checkDay(p, 23) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 23);
                         p.sendMessage("§eZiskal jsi: §b500CC + Vsechny Heads!");
-                        Main.getInstance().fetchData().addCoins(p, 500);
+                        Main.getInstance().getSQL().addCoins(p, 500);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b500CC");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
                         setPermission(p, "craftlobby.heads.*");
@@ -643,10 +643,10 @@ public class Kalendar implements Listener {
             }
             if (e.getSlot() == 38) {
                 if (System.currentTimeMillis() >= 1514070000000L) { // 24.den
-                    if (Main.getInstance().fetchData().checkDay(p, 24) == 0) {
-                        Main.getInstance().fetchData().addCalendarDay(p, 24);
+                    if (Main.getInstance().getSQL().checkDay(p, 24) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(p, 24);
                         p.sendMessage("§eZiskal jsi: §b3000CC + hoodne Pets!");
-                        Main.getInstance().fetchData().addCoins(p, 3000);
+                        Main.getInstance().getSQL().addCoins(p, 3000);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b3000CC + hoodne Pets!");
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 3000");
                         setPermission(p, "craftlobby.pets.slime.*");

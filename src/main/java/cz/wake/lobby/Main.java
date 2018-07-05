@@ -262,11 +262,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return instance;
     }
 
-    public SQLManager fetchData() {
-        return this.sql;
-    }
-
-    public SQLManager setData() {
+    public SQLManager getSQL() {
         return this.sql;
     }
 

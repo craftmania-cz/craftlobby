@@ -95,9 +95,6 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 12) {
                     sendToServer(player, "creative");
                 }
-                if (event.getSlot() == 13) {
-                    sendToServer(player, "creative2");
-                }
                 if (event.getSlot() == 14) {
                     //sendToServer(player, "prison");
                 }
@@ -109,18 +106,6 @@ public class InvClick implements Listener {
                 }
                 if (event.getSlot() == 20) { //SKYWARS
                     sendToServer(player, "slobby");
-                }
-                if (event.getSlot() == 19) { //BEDWARS
-                    sendToServer(player, "blobby");
-                }
-                if (event.getSlot() == 21){ //BUILDBATTLE
-                    sendToServer(player, "dlobby");
-                }
-                if (event.getSlot() == 22) { //SPEEDBUILDERS
-                    sendToServer(player, "dlobby");
-                }
-                if (event.getSlot() == 23) { //GETDOWN
-                    sendToServer(player, "dlobby");
                 }
                 if (event.getSlot() == 24) { // MURDER
                     sendToServer(player, "mlobby");

@@ -1145,7 +1145,7 @@ public class SQLManager {
     }
 
     public final void updateAtPlayerTime(Player p) {
-        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "minigames_played_time") + 1;
+        int cas = Main.getInstance().getSQL().getAtPlayerTime(p, "minigames_played_time") + 1;
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -1166,7 +1166,7 @@ public class SQLManager {
     }
 
     public final void updateAtPoints(Player p) {
-        int cas = Main.getInstance().fetchData().getAtPlayerTime(p, "minigames_chat_body") + 1;
+        int cas = Main.getInstance().getSQL().getAtPlayerTime(p, "minigames_chat_body") + 1;
         new BukkitRunnable() {
             @Override
             public void run() {
