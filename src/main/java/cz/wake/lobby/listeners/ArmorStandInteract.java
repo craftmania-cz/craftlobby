@@ -2,7 +2,6 @@ package cz.wake.lobby.listeners;
 
 import cz.wake.craftcore.utils.effects.ParticleEffect;
 import cz.wake.lobby.events.christmas.Kalendar;
-import cz.wake.lobby.gui.ArcadeShopGUI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.settings.SettingsMenu;
@@ -14,7 +13,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;

@@ -106,7 +106,8 @@ public class RewardsManager implements Listener {
                 if (Main.getInstance().setData().hasActiveReward(p, "lobby_denniodmena") == 0) {
                     p.sendMessage("§eVybral jsi si denni odmenu §650 CC");
                     Main.getInstance().setData().updateRewardRecord(p, "lobby_denniodmena");
-                    Main.getInstance().setData().addCoins(p, 50);
+                    //Main.getInstance().setData().addCoins(p, 50);
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 50");
                     Bonusy b = new Bonusy();
                     b.playEffect(p);
                     p.closeInventory();
@@ -119,7 +120,8 @@ public class RewardsManager implements Listener {
                     if (Main.getInstance().setData().hasActiveReward(p, "lobby_vipodmena") == 0) {
                         p.sendMessage("§eVybral jsi si MVIP bonus §62000 CC");
                         Main.getInstance().setData().updateRewardRecord(p, "lobby_vipodmena");
-                        Main.getInstance().setData().addCoins(p, 2000);
+                        //Main.getInstance().setData().addCoins(p, 2000);
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 2000");
                         Bonusy b = new Bonusy();
                         b.playEffect(p);
                         p.closeInventory();

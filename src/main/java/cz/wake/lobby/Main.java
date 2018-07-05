@@ -5,7 +5,6 @@ import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.events.christmas.Kalendar_command;
 import cz.wake.lobby.events.christmas.SilvesterTask;
 import cz.wake.lobby.gadgets.morphs.*;
-import cz.wake.lobby.gui.ArcadeShopGUI;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.gui.Servers;
@@ -87,9 +86,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         //Detekce TPS
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
-
-        //CraftBoxy reset
-        //boxer.runTaskDelete();
 
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
@@ -207,7 +203,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new DiscoBall(this), this);
         pm.registerEvents(new PartyCoins(this), this);
         pm.registerEvents(new WakeArmy(this), this);
-        //pm.registerEvents(new Boxer(), this);
         pm.registerEvents(new CloaksAPI(), this);
         pm.registerEvents(new GadgetsAPI(), this);
         pm.registerEvents(new PetsAPI(), this);
@@ -222,7 +217,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new Shop(), this);
         pm.registerEvents(new ArmorStandInteract(), this);
         pm.registerEvents(new ChatListener(), this);
-        pm.registerEvents(new ArcadeShopGUI(), this);
         pm.registerEvents(new MorphAPI(), this);
         pm.registerEvents(new VillagerMorph(), this);
         pm.registerEvents(new PigMorph(), this);
@@ -237,13 +231,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             pm.registerEvents(new RewardsManager(), this);
         }
 
-        //SkyKeys pro SLOBBY
-        if (pm.isPluginEnabled("CrateKeys")) {
-            if (getConfig().getString("server").contains("slobby")) {
-                pm.registerEvents(new SkyKeys(), this);
-            }
-        }
-
         if(isChristmas){
             pm.registerEvents(new Kalendar(), this);
         }
@@ -253,24 +240,18 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("clobby").setExecutor(new Craftlobby_Command());
         getCommand("cl").setExecutor(new Craftlobby_Command());
         getCommand("stats").setExecutor(new Stats_Command());
-        getCommand("sbperms").setExecutor(new SBPerms_command());
-        getCommand("cbperms").setExecutor(new CBPerms_command());
         getCommand("vip").setExecutor(new VIP_Command());
         getCommand("survival").setExecutor(new Survival_command());
         getCommand("skyblock").setExecutor(new Skyblock_command());
         getCommand("creative").setExecutor(new Creative_command());
-        getCommand("creative2").setExecutor(new Creative2_command());
         getCommand("prison").setExecutor(new Prison_command());
         getCommand("vanilla").setExecutor(new Vanilla_command());
         getCommand("bedwars").setExecutor(new BedWars_command());
         getCommand("skywars").setExecutor(new SkyWars_command());
-        getCommand("arcade").setExecutor(new Arcade_command());
         getCommand("murder").setExecutor(new Murder_command());
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("crafttokens").setExecutor(new CraftTokens_command());
-        getCommand("craftcoins").setExecutor(new Coins_command());
-        getCommand("completevanoce").setExecutor(new Completevanoce());
 
         if(getConfig().getBoolean("events.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());
