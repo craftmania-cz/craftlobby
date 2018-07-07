@@ -84,6 +84,7 @@ public class PlayerListener implements Listener {
 
             // Player settings
             Main.getInstance().getSQL().addSettingsDefault(p);
+            Main.getInstance().getSQL().addDefaultCraftMoney(p);
 
             //Odmeny
             Main.getInstance().getSQL().createRewardsRecord(p, "lobby_denniodmena");
