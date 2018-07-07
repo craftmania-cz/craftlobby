@@ -95,22 +95,23 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 12) {
                     sendToServer(player, "creative");
                 }
-                if (event.getSlot() == 14) {
+                if (event.getSlot() == 13) {
                     //sendToServer(player, "prison");
                 }
-                if (event.getSlot() == 15) {
+                if (event.getSlot() == 14) {
                     sendToServer(player, "vanilla");
                 }
-                if (event.getSlot() == 16) {
-                    sendToServer(player, "vanillasb");
+                if (event.getSlot() == 15) {
+                    //sendToServer(player, "vanillasb");
+                    player.sendMessage("§c§c(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
-                if (event.getSlot() == 20) { //SKYWARS
+                if (event.getSlot() == 19) { //SKYWARS
                     sendToServer(player, "slobby");
                 }
-                if (event.getSlot() == 24) { // MURDER
+                if (event.getSlot() == 20) { // MURDER
                     sendToServer(player, "mlobby");
                 }
-                if (event.getSlot() == 25) { // BEDWARS 2
+                if (event.getSlot() == 21) { // BEDWARS 2
                     sendToServer(player, "bedlobby");
                 }
             }
