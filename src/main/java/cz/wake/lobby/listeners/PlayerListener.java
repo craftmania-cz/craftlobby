@@ -122,18 +122,15 @@ public class PlayerListener implements Listener {
                 // Info o odmene
                 b.onPlayerSpawn(p);
 
-                //Update MC verze
+                //Update MC verze pro Ccomunity
                 Main.getInstance().getSQL().updatePlayerVersion(p);
+
+                // Update Nicku v craftmoney_data (pokud si hrac zmeni nick)
                 Main.getInstance().getSQL().updateForceNick(p);
 
                 // Vanocni kalendar
                 //TODO: Pouze pri vanocich
                 //Main.getInstance().getSQL().addCalendarDefaultValue(p);
-
-                p.sendMessage("");
-                p.sendMessage("§c§lUPOZORNENI: §fServer se stale dodelava, a nektere funkce jsou vypnute!");
-                p.sendMessage("§bDekujeme za pochopeni :)");
-                p.sendMessage("");
             }
 
         } catch (Exception ex) {

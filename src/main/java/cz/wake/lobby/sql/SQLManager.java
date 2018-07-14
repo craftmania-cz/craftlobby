@@ -1186,63 +1186,6 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final int getStalkerStats(String p, String stats) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + stats + " FROM at_table WHERE nick = ?");
-            ps.setString(1, p);
-            ps.executeQuery();
-            if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt(stats);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            pool.close(conn, ps, null);
-        }
-        return 0;
-    }
-
-    public final Long getStalkerStatsTime(String p, String stats) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + stats + " FROM at_table WHERE nick = '" + p + "'");
-            ps.executeQuery();
-            if (ps.getResultSet().next()) {
-                return ps.getResultSet().getLong(stats);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            pool.close(conn, ps, null);
-        }
-        return (long) 0;
-    }
-
-    public final List<String> getAllAdminTeam() {
-        List<String> names = new ArrayList<>();
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT nick FROM at_table");
-            ps.executeQuery();
-            while (ps.getResultSet().next()) {
-                names.add(ps.getResultSet().getString(1));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            pool.close(conn, ps, null);
-        }
-        return names;
-    }
-
     public final void createRewardsRecord(final Player p, final String reward) {
         new BukkitRunnable() {
             @Override
@@ -1409,9 +1352,9 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET mc_version = ? WHERE nick = ?;");
+                    ps = conn.prepareStatement("UPDATE player_profile SET mc_version = ? WHERE uuid = ?;");
                     ps.setString(1, ProfileUtils.getVersion(p));
-                    ps.setString(2, p.getName());
+                    ps.setString(2, p.getUniqueId().toString());
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1427,7 +1370,7 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE uuid = '" + p.getUniqueId().toString() + "'");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt(data);
@@ -1445,7 +1388,7 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE uuid = '" + p.getUniqueId().toString() + "'");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getString(data);
@@ -1463,7 +1406,7 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE uuid = '" + p.getUniqueId().toString() + "'");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getLong(data);
@@ -1484,9 +1427,9 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET status = ? WHERE nick = ?;");
+                    ps = conn.prepareStatement("UPDATE player_profile SET status = ? WHERE uuid = ?;");
                     ps.setString(1, status);
-                    ps.setString(2, p.getName());
+                    ps.setString(2, p.getUniqueId().toString());
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1505,7 +1448,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET " + type + " = '" + link + "' WHERE nick = '" + p.getName() + "';");
+                    ps = conn.prepareStatement("UPDATE player_profile SET " + type + " = '" + link + "' WHERE nick = '" + p.getUniqueId().toString() + "';");
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -1524,7 +1467,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE CraftCoins SET nick = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
+                    ps = conn.prepareStatement("UPDATE craftmoney_data SET nick = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
                     ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
@@ -1544,7 +1487,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE CraftCoins SET tokens = ? WHERE nick = '" + p + "';");
+                    ps = conn.prepareStatement("UPDATE craftmoney_data SET crafttoken = ? WHERE nick = '" + p + "';");
                     ps.setInt(1, getTokens(p) + tokens);
                     ps.executeUpdate();
                 } catch (Exception e) {
@@ -1561,7 +1504,7 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT tokens FROM CraftCoins WHERE nick = '" + p + "';");
+            ps = conn.prepareStatement("SELECT crafttoken FROM craftmoney_data WHERE nick = '" + p + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("tokens");
@@ -1635,27 +1578,6 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void completeVanoce(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("INSERT INTO complete_vanoce (nick) VALUES (?) ON DUPLICATE KEY UPDATE nick = ?;");
-                    ps.setString(1, p.getName());
-                    ps.setString(2, p.getName());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
     public final boolean isInWhitelist(final Player p) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1688,120 +1610,6 @@ public class SQLManager {
             pool.close(conn, ps, null);
         }
         return "";
-    }
-
-    public final String getSteamURL() {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT streamlink FROM ggt_settings;");
-            ps.executeQuery();
-            if (ps.getResultSet().next()) {
-                return ps.getResultSet().getString("streamlink");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            pool.close(conn, ps, null);
-        }
-        return "";
-    }
-
-    public final void updateUUIDInCraftCoins(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE CraftCoins SET uuid = ? WHERE nick = '" + p.getName() + "';");
-                    ps.setString(1, p.getUniqueId().toString());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
-    public final void updateUUIDInVotes(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE votes SET uuid = ? WHERE last_name = '" + p.getName() + "';");
-                    ps.setString(1, p.getUniqueId().toString());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
-    public final void updateUUIDInProfile(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET uuid = ? WHERE nick = '" + p.getName() + "';");
-                    ps.setString(1, p.getUniqueId().toString());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
-    public final boolean hasOldVIP(final String nick) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM oldvip_data WHERE nick = '" + nick + "';");
-            ps.executeQuery();
-            return ps.getResultSet().next();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            pool.close(conn, ps, null);
-        }
-    }
-
-    public final void deleteOdlVIP(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("DELETE FROM oldvip_data WHERE nick = ?;");
-                    ps.setString(1, p.getName());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
     }
 
     public final void addDefaultCraftMoney(final Player p) {
