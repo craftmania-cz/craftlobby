@@ -555,7 +555,7 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("creative")) {
                 sendToServer(p, "creative");
             }
-            if (e.getRightClicked().hasMetadata("prison")) {
+            if (e.getRightClicked().hasMetadata("prison2")) {
                 sendToServer(p, "prison");
             }
             if (e.getRightClicked().hasMetadata("vanilla")) {

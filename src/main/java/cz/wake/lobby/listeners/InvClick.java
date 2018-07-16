@@ -96,7 +96,7 @@ public class InvClick implements Listener {
                     sendToServer(player, "creative");
                 }
                 if (event.getSlot() == 13) {
-                    //sendToServer(player, "prison");
+                    sendToServer(player, "prison");
                 }
                 if (event.getSlot() == 14) {
                     sendToServer(player, "vanilla");

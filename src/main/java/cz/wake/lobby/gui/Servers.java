@@ -43,7 +43,7 @@ public class Servers implements Listener {
         prisonLore.add("§7Prison je! Nikdo te totiz");
         prisonLore.add("§7nebude setrit!");
         prisonLore.add("");
-        prisonLore.add("§fStav: §aPripravujeme!");
+        prisonLore.add(getPlayers("prison"));
         prisonMeta.setLore(prisonLore);
         prison.setItemMeta(prisonMeta);
         inv.setItem(13, prison);

@@ -87,7 +87,7 @@ public class ArmorStandManager {
             } else if (i instanceof Creative) {
                 i.updateArmorStand("creative", Main.getInstance().getSQL().getOnlinePlayers("creative2"));
             } else if (i instanceof Prison) {
-                //i.updateArmorStand("prison", Main.getInstance().getSQL().getOnlinePlayers("prison"));
+                i.updateArmorStand("prison", Main.getInstance().getSQL().getOnlinePlayers("prison"));
             } else if (i instanceof VanillaSkyblock) {
                 //i.updateArmorStand("vanillasb", Main.getInstance().getSQL().getOnlinePlayers("vanillasb"));
             } else if (i instanceof Vanilla) {
