@@ -93,13 +93,13 @@ public class ArmorStandManager {
             } else if (i instanceof Vanilla) {
                 i.updateArmorStand("vanilla", Main.getInstance().getSQL().getOnlinePlayers("vanilla"));
             } else if (i instanceof SkyWars) {
-                i.updateArmorStand("skywars", Main.getInstance().getSQL().getOnlinePlayersSum("stav_skywars_server"));
+                //i.updateArmorStand("skywars", Main.getInstance().getSQL().getOnlinePlayersSum("stav_skywars_server"));
             } else if (i instanceof Murder) {
-                i.updateArmorStand("murder", Main.getInstance().getSQL().getOnlinePlayersSum("stav_murder_server"));
+                //i.updateArmorStand("murder", Main.getInstance().getSQL().getOnlinePlayersSum("stav_murder_server"));
             } else if (i instanceof BedWars4v4) {
-                i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
+                //i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
             } else if (i instanceof BedWars2) {
-                i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
+                //i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
             }
         }
     }

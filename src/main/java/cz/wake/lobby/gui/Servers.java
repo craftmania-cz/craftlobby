@@ -43,6 +43,7 @@ public class Servers implements Listener {
         prisonLore.add("§7Prison je! Nikdo te totiz");
         prisonLore.add("§7nebude setrit!");
         prisonLore.add("");
+        prisonLore.add("§b▸ Kliknutim te portnu");
         prisonLore.add(getPlayers("prison"));
         prisonMeta.setLore(prisonLore);
         prison.setItemMeta(prisonMeta);
@@ -57,11 +58,11 @@ public class Servers implements Listener {
         inv.setItem(15, vanillasb);
 
         ItemStack sw = ItemFactory.create(Material.BOW, (byte) 0, "§a§lSkyWars", "§8Minihra, PVP", "", "§7Kazdy sam za sebe,", "§7vyhraje pouze ten nejlepsi.", "", "§bSolo: §fKlasicky SkyWars",
-                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§b▸ Kliknutim te portnu");
+                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§cPredelava se...");
         sw = ItemFactory.addGlow(sw);
         inv.setItem(19, sw);
 
-        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Zcela nove BedWars, ktere se", "§7ti dostanou totalne pod kuzi", "", "§eStandart: §fKlasicke BedWars", "§cRanked: §fJen ta elita, co umi PVP", "", "§7Mody: §f4x4, pozdeji 1x8, 2x12, 2x2", "", "§b▸ Kliknutim te portnu");
+        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Zcela nove BedWars, ktere se", "§7ti dostanou totalne pod kuzi", "", "§eStandart: §fKlasicke BedWars", "§cRanked: §fJen ta elita, co umi PVP", "", "§7Mody: §f4x4, pozdeji 1x8, 2x12, 2x2", "", "§cPredelava se...");
         inv.setItem(20, bedwars2);
 
 
@@ -74,7 +75,7 @@ public class Servers implements Listener {
         murderLore.add("§7potichu a beze stop.");
         murderLore.add("§7Zvladnes to?");
         murderLore.add("");
-        murderLore.add("§b▸ Kliknutim te portnu");
+        murderLore.add("§cPredelava se...");
         murderMeta.setLore(murderLore);
         murder.setItemMeta(murderMeta);
         inv.setItem(21, murder);

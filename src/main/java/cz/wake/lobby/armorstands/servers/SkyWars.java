@@ -80,7 +80,7 @@ public class SkyWars implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Nacitani...");
+        as3.setCustomName("§cPredelava se...");
     }
 
     @Override

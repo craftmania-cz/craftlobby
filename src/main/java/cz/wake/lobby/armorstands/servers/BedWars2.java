@@ -62,18 +62,6 @@ public class BedWars2 implements ASInterface {
 
         loc1.add(0, 0.3, 0);
 
-        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as4.setGravity(false);
-        as4.setCanPickupItems(false);
-        as4.setBasePlate(false);
-        as4.setVisible(false);
-        as4.setCustomNameVisible(true);
-
-        as4.setCustomName("§7Prototype");
-
-        loc1.add(0, 0.3, 0);
-
         as2 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
         as2.setGravity(false);
@@ -97,7 +85,7 @@ public class BedWars2 implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§7Nacitani...");
+        as3.setCustomName("§cPredelava se...");
     }
 
     @Override
