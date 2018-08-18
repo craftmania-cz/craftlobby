@@ -1507,7 +1507,7 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT crafttoken FROM craftmoney_data WHERE nick = '" + p + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt("tokens");
+                return ps.getResultSet().getInt("crafttoken");
             }
         } catch (Exception e) {
             e.printStackTrace();
