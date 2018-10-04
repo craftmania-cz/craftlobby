@@ -1459,7 +1459,7 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void updateForceNick(final Player p) {
+    public final void updateCraftMoneyForceNick(final Player p) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -1468,6 +1468,26 @@ public class SQLManager {
                 try {
                     conn = pool.getConnection();
                     ps = conn.prepareStatement("UPDATE craftmoney_data SET nick = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
+                    ps.setString(1, p.getName());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final void updateCcominutyForceNick(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET nick = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
                     ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
@@ -1515,6 +1535,24 @@ public class SQLManager {
             pool.close(conn, ps, null);
         }
         return 0;
+    }
+
+    public final String getNameInCcomunity(final String uuid) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT nick FROM player_profile WHERE uuid = '" + uuid + "';");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getString("nick");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return "";
     }
 
     public int checkDay(final Player p, final int day) {
