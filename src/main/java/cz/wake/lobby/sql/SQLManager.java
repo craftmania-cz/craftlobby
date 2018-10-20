@@ -1507,7 +1507,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE craftmoney_data SET crafttoken = ? WHERE nick = '" + p + "';");
+                    ps = conn.prepareStatement("UPDATE player_profile SET crafttokens = ? WHERE nick = '" + p + "';");
                     ps.setInt(1, getTokens(p) + tokens);
                     ps.executeUpdate();
                 } catch (Exception e) {
@@ -1524,7 +1524,7 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT crafttoken FROM craftmoney_data WHERE nick = '" + p + "';");
+            ps = conn.prepareStatement("SELECT crafttokens FROM player_profile WHERE nick = '" + p + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
                 return ps.getResultSet().getInt("crafttoken");
