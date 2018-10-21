@@ -9,10 +9,10 @@ public class CraftTokens_command implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
-        if ((Command.getName().equalsIgnoreCase("crafttokens"))) {
+        if ((Command.getName().equalsIgnoreCase("oldcrafttokens"))) {
             if (Sender.hasPermission("craftlobby.crafttokens") && Sender.isOp()) {
                 if (ArrayOfString.length == 0) {
-                    Sender.sendMessage("§cNapoveda: /crafttokens nick castka");
+                    Sender.sendMessage("§cNapoveda: /oldcrafttokens nick castka");
                     return false;
                 } else {
                     String name = ArrayOfString[0];

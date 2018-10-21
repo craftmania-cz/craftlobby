@@ -41,7 +41,7 @@ commands:
     description: Server teleport
   oldlobby:
     description: Oldlobby teleport
-  crafttokens:
+  oldcrafttokens:
     description: Jjjj tokeny
   craftcoins:
     description: JJJJ coinyyy

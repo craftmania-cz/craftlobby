@@ -1459,26 +1459,6 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void updateCraftMoneyForceNick(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE craftmoney_data SET nick = ? WHERE uuid = '" + p.getUniqueId().toString() + "';");
-                    ps.setString(1, p.getName());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
     public final void updateCcominutyForceNick(final Player p) {
         new BukkitRunnable() {
             @Override
@@ -1507,7 +1487,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE craftmoney_data SET crafttoken = ? WHERE nick = '" + p + "';");
+                    ps = conn.prepareStatement("UPDATE player_profile SET crafttokens = ? WHERE nick = '" + p + "';");
                     ps.setInt(1, getTokens(p) + tokens);
                     ps.executeUpdate();
                 } catch (Exception e) {
@@ -1524,10 +1504,10 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT crafttoken FROM craftmoney_data WHERE nick = '" + p + "';");
+            ps = conn.prepareStatement("SELECT crafttokens FROM player_profile WHERE nick = '" + p + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt("crafttoken");
+                return ps.getResultSet().getInt("crafttokens");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1648,28 +1628,6 @@ public class SQLManager {
             pool.close(conn, ps, null);
         }
         return "";
-    }
-
-    public final void addDefaultCraftMoney(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("INSERT INTO craftmoney_data (uuid, nick) VALUES (?,?) ON DUPLICATE KEY UPDATE nick = ?;");
-                    ps.setString(1, p.getUniqueId().toString());
-                    ps.setString(2, p.getName());
-                    ps.setString(3, p.getName());
-                    ps.executeUpdate();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
     }
 
 

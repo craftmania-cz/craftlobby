@@ -84,7 +84,6 @@ public class PlayerListener implements Listener {
 
             // Player settings
             Main.getInstance().getSQL().addSettingsDefault(p);
-            Main.getInstance().getSQL().addDefaultCraftMoney(p);
 
             //Odmeny
             //TODO: Kompletne predelat (v1.8)
@@ -129,8 +128,6 @@ public class PlayerListener implements Listener {
                 // Update Nicku v craftmoney_data (pokud si hrac zmeni nick)
                 //TODO: Prdelat jednotne s 1 requestem pri zjisteni (v1.8)
                 if(!Main.getInstance().getSQL().getNameInCcomunity(p.getUniqueId().toString()).equalsIgnoreCase(p.getName())) {
-                    // CraftMoney (bude predelano v CraftEconomy)
-                    Main.getInstance().getSQL().updateCraftMoneyForceNick(p);
 
                     // Ccominuty nick
                     Main.getInstance().getSQL().updateCcominutyForceNick(p);

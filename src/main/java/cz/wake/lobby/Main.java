@@ -251,7 +251,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("murder").setExecutor(new Murder_command());
         getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
-        getCommand("crafttokens").setExecutor(new CraftTokens_command());
+        getCommand("oldcrafttokens").setExecutor(new CraftTokens_command());
 
         if(getConfig().getBoolean("events.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());
