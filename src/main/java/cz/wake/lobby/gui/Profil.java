@@ -219,7 +219,7 @@ public class Profil implements Listener {
                 openLanguageMenu(p);
             }
             if (e.getSlot() == 41) {
-                settings.openSettingsMenu(p);
+                settings.openSettingsMenu(p, 1);
             }
         }
         if (e.getInventory().getTitle().equals("Nastaveni jazyka")) {
