@@ -138,6 +138,20 @@ public class PlayerListener implements Listener {
                 //Main.getInstance().getSQL().addCalendarDefaultValue(p);
             }
 
+            // Oznameni o pripojeni pro GVIP
+            if ((p.hasPermission("group.emerald") || p.hasPermission("group.mvip"))
+                    && Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
+                final boolean sound = (p.hasPermission("group.obsidian") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1));
+                Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
+                    onlinePlayer.sendMessage("§e§l" + p.getName() + " §7se pripojil na lobby");
+                    if (sound) {
+                        onlinePlayer.getWorld().playSound(onlinePlayer.getLocation(),
+                                Sound.valueOf(Main.getInstance().getSQL().getSettingsString(p, "lobby_joinbroadcast_sound")), 0.999F, 0.999F);
+                    }
+                });
+            }
+
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -188,7 +202,7 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
-    public void onBlockForm(EntityBlockFormEvent e){
+    public void onBlockForm(EntityBlockFormEvent e) {
         if (e.getEntity().getType() == EntityType.SNOWMAN) {
             e.setCancelled(true);
         }

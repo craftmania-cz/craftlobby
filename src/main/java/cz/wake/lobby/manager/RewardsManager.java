@@ -133,21 +133,25 @@ public class RewardsManager implements Listener {
                 if (p.hasPermission("craftlobby.vip.odmena")) {
                     if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                         if(p.hasPermission("craftlobby.vip.odmena.obsidian")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC");
+                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC §ea §63 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 4000");
+                            Main.getInstance().getSQL().addTokens(p.getName(), 3);
                         } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §63000 CC");
+                            p.sendMessage("§eVybral jsi si VIP bonus §63000 CC §ea §62 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 3000");
+                            Main.getInstance().getSQL().addTokens(p.getName(), 2);
                         } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC");
+                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 2000");
+                            Main.getInstance().getSQL().addTokens(p.getName(), 1);
                         } else {
-                            p.sendMessage("§eVybral jsi si VIP bonus §61000 CC");
+                            p.sendMessage("§eVybral jsi si VIP bonus §61000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 1000");
+                            Main.getInstance().getSQL().addTokens(p.getName(), 1);
                         }
                         Bonusy b = new Bonusy();
                         b.playEffect(p);
