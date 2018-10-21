@@ -28,7 +28,7 @@ import java.util.Random;
 
 public class Bonusy implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 18, -1222.5, 180, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1541.5, 18, -1222.5, 180, 0);
     private ArmorStand as, as2, as3, as4;
     public static Random random = new Random();
     public static EntityArmorStand stand;

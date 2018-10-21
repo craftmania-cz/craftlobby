@@ -75,7 +75,7 @@ public class ArmorStandInteract implements Listener {
                     }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
                 }
             }
-            if (e.getRightClicked().hasMetadata("Kalendar")){
+            if (e.getRightClicked().hasMetadata("Kalendar")) {
                 k.openKalendar(p);
             }
             if (e.getRightClicked().hasMetadata("Kubrastig")) {
@@ -580,9 +580,12 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("4v4")) {
                 p.performCommand("bts joinserver 4v4");
             }
+            if (e.getRightClicked().hasMetadata("Halloween")) {
+                p.sendMessage("§6§lHalloween §8❘ §7Jeste je moc brzy :)");
+            }
             e.setCancelled(true);
-        } else if (e.getRightClicked() instanceof ItemFrame){
-            if(!p.hasPermission("craftlobby.admin")){
+        } else if (e.getRightClicked() instanceof ItemFrame) {
+            if (!p.hasPermission("craftlobby.admin")) {
                 e.setCancelled(true);
             }
         }
@@ -591,24 +594,24 @@ public class ArmorStandInteract implements Listener {
     @EventHandler
     public void damage(EntityDamageByEntityEvent e) {
         if (e.getDamager() instanceof Player) {
-            Player p = (Player)e.getDamager();
-            if(!p.hasPermission("craftlobby.admin")){
+            Player p = (Player) e.getDamager();
+            if (!p.hasPermission("craftlobby.admin")) {
                 e.setCancelled(true);
             }
         }
-        if (e.getDamager() instanceof ExplosionPrimeEvent || e.getDamager() instanceof TNTPrimed || e.getDamager() instanceof Explosive){
+        if (e.getDamager() instanceof ExplosionPrimeEvent || e.getDamager() instanceof TNTPrimed || e.getDamager() instanceof Explosive) {
             e.setCancelled(true);
         }
     }
 
     @EventHandler
-    public void explodes(ExplosionPrimeEvent e){
+    public void explodes(ExplosionPrimeEvent e) {
         e.setRadius(0);
     }
 
     @EventHandler
     public void onPlayerInteractEntity(final PlayerInteractEntityEvent event) {
-        if (!event.isCancelled() && event.getRightClicked() instanceof ItemFrame && !((ItemFrame)event.getRightClicked()).getItem().getType().equals(Material.AIR) && !event.getPlayer().hasPermission("craftlobby.admin")) {
+        if (!event.isCancelled() && event.getRightClicked() instanceof ItemFrame && !((ItemFrame) event.getRightClicked()).getItem().getType().equals(Material.AIR) && !event.getPlayer().hasPermission("craftlobby.admin")) {
             event.setCancelled(true);
         }
     }

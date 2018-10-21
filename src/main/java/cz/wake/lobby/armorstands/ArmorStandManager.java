@@ -18,7 +18,7 @@ public class ArmorStandManager {
     public static List<ASInterface> armorstands = new ArrayList<ASInterface>();
 
     public static void init() {
-        if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")){
+        if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             armorstands.add(new BedWars4v4());
             armorstands.add(new BedWars2v2());
             armorstands.add(new BedWars1v8());
@@ -27,7 +27,7 @@ public class ArmorStandManager {
             armorstands.add(new BedWars1v8Ranked());
             armorstands.add(new BedWars4v4Ranked());
             CrystalBox.spawn();
-        } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")){
+        } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             armorstands.add(new Creative());
             armorstands.add(new VanillaSkyblock());
             armorstands.add(new Prison());
@@ -48,11 +48,12 @@ public class ArmorStandManager {
             armorstands.add(new Bonusy());
             armorstands.add(new Filip6());
             armorstands.add(new BedWars2());
-            if(Main.getInstance().isChristmas()){
+            if (Main.getInstance().isChristmas()) {
                 armorstands.add(new Santa());
                 armorstands.add(new Otec());
                 armorstands.add(new Matka());
             }
+            armorstands.add(new Halloween());
         }
     }
 
@@ -100,6 +101,8 @@ public class ArmorStandManager {
                 //i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
             } else if (i instanceof BedWars2) {
                 //i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
+            } else if (i instanceof Halloween) {
+                i.updateArmorStand("", 0);
             }
         }
     }
