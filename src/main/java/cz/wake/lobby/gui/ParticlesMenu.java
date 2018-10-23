@@ -1,5 +1,6 @@
 package cz.wake.lobby.gui;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.particles.*;
 import cz.wake.lobby.utils.ItemFactory;
@@ -656,7 +657,7 @@ public class ParticlesMenu {
         shopLore.add(ChatColor.GRAY + "daji se ziskat z CraftBoxu nebo na");
         shopLore.add(ChatColor.GRAY + "specialnich eventech.");
         shopLore.add("");
-        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + CraftCoinsAPI.getCoins(p) + " CC");
         shopItemMeta.setLore(shopLore);
         shopItem.setItemMeta(shopItemMeta);
 

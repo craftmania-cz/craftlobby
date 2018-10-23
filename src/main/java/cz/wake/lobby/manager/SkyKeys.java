@@ -17,7 +17,7 @@ public class SkyKeys implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         final Player p = e.getPlayer();
 
-        int sqlDusts = Main.getInstance().getSQL().getSkyKeysDust(p.getUniqueId());
+        /*int sqlDusts = Main.getInstance().getSQL().getSkyKeysDust(p.getUniqueId());
         int finalKeys = sqlDusts / 10;
 
         if (finalKeys == 0) {
@@ -25,7 +25,7 @@ public class SkyKeys implements Listener {
         } else {
             p.getInventory().addItem(giveKeys(finalKeys));
             System.out.println("[SkyKeys] " + p.getName() + " dostal " + finalKeys + " klicu.");
-        }
+        }*/
     }
 
     private ItemStack giveKeys(int amount) {
@@ -41,7 +41,7 @@ public class SkyKeys implements Listener {
     public void onSkyBoxUse(CrateOpenEvent e) {
         Player p = e.getPlayer();
 
-        Main.getInstance().getSQL().takeSkyKeys(p, 10);
+        //Main.getInstance().getSQL().takeSkyKeys(p, 10);
         System.out.println("[SkyKeys] " + p.getName() + " bylo odebrano 10 dustu.");
     }
 

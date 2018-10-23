@@ -1,5 +1,6 @@
 package cz.wake.lobby.gadgets.banners;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.utils.ItemFactory;
@@ -34,7 +35,7 @@ public class BannerAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         if (p.hasPermission("craftlobby.banner.tardis")) {
             inv.setItem(0, tardis());

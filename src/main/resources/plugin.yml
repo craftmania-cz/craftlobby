@@ -9,8 +9,6 @@ commands:
     description: Info o profilu!
   cl:
     description: Info o profilu!
-  stats:
-    description: Statistiky hracu
   sbperms:
     description: Addon na Skybox
   cbperms:

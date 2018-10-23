@@ -1,5 +1,8 @@
 package cz.wake.lobby.gui;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
+import cz.craftmania.crafteconomy.api.CraftTokensAPI;
+import cz.craftmania.crafteconomy.api.VoteTokensAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
@@ -46,9 +49,11 @@ public class Profil implements Listener {
         headLore.add("");
         headLore.add("§7ID: §f#" + Main.getInstance().getSQL().getPlayerProfileDataString(p, "discriminator"));
         headLore.add("§7Prvni pripojeni: §f" + getDate(Main.getInstance().getSQL().getPlayerProfileDataLong(p, "registred")));
-        headLore.add("§7CraftCoins: §f" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()));
-        headLore.add("§7SkyDust: §f" + Main.getInstance().getSQL().getSkyKeysDust(p.getUniqueId()));
-        headLore.add("§7Celkem hlasu: §f" + Main.getInstance().getSQL().getVotesAll(p.getUniqueId()));
+        headLore.add("§7CraftCoins: §f" + CraftCoinsAPI.getCoins(p));
+        headLore.add("§7CraftTokens: §f" + CraftTokensAPI.getTokens(p));
+        headLore.add("§7VoteTokens: §f" + VoteTokensAPI.getVoteTokens(p));
+        //headLore.add("§7SkyDust: §f" + Main.getInstance().getSQL().getSkyKeysDust(p.getUniqueId()));
+        //headLore.add("§7Celkem hlasu: §f" + Main.getInstance().getSQL().getVotesAll(p.getUniqueId()));
         headLore.add("§7Web group: §f" + getWebGroup(Main.getInstance().getSQL().getPlayerProfileDataInt(p, "web_group")));
         headLore.add("§7Celkem odehrany cas: §f" + TimeUtils.formatTime("%dd, %hh %mm", Main.getInstance().getSQL().getPlayerProfileDataInt(p, "played_time"), false));
         headItemMeta.setLore(headLore);

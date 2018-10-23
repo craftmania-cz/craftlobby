@@ -1,5 +1,6 @@
 package cz.wake.lobby.gadgets.cloaks;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
 import cz.wake.lobby.manager.Shop;
@@ -135,7 +136,7 @@ public class CloaksAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         cloakMenu.setItem(49, shopItem);
         cloakMenu.setItem(40, deaktivace);

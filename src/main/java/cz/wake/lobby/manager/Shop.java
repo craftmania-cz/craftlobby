@@ -1,5 +1,6 @@
 package cz.wake.lobby.manager;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
@@ -21,7 +22,7 @@ public class Shop implements Listener {
 
     public static void open(final Player p, final String names, final String permissions, final ItemStack i, final int coins) {
 
-        if (Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) >= coins) {
+        if (CraftCoinsAPI.getCoins(p) >= coins) {
             coin = coins;
             player = p;
             permission = permissions;
@@ -59,7 +60,7 @@ public class Shop implements Listener {
             }
             if (e.getSlot() == 30) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set " + permission + " true");
-                Main.getInstance().getSQL().takeCoins(p, coin);
+                CraftCoinsAPI.takeCoins(p, coin);
                 p.sendMessage("§eZakoupil jsi si §a" + name + " §eza §6" + coin + " CC.");
                 p.closeInventory();
             }

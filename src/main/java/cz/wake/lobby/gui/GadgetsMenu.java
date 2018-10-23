@@ -1,5 +1,6 @@
 package cz.wake.lobby.gui;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.heads.HeadsAPI;
 import cz.wake.lobby.utils.ItemFactory;
@@ -86,7 +87,7 @@ public class GadgetsMenu implements Listener {
         shopLore.add(ChatColor.GRAY + "daji se zakoupit na kazdem lobby");
         shopLore.add(ChatColor.GRAY + "za CraftCoiny");
         shopLore.add("");
-        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+        shopLore.add(ChatColor.GRAY + "Aktualni stav: " + ChatColor.GOLD + CraftCoinsAPI.getCoins(p) + " CC");
         shopItemMeta.setLore(shopLore);
         shopItem.setItemMeta(shopItemMeta);
 

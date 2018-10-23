@@ -1,5 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.Shop;
 import cz.wake.lobby.utils.ItemFactory;
@@ -360,7 +361,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(50, dea);
         inv.setItem(49, shopItem);
@@ -578,7 +579,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(50, dea);
         inv.setItem(49, shopItem);
@@ -664,7 +665,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -709,7 +710,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -753,7 +754,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -971,7 +972,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(50, dea);
         inv.setItem(49, shopItem);
@@ -1106,7 +1107,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1144,7 +1145,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1182,7 +1183,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1220,7 +1221,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1301,7 +1302,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1411,7 +1412,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1450,7 +1451,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1489,7 +1490,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1527,7 +1528,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1566,7 +1567,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1617,7 +1618,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);
@@ -1691,7 +1692,7 @@ public class PetsAPI implements Listener {
                 "§7daji se ziskat z CraftBoxu nebo na",
                 "§7specialnich eventech.",
                 "",
-                "§7Aktualni stav: §6" + Main.getInstance().getSQL().getCraftCoins(p.getUniqueId()) + " CC");
+                "§7Aktualni stav: §6" + CraftCoinsAPI.getCoins(p) + " CC");
 
         inv.setItem(23, dea);
         inv.setItem(22, shopItem);

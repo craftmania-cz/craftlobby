@@ -244,7 +244,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private void loadCommands() {
         getCommand("clobby").setExecutor(new Craftlobby_Command());
         getCommand("cl").setExecutor(new Craftlobby_Command());
-        getCommand("stats").setExecutor(new Stats_Command());
         getCommand("vip").setExecutor(new VIP_Command());
         getCommand("survival").setExecutor(new Survival_command());
         getCommand("skyblock").setExecutor(new Skyblock_command());
