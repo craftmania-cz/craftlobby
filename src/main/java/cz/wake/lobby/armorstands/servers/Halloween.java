@@ -78,7 +78,7 @@ public class Halloween implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§c0 hodin 0 minut do uverejneni");
+        as3.setCustomName("§c0 hodin 0 minut");
 
     }
 
@@ -100,7 +100,7 @@ public class Halloween implements ASInterface {
     }
 
     private String getRemainingTime() {
-        final long remaining = 1540584000000L /* 26.10.2018, 20:00 */ - System.currentTimeMillis();
+        final long remaining = 1540573200000L /* 26.10.2018, 17:00 */ - System.currentTimeMillis();
         return TimeUtils.formatTime("%d dni %h hodin %m minut", remaining, false);
     }
 }
