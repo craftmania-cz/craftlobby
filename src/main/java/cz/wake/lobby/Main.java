@@ -4,6 +4,7 @@ import cz.wake.lobby.armorstands.podlobby.CrystalBox;
 import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.events.christmas.Kalendar_command;
 import cz.wake.lobby.events.christmas.SilvesterTask;
+import cz.wake.lobby.events.halloween.ScarePlayerTask;
 import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -157,6 +158,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Update AT time
         getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
+
+        if (idServer.equalsIgnoreCase("main")) {
+            getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
+        }
 
         // Daily Reward Reset
         rm.runTaskDelete();
