@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.gadget;
 
-import cz.wake.craftcore.utils.effects.UtilParticles;
+import cz.craftmania.craftcore.spigot.utils.effects.UtilParticles;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.listeners.MessagesListener;
 import cz.wake.lobby.utils.ItemFactory;

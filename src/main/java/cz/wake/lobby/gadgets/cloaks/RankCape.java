@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.cloaks;
 
-import cz.wake.craftcore.utils.effects.UtilParticles;
+import cz.craftmania.craftcore.spigot.utils.effects.UtilParticles;
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

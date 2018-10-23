@@ -190,11 +190,11 @@ public class Bonusy implements ASInterface {
         }
 
         if (rewards == 0) {
-            return "§7Vsechny odmeny mas jiz vybrane!";
+            return "§7Vsechny vybrano!";
         } else if (rewards == 1) {
-            return "§7Mas nevyzvednutou §b1 odmenu!";
+            return "§7Nevyzvednuto: §b1 odmenu!";
         } else if (rewards == 2) {
-            return "§7Mas nevyzvednute §c2 odmeny!";
+            return "§7Nevyzvednuto: §c2 odmeny!";
         }
 
         return "§4Chyba! Wejku oprav to :D";
@@ -203,7 +203,7 @@ public class Bonusy implements ASInterface {
 
     public void onPlayerSpawn(Player p) {
 
-        Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 18.3, -1222.5, 180, 0);
+        Location loc1 = new Location(Bukkit.getWorld("omain"), 1541.5, 18.3, -1222.5, 180, 0);
 
         WorldServer s = ((CraftWorld) loc1.getWorld()).getHandle();
 
