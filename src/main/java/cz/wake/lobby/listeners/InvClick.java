@@ -118,19 +118,26 @@ public class InvClick implements Listener {
             //**************************** GADGETS HLAVNI MENU ****************************//
             if (event.getInventory().getTitle().equals("Hlavni menu")) {
                 if (event.getSlot() == 10) {
-                    hAPI.openMainHeadsMenu(player);
+                    //hAPI.openMainHeadsMenu(player);
+                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 30) {
-                    Main.getInstance().getGadgetsAPI().openInventory(player);
+                    //Main.getInstance().getGadgetsAPI().openInventory(player);
+                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 32) {
-                    morphAPI.openMenu(player);
+                    //morphAPI.openMenu(player);
+                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 34) {
-                    this.pMenu.openParticles(player);
+                    if (player.hasPermission("craftlobby.vip.particles")) {
+                        this.pMenu.openParticles(player);
+                    } else {
+                        player.sendMessage("§cK zpristupneni efektu musis mit zakoupene VIP!");
+                    }
                 }
                 if (event.getSlot() == 12) {
-                    bannerAPI.openInventory(player);
+                    //bannerAPI.openInventory(player);
                 }
                 if (event.getSlot() == 14) {
                     player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
@@ -159,7 +166,8 @@ public class InvClick implements Listener {
                     this.gadgetsMenu.openGadgetsMenu(player);
                 }
                 if (event.getSlot() == 10) {
-                    if (player.hasPermission("craftlobby.particles.frostlord")) {
+                    if (player.hasPermission("craftlobby.particles.frostlord")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         fl.activateFrost(player);
                         player.closeInventory();
@@ -169,7 +177,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 11) {
-                    if (player.hasPermission("craftlobby.particles.flamerings")) {
+                    if (player.hasPermission("craftlobby.particles.flamerings")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         fr.activateFlame(player);
                         player.closeInventory();
@@ -179,7 +188,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 12) {
-                    if (player.hasPermission("craftlobby.particles.snowclouds")) {
+                    if (player.hasPermission("craftlobby.particles.snowclouds")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         ss.activateSnowCloud(player);
                         player.closeInventory();
@@ -189,7 +199,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 13) {
-                    if (player.hasPermission("craftlobby.particles.rainclouds")) {
+                    if (player.hasPermission("craftlobby.particles.rainclouds")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         rc.activateRainCloud(player);
                         player.closeInventory();
@@ -199,7 +210,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 14) {
-                    if (player.hasPermission("craftlobby.particles.bloodhelix")) {
+                    if (player.hasPermission("craftlobby.particles.bloodhelix")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         bh.activateHelix(player);
                         player.closeInventory();
@@ -209,7 +221,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 15) {
-                    if (player.hasPermission("craftlobby.particles.greensparks")) {
+                    if (player.hasPermission("craftlobby.particles.greensparks")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         gs.activateGreenSparks(player);
                         player.closeInventory();
@@ -219,7 +232,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 16) {
-                    if (player.hasPermission("craftlobby.particles.endersignal")) {
+                    if (player.hasPermission("craftlobby.particles.endersignal")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         es.activateSignal(player);
                         player.closeInventory();
@@ -229,7 +243,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 19) {
-                    if (player.hasPermission("craftlobby.particles.enchanted")) {
+                    if (player.hasPermission("craftlobby.particles.enchanted")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         e.activateEnchanted(player);
                         player.closeInventory();
@@ -239,7 +254,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 20) {
-                    if (player.hasPermission("craftlobby.particles.love")) {
+                    if (player.hasPermission("craftlobby.particles.love")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         l.activateLove(player);
                         player.closeInventory();
@@ -249,7 +265,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 21) {
-                    if (player.hasPermission("craftlobby.particles.notes")) {
+                    if (player.hasPermission("craftlobby.particles.notes")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         n.activateNotes(player);
                         player.closeInventory();
@@ -259,7 +276,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 22) {
-                    if (player.hasPermission("craftlobby.particles.clouds")) {
+                    if (player.hasPermission("craftlobby.particles.clouds")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         c.activateClouds(player);
                         player.closeInventory();
@@ -269,7 +287,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 23) {
-                    if (player.hasPermission("craftlobby.particles.coloreddust")) {
+                    if (player.hasPermission("craftlobby.particles.coloreddust")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         cd.activateDust(player);
                         player.closeInventory();
@@ -279,7 +298,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 24) {
-                    if (player.hasPermission("craftlobby.particles.lavapop")) {
+                    if (player.hasPermission("craftlobby.particles.lavapop")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         lp.activateDust(player);
                         player.closeInventory();
@@ -289,7 +309,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 25) {
-                    if (player.hasPermission("craftlobby.particles.portal")) {
+                    if (player.hasPermission("craftlobby.particles.portal")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         p.activatePortal(player);
                         player.closeInventory();
@@ -299,7 +320,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 28) {
-                    if (player.hasPermission("craftlobby.particles.spell")) {
+                    if (player.hasPermission("craftlobby.particles.spell")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         sp.activateSpell(player);
                         player.closeInventory();
@@ -309,7 +331,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 29) {
-                    if (player.hasPermission("craftlobby.particles.frozenwalk")) {
+                    if (player.hasPermission("craftlobby.particles.frozenwalk")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         fw.activateFrozen(player);
                         player.closeInventory();
@@ -319,7 +342,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 30) {
-                    if (player.hasPermission("craftlobby.particles.lilly")) {
+                    if (player.hasPermission("craftlobby.particles.lilly")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         lil.activateSignal(player);
                         player.closeInventory();
@@ -339,7 +363,8 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 32) {
-                    if (player.hasPermission("craftlobby.particles.candycane")) {
+                    if (player.hasPermission("craftlobby.particles.candycane")
+                            || player.hasPermission("craftlobby.vip.particles")) {
                         deactivateParticles(player);
                         cc.activate(player);
                         player.closeInventory();
