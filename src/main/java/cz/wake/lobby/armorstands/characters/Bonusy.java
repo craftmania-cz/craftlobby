@@ -4,6 +4,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.ASInterface;
 import cz.wake.lobby.utils.ItemFactory;
 import net.minecraft.server.v1_11_R1.EntityArmorStand;
+import net.minecraft.server.v1_11_R1.PacketPlayOutEntityDestroy;
 import net.minecraft.server.v1_11_R1.PacketPlayOutSpawnEntityLiving;
 import net.minecraft.server.v1_11_R1.WorldServer;
 import org.bukkit.Bukkit;
@@ -190,9 +191,9 @@ public class Bonusy implements ASInterface {
         }
 
         if (rewards == 0) {
-            return "§7Vsechny vybrano!";
+            return "§7Vsechny vybrany!";
         } else if (rewards == 1) {
-            return "§7Nevyzvednuto: §b1 odmenu!";
+            return "§7Nevyzvednuto: §b1 odmena!";
         } else if (rewards == 2) {
             return "§7Nevyzvednuto: §c2 odmeny!";
         }
@@ -219,10 +220,10 @@ public class Bonusy implements ASInterface {
 
     public void updateRewardArmorstand() {
         for (Player players : Bukkit.getOnlinePlayers()) {
-            stand.setCustomName(getRewards(players));
+            PacketPlayOutEntityDestroy pa = new PacketPlayOutEntityDestroy(stand.getId());
+            ((CraftPlayer)players).getHandle().playerConnection.sendPacket(pa); //destroying armorstand
 
-            PacketPlayOutSpawnEntityLiving packet = new PacketPlayOutSpawnEntityLiving(stand);
-            ((CraftPlayer) players).getHandle().playerConnection.sendPacket(packet);
+            onPlayerSpawn(players);
         }
     }
 }
