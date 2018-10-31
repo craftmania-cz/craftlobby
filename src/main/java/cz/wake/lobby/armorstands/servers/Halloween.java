@@ -100,7 +100,8 @@ public class Halloween implements ASInterface {
     }
 
     private String getRemainingTime() {
-        final long remaining = 1540573200000L /* 26.10.2018, 17:00 */ - System.currentTimeMillis();
-        return TimeUtils.formatTime("%d dni %h hodin %m minut", (remaining/1000)/60, false);
+        //final long remaining = 1540681200000L /* 26.10.2018, 17:00 */ - System.currentTimeMillis();
+        //return TimeUtils.formatTime("%d dni %h hodin %m minut", (remaining/1000)/60, false);
+        return "Klikni k hrani!";
     }
 }

@@ -581,7 +581,7 @@ public class ArmorStandInteract implements Listener {
                 p.performCommand("bts joinserver 4v4");
             }
             if (e.getRightClicked().hasMetadata("Halloween")) {
-                p.sendMessage("§6§lHalloween §8❘ §7Jeste je moc brzy :)");
+                p.performCommand("bts joinserver halloween");
             }
             e.setCancelled(true);
         } else if (e.getRightClicked() instanceof ItemFrame) {
