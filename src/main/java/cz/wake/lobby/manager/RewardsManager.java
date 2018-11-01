@@ -138,7 +138,7 @@ public class RewardsManager implements Listener {
                             p.sendMessage("§eVybral jsi si VIP bonus §64000 CC §ea §63 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 4000);
-                            CraftTokensAPI.giveTokens(p, 3);
+                            CraftTokensAPI.giveTokens(p, 4);
                         } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
                             p.sendMessage("§eVybral jsi si VIP bonus §63000 CC §ea §62 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
@@ -148,11 +148,11 @@ public class RewardsManager implements Listener {
                             p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 2000);
-                            CraftTokensAPI.giveTokens(p, 1);
+                            CraftTokensAPI.giveTokens(p, 2);
                         } else {
-                            p.sendMessage("§eVybral jsi si VIP bonus §61000 CC §ea §61 CT");
+                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
-                            CraftCoinsAPI.giveCoins(p, 1000);
+                            CraftCoinsAPI.giveCoins(p, 2000);
                             CraftTokensAPI.giveTokens(p, 1);
                         }
                         Bonusy b = new Bonusy();
