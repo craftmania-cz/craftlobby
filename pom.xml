@@ -88,8 +88,8 @@
             <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
         </repository>
         <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
+            <id>craftmania-release</id>
+            <url>https://packages.craftmania.cz/repository/craftmania/</url>
         </repository>
     </repositories>
 
@@ -141,17 +141,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.craftmania-cz</groupId>
-            <artifactId>CraftCore</artifactId>
-            <version>v2.0.0</version>
+            <groupId>cz.craftmania.craftcore</groupId>
+            <artifactId>craftcore</artifactId>
+            <version>2.0.3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>cz.craftmania.crafteconomy</groupId>
-            <artifactId>CraftEconomy</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${pom.basedir}/lib/CraftEconomy-1.0-SNAPSHOT.jar</systemPath>
+            <artifactId>crafteconomy</artifactId>
+            <version>1.0.2</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
