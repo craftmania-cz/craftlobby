@@ -468,52 +468,6 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void createPlayerProfile(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("INSERT INTO player_profile (discriminator, nick ,uuid, registred, last_online, last_server) VALUES (?,?,?,?,?,?);");
-                    ps.setString(1, ProfileUtils.createDiscriminator());
-                    ps.setString(2, p.getName());
-                    ps.setString(3, p.getUniqueId().toString());
-                    ps.setLong(4, System.currentTimeMillis());
-                    ps.setLong(5, System.currentTimeMillis());
-                    ps.setString(6, "lobby");
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    //e.printStackTrace(); Schvalne duplikace
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
-    public final void updatePlayerVersion(final Player p) {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET mc_version = ? WHERE uuid = ?;");
-                    ps.setString(1, ProfileUtils.getVersion(p));
-                    ps.setString(2, p.getUniqueId().toString());
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
     public final int getPlayerProfileDataInt(Player p, String data) {
         Connection conn = null;
         PreparedStatement ps = null;

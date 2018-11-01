@@ -114,28 +114,18 @@ public class PlayerListener implements Listener {
                 Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
             }
 
-            //Profiles
-            Main.getInstance().getSQL().createPlayerProfile(p);
-
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
                 // Info o odmene
                 b.onPlayerSpawn(p);
 
-                //Update MC verze pro Ccomunity
-                //Main.getInstance().getSQL().updatePlayerVersion(p); # Nefunguje kvuli ViaVersion -> presun na Bungee
-
-                // Update Nicku v craftmoney_data (pokud si hrac zmeni nick)
+                // Update Nicku v player_profile (pokud si hrac zmeni nick)
                 //TODO: Prdelat jednotne s 1 requestem pri zjisteni (v1.8)
                 if(!Main.getInstance().getSQL().getNameInCcomunity(p.getUniqueId().toString()).equalsIgnoreCase(p.getName())) {
 
                     // Ccominuty nick
                     Main.getInstance().getSQL().updateCcominutyForceNick(p);
                 }
-
-                // Vanocni kalendar
-                //TODO: Pouze pri vanocich
-                //Main.getInstance().getSQL().addCalendarDefaultValue(p);
             }
 
             // Oznameni o pripojeni pro GVIP
