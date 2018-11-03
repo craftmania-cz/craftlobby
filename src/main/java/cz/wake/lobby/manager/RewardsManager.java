@@ -28,36 +28,36 @@ public class RewardsManager implements Listener {
             inv.setItem(20, weekOdmena);
         } else {
             ItemStack weekOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lDenni odmena", "§81x za 24 hodin", "",
-                    "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC", "", dalsiOdmena(4));
+                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", dalsiOdmena(4));
             inv.setItem(20, weekOdmena);
         }
         if (p.hasPermission("craftlobby.vip.odmena")) {
             if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                 if(p.hasPermission("craftlobby.vip.odmena.obsidian")) {
                     ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil §9Obsidian!", "", "§eDostanes: §64000 CC", "", "§aKliknutim vyberes odmenu!");
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §9Obsidian!", "", "§eDostanes: §64000 CC", "", "§aKliknutim vyberes odmenu!");
                     inv.setItem(21, vipOdmena);
                 } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
                     ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil §aEmerald!", "", "§eDostanes: §63000 CC", "", "§aKliknutim vyberes odmenu!");
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §aEmerald!", "", "§eDostanes: §63000 CC", "", "§aKliknutim vyberes odmenu!");
                     inv.setItem(21, vipOdmena);
                 } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
                     ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil §bDiamond!", "", "§eDostanes: §62000 CC", "", "§aKliknutim vyberes odmenu!");
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §bDiamond!", "", "§eDostanes: §62000 CC", "", "§aKliknutim vyberes odmenu!");
                     inv.setItem(21, vipOdmena);
                 } else {
                     ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil §6Gold!", "", "§eDostanes: §61000 CC", "", "§aKliknutim vyberes odmenu!");
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §6Gold!", "", "§eDostanes: §61000 CC", "", "§aKliknutim vyberes odmenu!");
                     inv.setItem(21, vipOdmena);
                 }
             } else {
                 ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                        "§7Odmena pro kazdeho,", "§7kdo si zakoupil MVIP!", "", "§eDostanes: §62000 CC", "", dalsiOdmena(5));
+                        "§7Odmenu sis jiz vybral,", "§eDostanes: §62000 CC", "", dalsiOdmena(5));
                 inv.setItem(21, vipOdmena);
             }
         } else {
             ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§c§lVIP Bonus", "§81x kazdy mesic", "",
-                    "§7Odmena pro kazdeho,", "§7kdo si zakoupil VIP!", "", "§eDostanes: §61000-4000 CC", "§eDostanes: §61-4 CT", "", "§cNemas zakoupene VIP!");
+                    "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni VIP!", "", "§eDostanes: §61000-4000 CC", "§eDostanes: §61-4 CT", "", "§cNemas zakoupene VIP!");
             inv.setItem(21, vipOdmena);
         }
 
@@ -135,7 +135,7 @@ public class RewardsManager implements Listener {
                 if (p.hasPermission("craftlobby.vip.odmena")) {
                     if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                         if(p.hasPermission("craftlobby.vip.odmena.obsidian")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC §ea §63 CT");
+                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC §ea §64 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 4000);
                             CraftTokensAPI.giveTokens(p, 4);
@@ -145,7 +145,7 @@ public class RewardsManager implements Listener {
                             CraftCoinsAPI.giveCoins(p, 3000);
                             CraftTokensAPI.giveTokens(p, 2);
                         } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §61 CT");
+                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §62 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 2000);
                             CraftTokensAPI.giveTokens(p, 2);
@@ -162,7 +162,7 @@ public class RewardsManager implements Listener {
                         p.sendMessage("§cTuto odmenu jsi si jiz vybral!");
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny musis mit zakoupene MVIP!");
+                    p.sendMessage("§cNa vyber teto odmeny musis mit zakoupene globalni VIP!");
                 }
             }
         }
