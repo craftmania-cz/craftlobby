@@ -121,10 +121,12 @@ public class PlayerListener implements Listener {
 
                 // Update Nicku v player_profile (pokud si hrac zmeni nick)
                 //TODO: Prdelat jednotne s 1 requestem pri zjisteni (v1.8)
-                if(!Main.getInstance().getSQL().getNameInCcomunity(p.getUniqueId().toString()).equalsIgnoreCase(p.getName())) {
-
-                    // Ccominuty nick
-                    Main.getInstance().getSQL().updateCcominutyForceNick(p);
+                String name = Main.getInstance().getSQL().getNameInCcomunity(p.getUniqueId().toString()); // Ziskani nicku podle UUID
+                if (name != null) { // Kdyz existuje, kdyz ne null
+                    if (!name.equals(p.getName())) { // Pokud se nick neshoduje
+                        Main.getInstance().getSQL().updateCcominutyForceNick(p); // Update nicku
+                        System.out.println("[CraftLobby] Update nicku v SQL pro: " + p.getName());
+                    }
                 }
             }
 

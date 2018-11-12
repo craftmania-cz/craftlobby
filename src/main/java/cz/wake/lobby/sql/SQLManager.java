@@ -574,7 +574,7 @@ public class SQLManager {
                     ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 } finally {
                     pool.close(conn, ps, null);
                 }
@@ -631,11 +631,11 @@ public class SQLManager {
                 return ps.getResultSet().getString("nick");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } finally {
             pool.close(conn, ps, null);
         }
-        return "";
+        return null;
     }
 
     public int checkDay(final Player p, final int day) {
