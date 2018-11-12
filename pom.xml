@@ -88,6 +88,10 @@
             <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
         </repository>
         <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
             <id>craftmania-release</id>
             <url>https://packages.craftmania.cz/repository/craftmania/</url>
         </repository>
@@ -143,7 +147,7 @@
         <dependency>
             <groupId>cz.craftmania.craftcore</groupId>
             <artifactId>craftcore</artifactId>
-            <version>2.0.3</version>
+            <version>2.0.10</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
