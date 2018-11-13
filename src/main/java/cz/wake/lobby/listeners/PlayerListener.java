@@ -514,11 +514,11 @@ public class PlayerListener implements Listener {
         facebookMeta.setLore(facebookLore);
         facebook.setItemMeta(facebookMeta);
 
-        ItemStack twitter = ItemFactory.createHead("§bTwitter", "11fce6c7-71ad-464e-98e7-c8e579de4758", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzY4NWEwYmU3NDNlOTA2N2RlOTVjZDhjNmQxYmEyMWFiMjFkMzczNzFiM2Q1OTcyMTFiYjc1ZTQzMjc5In19fQ==");
+        ItemStack twitter = ItemFactory.createHead("§dInstagram", "5e469ecf-80a4-40ae-8d9d-7c12bd2d3a3f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjViM2YyY2ZhMDczOWM0ZTgyODMxNmYzOWY5MGIwNWJjMWY0ZWQyN2IxZTM1ODg4NTExZjU1OGQ0Njc1In19fQ==");
         ItemMeta twitterMeta = twitter.getItemMeta();
         ArrayList<String> twitterLore = new ArrayList<>();
-        twitterLore.add("§7Odkaz na nas Twitter ucet:");
-        twitterLore.add("§fhttps://twitter.com/craftmania_cz");
+        twitterLore.add("§7Odkaz na nas Instagram ucet:");
+        twitterLore.add("§fhttps://www.instagram.com/craftmania.cz/");
         twitterLore.add("");
         twitterLore.add("§eKliknutim zobrazis odkaz v chatu");
         twitterMeta.setLore(twitterLore);

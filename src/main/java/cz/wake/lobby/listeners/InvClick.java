@@ -417,14 +417,14 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 25) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Twitter"))) {
+            if ((event.getSlot() == 25) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Instagram"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
                 player.sendMessage("");
-                player.sendMessage("§eOdkaz na nas Twitter ucet:");
-                player.sendMessage("§fhttps://twitter.com/craftmania_cz");
+                player.sendMessage("§eOdkaz na nas Instagram ucet:");
+                player.sendMessage("§fhttps://www.instagram.com/craftmania.cz/");
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
