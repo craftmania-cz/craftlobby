@@ -1,0 +1,50 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'cz.wake.lobby'
+version = '1.7'
+
+description = """"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+clean { delete "./target" }
+clean { delete "./build" }
+
+task compilePlugin(type: Jar) {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+repositories {
+    flatDir {dirs 'lib'}
+    mavenCentral()
+    maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
+    maven { url "http://repo.dmulloy2.net/nexus/repository/public/" }
+    maven { url "https://jitpack.io" }
+    maven { url "https://packages.craftmania.cz/repository/craftmania/" }
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    // Spigot
+    compileOnly name: 'spigot-1.11.2-R0.1-SNAPSHOT'
+    compileOnly ('org.spigotmc:spigot-api:1.11.2-R0.1-SNAPSHOT') {
+        exclude group: 'net.md-5'
+    }
+
+    // Others
+    compileOnly name: 'LibsDisguises-9.4.0'
+    compileOnly name: 'Parkour'
+    compile ('com.zaxxer:HikariCP:2.6.0')
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0";
+
+    // CM Plugins
+    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.0.10';
+    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.0.2'
+}
