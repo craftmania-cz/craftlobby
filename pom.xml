@@ -112,13 +112,6 @@
             <systemPath>${pom.basedir}/lib/spigot-1.11.2-R0.1-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>me.picknchew</groupId>
-            <artifactId>cratekeys</artifactId>
-            <version>2.5.3</version>
-            <scope>system</scope>
-            <systemPath>${pom.basedir}/lib/CrateKeys.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
             <version>2.6.0</version>
