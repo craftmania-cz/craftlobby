@@ -53,7 +53,7 @@ public class ArmorStandManager {
                 armorstands.add(new Otec());
                 armorstands.add(new Matka());
             }
-            armorstands.add(new Halloween());
+            //armorstands.add(new Halloween());
         }
     }
 

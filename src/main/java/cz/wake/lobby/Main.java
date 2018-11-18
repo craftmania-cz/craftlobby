@@ -160,7 +160,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
 
         if (idServer.equalsIgnoreCase("main")) {
-            getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
+            //getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
         }
 
         // Daily Reward Reset
