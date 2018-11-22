@@ -109,6 +109,9 @@ public class SkyBlock implements ASInterface {
                     @Override
                     public void run() {
                         if (maintenance) {
+                            if (SettingsMenu.particles.isEmpty()) {
+                                return;
+                            }
                             if (c == 1) {
                                 ItemStack head = ItemFactory.createHead("test", "99054195-a890-4e86-a8ad-0e11df01bf5b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWZiNGFlY2E5NWRiMTQ3YmUyOTQ1Y2M3ZmI0Y2ExYTM5MDYxZDNlYmU5MWMxZWEzOGQzZDYzZDllYTI3NDMifX19");
                                 as.setHelmet(head);
