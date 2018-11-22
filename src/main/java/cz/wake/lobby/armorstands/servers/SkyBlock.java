@@ -40,8 +40,6 @@ public class SkyBlock implements ASInterface {
 
         subtextSpawn();
         hologramSpawn();
-
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Skyblock ArmorStand uspesne spawnut!");
     }
 
     @Override

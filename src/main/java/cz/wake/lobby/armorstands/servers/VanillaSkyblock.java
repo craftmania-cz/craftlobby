@@ -45,8 +45,6 @@ public class VanillaSkyblock implements ASInterface {
 
         subtextSpawn();
         hologramSpawn();
-
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftStands] " + ChatColor.YELLOW + " Vanilla-Skyblock ArmorStand uspesne spawnut!");
     }
 
     @Override

@@ -41,8 +41,6 @@ public class Vanilla implements ASInterface {
         subtextSpawn();
         hologramSpawn();
 
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftLobby] " + ChatColor.YELLOW + "Vanilla ArmorStand uspesne spawnut!");
-
     }
 
     @Override

@@ -4,6 +4,7 @@ import cz.wake.lobby.armorstands.podlobby.CrystalBox;
 import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.events.christmas.Kalendar_command;
 import cz.wake.lobby.events.christmas.SilvesterTask;
+import cz.wake.lobby.events.halloween.ScarePlayerTask;
 import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -65,6 +66,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private SQLManager sql;
     private boolean isSilvester;
     private boolean isChristmas;
+    private boolean isHalloween;
 
     public void onEnable() {
 
@@ -76,6 +78,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         saveDefaultConfig();
 
         // Listeners
+        Log.info("Nacitani listeneru...");
         loadListeners();
         loadCommands();
 
@@ -83,11 +86,14 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         debug = false;
 
         // HikariCP
+        Log.info("Nacitani databaze...");
         initDatabase();
 
         //Detekce TPS
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
 
+        // Plugin Mesages
+        Log.info("Nacitani plugin messages.");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 
@@ -95,6 +101,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "PlayerBalancer", this);
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
+        Log.info("Preventivni nastavovani svetu pro lobby.");
         for (World w : Bukkit.getWorlds()) {
             w.setGameRuleValue("doFireTick", "false");
             w.setGameRuleValue("doDaylightCycle", "false");
@@ -106,18 +113,22 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Automaticka zmena casu v lobby podle Real casu
-        if (getConfig().getBoolean("timer")) {
+        if (getConfig().getBoolean("timer", true)) {
+            Log.info("Aktivace zmeny casy podle realneho casu.");
             tt.initTimeSetter();
         }
 
         // Id serveru
         idServer = getConfig().getString("server");
+        Log.info("Server zaevidovany jako " + idServer);
 
         // Nastaveni specialnich eventu
-        isChristmas = getConfig().getBoolean("events.christmas");
-        isSilvester = getConfig().getBoolean("events.silvester");
+        isChristmas = getConfig().getBoolean("events.christmas", false);
+        isSilvester = getConfig().getBoolean("events.silvester", false);
+        isHalloween = getConfig().getBoolean("events.halloween", false);
 
         //Register custom entit pro Pets (1.11.2)
+        Log.info("Registrace custom entit pro Pets");
         CustomEntityRegistry.registerCustomEntity(92, "Cow", RideableCow.class);
         CustomEntityRegistry.registerCustomEntity(91, "Sheep", RideableSheep.class);
         CustomEntityRegistry.registerCustomEntity(93, "Chicken", RideableChicken.class);
@@ -151,20 +162,24 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(91, "Sheep", CustomSheep.class);
 
         // Spawn armorstandu
+        Log.info("Inicializace vsech armorstandu.");
         ArmorStandManager.init();
         ArmorStandManager.spawn();
+        Log.success("Vsechny armorstandy byly spawnuty.");
 
         getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
 
         // Update AT time
         getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
 
-        if (idServer.equalsIgnoreCase("main")) {
-            //getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
+        if (isHalloween) {
+            Log.info("Aktivace Halloween eventu pro lobby.");
+            getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
         }
 
         // Silvester ohnostroje
         if(isSilvester){
+            Log.info("Aktivace Silvester eventu pro lobby.");
             SilvesterTask.runLauncher();
         }
     }
@@ -230,11 +245,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {
+            Log.info("Detekce a aktivace Parkour pluginu.");
             pm.registerEvents(new ParkourListener(), this);
             pm.registerEvents(new RewardsManager(), this);
         }
 
         if(isChristmas){
+            Log.info("Aktivace Vanocnich eventu pro lobby.");
             pm.registerEvents(new Kalendar(), this);
         }
     }

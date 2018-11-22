@@ -45,8 +45,6 @@ public class Survival implements ASInterface {
 
         subtextSpawn();
         hologramSpawn();
-
-        Bukkit.getLogger().log(Level.INFO, ChatColor.BLUE + "[CraftStands] " + ChatColor.YELLOW + "Survival ArmorStand uspesne spawnut!");
     }
 
     @Override
