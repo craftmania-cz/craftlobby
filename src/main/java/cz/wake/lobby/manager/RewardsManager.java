@@ -28,7 +28,7 @@ public class RewardsManager implements Listener {
             inv.setItem(20, weekOdmena);
         } else {
             ItemStack weekOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lDenni odmena", "§81x za 24 hodin", "",
-                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", dalsiOdmena(4));
+                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", "§cDalsi vyber kazdych 24h");
             inv.setItem(20, weekOdmena);
         }
         if (p.hasPermission("craftlobby.vip.odmena")) {
@@ -52,7 +52,7 @@ public class RewardsManager implements Listener {
                 }
             } else {
                 ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                        "§7Odmenu sis jiz vybral,", "§eDostanes: §62000 CC", "", dalsiOdmena(5));
+                        "§7Odmenu sis jiz vybral,", "§eDostanes: §62000 CC", "", "§cDalsi vyber je mozny az pristi mesic.");
                 inv.setItem(21, vipOdmena);
             }
         } else {
@@ -73,11 +73,7 @@ public class RewardsManager implements Listener {
         p.openInventory(inv);
     }
 
-    private String dalsiOdmena(int id) {
-        long next = Main.getInstance().getSQL().getNextRewardReset(id) - System.currentTimeMillis();
-        return "§cDalsi vyber za " + getDurationBreakdown(next);
-    }
-
+    // TODO: Pridat do craftcore
     private static String getDurationBreakdown(long millis) {
         StringBuilder sb = new StringBuilder(64);
         if (millis < 0) {
@@ -166,17 +162,5 @@ public class RewardsManager implements Listener {
                 }
             }
         }
-    }
-
-    public void runTaskDelete() {
-        Bukkit.getScheduler().runTaskTimerAsynchronously(Main.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                if (Main.getInstance().getSQL().getNextRewardReset(4) < System.currentTimeMillis()) {
-                    Main.getInstance().getSQL().resetDailyReward(System.currentTimeMillis() + 82800000); //23h
-                    Main.getInstance().getSQL().resetReward();
-                }
-            }
-        }, 60L, 144000);
     }
 }

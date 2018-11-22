@@ -42,9 +42,9 @@ dependencies {
     compileOnly name: 'LibsDisguises-9.4.0'
     compileOnly name: 'Parkour'
     compile ('com.zaxxer:HikariCP:2.6.0')
-    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0";
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0"
 
     // CM Plugins
-    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.0.10';
+    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.0.11'
     compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.0.2'
 }

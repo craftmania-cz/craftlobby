@@ -4,7 +4,6 @@ import cz.wake.lobby.armorstands.podlobby.CrystalBox;
 import cz.wake.lobby.events.christmas.Kalendar;
 import cz.wake.lobby.events.christmas.Kalendar_command;
 import cz.wake.lobby.events.christmas.SilvesterTask;
-import cz.wake.lobby.events.halloween.ScarePlayerTask;
 import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -23,6 +22,7 @@ import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
+import cz.wake.lobby.utils.Log;
 import cz.wake.lobby.utils.mobs.*;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
@@ -163,9 +163,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             //getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
         }
 
-        // Daily Reward Reset
-        rm.runTaskDelete();
-
         // Silvester ohnostroje
         if(isSilvester){
             SilvesterTask.runLauncher();
@@ -229,6 +226,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new SnowmanMorph(), this);
         pm.registerEvents(new ChickenMorph(), this);
         pm.registerEvents(new CrystalBox(), this);
+        pm.registerEvents(new TimedResetListener(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {

@@ -375,22 +375,6 @@ public class SQLManager {
         return 0;
     }
 
-    public final boolean hasRewardRecord(final Player p, final String reward) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM " + reward + " WHERE nick = '" + p.getName() + "';");
-            ps.executeQuery();
-            return ps.getResultSet().next();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            pool.close(conn, ps, null);
-        }
-    }
-
     public final void updateRewardRecord(final Player p, final String reward) {
         new BukkitRunnable() {
             @Override
@@ -429,7 +413,7 @@ public class SQLManager {
         return 0L;
     }
 
-    public final void resetDailyReward(final long time) {
+    public final void resetDailyReward() {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -437,8 +421,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE craftboxer_nextReset SET time = ? WHERE id = 4;");
-                    ps.setLong(1, time);
+                    ps = conn.prepareStatement("UPDATE lobby_denniodmena SET vybrano = 0;");
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -449,7 +432,7 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
-    public final void resetReward() {
+    public final void resetMonthlyReward() {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -457,7 +440,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE lobby_denniodmena SET vybrano = 0;");
+                    ps = conn.prepareStatement("UPDATE lobby_lobby_vipodmena SET vybrano = 0;");
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -731,6 +714,25 @@ public class SQLManager {
             pool.close(conn, ps, null);
         }
         return "";
+    }
+
+    public final void resetWeekVotes() {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE votes SET week = 0;");
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
     }
 
 
