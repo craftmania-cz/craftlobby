@@ -71,6 +71,10 @@ public class PlayerListener implements Listener {
             p.getInventory().setArmorContents(null);
             p.updateInventory();
 
+            if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
+                p.teleport(new Location(Bukkit.getWorld("omain"), 1540.5, 22.5, -1255.5, 0, 0));
+            }
+
             setupDefaultItems(p);
 
             for (PotionEffect ep : p.getActivePotionEffects()) {
