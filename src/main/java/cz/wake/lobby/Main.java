@@ -167,7 +167,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         ArmorStandManager.spawn();
         Log.success("Vsechny armorstandy byly spawnuty.");
 
-        getServer().getScheduler().runTaskTimerAsynchronously(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
+        getServer().getScheduler().runTaskTimer(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
 
         // Update AT time
         getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
