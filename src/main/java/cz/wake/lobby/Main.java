@@ -242,12 +242,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new ChickenMorph(), this);
         pm.registerEvents(new CrystalBox(), this);
         pm.registerEvents(new TimedResetListener(), this);
+        pm.registerEvents(new RewardsManager(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {
             Log.info("Detekce a aktivace Parkour pluginu.");
             pm.registerEvents(new ParkourListener(), this);
-            pm.registerEvents(new RewardsManager(), this);
         }
 
         if(isChristmas){
