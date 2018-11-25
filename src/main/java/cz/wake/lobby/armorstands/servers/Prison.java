@@ -97,7 +97,7 @@ public class Prison implements ASInterface {
 
                 udrzbaItems();
 
-                Location loc = new Location(Bukkit.getWorld("omain"), 1555, 17, -1215);
+                Location loc = new Location(Bukkit.getWorld("omain"), 1556.5, 17, -1216.5);
 
                 Block block = loc.getBlock();
                 block.setType(Material.STAINED_GLASS);
