@@ -49,7 +49,7 @@ public class Servers implements Listener {
         prison.setItemMeta(prisonMeta);
         inv.setItem(13, prison);
 
-        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.12)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
+        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.13.2)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
                 "§7poznas co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
         inv.setItem(14, van);
 
