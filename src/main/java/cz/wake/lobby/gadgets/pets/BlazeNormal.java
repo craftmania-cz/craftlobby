@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
-import cz.wake.lobby.Main;
+/*import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableBlaze;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Blaze;
@@ -36,4 +36,4 @@ public class BlazeNormal {
     public static void setMetadata(Blaze paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
-}
+}*/

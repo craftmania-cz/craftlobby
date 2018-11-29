@@ -1,5 +1,6 @@
 package cz.wake.lobby.utils.mobs;
 
+/*
 import net.minecraft.server.v1_11_R1.EntityEnderman;
 import net.minecraft.server.v1_11_R1.EntityHuman;
 import net.minecraft.server.v1_11_R1.EntityLiving;
@@ -80,3 +81,4 @@ public class RideableEnderman extends EntityEnderman {
         return (CraftEnderman) customEntity.getBukkitEntity();
     }
 }
+*/

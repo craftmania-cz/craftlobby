@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.gadget;
 
-import net.minecraft.server.v1_11_R1.*;
+import net.minecraft.server.v1_12_R1.*;
 
 public class CustomPathFinderGoalPanic extends PathfinderGoal {
 
@@ -50,7 +50,9 @@ public class CustomPathFinderGoalPanic extends PathfinderGoal {
             return false;
         }
         // CraftBukkit end
-        return !this.b.getNavigation().n();
+        //TODO: PathFinder
+        //return !this.b.getNavigation().n();
+        return true;
     }
 
 

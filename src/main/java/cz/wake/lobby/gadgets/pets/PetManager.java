@@ -1,11 +1,11 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
-import net.minecraft.server.v1_11_R1.*;
+import net.minecraft.server.v1_12_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
@@ -32,7 +32,7 @@ public class PetManager implements Listener {
                 if ((!pet.isValid() || (!player.isOnline()))) {
                     this.cancel();
                 }
-                net.minecraft.server.v1_11_R1.Entity pett = ((CraftEntity) pet).getHandle();
+                net.minecraft.server.v1_12_R1.Entity pett = ((CraftEntity) pet).getHandle();
                 ((EntityInsentient) pett).getNavigation().a(2);
                 Object petf = ((CraftEntity) pet).getHandle();
                 Location targetLocation = player.getLocation();
@@ -208,7 +208,7 @@ public class PetManager implements Listener {
         if (CowNormal.cp.contains(p.getName())) {
             CowNormal.cp.remove(p.getName());
         }
-        if (PigNormal.pn.contains(p.getName())) {
+        /*if (PigNormal.pn.contains(p.getName())) {
             PigNormal.pn.remove(p.getName());
         }
         if (CatNormal.cb.contains(p.getName())) {
@@ -288,6 +288,6 @@ public class PetManager implements Listener {
         }
         if (WitherSkeletonNormal.cn.contains(p.getName())) {
             WitherSkeletonNormal.cn.remove(p.getName());
-        }
+        }*/
     }
 }

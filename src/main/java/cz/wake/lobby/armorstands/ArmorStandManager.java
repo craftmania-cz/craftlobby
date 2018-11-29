@@ -23,7 +23,7 @@ public class ArmorStandManager {
             armorstands.add(new BedWars2v2());
             armorstands.add(new BedWars1v8());
             armorstands.add(new BedWars2v12());
-            BedWarsSheep.spawnSheep();
+            //BedWarsSheep.spawnSheep();
             armorstands.add(new BedWars1v8Ranked());
             armorstands.add(new BedWars4v4Ranked());
             CrystalBox.spawn();
@@ -46,7 +46,6 @@ public class ArmorStandManager {
             armorstands.add(new Pirate());
             armorstands.add(new Witch());
             armorstands.add(new Bonusy());
-            armorstands.add(new Filip6());
             armorstands.add(new BedWars2());
             if (Main.getInstance().isChristmas()) {
                 armorstands.add(new Santa());

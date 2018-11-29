@@ -1,5 +1,6 @@
 package cz.wake.lobby.utils.mobs;
 
+/*
 import net.minecraft.server.v1_11_R1.EntitySheep;
 import net.minecraft.server.v1_11_R1.World;
 import org.bukkit.Location;
@@ -34,3 +35,4 @@ public class CustomSheep extends EntitySheep {
         return (CraftSheep) customEntity.getBukkitEntity();
     }
 }
+*/

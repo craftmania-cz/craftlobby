@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
-import cz.wake.lobby.Main;
+/*import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableSlime;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
@@ -37,4 +37,4 @@ public class SlimeNormal {
     public static void setMetadata(Slime paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
-}
+}*/

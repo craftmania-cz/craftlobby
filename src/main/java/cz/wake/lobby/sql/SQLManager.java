@@ -2,7 +2,6 @@ package cz.wake.lobby.sql;
 
 import com.zaxxer.hikari.HikariDataSource;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.ProfileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 

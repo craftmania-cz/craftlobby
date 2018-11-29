@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
-import cz.wake.lobby.Main;
+/*import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableZombieVillager;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
@@ -40,4 +40,4 @@ public class ZombieVillagerNormal {
     public static void setMetadata(ZombieVillager paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
-}
+}*/

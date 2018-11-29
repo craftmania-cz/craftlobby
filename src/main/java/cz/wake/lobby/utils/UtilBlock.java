@@ -416,7 +416,7 @@ public class UtilBlock {
                 && b.getType() != Material.PORTAL
                 && b.getType() != Material.ENDER_PORTAL
                 && b.getType() != Material.SOIL
-                && net.minecraft.server.v1_11_R1.Block.getByCombinedId(b.getTypeId()).getMaterial().isSolid()
+                && net.minecraft.server.v1_12_R1.Block.getByCombinedId(b.getTypeId()).getMaterial().isSolid()
                 && bUp.getType() != Material.CROPS
                 && bUp.getType() != Material.GRASS
                 && bUp.getType() != Material.LONG_GRASS

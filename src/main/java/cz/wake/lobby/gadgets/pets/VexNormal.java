@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
-import cz.wake.lobby.Main;
+/*import cz.wake.lobby.Main;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftVex;
 import org.bukkit.entity.EntityType;
@@ -30,4 +30,4 @@ public class VexNormal {
     public static void setMetadata(Vex paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
-}
+}*/

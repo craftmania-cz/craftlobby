@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
-import cz.wake.lobby.Main;
+/*import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableRabbit;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
@@ -43,4 +43,4 @@ public class RabbitNormal {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
 
-}
+}*/
