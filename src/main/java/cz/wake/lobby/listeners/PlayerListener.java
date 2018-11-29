@@ -137,9 +137,13 @@ public class PlayerListener implements Listener {
             // Oznameni o pripojeni pro GVIP
             if ((p.hasPermission("group.emerald") || p.hasPermission("group.mvip"))
                     && Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
+                if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message") == 0)
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_messsage", 1);
+
                 final boolean sound = (p.hasPermission("group.obsidian") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1));
+                String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_messages"), p);
                 Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
-                    onlinePlayer.sendMessage("§e§l" + p.getName() + " §7se pripojil na lobby");
+                    onlinePlayer.sendMessage(joinMessage);
                     if (sound) {
                         onlinePlayer.getWorld().playSound(onlinePlayer.getLocation(),
                                 Sound.valueOf(Main.getInstance().getSQL().getSettingsString(p, "lobby_joinbroadcast_sound")), 0.999F, 0.999F);

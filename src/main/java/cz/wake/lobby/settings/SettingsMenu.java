@@ -13,6 +13,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SettingsMenu implements Listener {
 
@@ -20,6 +21,15 @@ public class SettingsMenu implements Listener {
     public static ArrayList<Player> particles = new ArrayList<>();
     public static ArrayList<Player> gadgets = new ArrayList<>();
     public static ArrayList<Player> activeGadgets = new ArrayList<>();
+    public static HashMap<Integer, String> joinMessages = new HashMap<Integer, String>(){{
+        put(1, "{player} se pripojil na lobby");
+        put(2, "Pozor! {player} prave pristal na lobby");
+        put(3, "Tri! Dva! Jedna! {player} je tu!");
+        put(4, "{player} je tu! Podrzte mi pivo.");
+        put(5, "{player} prave prisel. Party zacala!");
+        put(6, "{player} je tu a ma s sebou pizzu!");
+        put(7, "{player} vas prisel znicit!");
+    }};
 
     public void openSettingsMenu(final Player p, final int page) {
         ItemStack enabled = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 5, "§a§lZapnuto");
@@ -94,7 +104,9 @@ public class SettingsMenu implements Listener {
         } else if (page == 2) {
             Inventory inv = Bukkit.createInventory(null, 45, "Osobni nastaveni (Strana 2/2)");
 
-            ItemStack joinMessage = ItemFactory.create(Material.BOOK, (byte) 0, "§e§lZprava pri pripojeni", "§7Pokud se pripojis", "§7ostatni o tom budou vedet.");
+            ItemStack joinMessage = ItemFactory.create(Material.BOOK, (byte) 0, "§e§lZprava pri pripojeni", "§7Pokud se pripojis", "§7ostatni o tom budou vedet.",
+                    "§7Vybrana zprava:", "§7" + formatJoinMessageWithoutColors(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p),
+                    "§7", "§eKliknutim si vyberes zpravu");
             ItemStack joinSound = ItemFactory.create(Material.NOTE_BLOCK, (byte) 0, "§e§lZvuk pri pripojeni", "§7Pokud se pripojis", "§7zazni zvuk.",
                     "§7Vybrany zvuk: " + Main.getInstance().getSQL().getSettingsString(p, "lobby_joinbroadcast_sound")
                             .replace("ENTITY_EXPERIENCE_ORB_PICKUP", "EXP ORB PICKUP")
@@ -279,6 +291,64 @@ public class SettingsMenu implements Listener {
                 openSettingsMenu(p, 1);
             }
         }
+        if (e.getInventory().getTitle().equals("Nastaveni zpravy")) {
+            e.setCancelled(true);
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+            if (e.getCurrentItem().getType() == Material.AIR) {
+                return;
+            }
+            if (e.getSlot() == 10) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(1, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
+                return;
+            }
+            if (e.getSlot() == 11) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(2, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 2);
+                return;
+            }
+            if (e.getSlot() == 12) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(3, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 3);
+                return;
+            }
+            if (e.getSlot() == 13) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(1, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 4);
+                return;
+            }
+            if (e.getSlot() == 14) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(5, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 5);
+                return;
+            }
+            if (e.getSlot() == 15) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(6, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 6);
+                return;
+            }
+            if (e.getSlot() == 16) {
+                p.closeInventory();
+                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(7, p) + "'.");
+                p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
+                Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 7);
+                return;
+            }
+        }
         if (e.getInventory().getTitle().equals("Nastaveni zvuku")) {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) {
@@ -337,6 +407,47 @@ public class SettingsMenu implements Listener {
         }
     }
 
+    private void openJoinMessagesMenu(final Player p) {
+        Inventory inv = Bukkit.createInventory(null, 27, "Nastaveni zpravy");
+        ItemStack jedna = ItemFactory.createHead("§e§lPRVNI ZPRAVA", "00684a88-5cc8-4713-9e91-7b1906e67580",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzFiYzJiY2ZiMmJkMzc1OWU2YjFlODZmYzdhNzk1ODVlMTEyN2RkMzU3ZmMyMDI4OTNmOWRlMjQxYmM5ZTUzMCJ9fX0=",
+        "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(1, p));
+
+        ItemStack dva = ItemFactory.createHead("§e§lDRUHA ZPRAVA", "f7218833-aceb-4d3e-a1bc-a334be09c375",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNkOWVlZWU4ODM0Njg4ODFkODM4NDhhNDZiZjMwMTI0ODVjMjNmNzU3NTNiOGZiZTg0ODczNDE0MTk4NDcifX19",
+                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(2, p));
+
+        ItemStack tri = ItemFactory.createHead("§e§lTRETI ZPRAVA", "870c6ce6-78b5-4e09-8745-bd96d616e516",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ0ZWFlMTM5MzM4NjBhNmRmNWU4ZTk1NTY5M2I5NWE4YzNiMTVjMzZiOGI1ODc1MzJhYzA5OTZiYzM3ZTUifX19",
+                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(3, p));
+
+        ItemStack styri = ItemFactory.createHead("§e§lCTVRTA ZPRAVA", "d531b607-3d92-4760-b19f-b64d51da0fa5",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJlNzhmYjIyNDI0MjMyZGMyN2I4MWZiY2I0N2ZkMjRjMWFjZjc2MDk4NzUzZjJkOWMyODU5ODI4N2RiNSJ9fX0=",
+                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(4, p));
+
+        ItemStack pet = ItemFactory.createHead("§e§lPATA ZPRAVA", "4aaa0af9-ffde-4f5a-ad06-112dffbade0c",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ1N2UzYmM4OGE2NTczMGUzMWExNGUzZjQxZTAzOGE1ZWNmMDg5MWE2YzI0MzY0M2I4ZTU0NzZhZTIifX19",
+                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(5, p));
+
+        ItemStack sest = ItemFactory.createHead("§e§lSESTA ZPRAVA", "58a05887-3473-4c87-8506-2acf877d7ff1",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzM0YjM2ZGU3ZDY3OWI4YmJjNzI1NDk5YWRhZWYyNGRjNTE4ZjVhZTIzZTcxNjk4MWUxZGNjNmIyNzIwYWIifX19=",
+                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(6, p));
+
+        ItemStack sedm = ItemFactory.createHead("§e§lSEDMA ZPRAVA", "23378bd2-28e5-4d7e-8d39-621b732e1f49",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRiNmViMjVkMWZhYWJlMzBjZjQ0NGRjNjMzYjU4MzI0NzVlMzgwOTZiN2UyNDAyYTNlYzQ3NmRkN2I5In19fQ==",
+                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(7, p));
+
+        inv.setItem(10, jedna);
+        inv.setItem(11, dva);
+        inv.setItem(12, tri);
+        inv.setItem(13, styri);
+        inv.setItem(14, pet);
+        inv.setItem(15, sest);
+        inv.setItem(16, sedm);
+
+        p.openInventory(inv);
+    }
+
     private void openSoundsMenu(final Player p) {
         Inventory inv = Bukkit.createInventory(null, 27, "Nastaveni zvuku");
 
@@ -356,6 +467,21 @@ public class SettingsMenu implements Listener {
         inv.setItem(15, zombie); // ENTITY_ZOMBIE_HURT
 
         p.openInventory(inv);
+    }
+
+    public static String formatJoinMessage(Integer i, Player p) {
+        String entry = joinMessages.get(i);
+        String message;
+        message = "§7" + entry;
+        message = message.replace("{player}", "§e§l" + p.getName() + "§7");
+        return message;
+    }
+
+    public static String formatJoinMessageWithoutColors(Integer i, Player p) {
+        String entry = joinMessages.get(i);
+        String message;
+        message = entry.replace("{player}", p.getName());
+        return message;
     }
 
 }
