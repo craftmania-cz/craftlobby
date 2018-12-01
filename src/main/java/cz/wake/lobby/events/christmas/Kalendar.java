@@ -163,7 +163,7 @@ public class Kalendar implements Listener {
                 return;
             }
             if (e.getSlot() == 2) {
-                if (System.currentTimeMillis() >= 1512082800000L) { // 1.Den
+                if (System.currentTimeMillis() >= 1543618800000L) { // 1.Den
                     if (Main.getInstance().getSQL().checkDay(p, 1) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 1);
                         p.sendMessage("§eZiskal jsi: §bEnderman Pet");
@@ -184,7 +184,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 40) {
-                if (System.currentTimeMillis() >= 1512169200000L) { // 2.Den
+                if (System.currentTimeMillis() >= 1543705200000L) { // 2.Den
                     if (Main.getInstance().getSQL().checkDay(p, 2) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 2);
                         p.sendMessage("§eZiskal jsi: §bSanta Heads + 100CC");
@@ -206,7 +206,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 28) {
-                if (System.currentTimeMillis() >= 1512255600000L) { // 3.Den
+                if (System.currentTimeMillis() >= 1543791600000L) { // 3.Den
                     if (Main.getInstance().getSQL().checkDay(p, 3) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 3);
                         p.sendMessage("§eZiskal jsi: §bSanta Cloak + 200CC");
@@ -227,7 +227,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 9) {
-                if (System.currentTimeMillis() >= 1512342000000L) { // 4.Den
+                if (System.currentTimeMillis() >= 1543878000000L) { // 4.Den
                     if (Main.getInstance().getSQL().checkDay(p, 4) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 4);
                         //ain.getInstance().getSQL().addCoins(p, 100);
@@ -248,7 +248,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 50) {
-                if (System.currentTimeMillis() >= 1512428400000L) { // 5.den
+                if (System.currentTimeMillis() >= 1543964400000L) { // 5.den
                     if (Main.getInstance().getSQL().checkDay(p, 5) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 5);
                         p.sendMessage("§eZiskal jsi: §bElfBoy & ElfGirl Heads");
@@ -269,7 +269,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 33) {
-                if (System.currentTimeMillis() >= 1512514800000L) { // 6.den
+                if (System.currentTimeMillis() >= 1544050800000L) { // 6.den
                     if (Main.getInstance().getSQL().checkDay(p, 6) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 6);
                         p.sendMessage("§eZiskal jsi: §bSnowman Pet");
@@ -290,7 +290,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 15) {
-                if (System.currentTimeMillis() >= 1512601200000L) { // 7.den
+                if (System.currentTimeMillis() >= 1544137200000L) { // 7.den
                     if (Main.getInstance().getSQL().checkDay(p, 7) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 7);
                         p.sendMessage("§eZiskal jsi: §bChicken Morph + 100CC");
@@ -310,7 +310,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 46) {
-                if (System.currentTimeMillis() >= 1512687600000L) { // 8.den
+                if (System.currentTimeMillis() >= 1544223600000L) { // 8.den
                     if (Main.getInstance().getSQL().checkDay(p, 8) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 8);
                         p.sendMessage("§eZiskal jsi: §bSnowglobe Heads");
@@ -331,7 +331,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 36) {
-                if (System.currentTimeMillis() >= 1512774000000L) { // 9.den
+                if (System.currentTimeMillis() >= 1544310000000L) { // 9.den
                     if (Main.getInstance().getSQL().checkDay(p, 9) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 9);
                         p.sendMessage("§eZiskal jsi: §bPresent Heads + 200CC");
@@ -355,7 +355,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 8) {
-                if (System.currentTimeMillis() >= 1512860400000L) { // 10.den
+                if (System.currentTimeMillis() >= 1544396400000L) { // 10.den
                     if (Main.getInstance().getSQL().checkDay(p, 10) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 10);
                         p.sendMessage("§eZiskal jsi: §bBlood Helix Particles");
@@ -375,7 +375,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 26) {
-                if (System.currentTimeMillis() >= 1512946800000L) { // 11.den
+                if (System.currentTimeMillis() >= 1544482800000L) { // 11.den
                     if (Main.getInstance().getSQL().checkDay(p, 11) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 11);
                         p.sendMessage("§eZiskal jsi: §bHorse White Pet");
@@ -396,7 +396,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 52) {
-                if (System.currentTimeMillis() >= 1513033200000L) { // 12.den
+                if (System.currentTimeMillis() >= 1544569200000L) { // 12.den
                     if (Main.getInstance().getSQL().checkDay(p, 12) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 12);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bIronGolem Morph + 200CC");
@@ -416,7 +416,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 5) {
-                if (System.currentTimeMillis() >= 1513119600000L) { // 13.den
+                if (System.currentTimeMillis() >= 1544655600000L) { // 13.den
                     if (Main.getInstance().getSQL().checkDay(p, 13) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 13);
                         p.sendMessage("§eZiskal jsi: §bAngel Cloak");
@@ -435,7 +435,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 12) {
-                if (System.currentTimeMillis() >= 1513206000000L) { // 14.den
+                if (System.currentTimeMillis() >= 1544742000000L) { // 14.den
                     if (Main.getInstance().getSQL().checkDay(p, 14) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 14);
                         p.sendMessage("§eZiskal jsi: §bVsechny Bannery v Gagdets");
@@ -455,7 +455,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 20) {
-                if (System.currentTimeMillis() >= 1513292400000L) { // 15.den
+                if (System.currentTimeMillis() >= 1544828400000L) { // 15.den
                     if (Main.getInstance().getSQL().checkDay(p, 15) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 15);
                         p.sendMessage("§eZiskal jsi: §bAntiGravity Gadget");
@@ -476,7 +476,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 44) {
-                if (System.currentTimeMillis() >= 1513378800000L) { // 16.den
+                if (System.currentTimeMillis() >= 1544914800000L) { // 16.den
                     if (Main.getInstance().getSQL().checkDay(p, 16) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 16);
                         p.sendMessage("§eZiskal jsi: §bSanta Hat Particles");
@@ -496,7 +496,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 30) {
-                if (System.currentTimeMillis() >= 1513465200000L) { // 17.den
+                if (System.currentTimeMillis() >= 1545001200000L) { // 17.den
                     if (Main.getInstance().getSQL().checkDay(p, 17) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 17);
                         p.sendMessage("§eZiskal jsi: §6Evoker + Vex Pets");
@@ -517,7 +517,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 23) {
-                if (System.currentTimeMillis() >= 1513551600000L) { // 18.den
+                if (System.currentTimeMillis() >= 1545087600000L) { // 18.den
                     if (Main.getInstance().getSQL().checkDay(p, 18) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 18);
                         p.sendMessage("§eZiskal jsi: §bCandy Cane Particles");
@@ -537,7 +537,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 18) {
-                if (System.currentTimeMillis() >= 1513638000000L) { // 19.den
+                if (System.currentTimeMillis() >= 1545174000000L) { // 19.den
                     if (Main.getInstance().getSQL().checkDay(p, 19) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 19);
                         p.sendMessage("§eZiskal jsi: §bPolar Bear Pet");
@@ -558,7 +558,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 42) {
-                if (System.currentTimeMillis() >= 1513724400000L) { // 20.den
+                if (System.currentTimeMillis() >= 1545260400000L) { // 20.den
                     if (Main.getInstance().getSQL().checkDay(p, 20) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 20);
                         p.sendMessage("§eZiskal jsi: §bDevil Cloak");
@@ -578,7 +578,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 48) {
-                if (System.currentTimeMillis() >= 1513810800000L) { // 21.den
+                if (System.currentTimeMillis() >= 1545346800000L) { // 21.den
                     if (Main.getInstance().getSQL().checkDay(p, 21) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 21);
                         p.sendMessage("§eZiskal jsi: §bSob + CommandBlock + Snowman Head");
@@ -600,7 +600,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 22) {
-                if (System.currentTimeMillis() >= 1513897200000L) { // 22.den
+                if (System.currentTimeMillis() >= 1545433200000L) { // 22.den
                     if (Main.getInstance().getSQL().checkDay(p, 22) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 22);
                         p.sendMessage("§eZiskal jsi: §cLlama Pets");
@@ -620,7 +620,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 25) {
-                if (System.currentTimeMillis() >= 1513983600000L) { // 23.den
+                if (System.currentTimeMillis() >= 1545519600000L) { // 23.den
                     if (Main.getInstance().getSQL().checkDay(p, 23) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 23);
                         p.sendMessage("§eZiskal jsi: §b500CC + Vsechny Heads!");
@@ -642,7 +642,7 @@ public class Kalendar implements Listener {
                 }
             }
             if (e.getSlot() == 38) {
-                if (System.currentTimeMillis() >= 1514070000000L) { // 24.den
+                if (System.currentTimeMillis() >= 1545606000000L) { // 24.den
                     if (Main.getInstance().getSQL().checkDay(p, 24) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 24);
                         p.sendMessage("§eZiskal jsi: §b3000CC + hoodne Pets!");
