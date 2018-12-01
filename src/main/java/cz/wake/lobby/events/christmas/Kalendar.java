@@ -1,5 +1,7 @@
 package cz.wake.lobby.events.christmas;
 
+import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
+import cz.craftmania.crafteconomy.api.CraftTokensAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.TitleAPI;
@@ -22,6 +24,11 @@ public class Kalendar implements Listener {
     //TODO: Kocka hazejici rybu, sheep s oveckou, netopyr, parrot jako pet*, wake jako moprh, dog s dogem, kure kadici vejce
 
     public void openKalendar(final Player p) {
+
+        if (Main.getInstance().getSQL().getPlayerProfileDataInt(p, "played_time") < 180) {
+            p.sendMessage("§c[!] Aby jsi si mohl vybrat odmenu, musis mit odehrane aspon 3 hodiny na serveru! :)");
+            return;
+        }
 
         Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
 
@@ -163,13 +170,15 @@ public class Kalendar implements Listener {
                 return;
             }
             if (e.getSlot() == 2) {
+                System.out.println("this?");
                 if (System.currentTimeMillis() >= 1543618800000L) { // 1.Den
+                    System.out.println("this 2?");
                     if (Main.getInstance().getSQL().checkDay(p, 1) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 1);
                         p.sendMessage("§eZiskal jsi: §bEnderman Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bEnderman Pet");
                         setPermission(p,"craftlobby.pets.enderman");
-                        //Main.getInstance().getSQL().addCoins(p, 100);
+                        CraftCoinsAPI.giveCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -191,7 +200,7 @@ public class Kalendar implements Listener {
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Heads + 100CC");
                         setPermission(p, "craftlobby.heads.vanocni.piratesanta");
                         setPermission(p, "craftlobby.heads.vanocni.santa");
-                        //Main.getInstance().getSQL().addCoins(p, 100);
+                        CraftCoinsAPI.giveCoins(p, 150);
                         p.closeInventory();
                         return;
                     } else {
@@ -212,7 +221,7 @@ public class Kalendar implements Listener {
                         p.sendMessage("§eZiskal jsi: §bSanta Cloak + 200CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Cloak + 200CC");
                         setPermission(p, "craftlobby.cloaks.santa");
-                        //Main.getInstance().getSQL().addCoins(p, 200);
+                        CraftCoinsAPI.giveCoins(p, 200);
                         p.closeInventory();
                         return;
                     } else {
@@ -230,7 +239,7 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= 1543878000000L) { // 4.Den
                     if (Main.getInstance().getSQL().checkDay(p, 4) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 4);
-                        //ain.getInstance().getSQL().addCoins(p, 100);
+                        CraftCoinsAPI.giveCoins(p, 100);
                         setPermission(p, "craftlobby.morphs.snowman");
                         p.sendMessage("§eZiskal jsi: §b100CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Morph + 1000CC");
@@ -275,7 +284,7 @@ public class Kalendar implements Listener {
                         p.sendMessage("§eZiskal jsi: §bSnowman Pet");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Pet + 100CC");
                         setPermission(p,"craftlobby.pets.snowman");
-                        //Main.getInstance().getSQL().addCoins(p, 100);
+                        CraftCoinsAPI.giveCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -293,9 +302,10 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= 1544137200000L) { // 7.den
                     if (Main.getInstance().getSQL().checkDay(p, 7) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 7);
-                        p.sendMessage("§eZiskal jsi: §bChicken Morph + 100CC");
-                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bChicken Morph + 100CC");
-                        //Main.getInstance().getSQL().addCoins(p, 100);
+                        p.sendMessage("§eZiskal jsi: §bChicken Morph + 150 CC + 1 CT");
+                        TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bChicken Morph + 100 CC + 1 CT");
+                        CraftCoinsAPI.giveCoins(p, 150);
+                        CraftTokensAPI.giveTokens(p, 1);
                         setPermission(p, "craftlobby.morphs.chicken");
                         p.closeInventory();
                     } else {
@@ -336,7 +346,7 @@ public class Kalendar implements Listener {
                         Main.getInstance().getSQL().addCalendarDay(p, 9);
                         p.sendMessage("§eZiskal jsi: §bPresent Heads + 200CC");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPresent Heads + 200CC");
-                        //Main.getInstance().getSQL().addCoins(p, 200);
+                        CraftCoinsAPI.giveCoins(p, 200);
                         setPermission(p, "craftloby.heads.vanocni.blackpresent");
                         setPermission(p, "craftlobby.heads.vanocni.bluepresent");
                         setPermission(p, "craftlobby.heads.vanocni.greenpresent");
@@ -400,7 +410,7 @@ public class Kalendar implements Listener {
                     if (Main.getInstance().getSQL().checkDay(p, 12) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 12);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bIronGolem Morph + 200CC");
-                        //Main.getInstance().getSQL().addCoins(p, 200);
+                        CraftCoinsAPI.giveCoins(p, 200);
                         setPermission(p, "craftlobby.morphs.irongolem");
                         p.closeInventory();
                         return;
@@ -461,7 +471,7 @@ public class Kalendar implements Listener {
                         p.sendMessage("§eZiskal jsi: §bAntiGravity Gadget");
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAntiGravity Gadget + 100CC");
                         setPermission(p, "craftlobby.gadget.antigravity");
-                        //Main.getInstance().getSQL().addCoins(p, 100);
+                        CraftCoinsAPI.giveCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -624,9 +634,8 @@ public class Kalendar implements Listener {
                     if (Main.getInstance().getSQL().checkDay(p, 23) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 23);
                         p.sendMessage("§eZiskal jsi: §b500CC + Vsechny Heads!");
-                        //Main.getInstance().getSQL().addCoins(p, 500);
+                        CraftCoinsAPI.giveCoins(p, 500);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b500CC");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 500");
                         setPermission(p, "craftlobby.heads.*");
                         p.closeInventory();
                         return;
@@ -646,9 +655,9 @@ public class Kalendar implements Listener {
                     if (Main.getInstance().getSQL().checkDay(p, 24) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 24);
                         p.sendMessage("§eZiskal jsi: §b3000CC + hoodne Pets!");
-                        //Main.getInstance().getSQL().addCoins(p, 3000);
+                        CraftTokensAPI.giveTokens(p, 1);
+                        CraftCoinsAPI.giveCoins(p, 3000);
                         TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b3000CC + hoodne Pets!");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 3000");
                         setPermission(p, "craftlobby.pets.slime.*");
                         setPermission(p, "craftlobby.pets.slime");
                         setPermission(p, "craftlobby.pets.zombie.*");

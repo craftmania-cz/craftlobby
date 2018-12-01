@@ -123,6 +123,11 @@ public class PlayerListener implements Listener {
                 // Info o odmene
                 b.onPlayerSpawn(p);
 
+                // Registrace vanocniho kalendare
+                if (Main.getInstance().isChristmas()) {
+                    Main.getInstance().getSQL().addCalendarDefaultValue(p);
+                }
+
                 // Update Nicku v player_profile (pokud si hrac zmeni nick)
                 //TODO: Prdelat jednotne s 1 requestem pri zjisteni (v1.8)
                 String name = Main.getInstance().getSQL().getNameInCcomunity(p.getUniqueId().toString()); // Ziskani nicku podle UUID

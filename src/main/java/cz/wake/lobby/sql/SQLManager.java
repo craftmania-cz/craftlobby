@@ -624,7 +624,7 @@ public class SQLManager {
     public int checkDay(final Player p, final int day) {
         Connection conn = null;
         PreparedStatement ps = null;
-        String selector = "day" + String.valueOf(day);
+        String selector = "day" + day;
         try {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT " + selector + " FROM kalendar_vyber WHERE nick = '" + p.getName() + "';");

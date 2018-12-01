@@ -250,15 +250,15 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             pm.registerEvents(new ParkourListener(), this);
         }
 
-        if(isChristmas){
-            Log.info("Aktivace Vanocnich eventu pro lobby.");
+        if(getConfig().getBoolean("events.christmas")){
             pm.registerEvents(new Kalendar(), this);
+            Log.info("Aktivace Vanocnich eventu pro lobby.");
         }
     }
 
     private void loadCommands() {
         getCommand("clobby").setExecutor(new Craftlobby_Command());
-        getCommand("cl").setExecutor(new Craftlobby_Command());
+        getCommand("cl").setExecutor(new Craftlobby_Command()); //TODO: Proc je tu alias?
         getCommand("vip").setExecutor(new VIP_Command());
         getCommand("survival").setExecutor(new Survival_command());
         getCommand("skyblock").setExecutor(new Skyblock_command());
@@ -266,9 +266,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("prison").setExecutor(new Prison_command());
         getCommand("vanilla").setExecutor(new Vanilla_command());
         getCommand("bedwars").setExecutor(new BedWars_command());
-        getCommand("skywars").setExecutor(new SkyWars_command());
-        getCommand("murder").setExecutor(new Murder_command());
-        getCommand("vanillasb").setExecutor(new VanillaSb_command());
+        //getCommand("skywars").setExecutor(new SkyWars_command());
+        //getCommand("murder").setExecutor(new Murder_command());
+        //getCommand("vanillasb").setExecutor(new VanillaSb_command());
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("oldcrafttokens").setExecutor(new CraftTokens_command());
 
