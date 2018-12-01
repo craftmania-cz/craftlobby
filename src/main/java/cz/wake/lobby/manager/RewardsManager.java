@@ -131,25 +131,24 @@ public class RewardsManager implements Listener {
                 if (p.hasPermission("craftlobby.vip.odmena")) {
                     if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                         if(p.hasPermission("craftlobby.vip.odmena.obsidian")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC §ea §64 CT");
+                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 4000);
-                            CraftTokensAPI.giveTokens(p, 4);
+                            CraftTokensAPI.giveTokens(p, 1);
                         } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §63000 CC §ea §62 CT");
+                            p.sendMessage("§eVybral jsi si VIP bonus §63000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 3000);
-                            CraftTokensAPI.giveTokens(p, 2);
+                            CraftTokensAPI.giveTokens(p, 1);
                         } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §62 CT");
-                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
-                            CraftCoinsAPI.giveCoins(p, 2000);
-                            CraftTokensAPI.giveTokens(p, 2);
-                        } else {
                             p.sendMessage("§eVybral jsi si VIP bonus §62000 CC §ea §61 CT");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 2000);
                             CraftTokensAPI.giveTokens(p, 1);
+                        } else {
+                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC");
+                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
+                            CraftCoinsAPI.giveCoins(p, 2000);
                         }
                         Bonusy b = new Bonusy();
                         b.playEffect(p);
