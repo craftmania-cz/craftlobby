@@ -143,10 +143,10 @@ public class PlayerListener implements Listener {
             if ((p.hasPermission("group.emerald") || p.hasPermission("group.mvip"))
                     && Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
                 if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message") == 0) {
-                    Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_messsage", 1);
+                    Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
                 }
 
-                String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_messages"), p);
+                String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
                 Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
                     onlinePlayer.sendMessage(joinMessage);
                     if ((p.hasPermission("group.obsidian") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1))) {

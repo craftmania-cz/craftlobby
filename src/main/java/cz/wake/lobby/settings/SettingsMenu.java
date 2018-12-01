@@ -3,6 +3,7 @@ package cz.wake.lobby.settings;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -105,7 +106,7 @@ public class SettingsMenu implements Listener {
             Inventory inv = Bukkit.createInventory(null, 45, "Osobni nastaveni (Strana 2/2)");
 
             ItemStack joinMessage = ItemFactory.create(Material.BOOK, (byte) 0, "§e§lZprava pri pripojeni", "§7Pokud se pripojis", "§7ostatni o tom budou vedet.",
-                    "§7Vybrana zprava:", "§7" + formatJoinMessageWithoutColors(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p),
+                    "", "§bVybrana zprava:", "§f" + formatJoinMessageWithoutColors(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p),
                     "§7", "§eKliknutim si vyberes zpravu");
             ItemStack joinSound = ItemFactory.create(Material.NOTE_BLOCK, (byte) 0, "§e§lZvuk pri pripojeni", "§7Pokud se pripojis", "§7zazni zvuk.",
                     "§7Vybrany zvuk: " + Main.getInstance().getSQL().getSettingsString(p, "lobby_joinbroadcast_sound")
@@ -279,12 +280,18 @@ public class SettingsMenu implements Listener {
                     p.closeInventory();
                 }
             }
+            if (e.getSlot() == 9) {
+                if (p.hasPermission("group.obsidian")) {
+                    openJoinMessagesMenu(p);
+                } else {
+                    p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
+                }
+            }
             if (e.getSlot() == 10) {
                 if (p.hasPermission("group.obsidian")) {
                     openSoundsMenu(p);
                 } else {
                     p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
-                    p.closeInventory();
                 }
             }
             if (e.getSlot() == 36) {
@@ -409,33 +416,33 @@ public class SettingsMenu implements Listener {
 
     private void openJoinMessagesMenu(final Player p) {
         Inventory inv = Bukkit.createInventory(null, 27, "Nastaveni zpravy");
-        ItemStack jedna = ItemFactory.createHead("§e§lPRVNI ZPRAVA", "00684a88-5cc8-4713-9e91-7b1906e67580",
+        ItemStack jedna = ItemFactory.createHead("Prvni zprava", "00684a88-5cc8-4713-9e91-7b1906e67580",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzFiYzJiY2ZiMmJkMzc1OWU2YjFlODZmYzdhNzk1ODVlMTEyN2RkMzU3ZmMyMDI4OTNmOWRlMjQxYmM5ZTUzMCJ9fX0=",
-        "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(1, p));
+        "§bVolba 1", "§7Text zpravy:", formatJoinMessageWithoutColors(1, p), "", "§aK nastaveni klikni");
 
-        ItemStack dva = ItemFactory.createHead("§e§lDRUHA ZPRAVA", "f7218833-aceb-4d3e-a1bc-a334be09c375",
+        ItemStack dva = ItemFactory.createHead("Druha zprava", "f7218833-aceb-4d3e-a1bc-a334be09c375",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGNkOWVlZWU4ODM0Njg4ODFkODM4NDhhNDZiZjMwMTI0ODVjMjNmNzU3NTNiOGZiZTg0ODczNDE0MTk4NDcifX19",
-                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(2, p));
+                "§bVolba 2", "§7Text zpravy:", formatJoinMessageWithoutColors(2, p), "", "§aK nastaveni klikni");
 
         ItemStack tri = ItemFactory.createHead("§e§lTRETI ZPRAVA", "870c6ce6-78b5-4e09-8745-bd96d616e516",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWQ0ZWFlMTM5MzM4NjBhNmRmNWU4ZTk1NTY5M2I5NWE4YzNiMTVjMzZiOGI1ODc1MzJhYzA5OTZiYzM3ZTUifX19",
-                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(3, p));
+                "§bVolba 3", "§7Text zpravy:", formatJoinMessageWithoutColors(3, p), "", "§aK nastaveni klikni");
 
         ItemStack styri = ItemFactory.createHead("§e§lCTVRTA ZPRAVA", "d531b607-3d92-4760-b19f-b64d51da0fa5",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDJlNzhmYjIyNDI0MjMyZGMyN2I4MWZiY2I0N2ZkMjRjMWFjZjc2MDk4NzUzZjJkOWMyODU5ODI4N2RiNSJ9fX0=",
-                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(4, p));
+                "§bVolba 4", "§7Text zpravy:", formatJoinMessageWithoutColors(4, p), "", "§aK nastaveni klikni");
 
         ItemStack pet = ItemFactory.createHead("§e§lPATA ZPRAVA", "4aaa0af9-ffde-4f5a-ad06-112dffbade0c",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmQ1N2UzYmM4OGE2NTczMGUzMWExNGUzZjQxZTAzOGE1ZWNmMDg5MWE2YzI0MzY0M2I4ZTU0NzZhZTIifX19",
-                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(5, p));
+                "§bVolba 5", "§7Text zpravy:", formatJoinMessageWithoutColors(5, p), "", "§aK nastaveni klikni");
 
         ItemStack sest = ItemFactory.createHead("§e§lSESTA ZPRAVA", "58a05887-3473-4c87-8506-2acf877d7ff1",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzM0YjM2ZGU3ZDY3OWI4YmJjNzI1NDk5YWRhZWYyNGRjNTE4ZjVhZTIzZTcxNjk4MWUxZGNjNmIyNzIwYWIifX19=",
-                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(6, p));
+                "§bVolba 6", "§7Text zpravy:", formatJoinMessageWithoutColors(6, p), "", "§aK nastaveni klikni");
 
         ItemStack sedm = ItemFactory.createHead("§e§lSEDMA ZPRAVA", "23378bd2-28e5-4d7e-8d39-621b732e1f49",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRiNmViMjVkMWZhYWJlMzBjZjQ0NGRjNjMzYjU4MzI0NzVlMzgwOTZiN2UyNDAyYTNlYzQ3NmRkN2I5In19fQ==",
-                "§f", "§7Nastaveni na:", formatJoinMessageWithoutColors(7, p));
+                "§bVolba 7", "§7Text zpravy:", formatJoinMessageWithoutColors(7, p), "", "§aK nastaveni klikni");
 
         inv.setItem(10, jedna);
         inv.setItem(11, dva);
@@ -480,8 +487,8 @@ public class SettingsMenu implements Listener {
     public static String formatJoinMessageWithoutColors(Integer i, Player p) {
         String entry = joinMessages.get(i);
         String message;
-        message = entry.replace("{player}", p.getName());
-        return message;
+        message = entry.replace("{player}", ChatColor.YELLOW + "" + ChatColor.BOLD + p.getName() + ChatColor.GRAY);
+        return ChatColor.GRAY + message;
     }
 
 }
