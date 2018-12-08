@@ -25,7 +25,7 @@ public class Kalendar implements Listener {
 
     public void openKalendar(final Player p) {
 
-        if (Main.getInstance().getSQL().getPlayerProfileDataInt(p, "played_time") < 180) {
+        if (Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(p, "played_time") < 180) {
             p.sendMessage("§c[!] Aby jsi si mohl vybrat odmenu, musis mit odehrane aspon 3 hodiny na serveru! :)");
             return;
         }
