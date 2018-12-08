@@ -140,7 +140,7 @@ public class PlayerListener implements Listener {
             }
 
             // Oznameni o pripojeni pro GVIP
-            if ((p.hasPermission("group.emerald") || p.hasPermission("group.mvip"))
+            if ((p.hasPermission("craftlobby.vip.joinbroadcast-message"))
                     && Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
                 if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message") == 0) {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
@@ -149,7 +149,7 @@ public class PlayerListener implements Listener {
                 String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
                 Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
                     onlinePlayer.sendMessage(joinMessage);
-                    if ((p.hasPermission("group.obsidian") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1))) {
+                    if ((p.hasPermission("craftlobby.vip.joinbroadcast-change-sound") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1))) {
                         onlinePlayer.getWorld().playSound(onlinePlayer.getLocation(),
                                 Sound.valueOf(Main.getInstance().getSQL().getSettingsString(p, "lobby_joinbroadcast_sound")), 0.999F, 0.999F);
                     }
