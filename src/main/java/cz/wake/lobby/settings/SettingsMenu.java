@@ -169,7 +169,7 @@ public class SettingsMenu implements Listener {
                         p.closeInventory();
                     }
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
+                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal VIP");
                     p.closeInventory();
                 }
             }
@@ -249,7 +249,7 @@ public class SettingsMenu implements Listener {
 
         if (e.getInventory().getTitle().equals("Osobni nastaveni (Strana 2/2)")) {
             if (e.getSlot() == 18) {
-                if (p.hasPermission("group.emerald")) {
+                if (p.hasPermission("craftlobby.vip.joinbroadcast-message")) {
                     if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_enabled", 0);
                         p.sendMessage("§cZprava pri pripojeni byla deaktivovana!");
@@ -260,12 +260,12 @@ public class SettingsMenu implements Listener {
                         p.closeInventory();
                     }
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
+                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                     p.closeInventory();
                 }
             }
             if (e.getSlot() == 19) {
-                if (p.hasPermission("group.obsidian")) {
+                if (p.hasPermission("craftlobby.vip.joinbroadcast-change-sound")) {
                     if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1) {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound_enabled", 0);
                         p.sendMessage("§cZvuk pri pripojeni byl deaktivovan!");
@@ -276,22 +276,22 @@ public class SettingsMenu implements Listener {
                         p.closeInventory();
                     }
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
+                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                     p.closeInventory();
                 }
             }
             if (e.getSlot() == 9) {
-                if (p.hasPermission("group.obsidian")) {
+                if (p.hasPermission("craftlobby.vip.joinbroadcast-message")) {
                     openJoinMessagesMenu(p);
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
+                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                 }
             }
             if (e.getSlot() == 10) {
-                if (p.hasPermission("group.obsidian")) {
+                if (p.hasPermission("craftlobby.vip.joinbroadcast-change-sound")) {
                     openSoundsMenu(p);
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fMiniGames VIP");
+                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                 }
             }
             if (e.getSlot() == 36) {
