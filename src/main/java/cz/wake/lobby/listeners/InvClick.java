@@ -118,16 +118,16 @@ public class InvClick implements Listener {
             //**************************** GADGETS HLAVNI MENU ****************************//
             if (event.getInventory().getTitle().equals("Hlavni menu")) {
                 if (event.getSlot() == 10) {
-                    //hAPI.openMainHeadsMenu(player);
-                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+                    hAPI.openMainHeadsMenu(player);
+                    //player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 30) {
-                    //Main.getInstance().getGadgetsAPI().openInventory(player);
-                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+                    Main.getInstance().getGadgetsAPI().openInventory(player);
+                    //player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 32) {
-                    //morphAPI.openMenu(player);
-                    player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
+                    morphAPI.openMenu(player);
+                    //player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 34) {
                     if (player.hasPermission("craftlobby.vip.particles")) {
@@ -137,7 +137,7 @@ public class InvClick implements Listener {
                     }
                 }
                 if (event.getSlot() == 12) {
-                    //bannerAPI.openInventory(player);
+                    bannerAPI.openInventory(player);
                 }
                 if (event.getSlot() == 14) {
                     player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
