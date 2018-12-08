@@ -84,13 +84,13 @@ public class Profil implements Listener {
         ItemStack villages = ItemFactory.create(Material.DARK_OAK_DOOR_ITEM, (byte) 0, "§aVillages", "", "§7Kdo vi.. co to bude?", "", "§cPlanovano...");
         menu.setItem(38, villages);
 
-        if (Main.getInstance().getSQL().isAT(p)) {
+        /*if (Main.getInstance().getSQL().isAT(p)) {
             ItemStack i = ItemFactory.create(Material.PAINTING, (byte) 0, "§aAT Stalker", "§7Prehled tve aktivity", "§7na serveru.", "", "§eKlikni pro zobrazeni");
             menu.setItem(42, i);
         } else {
             ItemStack i = ItemFactory.create(Material.BARRIER, (byte) 0, "§cAT Sekce", "§7K zobrazeni teto sekce", "§7musis byt v AT.");
             menu.setItem(42, i);
-        }
+        } */
 
         ItemStack nastaveni = ItemFactory.create(Material.REDSTONE_COMPARATOR, (byte) 0, "§aNastaveni uctu", "", "§7Diky nastaveni si muzes", "§7prispusobit lobby/hry podle sebe.", "", "§eKlikni pro zobrazeni/nastaveni");
 
@@ -108,8 +108,8 @@ public class Profil implements Listener {
         bhMeta.setLore(bhLore);
         jazyk.setItemMeta(bhMeta);
 
-        menu.setItem(41, nastaveni);
-        menu.setItem(40, jazyk);
+        menu.setItem(42, nastaveni);
+        menu.setItem(41, jazyk);
 
         p.openInventory(menu);
     }
