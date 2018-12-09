@@ -199,7 +199,7 @@ public class Bonusy implements ASInterface {
             return "§7Mas nevyzvednute §c2 odmeny!";
         }
 
-        return "§4Error 404, odmena not found :D";
+        return "§4Chyba! Wejku oprav to :D";
 
     }
 

@@ -220,10 +220,10 @@ public class Profil implements Listener {
             if (e.getSlot() == 29) {
                 openSocialMenu(p);
             }
-            if (e.getSlot() == 40) {
+            if (e.getSlot() == 41) {
                 openLanguageMenu(p);
             }
-            if (e.getSlot() == 41) {
+            if (e.getSlot() == 42) {
                 settings.openSettingsMenu(p, 1);
             }
         }
