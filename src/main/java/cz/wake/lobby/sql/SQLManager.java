@@ -469,6 +469,24 @@ public class SQLManager {
         return 0;
     }
 
+    public final int getPlayerProfileDataIntNoUUID(Player p, String data) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + data + " FROM player_profile WHERE nick = '" + p.getName() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
     public final String getPlayerProfileDataString(Player p, String data) {
         Connection conn = null;
         PreparedStatement ps = null;
