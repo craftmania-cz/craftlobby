@@ -96,23 +96,27 @@ public class InvClick implements Listener {
                     sendToServer(player, "creative");
                 }
                 if (event.getSlot() == 13) {
-                    sendToServer(player, "prison");
+                    //sendToServer(player, "prison");
+                    player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 14) {
                     sendToServer(player, "vanilla");
                 }
                 if (event.getSlot() == 15) {
                     //sendToServer(player, "vanillasb");
-                    player.sendMessage("§c§c(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
+                    player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 19) { //SKYWARS
-                    sendToServer(player, "slobby");
+                    //sendToServer(player, "slobby");
+                    player.sendMessage("§c§l(!) §cMinihra se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 20) { // MURDER
-                    sendToServer(player, "mlobby");
+                    //sendToServer(player, "mlobby");
+                    player.sendMessage("§c§l(!) §cMinihra se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 21) { // BEDWARS 2
-                    sendToServer(player, "bedlobby");
+                    //sendToServer(player, "bedlobby");
+                    player.sendMessage("§c§l(!) §cMinihra se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//

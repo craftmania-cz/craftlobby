@@ -30,7 +30,7 @@ public class Servers implements Listener {
         inv.setItem(11, skyb);
 
         ItemStack crea1 = ItemFactory.create(Material.LAVA_BUCKET, (byte) 0, "§e§lCreative (1.12)", "§8Creative, pozemky, WorldEdit", "",
-                "§7Svet ve kterem muzes prakticky", "§7delat co chces, stavet, budovat", "§7nebo se proste zlepsovat.", "", "§b▸ Kliknutim te portnu", getPlayers("creative"));
+                "§7Svet, ve kterem muzes prakticky", "§7delat co chces. Stavet, budovat,", "§7nebo se proste zlepsovat.", "", "§b▸ Kliknutim te portnu", getPlayers("creative"));
         inv.setItem(12, crea1);
 
         ItemStack prison = ItemFactory.createHead("§9§lPrison 2.0", "8afde947-d0e5-4507-837c-c1bbec43d7e4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQyNzY0M2IxZWVjZmE3NGVlOTUxZDhkZmVmYjZkOWJjZjU4MjZiZWQyNzM0MjJjZWQ3ZWJlY2YxNzY1YzkifX19");
@@ -43,14 +43,14 @@ public class Servers implements Listener {
         prisonLore.add("§7Prison je! Nikdo te totiz");
         prisonLore.add("§7nebude setrit!");
         prisonLore.add("");
-        prisonLore.add("§b▸ Kliknutim te portnu");
+        prisonLore.add("§c▸ Predelava se...");
         prisonLore.add(getPlayers("prison"));
         prisonMeta.setLore(prisonLore);
         prison.setItemMeta(prisonMeta);
         inv.setItem(13, prison);
 
-        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.13.2)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet ve kterem",
-                "§7poznas co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
+        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.13.2)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet, ve kterem",
+                "§7poznas, co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
         inv.setItem(14, van);
 
         ItemStack vanillasb = ItemFactory.create(Material.PUMPKIN, (byte) 0, "§6§lVanilla Skyblock (1.13.2)", "§8Vanilla, Skyblock, RPG", "",
@@ -58,11 +58,11 @@ public class Servers implements Listener {
         inv.setItem(15, vanillasb);
 
         ItemStack sw = ItemFactory.create(Material.BOW, (byte) 0, "§a§lSkyWars", "§8Minihra, PVP", "", "§7Kazdy sam za sebe,", "§7vyhraje pouze ten nejlepsi.", "", "§bSolo: §fKlasicky SkyWars",
-                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§cPredelava se...");
+                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§c▸ Predelava se...");
         sw = ItemFactory.addGlow(sw);
         inv.setItem(19, sw);
 
-        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Zcela nove BedWars, ktere se", "§7ti dostanou totalne pod kuzi", "", "§eStandart: §fKlasicke BedWars", "§cRanked: §fJen ta elita, co umi PVP", "", "§7Mody: §f4x4, pozdeji 1x8, 2x12, 2x2", "", "§cPredelava se...");
+        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Zcela nove BedWars, ktere se", "§7ti dostanou totalne pod kuzi", "", "§eStandart: §fKlasicke BedWars", "§cRanked: §fJen ta elita, co umi PVP", "", "§7Mody: §f4x4, pozdeji 1x8, 2x12, 2x2", "", "§c▸ Predelava se...");
         inv.setItem(20, bedwars2);
 
 
@@ -75,7 +75,7 @@ public class Servers implements Listener {
         murderLore.add("§7potichu a beze stop.");
         murderLore.add("§7Zvladnes to?");
         murderLore.add("");
-        murderLore.add("§cPredelava se...");
+        murderLore.add("§c▸ Predelava se...");
         murderMeta.setLore(murderLore);
         murder.setItemMeta(murderMeta);
         inv.setItem(21, murder);

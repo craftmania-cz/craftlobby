@@ -192,11 +192,11 @@ public class Bonusy implements ASInterface {
         }
 
         if (rewards == 0) {
-            return "§7Vsechny vybrany!";
+            return "§7Vsechny odmeny vybrany!";
         } else if (rewards == 1) {
-            return "§7Nevyzvednuto: §b1 odmena!";
+            return "§7Mas nevyzvednutou §bodmenu!";
         } else if (rewards == 2) {
-            return "§7Nevyzvednuto: §c2 odmeny!";
+            return "§7Mas nevyzvednute §c2 odmeny!";
         }
 
         return "§4Chyba! Wejku oprav to :D";
