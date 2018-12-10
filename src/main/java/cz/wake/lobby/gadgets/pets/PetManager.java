@@ -172,7 +172,7 @@ public class PetManager implements Listener {
             return;
         }
         if (mob.getType() == EntityType.WITHER) {
-            player.sendMessage("§cNa tohoto moba nelze nasednou!");
+            player.sendMessage("§cNa tohoto moba nelze nasednout!");
             return;
         }
         if (mob.getType() == EntityType.BAT) {
@@ -195,6 +195,8 @@ public class PetManager implements Listener {
                 return;
             }
             player.sendMessage("§cTento mob neni tvuj!");
+            e.setCancelled(true);
+            return;
         }
     }
 
