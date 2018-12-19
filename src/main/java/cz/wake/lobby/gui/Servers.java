@@ -60,10 +60,10 @@ public class Servers implements Listener {
         ItemStack sw = ItemFactory.create(Material.BOW, (byte) 0, "§a§lSkyWars", "§8Minihra, PVP", "", "§7Kazdy sam za sebe,", "§7vyhraje pouze ten nejlepsi.", "", "§bSolo: §fKlasicky SkyWars",
                 "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§c▸ Predelava se...");
         sw = ItemFactory.addGlow(sw);
-        inv.setItem(19, sw);
+        //inv.setItem(19, sw);
 
-        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Zcela nove BedWars, ktere se", "§7ti dostanou totalne pod kuzi", "", "§eStandart: §fKlasicke BedWars", "§cRanked: §fJen ta elita, co umi PVP", "", "§7Mody: §f4x4, pozdeji 1x8, 2x12, 2x2", "", "§c▸ Predelava se...");
-        inv.setItem(20, bedwars2);
+        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Stary dobry BedWars jsou back?", "§7Obstojis nove vyzvy v PVP a zachranis", "§7tak jedinou svoji lasku, postel?", "", "§7Mody: §fBude uverejneno", "", "§c▸ 28.12.2018");
+        inv.setItem(19, bedwars2);
 
 
         ItemStack murder = ItemFactory.createHead("§c§lMurder", "234d66f5-6767-4201-b649-5f60d3a1433b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhhNGUzNDFkOGNkMzRkYTJkNzEwYzJhYTQ4MzQxNDFhMGQzNzczYTgwZWE3OGNlNmNlZmNiYzY2ZmVjYTIifX19");
@@ -78,7 +78,7 @@ public class Servers implements Listener {
         murderLore.add("§c▸ Predelava se...");
         murderMeta.setLore(murderLore);
         murder.setItemMeta(murderMeta);
-        inv.setItem(21, murder);
+        //inv.setItem(21, murder);
 
 
         ItemStack turnaj = new ItemStack(Material.MAGMA_CREAM);

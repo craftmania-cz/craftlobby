@@ -70,7 +70,7 @@ public class BedWars2 implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§b§lBedWars 2.0");
+        as2.setCustomName("§b§lBedWars");
     }
 
     @Override
@@ -85,7 +85,7 @@ public class BedWars2 implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§cPredelava se...");
+        as3.setCustomName("§a28.12.2018");
     }
 
     @Override

@@ -32,11 +32,11 @@ public class ArmorStandManager {
             armorstands.add(new VanillaSkyblock());
             armorstands.add(new Prison());
             armorstands.add(new SkyBlock());
-            armorstands.add(new SkyWars());
+            //armorstands.add(new SkyWars());
             armorstands.add(new Survival());
             armorstands.add(new Unknown1());
             armorstands.add(new Unknown2());
-            armorstands.add(new Murder());
+            //armorstands.add(new Murder());
             armorstands.add(new Vanilla());
             armorstands.add(new DJClub());
             armorstands.add(new Drunkers());
