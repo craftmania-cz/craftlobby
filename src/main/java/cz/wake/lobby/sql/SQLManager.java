@@ -552,7 +552,9 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET " + type + " = '" + link + "' WHERE nick = '" + p.getUniqueId().toString() + "';");
+                    ps = conn.prepareStatement("UPDATE player_profile SET " + type + " = ? WHERE uuid = ?;");
+                    ps.setString(1, link);
+                    ps.setString(2, p.getUniqueId().toString());
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
