@@ -1,6 +1,7 @@
 name: CraftLobby
 main: cz.wake.lobby.Main
 version: 1.7
+api-version: 1.12
 author: MrWakeCZ
 softdepend: [CrateKeys,RogueParkour]
 depend: [Multiverse-Core,CraftCore]
