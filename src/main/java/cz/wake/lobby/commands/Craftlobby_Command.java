@@ -19,7 +19,7 @@ public class Craftlobby_Command implements CommandExecutor {
     public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
         if (Sender instanceof Player) {
             Player player = (Player) Sender;
-            if ((Command.getName().equalsIgnoreCase("clobby")) || (Command.getName().equalsIgnoreCase("cl"))) {
+            if ((Command.getName().equalsIgnoreCase("clobby"))) {
                 if (ArrayOfString.length == 0) {
                     player.sendMessage("");
                     player.sendMessage(ChatColor.YELLOW + "Pouzij nasledujici prikazy:");

@@ -7,12 +7,7 @@ depend: [Multiverse-Core,CraftCore]
 commands:
   clobby:
     description: Info o profilu!
-  cl:
-    description: Info o profilu!
-  sbperms:
-    description: Addon na Skybox
-  cbperms:
-    description: Addon na CraftBoxy
+    aliases: [cl]
   vip:
     description: Profil pro nakup VIP
   survival:
@@ -21,19 +16,11 @@ commands:
     description: Server teleport
   creative:
     description: Server teleport
-  creative2:
-    description: Server teleport
   prison:
     description: Server teleport
   vanilla:
     description: Server teleport
   bedwars:
-    description: Server teleport
-  skywars:
-    description: Server teleport
-  arcade:
-    description: Server teleport
-  murder:
     description: Server teleport
   vanillasb:
     description: Server teleport
@@ -41,12 +28,8 @@ commands:
     description: Oldlobby teleport
   oldcrafttokens:
     description: Jjjj tokeny
-  craftcoins:
-    description: JJJJ coinyyy
   kalendar:
     description: Vanoce! :D
-  completevanoce:
-    description: Njn vanoce!
 
 permissions:
   craftlobby.pristup:
