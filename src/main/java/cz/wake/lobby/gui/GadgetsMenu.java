@@ -155,7 +155,7 @@ public class GadgetsMenu implements Listener {
 
     private String countParticles(Player p) {
         int part = getParticlesCount(p);
-        int sum = 19;
+        int sum = 20;
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
@@ -903,6 +903,9 @@ public class GadgetsMenu implements Listener {
             c++;
         }
         if (p.hasPermission("craftlobby.particles.candycane")) {
+            c++;
+        }
+        if (p.hasPermission("craftlobby.particles.christmas2018")) {
             c++;
         }
         return c;
