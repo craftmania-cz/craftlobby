@@ -28,6 +28,7 @@ import org.bukkit.event.entity.*;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.*;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -262,6 +263,7 @@ public class PlayerListener implements Listener {
             this.servers.openServersMenu(p);
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
+            if (!e.getHand().equals(EquipmentSlot.HAND)) return;
             if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.INK_SACK && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
                 if (!this._time.containsKey(e.getPlayer())) {
                     this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
@@ -294,6 +296,7 @@ public class PlayerListener implements Listener {
                 }
             } else {
                 if ((e.getPlayer().getItemInHand().getType() == Material.INK_SACK && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))) {
+                    if (!e.getHand().equals(EquipmentSlot.HAND)) return;
                     if (!this._time.containsKey(e.getPlayer())) {
                         this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
                         e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 2.0F, 2.0F);
