@@ -1,7 +1,7 @@
 package cz.wake.lobby.listeners;
 
 import cz.craftmania.craftcore.spigot.utils.effects.ParticleEffect;
-import cz.wake.lobby.events.christmas.Kalendar;
+import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.settings.SettingsMenu;

@@ -1,4 +1,4 @@
-package cz.wake.lobby.events.halloween;
+package cz.wake.lobby.seasons.halloween;
 
 import cz.craftmania.craftcore.spigot.utils.PlayerUtils;
 import cz.wake.lobby.Main;

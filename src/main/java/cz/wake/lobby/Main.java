@@ -1,10 +1,10 @@
 package cz.wake.lobby;
 
 import cz.wake.lobby.armorstands.podlobby.CrystalBox;
-import cz.wake.lobby.events.christmas.Kalendar;
-import cz.wake.lobby.events.christmas.Kalendar_command;
-import cz.wake.lobby.events.christmas.SilvesterTask;
-import cz.wake.lobby.events.halloween.ScarePlayerTask;
+import cz.wake.lobby.seasons.christmas.Kalendar;
+import cz.wake.lobby.seasons.christmas.Kalendar_command;
+import cz.wake.lobby.seasons.christmas.SilvesterTask;
+import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
 import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -123,9 +123,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.info("Server zaevidovany jako " + idServer);
 
         // Nastaveni specialnich eventu
-        isChristmas = getConfig().getBoolean("events.christmas", false);
-        isSilvester = getConfig().getBoolean("events.silvester", false);
-        isHalloween = getConfig().getBoolean("events.halloween", false);
+        isChristmas = getConfig().getBoolean("seasons.christmas", false);
+        isSilvester = getConfig().getBoolean("seasons.silvester", false);
+        isHalloween = getConfig().getBoolean("seasons.halloween", false);
 
         //Register custom entit pro Pets (1.11.2)
         Log.info("Registrace custom entit pro Pets");
@@ -250,7 +250,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             pm.registerEvents(new ParkourListener(), this);
         }
 
-        if(getConfig().getBoolean("events.christmas")){
+        if(getConfig().getBoolean("seasons.christmas")){
             pm.registerEvents(new Kalendar(), this);
             Log.info("Aktivace Vanocnich eventu pro lobby.");
         }
@@ -272,7 +272,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("oldcrafttokens").setExecutor(new CraftTokens_command());
 
-        if(getConfig().getBoolean("events.christmas")){
+        if(getConfig().getBoolean("seasons.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());
         }
     }

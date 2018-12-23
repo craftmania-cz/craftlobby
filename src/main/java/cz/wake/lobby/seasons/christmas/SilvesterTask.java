@@ -1,4 +1,4 @@
-package cz.wake.lobby.events.christmas;
+package cz.wake.lobby.seasons.christmas;
 
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
