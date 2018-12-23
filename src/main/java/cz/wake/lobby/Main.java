@@ -169,9 +169,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         getServer().getScheduler().runTaskTimer(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
 
-        // Update AT time
-        getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
-
         if (isHalloween) {
             Log.info("Aktivace Halloween eventu pro lobby.");
             getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
