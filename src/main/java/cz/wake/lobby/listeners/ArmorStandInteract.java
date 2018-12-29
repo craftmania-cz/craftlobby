@@ -547,38 +547,33 @@ public class ArmorStandInteract implements Listener {
                 rw.openRewardManager(p);
             }
             if (e.getRightClicked().hasMetadata("survival")) {
-                sendToServer(p, "survival");
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "survival");
             }
             if (e.getRightClicked().hasMetadata("skyblock")) {
-                sendToServer(p, "skyblock");
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "skyblock");
             }
             if (e.getRightClicked().hasMetadata("creative")) {
-                sendToServer(p, "creative");
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "creative");
             }
             if (e.getRightClicked().hasMetadata("prison2")) {
-                sendToServer(p, "prison");
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "prison");
             }
             if (e.getRightClicked().hasMetadata("vanilla")) {
-                sendToServer(p, "vanilla");
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "vanilla");
             }
-            if (e.getRightClicked().hasMetadata("bedwars")) {
-                sendToServer(p, "blobby");
-            }
-            if (e.getRightClicked().hasMetadata("skywars")) {
-                sendToServer(p, "slobby");
+            if (e.getRightClicked().hasMetadata("bedwars2")) {
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "bw-lobby");
             }
             if (e.getRightClicked().hasMetadata("vanilla-skyblock")) {
                 //sendToServer(p, "vanillasb");
                 p.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
             }
-            if (e.getRightClicked().hasMetadata("murder")) {
-                sendToServer(p, "mlobby");
-            }
-            if (e.getRightClicked().hasMetadata("bedwars2")) {
-                sendToServer(p, "bedlobby");
-            }
+
             if (e.getRightClicked().hasMetadata("4v4")) {
-                p.performCommand("bts joinserver 4v4");
+                Main.getInstance().getCraftBalancerManager().connectPlayer(p, "bedwars-4v4-games");
+            }
+            if (e.getRightClicked().hasMetadata("4v8")) {
+                Main.getInstance().getCraftBalancerManager().connectPlayer(p, "bedwars-4v16-games");
             }
             if (e.getRightClicked().hasMetadata("Halloween")) {
                 p.performCommand("bts joinserver halloween");
@@ -620,18 +615,6 @@ public class ArmorStandInteract implements Listener {
         Random rand = new Random();
         int randomNum = rand.nextInt(max - min + 1) + min;
         return randomNum;
-    }
-
-    public void sendToServer(Player player, String target) {
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        DataOutputStream out = new DataOutputStream(b);
-        try {
-            out.writeUTF("Connect");
-            out.writeUTF(target);
-        } catch (Exception e) {
-            //log.error("", e);
-        }
-        player.sendPluginMessage(Main.getPlugin(), "BungeeCord", b.toByteArray());
     }
 
 }

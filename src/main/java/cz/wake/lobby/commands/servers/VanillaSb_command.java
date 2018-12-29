@@ -15,7 +15,7 @@ public class VanillaSb_command implements CommandExecutor {
             if ((Command.getName().equalsIgnoreCase("vanillasb"))) {
                 try {
                     player.sendMessage("§eTeleportuji na server §fVanilla-Skyblock");
-                    Main.getInstance().sendToServer(player, "vanillasb");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanillasb");
                 } catch (Exception e) {
                     e.printStackTrace();
                     player.sendMessage("§cTeleport na server §fVanilla §cse nezdaril!");

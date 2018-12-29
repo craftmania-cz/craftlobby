@@ -23,6 +23,7 @@ import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
+import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
 import cz.wake.lobby.utils.mobs.*;
 import org.bukkit.Bukkit;
@@ -67,6 +68,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private boolean isSilvester;
     private boolean isChristmas;
     private boolean isHalloween;
+    private CraftBalancerManager craftBalancerManager;
 
     public void onEnable() {
 
@@ -97,8 +99,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "PlayerBalancer");
-        Bukkit.getMessenger().registerIncomingPluginChannel(this, "PlayerBalancer", this);
+        craftBalancerManager = new CraftBalancerManager(this);
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
@@ -351,23 +352,15 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return asm;
     }
 
-    public void sendToServer(Player player, String target) {
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        DataOutputStream out = new DataOutputStream(b);
-        try {
-            out.writeUTF("Connect");
-            out.writeUTF(target);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());
-    }
-
     public boolean isSilvester() {
         return isSilvester;
     }
 
     public boolean isChristmas() {
         return isChristmas;
+    }
+
+    public CraftBalancerManager getCraftBalancerManager() {
+        return craftBalancerManager;
     }
 }

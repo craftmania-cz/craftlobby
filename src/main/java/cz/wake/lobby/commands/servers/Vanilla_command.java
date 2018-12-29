@@ -15,7 +15,7 @@ public class Vanilla_command implements CommandExecutor {
             if ((Command.getName().equalsIgnoreCase("vanilla"))) {
                 try {
                     player.sendMessage("§eTeleportuji na server §fVanilla");
-                    Main.getInstance().sendToServer(player, "vanilla");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 } catch (Exception e) {
                     e.printStackTrace();
                     player.sendMessage("§cTeleport na server §fVanilla §cse nezdaril!");

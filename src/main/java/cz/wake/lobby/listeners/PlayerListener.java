@@ -16,7 +16,6 @@ import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -74,6 +73,9 @@ public class PlayerListener implements Listener {
 
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
                 p.teleport(new Location(Bukkit.getWorld("omain"), 1540.5, 22.5, -1255.5, 0, 0));
+            }
+            if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
+                p.teleport(new Location(Bukkit.getWorld("obw2"), -602.5, 111.5, 129.5, -180, 0));
             }
 
             setupDefaultItems(p);
@@ -434,36 +436,15 @@ public class PlayerListener implements Listener {
         return (int) (A * Math.pow(10.0D, B) + 0.5D) / Math.pow(10.0D, B);
     }
 
-    //TODO: Dodelat portal
-    @EventHandler
-    public void onPortal(EntityPortalEnterEvent e) {
-        Entity ent = e.getEntity();
-        if (ent instanceof Player) {
-            Player p = ((Player) ent).getPlayer();
-            if (!Main.getInstance().inPortal(p)) {
-                if (Main.getInstance().getConfig().getString("server").equalsIgnoreCase("main")) {
-                    Main.getInstance().addPortal(p);
-                    //Main.getInstance().getServersMenu().openServersMenu(p);
-                } else {
-                    ic.sendToServer(p, "lobby4"); // @general-lobbies - hlavni lobby
-                }
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        Main.getInstance().removePortal(p);
-                    }
-                }.runTaskLater(Main.getInstance(), 100L);
-            }
-        }
-    }
-
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
     public void onMove(PlayerMoveEvent e) {
         Player p = e.getPlayer();
 
         // Teleport na spawn
         if (p.getLocation().getY() <= 0) {
-            p.performCommand("spawn");
+            if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
+                p.teleport(new Location(Bukkit.getWorld("obw2"), -602.5, 111.5, 129.5, -180, 0));
+            }
         }
     }
 

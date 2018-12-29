@@ -1,5 +1,7 @@
 package cz.wake.lobby.armorstands.podlobby;
 
+import com.mojang.authlib.GameProfile;
+import cz.craftmania.craftcore.spigot.builders.npc.NPCBuilder;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.armorstands.ASInterface;
 import cz.wake.lobby.utils.ItemFactory;
@@ -10,6 +12,10 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 public class BedWars4v4 implements ASInterface {
 
@@ -56,7 +62,7 @@ public class BedWars4v4 implements ASInterface {
     @Override
     public void hologramSpawn() {
 
-        loc1.add(0, 0.3, 0);
+        loc1.add(0, 0.4, 0);
 
         as4 = (ArmorStand) Bukkit.getWorld("obw2").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
@@ -97,7 +103,7 @@ public class BedWars4v4 implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§8Nacitani...");
+        as3.setCustomName("§8...");
     }
 
     @Override
