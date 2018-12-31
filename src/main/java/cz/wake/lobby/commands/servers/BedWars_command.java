@@ -15,7 +15,7 @@ public class BedWars_command implements CommandExecutor {
             if ((Command.getName().equalsIgnoreCase("bedwars"))) {
                 try {
                     player.sendMessage("§eTeleportuji na lobby §fBedWars");
-                    Main.getInstance().sendToServer(player, "blobby");
+                    Main.getInstance().sendToServer(player, "bw-lobby");
                 } catch (Exception e) {
                     e.printStackTrace();
                     player.sendMessage("§cTeleport na lobby §fBedWars §cse nezdaril!");
