@@ -262,10 +262,6 @@ public class PlayerListener implements Listener {
             this.hlavniProfil.openMenu(p);
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.EMERALD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aVIP Shop §7(Klikni pravym)"))) {
-            this.vmenu.openVIPMenu(p);
-        }
-        if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.NETHER_STAR) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
                 && !ParkourListener.in_parkour.contains(p)) {
             this.gadgetsMenu.openGadgetsMenu(p);
@@ -474,17 +470,11 @@ public class PlayerListener implements Listener {
         ItemStack hider = new ItemStack(Material.INK_SACK, 1, (byte) 10);
         ItemMeta hiderMeta = hider.getItemMeta();
 
-        ItemStack shopVip = new ItemStack(Material.EMERALD);
-        ItemMeta svMeta = shopVip.getItemMeta();
-
         compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
         compass.setItemMeta(compassMeta);
 
         playerHeadMeta.setDisplayName("§aProfil §7(Klikni pravym)");
         playerHead.setItemMeta(playerHeadMeta);
-
-        svMeta.setDisplayName("§aVIP Shop §7(Klikni pravym)");
-        shopVip.setItemMeta(svMeta);
 
         gadgetsMeta.setDisplayName("§5Gadgets §7(Klikni pravym)");
         gadgets.setItemMeta(gadgetsMeta);
@@ -534,7 +524,6 @@ public class PlayerListener implements Listener {
 
         p.getInventory().setItem(0, compass);
         p.getInventory().setItem(1, playerHead);
-        p.getInventory().setItem(2, shopVip);
         p.getInventory().setItem(4, gadgets);
         p.getInventory().setItem(8, hider);
 
