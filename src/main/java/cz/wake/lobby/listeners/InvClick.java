@@ -87,37 +87,26 @@ public class InvClick implements Listener {
             //**************************** SERVERS MENU ****************************//
             if (event.getInventory().getTitle().equals("Vyber serveru")) {
                 if (event.getSlot() == 10) {
-                    sendToServer(player, "survival");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
                 }
                 if (event.getSlot() == 11) {
-                    sendToServer(player, "skyblock");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
                 }
                 if (event.getSlot() == 12) {
-                    sendToServer(player, "creative");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }
                 if (event.getSlot() == 13) {
                     //sendToServer(player, "prison");
                     player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 14) {
-                    sendToServer(player, "vanilla");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }
                 if (event.getSlot() == 15) {
-                    //sendToServer(player, "vanillasb");
                     player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
-                /*
-                if (event.getSlot() == 19) { //SKYWARS
-                    //sendToServer(player, "slobby");
-                    player.sendMessage("§c§l(!) §cMinihra se aktualne predelava... O dalsich novinkach se brzo dozvis.");
-                }
-                if (event.getSlot() == 20) { // MURDER
-                    //sendToServer(player, "mlobby");
-                    player.sendMessage("§c§l(!) §cMinihra se aktualne predelava... O dalsich novinkach se brzo dozvis.");
-                } */
                 if (event.getSlot() == 19) { // BEDWARS
-                    //sendToServer(player, "bedlobby");
-                    player.sendMessage("§c§l(!) §cMinihra bude uverejnena 28.12.2018.");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "bw-lobby");
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//
@@ -439,41 +428,6 @@ public class InvClick implements Listener {
             e.printStackTrace();
         }
 
-    }
-
-    @Deprecated
-    public void sendToServer(Player player, String group, String end) {
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        DataOutputStream out = new DataOutputStream(b);
-        try {
-            out.writeUTF("Connect");
-            out.writeUTF(group);
-            out.writeUTF(end);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        player.sendPluginMessage(Main.getPlugin(), "PlayerBalancer", b.toByteArray());
-    }
-
-
-    /**
-     Teleportuje hrace na server podle sekce
-
-     @param player Player
-     @param section Výběr sekce podle configu v Bungeecordu
-
-     **/
-    public void sendToServer(Player player, String section) {
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        DataOutputStream out = new DataOutputStream(b);
-        try {
-            out.writeUTF("Connect");
-            out.writeUTF(section);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        player.sendPluginMessage(Main.getPlugin(), "BungeeCord", b.toByteArray());
     }
 
     public void deactivateParticles(Player player) {

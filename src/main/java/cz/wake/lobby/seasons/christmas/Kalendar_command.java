@@ -1,4 +1,4 @@
-package cz.wake.lobby.events.christmas;
+package cz.wake.lobby.seasons.christmas;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

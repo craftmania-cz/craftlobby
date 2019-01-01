@@ -40,7 +40,7 @@ public class BedWarsSheep {
         as.setVisible(false);
         as.setCustomNameVisible(true);
 
-        as.setCustomName("§8Nahodna hra (Zatim nefunkcni)");
+        as.setCustomName("§8Nahodna hra (klikni)");
 
         loc.add(0, 0.3, 0);
 

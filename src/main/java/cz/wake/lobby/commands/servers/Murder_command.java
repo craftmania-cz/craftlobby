@@ -15,7 +15,7 @@ public class Murder_command implements CommandExecutor {
             if ((Command.getName().equalsIgnoreCase("murder"))) {
                 try {
                     player.sendMessage("§eTeleportuji na lobby §fMurder");
-                    Main.getInstance().sendToServer(player, "mlobby");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "m-lobby");
                 } catch (Exception e) {
                     e.printStackTrace();
                     player.sendMessage("§cTeleport na lobby §fMurder §cse nezdaril!");

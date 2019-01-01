@@ -21,8 +21,8 @@ server: lobby
 # Zmena casu podle real-time
 timer: false
 
-## EVENTY ##
-events:
+## Sezóny ##
+seasons:
  # Vanocni update zahrnujici kalendar + efekty
  christmas: false
  # Efekty po lobby (ohnostroje)

@@ -15,7 +15,7 @@ public class SkyWars_command implements CommandExecutor {
             if ((Command.getName().equalsIgnoreCase("skywars"))) {
                 try {
                     player.sendMessage("§eTeleportuji na lobby §fSkyWars");
-                    Main.getInstance().sendToServer(player, "slobby");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "sw-lobby");
                 } catch (Exception e) {
                     e.printStackTrace();
                     player.sendMessage("§cTeleport na lobby §fSkyWars §cse nezdaril!");

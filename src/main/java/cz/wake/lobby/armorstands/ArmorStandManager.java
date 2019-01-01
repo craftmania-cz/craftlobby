@@ -20,12 +20,12 @@ public class ArmorStandManager {
     public static void init() {
         if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             armorstands.add(new BedWars4v4());
-            armorstands.add(new BedWars2v2());
-            armorstands.add(new BedWars1v8());
-            armorstands.add(new BedWars2v12());
+            //armorstands.add(new BedWars2v2());
+            armorstands.add(new BedWars4v8());
+            //armorstands.add(new BedWars2v12());
             BedWarsSheep.spawnSheep();
-            armorstands.add(new BedWars1v8Ranked());
-            armorstands.add(new BedWars4v4Ranked());
+            //armorstands.add(new BedWars1v8Ranked());
+            //armorstands.add(new BedWars4v4Ranked());
             CrystalBox.spawn();
         } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             armorstands.add(new Creative());
@@ -89,20 +89,22 @@ public class ArmorStandManager {
                 i.updateArmorStand("creative", Main.getInstance().getSQL().getOnlinePlayers("creative"));
             } else if (i instanceof Prison) {
                 i.updateArmorStand("prison", Main.getInstance().getSQL().getOnlinePlayers("prison"));
-            } else if (i instanceof VanillaSkyblock) {
-                //i.updateArmorStand("vanillasb", Main.getInstance().getSQL().getOnlinePlayers("vanillasb"));
             } else if (i instanceof Vanilla) {
                 i.updateArmorStand("vanilla", Main.getInstance().getSQL().getOnlinePlayers("vanilla"));
-            } else if (i instanceof SkyWars) {
-                //i.updateArmorStand("skywars", Main.getInstance().getSQL().getOnlinePlayersSum("stav_skywars_server"));
-            } else if (i instanceof Murder) {
-                //i.updateArmorStand("murder", Main.getInstance().getSQL().getOnlinePlayersSum("stav_murder_server"));
             } else if (i instanceof BedWars4v4) {
-                //i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
-            } else if (i instanceof BedWars2) {
-                //i.updateArmorStand("bedwars2", Main.getInstance().getSQL().getOnlinePlayersSum("stav_bedwars2_server"));
+                Main.getInstance().getCraftBalancerManager().getSectionPlayerCount("bedwars-4v4-games", count -> {
+                    i.updateArmorStand("bedwars", count);
+                });
             } else if (i instanceof Halloween) {
                 i.updateArmorStand("", 0);
+            } else if (i instanceof BedWars2) {
+                Main.getInstance().getCraftBalancerManager().getSectionPlayerCount("bedwars-4v4-games", count -> {
+                    i.updateArmorStand("bedwars", count);
+                });
+            } else if (i instanceof BedWars4v8) {
+                Main.getInstance().getCraftBalancerManager().getSectionPlayerCount("bedwars-4v16-games", count -> {
+                    i.updateArmorStand("bedwars", count);
+                });
             }
         }
     }

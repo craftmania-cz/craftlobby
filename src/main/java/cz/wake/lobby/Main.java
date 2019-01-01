@@ -1,10 +1,10 @@
 package cz.wake.lobby;
 
 import cz.wake.lobby.armorstands.podlobby.CrystalBox;
-import cz.wake.lobby.events.christmas.Kalendar;
-import cz.wake.lobby.events.christmas.Kalendar_command;
-import cz.wake.lobby.events.christmas.SilvesterTask;
-import cz.wake.lobby.events.halloween.ScarePlayerTask;
+import cz.wake.lobby.seasons.christmas.Kalendar;
+import cz.wake.lobby.seasons.christmas.Kalendar_command;
+import cz.wake.lobby.seasons.christmas.SilvesterTask;
+import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
 import cz.wake.lobby.gadgets.morphs.*;
 import cz.wake.lobby.gui.GadgetsMenu;
 import cz.wake.lobby.gui.Profil;
@@ -23,6 +23,7 @@ import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
+import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
 import cz.wake.lobby.utils.mobs.*;
 import org.bukkit.Bukkit;
@@ -67,6 +68,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private boolean isSilvester;
     private boolean isChristmas;
     private boolean isHalloween;
+    private CraftBalancerManager craftBalancerManager;
 
     public void onEnable() {
 
@@ -97,8 +99,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 
-        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "PlayerBalancer");
-        Bukkit.getMessenger().registerIncomingPluginChannel(this, "PlayerBalancer", this);
+        craftBalancerManager = new CraftBalancerManager(this);
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
@@ -123,9 +124,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.info("Server zaevidovany jako " + idServer);
 
         // Nastaveni specialnich eventu
-        isChristmas = getConfig().getBoolean("events.christmas", false);
-        isSilvester = getConfig().getBoolean("events.silvester", false);
-        isHalloween = getConfig().getBoolean("events.halloween", false);
+        isChristmas = getConfig().getBoolean("seasons.christmas", false);
+        isSilvester = getConfig().getBoolean("seasons.silvester", false);
+        isHalloween = getConfig().getBoolean("seasons.halloween", false);
 
         //Register custom entit pro Pets (1.11.2)
         Log.info("Registrace custom entit pro Pets");
@@ -168,9 +169,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.success("Vsechny armorstandy byly spawnuty.");
 
         getServer().getScheduler().runTaskTimer(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
-
-        // Update AT time
-        getServer().getScheduler().runTaskTimerAsynchronously(this, new ATChecker(), 200, 1200);
 
         if (isHalloween) {
             Log.info("Aktivace Halloween eventu pro lobby.");
@@ -250,7 +248,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             pm.registerEvents(new ParkourListener(), this);
         }
 
-        if(getConfig().getBoolean("events.christmas")){
+        if(getConfig().getBoolean("seasons.christmas")){
             pm.registerEvents(new Kalendar(), this);
             Log.info("Aktivace Vanocnich eventu pro lobby.");
         }
@@ -272,7 +270,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("oldcrafttokens").setExecutor(new CraftTokens_command());
 
-        if(getConfig().getBoolean("events.christmas")){
+        if(getConfig().getBoolean("seasons.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());
         }
     }
@@ -354,23 +352,15 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return asm;
     }
 
-    public void sendToServer(Player player, String target) {
-        ByteArrayOutputStream b = new ByteArrayOutputStream();
-        DataOutputStream out = new DataOutputStream(b);
-        try {
-            out.writeUTF("Connect");
-            out.writeUTF(target);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());
-    }
-
     public boolean isSilvester() {
         return isSilvester;
     }
 
     public boolean isChristmas() {
         return isChristmas;
+    }
+
+    public CraftBalancerManager getCraftBalancerManager() {
+        return craftBalancerManager;
     }
 }

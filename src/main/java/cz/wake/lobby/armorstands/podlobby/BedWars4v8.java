@@ -11,7 +11,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
-public class BedWars1v8 implements ASInterface {
+public class BedWars4v8 implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("obw2"), -599.5, 111, 105.5, 10, 0);
     private ArmorStand as, as2, as3, as4;
@@ -46,7 +46,7 @@ public class BedWars1v8 implements ASInterface {
         ItemStack item = new ItemStack(Material.GOLD_AXE);
         as.setItemInHand(item);
 
-        Main.getInstance().getASM().setMetadata(as, "1v8", "1v8", Main.getInstance());
+        Main.getInstance().getASM().setMetadata(as, "4v8", "4v8", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
@@ -78,7 +78,7 @@ public class BedWars1v8 implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§71v8");
+        as2.setCustomName("§74v8");
 
         loc1.add(0, 0.3, 0);
 
@@ -87,7 +87,7 @@ public class BedWars1v8 implements ASInterface {
     @Override
     public void subtextSpawn() {
 
-        loc1.add(0, 0.3, 0);
+        loc1.add(0, 0.4, 0);
 
         as3 = (ArmorStand) Bukkit.getWorld("obw2").spawnEntity(loc1, EntityType.ARMOR_STAND);
 
@@ -97,7 +97,7 @@ public class BedWars1v8 implements ASInterface {
         as3.setVisible(false);
         as3.setCustomNameVisible(true);
 
-        as3.setCustomName("§cSOON!");
+        as3.setCustomName("§8...");
     }
 
     @Override
