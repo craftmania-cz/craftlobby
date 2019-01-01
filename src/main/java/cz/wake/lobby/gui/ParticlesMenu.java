@@ -1,6 +1,5 @@
 package cz.wake.lobby.gui;
 
-import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gadgets.particles.*;
@@ -14,7 +13,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class ParticlesMenu {
 
@@ -638,22 +636,6 @@ public class ParticlesMenu {
         } else {
             pInv.setItem(32, nakup("CandyCane", 1000));
         }
-        if (p.hasPermission("craftlobby.particles.christmas2018")) {
-            if (Christmas2018.sh.containsKey(p.getName())) {
-                //deaktivovat
-                ItemStack cs2018 = new ItemBuilder(Material.WOOL, (short) 14).setName("§a§lChristmas 2018").setLore("", "§7Limitovany efekt vanoc 2018!", "", "§cAktivovano")
-                        .build();
-                pInv.setItem(33, cs2018);
-            } else {
-                //aktivovat
-                ItemStack cs2018 = new ItemBuilder(Material.WOOL, (short) 14).setName("§a§lChristmas 2018").setLore("", "§7Limitovany efekt vanoc 2018!", "", "§aKliknutim aktivujes!")
-                        .build();
-                pInv.setItem(33, cs2018);
-            }
-        } else {
-                pInv.setItem(33, limited("Christmas2018", 1546729200000L, 3000)); //1546729200000 - 6.1.2019
-        }
-
         ItemStack zpet = new ItemStack(Material.ARROW);
         ItemMeta zpetMeta = zpet.getItemMeta();
         zpetMeta.setDisplayName(ChatColor.RED + "Zpet do menu");
@@ -690,27 +672,6 @@ public class ParticlesMenu {
     private ItemStack nakup(final String name, final int price) {
         ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.");
         return i;
-    }
-
-    private ItemStack limited(final String name, final Long until, final int price) {
-        if (until > System.currentTimeMillis()) {
-            Calendar can = Calendar.getInstance();
-            can.setTimeInMillis(until);
-            int year = can.get(Calendar.YEAR);
-            int month = can.get(Calendar.MONTH);
-            int day = can.get(Calendar.DAY_OF_MONTH);
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Lze zakoupit za §e" + price + " CC.", "§7Dostupny do " + day + "." + month + "." + year + "!");
-            return i;
-        } else {
-            Calendar can = Calendar.getInstance();
-            can.setTimeInMillis(until);
-            int year = can.get(Calendar.YEAR);
-            int month = can.get(Calendar.MONTH);
-            int day = can.get(Calendar.DAY_OF_MONTH);
-            ItemStack i = ItemFactory.create(Material.INK_SACK, (byte) 8, "§c§l" + name, "§7Tento item jiz neni mozne koupit.", "§7Posledni nakup:" +
-                    "§7" + day + "." + month + "." + year);
-            return i;
-        }
     }
 
 }
