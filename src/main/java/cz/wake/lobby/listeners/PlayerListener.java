@@ -140,6 +140,17 @@ public class PlayerListener implements Listener {
                         System.out.println("[CraftLobby] Update nicku v SQL pro: " + p.getName());
                     }
                 }
+
+                // Update nicku v ATS
+                if (Main.getInstance().at_list.contains(p)) {
+                    String nameInDB = Main.getInstance().getSQL().getNameInATS(p.getUniqueId().toString());
+                    if (nameInDB != null) {
+                        if (!nameInDB.equals(p.getName())) {
+                            Main.getInstance().getSQL().updateNickInATS(p);
+                            System.out.println("[CraftLobby] Update ATS nicku v SQL pro: " + p.getName());
+                        }
+                    }
+                }
             }
 
             // Oznameni o pripojeni pro GVIP
