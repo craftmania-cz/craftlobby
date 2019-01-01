@@ -48,7 +48,7 @@ public class GadgetsMenu implements Listener {
         gadgetsItemMeta.setDisplayName(ChatColor.AQUA + "" + ChatColor.BOLD + "Gadgets");
         ArrayList<String> gadgetsLore = new ArrayList<String>();
         gadgetsLore.add(ChatColor.GRAY + "Kliknutim si vyberes Gadget");
-        gadgetsLore.add(ChatColor.GRAY + "se kterymy se muzes vyradit v");
+        gadgetsLore.add(ChatColor.GRAY + "se kterymi se muzes vyradit v");
         gadgetsLore.add(ChatColor.GRAY + "nasem lobby.");
         gadgetsLore.add("");
         gadgetsLore.add(countGadgets(p));
@@ -171,7 +171,7 @@ public class GadgetsMenu implements Listener {
 
     private String countGadgets(Player p) {
         int part = getGadgetsCount(p);
-        int sum = 27;
+        int sum = 25;
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";
@@ -187,7 +187,7 @@ public class GadgetsMenu implements Listener {
 
     private String countMorph(Player p) {
         int part = getMorphsCount(p);
-        int sum = 3;
+        int sum = 5;
         int prc = (part * 100 / sum);
 
         return "§7Odemknuto: §f" + part + "/" + sum + " §8(" + prc + "%)";

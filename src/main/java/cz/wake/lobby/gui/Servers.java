@@ -62,7 +62,7 @@ public class Servers implements Listener {
         sw = ItemFactory.addGlow(sw);
         //inv.setItem(19, sw);
 
-        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Stary dobry BedWars jsou back?", "§7Obstojis nove vyzvy v PVP a zachranis", "§7tak jedinou svoji lasku, postel?", "", "§7Mody: §fBude uverejneno", "", "§c▸ 28.12.2018");
+        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Stary dobry BedWars jsou back?", "§7Obstojis nove vyzvy v PVP a zachranis", "§7tak jedinou svoji lasku, postel?", "", "§7Mody: §f4v4, 4v8 a dalsi budou uverejneny", "", "§b▸ Kliknutim te portnu");
         inv.setItem(19, bedwars2);
 
 
