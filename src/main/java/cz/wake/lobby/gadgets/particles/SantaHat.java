@@ -1,7 +1,10 @@
 package cz.wake.lobby.gadgets.particles;
 
+import com.sun.scenario.Settings;
+import cz.craftmania.craftcore.spigot.utils.effects.ParticleEffect;
 import cz.craftmania.craftcore.spigot.utils.effects.UtilParticles;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -31,7 +34,7 @@ public class SantaHat implements Listener {
                             double x = UtilMath.randomDouble(-0.05, 0.05);
                             double z = UtilMath.randomDouble(-0.05, 0.05);
                             location.add(x, 0.46f, z);
-                            UtilParticles.display(255, 255, 255, location);
+                            ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(255, 255, 255), location, SettingsMenu.particles);
                             location.subtract(x, 0.46f, z);
                         }
                         for (float f = 0; f <= 0.4f; f += 0.1f) {
@@ -55,7 +58,7 @@ public class SantaHat implements Listener {
             float x = UtilMath.cos(angle) * radius;
             float z = UtilMath.sin(angle) * radius;
             location.add(x, height, z);
-            UtilParticles.display(255, red ? 0 : 255, red ? 0 : 255, location);
+            ParticleEffect.REDSTONE.display(new ParticleEffect.OrdinaryColor(255, red ? 0 : 255, red ? 0 : 255), location, SettingsMenu.particles);
             location.subtract(x, height, z);
         }
     }
