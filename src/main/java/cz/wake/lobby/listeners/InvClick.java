@@ -45,7 +45,6 @@ public class InvClick implements Listener {
     private Lily lil = new Lily();
     private SantaHat sh = new SantaHat();
     private CandyCane cc = new CandyCane();
-    private Christmas2018 cs2018 = new Christmas2018();
     private BannerAPI bannerAPI = new BannerAPI();
     private HeadsAPI hAPI = new HeadsAPI();
     private MorphAPI morphAPI = new MorphAPI();
@@ -368,16 +367,6 @@ public class InvClick implements Listener {
                         Shop.open(player, "CandyCane", "craftlobby.particles.candycane", i, 1000);
                     }
                 }
-                if (event.getSlot() == 33) {
-                    if (player.hasPermission("craftlobby.particles.christmas2018")) {
-                        deactivateParticles(player);
-                        cs2018.activate(player);
-                        player.closeInventory();
-                    } else {
-                        ItemStack i = ItemFactory.create(Material.WOOL, (byte) 4, "§a§lChristmas 2018");
-                        Shop.open(player, "Christmas2018", "craftlobby.particles.christmas2018", i, 3000);
-                    }
-                }
                 if (event.getSlot() == 49) {
                     this.gadgetsMenu.openGadgetsMenu(player);
                 }
@@ -536,11 +525,6 @@ public class InvClick implements Listener {
             if (CandyCane.cd.containsKey(player.getName())) {
                 Bukkit.getScheduler().cancelTask(CandyCane.cd.get(player.getName()));
                 CandyCane.cd.remove(player.getName());
-                player.closeInventory();
-            }
-            if (Christmas2018.sh.containsKey(player.getName())) {
-                Bukkit.getScheduler().cancelTask(Christmas2018.sh.get(player.getName()));
-                Christmas2018.sh.remove(player.getName());
                 player.closeInventory();
             }
         } catch (Exception e) {
