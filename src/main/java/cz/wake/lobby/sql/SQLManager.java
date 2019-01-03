@@ -793,5 +793,62 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
+    public final int getBedwarsPlayerData(Player p, String data) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT " + data + " FROM bw_stats_players WHERE uuid = '" + p.getUniqueId().toString() + "'");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return 0;
+    }
+
+    public int getBedwarsTopPosition(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT count( * ) AS number FROM bw_stats_players WHERE score >= ( SELECT score FROM `bw_stats_players` WHERE uuid = ?);");
+            ps.setString(1, p.getUniqueId().toString());
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("number");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return -1;
+    }
+
+    public int getVotesTopPosition(final Player p, final String type) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT count( * ) AS number FROM player_profile WHERE " + type + "_votes >= ( SELECT " + type + "_votes FROM player_profile WHERE uuid = ?);");
+            ps.setString(1, p.getUniqueId().toString());
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("number");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return -1;
+    }
+
+
 
 }
