@@ -168,7 +168,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         ArmorStandManager.spawn();
         Log.success("Vsechny armorstandy byly spawnuty.");
 
-        getServer().getScheduler().runTaskTimer(getInstance(), new ArmorStandUpdateTask(), 200L, 1200L);
+        getServer().getScheduler().runTaskTimer(getInstance(), new ArmorStandUpdateTask(), 100L, 200L);
 
         if (isHalloween) {
             Log.info("Aktivace Halloween eventu pro lobby.");
