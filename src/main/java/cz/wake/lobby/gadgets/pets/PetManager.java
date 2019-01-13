@@ -1,6 +1,7 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.utils.UtilMath;
 import net.minecraft.server.v1_11_R1.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -138,6 +139,20 @@ public class PetManager implements Listener {
             return;
         }
         LivingEntity mob = (LivingEntity) e.getRightClicked();
+
+        // Random Joiner (Sheep) na BedWars
+        if (mob.getType() == EntityType.SHEEP) {
+            if (mob.hasMetadata("bwSheep")) {
+                if (UtilMath.randomBoolean(60)){ // Sance na port do 4v4
+                    Main.getInstance().getCraftBalancerManager().connectPlayer(player, "bedwars-4v4-games");
+                    return;
+                } else {
+                    Main.getInstance().getCraftBalancerManager().connectPlayer(player, "bedwars-4v16-games");
+                    return;
+                }
+
+            }
+        }
 
         if (mob.getType() == EntityType.ENDERMITE) {
             player.sendMessage("§cNa tohoto moba nelze nasednou!");
