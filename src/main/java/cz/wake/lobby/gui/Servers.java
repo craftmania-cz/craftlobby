@@ -44,7 +44,7 @@ public class Servers implements Listener {
         prisonLore.add("§7nebude setrit!");
         prisonLore.add("");
         prisonLore.add("§c▸ Predelava se...");
-        prisonLore.add(getPlayers("prison"));
+        //prisonLore.add(getPlayers("prison"));
         prisonMeta.setLore(prisonLore);
         prison.setItemMeta(prisonMeta);
         inv.setItem(13, prison);
@@ -62,7 +62,7 @@ public class Servers implements Listener {
         sw = ItemFactory.addGlow(sw);
         //inv.setItem(19, sw);
 
-        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Stary dobry BedWars jsou back?", "§7Obstojis nove vyzvy v PVP a zachranis", "§7tak jedinou svoji lasku, postel?", "", "§7Mody: §f4v4, 4v8 a dalsi budou uverejneny", "", "§b▸ Kliknutim te portnu");
+        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Stary dobry BedWars jsou back?", "§7Obstojis nove vyzvy v PVP a zachranis", "§7tak jedinou svoji lasku, postel?", "", "§7Mody: §f4v4, 4v8 a dalsi budou uverejneny", "", "§e▸ Levym port do lobby", "§a▸ Pravym port do startujici hry");
         inv.setItem(19, bedwars2);
 
 

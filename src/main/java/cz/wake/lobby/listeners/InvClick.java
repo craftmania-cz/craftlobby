@@ -106,7 +106,12 @@ public class InvClick implements Listener {
                     player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 19) { // BEDWARS
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "bw-lobby");
+                    if (event.getClick().isLeftClick()) {
+                        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "bw-lobby");
+                    }
+                    if (event.getClick().isRightClick()) {
+                        Main.getInstance().getCraftBalancerManager().connectPlayer(player, "bedwars-4v4-games");
+                    }
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//
