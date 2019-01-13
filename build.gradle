@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'cz.wake.lobby'
-version = '1.7'
+version = '1.8'
 
 description = """"""
 
@@ -27,7 +27,7 @@ repositories {
     maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
     maven { url "http://repo.dmulloy2.net/nexus/repository/public/" }
     maven { url "https://jitpack.io" }
-    maven { url "https://packages.craftmania.cz/repository/craftmania/" }
+    maven { url "http://packages.craftmania.cz/repository/craftmania/" }
     maven { url "http://repo.maven.apache.org/maven2" }
 }
 
@@ -45,6 +45,6 @@ dependencies {
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0"
 
     // CM Plugins
-    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.0.11'
-    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.0.2'
+    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.0.12'
+    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.0.5'
 }

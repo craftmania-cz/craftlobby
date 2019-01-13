@@ -7,6 +7,7 @@ import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.TimeUtils;
+import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -21,6 +22,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -66,7 +68,7 @@ public class Profil implements Listener {
         ItemStack soc = ItemFactory.createHead("Test", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=", "§aSocialni site", "", "§7Chces vsem poskytnout prime", "§7odkazy na svem profilu?", "", "§bOdkazy se zobrazuji na webu", "§bv profilech.", "", "§eKliknutim provedes zmeny");
         menu.setItem(29, soc);
 
-        ItemStack statistiky = ItemFactory.create(Material.BOOK, (byte) 0, "§aStatistiky", "", "§7Zobrazi vsechny tve statistiky", "§7ze serveru.", "", "§cPredelava se...");
+        ItemStack statistiky = ItemFactory.create(Material.BOOK, (byte) 0, "§aStatistiky", "", "§7Zobrazi vsechny tve statistiky", "§7ze serveru.", "", "§eKlikni pro zobrazeni");
         menu.setItem(30, statistiky);
 
         ItemStack multipliers = ItemFactory.create(Material.POTION, (byte) 0, "§aMultipliery", "", "§7Chces vydelavat vic?", "§7Zde je to prave misto...", "", "§cPlanovano...");
@@ -197,6 +199,29 @@ public class Profil implements Listener {
         p.openInventory(inv);
     }
 
+    private void openStatsMenu(Player p) {
+        Inventory inv = Bukkit.createInventory(null, 9 * 3, "Statistiky");
+
+        ItemStack votes = ItemFactory.create(Material.PAPER, (byte) 0, "§a§lHlasy", "§f",
+                "§7Za tyden: §f" + Main.getInstance().getSQL().getPlayerProfileDataInt(p, "week_votes") + " §8(#" + Main.getInstance().getSQL().getVotesTopPosition(p, "week") + ")",
+                "§7Za mesic: §f" + Main.getInstance().getSQL().getPlayerProfileDataInt(p, "month_votes") + " §8(#" + Main.getInstance().getSQL().getVotesTopPosition(p, "month") + ")",
+                "§7Celkove: §f" + Main.getInstance().getSQL().getPlayerProfileDataInt(p, "total_votes") + " §8(#" + Main.getInstance().getSQL().getVotesTopPosition(p, "total") + ")");
+        inv.setItem(12, votes);
+
+        ItemStack bedwars = ItemFactory.create(Material.BED, (byte) 0, "§c§lBedWars", "§f",
+                "§7Odehrano: §f" + Main.getInstance().getSQL().getBedwarsPlayerData(p, "games") ,
+                "§7Prohrano: §f" + Main.getInstance().getSQL().getBedwarsPlayerData(p, "loses"),
+                "§7Vyhrano: §f" + Main.getInstance().getSQL().getBedwarsPlayerData(p, "wins"),
+                "§7Zabiti: §f" + Main.getInstance().getSQL().getBedwarsPlayerData(p, "kills"),
+                "§7Smrti: §f" + Main.getInstance().getSQL().getBedwarsPlayerData(p, "deaths"),
+                "§7Celkove skore: §f" + Main.getInstance().getSQL().getBedwarsPlayerData(p, "score"),
+                "§7",
+                "§7Jsi momentalne §cTOP #" + Main.getInstance().getSQL().getBedwarsTopPosition(p) + "!");
+        inv.setItem(13, bedwars);
+
+        p.openInventory(inv);
+    }
+
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
@@ -225,6 +250,9 @@ public class Profil implements Listener {
             }
             if (e.getSlot() == 42) {
                 settings.openSettingsMenu(p, 1);
+            }
+            if (e.getSlot() == 30) {
+                openStatsMenu(p);
             }
         }
         if (e.getInventory().getTitle().equals("Nastaveni jazyka")) {
@@ -348,6 +376,8 @@ public class Profil implements Listener {
             }
             e.setCancelled(true);
             p.updateInventory();
+        } if (e.getInventory().getTitle().equals("Statistiky")) {
+            e.setCancelled(true);
         }
     }
 
