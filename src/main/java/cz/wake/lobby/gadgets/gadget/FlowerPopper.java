@@ -7,7 +7,7 @@ import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftFirework;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftFirework;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;

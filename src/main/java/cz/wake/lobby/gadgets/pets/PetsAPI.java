@@ -1735,7 +1735,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.endermite")) {
-                    EndermiteNormal.activate(p);
+                    //EndermiteNormal.activate(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.EYE_OF_ENDER, (byte) 0, "§eEndermite", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Endermite", "craftlobby.pets.endermite", i, 100);
@@ -1743,7 +1743,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.silverfish")) {
-                    SilverfishNormal.activate(p);
+                    //SilverfishNormal.activate(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.FLINT, (byte) 0, "§eSilverfish", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Silverfish", "craftlobby.pets.silverfish", i, 100);
@@ -1766,7 +1766,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 11) {
                 if (p.hasPermission("craftlobby.pets.wither")) {
-                    Widder.activateCow(p);
+                    //Widder.activateCow(p);
                     p.closeInventory();
                 } else {
                     ItemStack i = ItemFactory.create(Material.SKULL_ITEM, (byte) 1, "§eWither", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
@@ -1778,7 +1778,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 13) {
                 if (p.hasPermission("craftlobby.pets.spider")) {
-                    SpiderNormal.activateSpider(p);
+                    //SpiderNormal.activateSpider(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SPIDER_EYE, (byte) 0, "§eSpider", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Spider", "craftlobby.pets.spider", i, 200);
@@ -1786,7 +1786,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 14) {
                 if (p.hasPermission("craftlobby.pets.cavespider")) {
-                    CaveSpiderNormal.activateCave(p);
+                    //CaveSpiderNormal.activateCave(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.FERMENTED_SPIDER_EYE, (byte) 0, "§eCaveSpider", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Cave Spider", "craftlobby.pets.cavespider", i, 200);
@@ -1794,7 +1794,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 15) {
                 if (p.hasPermission("craftlobby.pets.irongolem")) {
-                    IronGolemNormal.activateGolem(p);
+                    //IronGolemNormal.activateGolem(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_INGOT, (byte) 0, "§eIronGolem", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Iron Golem", "craftlobby.pets.irongolem", i, 500);
@@ -1802,7 +1802,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 16) {
                 if (p.hasPermission("craftlobby.pets.witch")) {
-                    WitchNormal.activateWitch(p);
+                    //WitchNormal.activateWitch(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SPLASH_POTION, (byte) 0, "§eWitch", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Witch", "craftlobby.pets.witch", i, 300);
@@ -1810,7 +1810,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 17) {
                 if (p.hasPermission("craftlobby.pets.enderman")) {
-                    EndermanNormal.activateWitch(p);
+                    //EndermanNormal.activateWitch(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.ENDER_PEARL, (byte) 0, "§eEnderman", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Enderman", "craftlobby.pets.enderman", i, 300);
@@ -1818,7 +1818,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 18) {
                 if (p.hasPermission("craftlobby.pets.blaze")) {
-                    BlazeNormal.activateWitch(p);
+                    //BlazeNormal.activateWitch(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.BLAZE_POWDER, (byte) 0, "§eBlaze", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Blaze", "craftlobby.pets.blaze", i, 300);
@@ -1840,7 +1840,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 22) {
                 if (p.hasPermission("craftlobby.pets.snowman")) {
-                    SnowmanNormal.activate(p);
+                    //SnowmanNormal.activate(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SNOW_BALL, (byte) 0, "§eSnowman", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Snowman", "craftlobby.pets.snowman", i, 100);
@@ -1860,7 +1860,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 27) {
                 if (p.hasPermission("craftlobby.pets.vindicator")) {
-                    VindicatorNormal.activateWitch(p);
+                    //VindicatorNormal.activateWitch(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_AXE, (byte) 0, "§eVindicator", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Vindicator", "craftlobby.pets.vindicator", i, 100);
@@ -1868,7 +1868,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 28) {
                 if (p.hasPermission("craftlobby.pets.evoker")) {
-                    EvokerNormal.activateWitch(p);
+                    //EvokerNormal.activateWitch(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.TOTEM, (byte) 0, "§eEvoker", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Evoker", "craftlobby.pets.evoker", i, 400);
@@ -1876,7 +1876,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 29) {
                 if (p.hasPermission("craftlobby.pets.vex")) {
-                    VexNormal.activate(p);
+                    //VexNormal.activate(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_SWORD, (byte) 0, "§eVex", "", "§7Odemknuto: §f1/1 §8(100%)", "", "§aKliknutim spawnes!");
                     Shop.open(p, "Vex", "craftlobby.pets.vex", i, 100);
@@ -1905,7 +1905,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.cat.black")) {
-                    CatNormal.activate(p, false, Ocelot.Type.BLACK_CAT);
+                    //CatNormal.activate(p, false, Ocelot.Type.BLACK_CAT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 0, "§aCat: Black", "", "§7Barva: §8Black", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Black", "craftlobby.pets.cat.black", i, 300);
@@ -1913,7 +1913,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.cat.black.baby")) {
-                    CatNormal.activate(p, true, Ocelot.Type.BLACK_CAT);
+                    //CatNormal.activate(p, true, Ocelot.Type.BLACK_CAT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 1, "§aCat: Black (Baby)", "", "§7Barva: §8Black", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Black (Baby)", "craftlobby.pets.cat.black.baby", i, 350);
@@ -1921,7 +1921,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.cat.red")) {
-                    CatNormal.activate(p, false, Ocelot.Type.RED_CAT);
+                    //CatNormal.activate(p, false, Ocelot.Type.RED_CAT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 0, "§aCat: Red", "", "§7Barva: §8Red", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Red", "craftlobby.pets.cat.red", i, 300);
@@ -1929,7 +1929,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.cat.red.baby")) {
-                    CatNormal.activate(p, true, Ocelot.Type.RED_CAT);
+                    //CatNormal.activate(p, true, Ocelot.Type.RED_CAT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 1, "§aCat: Red (Baby)", "", "§7Barva: §8Red", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Red (Baby)", "craftlobby.pets.cat.red.baby", i, 350);
@@ -1937,7 +1937,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.cat.siamese")) {
-                    CatNormal.activate(p, false, Ocelot.Type.SIAMESE_CAT);
+                    //CatNormal.activate(p, false, Ocelot.Type.SIAMESE_CAT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 2, "§aCat: Siamese", "", "§7Barva: §8Seda", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Siamese", "craftlobby.pets.cat.siamese", i, 300);
@@ -1945,7 +1945,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.cat.siamese.baby")) {
-                    CatNormal.activate(p, true, Ocelot.Type.SIAMESE_CAT);
+                    //CatNormal.activate(p, true, Ocelot.Type.SIAMESE_CAT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 2, "§aCat: Siamese (Baby)", "", "§7Barva: §8Seda", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Siamese (Baby)", "craftlobby.pets.cat.siamese.baby", i, 350);
@@ -1953,7 +1953,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.cat.wild")) {
-                    CatNormal.activate(p, false, Ocelot.Type.WILD_OCELOT);
+                    //CatNormal.activate(p, false, Ocelot.Type.WILD_OCELOT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 0, "§aCat: Wild", "", "§7Barva: §8Zlata", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Wild", "craftlobby.pets.cat.wild", i, 300);
@@ -1961,7 +1961,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.cat.wild.baby")) {
-                    CatNormal.activate(p, true, Ocelot.Type.WILD_OCELOT);
+                    //CatNormal.activate(p, true, Ocelot.Type.WILD_OCELOT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_FISH, (byte) 1, "§aCat: Wild (Baby)", "", "§7Barva: §8Zlata", "", "§eKliknutim spawnes!");
                     Shop.open(p, "CatNormal: Wild (Baby)", "craftlobby.pets.cat.wild.baby", i, 350);
@@ -2003,7 +2003,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.cow.mushroom")) {
-                    MushroomNormal.activateCow(p, false);
+                    //MushroomNormal.activateCow(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RED_MUSHROOM, (byte) 0, "§aCow Mushroom", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Cow Mushroom", "craftlobby.pets.cow.mushroom", i, 300);
@@ -2011,7 +2011,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.cow.mushroom.baby")) {
-                    MushroomNormal.activateCow(p, true);
+                    //MushroomNormal.activateCow(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.BROWN_MUSHROOM, (byte) 0, "§aCow Mushroom (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Cow Mushroom (Baby)", "craftlobby.pets.cow.mushroom.baby", i, 350);
@@ -2037,7 +2037,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.pig")) {
-                    PigNormal.activatePig(p, false);
+                    //PigNormal.activatePig(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.GRILLED_PORK, (byte) 0, "§aPig", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Pig", "craftlobby.pets.pig", i, 200);
@@ -2045,7 +2045,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.pig.baby")) {
-                    PigNormal.activatePig(p, true);
+                    //PigNormal.activatePig(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.PORK, (byte) 0, "§aPig (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Pig (Baby)", "craftlobby.pets.pig.baby", i, 250);
@@ -2071,7 +2071,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.chicken")) {
-                    ChickenNormal.activateChicken(p, false);
+                    //ChickenNormal.activateChicken(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.EGG, (byte) 0, "§aChicken", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Chicken", "craftlobby.pets.chicken", i, 100);
@@ -2079,7 +2079,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.chicken.baby")) {
-                    ChickenNormal.activateChicken(p, true);
+                    //ChickenNormal.activateChicken(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.EGG, (byte) 0, "§aChicken (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Chicken (Baby)", "craftlobby.pets.chicken.baby", i, 150);
@@ -2106,7 +2106,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.llama.white")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 0, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 0, "§aLlama: White", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: White", "craftlobby.pets.llama.white", i, 100);
@@ -2115,7 +2115,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.llama.orange")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 1, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 1, "§aLlama: Orange", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Orange", "craftlobby.pets.llama.orange", i, 100);
@@ -2124,7 +2124,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.llama.magenta")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 2, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 2, "§aLlama: Magenta", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Magenta", "craftlobby.pets.llama.magenta", i, 100);
@@ -2133,7 +2133,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.llama.lightblue")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 3, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 3, "§aLlama: Light Blue", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Light Blue", "craftlobby.pets.llama.lightblue", i, 100);
@@ -2142,7 +2142,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.llama.yellow")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 4, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 4, "§aLlama: Yellow", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Yellow", "craftlobby.pets.llama.yellow", i, 100);
@@ -2151,7 +2151,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.llama.lime")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 5, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 5, "§aLlama: Lime", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Lime", "craftlobby.pets.llama.lime", i, 100);
@@ -2160,7 +2160,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.llama.pink")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 6, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 6, "§aLlama: Pink", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Pink", "craftlobby.pets.llama.pink", i, 100);
@@ -2169,7 +2169,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.llama.gray")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 7, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 7, "§aLlama: Gray", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Gray", "craftlobby.pets.llama.gray", i, 100);
@@ -2178,7 +2178,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 8) {
                 if (p.hasPermission("craftlobby.pets.llama.lightgray")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 8, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 8, "§aLlama: Light Gray", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Light Gray", "craftlobby.pets.llama.lightgray", i, 100);
@@ -2187,7 +2187,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 9) {
                 if (p.hasPermission("craftlobby.pets.llama.cyan")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 9, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 9, "§aLlama: Cyan", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Cyan", "craftlobby.pets.llama.cyan", i, 100);
@@ -2196,7 +2196,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 10) {
                 if (p.hasPermission("craftlobby.pets.llama.purple")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 10, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 10, "§aLlama: Purple", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Purple", "craftlobby.pets.llama.purple", i, 100);
@@ -2205,7 +2205,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 11) {
                 if (p.hasPermission("craftlobby.pets.llama.blue")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 11, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 11, "§aLlama: Blue", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Blue", "craftlobby.pets.llama.blue", i, 100);
@@ -2214,7 +2214,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 12) {
                 if (p.hasPermission("craftlobby.pets.llama.brown")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 12, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 12, "§aLlama: Brown", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Brown", "craftlobby.pets.llama.brown", i, 100);
@@ -2223,7 +2223,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 13) {
                 if (p.hasPermission("craftlobby.pets.llama.green")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 13, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 13, "§aLlama: Green", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Green", "craftlobby.pets.llama.green", i, 100);
@@ -2232,7 +2232,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 14) {
                 if (p.hasPermission("craftlobby.pets.llama.red")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 14, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 14, "§aLlama: Red", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Red", "craftlobby.pets.llama.red", i, 100);
@@ -2241,7 +2241,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 15) {
                 if (p.hasPermission("craftlobby.pets.llama.black")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 15, "Super secret");
-                    LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, false, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 15, "§aLlama: Black", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Black", "craftlobby.pets.llama.black", i, 100);
@@ -2250,7 +2250,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 16) {
                 if (p.hasPermission("craftlobby.pets.llama.white.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 0, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 0, "§aLlama: White (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: White (Baby)", "craftlobby.pets.llama.white.baby", i, 100);
@@ -2259,7 +2259,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 17) {
                 if (p.hasPermission("craftlobby.pets.llama.orange.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 1, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 1, "§aLlama: Orange (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Orange (Baby)", "craftlobby.pets.llama.orange.baby", i, 100);
@@ -2268,7 +2268,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 18) {
                 if (p.hasPermission("craftlobby.pets.llama.magenta.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 2, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 2, "§aLlama: Magenta (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Magenta (Baby)", "craftlobby.pets.llama.magenta.baby", i, 100);
@@ -2277,7 +2277,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 19) {
                 if (p.hasPermission("craftlobby.pets.llama.lightblue.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 3, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 3, "§aLlama: Light Blue (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Light Blue (Baby)", "craftlobby.pets.llama.lightblue.baby", i, 100);
@@ -2286,7 +2286,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 20) {
                 if (p.hasPermission("craftlobby.pets.llama.yellow.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 4, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 4, "§aLlama: Yellow (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Yellow (Baby)", "craftlobby.pets.llama.yellow.baby", i, 100);
@@ -2295,7 +2295,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 21) {
                 if (p.hasPermission("craftlobby.pets.llama.lime.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 5, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 5, "§aLlama: Lime (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Lime (Baby)", "craftlobby.pets.llama.lime.baby", i, 100);
@@ -2304,7 +2304,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 22) {
                 if (p.hasPermission("craftlobby.pets.llama.pink.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 6, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 6, "§aLlama: Pink (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Pink (Baby)", "craftlobby.pets.llama.pink.baby", i, 100);
@@ -2313,7 +2313,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 23) {
                 if (p.hasPermission("craftlobby.pets.llama.gray.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 7, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 7, "§aLlama: Gray (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Gray (Baby)", "craftlobby.pets.llama.gray.baby", i, 100);
@@ -2322,7 +2322,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 24) {
                 if (p.hasPermission("craftlobby.pets.llama.lightgray.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 8, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 8, "§aLlama: Light Gray (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Light Gray (Baby)", "craftlobby.pets.llama.lightgray.baby", i, 100);
@@ -2331,7 +2331,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 25) {
                 if (p.hasPermission("craftlobby.pets.llama.cyan.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 9, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 9, "§aLlama: Cyan (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Cyan (Baby)", "craftlobby.pets.llama.cyan.baby", i, 100);
@@ -2340,7 +2340,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 26) {
                 if (p.hasPermission("craftlobby.pets.llama.purple.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 10, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 10, "§aLlama: Purple (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Purple (Baby)", "craftlobby.pets.llama.purple.baby", i, 100);
@@ -2349,7 +2349,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 27) {
                 if (p.hasPermission("craftlobby.pets.llama.blue.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 11, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 11, "§aLlama: Blue (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Blue (Baby)", "craftlobby.pets.llama.blue.baby", i, 100);
@@ -2358,7 +2358,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 28) {
                 if (p.hasPermission("craftlobby.pets.llama.brown.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 12, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 12, "§aLlama: Brown (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Brown (Baby)", "craftlobby.pets.llama.brown.baby", i, 100);
@@ -2367,7 +2367,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 29) {
                 if (p.hasPermission("craftlobby.pets.llama.green.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 13, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 13, "§aLlama: Green (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Green (Baby)", "craftlobby.pets.llama.green.baby", i, 100);
@@ -2376,7 +2376,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 30) {
                 if (p.hasPermission("craftlobby.pets.llama.red.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 14, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 14, "§aLlama: Red (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Red (Baby)", "craftlobby.pets.llama.red.baby", i, 100);
@@ -2385,7 +2385,7 @@ public class PetsAPI implements Listener {
             if (e.getSlot() == 31) {
                 if (p.hasPermission("craftlobby.pets.llama.black.baby")) {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 15, "Super secret");
-                    LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
+                    //LlamaNormal.activate(p, true, Llama.Color.WHITE, i);
                 } else {
                     ItemStack i = ItemFactory.create(Material.CARPET, (byte) 15, "§aLlama: Black (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Llama: Black (Baby)", "craftlobby.pets.llama.black.baby", i, 100);
@@ -2411,7 +2411,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.wolf")) {
-                    WolfNormal.activate(p, false);
+                    //WolfNormal.activate(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.BONE, (byte) 0, "§aWolf", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Wolf", "craftlobby.pets.wolf", i, 300);
@@ -2419,7 +2419,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.wolf.baby")) {
-                    WolfNormal.activate(p, true);
+                    //WolfNormal.activate(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.BONE, (byte) 0, "§aWolf (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Wolf (Baby)", "craftlobby.pets.wolf.baby", i, 300);
@@ -2445,7 +2445,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.rabbit.black")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.BLACK);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.BLACK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_FOOT, (byte) 0, "§aRabbit Black", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Black", "craftlobby.pets.rabbit.black", i, 200);
@@ -2453,7 +2453,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.rabbit.black.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.BLACK);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.BLACK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_FOOT, (byte) 0, "§aRabbit Black (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Black (Baby)", "craftlobby.pets.rabbit.black.baby", i, 250);
@@ -2461,7 +2461,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.rabbit.blackandwhite")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.BLACK_AND_WHITE);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.BLACK_AND_WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_STEW, (byte) 0, "§aRabbit Black & White", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Black & White", "craftlobby.pets.rabbit.blackandwhite", i, 200);
@@ -2469,7 +2469,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.rabbit.blackandwhite.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.BLACK_AND_WHITE);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.BLACK_AND_WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_STEW, (byte) 0, "§aRabbit Black & White (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Black & White (Baby)", "craftlobby.pets.rabbit.blackandwhite.baby", i, 250);
@@ -2477,7 +2477,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.rabbit.brown")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.BROWN);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.COOKED_RABBIT, (byte) 0, "§aRabbit Brown", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Brown", "craftlobby.pets.rabbit.brown", i, 200);
@@ -2485,7 +2485,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.rabbit.brown.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.BROWN);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.COOKED_RABBIT, (byte) 0, "§aRabbit Brown (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Brown (Baby)", "craftlobby.pets.rabbit.brown.baby", i, 250);
@@ -2493,7 +2493,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.rabbit.saltandpepper")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.SALT_AND_PEPPER);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.SALT_AND_PEPPER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT, (byte) 0, "§aRabbit Salt & Pepper", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Salt & Pepper", "craftlobby.pets.rabbit.saltandpepper", i, 200);
@@ -2501,7 +2501,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.rabbit.saltandpepper.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.SALT_AND_PEPPER);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.SALT_AND_PEPPER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT, (byte) 0, "§aRabbit Salt & Pepper (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Salt & Pepper (Baby)", "craftlobby.pets.rabbit.saltandpepper.baby", i, 250);
@@ -2509,7 +2509,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (p.hasPermission("craftlobby.pets.rabbit.killer")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.THE_KILLER_BUNNY);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.THE_KILLER_BUNNY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_FOOT, (byte) 0, "§aRabbit Killer", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Killer", "craftlobby.pets.rabbit.killer", i, 200);
@@ -2517,7 +2517,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 9) {
                 if (p.hasPermission("craftlobby.pets.rabbit.killer.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.THE_KILLER_BUNNY);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.THE_KILLER_BUNNY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_FOOT, (byte) 0, "§aRabbit Killer (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Killer (Baby)", "craftlobby.pets.rabbit.killer.baby", i, 250);
@@ -2525,7 +2525,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 10) {
                 if (p.hasPermission("craftlobby.pets.rabbit.white")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.WHITE);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_HIDE, (byte) 0, "§aRabbit White", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit White", "craftlobby.pets.rabbit.white", i, 200);
@@ -2533,7 +2533,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 11) {
                 if (p.hasPermission("craftlobby.pets.rabbit.white.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.WHITE);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT_HIDE, (byte) 0, "§aRabbit White (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit White (Baby)", "craftlobby.pets.rabbit.white.baby", i, 250);
@@ -2541,7 +2541,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 12) {
                 if (p.hasPermission("craftlobby.pets.rabbit.gold")) {
-                    RabbitNormal.activate(p, false, Rabbit.Type.GOLD);
+                    //RabbitNormal.activate(p, false, Rabbit.Type.GOLD);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT, (byte) 0, "§aRabbit Gold", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Gold", "craftlobby.pets.rabbit.gold", i, 200);
@@ -2549,7 +2549,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 13) {
                 if (p.hasPermission("craftlobby.pets.rabbit.gold.baby")) {
-                    RabbitNormal.activate(p, true, Rabbit.Type.GOLD);
+                    //RabbitNormal.activate(p, true, Rabbit.Type.GOLD);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RABBIT, (byte) 0, "§aRabbit Gold (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Rabbit Gold (Baby)", "craftlobby.pets.rabbit.gold.baby", i, 250);
@@ -2575,7 +2575,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.zombie")) {
-                    ZombieNormal.activate(p, false);
+                    //ZombieNormal.activate(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH, (byte) 0, "§aZombie", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie", "craftlobby.pets.zombie", i, 200);
@@ -2583,7 +2583,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.zombie.baby")) {
-                    ZombieNormal.activate(p, true);
+                    //ZombieNormal.activate(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.ROTTEN_FLESH, (byte) 0, "§aZombie (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie (Baby)", "craftlobby.pets.zombie.baby", i, 2500);
@@ -2591,7 +2591,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.zombie.husk")) {
-                    ZombieVillagerNormal.activate(p, false, Villager.Profession.HUSK);
+                    //ZombieVillagerNormal.activate(p, false, Villager.Profession.HUSK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SAND, (byte) 0, "§aZombie Husk", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Husk", "craftlobby.pets.zombie.husk", i, 300);
@@ -2599,7 +2599,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.zombie.husk.baby")) {
-                    ZombieVillagerNormal.activate(p, true, Villager.Profession.HUSK);
+                    //ZombieVillagerNormal.activate(p, true, Villager.Profession.HUSK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SAND, (byte) 0, "§aZombie Husk (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Husk (Baby)", "craftlobby.pets.zombie.husk.baby", i, 350);
@@ -2607,7 +2607,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.zombie.blacksmith")) {
-                    ZombieVillagerNormal.activate(p, false, Villager.Profession.BLACKSMITH);
+                    //ZombieVillagerNormal.activate(p, false, Villager.Profession.BLACKSMITH);
                 } else {
                     ItemStack i = ItemFactory.create(Material.ANVIL, (byte) 0, "§aZombie Blacksmith", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Blacksmith", "craftlobby.pets.zombie.blacksmith", i, 200);
@@ -2615,7 +2615,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.zombie.butcher")) {
-                    ZombieVillagerNormal.activate(p, false, Villager.Profession.BUTCHER);
+                    //ZombieVillagerNormal.activate(p, false, Villager.Profession.BUTCHER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.RAW_BEEF, (byte) 0, "§aZombie Butcher", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Butcher", "craftlobby.pets.zombie.butcher", i, 200);
@@ -2623,7 +2623,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.zombie.farmer")) {
-                    ZombieVillagerNormal.activate(p, false, Villager.Profession.FARMER);
+                    //ZombieVillagerNormal.activate(p, false, Villager.Profession.FARMER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.GOLD_HOE, (byte) 0, "§aZombie Farmer", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Farmer", "craftlobby.pets.zombie.farmer", i, 200);
@@ -2631,7 +2631,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.zombie.librarian")) {
-                    ZombieVillagerNormal.activate(p, false, Villager.Profession.LIBRARIAN);
+                    //ZombieVillagerNormal.activate(p, false, Villager.Profession.LIBRARIAN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.BOOK_AND_QUILL, (byte) 0, "§aZombie Librarian", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Librarian", "craftlobby.pets.zombie.librarian", i, 200);
@@ -2639,7 +2639,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (p.hasPermission("craftlobby.pets.zombie.priest")) {
-                    ZombieVillagerNormal.activate(p, false, Villager.Profession.PRIEST);
+                    //ZombieVillagerNormal.activate(p, false, Villager.Profession.PRIEST);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_INGOT, (byte) 0, "§aZombie Priest", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Zombie Priest", "craftlobby.pets.zombie.priest", i, 200);
@@ -2665,7 +2665,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.horse.black")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BLACK);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BLACK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Black");
                     Shop.open(p, "Horse Black", "craftlobby.pets.horse.black", i, 100);
@@ -2673,7 +2673,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.horse.black.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.BLACK);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.BLACK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Black (Baby)");
                     Shop.open(p, "Horse Black (Baby)", "craftlobby.pets.horse.black.baby", i, 150);
@@ -2681,7 +2681,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.horse.brown")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Brown");
                     Shop.open(p, "Horse Brown", "craftlobby.pets.horse.brown", i, 100);
@@ -2689,7 +2689,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.horse.brown.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.BROWN);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Brown (Baby)");
                     Shop.open(p, "Horse Brown (Baby)", "craftlobby.pets.horse.brown.baby", i, 150);
@@ -2697,7 +2697,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.horse.chestnut")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.CHESTNUT);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.CHESTNUT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Chestnut");
                     Shop.open(p, "Horse Chestnut", "craftlobby.pets.horse.chestnut", i, 100);
@@ -2705,7 +2705,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.horse.chestnut.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.CHESTNUT);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.CHESTNUT);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Chestnut (Baby)");
                     Shop.open(p, "Horse Chestnut (Baby)", "craftlobby.pets.horse.chestnut.baby", i, 150);
@@ -2713,7 +2713,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.horse.creamy")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.CREAMY);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.CREAMY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Creamy");
                     Shop.open(p, "Horse Creamy", "craftlobby.pets.horse.creamy", i, 100);
@@ -2721,7 +2721,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.horse.creamy.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.CREAMY);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.CREAMY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Creamy (Baby)");
                     Shop.open(p, "Horse Creamy (Baby)", "craftlobby.pets.horse.creamy.baby", i, 150);
@@ -2729,7 +2729,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (p.hasPermission("craftlobby.pets.horse.darkbrown")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.DARK_BROWN);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.DARK_BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Dark Brown");
                     Shop.open(p, "Horse Dark Brown", "craftlobby.pets.horse.darkbrown", i, 100);
@@ -2737,7 +2737,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 9) {
                 if (p.hasPermission("craftlobby.pets.horse.darkbrown.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.DARK_BROWN);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.DARK_BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Dark Brown (Baby)");
                     Shop.open(p, "Horse Dark Brown (Baby)", "craftlobby.pets.horse.darkbrown.baby", i, 150);
@@ -2745,7 +2745,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 10) {
                 if (p.hasPermission("craftlobby.pets.horse.gray")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.GRAY);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.GRAY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Gray");
                     Shop.open(p, "Horse Gray", "craftlobby.pets.horse.gray", i, 100);
@@ -2753,7 +2753,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 11) {
                 if (p.hasPermission("craftlobby.pets.horse.gray.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.GRAY);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.GRAY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse Gray (Baby)");
                     Shop.open(p, "Horse Gray (Baby)", "craftlobby.pets.horse.gray.baby", i, 150);
@@ -2761,7 +2761,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 12) {
                 if (p.hasPermission("craftlobby.pets.horse.white")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.WHITE);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse White");
                     Shop.open(p, "Horse White", "craftlobby.pets.horse.white", i, 100);
@@ -2769,7 +2769,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 13) {
                 if (p.hasPermission("craftlobby.pets.horse.white.baby")) {
-                    HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.WHITE);
+                    //HorseNormal.activate(p, true, Horse.Style.NONE, Horse.Color.WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eHorse White (Baby)");
                     Shop.open(p, "Horse White (Baby)", "craftlobby.pets.horse.white.baby", i, 150);
@@ -2778,7 +2778,7 @@ public class PetsAPI implements Listener {
             //TODO: Nefunkcni Donkey, Mule, Zombie Horse, Skeleton Horse
             if (e.getSlot() == 14) {
                 if (p.hasPermission("craftlobby.pets.horse.donkey")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eDonkey");
                     Shop.open(p, "Donkey", "craftlobby.pets.horse.donkey", i, 100);
@@ -2786,7 +2786,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 15) {
                 if (p.hasPermission("craftlobby.pets.horse.mule")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eMule");
                     Shop.open(p, "Mule", "craftlobby.pets.horse.mule", i, 100);
@@ -2794,7 +2794,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 16) {
                 if (p.hasPermission("craftlobby.pets.horse.zombie")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eZombie Horse");
                     Shop.open(p, "Zombie Horse", "craftlobby.pets.horse.zombie", i, 400);
@@ -2802,7 +2802,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 17) {
                 if (p.hasPermission("craftlobby.pets.horse.skeleton")) {
-                    HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
+                    //HorseNormal.activate(p, false, Horse.Style.NONE, Horse.Color.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SADDLE, (byte) 0, "§eSkeleton Horse");
                     Shop.open(p, "Skeleton Horse", "craftlobby.pets.horse.skeleton", i, 400);
@@ -2828,7 +2828,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.sheep.white")) {
-                    SheepNormal.activate(p, false, DyeColor.WHITE);
+                    //SheepNormal.activate(p, false, DyeColor.WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 0, "§aSheep White", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep White", "craftlobby.pets.sheep.white", i, 100);
@@ -2836,7 +2836,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.sheep.white.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.WHITE);
+                    //SheepNormal.activate(p, true, DyeColor.WHITE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 0, "§aSheep White (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep White (Baby)", "craftlobby.pets.sheep.white.baby", i, 100);
@@ -2844,7 +2844,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.sheep.black")) {
-                    SheepNormal.activate(p, false, DyeColor.BLACK);
+                    //SheepNormal.activate(p, false, DyeColor.BLACK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 15, "§aSheep Black", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Black", "craftlobby.pets.sheep.black", i, 100);
@@ -2852,7 +2852,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.sheep.black.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.BLACK);
+                    //SheepNormal.activate(p, true, DyeColor.BLACK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 15, "§aSheep Black (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Black (Baby)", "craftlobby.pets.sheep.black.baby", i, 100);
@@ -2860,7 +2860,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.sheep.blue")) {
-                    SheepNormal.activate(p, false, DyeColor.BLUE);
+                    //SheepNormal.activate(p, false, DyeColor.BLUE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 11, "§aSheep Blue", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Blue", "craftlobby.pets.sheep.blue", i, 100);
@@ -2868,7 +2868,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.sheep.blue.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.BLUE);
+                    //SheepNormal.activate(p, true, DyeColor.BLUE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 11, "§aSheep Blue (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Blue (Baby)", "craftlobby.pets.sheep.blue.baby", i, 100);
@@ -2876,7 +2876,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.sheep.brown")) {
-                    SheepNormal.activate(p, false, DyeColor.BROWN);
+                    //SheepNormal.activate(p, false, DyeColor.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 12, "§aSheep Brown", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Brown", "craftlobby.pets.sheep.brown", i, 100);
@@ -2884,7 +2884,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.sheep.brown.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.BROWN);
+                    //SheepNormal.activate(p, true, DyeColor.BROWN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 12, "§aSheep Brown (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Brown (Baby)", "craftlobby.pets.sheep.brown.baby", i, 100);
@@ -2892,7 +2892,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (p.hasPermission("craftlobby.pets.sheep.cyan")) {
-                    SheepNormal.activate(p, false, DyeColor.CYAN);
+                    // SheepNormal.activate(p, false, DyeColor.CYAN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 9, "§aSheep Cyan", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Cyan", "craftlobby.pets.sheep.cyan", i, 100);
@@ -2900,7 +2900,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 9) {
                 if (p.hasPermission("craftlobby.pets.sheep.cyan.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.CYAN);
+                    //SheepNormal.activate(p, true, DyeColor.CYAN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 9, "§aSheep Cyan (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Cyan (Baby)", "craftlobby.pets.sheep.cyan.baby", i, 100);
@@ -2908,7 +2908,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 10) {
                 if (p.hasPermission("craftlobby.pets.sheep.green")) {
-                    SheepNormal.activate(p, false, DyeColor.GREEN);
+                    //SheepNormal.activate(p, false, DyeColor.GREEN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 13, "§aSheep Green", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Green", "craftlobby.pets.sheep.green", i, 100);
@@ -2916,7 +2916,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 11) {
                 if (p.hasPermission("craftlobby.pets.sheep.green.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.GREEN);
+                    //SheepNormal.activate(p, true, DyeColor.GREEN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 13, "§aSheep Green (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Green (Baby)", "craftlobby.pets.sheep.green.baby", i, 100);
@@ -2924,7 +2924,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 12) {
                 if (p.hasPermission("craftlobby.pets.sheep.lightblue")) {
-                    SheepNormal.activate(p, false, DyeColor.LIGHT_BLUE);
+                    //SheepNormal.activate(p, false, DyeColor.LIGHT_BLUE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 3, "§aSheep Light Blue", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Light Blue", "craftlobby.pets.sheep.lightblue", i, 100);
@@ -2932,7 +2932,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 13) {
                 if (p.hasPermission("craftlobby.pets.sheep.lightblue.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.LIGHT_BLUE);
+                    //SheepNormal.activate(p, true, DyeColor.LIGHT_BLUE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 3, "§aSheep Light Blue (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Light Blue (Baby)", "craftlobby.pets.sheep.lightblue.baby", i, 100);
@@ -2940,7 +2940,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 14) {
                 if (p.hasPermission("craftlobby.pets.sheep.lime")) {
-                    SheepNormal.activate(p, false, DyeColor.LIME);
+                    //SheepNormal.activate(p, false, DyeColor.LIME);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 5, "§aSheep White", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep White", "craftlobby.pets.sheep.white", i, 100);
@@ -2948,7 +2948,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 15) {
                 if (p.hasPermission("craftlobby.pets.sheep.lime.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.LIME);
+                    //SheepNormal.activate(p, true, DyeColor.LIME);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 5, "§aSheep White", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep White", "craftlobby.pets.sheep.white", i, 100);
@@ -2956,7 +2956,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 16) {
                 if (p.hasPermission("craftlobby.pets.sheep.magenta")) {
-                    SheepNormal.activate(p, false, DyeColor.MAGENTA);
+                    //SheepNormal.activate(p, false, DyeColor.MAGENTA);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 2, "§aSheep Magenta", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Magenta", "craftlobby.pets.sheep.magenta", i, 100);
@@ -2964,7 +2964,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 17) {
                 if (p.hasPermission("craftlobby.pets.sheep.magenta.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.MAGENTA);
+                    //SheepNormal.activate(p, true, DyeColor.MAGENTA);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 2, "§aSheep Magenta (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Magenta (Baby)", "craftlobby.pets.sheep.magenta.baby", i, 100);
@@ -2972,7 +2972,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 18) {
                 if (p.hasPermission("craftlobby.pets.sheep.orange")) {
-                    SheepNormal.activate(p, false, DyeColor.ORANGE);
+                    //SheepNormal.activate(p, false, DyeColor.ORANGE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 1, "§aSheep Orange", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Orange", "craftlobby.pets.sheep.orange", i, 100);
@@ -2980,7 +2980,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 19) {
                 if (p.hasPermission("craftlobby.pets.sheep.orange.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.ORANGE);
+                    //SheepNormal.activate(p, true, DyeColor.ORANGE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 1, "§aSheep Orange (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Orange (Baby)", "craftlobby.pets.sheep.orange.baby", i, 100);
@@ -2988,7 +2988,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 20) {
                 if (p.hasPermission("craftlobby.pets.sheep.pink")) {
-                    SheepNormal.activate(p, false, DyeColor.PINK);
+                    //SheepNormal.activate(p, false, DyeColor.PINK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 0, "§aSheep Pink", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Pink", "craftlobby.pets.sheep.pink", i, 100);
@@ -2996,7 +2996,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 21) {
                 if (p.hasPermission("craftlobby.pets.sheep.pink.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.PINK);
+                    //SheepNormal.activate(p, true, DyeColor.PINK);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 0, "§aSheep Pink (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Pink (Baby)", "craftlobby.pets.sheep.pink.baby", i, 100);
@@ -3004,7 +3004,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 22) {
                 if (p.hasPermission("craftlobby.pets.sheep.purple")) {
-                    SheepNormal.activate(p, false, DyeColor.PURPLE);
+                    //SheepNormal.activate(p, false, DyeColor.PURPLE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 6, "§aSheep Purple", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Purple", "craftlobby.pets.sheep.purple", i, 100);
@@ -3012,7 +3012,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 23) {
                 if (p.hasPermission("craftlobby.pets.sheep.purple.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.PURPLE);
+                    //SheepNormal.activate(p, true, DyeColor.PURPLE);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 6, "§aSheep Purple (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Purple (Baby)", "craftlobby.pets.sheep.purple.baby", i, 100);
@@ -3020,7 +3020,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 24) {
                 if (p.hasPermission("craftlobby.pets.sheep.red")) {
-                    SheepNormal.activate(p, false, DyeColor.RED);
+                    //SheepNormal.activate(p, false, DyeColor.RED);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 14, "§aSheep Red", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Red", "craftlobby.pets.sheep.red", i, 100);
@@ -3028,7 +3028,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 25) {
                 if (p.hasPermission("craftlobby.pets.sheep.red.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.RED);
+                    //SheepNormal.activate(p, true, DyeColor.RED);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 14, "§aSheep Red (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Red (Baby)", "craftlobby.pets.sheep.red.baby", i, 100);
@@ -3036,7 +3036,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 26) {
                 if (p.hasPermission("craftlobby.pets.sheep.silver")) {
-                    SheepNormal.activate(p, false, DyeColor.SILVER);
+                    //SheepNormal.activate(p, false, DyeColor.SILVER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 8, "§aSheep Silver", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Silver", "craftlobby.pets.sheep.silver", i, 100);
@@ -3044,7 +3044,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 27) {
                 if (p.hasPermission("craftlobby.pets.sheep.silver.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.SILVER);
+                    //SheepNormal.activate(p, true, DyeColor.SILVER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 8, "§aSheep Silver (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Silver (Baby)", "craftlobby.pets.sheep.silver.baby", i, 100);
@@ -3052,7 +3052,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 28) {
                 if (p.hasPermission("craftlobby.pets.sheep.yellow")) {
-                    SheepNormal.activate(p, false, DyeColor.YELLOW);
+                    //SheepNormal.activate(p, false, DyeColor.YELLOW);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 4, "§aSheep Yellow", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Yellow", "craftlobby.pets.sheep.yellow", i, 100);
@@ -3060,7 +3060,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 29) {
                 if (p.hasPermission("craftlobby.pets.sheep.yellow.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.YELLOW);
+                    //SheepNormal.activate(p, true, DyeColor.YELLOW);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 4, "§aSheep Yellow (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Yellow (Baby)", "craftlobby.pets.sheep.yellow.baby", i, 100);
@@ -3068,7 +3068,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 30) {
                 if (p.hasPermission("craftlobby.pets.sheep.gray")) {
-                    SheepNormal.activate(p, false, DyeColor.GRAY);
+                    //SheepNormal.activate(p, false, DyeColor.GRAY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 7, "§aSheep Gray", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Gray", "craftlobby.pets.sheep.gray", i, 100);
@@ -3076,7 +3076,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 31) {
                 if (p.hasPermission("craftlobby.pets.sheep.gray.baby")) {
-                    SheepNormal.activate(p, true, DyeColor.GRAY);
+                    //SheepNormal.activate(p, true, DyeColor.GRAY);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WOOL, (byte) 7, "§aSheep Gray (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Sheep Gray (Baby)", "craftlobby.pets.sheep.gray.baby", i, 100);
@@ -3102,7 +3102,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.slime.small")) {
-                    SlimeNormal.activateSlime(p, 1);
+                    //SlimeNormal.activateSlime(p, 1);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SLIME_BALL, (byte) 0, "§aSlime: Small", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Slime: Small", "craftlobby.pets.slime.small", i, 100);
@@ -3110,7 +3110,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.slime.normal")) {
-                    SlimeNormal.activateSlime(p, 2);
+                    //SlimeNormal.activateSlime(p, 2);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SLIME_BALL, (byte) 0, "§aSlime: Normal", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Slime: Normal", "craftlobby.pets.slime.normal", i, 150);
@@ -3118,7 +3118,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.slime.big")) {
-                    SlimeNormal.activateSlime(p, 3);
+                    //SlimeNormal.activateSlime(p, 3);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SLIME_BALL, (byte) 0, "§aSlime: Big", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Slime: Big", "craftlobby.pets.slime.big", i, 200);
@@ -3144,7 +3144,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.villager.blacksmith")) {
-                    VilagerNormal.activateWitch(p, false, Villager.Profession.BLACKSMITH);
+                    //VilagerNormal.activateWitch(p, false, Villager.Profession.BLACKSMITH);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_INGOT, (byte) 0, "§aVillager: Blacksmith", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Blacksmith", "craftlobby.pets.villager.blacksmith", i, 100);
@@ -3152,7 +3152,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.villager.blacksmith.baby")) {
-                    VilagerNormal.activateWitch(p, true, Villager.Profession.BLACKSMITH);
+                    //VilagerNormal.activateWitch(p, true, Villager.Profession.BLACKSMITH);
                 } else {
                     ItemStack i = ItemFactory.create(Material.IRON_INGOT, (byte) 0, "§aVillager: Blacksmith (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Blacksmith (Baby)", "craftlobby.pets.villager.blacksmith.baby", i, 200);
@@ -3160,7 +3160,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.villager.butcher")) {
-                    VilagerNormal.activateWitch(p, false, Villager.Profession.BUTCHER);
+                    //VilagerNormal.activateWitch(p, false, Villager.Profession.BUTCHER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.MUTTON, (byte) 0, "§aVillager: Butcher", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Butcher", "craftlobby.pets.villager.butcher", i, 100);
@@ -3168,7 +3168,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 3) {
                 if (p.hasPermission("craftlobby.pets.villager.butcher.baby")) {
-                    VilagerNormal.activateWitch(p, true, Villager.Profession.BUTCHER);
+                    //VilagerNormal.activateWitch(p, true, Villager.Profession.BUTCHER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.MUTTON, (byte) 0, "§aVillager: Butcher (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Butcher (Baby)", "craftlobby.pets.villager.butcher.baby", i, 200);
@@ -3176,7 +3176,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 4) {
                 if (p.hasPermission("craftlobby.pets.villager.farmer")) {
-                    VilagerNormal.activateWitch(p, false, Villager.Profession.FARMER);
+                    //VilagerNormal.activateWitch(p, false, Villager.Profession.FARMER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SEEDS, (byte) 0, "§aVillager: Farmer", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Farmer", "craftlobby.pets.villager.farmer", i, 100);
@@ -3184,7 +3184,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 5) {
                 if (p.hasPermission("craftlobby.pets.villager.farmer.baby")) {
-                    VilagerNormal.activateWitch(p, true, Villager.Profession.FARMER);
+                    //VilagerNormal.activateWitch(p, true, Villager.Profession.FARMER);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SEEDS, (byte) 0, "§aVillager: Farmer (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Farmer (Baby)", "craftlobby.pets.villager.farmer.baby", i, 200);
@@ -3192,7 +3192,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 6) {
                 if (p.hasPermission("craftlobby.pets.villager.librarian")) {
-                    VilagerNormal.activateWitch(p, false, Villager.Profession.LIBRARIAN);
+                    // VilagerNormal.activateWitch(p, false, Villager.Profession.LIBRARIAN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK, (byte) 0, "§aVillager: Librarian", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Librarian", "craftlobby.pets.villager.librarian", i, 100);
@@ -3200,7 +3200,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 7) {
                 if (p.hasPermission("craftlobby.pets.villager.librarian.baby")) {
-                    VilagerNormal.activateWitch(p, true, Villager.Profession.LIBRARIAN);
+                    //VilagerNormal.activateWitch(p, true, Villager.Profession.LIBRARIAN);
                 } else {
                     ItemStack i = ItemFactory.create(Material.WRITTEN_BOOK, (byte) 0, "§aVillager: Librarian (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Librarian (Baby)", "craftlobby.pets.villager.librarian.baby", i, 200);
@@ -3208,7 +3208,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 8) {
                 if (p.hasPermission("craftlobby.pets.villager.priest")) {
-                    VilagerNormal.activateWitch(p, false, Villager.Profession.PRIEST);
+                    //VilagerNormal.activateWitch(p, false, Villager.Profession.PRIEST);
                 } else {
                     ItemStack i = ItemFactory.create(Material.GHAST_TEAR, (byte) 0, "§aVillager: Priest", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Priest", "craftlobby.pets.villager.priest", i, 100);
@@ -3216,7 +3216,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 9) {
                 if (p.hasPermission("craftlobby.pets.villager.priest.baby")) {
-                    VilagerNormal.activateWitch(p, true, Villager.Profession.PRIEST);
+                    //VilagerNormal.activateWitch(p, true, Villager.Profession.PRIEST);
                 } else {
                     ItemStack i = ItemFactory.create(Material.GHAST_TEAR, (byte) 0, "§aVillager: Priest (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Villager: Priest (Baby)", "craftlobby.pets.villager.priest.baby", i, 100);
@@ -3242,7 +3242,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.guardian")) {
-                    GuardianNormal.activateGuardian(p);
+                    //GuardianNormal.activateGuardian(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.PRISMARINE_CRYSTALS, (byte) 0, "§aGuardian", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Guardian", "craftlobby.pets.guardian", i, 500);
@@ -3250,7 +3250,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.guardian.elder")) {
-                    ElderGuardianNormal.activateGuardian(p);
+                    //ElderGuardianNormal.activateGuardian(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.PRISMARINE_SHARD, (byte) 0, "§aGuardian (Elder)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Guardian (Elder)", "craftlobby.pets.guardian.elder", i, 1000);
@@ -3276,7 +3276,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.creeper")) {
-                    CreeperNormal.activateWitch(p, false);
+                    //CreeperNormal.activateWitch(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.getMaterial(289), (byte) 0, "§aCreeper", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Creeper", "craftlobby.pets.creeper", i, 400);
@@ -3284,7 +3284,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.creeper.powered")) {
-                    CreeperNormal.activateWitch(p, true);
+                    //CreeperNormal.activateWitch(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.getMaterial(289), (byte) 0, "§aCreeper (Powered)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Creeper (Powered)", "craftlobby.pets.creeper.powered", i, 500);
@@ -3310,7 +3310,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.skeleton")) {
-                    SkeletonNormal.activateWitch(p);
+                    //SkeletonNormal.activateWitch(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SKULL_ITEM, (byte) 0, "§aSkeleton", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Skeleton", "craftlobby.pets.skeleton", i, 300);
@@ -3318,7 +3318,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.skeleton.wither")) {
-                    WitherSkeletonNormal.activate(p);
+                    //WitherSkeletonNormal.activate(p);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SKULL_ITEM, (byte) 1, "§aWither Skeleton", "", "§eKliknutim spawnes!");
                     Shop.open(p, "Wither Skeleton", "craftlobby.pets.skeleton.wither", i, 600);
@@ -3344,7 +3344,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.polarbear")) {
-                    BearNormal.activateGolem(p, false);
+                    //BearNormal.activateGolem(p, false);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SNOW_BLOCK, (byte) 0, "§aPolarBear", "", "§eKliknutim spawnes!");
                     Shop.open(p, "PolarBear", "craftlobby.pets.polarbear", i, 400);
@@ -3352,7 +3352,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.polarbear.baby")) {
-                    BearNormal.activateGolem(p, true);
+                    //BearNormal.activateGolem(p, true);
                 } else {
                     ItemStack i = ItemFactory.create(Material.SNOW_BLOCK, (byte) 0, "§aPolarBear (Baby)", "", "§eKliknutim spawnes!");
                     Shop.open(p, "PolarBear (Baby)", "craftlobby.pets.polarbear.baby", i, 500);
@@ -3379,7 +3379,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 0) {
                 if (p.hasPermission("craftlobby.pets.magmacube.small")) {
-                    MagmaCubeNormal.activateSlime(p, 1);
+                    //MagmaCubeNormal.activateSlime(p, 1);
                 } else {
                     ItemStack i = ItemFactory.create(Material.MAGMA_CREAM, (byte) 0, "§aMagmaCube: Small", "", "§eKliknutim spawnes!");
                     Shop.open(p, "MagmaCube: Small", "craftlobby.pets.magmacube.small", i, 150);
@@ -3387,7 +3387,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 1) {
                 if (p.hasPermission("craftlobby.pets.magmacube.normal")) {
-                    MagmaCubeNormal.activateSlime(p, 2);
+                    //MagmaCubeNormal.activateSlime(p, 2);
                 } else {
                     ItemStack i = ItemFactory.create(Material.MAGMA_CREAM, (byte) 0, "§aMagmaCube: Small", "", "§eKliknutim spawnes!");
                     Shop.open(p, "MagmaCube: Normal", "craftlobby.pets.magmacube.normal", i, 150);
@@ -3395,7 +3395,7 @@ public class PetsAPI implements Listener {
             }
             if (e.getSlot() == 2) {
                 if (p.hasPermission("craftlobby.pets.magmacube.big")) {
-                    MagmaCubeNormal.activateSlime(p, 3);
+                    //MagmaCubeNormal.activateSlime(p, 3);
                 } else {
                     ItemStack i = ItemFactory.create(Material.MAGMA_CREAM, (byte) 0, "§aMagmaCube: Small", "", "§eKliknutim spawnes!");
                     Shop.open(p, "MagmaCube: Big", "craftlobby.pets.magmacube.big", i, 150);

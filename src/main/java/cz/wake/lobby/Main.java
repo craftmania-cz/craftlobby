@@ -131,6 +131,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         //Register custom entit pro Pets (1.11.2)
         Log.info("Registrace custom entit pro Pets");
         CustomEntityRegistry.registerCustomEntity(92, "Cow", RideableCow.class);
+        /*
         CustomEntityRegistry.registerCustomEntity(91, "Sheep", RideableSheep.class);
         CustomEntityRegistry.registerCustomEntity(93, "Chicken", RideableChicken.class);
         CustomEntityRegistry.registerCustomEntity(90, "Pig", RideablePig.class);
@@ -160,7 +161,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         CustomEntityRegistry.registerCustomEntity(4, "ElderGuardian", RideableGuardianElder.class);
         CustomEntityRegistry.registerCustomEntity(27, "ZombieVillager", RideableZombieVillager.class);
         CustomEntityRegistry.registerCustomEntity(5, "WitherSkeleton", RideableWitherSkeleton.class);
-        CustomEntityRegistry.registerCustomEntity(91, "Sheep", CustomSheep.class);
+        CustomEntityRegistry.registerCustomEntity(91, "Sheep", CustomSheep.class); */
 
         // Spawn armorstandu
         Log.info("Inicializace vsech armorstandu.");

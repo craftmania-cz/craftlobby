@@ -1,6 +1,6 @@
 package cz.wake.lobby.gadgets.pets;
 
-import cz.wake.lobby.Main;
+/*import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.mobs.RideableSheep;
 import org.bukkit.DyeColor;
 import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
@@ -42,4 +42,4 @@ public class SheepNormal {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
 
-}
+}*/

@@ -1,4 +1,5 @@
 package cz.wake.lobby.utils.mobs;
+/*
 
 import net.minecraft.server.v1_11_R1.EntityBlaze;
 import net.minecraft.server.v1_11_R1.EntityHuman;
@@ -80,3 +81,4 @@ public class RideableBlaze extends EntityBlaze {
         return (CraftBlaze) customEntity.getBukkitEntity();
     }
 }
+*/

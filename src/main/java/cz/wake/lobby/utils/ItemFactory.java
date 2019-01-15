@@ -1,10 +1,10 @@
 package cz.wake.lobby.utils;
 
-import net.minecraft.server.v1_11_R1.NBTTagCompound;
-import net.minecraft.server.v1_11_R1.NBTTagList;
+import net.minecraft.server.v1_12_R1.NBTTagCompound;
+import net.minecraft.server.v1_12_R1.NBTTagList;
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -13,6 +13,8 @@ import org.bukkit.material.MaterialData;
 
 import java.util.ArrayList;
 import java.util.List;
+
+// TODO: Odebrat
 
 public class ItemFactory {
 
@@ -43,7 +45,7 @@ public class ItemFactory {
 
     public static ItemStack createHead(String name, String uuid, String textureData) {
         try {
-            net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.SKULL_ITEM, 1, (short) 3));
+            net.minecraft.server.v1_12_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.SKULL_ITEM, 1, (short) 3));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
@@ -80,7 +82,7 @@ public class ItemFactory {
 
     public static ItemStack createHead(String name, String uuid, String textureData, String displayName, String... lore) {
         try {
-            net.minecraft.server.v1_11_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
+            net.minecraft.server.v1_12_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.SKULL_ITEM, 1, (short) 3));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
@@ -138,7 +140,7 @@ public class ItemFactory {
     }
 
     public static ItemStack addGlow(ItemStack item) {
-        net.minecraft.server.v1_11_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(item);
+        net.minecraft.server.v1_12_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(item);
         NBTTagCompound tag = null;
         if (!nmsStack.hasTag()) {
             tag = new NBTTagCompound();

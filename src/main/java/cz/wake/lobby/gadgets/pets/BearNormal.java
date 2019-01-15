@@ -1,8 +1,7 @@
 package cz.wake.lobby.gadgets.pets;
 
 import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.mobs.RideableBear;
-import org.bukkit.craftbukkit.v1_11_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.PolarBear;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -10,7 +9,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class BearNormal {
+/*public class BearNormal {
 
     public static ArrayList<String> cn = new ArrayList();
 
@@ -40,4 +39,4 @@ public class BearNormal {
     public static void setMetadata(PolarBear paramPig, String paramString, Object paramObject, Main paramMain) {
         paramPig.setMetadata(paramString, new FixedMetadataValue(paramMain, paramObject));
     }
-}
+}*/

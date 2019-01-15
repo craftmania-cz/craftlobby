@@ -1,5 +1,6 @@
 package cz.wake.lobby.utils.mobs;
 
+/*
 import net.minecraft.server.v1_11_R1.EntityGuardian;
 import net.minecraft.server.v1_11_R1.EntityHuman;
 import net.minecraft.server.v1_11_R1.EntityLiving;
@@ -81,3 +82,4 @@ public class RideableGuardian extends EntityGuardian {
         return (CraftGuardian) customEntity.getBukkitEntity();
     }
 }
+*/

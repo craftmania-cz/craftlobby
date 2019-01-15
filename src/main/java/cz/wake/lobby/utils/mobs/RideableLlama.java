@@ -1,5 +1,6 @@
 package cz.wake.lobby.utils.mobs;
 
+/*
 import net.minecraft.server.v1_11_R1.EntityHuman;
 import net.minecraft.server.v1_11_R1.EntityLiving;
 import net.minecraft.server.v1_11_R1.EntityLlama;
@@ -80,3 +81,4 @@ public class RideableLlama extends EntityLlama {
         return (CraftLlama) customEntity.getBukkitEntity();
     }
 }
+*/
