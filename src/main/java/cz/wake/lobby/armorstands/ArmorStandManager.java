@@ -46,7 +46,6 @@ public class ArmorStandManager {
             armorstands.add(new Pirate());
             armorstands.add(new Witch());
             armorstands.add(new Bonusy());
-            armorstands.add(new Filip6());
             armorstands.add(new BedWars2());
             if (Main.getInstance().isChristmas()) {
                 armorstands.add(new Santa());
