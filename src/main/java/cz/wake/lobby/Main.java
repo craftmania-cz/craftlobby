@@ -131,8 +131,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         //Register custom entit pro Pets (1.11.2)
         Log.info("Registrace custom entit pro Pets");
         CustomEntityRegistry.registerCustomEntity(92, "Cow", RideableCow.class);
-        /*
         CustomEntityRegistry.registerCustomEntity(91, "Sheep", RideableSheep.class);
+        /*
         CustomEntityRegistry.registerCustomEntity(93, "Chicken", RideableChicken.class);
         CustomEntityRegistry.registerCustomEntity(90, "Pig", RideablePig.class);
         CustomEntityRegistry.registerCustomEntity(60, "Silverfish", RideableSilverfish.class);

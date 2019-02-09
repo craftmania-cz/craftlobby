@@ -1,6 +1,7 @@
 package cz.wake.lobby.armorstands.podlobby;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.utils.mobs.CustomSheep;
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
@@ -15,11 +16,11 @@ public class BedWarsSheep {
     private static Location loc = new Location(Bukkit.getWorld("obw2"), -602.5, 111, 105.5, 0, 0);
 
     public static void spawnSheep() {
-        /*final Sheep sheep = CustomSheep.spawn(loc);
+        final Sheep sheep = CustomSheep.spawn(loc);
         setMetadata(sheep, "bwSheep", "bwSheep", Main.getInstance());
         (sheep).setAgeLock(true);
         (sheep).setColor(DyeColor.LIME);
-        (sheep).setAI(false);*/
+        (sheep).setAI(false);
         hologramSpawn();
     }
 
