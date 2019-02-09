@@ -142,7 +142,8 @@ public class InvClick implements Listener {
                     player.sendMessage("§cAktualne nedostupne do vydani pozdejsiho updatu!");
                 }
                 if (event.getSlot() == 28) {
-                    Main.getInstance().getPetsAPI().openMainInv(player);
+                    //Main.getInstance().getPetsAPI().openMainInv(player);
+                    player.sendMessage("§cAktualne nedostupne z duvodu predelavani lobby!");
                 }
                 if (event.getSlot() == 16) {
                     Main.getInstance().getCloaksAPI().openCloaks(player);
