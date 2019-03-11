@@ -743,7 +743,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE votes SET week = 0;");
+                    ps = conn.prepareStatement("UPDATE player_profile SET week_votes = 0;");
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
