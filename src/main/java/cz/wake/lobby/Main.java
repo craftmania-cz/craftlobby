@@ -264,11 +264,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("creative").setExecutor(new Creative_command());
         getCommand("prison").setExecutor(new Prison_command());
         getCommand("vanilla").setExecutor(new Vanilla_command());
-        getCommand("bedwars").setExecutor(new BedWars_command());
-        //getCommand("skywars").setExecutor(new SkyWars_command());
-        //getCommand("murder").setExecutor(new Murder_command());
-        //getCommand("vanillasb").setExecutor(new VanillaSb_command());
-        getCommand("oldlobby").setExecutor(new OldLobbyCommand());
         getCommand("oldcrafttokens").setExecutor(new CraftTokens_command());
 
         if(getConfig().getBoolean("seasons.christmas")){
@@ -319,18 +314,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public Profil getMenu() {
         return m;
-    }
-
-    public void addPortal(Player p) {
-        inPortal.add(p);
-    }
-
-    public boolean inPortal(Player p) {
-        return inPortal.contains(p);
-    }
-
-    public void removePortal(Player p) {
-        inPortal.remove(p);
     }
 
     private void initDatabase() {

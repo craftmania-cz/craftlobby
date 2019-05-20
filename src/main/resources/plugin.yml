@@ -21,12 +21,8 @@ commands:
     description: Server teleport
   vanilla:
     description: Server teleport
-  bedwars:
-    description: Server teleport
   vanillasb:
     description: Server teleport
-  oldlobby:
-    description: Oldlobby teleport
   oldcrafttokens:
     description: Jjjj tokeny
   kalendar:
