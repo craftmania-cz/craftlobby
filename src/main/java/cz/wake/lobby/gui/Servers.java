@@ -57,49 +57,6 @@ public class Servers implements Listener {
                 "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem", "§7ostrove a plnit ukoly?", "", "§c▸ Predelava se...");
         inv.setItem(15, vanillasb);
 
-        ItemStack sw = ItemFactory.create(Material.BOW, (byte) 0, "§a§lSkyWars", "§8Minihra, PVP", "", "§7Kazdy sam za sebe,", "§7vyhraje pouze ten nejlepsi.", "", "§bSolo: §fKlasicky SkyWars",
-                "§aTeam: §fDva hraci spolu? Neni problem!", "§cInsane: §fOP SkyWars s Eventy", "", "§7Multiplier: §81.0x", "", "§c▸ Predelava se...");
-        sw = ItemFactory.addGlow(sw);
-        //inv.setItem(19, sw);
-
-        ItemStack bedwars2 = ItemFactory.create(Material.BED, (byte)3, "§b§lBedWars", "§8PvP, Teams", "", "§7Stary dobry BedWars jsou back?", "§7Obstojis nove vyzvy v PVP a zachranis", "§7tak jedinou svoji lasku, postel?", "", "§7Mody: §f4v4, 4v8 a dalsi budou uverejneny", "", "§e▸ Levym port do lobby", "§a▸ Pravym port do startujici hry");
-        inv.setItem(19, bedwars2);
-
-
-        ItemStack murder = ItemFactory.createHead("§c§lMurder", "234d66f5-6767-4201-b649-5f60d3a1433b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjhhNGUzNDFkOGNkMzRkYTJkNzEwYzJhYTQ4MzQxNDFhMGQzNzczYTgwZWE3OGNlNmNlZmNiYzY2ZmVjYTIifX19");
-        ItemMeta murderMeta = murder.getItemMeta();
-        ArrayList<String> murderLore = new ArrayList<>();
-        murderLore.add("§8Arcade, PVP");
-        murderLore.add("");
-        murderLore.add("§7Vrazda musi byt vykonana");
-        murderLore.add("§7potichu a beze stop.");
-        murderLore.add("§7Zvladnes to?");
-        murderLore.add("");
-        murderLore.add("§c▸ Predelava se...");
-        murderMeta.setLore(murderLore);
-        murder.setItemMeta(murderMeta);
-        //inv.setItem(21, murder);
-
-
-        ItemStack turnaj = new ItemStack(Material.MAGMA_CREAM);
-        ItemMeta metaTurnaj = turnaj.getItemMeta();
-        metaTurnaj.setDisplayName("§6§lGIGA Turnaj 2017");
-        ArrayList<String> lore = new ArrayList<>();
-        lore.add("§c ");
-        lore.add("§7Finalni turnaj v roce 2017");
-        lore.add("§7pro hrace naseho serveru!");
-        lore.add("");
-        lore.add("§fPristup na server: " + getPristup(p));
-        lore.add("");
-        lore.add("§8Pristup dostanou pouze hraci");
-        lore.add("§8ktery maji v tu dobu hrat!");
-        lore.add("");
-        lore.add("§bLevym kliknutim se pripojis!");
-        lore.add("§bPravym kliknutim zobrazis odkaz na stream");
-        metaTurnaj.setLore(lore);
-        turnaj.setItemMeta(metaTurnaj);
-        //inv.setItem(30, turnaj);
-
         p.openInventory(inv);
 
     }
@@ -110,20 +67,6 @@ public class Servers implements Listener {
     private byte randomByte(byte start, byte end) {
         int cislo = start + random.nextInt(end - start + 1);
         return (byte) cislo;
-    }
-
-    /*
-        Pouze pro GIGA Turnaj
-     */
-    private String getPristup(Player p){
-        if(Main.getInstance().getSQL().isInWhitelist(p)){
-            if(Main.getInstance().getSQL().unlockState().equalsIgnoreCase("1")){
-                return "§c§lNE";
-            } else {
-                return "§a§lANO";
-            }
-        }
-        return "§c§lNE";
     }
 
     private String getPlayers(final String server) {

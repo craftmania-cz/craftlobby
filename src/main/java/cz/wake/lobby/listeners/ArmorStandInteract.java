@@ -62,47 +62,8 @@ public class ArmorStandInteract implements Listener {
                     }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
                 }
             }
-            if (e.getRightClicked().hasMetadata("Flafy")) {
-                if (!flafy) {
-                    mu.sendMessageNearby(locationOfAS, 4d, "§eFlafy: §fPokud ti kid bagr nici, usmej se a vem ho tyci!");
-                    flafy = true;
-                    new BukkitRunnable() {
-
-                        @Override
-                        public void run() {
-                            flafy = false;
-                        }
-                    }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
-                }
-            }
             if (e.getRightClicked().hasMetadata("Kalendar")) {
                 k.openKalendar(p);
-            }
-            if (e.getRightClicked().hasMetadata("Kubrastig")) {
-                if (!delfik) {
-                    mu.sendMessageNearby(locationOfAS, 4d, "§eKubrastig: §fZase mam bobek v kytare.");
-                    delfik = true;
-                    new BukkitRunnable() {
-
-                        @Override
-                        public void run() {
-                            delfik = false;
-                        }
-                    }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
-                }
-            }
-            if (e.getRightClicked().hasMetadata("Filip6")) {
-                if (!delfik) {
-                    mu.sendMessageNearby(locationOfAS, 4d, "§eFilip6_CZ: §fBAF!......Lek!");
-                    delfik = true;
-                    new BukkitRunnable() {
-
-                        @Override
-                        public void run() {
-                            delfik = false;
-                        }
-                    }.runTaskLaterAsynchronously(Main.getInstance(), 60L);
-                }
             }
             if (e.getRightClicked().hasMetadata("Child")) {
                 if (!child) {
@@ -561,19 +522,9 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("vanilla")) {
                 Main.getInstance().getCraftBalancerManager().bypassConnect(p, "vanilla");
             }
-            if (e.getRightClicked().hasMetadata("bedwars2")) {
-                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "bw-lobby");
-            }
             if (e.getRightClicked().hasMetadata("vanilla-skyblock")) {
                 //sendToServer(p, "vanillasb");
                 p.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
-            }
-
-            if (e.getRightClicked().hasMetadata("4v4")) {
-                Main.getInstance().getCraftBalancerManager().connectPlayer(p, "bedwars-4v4-games");
-            }
-            if (e.getRightClicked().hasMetadata("4v8")) {
-                Main.getInstance().getCraftBalancerManager().connectPlayer(p, "bedwars-4v16-games");
             }
             if (e.getRightClicked().hasMetadata("Halloween")) {
                 p.performCommand("bts joinserver halloween");
