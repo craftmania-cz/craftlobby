@@ -98,7 +98,9 @@ public class PlayerListener implements Listener {
             Main.getInstance().getSQL().createRewardsRecord(p, "lobby_vipodmena");
 
             // Prefix v tablistu
-            UtilTablist.setupDefaultTablist(p);
+            if (Main.getInstance().getConfig().getBoolean("tablist-prefixes", false)) {
+                UtilTablist.setupDefaultTablist(p);
+            }
 
             // Setting setttings :D
             setupPlayerOnJoin(p);

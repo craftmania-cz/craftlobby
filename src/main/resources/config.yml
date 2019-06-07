@@ -21,6 +21,9 @@ server: lobby
 # Zmena casu podle real-time
 timer: false
 
+# Prefix v tablistu pres display-name
+tablist-prefixes: false
+
 ## Sezóny ##
 seasons:
  # Vanocni update zahrnujici kalendar + efekty
