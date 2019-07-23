@@ -24,10 +24,11 @@ public class Link_Command implements CommandExecutor {
             return true;
         }
 
-        String code = RandomStringUtils.randomAlphabetic(8).toUpperCase();
+        String code = RandomStringUtils.randomAlphanumeric(8).toUpperCase();
         Main.getInstance().getSQL().createConnectionRequest(p, code);
         p.sendMessage("§6Zahajil jsi prepojovani s Discord uctem!");
-        p.sendMessage("§aZajdi na nas Discord server do #bot_prikazy a zadej prikaz ,link " + code);
+        p.sendMessage("§aZajdi na nas Discord server (discord.gg/craftmania) do #bot_prikazy a zadej prikaz ,link " + code);
+        p.sendMessage("§aNasledne se ti prepoji tvuj Minecraft ucet s Discord uctem a budes mit jednoduchsi pristup ke vsem statistikam.");
         p.sendMessage("§aTvuj kod expiruje za 5 minut.");
         return true;
     }

@@ -265,6 +265,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("prison").setExecutor(new Prison_command());
         getCommand("vanilla").setExecutor(new Vanilla_command());
         getCommand("oldcrafttokens").setExecutor(new CraftTokens_command());
+        getCommand("link").setExecutor(new Link_Command());
 
         if(getConfig().getBoolean("seasons.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());

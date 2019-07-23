@@ -2,6 +2,7 @@ package cz.wake.lobby.sql;
 
 import com.zaxxer.hikari.HikariDataSource;
 import cz.wake.lobby.Main;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -856,8 +857,12 @@ public class SQLManager {
         try {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT discord_user_id FROM player_profile WHERE nick = '" + p.getName() + "';");
+            //discord_user_id NULL
             ps.executeQuery();
-            return ps.getResultSet().next();
+            if (ps.getResultSet().next()) {
+                if (StringUtils.isBlank(ps.getResultSet().getString("discord_user_id"))) return false;
+            }
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -935,6 +940,9 @@ public class SQLManager {
                     ps = conn.prepareStatement("DELETE FROM player_discordconnections WHERE nick =?;");
                     ps.setString(1, p.getName());
                     ps.executeUpdate();
+                    if (p.isOnline()) {
+                        p.sendMessage("§c§l(!) §cTvuj prepojovaci kod prave expiroval.");
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
