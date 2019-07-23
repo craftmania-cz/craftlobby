@@ -129,7 +129,7 @@ public class RewardsManager implements Listener {
             }
             if (e.getSlot() == 20) {
                 if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
-                    p.sendMessage("§eVybral jsi si denni odmenu §650 CC");
+                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §650 CC");
                     Main.getInstance().getSQL().updateRewardRecord(p, "lobby_denniodmena");
                     //Main.getInstance().setData().addCoins(p, 50);
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 50");
@@ -137,26 +137,26 @@ public class RewardsManager implements Listener {
                     b.playEffect(p);
                     p.closeInventory();
                 } else {
-                    p.sendMessage("§cTuto odmenu jsi si jiz vybral!");
+                    p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
                 }
             }
             if (e.getSlot() == 21) {
                 if (p.hasPermission("craftlobby.vip.odmena")) {
                     if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                         if(p.hasPermission("craftlobby.vip.odmena.obsidian")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §64000 CC");
+                            p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §64000 CC");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 4000);
                         } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §63000 CC");
+                            p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §63000 CC");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 3000);
                         } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
-                            p.sendMessage("§eVybral jsi si VIP bonus §62000 CC");
+                            p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §62000 CC");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 2000);
                         } else {
-                            p.sendMessage("§eVybral jsi si VIP bonus §61000 CC");
+                            p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §61000 CC");
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 1000);
                         }
@@ -164,10 +164,10 @@ public class RewardsManager implements Listener {
                         b.playEffect(p);
                         p.closeInventory();
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny musis mit zakoupene globalni VIP!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny musis mit zakoupene globalni VIP!");
                 }
             }
         }

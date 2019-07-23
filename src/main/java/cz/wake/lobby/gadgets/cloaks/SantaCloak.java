@@ -24,7 +24,7 @@ public class SantaCloak {
     @SuppressWarnings("deprecation")
     public void activateSanta(Player p) {
         if (Main.getInstance().getTPS() < 17) {
-            p.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
+            p.sendMessage("§c§l[!] §cServer je pretizeny, nelze pouzivat gadget!");
             return;
         }
         if (!santaCloaks.containsKey(p.getName())) {

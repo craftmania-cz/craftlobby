@@ -41,7 +41,7 @@ public class Shop implements Listener {
 
             player.openInventory(inv);
         } else {
-            p.sendMessage("§cNedostatek coinu k nakupu: §f" + coins + " CC");
+            p.sendMessage("§c§l[!] §cNedostatek coinu k nakupu: §f" + coins + " CC");
         }
     }
 
@@ -61,7 +61,7 @@ public class Shop implements Listener {
             if (e.getSlot() == 30) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set " + permission + " true");
                 CraftCoinsAPI.takeCoins(p, coin);
-                p.sendMessage("§eZakoupil jsi si §a" + name + " §eza §6" + coin + " CC.");
+                p.sendMessage("§e§l[*] §eZakoupil jsi si §a" + name + " §eza §6" + coin + " CC.");
                 p.closeInventory();
             }
             if (e.getSlot() == 32) {

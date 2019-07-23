@@ -97,13 +97,13 @@ public class InvClick implements Listener {
                 }
                 if (event.getSlot() == 13) {
                     //sendToServer(player, "prison");
-                    player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
+                    player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
                 if (event.getSlot() == 14) {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }
                 if (event.getSlot() == 15) {
-                    player.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
+                    player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//
