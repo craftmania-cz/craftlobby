@@ -21,7 +21,7 @@ public class DevilCloak {
     @SuppressWarnings("deprecation")
     public void activate(Player p) {
         if (Main.getInstance().getTPS() < 17) {
-            p.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
+            p.sendMessage("§c§l[!] §cServer je pretizeny, nelze pouzivat gadget!");
             return;
         }
         if (!devilCloaks.containsKey(p.getName())) {

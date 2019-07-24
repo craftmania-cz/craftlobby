@@ -524,7 +524,7 @@ public class ArmorStandInteract implements Listener {
             }
             if (e.getRightClicked().hasMetadata("vanilla-skyblock")) {
                 //sendToServer(p, "vanillasb");
-                p.sendMessage("§c§l(!) §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
+                p.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
             }
             if (e.getRightClicked().hasMetadata("Halloween")) {
                 p.performCommand("bts joinserver halloween");

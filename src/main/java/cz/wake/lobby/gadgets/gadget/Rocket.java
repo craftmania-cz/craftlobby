@@ -64,22 +64,22 @@ public class Rocket implements Listener {
             return;
         }
         if (!Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-            player.sendMessage("§cNelze tento gadget pouzit na tomto typu lobby!");
+            player.sendMessage("§c§l[!] §cNelze tento gadget pouzit na tomto typu lobby!");
             return;
         }
         if (SettingsMenu.activeGadgets.contains(player)) {
-            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            player.sendMessage("§c§l[!] §cLze mit aktivni pouze jeden gadget!");
             return;
         }
         if (!canBuild(player)) {
-            player.sendMessage("§cNemas dostatecny prostor okolo sebe!");
+            player.sendMessage("§c§l[!] §cNemas dostatecny prostor okolo sebe!");
             return;
         }
         e.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
             if (Main.getInstance().getTPS() < 17) {
-                player.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
+                player.sendMessage("§c§l[!] §cServer je pretizeny, nelze pouzivat gadget!");
                 return;
             }
             if (this._time.containsKey(player)) {

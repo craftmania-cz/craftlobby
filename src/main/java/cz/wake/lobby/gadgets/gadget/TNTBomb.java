@@ -98,14 +98,14 @@ public class TNTBomb implements Listener {
             return;
         }
         if (SettingsMenu.activeGadgets.contains(p)) {
-            p.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            p.sendMessage("§c§l[!] §cLze mit aktivni pouze jeden gadget!");
             return;
         }
         event.setCancelled(true);
         p.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
             if (Main.getInstance().getTPS() < 17) {
-                p.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
+                p.sendMessage("§c§l[!] §cServer je pretizeny, nelze pouzivat gadget!");
                 return;
             }
             if (this._time.containsKey(p)) {

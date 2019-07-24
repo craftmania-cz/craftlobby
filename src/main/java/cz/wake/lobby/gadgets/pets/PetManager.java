@@ -165,7 +165,7 @@ public class PetManager implements Listener {
                     Entity ent = PetManager.pet.get(player);
                     if (ent instanceof Evoker) {
                         ((Evoker) ent).setTarget(mob);
-                        player.sendMessage("§eEvoker ted bude minutu utocit na §f" + mob.getName());
+                        player.sendMessage("§e§l[*] §eEvoker ted bude minutu utocit na §f" + mob.getName());
                         Bukkit.getScheduler().runTaskLater(Main.getPlugin(), new BukkitRunnable() {
                             @Override
                             public void run() {

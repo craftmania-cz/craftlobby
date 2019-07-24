@@ -345,11 +345,11 @@ public class GadgetsAPI implements Listener {
             if (e.getSlot() == 15) {
                 if (p.hasPermission("craftlobby.gadgets.tsunami")) {
                     //this.ml.prepareGadget(p, "Tsunami", Material.WATER_BUCKET, (byte) 0);
-                    p.sendMessage("§cTento Gadget je docasne deaktivovany!");
+                    p.sendMessage("§c§l[!] §cTento Gadget je docasne deaktivovany!");
                 } else {
                     ItemStack i = ItemFactory.create(Material.WATER_BUCKET, (byte) 0, "§e§lTsunami", "§7Odsun vsechny jako tsunami.");
                     //Shop.open(p, "Tsunami", "craftlobby.gadgets.tsunami", i, 500);
-                    p.sendMessage("§cTento Gadget je docasne deaktivovany!");
+                    p.sendMessage("§c§l[!] §cTento Gadget je docasne deaktivovany!");
                 }
             }
             if (e.getSlot() == 16) {
@@ -422,7 +422,7 @@ public class GadgetsAPI implements Listener {
                 } else {
                     ItemStack i = ItemFactory.create(Material.COAL, (byte) 1, "§e§lRocket", "§7NASA te potrebuje, my ale take!");
                     //Shop.open(p, "Rocket", "craftlobby.gadgets.rocket", i, 8000);
-                    p.sendMessage("§cNelze si docasne tento Gadget zakoupit.");
+                    p.sendMessage("§c§l[!] §cNelze si docasne tento Gadget zakoupit.");
                 }
             }
             if (e.getSlot() == 25) {

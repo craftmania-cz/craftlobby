@@ -159,17 +159,17 @@ public class SettingsMenu implements Listener {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_fly", 0);
                         p.setAllowFlight(false);
                         p.setFlying(false);
-                        p.sendMessage("§cFly na lobby bylo deaktivovano!");
+                        p.sendMessage("§c§l[!] §cFly na lobby bylo deaktivovano!");
                         p.closeInventory();
                     } else {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_fly", 1);
                         p.setAllowFlight(true);
                         p.setFlying(true);
-                        p.sendMessage("§aFly na lobby bylo aktivovano!");
+                        p.sendMessage("§e§l[*] §eFly na lobby bylo aktivovano!");
                         p.closeInventory();
                     }
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal VIP");
+                    p.sendMessage("§c§l[!] §cK pouziti teto funkce potrebujes §fGlobal VIP");
                     p.closeInventory();
                 }
             }
@@ -180,7 +180,7 @@ public class SettingsMenu implements Listener {
                     for (Player p2 : Bukkit.getOnlinePlayers()) {
                         p.showPlayer(p2);
                     }
-                    p.sendMessage("§aZobrazovani hracu zapnuto!");
+                    p.sendMessage("§e§l[*] §eZobrazovani hracu zapnuto!");
                     p.closeInventory();
                 } else {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_players", 1);
@@ -188,7 +188,7 @@ public class SettingsMenu implements Listener {
                     for (Player p2 : Bukkit.getOnlinePlayers()) {
                         p.hidePlayer(p2);
                     }
-                    p.sendMessage("§cZobrazovani hracu vypnuto!");
+                    p.sendMessage("§c§l[!] §cZobrazovani hracu vypnuto!");
                     p.closeInventory();
                 }
             }
@@ -196,12 +196,12 @@ public class SettingsMenu implements Listener {
                 if (Main.getInstance().getSQL().getSettings(p, "lobby_particles") == 1) {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_particles", 0);
                     SettingsMenu.particles.remove(p);
-                    p.sendMessage("§cZobrazovani efektu vypnuto!");
+                    p.sendMessage("§c§l[!] §cZobrazovani efektu vypnuto!");
                     p.closeInventory();
                 } else {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_particles", 1);
                     SettingsMenu.particles.add(p);
-                    p.sendMessage("§aZobrazovani efektu zapnuto!");
+                    p.sendMessage("§e§l[*] §eZobrazovani efektu zapnuto!");
                     p.closeInventory();
                 }
             }
@@ -209,12 +209,12 @@ public class SettingsMenu implements Listener {
                 if (Main.getInstance().getSQL().getSettings(p, "lobby_gadgets") == 1) {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_gadgets", 0);
                     SettingsMenu.gadgets.remove(p);
-                    p.sendMessage("§cGadgety jiz na tebe nebudou reagovat!");
+                    p.sendMessage("§c§l[!] §cGadgety jiz na tebe nebudou reagovat!");
                     p.closeInventory();
                 } else {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_gadgets", 1);
                     SettingsMenu.gadgets.add(p);
-                    p.sendMessage("§aGadgety nyni na tebe budou reagovat!");
+                    p.sendMessage("§e§l[*] §eGadgety nyni na tebe budou reagovat!");
                     p.closeInventory();
                 }
             }
@@ -222,23 +222,23 @@ public class SettingsMenu implements Listener {
                 if (Main.getInstance().getSQL().getSettings(p, "lobby_speed") == 1) {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_speed", 0);
                     p.setWalkSpeed(0.2F);
-                    p.sendMessage("§cRychlost byla nastavena na zakladni!");
+                    p.sendMessage("§c§l[!] §cRychlost byla nastavena na zakladni!");
                     p.closeInventory();
                 } else {
                     Main.getInstance().getSQL().updateSettings(p, "lobby_speed", 1);
                     p.setWalkSpeed(0.3F);
-                    p.sendMessage("§aRychlost byla nastavena na 2x rychlejsi!");
+                    p.sendMessage("§e§l[*] §eRychlost byla nastavena na 2x rychlejsi!");
                     p.closeInventory();
                 }
             }
             if (e.getSlot() == 25) {
                 if (Main.getInstance().getSQL().getSettings(p, "death_messages") == 1) {
                     Main.getInstance().getSQL().updateSettings(p, "death_messages", 0);
-                    p.sendMessage("§cZablokovano zobrazovani zprav o smrti!");
+                    p.sendMessage("§c§l[!] §cZablokovano zobrazovani zprav o smrti!");
                     p.closeInventory();
                 } else {
                     Main.getInstance().getSQL().updateSettings(p, "death_messages", 1);
-                    p.sendMessage("§aNyni uvidis v chatu zpravy o smrti hracu!");
+                    p.sendMessage("§e§l[*] §eNyni uvidis v chatu zpravy o smrti hracu!");
                     p.closeInventory();
                 }
             }
@@ -252,15 +252,15 @@ public class SettingsMenu implements Listener {
                 if (p.hasPermission("craftlobby.vip.joinbroadcast-message")) {
                     if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_enabled", 0);
-                        p.sendMessage("§cZprava pri pripojeni byla deaktivovana!");
+                        p.sendMessage("§c§l[!] §cZprava pri pripojeni byla deaktivovana!");
                         p.closeInventory();
                     } else {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_enabled", 1);
-                        p.sendMessage("§aZprava pri pripojeni byla aktivovana!");
+                        p.sendMessage("§e§l[*] §eZprava pri pripojeni byla aktivovana!");
                         p.closeInventory();
                     }
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
+                    p.sendMessage("§c§l[!] §cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                     p.closeInventory();
                 }
             }
@@ -268,15 +268,15 @@ public class SettingsMenu implements Listener {
                 if (p.hasPermission("craftlobby.vip.joinbroadcast-change-sound")) {
                     if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1) {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound_enabled", 0);
-                        p.sendMessage("§cZvuk pri pripojeni byl deaktivovan!");
+                        p.sendMessage("§c§l[!] §cZvuk pri pripojeni byl deaktivovan!");
                         p.closeInventory();
                     } else {
                         Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound_enabled", 1);
-                        p.sendMessage("§aZvuk pri pripojeni byl aktivovan!");
+                        p.sendMessage("§e§l[*] §eZvuk pri pripojeni byl aktivovan!");
                         p.closeInventory();
                     }
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
+                    p.sendMessage("§c§l[!] §cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                     p.closeInventory();
                 }
             }
@@ -284,14 +284,14 @@ public class SettingsMenu implements Listener {
                 if (p.hasPermission("craftlobby.vip.joinbroadcast-message")) {
                     openJoinMessagesMenu(p);
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
+                    p.sendMessage("§c§l[!] §cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                 }
             }
             if (e.getSlot() == 10) {
                 if (p.hasPermission("craftlobby.vip.joinbroadcast-change-sound")) {
                     openSoundsMenu(p);
                 } else {
-                    p.sendMessage("§cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
+                    p.sendMessage("§c§l[!] §cK pouziti teto funkce potrebujes §fGlobal Emerald VIP");
                 }
             }
             if (e.getSlot() == 36) {
@@ -308,49 +308,49 @@ public class SettingsMenu implements Listener {
             }
             if (e.getSlot() == 10) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(1, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(1, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
                 return;
             }
             if (e.getSlot() == 11) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(2, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(2, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 2);
                 return;
             }
             if (e.getSlot() == 12) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(3, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(3, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 3);
                 return;
             }
             if (e.getSlot() == 13) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(1, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(1, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 4);
                 return;
             }
             if (e.getSlot() == 14) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(5, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(5, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 5);
                 return;
             }
             if (e.getSlot() == 15) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(6, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(6, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 6);
                 return;
             }
             if (e.getSlot() == 16) {
                 p.closeInventory();
-                p.sendMessage("§eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(7, p) + "'.");
+                p.sendMessage("§e§l[*] §eZprava pri pripojeni nastavena na §e'" + formatJoinMessageWithoutColors(7, p) + "'.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 7);
                 return;
@@ -366,35 +366,35 @@ public class SettingsMenu implements Listener {
             }
             if (e.getSlot() == 11) {
                 p.closeInventory();
-                p.sendMessage("§eZvuk oznacovani byl nastaven na §2§lEXP ORB PICKUP§e.");
+                p.sendMessage("§e§l[*] §eZvuk oznacovani byl nastaven na §2§lEXP ORB PICKUP§e.");
                 p.playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound", "ENTITY_EXPERIENCE_ORB_PICKUP");
                 return;
             }
             if (e.getSlot() == 12) {
                 p.closeInventory();
-                p.sendMessage("§eZvuk oznacovani byl nastaven na §2§lANVIL FALL§e.");
+                p.sendMessage("§e§l[*] §eZvuk oznacovani byl nastaven na §2§lANVIL FALL§e.");
                 p.playSound(p.getLocation(), Sound.BLOCK_ANVIL_FALL, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound", "BLOCK_ANVIL_FALL");
                 return;
             }
             if (e.getSlot() == 13) {
                 p.closeInventory();
-                p.sendMessage("§eZvuk oznacovani byl nastaven na §2§lGLASS BREAK§e.");
+                p.sendMessage("§e§l[*] §eZvuk oznacovani byl nastaven na §2§lGLASS BREAK§e.");
                 p.playSound(p.getLocation(), Sound.BLOCK_GLASS_BREAK, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound", "BLOCK_GLASS_BREAK");
                 return;
             }
             if (e.getSlot() == 14) {
                 p.closeInventory();
-                p.sendMessage("§eZvuk oznacovani byl nastaven na §2§lITEM PICKUP§e.");
+                p.sendMessage("§e§l[*] §eZvuk oznacovani byl nastaven na §2§lITEM PICKUP§e.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound", "ENTITY_ITEM_PICKUP");
                 return;
             }
             if (e.getSlot() == 15) {
                 p.closeInventory();
-                p.sendMessage("§eZvuk oznacovani byl nastaven na §2§lZOMBIE HURT§e.");
+                p.sendMessage("§e§l[*] §eZvuk oznacovani byl nastaven na §2§lZOMBIE HURT§e.");
                 p.playSound(p.getLocation(), Sound.ENTITY_ZOMBIE_HURT, 1.0f, 1.0f);
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_sound", "ENTITY_ZOMBIE_HURT");
                 return;

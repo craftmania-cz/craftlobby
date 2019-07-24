@@ -25,7 +25,7 @@ public class Kalendar implements Listener {
     public void openKalendar(final Player p) {
 
         if (Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(p, "played_time") < 180) {
-            p.sendMessage("§c[!] Aby jsi si mohl vybrat odmenu, musis mit odehrane aspon 3 hodiny na serveru! :)");
+            p.sendMessage("§c§l[!] §cAby jsi si mohl vybrat odmenu, musis mit odehrane aspon 3 hodiny na serveru! :)");
             return;
         }
 
@@ -181,12 +181,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -203,12 +203,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -224,12 +224,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -245,12 +245,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -266,12 +266,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -287,12 +287,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -308,12 +308,12 @@ public class Kalendar implements Listener {
                         setPermission(p, "craftlobby.morphs.chicken");
                         p.closeInventory();
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -329,12 +329,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -353,12 +353,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -373,12 +373,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -394,12 +394,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -414,12 +414,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -433,12 +433,12 @@ public class Kalendar implements Listener {
                         setPermission(p, "craftlobby.cloaks.angel");
                         p.closeInventory();
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -453,12 +453,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -474,12 +474,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -494,12 +494,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -515,12 +515,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -535,12 +535,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -556,12 +556,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -576,12 +576,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -598,12 +598,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -618,12 +618,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -632,19 +632,19 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= 1545519600000L) { // 23.den
                     if (Main.getInstance().getSQL().checkDay(p, 23) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 23);
-                        p.sendMessage("§eZiskal jsi: §b500CC + Vsechny Heads!");
+                        p.sendMessage("§e§l[*] §eZiskal jsi: §b500CC + Vsechny Heads!");
                         CraftCoinsAPI.giveCoins(p, 500);
                         //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b500 CC");
                         setPermission(p, "craftlobby.heads.*");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }
@@ -653,7 +653,7 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= 1545606000000L) { // 24.den
                     if (Main.getInstance().getSQL().checkDay(p, 24) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 24);
-                        p.sendMessage("§eZiskal jsi: §b3000CC + hoodne Pets!");
+                        p.sendMessage("§e§l[*] §eZiskal jsi: §b3000CC + hoodne Pets!");
                         CraftTokensAPI.giveTokens(p, 1);
                         CraftCoinsAPI.giveCoins(p, 3000);
                         //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bHoodne Pets + 3 000 CC + 1 CT!");
@@ -666,12 +666,12 @@ public class Kalendar implements Listener {
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§cTuto odmenu jsi si jiz vybral/a!");
+                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§cNa vyber teto odmeny je prilis brzo!");
+                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
                     p.closeInventory();
                     return;
                 }

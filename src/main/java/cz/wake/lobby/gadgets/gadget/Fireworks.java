@@ -50,14 +50,14 @@ public class Fireworks implements Listener {
             return;
         }
         if (SettingsMenu.activeGadgets.contains(player)) {
-            player.sendMessage("§cLze mit aktivni pouze jeden gadget!");
+            player.sendMessage("§c§l[!] §cLze mit aktivni pouze jeden gadget!");
             return;
         }
         event.setCancelled(true);
         player.updateInventory();
         if ((action.equals(Action.RIGHT_CLICK_AIR)) || (action.equals(Action.RIGHT_CLICK_BLOCK))) {
             if (Main.getInstance().getTPS() < 17) {
-                player.sendMessage("§cServer je pretizeny, nelze pouzivat gadget!");
+                player.sendMessage("§c§l[!] §cServer je pretizeny, nelze pouzivat gadget!");
                 return;
             }
             if (!player.hasPermission("craftlobby.gadgets.firework")) {

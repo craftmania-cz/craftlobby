@@ -246,14 +246,14 @@ public class Profil implements Listener {
                         editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis zpravu, co chces nastavit jako status!");
+                        p.sendMessage("§e§l[*] §eNyni napis zpravu, co chces nastavit jako status!");
                         p.sendMessage("§7Editaci zrusis napsanim -> exit");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
                     p.closeInventory();
                     Main.getInstance().getSQL().updateStatus(p, "Tento hráč nemá nastavený status...");
-                    p.sendMessage("§eStatus byl vyresetovany na default!");
+                    p.sendMessage("§e§l[*] §eStatus byl vyresetovany na default!");
                 }
             }
             if (e.getSlot() == 29) {
@@ -298,13 +298,13 @@ public class Profil implements Listener {
                         fb_editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis svuj nick na Faceboku. Pozor na tvar!");
+                        p.sendMessage("§e§l[*] §eNyni napis svuj nick na Faceboku. Pozor na tvar!");
                         p.sendMessage("§8https://www.facebook.com/§cNICK");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
                     Main.getInstance().getSQL().updateSocLinks(p, "soc_facebook", "0");
-                    p.sendMessage("§eTvuj Facebook odkaz byl smazan!");
+                    p.sendMessage("§e§l[*] §eTvuj Facebook odkaz byl smazan!");
                     openSocialMenu(p);
                 }
             }
@@ -314,13 +314,13 @@ public class Profil implements Listener {
                         tw_editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis svuj nick na Twitteru. Pozor na tvar!");
+                        p.sendMessage("§e§l[*] §eNyni napis svuj nick na Twitteru. Pozor na tvar!");
                         p.sendMessage("§8https://twitter.com/§cNICK");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
                     Main.getInstance().getSQL().updateSocLinks(p, "soc_twitter", "0");
-                    p.sendMessage("§eTvuj Twitter odkaz byl smazan!");
+                    p.sendMessage("§e§l[*] §eTvuj Twitter odkaz byl smazan!");
                     openSocialMenu(p);
                 }
             }
@@ -330,13 +330,13 @@ public class Profil implements Listener {
                         youtube_editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis svuj nick na Youtube. Pozor na tvar!");
+                        p.sendMessage("§e§l[*] §eNyni napis svuj nick na Youtube. Pozor na tvar!");
                         p.sendMessage("§8https://www.youtube.com/user/§cNICK");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
                     Main.getInstance().getSQL().updateSocLinks(p, "soc_ytb", "0");
-                    p.sendMessage("§eTvuj Youtube odkaz byl smazan!");
+                    p.sendMessage("§e§l[*] §eTvuj Youtube odkaz byl smazan!");
                     openSocialMenu(p);
                 }
             }
@@ -346,13 +346,13 @@ public class Profil implements Listener {
                         twitch_editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis svuj nick na Twitch. Pozor na tvar!");
+                        p.sendMessage("§e§l[*] §eNyni napis svuj nick na Twitch. Pozor na tvar!");
                         p.sendMessage("§8https://www.twitch.tv/§cNICK");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
                     Main.getInstance().getSQL().updateSocLinks(p, "soc_twitch", "0");
-                    p.sendMessage("§eTvuj Twitch odkaz byl smazan!");
+                    p.sendMessage("§e§l[*] §eTvuj Twitch odkaz byl smazan!");
                     openSocialMenu(p);
                 }
             }
@@ -362,13 +362,13 @@ public class Profil implements Listener {
                         web_editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis svuj na jakoukoliv stranku!");
+                        p.sendMessage("§e§l[*] §eNyni napis svuj na jakoukoliv stranku!");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()
                         && e.getCurrentItem().getItemMeta().getDisplayName().equals("§bWeb (vlastni URL)")) {
                     Main.getInstance().getSQL().updateSocLinks(p, "soc_web", "0");
-                    p.sendMessage("§eTvuj Web odkaz byl smazan!");
+                    p.sendMessage("§e§l[*] §eTvuj Web odkaz byl smazan!");
                     openSocialMenu(p);
                 }
             }
@@ -378,13 +378,13 @@ public class Profil implements Listener {
                         steam_editor.add(p);
                         p.closeInventory();
                         p.sendMessage("");
-                        p.sendMessage("§eNyni napis svuj nick na Steam. Pozor na tvar!");
+                        p.sendMessage("§e§l[*] §eNyni napis svuj nick na Steam. Pozor na tvar!");
                         p.sendMessage("§8https://steamcommunity.com/id/§cNICK");
                         p.sendMessage("");
                     }
                 } else if (e.isRightClick()) {
                     Main.getInstance().getSQL().updateSocLinks(p, "soc_steam", "0");
-                    p.sendMessage("§eTvuj Steam odkaz byl smazan!");
+                    p.sendMessage("§e§l[*] §eTvuj Steam odkaz byl smazan!");
                     openSocialMenu(p);
                 }
             }
@@ -416,7 +416,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateStatus(p, m);
             editor.remove(p);
-            p.sendMessage("§eStatus nastaven na: §f" + m);
+            p.sendMessage("§e§l[*] §eStatus nastaven na: §f" + m);
         }
         if (fb_editor.contains(p)) {
             e.setCancelled(true);
@@ -431,7 +431,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateSocLinks(p, "soc_facebook", m);
             fb_editor.remove(p);
-            p.sendMessage("§eFacebook link nastaven na: §fhttps://www.facebook.com/§b" + m);
+            p.sendMessage("§e§l[*] §eFacebook link nastaven na: §fhttps://www.facebook.com/§b" + m);
         }
         if (twitch_editor.contains(p)) {
             e.setCancelled(true);
@@ -446,7 +446,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateSocLinks(p, "soc_twitch", m);
             twitch_editor.remove(p);
-            p.sendMessage("§eTwitch link nastaven na: §fhttps://www.twitch.tv/§b" + m);
+            p.sendMessage("§e§l[*] §eTwitch link nastaven na: §fhttps://www.twitch.tv/§b" + m);
         }
         if (youtube_editor.contains(p)) {
             e.setCancelled(true);
@@ -461,7 +461,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateSocLinks(p, "soc_ytb", m);
             youtube_editor.remove(p);
-            p.sendMessage("§eYoutube link nastaven na: §fhttps://www.youtube.com/user/§b" + m);
+            p.sendMessage("§e§l[*] §eYoutube link nastaven na: §fhttps://www.youtube.com/user/§b" + m);
         }
         if (tw_editor.contains(p)) {
             e.setCancelled(true);
@@ -476,7 +476,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateSocLinks(p, "soc_twitter", m);
             tw_editor.remove(p);
-            p.sendMessage("§eTwitter link nastaven na: §fhttps://twitter.com/§b" + m);
+            p.sendMessage("§e§l[*] §eTwitter link nastaven na: §fhttps://twitter.com/§b" + m);
         }
         if (web_editor.contains(p)) {
             e.setCancelled(true);
@@ -491,7 +491,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateSocLinks(p, "soc_web", m);
             web_editor.remove(p);
-            p.sendMessage("§eWeb link nastaven na: §b" + m);
+            p.sendMessage("§e§l[*] §eWeb link nastaven na: §b" + m);
         }
         if (steam_editor.contains(p)) {
             e.setCancelled(true);
@@ -506,7 +506,7 @@ public class Profil implements Listener {
             }
             Main.getInstance().getSQL().updateSocLinks(p, "soc_steam", m);
             steam_editor.remove(p);
-            p.sendMessage("§eSteam link nastaven na: §fhttps://steamcommunity.com/id/§b" + m);
+            p.sendMessage("§e§l[*] §eSteam link nastaven na: §fhttps://steamcommunity.com/id/§b" + m);
         }
     }
 
