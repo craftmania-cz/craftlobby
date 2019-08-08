@@ -27,6 +27,8 @@ commands:
     description: Jjjj tokeny
   kalendar:
     description: Vanoce! :D
+  link:
+    description: Prepojeni Discordu s MC
 
 permissions:
   craftlobby.pristup:

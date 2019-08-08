@@ -2,6 +2,7 @@ package cz.wake.lobby.sql;
 
 import com.zaxxer.hikari.HikariDataSource;
 import cz.wake.lobby.Main;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -846,6 +847,109 @@ public class SQLManager {
             pool.close(conn, ps, null);
         }
         return -1;
+    }
+
+    //Discord Connections
+
+    public final boolean isConnectedToDiscord(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT discord_user_id FROM player_profile WHERE nick = '" + p.getName() + "';");
+            //discord_user_id NULL
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                if (StringUtils.isBlank(ps.getResultSet().getString("discord_user_id"))) return false;
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            pool.close(conn, ps, null);
+        }
+    }
+
+    public final boolean hasConnectionRequest(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM player_discordconnections WHERE nick = '" + p.getName() + "';");
+            ps.executeQuery();
+            return ps.getResultSet().next();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            pool.close(conn, ps, null);
+        }
+    }
+
+    public final String getConnectionCode(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT code FROM player_discordconnections WHERE nick = '" + p.getName() + "';");
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getString("code");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return "";
+    }
+
+    public final void createConnectionRequest(final Player p, final String code) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("INSERT INTO player_discordconnections (nick, uuid, end_period, code) VALUES (?, ?, ?, ?);");
+                    ps.setString(1, p.getName());
+                    ps.setString(2, p.getUniqueId().toString());
+                    ps.setLong(3, System.currentTimeMillis() + (5 * 60 * 1000));
+                    ps.setString(4, code);
+                    ps.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+        removeConnectionRequest(p); //automatically delete after 5 mins
+    }
+
+    public final void removeConnectionRequest(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("DELETE FROM player_discordconnections WHERE nick =?;");
+                    ps.setString(1, p.getName());
+                    ps.executeUpdate();
+                    if (p.isOnline()) {
+                        p.sendMessage("§c§l(!) §cTvuj prepojovaci kod prave expiroval.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskLaterAsynchronously(Main.getInstance(), 5 * 60 * 20);
     }
 
 
