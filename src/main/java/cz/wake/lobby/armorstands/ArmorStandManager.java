@@ -19,6 +19,7 @@ public class ArmorStandManager {
     public static void init() {
         if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             armorstands.add(new Creative());
+            armorstands.add(new CreativeOld());
             armorstands.add(new VanillaSkyblock());
             armorstands.add(new Prison());
             armorstands.add(new SkyBlock());
@@ -71,6 +72,8 @@ public class ArmorStandManager {
                 i.updateArmorStand("skyblock", Main.getInstance().getSQL().getOnlinePlayers("skyblock"));
             } else if (i instanceof Creative) {
                 i.updateArmorStand("creative", Main.getInstance().getSQL().getOnlinePlayers("creative"));
+            } else if (i instanceof CreativeOld) {
+                i.updateArmorStand("creative2", Main.getInstance().getSQL().getOnlinePlayers("creative2"));
             } else if (i instanceof Prison) {
                 i.updateArmorStand("prison", Main.getInstance().getSQL().getOnlinePlayers("prison"));
             } else if (i instanceof Vanilla) {

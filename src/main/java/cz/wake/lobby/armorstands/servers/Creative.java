@@ -20,7 +20,7 @@ import java.util.logging.Level;
 public class Creative implements ASInterface {
 
     private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1218.5, 90, 0);
-    private ArmorStand as, as2, as3;
+    private ArmorStand as, as2, as3, as4;
     private boolean maintenance;
 
     @Override
@@ -54,7 +54,19 @@ public class Creative implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§c§lCreative");
+        as2.setCustomName("§5§lCreative (1.14)");
+
+        loc1.add(0, 0.3, 0);
+
+        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
+
+        as4.setGravity(false);
+        as4.setCanPickupItems(false);
+        as4.setBasePlate(false);
+        as4.setVisible(false);
+        as4.setCustomNameVisible(true);
+
+        as4.setCustomName("§e[BETA]");
     }
 
     @Override
@@ -155,16 +167,16 @@ public class Creative implements ASInterface {
     }
 
     private void defaultItems() {
-        ItemStack head = ItemFactory.createHead("test", "6bab871b-371a-424a-8114-85d36e6670f5", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzc1N2MyNDcxN2YwMWQ0MThjZmNmNjEwNWZhMGZhZTM4NWI5Yjk5NmVkYzQzNjk4ZDY1ZmJlMzQ1ZGFhZiJ9fX0=");
+        ItemStack head = ItemFactory.createHead("test", "854b57bd-180c-4eaf-99c3-380109af5501", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDkzMGQ1NjA4ZmE0OWJlMDAzNWMzNGJmMGQ1MjhlNWFiMDBmOTFhOWJkYmQ0MzAwMzljZDQ3NzJkNzNmYjczMCJ9fX0=");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 220, 20, 60);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 112, 37, 152);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 220, 20, 60);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 112, 37, 152);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 220, 20, 60);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 112, 37, 152);
         as.setBoots(boots);
 
         ItemStack item = new ItemStack(Material.WATER_BUCKET);

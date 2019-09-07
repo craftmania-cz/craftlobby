@@ -95,15 +95,18 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 12) {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }
-                if (event.getSlot() == 13) {
+                if (event.getSlot() == 15) {
                     //sendToServer(player, "prison");
                     player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
-                if (event.getSlot() == 14) {
+                if (event.getSlot() == 13) {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }
-                if (event.getSlot() == 15) {
+                if (event.getSlot() == 16) {
                     player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
+                }
+                if (event.getSlot() == 21) {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative2");
                 }
             }
             //**************************** GADGETS HLAVNI MENU ****************************//

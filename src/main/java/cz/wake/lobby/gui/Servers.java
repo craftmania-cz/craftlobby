@@ -29,9 +29,24 @@ public class Servers implements Listener {
                 "§7Spawnes se na opustenem ostrove", "§7sam a se zakladnimi surovinami.", "§7Postav si svuj ostrov sam", "§7nebo s kamarady.", "", "§b▸ Kliknutim te portnu", getPlayers("skyblock"));
         inv.setItem(11, skyb);
 
-        ItemStack crea1 = ItemFactory.create(Material.LAVA_BUCKET, (byte) 0, "§e§lCreative (1.12)", "§8Creative, pozemky, WorldEdit", "",
-                "§7Svet, ve kterem muzes prakticky", "§7delat co chces. Stavet, budovat,", "§7nebo se proste zlepsovat.", "", "§b▸ Kliknutim te portnu", getPlayers("creative"));
-        inv.setItem(12, crea1);
+        ItemStack crea1 = ItemFactory.create(Material.LAVA_BUCKET, (byte) 0, "§e§lCreative (1.12) §c§l[STARY]", "§8Creative, pozemky, WorldEdit", "",
+                "§7Svet, ve kterem muzes prakticky", "§7delat co chces. Stavet, budovat,", "§7nebo se proste zlepsovat.", "", "§c§lNa tomto serveru nedoporucujeme hrat", "§c§laktualne podporovana verze je 1.14.4!", "", "§b▸ Kliknutim te portnu", getPlayers("creative2"));
+        inv.setItem(21, crea1);
+
+        ItemStack creative = ItemFactory.createHead("§5§lCreative (1.14) §e[BETA]", "854b57bd-180c-4eaf-99c3-380109af5501", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDkzMGQ1NjA4ZmE0OWJlMDAzNWMzNGJmMGQ1MjhlNWFiMDBmOTFhOWJkYmQ0MzAwMzljZDQ3NzJkNzNmYjczMCJ9fX0=");
+        ItemMeta creativeMeta = creative.getItemMeta();
+        ArrayList<String> creativeLore = new ArrayList<>();
+        creativeLore.add("§8Creative, pozemky, WorldEdit");
+        creativeLore.add("");
+        creativeLore.add("§7Nova verze, novy bloky");
+        creativeLore.add("§7vse novy! Zvladnes postavit");
+        creativeLore.add("§7nejlepsi stavbu a byt tak tim nej?!");
+        creativeLore.add("");
+        creativeLore.add("§b▸ Kliknutim te portnu");
+        creativeLore.add(getPlayers("creative2"));
+        creativeMeta.setLore(creativeLore);
+        creative.setItemMeta(creativeMeta);
+        inv.setItem(12, creative);
 
         ItemStack prison = ItemFactory.createHead("§9§lPrison 2.0", "8afde947-d0e5-4507-837c-c1bbec43d7e4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQyNzY0M2IxZWVjZmE3NGVlOTUxZDhkZmVmYjZkOWJjZjU4MjZiZWQyNzM0MjJjZWQ3ZWJlY2YxNzY1YzkifX19");
         ItemMeta prisonMeta = prison.getItemMeta();
@@ -47,15 +62,15 @@ public class Servers implements Listener {
         //prisonLore.add(getPlayers("prison"));
         prisonMeta.setLore(prisonLore);
         prison.setItemMeta(prisonMeta);
-        inv.setItem(13, prison);
+        inv.setItem(15, prison);
 
         ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.13.2)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet, ve kterem",
                 "§7poznas, co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
-        inv.setItem(14, van);
+        inv.setItem(13, van);
 
         ItemStack vanillasb = ItemFactory.create(Material.PUMPKIN, (byte) 0, "§6§lVanilla Skyblock (1.13.2)", "§8Vanilla, Skyblock, RPG", "",
                 "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem", "§7ostrove a plnit ukoly?", "", "§c▸ Predelava se...");
-        inv.setItem(15, vanillasb);
+        inv.setItem(16, vanillasb);
 
         p.openInventory(inv);
 
