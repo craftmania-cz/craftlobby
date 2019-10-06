@@ -123,6 +123,23 @@ public class PlayerListener implements Listener {
                 Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
             }
 
+            // News
+            if(Main.getInstance().getSQL().isLatestNewsEnabled()) {
+                System.out.println("1");
+                String message = Main.getInstance().getSQL().getLatestNews();
+                if(message != null) {
+                    System.out.println("2");
+                    if(!Main.getInstance().getSQL().sawLatestNews(p)) {
+                        e.getPlayer().sendMessage("§7§m---------§7[§b§l Dulezite oznameni §7]§m---------\n");
+                        e.getPlayer().sendMessage("§f");
+                        e.getPlayer().sendMessage("   §b" + message);
+                        e.getPlayer().sendMessage("   §7" + "Pro potvrzeni zadej prikaz /precteno");
+                        e.getPlayer().sendMessage("§f");
+                        e.getPlayer().sendMessage("§7§m-------------------------------------");
+                    }
+                }
+            }
+
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
                 // Info o odmene

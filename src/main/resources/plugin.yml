@@ -29,6 +29,9 @@ commands:
     description: Vanoce! :D
   link:
     description: Prepojeni Discordu s MC
+  precteno:
+    description: Potvrdi precteni novinky
+
 
 permissions:
   craftlobby.pristup:
