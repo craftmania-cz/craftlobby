@@ -48,6 +48,20 @@ public class Servers implements Listener {
         creative.setItemMeta(creativeMeta);
         inv.setItem(12, creative);
 
+        ItemStack vanilla14 = ItemFactory.createHead("§f§lVanilla (1.14) §e[BETA]", "4ac2d250-1168-48e0-ab06-82993744aad9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNiMmRkNGY5NWRhYzJlY2U2Y2EwNTVlZDA3NDA5ZTA1ODUwNzk5Njg0YWNlZTVhNmIyODhkMGVmYTFkZTA2OSJ9fX0=");
+        ItemMeta vanilla14Meta = vanilla14.getItemMeta();
+        ArrayList<String> vanilla14Lore = new ArrayList<>();
+        vanilla14Lore.add("§8Vanilla, Území, PVP");
+        vanilla14Lore.add("");
+        vanilla14Lore.add("§7Nová Vanilla s územím");
+        vanilla14Lore.add("§7a bojem o život jako nikdy předtím!");
+        vanilla14Lore.add("");
+        vanilla14Lore.add("§b▸ Kliknutim te portnu");
+        vanilla14Lore.add(getPlayers("vanilla"));
+        vanilla14Meta.setLore(vanilla14Lore);
+        vanilla14.setItemMeta(vanilla14Meta);
+        inv.setItem(13, vanilla14);
+
         ItemStack prison = ItemFactory.createHead("§9§lPrison 2.0", "8afde947-d0e5-4507-837c-c1bbec43d7e4", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQyNzY0M2IxZWVjZmE3NGVlOTUxZDhkZmVmYjZkOWJjZjU4MjZiZWQyNzM0MjJjZWQ3ZWJlY2YxNzY1YzkifX19");
         ItemMeta prisonMeta = prison.getItemMeta();
         ArrayList<String> prisonLore = new ArrayList<>();
@@ -64,9 +78,9 @@ public class Servers implements Listener {
         prison.setItemMeta(prisonMeta);
         inv.setItem(15, prison);
 
-        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.13.2)", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet, ve kterem",
-                "§7poznas, co to je zit", "§7na vlastni pest.", "", "§b▸ Kliknutim te portnu", getPlayers("vanilla"));
-        inv.setItem(13, van);
+        ItemStack van = ItemFactory.create(Material.EMERALD, (byte) 0, "§f§lVanilla (1.13.2) §c§l[STARY]", "§8Vanilla, Survival, PVP", "", "§7Otevreny svet, ve kterem",
+                "§7poznas, co to je zit", "§7na vlastni pest.", "", "§c§lNa tomto serveru nedoporucujeme hrat", "§c§laktualne podporovana verze je 1.14.4!" , "" , "§b▸ Kliknutim te portnu", getPlayers("vanilla2"));
+        inv.setItem(22, van);
 
         ItemStack vanillasb = ItemFactory.create(Material.PUMPKIN, (byte) 0, "§6§lVanilla Skyblock (1.13.2)", "§8Vanilla, Skyblock, RPG", "",
                 "§7Toto je vyzva, ktera ti neda!", "§7Dokazes prezit na pustem", "§7ostrove a plnit ukoly?", "", "§c▸ Predelava se...");

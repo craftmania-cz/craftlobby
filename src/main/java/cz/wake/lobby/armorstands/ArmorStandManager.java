@@ -21,9 +21,10 @@ public class ArmorStandManager {
             armorstands.add(new Creative());
             armorstands.add(new CreativeOld());
             armorstands.add(new VanillaSkyblock());
-            armorstands.add(new Prison());
+            //armorstands.add(new Prison());
             armorstands.add(new SkyBlock());
             armorstands.add(new Survival());
+            armorstands.add(new VanillaOld());
             armorstands.add(new Vanilla());
             armorstands.add(new DJClub());
             armorstands.add(new Drunkers());
@@ -76,6 +77,8 @@ public class ArmorStandManager {
                 i.updateArmorStand("creative2", Main.getInstance().getSQL().getOnlinePlayers("creative2"));
             } else if (i instanceof Prison) {
                 i.updateArmorStand("prison", Main.getInstance().getSQL().getOnlinePlayers("prison"));
+            } else if (i instanceof VanillaOld) {
+                i.updateArmorStand("vanilla2", Main.getInstance().getSQL().getOnlinePlayers("vanilla2"));
             } else if (i instanceof Vanilla) {
                 i.updateArmorStand("vanilla", Main.getInstance().getSQL().getOnlinePlayers("vanilla"));
             } else if (i instanceof Halloween) {

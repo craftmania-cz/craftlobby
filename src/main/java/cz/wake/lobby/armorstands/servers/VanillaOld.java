@@ -6,6 +6,7 @@ import cz.wake.lobby.armorstands.ASInterface;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -16,10 +17,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.logging.Level;
 
-public class Vanilla implements ASInterface {
+public class VanillaOld implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1556.5, 18, -1216.5, 104, 0);
-    private ArmorStand as, as2, as3, as4;
+    //private Location loc1 = new Location(Bukkit.getWorld("omain"), 1555.5, 18, -1214.5, 135, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1524.5, 18, -1220.5, -90, 0);
+    private ArmorStand as, as2, as3;
     private boolean maintenance;
 
     @Override
@@ -35,7 +37,7 @@ public class Vanilla implements ASInterface {
 
         defaultItems();
 
-        Main.getInstance().getASM().setMetadata((ArmorStand) as, "vanilla", "vanilla", Main.getInstance());
+        Main.getInstance().getASM().setMetadata((ArmorStand) as, "vanilla2", "vanilla2", Main.getInstance());
 
         subtextSpawn();
         hologramSpawn();
@@ -54,19 +56,7 @@ public class Vanilla implements ASInterface {
         as2.setVisible(false);
         as2.setCustomNameVisible(true);
 
-        as2.setCustomName("§f§lVanilla [1.14]");
-
-        loc1.add(0, 0.3, 0);
-
-        as4 = (ArmorStand) Bukkit.getWorld("omain").spawnEntity(loc1, EntityType.ARMOR_STAND);
-
-        as4.setGravity(false);
-        as4.setCanPickupItems(false);
-        as4.setBasePlate(false);
-        as4.setVisible(false);
-        as4.setCustomNameVisible(true);
-
-        as4.setCustomName("§e[BETA]");
+        as2.setCustomName("§f§lVanilla (1.13)");
     }
 
     @Override
@@ -95,7 +85,6 @@ public class Vanilla implements ASInterface {
         as.remove();
         as2.remove();
         as3.remove();
-        as4.remove();
     }
 
     public void setPlayers(int i) {
@@ -169,16 +158,16 @@ public class Vanilla implements ASInterface {
     }
 
     private void defaultItems() {
-        ItemStack head = ItemFactory.createHead("test", "4ac2d250-1168-48e0-ab06-82993744aad9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNiMmRkNGY5NWRhYzJlY2U2Y2EwNTVlZDA3NDA5ZTA1ODUwNzk5Njg0YWNlZTVhNmIyODhkMGVmYTFkZTA2OSJ9fX0=");
+        ItemStack head = ItemFactory.createHead("test", "c6ed3965-e6c0-62f2-ea6a-95761783d6a0", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQxNWFhY2I3MjEzYzgzMTFlZWQ3YmFmMzdlYmI1OGE1ZjRiOTI1NjMxN2Q4NDU4ZDE1ZDMzN2E3NGU0YmU2In19fQ==");
         as.setHelmet(head);
 
-        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 196, 196, 196);
+        ItemStack chestplate = ItemFactory.createColouredLeather(Material.LEATHER_CHESTPLATE, 193, 205, 205);
         as.setChestplate(chestplate);
 
-        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 196, 196, 196);
+        ItemStack leggins = ItemFactory.createColouredLeather(Material.LEATHER_LEGGINGS, 193, 205, 205);
         as.setLeggings(leggins);
 
-        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 196, 196, 196);
+        ItemStack boots = ItemFactory.createColouredLeather(Material.LEATHER_BOOTS, 193, 205, 205);
         as.setBoots(boots);
 
         ItemStack item = new ItemStack(Material.GRASS);

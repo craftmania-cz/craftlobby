@@ -522,6 +522,9 @@ public class ArmorStandInteract implements Listener {
             if (e.getRightClicked().hasMetadata("prison2")) {
                 Main.getInstance().getCraftBalancerManager().bypassConnect(p, "prison");
             }
+            if (e.getRightClicked().hasMetadata("vanilla2")) {
+                Main.getInstance().getCraftBalancerManager().bypassConnect(p, "vanilla2");
+            }
             if (e.getRightClicked().hasMetadata("vanilla")) {
                 Main.getInstance().getCraftBalancerManager().bypassConnect(p, "vanilla");
             }

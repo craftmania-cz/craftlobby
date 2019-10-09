@@ -102,6 +102,9 @@ public class InvClick implements Listener {
                 if (event.getSlot() == 13) {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }
+                if (event.getSlot() == 22) {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla2");
+                }
                 if (event.getSlot() == 16) {
                     player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
                 }
