@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class Bonusy implements ASInterface {
 
-    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 18, -1222.5, 180, 0);
+    private Location loc1 = new Location(Bukkit.getWorld("omain"), 1541.5, 18, -1222.5, 180, 0);
     private ArmorStand as, as2, as3, as4;
     public static Random random = new Random();
     public static EntityArmorStand stand;
@@ -192,11 +192,11 @@ public class Bonusy implements ASInterface {
         }
 
         if (rewards == 0) {
-            return "§7Vsechny odmeny vybrany!";
+            return "§7Vse vybrano!";
         } else if (rewards == 1) {
-            return "§7Mas nevyzvednutou §bodmenu!";
+            return "§7Mas §bodmenu!";
         } else if (rewards == 2) {
-            return "§7Mas nevyzvednute §c2 odmeny!";
+            return "§7Mas§c2 odmeny!";
         }
 
         return "§4Chyba! Wejku oprav to :D";
@@ -205,7 +205,7 @@ public class Bonusy implements ASInterface {
 
     public void onPlayerSpawn(Player p) {
 
-        Location loc1 = new Location(Bukkit.getWorld("omain"), 1540.5, 18.3, -1222.5, 180, 0);
+        Location loc1 = new Location(Bukkit.getWorld("omain"), 1541.5, 18.3, -1222.5, 180, 0);
 
         WorldServer s = ((CraftWorld) loc1.getWorld()).getHandle();
 

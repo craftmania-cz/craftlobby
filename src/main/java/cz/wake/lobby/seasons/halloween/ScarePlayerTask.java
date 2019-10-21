@@ -15,24 +15,28 @@ public class ScarePlayerTask implements Runnable {
     }
 
     private void runEffect(final Player player) {
-        final int nextInt = UtilMath.randomRangeInt(0,5);
-        if (nextInt == 0) {
-            player.playSound(player.getLocation(), Sound.ENTITY_WITCH_AMBIENT, 1.0f, 1.0f);
-        }
-        else if (nextInt == 1) {
-            player.playSound(player.getLocation(), Sound.ENTITY_WITCH_AMBIENT, 1.0f, 1.0f);
-        }
-        else if (nextInt == 2) {
-            player.playSound(player.getLocation(), Sound.ENTITY_ENDERDRAGON_GROWL, 1.0f, 1.0f);
-        }
-        else if (nextInt == 3) {
-            player.playSound(player.getLocation(), Sound.ENTITY_ENDERDRAGON_AMBIENT, 1.0f, 1.0f);
-        }
-        else if (nextInt == 4) {
-            player.playSound(player.getLocation(), Sound.ENTITY_WITHER_AMBIENT, 1.0f, 1.0f);
-        }
-        if (nextInt == 5) {
-            this.runLightningEffects(player);
+        try {
+            final int nextInt = UtilMath.randomRangeInt(0,5);
+            if (nextInt == 0) {
+                player.playSound(player.getLocation(), Sound.ENTITY_WITCH_AMBIENT, 1.0f, 1.0f);
+            }
+            else if (nextInt == 1) {
+                player.playSound(player.getLocation(), Sound.ENTITY_WITCH_AMBIENT, 1.0f, 1.0f);
+            }
+            else if (nextInt == 2) {
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDERDRAGON_GROWL, 1.0f, 1.0f);
+            }
+            else if (nextInt == 3) {
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDERDRAGON_AMBIENT, 1.0f, 1.0f);
+            }
+            else if (nextInt == 4) {
+                player.playSound(player.getLocation(), Sound.ENTITY_WITHER_AMBIENT, 1.0f, 1.0f);
+            }
+            if (nextInt == 5) {
+                this.runLightningEffects(player);
+            }
+        } catch (Exception e) {
+            // BRUH
         }
     }
 
