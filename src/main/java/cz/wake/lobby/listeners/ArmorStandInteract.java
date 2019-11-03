@@ -533,7 +533,7 @@ public class ArmorStandInteract implements Listener {
                 p.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsim spusteni budeme brzo informovat!");
             }
             if (e.getRightClicked().hasMetadata("Halloween")) {
-                //p.performCommand("bts joinserver halloween");
+                Main.getInstance().getCraftBalancerManager().connectPlayer(p, "halloween-games");
             }
             e.setCancelled(true);
         } else if (e.getRightClicked() instanceof ItemFrame) {

@@ -96,8 +96,20 @@ public class InvClick implements Listener {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }
                 if (event.getSlot() == 15) {
-                    //sendToServer(player, "prison");
-                    player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
+                    if (event.isLeftClick()) {
+                        Main.getInstance().getCraftBalancerManager().connectPlayer(player, "halloween-games");
+                    } else if (event.isRightClick()) {
+                        player.closeInventory();
+                        player.sendMessage("");
+                        player.sendMessage("§c▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                        player.sendMessage("");
+                        player.sendMessage("");
+                        player.sendMessage("§6Odkaz na Halloween Leaderboard:");
+                        player.sendMessage("§bhttps://stats.craftmania.cz/leaderboard/halloween");
+                        player.sendMessage("");
+                        player.sendMessage("§c▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
+                        player.sendMessage("");
+                    }
                 }
                 if (event.getSlot() == 13) {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
