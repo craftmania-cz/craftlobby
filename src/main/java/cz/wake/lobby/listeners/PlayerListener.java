@@ -128,12 +128,17 @@ public class PlayerListener implements Listener {
                 String message = Main.getInstance().getSQL().getLatestNews();
                 if(message != null) {
                     if(!Main.getInstance().getSQL().sawLatestNews(p)) {
-                        e.getPlayer().sendMessage("§7§m---------§7[§b§l Dulezite oznameni §7]§m---------\n");
-                        e.getPlayer().sendMessage("§f");
-                        e.getPlayer().sendMessage("§b" + message);
-                        e.getPlayer().sendMessage("§f");
-                        e.getPlayer().sendMessage("§7§o" + "Pro potvrzeni zadej prikaz /precteno");
-                        e.getPlayer().sendMessage("§f");
+                        new BukkitRunnable() {
+                            @Override
+                            public void run() {
+                                e.getPlayer().sendMessage("§7§m---------§7[§b§l Máš nepřečtené oznámení §7]§m---------\n");
+                                e.getPlayer().sendMessage("§f");
+                                e.getPlayer().sendMessage("§b" + message);
+                                e.getPlayer().sendMessage("§f");
+                                e.getPlayer().sendMessage("§7§o"+"Pro potvrzeni zadej prikaz /precteno");
+                                e.getPlayer().sendMessage("§f");
+                            }
+                        }.runTaskLaterAsynchronously(Main.getInstance(), 20L);
                     }
                 }
             }
