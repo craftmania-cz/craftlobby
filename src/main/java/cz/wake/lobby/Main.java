@@ -15,6 +15,7 @@ import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
 import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
@@ -34,7 +35,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private static Main instance;
     private Profil m = new Profil();
     private Servers servers = new Servers();
-    private TimeTask tt = new TimeTask();
     public boolean debug;
     public HashMap<Block, String> _BlocksToRestore = new HashMap();
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
@@ -85,19 +85,15 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
         for (World w : Bukkit.getWorlds()) {
-            w.setGameRuleValue("doFireTick", "false");
-            w.setGameRuleValue("doDaylightCycle", "false");
+            w.setGameRule(GameRule.DO_FIRE_TICK, false);
+            w.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
+            w.setGameRule(GameRule.DISABLE_RAIDS, true);
+            w.setGameRule(GameRule.SPECTATORS_GENERATE_CHUNKS, false);
             for (Entity e : w.getEntities()) {
                 if(!(e instanceof ItemFrame)){
                     e.remove();
                 }
             }
-        }
-
-        // Automaticka zmena casu v lobby podle Real casu
-        if (getConfig().getBoolean("timer", true)) {
-            Log.info("Aktivace zmeny casy podle realneho casu.");
-            tt.initTimeSetter();
         }
 
         // Id serveru
