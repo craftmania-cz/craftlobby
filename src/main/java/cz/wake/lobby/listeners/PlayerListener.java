@@ -23,7 +23,6 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,130 +46,6 @@ public class PlayerListener implements Listener {
     Servers servers = new Servers();
     InvClick ic = new InvClick();
     SettingsMenu sm = new SettingsMenu();
-
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onPlayerJoin(PlayerJoinEvent e) {
-        try {
-            Player p = e.getPlayer();
-
-            //Deaktivace Join zprav
-            e.setJoinMessage(null);
-
-            p.getInventory().clear();
-            p.getInventory().setArmorContents(null);
-            p.updateInventory();
-
-            if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-                p.teleport(new Location(Bukkit.getWorld("omain"), 1540.5, 22.5, -1255.5, 0, 0));
-            }
-            if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
-                p.teleport(new Location(Bukkit.getWorld("obw2"), -602.5, 111.5, 129.5, -180, 0));
-            }
-
-            setupDefaultItems(p);
-
-            for (PotionEffect ep : p.getActivePotionEffects()) {
-                p.removePotionEffect(ep.getType());
-            }
-
-            p.setHealth(20F);
-            p.setSaturation(20F);
-            p.setFoodLevel(20);
-            p.setGameMode(GameMode.SURVIVAL);
-
-            // Player settings
-            Main.getInstance().getSQL().addSettingsDefault(p);
-
-            //Odmeny
-            //TODO: Kompletne predelat (v1.8)
-            Main.getInstance().getSQL().createRewardsRecord(p, "lobby_denniodmena");
-            Main.getInstance().getSQL().createRewardsRecord(p, "lobby_vipodmena");
-
-            // Prefix v tablistu
-            if (Main.getInstance().getConfig().getBoolean("tablist-prefixes", false)) {
-                UtilTablist.setupDefaultTablist(p);
-            }
-
-            // Setting setttings :D
-            setupPlayerOnJoin(p);
-
-            //AT
-            if (Main.getInstance().getSQL().isAT(p)) {
-                Main.getInstance().at_list.add(p);
-                Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
-            }
-
-            // News
-            if(Main.getInstance().getSQL().isLatestNewsEnabled()) {
-                String message = Main.getInstance().getSQL().getLatestNews();
-                if(message != null) {
-                    if(!Main.getInstance().getSQL().sawLatestNews(p)) {
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                e.getPlayer().sendMessage("§7§m---------§7[§b§l Máš nepřečtené oznámení §7]§m---------\n");
-                                e.getPlayer().sendMessage("§f");
-                                e.getPlayer().sendMessage("§b" + message);
-                                e.getPlayer().sendMessage("§f");
-                                e.getPlayer().sendMessage("§7§o"+"Pro potvrzeni zadej prikaz /precteno");
-                                e.getPlayer().sendMessage("§f");
-                            }
-                        }.runTaskLaterAsynchronously(Main.getInstance(), 20L);
-                    }
-                }
-            }
-
-            if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-
-                // Registrace vanocniho kalendare
-                if (Main.getInstance().isChristmas()) {
-                    Main.getInstance().getSQL().addCalendarDefaultValue(p);
-                }
-
-                // Update Nicku v player_profile (pokud si hrac zmeni nick)
-                //TODO: Prdelat jednotne s 1 requestem pri zjisteni (v1.8)
-                String name = Main.getInstance().getSQL().getNameInCcomunity(p.getUniqueId().toString()); // Ziskani nicku podle UUID
-                if (name != null) { // Kdyz existuje, kdyz ne null
-                    if (!name.equals(p.getName())) { // Pokud se nick neshoduje
-                        Main.getInstance().getSQL().updateCcominutyForceNick(p); // Update nicku
-                        System.out.println("[CraftLobby] Update nicku v SQL pro: " + p.getName());
-                    }
-                }
-
-                // Update nicku v ATS
-                if (Main.getInstance().at_list.contains(p)) {
-                    String nameInDB = Main.getInstance().getSQL().getNameInATS(p.getUniqueId().toString());
-                    if (nameInDB != null) {
-                        if (!nameInDB.equals(p.getName())) {
-                            Main.getInstance().getSQL().updateNickInATS(p);
-                            System.out.println("[CraftLobby] Update ATS nicku v SQL pro: " + p.getName());
-                        }
-                    }
-                }
-            }
-
-            // Oznameni o pripojeni pro GVIP
-            if ((p.hasPermission("craftlobby.vip.joinbroadcast-message"))
-                    && Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
-                if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message") == 0) {
-                    Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
-                }
-
-                String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
-                Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
-                    onlinePlayer.sendMessage(joinMessage);
-                    if ((p.hasPermission("craftlobby.vip.joinbroadcast-change-sound") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1))) {
-                        onlinePlayer.getWorld().playSound(onlinePlayer.getLocation(),
-                                Sound.valueOf(Main.getInstance().getSQL().getSettingsString(p, "lobby_joinbroadcast_sound")), 0.999F, 0.999F);
-                    }
-                });
-            }
-
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 
     @EventHandler
     public void onPlaceBlock(BlockPlaceEvent e) {

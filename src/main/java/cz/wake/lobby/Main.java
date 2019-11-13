@@ -128,6 +128,11 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     private void loadListeners() {
         PluginManager pm = getServer().getPluginManager();
+
+        // NEW
+        pm.registerEvents(new PlayerJoinListener(), this);
+
+        // OLD
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
         pm.registerEvents(new Servers(), this);
