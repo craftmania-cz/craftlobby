@@ -9,9 +9,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class InvClick implements Listener {
 
-    private GadgetsMenu gadgetsMenu = new GadgetsMenu();
-    private ParticlesMenu pMenu = new ParticlesMenu();
-
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
