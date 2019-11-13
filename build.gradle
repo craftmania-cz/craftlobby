@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'cz.wake.lobby'
-version = '1.8'
+version = '2.0'
 
 description = """"""
 
