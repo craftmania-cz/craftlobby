@@ -3,12 +3,6 @@ package cz.wake.lobby.listeners;
 import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.gui.Servers;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.armorstands.characters.Bonusy;
-import cz.wake.lobby.armorstands.statistics.BedWars;
-import cz.wake.lobby.armorstands.statistics.Parkour;
-import cz.wake.lobby.armorstands.statistics.SkyWars;
-import cz.wake.lobby.gadgets.cloaks.RankCape;
-import cz.wake.lobby.gadgets.pets.PetManager;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilTablist;
@@ -50,12 +44,9 @@ public class PlayerListener implements Listener {
     HashMap<Player, BukkitRunnable> _cdRunnable = new HashMap<>();
 
     Profil hlavniProfil = new Profil();
-    GadgetsMenu gadgetsMenu = new GadgetsMenu();
     Servers servers = new Servers();
-    VIPMenu vmenu = new VIPMenu();
     InvClick ic = new InvClick();
     SettingsMenu sm = new SettingsMenu();
-    Bonusy b = new Bonusy();
 
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -103,18 +94,6 @@ public class PlayerListener implements Listener {
             // Setting setttings :D
             setupPlayerOnJoin(p);
 
-            // ArmorStand statistiky
-            if (Main.getInstance().getIdServer().equalsIgnoreCase("slobby")) {
-                Location loc = new Location(Bukkit.getWorld("osw"), -599.5, 102.3, 116.5);
-                SkyWars.spawn(loc, p);
-            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("blobby")) {
-                Location loc = new Location(Bukkit.getWorld("obw"), -599.75, 100.6, 116.5);
-                BedWars.spawn(loc, p);
-            } else if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-                Location loc = new Location(Bukkit.getWorld("omain"), 1493.5, 23.6, -1275.5);
-                Parkour.spawn(loc, p);
-            }
-
             //AT
             if (Main.getInstance().getSQL().isAT(p)) {
                 Main.getInstance().at_list.add(p);
@@ -142,9 +121,6 @@ public class PlayerListener implements Listener {
             }
 
             if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-
-                // Info o odmene
-                b.onPlayerSpawn(p);
 
                 // Registrace vanocniho kalendare
                 if (Main.getInstance().isChristmas()) {
@@ -278,14 +254,8 @@ public class PlayerListener implements Listener {
     public void onInteract(PlayerInteractEvent e) {
         final Player p = e.getPlayer();
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.SKULL_ITEM) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {
+                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.PLAYER_HEAD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {
             this.hlavniProfil.openMenu(p);
-        }
-        if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.NETHER_STAR) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§5Gadgets §7(Klikni pravym)"))
-                && !ParkourListener.in_parkour.contains(p)) {
-            this.gadgetsMenu.openGadgetsMenu(p);
-            //p.sendMessage("§c§l[!] §cGadgets jsou docasne deaktivovany!");
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.COMPASS) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))) {
@@ -293,13 +263,13 @@ public class PlayerListener implements Listener {
         }
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
             if (!e.getHand().equals(EquipmentSlot.HAND)) return;
-            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.INK_SACK && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.INK_SAC && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
                 if (!this._time.containsKey(e.getPlayer())) {
                     this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
-                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 2.0F, 2.0F);
+                    e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BREAK, 2.0F, 2.0F);
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         e.getPlayer().hidePlayer(players);
-                        ItemStack disable = new ItemStack(Material.INK_SACK, 1, (byte) 1);
+                        ItemStack disable = new ItemStack(Material.INK_SAC);
                         ItemMeta im = disable.getItemMeta();
                         im.setDisplayName("§7Hraci: §c§lNEVIDITELNY");
                         disable.setItemMeta(im);
@@ -324,14 +294,14 @@ public class PlayerListener implements Listener {
                     return;
                 }
             } else {
-                if ((e.getPlayer().getItemInHand().getType() == Material.INK_SACK && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))) {
+                if ((e.getPlayer().getItemInHand().getType() == Material.INK_SAC && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))) {
                     if (!e.getHand().equals(EquipmentSlot.HAND)) return;
                     if (!this._time.containsKey(e.getPlayer())) {
                         this._time.put(e.getPlayer(), Double.valueOf(8D + 0.1D));
-                        e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BUTTON_CLICK_ON, 2.0F, 2.0F);
+                        e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BREAK, 2.0F, 2.0F);
                         for (Player pl : Bukkit.getOnlinePlayers()) {
                             e.getPlayer().showPlayer(pl);
-                            ItemStack enable = new ItemStack(Material.INK_SACK, 1, (byte) 10);
+                            ItemStack enable = new ItemStack(Material.INK_SAC, 1, (byte) 10);
                             ItemMeta im = enable.getItemMeta();
                             im.setDisplayName("§7Hraci: §a§lVIDITELNY");
                             enable.setItemMeta(im);
@@ -364,10 +334,10 @@ public class PlayerListener implements Listener {
                     || (b.getType() == Material.BREWING_STAND)
                     || (b.getType() == Material.ANVIL)
                     || (b.getType() == Material.ENDER_CHEST)
-                    || (b.getType() == Material.TRAP_DOOR)
+                    //|| (b.getType() == Material.TRAP_DOOR)
                     || (b.getType() == Material.CHEST)
-                    || (b.getType() == Material.FENCE)
-                    || (b.getType() == Material.FENCE_GATE)
+                    //|| (b.getType() == Material.FENCE)
+                    //|| (b.getType() == Material.FENCE_GATE)
                     || (b.getType() == Material.ACACIA_FENCE)
                     || (b.getType() == Material.ACACIA_FENCE_GATE)
                     || (b.getType() == Material.BIRCH_FENCE)
@@ -376,7 +346,7 @@ public class PlayerListener implements Listener {
                     || (b.getType() == Material.DARK_OAK_FENCE_GATE)
                     || (b.getType() == Material.JUNGLE_FENCE)
                     || (b.getType() == Material.JUNGLE_FENCE_GATE)
-                    || (b.getType() == Material.NETHER_FENCE)
+                    //|| (b.getType() == Material.NETHER_FENCE)
                     || (b.getType() == Material.SPRUCE_FENCE_GATE)
                     || (b.getType() == Material.TRAPPED_CHEST)
                     || (b.getType() == Material.HOPPER)
@@ -397,16 +367,6 @@ public class PlayerListener implements Listener {
         // Deaktivace leave zprav
         e.setQuitMessage(null);
 
-        // Deaktivace particles
-        ic.deactivateParticles(p);
-
-        // Deaktivace cloaks
-        Main.getInstance().getCloaksAPI().deactivateCloaks(p);
-        RankCape.deactivateCape(p);
-
-        // Deaktivatce mazlíčka
-        PetManager.forceRemovePet(p);
-
         // Odebrani settings
         sm.removePlayer(p);
 
@@ -419,16 +379,6 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void onKick(PlayerKickEvent e) {
         Player p = e.getPlayer();
-
-        // Deaktivace particles
-        ic.deactivateParticles(p);
-
-        // Deaktivace cloaks
-        Main.getInstance().getCloaksAPI().deactivateCloaks(p);
-        RankCape.deactivateCape(p);
-
-        // Deaktivatce mazlíčka
-        PetManager.forceRemovePet(p);
 
         // Odebrani settings
         sm.removePlayer(p);
@@ -480,14 +430,14 @@ public class PlayerListener implements Listener {
         ItemStack compass = new ItemStack(Material.COMPASS, 1);
         ItemMeta compassMeta = compass.getItemMeta();
 
-        ItemStack playerHead = new ItemStack(Material.SKULL_ITEM, 1);
+        ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1);
         playerHead.setDurability((short) 3);
         SkullMeta playerHeadMeta = (SkullMeta) playerHead.getItemMeta();
 
         ItemStack gadgets = new ItemStack(Material.NETHER_STAR);
         ItemMeta gadgetsMeta = gadgets.getItemMeta();
 
-        ItemStack hider = new ItemStack(Material.INK_SACK, 1, (byte) 10);
+        ItemStack hider = new ItemStack(Material.INK_SAC, 1, (byte) 10);
         ItemMeta hiderMeta = hider.getItemMeta();
 
         compassMeta.setDisplayName("§bVyber serveru §7(Klikni pravym)");
@@ -502,7 +452,7 @@ public class PlayerListener implements Listener {
         hiderMeta.setDisplayName("§7Hraci: §a§lVIDITELNY");
         hider.setItemMeta(hiderMeta);
 
-        ItemStack web = ItemFactory.createHead("§aWeb", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19");
+        ItemStack web = cz.wake.lobby.utils.ItemFactory.createHead("§aWeb", "c424243d-0421-4774-8aeb-2ddea957ed57", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19");
         ItemMeta webMeta = web.getItemMeta();
         ArrayList<String> webLore = new ArrayList<>();
         webLore.add("§7Odkaz na nas web:");

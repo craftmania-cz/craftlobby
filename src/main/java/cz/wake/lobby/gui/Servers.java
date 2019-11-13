@@ -1,7 +1,6 @@
 package cz.wake.lobby.gui;
 
 import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,7 +19,7 @@ public class Servers implements Listener {
 
     public void openServersMenu(Player p) {
 
-        Inventory inv = Bukkit.createInventory(null, 36, "Vyber serveru");
+        /*Inventory inv = Bukkit.createInventory(null, 36, "Vyber serveru");
 
         ItemStack surv = ItemFactory.create(Material.GOLD_PICKAXE, (byte) 0, "§a§lSurvival (1.12)", "§8Survival, Economy, PVP", "",
                 "§7Stary dobry survival, s mnoha", "§7vylepsenim a prikazy.", "", "§b▸ Kliknutim te portnu", getPlayers("survival", false));
@@ -106,7 +105,7 @@ public class Servers implements Listener {
         //inv.setItem(16, vanillasb);
 
         p.openInventory(inv);
-
+*/
     }
 
     /*

@@ -2,8 +2,6 @@ package cz.wake.lobby.manager;
 
 import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.armorstands.characters.Bonusy;
-import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,7 +17,7 @@ public class RewardsManager implements Listener {
 
     public void openRewardManager(final Player p) {
 
-        Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
+        /*Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
 
         if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
             ItemStack weekOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lDenni odmena", "§81x za 24 hodin", "",
@@ -81,9 +79,9 @@ public class RewardsManager implements Listener {
 
         inv.setItem(22, vipGadgets);
         inv.setItem(23, fbLike);
-        inv.setItem(24, discord);
+        inv.setItem(24, discord);*/
 
-        p.openInventory(inv);
+        //p.openInventory(inv);
     }
 
     // TODO: Pridat do craftcore
@@ -120,7 +118,7 @@ public class RewardsManager implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
-        if (e.getInventory().getTitle().equals("Odmeny pro hrace")) {
+        /*if (e.getInventory().getTitle().equals("Odmeny pro hrace")) {
             if (e.getCurrentItem() == null) {
                 return;
             }
@@ -170,6 +168,6 @@ public class RewardsManager implements Listener {
                     p.sendMessage("§c§l[!] §cNa vyber teto odmeny musis mit zakoupene globalni VIP!");
                 }
             }
-        }
+        }*/
     }
 }

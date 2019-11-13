@@ -14,7 +14,7 @@ public class InvClick implements Listener {
         Player player = (Player) event.getWhoClicked();
         try {
             //**************************** VIP MENU ****************************//
-            if (event.getInventory().getTitle().equals("§lVIP Shop")) {
+            if (event.getView().getTitle().equals("§lVIP Shop")) {
                 event.setCancelled(true);
                 player.updateInventory();
                 if (event.getSlot() == 11) {
@@ -45,7 +45,7 @@ public class InvClick implements Listener {
                 }
             }
             //**************************** SERVERS MENU ****************************//
-            if (event.getInventory().getTitle().equals("Vyber serveru")) {
+            if (event.getView().getTitle().equals("Vyber serveru")) {
                 if (event.getSlot() == 10) {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
                 }
@@ -85,7 +85,7 @@ public class InvClick implements Listener {
                 }
             }
             if ((event.getSlot() == 19) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
@@ -98,7 +98,7 @@ public class InvClick implements Listener {
                 player.closeInventory();
             }
             if ((event.getSlot() == 21) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
@@ -111,7 +111,7 @@ public class InvClick implements Listener {
                 player.closeInventory();
             }
             if ((event.getSlot() == 23) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
@@ -124,7 +124,7 @@ public class InvClick implements Listener {
                 player.closeInventory();
             }
             if ((event.getSlot() == 25) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Instagram"))) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BASS, 13.0F, 1.0F);
+                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");

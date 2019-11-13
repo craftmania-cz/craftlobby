@@ -6,9 +6,7 @@ import cz.craftmania.crafteconomy.api.CraftTokensAPI;
 import cz.craftmania.crafteconomy.api.VoteTokensAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
-import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.TimeUtils;
-import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -23,7 +21,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -42,7 +39,7 @@ public class Profil implements Listener {
 
     public void openMenu(Player p) {
 
-        Inventory menu = Bukkit.createInventory(null, 54, "Profil: " + p.getName());
+        /*Inventory menu = Bukkit.createInventory(null, 54, "Profil: " + p.getName());
 
         SkullMeta headItemMeta = (SkullMeta) Bukkit.getItemFactory().getItemMeta(Material.SKULL_ITEM);
         headItemMeta.setOwner(p.getName());
@@ -104,10 +101,10 @@ public class Profil implements Listener {
         menu.setItem(42, nastaveni);
         menu.setItem(41, jazyk);
 
-        p.openInventory(menu);
+        p.openInventory(menu);*/
     }
 
-    private void openSocialMenu(Player p) {
+    /*private void openSocialMenu(Player p) {
 
         Inventory inv = Bukkit.createInventory(null, 45, "Socialni site");
 
@@ -571,6 +568,6 @@ public class Profil implements Listener {
             return "§f" + data;
         }
         return "§fNenastaveno";
-    }
+    }*/
 
 }

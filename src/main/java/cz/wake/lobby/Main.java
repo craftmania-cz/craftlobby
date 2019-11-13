@@ -1,14 +1,11 @@
 package cz.wake.lobby;
 
-import cz.wake.lobby.armorstands.podlobby.CrystalBox;
 import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.seasons.christmas.Kalendar_command;
 import cz.wake.lobby.seasons.christmas.SilvesterTask;
 import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
 import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.gui.Servers;
-import cz.wake.lobby.armorstands.ArmorStandManager;
-import cz.wake.lobby.armorstands.ArmorStandUpdateTask;
 import cz.wake.lobby.commands.*;
 import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.listeners.*;
@@ -35,7 +32,6 @@ import java.util.HashMap;
 public class Main extends JavaPlugin implements PluginMessageListener {
 
     private static Main instance;
-    private ArmorStandManager asm = new ArmorStandManager();
     private Profil m = new Profil();
     private Servers servers = new Servers();
     private TimeTask tt = new TimeTask();
@@ -113,14 +109,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         isSilvester = getConfig().getBoolean("seasons.silvester", false);
         isHalloween = getConfig().getBoolean("seasons.halloween", false);
 
-        // Spawn armorstandu
-        Log.info("Inicializace vsech armorstandu.");
-        ArmorStandManager.init();
-        ArmorStandManager.spawn();
-        Log.success("Vsechny armorstandy byly spawnuty.");
-
-        getServer().getScheduler().runTaskTimer(getInstance(), new ArmorStandUpdateTask(), 100L, 200L);
-
         if (isHalloween) {
             Log.info("Aktivace Halloween eventu pro lobby.");
             getServer().getScheduler().runTaskTimerAsynchronously(this, new ScarePlayerTask(), 200L, 200L);
@@ -144,11 +132,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new InvClick(), this);
         pm.registerEvents(new Servers(), this);
         pm.registerEvents(new SettingsMenu(), this);
-        pm.registerEvents(new Shop(), this);
-        pm.registerEvents(new ArmorStandInteract(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new Profil(), this);
-        pm.registerEvents(new CrystalBox(), this);
         pm.registerEvents(new TimedResetListener(), this);
         pm.registerEvents(new RewardsManager(), this);
 
@@ -217,18 +202,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public String getIdServer() {
         return idServer;
-    }
-
-    public ArrayList<Player> getPreQuestPlayers() {
-        return preQuest;
-    }
-
-    public ArrayList<Player> getInQuestPlayers() {
-        return inQuest;
-    }
-
-    public ArmorStandManager getASM() {
-        return asm;
     }
 
     public boolean isSilvester() {

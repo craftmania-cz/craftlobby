@@ -1,5 +1,6 @@
 package cz.wake.lobby.seasons.christmas;
 
+import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.craftmania.crafteconomy.api.CraftTokensAPI;
 import cz.wake.lobby.Main;
@@ -91,7 +92,7 @@ public class Kalendar implements Listener {
     }
 
     private ItemStack glass() {
-        return ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 13, " ");
+        return new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName("§c ").build();
     }
 
     private ItemStack canOpen(final Player p, final int day, final long time) {
@@ -106,7 +107,7 @@ public class Kalendar implements Listener {
                 i.setAmount(day);
                 return i;
             } else {
-                ItemStack i = ItemFactory.create(Material.BARRIER, (byte) 0, "§c§l" + day + ". den");
+                ItemStack i = new ItemBuilder(Material.BARREL).setName("§c§l" + day + ". den").build();
                 ItemMeta iM = i.getItemMeta();
                 ArrayList<String> iMLore = new ArrayList();
                 iMLore.add("§7Jiz jsi otevrel tuto moznost!");
@@ -116,7 +117,7 @@ public class Kalendar implements Listener {
                 return i;
             }
         } else {
-            ItemStack i = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§l" + day + ". den", "§7Jeste je brzo!");
+            ItemStack i = new ItemBuilder(Material.RED_STAINED_GLASS_PANE).setName("§c§l" + day + ". den").build();
             i.setAmount(day);
             return i;
         }
@@ -157,7 +158,7 @@ public class Kalendar implements Listener {
     @EventHandler
     private void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
-        if (e.getInventory().getTitle().equals("Kalendar")) {
+        if (e.getView().getTitle().equals("Kalendar")) {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) {
                 return;
