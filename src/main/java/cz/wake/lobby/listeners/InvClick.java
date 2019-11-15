@@ -13,37 +13,6 @@ public class InvClick implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         try {
-            //**************************** VIP MENU ****************************//
-            if (event.getView().getTitle().equals("§lVIP Shop")) {
-                event.setCancelled(true);
-                player.updateInventory();
-                if (event.getSlot() == 11) {
-                    player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci SMS/Paypal/PSC provedes zde:");
-                    player.sendMessage("§bhttp://store.craftmania.cz");
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.closeInventory();
-                }
-                if (event.getSlot() == 15) {
-                    player.playSound(player.getLocation(), Sound.ENTITY_COW_HURT, 13.0F, 1.0F);
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.sendMessage("");
-                    player.sendMessage("§eNakup pomoci SMS/Paypal/PSC provedes zde:");
-                    player.sendMessage("§bhttp://store.craftmania.cz");
-                    player.sendMessage("");
-                    player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                    player.sendMessage("");
-                    player.closeInventory();
-                }
-            }
             //**************************** SERVERS MENU ****************************//
             if (event.getView().getTitle().equals("Vyber serveru")) {
                 if (event.getSlot() == 10) {
