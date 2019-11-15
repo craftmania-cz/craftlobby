@@ -3,7 +3,6 @@ package cz.wake.lobby.listeners;
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
-import cz.wake.lobby.utils.ItemFactory;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.entity.Player;

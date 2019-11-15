@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 
 public class NPCInteractListener implements Listener {
 
-    @EventHandler(ignoreCancelled = true)
+    @EventHandler
     public void onNpcClick(NPCInteractEvent event) {
         NPC unknownNpc = event.getNPC();
         for (IServerNPC serverNPC : Main.getInstance().getNpcManager().getNpcList()) {

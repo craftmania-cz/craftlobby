@@ -7,7 +7,6 @@ import cz.wake.lobby.seasons.christmas.Kalendar_command;
 import cz.wake.lobby.seasons.christmas.SilvesterTask;
 import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
 import cz.wake.lobby.gui.Profil;
-import cz.wake.lobby.gui.Servers;
 import cz.wake.lobby.commands.*;
 import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.listeners.*;
@@ -37,7 +36,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     private static Main instance;
     private Profil m = new Profil();
-    private Servers servers = new Servers();
     public boolean debug;
     public HashMap<Block, String> _BlocksToRestore = new HashMap();
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
@@ -137,12 +135,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // NEW
         pm.registerEvents(new PlayerJoinListener(), this);
+        pm.registerEvents(new PlayerInteractListener(), this);
         pm.registerEvents(new NPCInteractListener(), this);
 
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
-        pm.registerEvents(new Servers(), this);
         pm.registerEvents(new SettingsMenu(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new Profil(), this);

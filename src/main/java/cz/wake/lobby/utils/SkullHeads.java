@@ -13,11 +13,11 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemFactory {
+public class SkullHeads {
 
     public static ItemStack createHead(String name, String uuid, String textureData) {
         try {
-            net.minecraft.server.v1_14_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_WALL_HEAD, 1));
+            net.minecraft.server.v1_14_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_HEAD, 1));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
@@ -54,7 +54,7 @@ public class ItemFactory {
 
     public static ItemStack createHead(String name, String uuid, String textureData, String displayName, String... lore) {
         try {
-            net.minecraft.server.v1_14_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_WALL_HEAD, 1));
+            net.minecraft.server.v1_14_R1.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.PLAYER_HEAD, 1));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
@@ -88,7 +88,7 @@ public class ItemFactory {
             ItemMeta itemMeta = item.getItemMeta();
             itemMeta.setDisplayName(displayName);
             if (lore != null) {
-                List<String> finalLore = new ArrayList();
+                List<String> finalLore = new ArrayList<>();
                 for (String s : lore)
                     finalLore.add(s);
                 itemMeta.setLore(finalLore);
@@ -110,4 +110,6 @@ public class ItemFactory {
         itemStack.setItemMeta(leatherArmorMeta);
         return itemStack;
     }
+
 }
+
