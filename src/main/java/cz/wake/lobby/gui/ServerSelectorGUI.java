@@ -2,6 +2,7 @@ package cz.wake.lobby.gui;
 
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.craftmania.craftcore.spigot.inventory.builder.ClickableItem;
+import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
 import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryContents;
 import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryProvider;
 import cz.wake.lobby.utils.SkullHeads;
@@ -58,7 +59,10 @@ public class ServerSelectorGUI implements InventoryProvider {
 
         contents.set(2, 6, ClickableItem.of(
                 new ItemBuilder(Material.RED_DYE).setName("§c§lStaré servery").hideAllFlags()
-                        .setLore("§7Staré servery na starých verzích.", "§7Zde najdeš server, které dřív byly", "§7označovány jako hlavní a nyní jsou", "§7ve stavu, kdy již mají novou verzi.", "", "§eNa těchto serverech nedoporučujeme hrát", "§ejelikož může dojít k brzskému smazání.", "", "§b▸ Klikni k zobrazení").build(), e -> {}));
+                        .setLore("§7Staré servery na starých verzích.", "§7Zde najdeš server, které dřív byly", "§7označovány jako hlavní a nyní jsou", "§7ve stavu, kdy již mají novou verzi.", "", "§eNa těchto serverech nedoporučujeme hrát", "§ejelikož může dojít k brzskému smazání.", "", "§b▸ Klikni k zobrazení")
+                        .build(), e -> {
+                    SmartInventory.builder().size(6, 9).title("Staré servery").provider(new DeprecatedServersGUI()).build().open(player);
+                }));
 
         // Dolni radek
         contents.set(5,0, ClickableItem.of(colorGlass, e -> {}));
