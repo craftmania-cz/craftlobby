@@ -97,6 +97,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             w.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
             w.setGameRule(GameRule.DISABLE_RAIDS, true);
             w.setGameRule(GameRule.SPECTATORS_GENERATE_CHUNKS, false);
+            w.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
             for (Entity e : w.getEntities()) {
                 if(!(e instanceof ItemFrame)){
                     e.remove();
