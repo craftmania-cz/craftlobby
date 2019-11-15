@@ -45,17 +45,17 @@ public class PlayerInteractListener implements Listener {
         // Player hider
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
             if (!e.getHand().equals(EquipmentSlot.HAND)) return;
-            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.INK_SAC && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.LIME_DYE && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
                 if (!this._time.containsKey(e.getPlayer())) {
                     this._time.put(e.getPlayer(), 8D + 0.1D);
                     e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BREAK, 2.0F, 2.0F);
                     for (Player players : Bukkit.getOnlinePlayers()) {
                         e.getPlayer().hidePlayer(players);
-                        ItemStack disable = new ItemStack(Material.INK_SAC);
+                        ItemStack disable = new ItemStack(Material.RED_DYE);
                         ItemMeta im = disable.getItemMeta();
                         im.setDisplayName("§7Hraci: §c§lNEVIDITELNY");
                         disable.setItemMeta(im);
-                        e.getPlayer().getInventory().setItem(8, disable);
+                        e.getPlayer().getInventory().setItem(6, disable);
                         e.getPlayer().updateInventory();
                     }
                     e.getPlayer().sendMessage(ChatColor.RED + "Vsechny aktualni hrace jsi zneviditelnil.");
@@ -76,18 +76,18 @@ public class PlayerInteractListener implements Listener {
                     return;
                 }
             } else {
-                if ((e.getPlayer().getItemInHand().getType() == Material.INK_SAC && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))) {
+                if ((e.getPlayer().getItemInHand().getType() == Material.RED_DYE && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))) {
                     if (!e.getHand().equals(EquipmentSlot.HAND)) return;
                     if (!this._time.containsKey(e.getPlayer())) {
                         this._time.put(e.getPlayer(), 8D + 0.1D);
                         e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BREAK, 2.0F, 2.0F);
                         for (Player pl : Bukkit.getOnlinePlayers()) {
                             e.getPlayer().showPlayer(pl);
-                            ItemStack enable = new ItemStack(Material.INK_SAC, 1, (byte) 10);
+                            ItemStack enable = new ItemStack(Material.LIME_DYE, 1, (byte) 10);
                             ItemMeta im = enable.getItemMeta();
                             im.setDisplayName("§7Hraci: §a§lVIDITELNY");
                             enable.setItemMeta(im);
-                            e.getPlayer().getInventory().setItem(8, enable);
+                            e.getPlayer().getInventory().setItem(6, enable);
                             e.getPlayer().updateInventory();
                         }
                         e.getPlayer().sendMessage(ChatColor.GREEN + "Vsechny hrace jsi zviditelnil.");

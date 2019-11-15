@@ -3,6 +3,7 @@ package cz.wake.lobby.listeners;
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.utils.SkullHeads;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -140,49 +141,49 @@ public class PlayerJoinListener implements Listener {
 
         ItemStack playerProfile = new ItemBuilder(Material.PLAYER_HEAD).setSkullOwner(p).setName("§aProfil §7(Klikni pravym)").build();
 
-        ItemStack hider = new ItemBuilder(Material.INK_SAC).setName("§7Hraci: §a§lVIDITELNY").build();
+        ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hraci: §a§lVIDITELNY").build();
 
-        /*ItemStack web = ItemFactory.createHead(
+        ItemStack lobbyList = new ItemBuilder(Material.CLOCK).setName("§eZměna lobby §7(Klikni pravým)").build();
+
+        ItemStack changelogs = new ItemBuilder(Material.BOOK).setName("§9Changelogs §7(Klikni pravým)").build();
+
+        ItemStack web = SkullHeads.createHead(
                 "§aWeb",
                 "c424243d-0421-4774-8aeb-2ddea957ed57",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19",
-                "§a§lWeb", "§7Odkaz na nas web:", "§fhttps://craftmania.cz", "", "§eKliknutim zobrazis odkaz v chatu");
+                "§a§lWeb", "§7Odkaz na náš web:", "§fhttps://craftmania.cz", "", "§eKliknutím zobrazíš odkaz v chatu");
 
-        ItemStack discord = ItemFactory.createHead(
+        ItemStack discord = SkullHeads.createHead(
                 "§9§lDiscord",
                 "de431cd1-ae1d-49f6-9339-a96daeacc32b",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19",
                 "§9§lDiscord",
-                "§7Odkaz na nas Discord server:", "§fhttps://discord.gg/craftmania", "", "§eKliknutim zobrazis odkaz v chatu");*/
+                "§7Odkaz na náš Discord server:", "§fhttps://discord.gg/craftmania", "", "§eKliknutím zobrazíš odkaz v chatu");
 
-        /*ItemStack facebook = ItemFactory.createHead("§bFacebook", "4ac1c429-e329-4861-b1d6-c4bde50022d9", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=");
-        ItemMeta facebookMeta = facebook.getItemMeta();
-        ArrayList<String> facebookLore = new ArrayList<>();
-        facebookLore.add("§7Odkaz na nasi Facebook Page:");
-        facebookLore.add("§fhttps://www.fb.com/craftmaniacz/");
-        facebookLore.add("");
-        facebookLore.add("§eKliknutim zobrazis odkaz v chatu");
-        facebookMeta.setLore(facebookLore);
-        facebook.setItemMeta(facebookMeta);
+        ItemStack facebook = SkullHeads.createHead(
+                "§b§lFacebook",
+                "4ac1c429-e329-4861-b1d6-c4bde50022d9",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=",
+                "§b§lFacebook",
+                "§7Odkaz na naší Facebook page:", "§fhttps://www.fb.com/craftmaniacz/", "", "§eKliknutím zobrazíš odkaz v chatu");
 
-        ItemStack twitter = ItemFactory.createHead("§dInstagram", "5e469ecf-80a4-40ae-8d9d-7c12bd2d3a3f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjViM2YyY2ZhMDczOWM0ZTgyODMxNmYzOWY5MGIwNWJjMWY0ZWQyN2IxZTM1ODg4NTExZjU1OGQ0Njc1In19fQ==");
-        ItemMeta twitterMeta = twitter.getItemMeta();
-        ArrayList<String> twitterLore = new ArrayList<>();
-        twitterLore.add("§7Odkaz na nas Instagram ucet:");
-        twitterLore.add("§fhttps://www.instagram.com/craftmania.cz/");
-        twitterLore.add("");
-        twitterLore.add("§eKliknutim zobrazis odkaz v chatu");
-        twitterMeta.setLore(twitterLore);
-        twitter.setItemMeta(twitterMeta);*/
+        ItemStack instagram = SkullHeads.createHead(
+                "§d§lInstagram",
+                "5e469ecf-80a4-40ae-8d9d-7c12bd2d3a3f",
+                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjViM2YyY2ZhMDczOWM0ZTgyODMxNmYzOWY5MGIwNWJjMWY0ZWQyN2IxZTM1ODg4NTExZjU1OGQ0Njc1In19fQ==",
+                "§d§lInstagram",
+                "§7Odkaz na náš Instagram:", "§fhttps://www.instagram.com/craftmania.cz/", "", "§eKliknutím zobrazíš odkaz v chatu");
 
         p.getInventory().setItem(0, compass);
         p.getInventory().setItem(1, playerProfile);
-        p.getInventory().setItem(8, hider);
+        p.getInventory().setItem(5, changelogs);
+        p.getInventory().setItem(6, hider);
+        p.getInventory().setItem(8, lobbyList);
 
-        //p.getInventory().setItem(19, web);
-        //p.getInventory().setItem(21, discord);
-        //p.getInventory().setItem(23, facebook);
-        //p.getInventory().setItem(25, twitter);
+        p.getInventory().setItem(19, web);
+        p.getInventory().setItem(21, discord);
+        p.getInventory().setItem(23, facebook);
+        p.getInventory().setItem(25, instagram);
     }
 
     private void setupPlayerOnJoin(final Player p) {

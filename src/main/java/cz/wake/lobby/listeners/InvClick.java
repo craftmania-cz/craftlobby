@@ -84,13 +84,13 @@ public class InvClick implements Listener {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative2");
                 }
             }
-            if ((event.getSlot() == 19) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("§aWeb"))) {
+            if ((event.getSlot() == 19) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Web"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
                 player.sendMessage("");
-                player.sendMessage("§eOdkaz na nas web:");
+                player.sendMessage("§eOdkaz na náš web:");
                 player.sendMessage("§fhttps://craftmania.cz");
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -103,7 +103,7 @@ public class InvClick implements Listener {
                 player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
                 player.sendMessage("");
-                player.sendMessage("§eOdkaz na nas Discord server:");
+                player.sendMessage("§eOdkaz na náš Discord server:");
                 player.sendMessage("§fhttps://discord.gg/craftmania");
                 player.sendMessage("");
                 player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -116,7 +116,7 @@ public class InvClick implements Listener {
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
                 player.sendMessage("");
-                player.sendMessage("§eOdkaz na nasi Facebook Page:");
+                player.sendMessage("§eOdkaz na naší Facebook page:");
                 player.sendMessage("§fhttps://www.fb.com/craftmaniacz/");
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -129,7 +129,7 @@ public class InvClick implements Listener {
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
                 player.sendMessage("");
                 player.sendMessage("");
-                player.sendMessage("§eOdkaz na nas Instagram ucet:");
+                player.sendMessage("§eOdkaz na náš Instagram účet:");
                 player.sendMessage("§fhttps://www.instagram.com/craftmania.cz/");
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
