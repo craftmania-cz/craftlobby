@@ -29,6 +29,7 @@ repositories {
     maven { url "https://jitpack.io" }
     maven { url "http://packages.craftmania.cz/repository/craftmania/" }
     maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "https://oss.sonatype.org/content/groups/public/" }
 }
 
 dependencies {
@@ -42,6 +43,7 @@ dependencies {
     compileOnly name: 'Parkour'
     compile ('com.zaxxer:HikariCP:3.2.0')
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0"
+    compile group: "net.jitse", name: "npclib-api", version: "2.3-SNAPSHOT"
 
     // CM Plugins
     compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.2.3'

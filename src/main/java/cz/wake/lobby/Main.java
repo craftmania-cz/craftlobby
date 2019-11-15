@@ -1,5 +1,7 @@
 package cz.wake.lobby;
 
+import cz.wake.lobby.npc.NPCInteractListener;
+import cz.wake.lobby.npc.NPCManager;
 import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.seasons.christmas.Kalendar_command;
 import cz.wake.lobby.seasons.christmas.SilvesterTask;
@@ -14,6 +16,7 @@ import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
+import net.jitse.npclib.NPCLib;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.World;
@@ -50,6 +53,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private boolean isChristmas;
     private boolean isHalloween;
     private CraftBalancerManager craftBalancerManager;
+    private NPCLib npclib;
+    private NPCManager npcManager;
 
     public void onEnable() {
 
@@ -81,6 +86,11 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
 
         craftBalancerManager = new CraftBalancerManager(this);
+
+        // Setup NPC
+        this.npclib = new NPCLib(this);
+        this.npcManager = new NPCManager();
+        this.npcManager.loadNpcs();
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
@@ -127,6 +137,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // NEW
         pm.registerEvents(new PlayerJoinListener(), this);
+        pm.registerEvents(new NPCInteractListener(), this);
 
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
@@ -215,5 +226,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public CraftBalancerManager getCraftBalancerManager() {
         return craftBalancerManager;
+    }
+
+    public NPCLib getNpclib() {
+        return npclib;
+    }
+
+    public NPCManager getNpcManager() {
+        return npcManager;
     }
 }

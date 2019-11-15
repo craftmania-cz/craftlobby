@@ -4,7 +4,7 @@ version: "2.0"
 api-version: "1.14"
 author: MrWakeCZ
 softdepend: [RogueParkour]
-depend: [Multiverse-Core,CraftCore]
+depend: [Multiverse-Core,CraftCore,NPCLibPlugin]
 commands:
   clobby:
     description: Info o profilu!
