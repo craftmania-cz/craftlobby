@@ -1,5 +1,7 @@
 package cz.wake.lobby.npc.list;
 
+import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
+import cz.wake.lobby.gui.TutorialGUI;
 import cz.wake.lobby.npc.IServerNPC;
 import net.jitse.npclib.api.events.NPCInteractEvent;
 import org.bukkit.Bukkit;
@@ -35,5 +37,7 @@ public class TutorialNPC implements IServerNPC {
     }
 
     @Override
-    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {}
+    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
+        SmartInventory.builder().size(6, 9).title("Tutorial & Info").provider(new TutorialGUI()).build().open(player);
+    }
 }
