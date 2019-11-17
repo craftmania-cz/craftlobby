@@ -22,6 +22,7 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -98,11 +99,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             w.setGameRule(GameRule.DISABLE_RAIDS, true);
             w.setGameRule(GameRule.SPECTATORS_GENERATE_CHUNKS, false);
             w.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
-            for (Entity e : w.getEntities()) {
-                if(!(e instanceof ItemFrame)){
-                    e.remove();
-                }
-            }
         }
 
         // Id serveru

@@ -63,7 +63,7 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onCreatureSpawn(CreatureSpawnEvent e) {
-        if (!(e.getSpawnReason() == SpawnReason.CUSTOM)) {
+        if (!(e.getSpawnReason() == SpawnReason.CUSTOM) || !(e.getEntityType() == EntityType.ARMOR_STAND)) {
             e.setCancelled(true);
         }
     }

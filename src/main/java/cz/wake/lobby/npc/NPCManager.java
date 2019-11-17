@@ -43,7 +43,6 @@ public class NPCManager {
                 }
             });
         }
-        System.out.println(ids);
     }
 
     public void despawnNpc() {
