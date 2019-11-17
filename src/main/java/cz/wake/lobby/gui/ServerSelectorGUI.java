@@ -5,6 +5,7 @@ import cz.craftmania.craftcore.spigot.inventory.builder.ClickableItem;
 import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
 import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryContents;
 import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryProvider;
+import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.SkullHeads;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -39,19 +40,27 @@ public class ServerSelectorGUI implements InventoryProvider {
 
         contents.set(2, 1, ClickableItem.of(
                 new ItemBuilder(getRandomSurvivalIcon()).setName("§a§lSurvival §e[1.12]").hideAllFlags()
-                        .setLore("§8Survival, Economy, PVP, Fly", "", "§7Survival pro všechny milovníky", "§7velkých ekonomika, mnoha vylepšení", "§7a mnoha příkazy!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {}));
+                        .setLore("§8Survival, Economy, PVP, Fly", "", "§7Survival pro všechny milovníky", "§7velkých ekonomika, mnoha vylepšení", "§7a mnoha příkazy!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
+                }));
 
         contents.set(2, 2, ClickableItem.of(
                 new ItemBuilder(getRandomSkyblockIcon()).setName("§b§lSkyblock §e[1.12]").hideAllFlags()
-                        .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Vybuduj impérium v ničem", "§7doslova okolo tebe nebude nic!", "",  "§b▸ Kliknutim te portnu", "§f...").build(), e -> {}));
+                        .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Vybuduj impérium v ničem", "§7doslova okolo tebe nebude nic!", "",  "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
+                }));
 
         contents.set(2, 3, ClickableItem.of(
                 new ItemBuilder(getRandomCreativeIcon()).setName("§c§lCreative §e[1.14]").hideAllFlags()
-                        .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {}));
+                        .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
+                }));
 
         contents.set(3, 1, ClickableItem.of(
                 new ItemBuilder(Material.EMERALD).setName("§6§lVanilla §e[1.14]").hideAllFlags()
-                        .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {}));
+                        .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
+                }));
 
         contents.set(2, 5, ClickableItem.of(
                 new ItemBuilder(Material.CAMPFIRE).setName("§d§lEvent Server").hideAllFlags()

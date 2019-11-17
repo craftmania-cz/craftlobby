@@ -1,5 +1,6 @@
 package cz.wake.lobby.npc.list;
 
+import cz.wake.lobby.Main;
 import cz.wake.lobby.npc.IServerNPC;
 import net.jitse.npclib.api.events.NPCInteractEvent;
 import org.bukkit.Bukkit;
@@ -30,10 +31,12 @@ public class VanillaNPC implements IServerNPC {
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
         list.add("§6§lVanilla §e[1.14]");
-        list.add("§f30 §fhráčů");
+        list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("vanilla") +" §7hráčů");
         return list;
     }
 
     @Override
-    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {}
+    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
+        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
+    }
 }

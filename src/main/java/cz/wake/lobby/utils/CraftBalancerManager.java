@@ -28,7 +28,8 @@ public class CraftBalancerManager implements PluginMessageListener {
 
     @Override
     public void onPluginMessageReceived(String channel, Player player, byte[] message) {
-        if (channel.equals("playerbalancer")) {
+        System.out.println(channel);
+        if (channel.equals("playerbalancer:plugin")) {
             ByteArrayDataInput in = ByteStreams.newDataInput(message);
             String subchannel = in.readUTF();
 
