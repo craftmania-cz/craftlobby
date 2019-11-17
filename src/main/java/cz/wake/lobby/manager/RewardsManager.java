@@ -1,5 +1,6 @@
 package cz.wake.lobby.manager;
 
+import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
@@ -17,71 +18,61 @@ public class RewardsManager implements Listener {
 
     public void openRewardManager(final Player p) {
 
-        /*Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
+        Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
 
         if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
-            ItemStack weekOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lDenni odmena", "§81x za 24 hodin", "",
-                    "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC", "", "§aKliknutim vyberes odmenu!");
+            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "", "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC", "", "§aKliknutim vyberes odmenu!").build();
             inv.setItem(20, weekOdmena);
         } else {
-            ItemStack weekOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lDenni odmena", "§81x za 24 hodin", "",
-                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", "§cDalsi vyber kazdych 24h");
-            inv.setItem(20, weekOdmena);
+            ItemStack weekOdmena = new ItemBuilder(Material.MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "",
+                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", "§cDalsi vyber kazdych 24h").build();
+                    inv.setItem(20, weekOdmena);
         }
         if (p.hasPermission("craftlobby.vip.odmena")) {
             if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
                 if (p.hasPermission("craftlobby.vip.odmena.obsidian")) {
-                    ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §9Obsidian!", "", "§eDostanes: §64000 CC", "", "§aKliknutim vyberes odmenu!");
+                    ItemStack vipOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §9Obsidian!", "", "§eDostanes: §64000 CC", "", "§aKliknutim vyberes odmenu!").build();
                     inv.setItem(21, vipOdmena);
                 } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
-                    ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §aEmerald!", "", "§eDostanes: §63000 CC", "", "§aKliknutim vyberes odmenu!");
+                    ItemStack vipOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §aEmerald!", "", "§eDostanes: §63000 CC", "", "§aKliknutim vyberes odmenu!").build();
                     inv.setItem(21, vipOdmena);
                 } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
-                    ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §bDiamond!", "", "§eDostanes: §62000 CC", "", "§aKliknutim vyberes odmenu!");
+                    ItemStack vipOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §bDiamond!", "", "§eDostanes: §62000 CC", "", "§aKliknutim vyberes odmenu!").build();
                     inv.setItem(21, vipOdmena);
                 } else {
-                    ItemStack vipOdmena = ItemFactory.create(Material.STORAGE_MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §6Gold!", "", "§eDostanes: §61000 CC", "", "§aKliknutim vyberes odmenu!");
+                    ItemStack vipOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §6Gold!", "", "§eDostanes: §61000 CC", "", "§aKliknutim vyberes odmenu!").build();
                     inv.setItem(21, vipOdmena);
                 }
             } else {
                 if (p.hasPermission("craftlobby.vip.odmena.obsidian")) {
-                    ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmenu sis jiz vybral,", "§eDostanes: §64000 CC", "", "§cDalsi vyber je mozny az pristi mesic.");
+                    ItemStack vipOdmena = new ItemBuilder(Material.MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmenu sis jiz vybral,", "§eDostanes: §64000 CC", "", "§cDalsi vyber je mozny az pristi mesic.").build();
                     inv.setItem(21, vipOdmena);
                 } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
-                    ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmenu sis jiz vybral,", "§eDostanes: §63000C CC", "", "§cDalsi vyber je mozny az pristi mesic.");
+                    ItemStack vipOdmena = new ItemBuilder(Material.MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmenu sis jiz vybral,", "§eDostanes: §63000C CC", "", "§cDalsi vyber je mozny az pristi mesic.").build();
                     inv.setItem(21, vipOdmena);
                 } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
-                    ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmenu sis jiz vybral,", "§eDostanes: §62000C CC", "", "§cDalsi vyber je mozny az pristi mesic.");
+                    ItemStack vipOdmena = new ItemBuilder(Material.MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmenu sis jiz vybral,", "§eDostanes: §62000C CC", "", "§cDalsi vyber je mozny az pristi mesic.").build();
                     inv.setItem(21, vipOdmena);
                 } else {
-                    ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§b§lVIP Bonus", "§81x kazdy mesic", "",
-                            "§7Odmenu sis jiz vybral,", "§eDostanes: §61000 CC", "", "§cDalsi vyber je mozny az pristi mesic.");
+                    ItemStack vipOdmena = new ItemBuilder(Material.MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                            "§7Odmenu sis jiz vybral,", "§eDostanes: §61000 CC", "", "§cDalsi vyber je mozny az pristi mesic.").build();
                     inv.setItem(21, vipOdmena);
                 }
             }
         } else {
-            ItemStack vipOdmena = ItemFactory.create(Material.MINECART, (byte) 0, "§c§lVIP Bonus", "§81x kazdy mesic", "",
-                    "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni VIP!", "", "§eDostanes: §61000-4000 CC", "", "§cNemas zakoupene VIP!");
+            ItemStack vipOdmena = new ItemBuilder(Material.BARRIER).setName("§c§lVIP Bonus").setLore("§81x kazdy mesic", "",
+                    "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni VIP!", "", "§eDostanes: §61000-4000 CC", "", "§cNemas zakoupene VIP!").build();
             inv.setItem(21, vipOdmena);
         }
 
-        ItemStack vipGadgets = ItemFactory.create(Material.BARRIER, (byte) 0, "§c§lMVIP Gadgets", "§7Planovano...");
-        ItemStack fbLike = ItemFactory.create(Material.BARRIER, (byte) 0, "§c§lLike na nasi FB Page", "§7Planovano...");
-        ItemStack discord = ItemFactory.create(Material.BARRIER, (byte) 0, "§c§lPripojeni na Discord", "§7Planovano...");
-
-
-        inv.setItem(22, vipGadgets);
-        inv.setItem(23, fbLike);
-        inv.setItem(24, discord);*/
-
-        //p.openInventory(inv);
+        p.openInventory(inv);
     }
 
     // TODO: Pridat do craftcore
@@ -118,7 +109,7 @@ public class RewardsManager implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
         final Player p = (Player) e.getWhoClicked();
-        /*if (e.getInventory().getTitle().equals("Odmeny pro hrace")) {
+        if (e.getView().getTitle().equals("Odmeny pro hrace")) {
             if (e.getCurrentItem() == null) {
                 return;
             }
@@ -129,10 +120,7 @@ public class RewardsManager implements Listener {
                 if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
                     p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §650 CC");
                     Main.getInstance().getSQL().updateRewardRecord(p, "lobby_denniodmena");
-                    //Main.getInstance().setData().addCoins(p, 50);
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "coins give " + p.getName() + " 50");
-                    Bonusy b = new Bonusy();
-                    b.playEffect(p);
+                    CraftCoinsAPI.giveCoins(p, 50);
                     p.closeInventory();
                 } else {
                     p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
@@ -158,8 +146,6 @@ public class RewardsManager implements Listener {
                             Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
                             CraftCoinsAPI.giveCoins(p, 1000);
                         }
-                        Bonusy b = new Bonusy();
-                        b.playEffect(p);
                         p.closeInventory();
                     } else {
                         p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
@@ -168,6 +154,6 @@ public class RewardsManager implements Listener {
                     p.sendMessage("§c§l[!] §cNa vyber teto odmeny musis mit zakoupene globalni VIP!");
                 }
             }
-        }*/
+        }
     }
 }

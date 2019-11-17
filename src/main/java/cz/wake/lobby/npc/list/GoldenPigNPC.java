@@ -1,5 +1,6 @@
 package cz.wake.lobby.npc.list;
 
+import cz.wake.lobby.manager.RewardsManager;
 import cz.wake.lobby.npc.IServerNPC;
 import net.jitse.npclib.api.events.NPCInteractEvent;
 import org.bukkit.Bukkit;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GoldenPigNPC implements IServerNPC {
+
+    private RewardsManager rewardsManager = new RewardsManager();
 
     @Override
     public String getId() {
@@ -35,5 +38,7 @@ public class GoldenPigNPC implements IServerNPC {
     }
 
     @Override
-    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {}
+    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
+        rewardsManager.openRewardManager(player);
+    }
 }
