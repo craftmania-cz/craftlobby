@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'cz.wake.lobby'
-version = '1.8'
+version = '2.0'
 
 description = """"""
 
@@ -29,22 +29,23 @@ repositories {
     maven { url "https://jitpack.io" }
     maven { url "http://packages.craftmania.cz/repository/craftmania/" }
     maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "https://oss.sonatype.org/content/groups/public/" }
 }
 
 dependencies {
     // Spigot
-    compileOnly name: 'spigot-1.12.2-R0.1-SNAPSHOT'
-    compileOnly ('org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT') {
+    compileOnly name: 'spigot-1.14.4'
+    compileOnly ('org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT') {
         exclude group: 'net.md-5'
     }
 
     // Others
-    compileOnly name: 'LibsDisguises-9.4.0'
     compileOnly name: 'Parkour'
     compile ('com.zaxxer:HikariCP:3.2.0')
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0"
+    compile group: "net.jitse", name: "npclib-api", version: "2.3-SNAPSHOT"
 
     // CM Plugins
-    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.0.12'
-    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.0.5'
+    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.2.3'
+    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.2.3'
 }

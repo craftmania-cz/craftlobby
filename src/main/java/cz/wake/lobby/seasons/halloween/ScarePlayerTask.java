@@ -24,10 +24,10 @@ public class ScarePlayerTask implements Runnable {
                 player.playSound(player.getLocation(), Sound.ENTITY_WITCH_AMBIENT, 1.0f, 1.0f);
             }
             else if (nextInt == 2) {
-                player.playSound(player.getLocation(), Sound.ENTITY_ENDERDRAGON_GROWL, 1.0f, 1.0f);
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1.0f, 1.0f);
             }
             else if (nextInt == 3) {
-                player.playSound(player.getLocation(), Sound.ENTITY_ENDERDRAGON_AMBIENT, 1.0f, 1.0f);
+                player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_AMBIENT, 1.0f, 1.0f);
             }
             else if (nextInt == 4) {
                 player.playSound(player.getLocation(), Sound.ENTITY_WITHER_AMBIENT, 1.0f, 1.0f);

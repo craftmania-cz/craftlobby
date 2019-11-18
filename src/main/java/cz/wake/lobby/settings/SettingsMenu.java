@@ -1,7 +1,7 @@
 package cz.wake.lobby.settings;
 
+import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -33,8 +33,8 @@ public class SettingsMenu implements Listener {
     }};
 
     public void openSettingsMenu(final Player p, final int page) {
-        ItemStack enabled = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 5, "§a§lZapnuto");
-        ItemStack disabled = ItemFactory.create(Material.STAINED_GLASS_PANE, (byte) 14, "§c§lVypnuto");
+        /*ItemStack enabled = new ItemBuilder(Material.LIME_STAINED_GLASS_PANE).setName("§a§lZapnuto").build();
+        ItemStack disabled = new ItemBuilder(Material.RED_STAINED_GLASS_PANE).setName("§c§lVypnuto").build();
         ItemStack nedostupne = ItemFactory.create(Material.BARRIER, (byte) 0, "§c§lNedostupne");
         ItemStack zpet = ItemFactory.create(Material.ARROW, (byte) 0, "§eZpet");
         ItemStack nextPage = ItemFactory.create(Material.ARROW, (byte) 0, "§eDalsi strana");
@@ -136,13 +136,13 @@ public class SettingsMenu implements Listener {
             }
 
             p.openInventory(inv);
-        }
+        }*/
     }
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        if (e.getInventory().getTitle().startsWith("Osobni nastaveni (Strana 1/2")) {
+        if (e.getView().getTitle().startsWith("Osobni nastaveni (Strana 1/2")) {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) {
                 return;
@@ -247,7 +247,7 @@ public class SettingsMenu implements Listener {
             }
         }
 
-        if (e.getInventory().getTitle().equals("Osobni nastaveni (Strana 2/2)")) {
+        if (e.getView().getTitle().equals("Osobni nastaveni (Strana 2/2)")) {
             if (e.getSlot() == 18) {
                 if (p.hasPermission("craftlobby.vip.joinbroadcast-message")) {
                     if (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_enabled") == 1) {
@@ -298,7 +298,7 @@ public class SettingsMenu implements Listener {
                 openSettingsMenu(p, 1);
             }
         }
-        if (e.getInventory().getTitle().equals("Nastaveni zpravy")) {
+        if (e.getView().getTitle().equals("Nastaveni zpravy")) {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) {
                 return;
@@ -356,7 +356,7 @@ public class SettingsMenu implements Listener {
                 return;
             }
         }
-        if (e.getInventory().getTitle().equals("Nastaveni zvuku")) {
+        if (e.getView().getTitle().equals("Nastaveni zvuku")) {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) {
                 return;
@@ -416,7 +416,7 @@ public class SettingsMenu implements Listener {
 
     private void openJoinMessagesMenu(final Player p) {
         Inventory inv = Bukkit.createInventory(null, 27, "Nastaveni zpravy");
-        ItemStack jedna = ItemFactory.createHead("Prvni zprava", "00684a88-5cc8-4713-9e91-7b1906e67580",
+        /*ItemStack jedna = ItemFactory.createHead("Prvni zprava", "00684a88-5cc8-4713-9e91-7b1906e67580",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzFiYzJiY2ZiMmJkMzc1OWU2YjFlODZmYzdhNzk1ODVlMTEyN2RkMzU3ZmMyMDI4OTNmOWRlMjQxYmM5ZTUzMCJ9fX0=",
         "§bVolba 1", "§7Text zpravy:", formatJoinMessageWithoutColors(1, p), "", "§aK nastaveni klikni");
 
@@ -452,13 +452,15 @@ public class SettingsMenu implements Listener {
         inv.setItem(15, sest);
         inv.setItem(16, sedm);
 
+        */
+
         p.openInventory(inv);
     }
 
     private void openSoundsMenu(final Player p) {
         Inventory inv = Bukkit.createInventory(null, 27, "Nastaveni zvuku");
 
-        ItemStack experience = ItemFactory.create(Material.EXP_BOTTLE, (byte) 0, "§e§lEXP ORB PICKUP", "§f", "§7Tento zvuk slysis, kdyz", "§7seberes EXP orb.");
+        /*ItemStack experience = ItemFactory.create(Material.EXPERIENCE_BOTTLE, (byte) 0, "§e§lEXP ORB PICKUP", "§f", "§7Tento zvuk slysis, kdyz", "§7seberes EXP orb.");
         inv.setItem(11, experience); // ENTITY_EXPERIENCE_ORB_PICKUP
 
         ItemStack anvil = ItemFactory.create(Material.ANVIL, (byte) 0, "§e§lANVIL FALL", "§f", "§7Tento zvuk slysis, kdyz", "§7kdyz anvilka dopadne na zem.");
@@ -471,7 +473,7 @@ public class SettingsMenu implements Listener {
         inv.setItem(14, itempickup); // ENTITY_ITEM_PICKUP
 
         ItemStack zombie = ItemFactory.create(Material.ROTTEN_FLESH, (byte) 0, "§e§lZOMBIE HURT", "§f", "§7Tento zvuk slysis, kdyz", "§7ublizis zombie.");
-        inv.setItem(15, zombie); // ENTITY_ZOMBIE_HURT
+        inv.setItem(15, zombie); // ENTITY_ZOMBIE_HURT*/
 
         p.openInventory(inv);
     }
