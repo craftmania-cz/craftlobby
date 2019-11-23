@@ -13,6 +13,9 @@ public class InvClick implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         try {
+            if (event.getCurrentItem() == null) {
+                return;
+            }
             //**************************** SERVERS MENU ****************************//
             if (event.getView().getTitle().equals("Vyber serveru")) {
                 if (event.getSlot() == 10) {
