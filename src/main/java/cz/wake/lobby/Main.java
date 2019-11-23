@@ -1,5 +1,6 @@
 package cz.wake.lobby;
 
+import cz.craftmania.craftcore.spigot.bungee.BungeeAPI;
 import cz.wake.lobby.npc.NPCInteractListener;
 import cz.wake.lobby.npc.NPCManager;
 import cz.wake.lobby.seasons.christmas.Kalendar;
@@ -54,6 +55,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private CraftBalancerManager craftBalancerManager;
     private NPCLib npclib;
     private NPCManager npcManager;
+    private BungeeAPI bungeeAPI;
 
     public void onEnable() {
 
@@ -83,6 +85,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.info("Nacitani plugin messages.");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
+
+        bungeeAPI = new BungeeAPI();
 
         craftBalancerManager = new CraftBalancerManager(this);
 
