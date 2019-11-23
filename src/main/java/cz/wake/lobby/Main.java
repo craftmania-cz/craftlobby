@@ -134,6 +134,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new PlayerJoinListener(), this);
         pm.registerEvents(new NPCInteractListener(), this);
         pm.registerEvents(new PlayerInteractListener(), this);
+        pm.registerEvents(new ItemFrameInteractListener(), this);
 
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
