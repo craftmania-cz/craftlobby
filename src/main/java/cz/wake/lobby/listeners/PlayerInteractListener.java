@@ -33,7 +33,7 @@ public class PlayerInteractListener implements Listener {
         // Profil
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.PLAYER_HEAD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {
-            player.sendMessage("TEST");
+            player.sendMessage("§c§l[!] §cTato funkce bude uveřejněná v pozdějším Lobby Content Updatu! :)");
         }
 
         // Kompas
@@ -46,6 +46,12 @@ public class PlayerInteractListener implements Listener {
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.CLOCK) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§eZměna lobby §7(Klikni pravým)"))) {
             SmartInventory.builder().size(6, 9).title("Změna lobby").provider(new LobbySelectorGUI()).build().open(player);
+        }
+
+        // Changelogs
+        if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
+                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.BOOK) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9Changelogs §7(Klikni pravým)"))) {
+            player.sendMessage("§c§l[!] §cTato funkce bude uveřejněná v pozdějším Lobby Content Updatu! :)");
         }
 
 
