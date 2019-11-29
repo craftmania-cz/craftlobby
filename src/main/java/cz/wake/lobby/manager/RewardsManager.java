@@ -2,6 +2,8 @@ package cz.wake.lobby.manager;
 
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
+import cz.craftmania.crafteconomy.api.CraftTokensAPI;
+import cz.craftmania.crafteconomy.api.VoteTokensAPI;
 import cz.wake.lobby.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -20,16 +22,24 @@ public class RewardsManager implements Listener {
 
         Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
 
-        if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
-            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "", "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC", "", "§aKliknutim vyberes odmenu!").build();
+        if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_daily_bonus") == 0) {
+            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "", "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC §c+450 CC EXTRA", "", "§aKliknutim vyberes odmenu!").build();
             inv.setItem(20, weekOdmena);
         } else {
             ItemStack weekOdmena = new ItemBuilder(Material.MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "",
-                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", "§cDalsi vyber kazdych 24h").build();
+                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §6500 CC", "", "§cDalsi vyber kazdych 24h").build();
                     inv.setItem(20, weekOdmena);
         }
+        if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_extra_bonus") == 0) {
+            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lExtra odmena").setLore("§81x za CM problem", "", "§7Ejhle, neco se nam pokazilo.", "", "§eDostanes: §610,000 CC, §b1 CT, §a4 VT", "", "§aKliknutim vyberes odmenu!").build();
+            inv.setItem(22, weekOdmena);
+        } else {
+            ItemStack weekOdmena = new ItemBuilder(Material.MINECART).setName("§b§lExtra odmena").setLore("§81x za 24 hodin", "",
+                    "§7Odmenu sis jiz vybral.", "", "§eDostanes: §610,000 CC, §b1 CT, §a4 VT").build();
+            inv.setItem(22, weekOdmena);
+        }
         if (p.hasPermission("craftlobby.vip.odmena")) {
-            if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
+            if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vip_bonus") == 0) {
                 if (p.hasPermission("craftlobby.vip.odmena.obsidian")) {
                     ItemStack vipOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lVIP Bonus").setLore("§81x kazdy mesic", "",
                             "§7Odmena pro kazdeho,", "§7kdo si zakoupil globalni §9Obsidian!", "", "§eDostanes: §64000 CC", "", "§aKliknutim vyberes odmenu!").build();
@@ -116,11 +126,23 @@ public class RewardsManager implements Listener {
             if (e.getCurrentItem().getType() == Material.AIR) {
                 return;
             }
+            if (e.getSlot() == 22) {
+                if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_extra_bonus") == 0) {
+                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §610,000 CC, §b1 CT, §a4 VT");
+                    Main.getInstance().getSQL().updateRewardRecord(p, "lobby_extra_bonus");
+                    CraftCoinsAPI.giveCoins(p, 10000);
+                    VoteTokensAPI.giveVoteTokens(p, 4);
+                    CraftTokensAPI.giveTokens(p, 1);
+                    p.closeInventory();
+                } else {
+                    p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
+                }
+            }
             if (e.getSlot() == 20) {
-                if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_denniodmena") == 0) {
-                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §650 CC");
-                    Main.getInstance().getSQL().updateRewardRecord(p, "lobby_denniodmena");
-                    CraftCoinsAPI.giveCoins(p, 50);
+                if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_daily_bonus") == 0) {
+                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §6500 CC");
+                    Main.getInstance().getSQL().updateRewardRecord(p, "lobby_daily_bonus");
+                    CraftCoinsAPI.giveCoins(p, 500);
                     p.closeInventory();
                 } else {
                     p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
@@ -128,22 +150,22 @@ public class RewardsManager implements Listener {
             }
             if (e.getSlot() == 21) {
                 if (p.hasPermission("craftlobby.vip.odmena")) {
-                    if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vipodmena") == 0) {
+                    if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vip_bonus") == 0) {
                         if(p.hasPermission("craftlobby.vip.odmena.obsidian")) {
                             p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §64000 CC");
-                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
+                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vip_bonus");
                             CraftCoinsAPI.giveCoins(p, 4000);
                         } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
                             p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §63000 CC");
-                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
+                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vip_bonus");
                             CraftCoinsAPI.giveCoins(p, 3000);
                         } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
                             p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §62000 CC");
-                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
+                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vip_bonus");
                             CraftCoinsAPI.giveCoins(p, 2000);
                         } else {
                             p.sendMessage("§e§l[*] §eVybral jsi si VIP bonus §61000 CC");
-                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vipodmena");
+                            Main.getInstance().getSQL().updateRewardRecord(p, "lobby_vip_bonus");
                             CraftCoinsAPI.giveCoins(p, 1000);
                         }
                         p.closeInventory();
