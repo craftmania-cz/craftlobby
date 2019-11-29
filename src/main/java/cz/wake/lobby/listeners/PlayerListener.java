@@ -1,8 +1,6 @@
 package cz.wake.lobby.listeners;
 
-import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.settings.SettingsMenu;
 import org.bukkit.*;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
@@ -26,10 +24,6 @@ public class PlayerListener implements Listener {
     public PlayerListener(Main plugin) {
         this.plugin = plugin;
     }
-
-    Profil hlavniProfil = new Profil();
-    InvClick ic = new InvClick();
-    SettingsMenu sm = new SettingsMenu();
 
     @EventHandler
     public void onPlaceBlock(BlockPlaceEvent e) {
@@ -106,35 +100,6 @@ public class PlayerListener implements Listener {
         }
         if (((item.getItemStack().getItemMeta().getDisplayName().contains("EGG"))) && item != null) {
             e.setCancelled(true);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void onLeave(final PlayerQuitEvent e) {
-        Player p = e.getPlayer();
-
-        // Deaktivace leave zprav
-        e.setQuitMessage(null);
-
-        // Odebrani settings
-        sm.removePlayer(p);
-
-        //AT
-        if (Main.getInstance().at_list.contains(p)) {
-            Main.getInstance().at_list.remove(p);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.NORMAL)
-    public void onKick(PlayerKickEvent e) {
-        Player p = e.getPlayer();
-
-        // Odebrani settings
-        sm.removePlayer(p);
-
-        //AT
-        if (Main.getInstance().at_list.contains(p)) {
-            Main.getInstance().at_list.remove(p);
         }
     }
 

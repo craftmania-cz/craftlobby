@@ -11,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +20,6 @@ public class SettingsMenu implements Listener {
     public static ArrayList<Player> hiden = new ArrayList<>();
     public static ArrayList<Player> particles = new ArrayList<>();
     public static ArrayList<Player> gadgets = new ArrayList<>();
-    public static ArrayList<Player> activeGadgets = new ArrayList<>();
     public static HashMap<Integer, String> joinMessages = new HashMap<Integer, String>(){{
         put(1, "{player} se pripojil na lobby");
         put(2, "Pozor! {player} prave pristal na lobby");
@@ -403,15 +401,7 @@ public class SettingsMenu implements Listener {
     }
 
     public void removePlayer(final Player p) {
-        if (gadgets.contains(p)) {
-            gadgets.remove(p);
-        }
-        if (particles.contains(p)) {
-            particles.remove(p);
-        }
-        if (hiden.contains(p)) {
-            hiden.remove(p);
-        }
+        hiden.remove(p);
     }
 
     private void openJoinMessagesMenu(final Player p) {
