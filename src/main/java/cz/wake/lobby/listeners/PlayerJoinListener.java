@@ -47,11 +47,6 @@ public class PlayerJoinListener implements Listener {
         // Player settings
         Main.getInstance().getSQL().addSettingsDefault(p);
 
-        //Odmeny
-        //TODO: Kompletne predelat (v1.8)
-        Main.getInstance().getSQL().createRewardsRecord(p, "lobby_denniodmena");
-        Main.getInstance().getSQL().createRewardsRecord(p, "lobby_vipodmena");
-
         // Prefix v tablistu
         if (Main.getInstance().getConfig().getBoolean("tablist-prefixes", false)) {
             UtilTablist.setupDefaultTablist(p);

@@ -362,10 +362,10 @@ public class SQLManager {
         PreparedStatement ps = null;
         try {
             conn = pool.getConnection();
-            ps = conn.prepareStatement("SELECT vybrano FROM " + reward + " WHERE nick = '" + p.getName() + "';");
+            ps = conn.prepareStatement("SELECT " + reward + " FROM player_profile WHERE nick = '" + p.getName() + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt("vybrano");
+                return ps.getResultSet().getInt(reward);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -383,7 +383,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE " + reward + " SET vybrano = 1 WHERE nick = ?;");
+                    ps = conn.prepareStatement("UPDATE player_profile SET " + reward + " = 1 WHERE nick = ?;");
                     ps.setString(1, p.getName());
                     ps.executeUpdate();
                 } catch (Exception e) {
@@ -421,7 +421,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE lobby_denniodmena SET vybrano = 0;");
+                    ps = conn.prepareStatement("UPDATE player_profile SET lobby_daily_bonus = 0;");
                     ps.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -961,7 +961,7 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT seen_latest_news FROM player_profile WHERE nick = '" + p.getName() + "';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt("seen_latest_news") == 1 ? true : false;
+                return ps.getResultSet().getInt("seen_latest_news") == 1;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1016,7 +1016,7 @@ public class SQLManager {
             ps = conn.prepareStatement("SELECT `enabled` FROM craftlobby_settings WHERE `name` = 'important_news';");
             ps.executeQuery();
             if (ps.getResultSet().next()) {
-                return ps.getResultSet().getInt("enabled") == 1 ? true : false;
+                return ps.getResultSet().getInt("enabled") == 1;
             }
         } catch (Exception e) {
             e.printStackTrace();
