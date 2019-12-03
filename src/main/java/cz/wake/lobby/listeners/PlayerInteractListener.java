@@ -30,6 +30,8 @@ public class PlayerInteractListener implements Listener {
     public void onInteract(PlayerInteractEvent e) {
         final Player player = e.getPlayer();
 
+        if (!e.getHand().equals(EquipmentSlot.HAND)) return;
+
         // Profil
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.PLAYER_HEAD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {
