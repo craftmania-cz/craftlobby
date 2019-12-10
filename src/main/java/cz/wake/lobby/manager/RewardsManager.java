@@ -140,9 +140,9 @@ public class RewardsManager implements Listener {
             }
             if (e.getSlot() == 20) {
                 if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_daily_bonus") == 0) {
-                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §6500 CC");
+                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §650 CC");
                     Main.getInstance().getSQL().updateRewardRecord(p, "lobby_daily_bonus");
-                    CraftCoinsAPI.giveCoins(p, 500);
+                    CraftCoinsAPI.giveCoins(p, 50);
                     p.closeInventory();
                 } else {
                     p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
