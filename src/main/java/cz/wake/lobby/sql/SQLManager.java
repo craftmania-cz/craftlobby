@@ -565,6 +565,27 @@ public class SQLManager {
         }.runTaskAsynchronously(Main.getInstance());
     }
 
+    public final void updateLatestChangelogTime(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET seen_changelog_time = ? WHERE uuid = ?;");
+                    ps.setLong(1, System.currentTimeMillis());
+                    ps.setString(2, p.getUniqueId().toString());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
     public final void updateCcominutyForceNick(final Player p) {
         new BukkitRunnable() {
             @Override

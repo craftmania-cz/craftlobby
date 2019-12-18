@@ -1,6 +1,7 @@
 package cz.wake.lobby;
 
 import cz.craftmania.craftcore.spigot.bungee.BungeeAPI;
+import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.npc.NPCInteractListener;
 import cz.wake.lobby.npc.NPCManager;
 import cz.wake.lobby.seasons.christmas.Kalendar;
@@ -29,9 +30,12 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
+import org.json.JSONArray;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
@@ -56,6 +60,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private NPCLib npclib;
     private NPCManager npcManager;
     private BungeeAPI bungeeAPI;
+    private long lastChangelogDate = 0L;
 
     public void onEnable() {
 
@@ -124,6 +129,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             Log.info("Aktivace Silvester eventu pro lobby.");
             SilvesterTask.runLauncher();
         }
+
+        // Setup last changelog
+        this.lastChangelogDate = fetchLastChangelogDate();
     }
 
     public void onDisable() {
@@ -236,4 +244,21 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     public NPCManager getNpcManager() {
         return npcManager;
     }
+
+    public long getLastChangelogDate() {
+        return this.lastChangelogDate;
+    }
+
+    private long fetchLastChangelogDate() {
+        try {
+            JSONArray json = ChangelogsGUI.readJsonFromUrl("https://changelog-api.craftmania.cz/public/channels/servers");
+            String publishDate = json.getJSONObject(0).getString("publishDate");
+
+            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            Date d = input.parse(publishDate);
+            return d.getTime();
+        } catch (Exception ignored) {}
+        return 0;
+    }
+
 }

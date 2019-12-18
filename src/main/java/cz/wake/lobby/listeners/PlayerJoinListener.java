@@ -2,6 +2,7 @@ package cz.wake.lobby.listeners;
 
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.SkullHeads;
 import cz.wake.lobby.utils.UtilTablist;
@@ -59,6 +60,13 @@ public class PlayerJoinListener implements Listener {
         if (Main.getInstance().getSQL().isAT(p)) {
             Main.getInstance().at_list.add(p);
             Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
+        }
+
+        int nonSeenChangelogs = ChangelogsGUI.countNonSeenChanges(e.getPlayer());
+        if (nonSeenChangelogs > 0) {
+            p.sendMessage("");
+            p.sendMessage("§bMáš nezobrazených §c§l" + nonSeenChangelogs + " §bzměn! Koukni na poslední změny pomocí knihy v inv.");
+            p.sendMessage("");
         }
 
         // News

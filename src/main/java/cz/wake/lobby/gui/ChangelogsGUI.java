@@ -20,6 +20,7 @@ import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryContent
 import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryProvider;
 import cz.craftmania.craftcore.spigot.inventory.builder.content.Pagination;
 import cz.craftmania.craftcore.spigot.inventory.builder.content.SlotIterator;
+import cz.wake.lobby.Main;
 import org.apache.commons.io.IOUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -36,6 +37,8 @@ public class ChangelogsGUI implements InventoryProvider {
         final Pagination pagination = contents.pagination();
         final ArrayList<ClickableItem> items = new ArrayList<>();
 
+        long lastConnect = Main.getInstance().getSQL().getPlayerProfileDataLong(player, "seen_changelog_time");
+
         try {
             JSONArray json = readJsonFromUrl("https://changelog-api.craftmania.cz/public/channels/servers");
             for (int i = 0; i < json.length(); i++) {
@@ -47,9 +50,15 @@ public class ChangelogsGUI implements InventoryProvider {
 
                 JSONArray changes = object.getJSONArray("changes");
 
+                ItemStack item;
 
-                ItemStack item = new ItemBuilder(Material.BOOK).setName("§9" + name + " §7(" + version + ")")
-                        .setLore(formatChanges(releaseDate, changes)).build();
+                if (isNewer(releaseDate, lastConnect)) {
+                    item = new ItemBuilder(Material.ENCHANTED_BOOK).setName("§9" + name + " §7(" + version + ")")
+                            .setLore(formatChanges(releaseDate, changes)).build();
+                } else {
+                    item = new ItemBuilder(Material.BOOK).setName("§9" + name + " §7(" + version + ")")
+                            .setLore(formatChanges(releaseDate, changes)).build();
+                }
 
                 items.add(ClickableItem.of(item, finalItem -> {}));
             }
@@ -76,6 +85,8 @@ public class ChangelogsGUI implements InventoryProvider {
         SlotIterator slotIterator = contents.newIterator(SlotIterator.Type.HORIZONTAL, 0, 0);
         slotIterator = slotIterator.allowOverride(false);
         pagination.addToIterator(slotIterator);
+
+        Main.getInstance().getSQL().updateLatestChangelogTime(player);
     }
 
     @Override
@@ -96,6 +107,17 @@ public class ChangelogsGUI implements InventoryProvider {
         }
     }
 
+    private static boolean isNewer(String date, long lastConnect) {
+        SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        try {
+            Date d = input.parse(date);
+            return d.getTime() > lastConnect;
+        } catch (ParseException e) {
+            //e.printStackTrace();
+        }
+        return false;
+    }
+
     private String formateDate(String date) {
         SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         SimpleDateFormat output = new SimpleDateFormat("dd.MM.yyyy HH:mm");
@@ -105,7 +127,7 @@ public class ChangelogsGUI implements InventoryProvider {
             d = input.parse(date);
         }
         catch (ParseException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return output.format(d);
     }
@@ -142,5 +164,21 @@ public class ChangelogsGUI implements InventoryProvider {
         } else { // deprecated
             return "§5[" + string + "]";
         }
+    }
+
+    public static int countNonSeenChanges(Player player) {
+        long lastConnect = Main.getInstance().getSQL().getPlayerProfileDataLong(player, "seen_changelog_time");
+        int count = 0;
+        try {
+            JSONArray json = readJsonFromUrl("https://changelog-api.craftmania.cz/public/channels/servers");
+            for (int i = 0; i < json.length(); i++) {
+                JSONObject object = json.getJSONObject(i);
+                String releaseDate = object.getString("publishDate");
+                if (isNewer(releaseDate, lastConnect)) {
+                    count++;
+                }
+            }
+        } catch (IOException ignored) {}
+        return count;
     }
 }
