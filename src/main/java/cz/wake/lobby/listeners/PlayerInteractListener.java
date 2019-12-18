@@ -2,6 +2,7 @@ package cz.wake.lobby.listeners;
 
 import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
 import cz.wake.lobby.Main;
+import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.gui.LobbySelectorGUI;
 import cz.wake.lobby.gui.ServerSelectorGUI;
 import org.bukkit.Bukkit;
@@ -53,7 +54,8 @@ public class PlayerInteractListener implements Listener {
         // Changelogs
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.BOOK) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9Changelogs §7(Klikni pravým)"))) {
-            player.sendMessage("§c§l[!] §cTato funkce bude uveřejněná v pozdějším Lobby Content Updatu! :)");
+            //player.sendMessage("§c§l[!] §cTato funkce bude uveřejněná v pozdějším Lobby Content Updatu! :)");
+            SmartInventory.builder().size(6, 9).title("Changelogs").provider(new ChangelogsGUI()).build().open(player);
         }
 
 

@@ -44,6 +44,8 @@ dependencies {
     compile ('com.zaxxer:HikariCP:3.2.0')
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.4.0"
     compile group: "net.jitse", name: "npclib-api", version: "2.3-SNAPSHOT"
+    compile group: 'org.json', name: 'json', version: '20190722'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
     // CM Plugins
     compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.2.3'
