@@ -23,11 +23,11 @@ public class RewardsManager implements Listener {
         Inventory inv = Bukkit.createInventory(null, 45, "Odmeny pro hrace");
 
         if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_daily_bonus") == 0) {
-            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "", "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC §c+450 CC EXTRA", "", "§aKliknutim vyberes odmenu!").build();
+            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "", "§7Odmena pro kazdeho na serveru", "§7kazdy den!", "", "§eDostanes: §650 CC", "", "§aKliknutim vyberes odmenu!").build();
             inv.setItem(20, weekOdmena);
         } else {
             ItemStack weekOdmena = new ItemBuilder(Material.MINECART).setName("§b§lDenni odmena").setLore("§81x za 24 hodin", "",
-                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §6500 CC", "", "§cDalsi vyber kazdych 24h").build();
+                    "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §650 CC", "", "§cDalsi vyber kazdych 24h").build();
                     inv.setItem(20, weekOdmena);
         }
         if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_extra_bonus") == 0) {
