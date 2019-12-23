@@ -30,14 +30,6 @@ public class RewardsManager implements Listener {
                     "§7Odmenu sis jiz vybral.", "§7Prijd zase zitra.", "", "§eDostanes: §6500 CC", "", "§cDalsi vyber kazdych 24h").build();
                     inv.setItem(20, weekOdmena);
         }
-        if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_extra_bonus") == 0) {
-            ItemStack weekOdmena = new ItemBuilder(Material.CHEST_MINECART).setName("§b§lExtra odmena").setLore("§81x za CM problem", "", "§7Ejhle, neco se nam pokazilo.", "", "§eDostanes: §610,000 CC, §b1 CT, §a4 VT", "", "§aKliknutim vyberes odmenu!").build();
-            inv.setItem(22, weekOdmena);
-        } else {
-            ItemStack weekOdmena = new ItemBuilder(Material.MINECART).setName("§b§lExtra odmena").setLore("§81x za 24 hodin", "",
-                    "§7Odmenu sis jiz vybral.", "", "§eDostanes: §610,000 CC, §b1 CT, §a4 VT").build();
-            inv.setItem(22, weekOdmena);
-        }
         if (p.hasPermission("craftlobby.vip.odmena")) {
             if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_vip_bonus") == 0) {
                 if (p.hasPermission("craftlobby.vip.odmena.obsidian")) {
@@ -125,18 +117,6 @@ public class RewardsManager implements Listener {
             }
             if (e.getCurrentItem().getType() == Material.AIR) {
                 return;
-            }
-            if (e.getSlot() == 22) {
-                if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_extra_bonus") == 0) {
-                    p.sendMessage("§e§l[*] §eVybral jsi si denni odmenu §610,000 CC, §b1 CT, §a4 VT");
-                    Main.getInstance().getSQL().updateRewardRecord(p, "lobby_extra_bonus");
-                    CraftCoinsAPI.giveCoins(p, 10000);
-                    VoteTokensAPI.giveVoteTokens(p, 4);
-                    CraftTokensAPI.giveTokens(p, 1);
-                    p.closeInventory();
-                } else {
-                    p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral!");
-                }
             }
             if (e.getSlot() == 20) {
                 if (Main.getInstance().getSQL().hasActiveReward(p, "lobby_daily_bonus") == 0) {
