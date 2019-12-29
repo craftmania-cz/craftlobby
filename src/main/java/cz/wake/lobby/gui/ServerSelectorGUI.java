@@ -57,7 +57,7 @@ public class ServerSelectorGUI implements InventoryProvider {
                 }));
 
         contents.set(3, 1, ClickableItem.of(
-                new ItemBuilder(Material.EMERALD).setName("§6§lVanilla §e[1.14]").hideAllFlags()
+                new ItemBuilder(Material.EMERALD).setName("§6§lVanilla §e[1.15]").hideAllFlags()
                         .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }));
