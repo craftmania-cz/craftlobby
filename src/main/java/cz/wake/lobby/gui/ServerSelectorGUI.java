@@ -51,7 +51,7 @@ public class ServerSelectorGUI implements InventoryProvider {
                 }));
 
         contents.set(2, 3, ClickableItem.of(
-                new ItemBuilder(getRandomCreativeIcon()).setName("§c§lCreative §e[1.14]").hideAllFlags()
+                new ItemBuilder(getRandomCreativeIcon()).setName("§c§lCreative §e[1.15]").hideAllFlags()
                         .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }));
