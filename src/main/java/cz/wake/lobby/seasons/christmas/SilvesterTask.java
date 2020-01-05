@@ -1,6 +1,7 @@
 package cz.wake.lobby.seasons.christmas;
 
 import cz.wake.lobby.Main;
+import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -32,29 +33,22 @@ public class SilvesterTask {
             f.setFireworkMeta(fm);
             fireworks.add(f);
         }
-        Bukkit.getScheduler().runTaskLater(Main.getInstance(), new Runnable() {
-            public void run() {
-                for (Firework f : fireworks) {
-                    f.detonate();
-                }
+        Bukkit.getScheduler().runTaskLater(Main.getInstance(), () -> {
+            for (Firework f : fireworks) {
+                f.detonate();
             }
         }, 2L);
     }
 
     public static void runLauncher() {
 
-        Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), new Runnable() {
-            @Override
-            public void run() {
-                Random r = new Random();
-                int ranX = r.nextInt(1602 - 1481 + 1) + 1481;
-                int ranY = r.nextInt(85 - 40 + 1) + 40;
-                int ranZ = r.nextInt(-1175 - -1300 + 1) + -1300;
+        Bukkit.getScheduler().runTaskTimer(Main.getPlugin(), () -> {
+            int ranX = UtilMath.random(299, 415);
+            int ranY = UtilMath.random(100, 140);
+            int ranZ = UtilMath.random(139, 295);
 
-                Location loc5 = new Location(Bukkit.getWorld("omain"), ranX, ranY, ranZ);
-                spawnRandomFirework(loc5);
-            }
-
-        }, 0L, 13);
+            Location loc5 = new Location(Bukkit.getWorld("lobby_4"), ranX, ranY, ranZ);
+            spawnRandomFirework(loc5);
+        }, 0L, 10);
     }
 }
