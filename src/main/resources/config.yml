@@ -40,3 +40,16 @@ server-utils:
 
  # Pokud ma lobby resetovat mesicni odmeny pro VIP
  reset-monthly-rewards: false
+
+## Spawn Příkaz ##
+# Pouprav si to zde, podle toho, jak to je
+spawn-command:
+  # auto-get = Teleportuje to hráče na spawn světu, kde se hráč nachází
+  auto-get: false
+  location:
+    world-name: lobby_4
+    x: 349.5
+    y: 78.5
+    z: 212.5
+    yaw: -90.0
+    pitch: 0.0

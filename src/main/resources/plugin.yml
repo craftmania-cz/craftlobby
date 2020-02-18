@@ -31,6 +31,8 @@ commands:
     description: Prepojeni Discordu s MC
   precteno:
     description: Potvrdi precteni novinky
+  spawn:
+    description: Teleportuje hráče na spawn lobby
 
 
 permissions:
