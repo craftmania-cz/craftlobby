@@ -31,7 +31,15 @@ public class PlayerJoinListener implements Listener {
         p.updateInventory();
 
         if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-            p.teleport(new Location(Bukkit.getWorld("lobby_4"), 349.5, 78.5, 212.5, -90, 0));
+            //Změnil jsem i toto, aby se mohli upravit hodnoty jen v configu; kdyby se měnilo lobby
+            p.teleport(new Location(
+                    Bukkit.getWorld(Main.getInstance().getConfig().getString("spawn-command.location.world-name")),
+                    Main.getInstance().getConfig().getDouble("spawn-command.location.x"),
+                    Main.getInstance().getConfig().getDouble("spawn-command.location.y"),
+                    Main.getInstance().getConfig().getDouble("spawn-command.location.z"),
+                    (float) Main.getInstance().getConfig().getDouble("spawn-command.location.yaw"),
+                    (float) Main.getInstance().getConfig().getDouble("spawn-command.location.pitch")
+            ));
         }
 
         setupDefaultItems(p);
