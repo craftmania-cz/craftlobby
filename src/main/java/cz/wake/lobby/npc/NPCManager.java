@@ -23,6 +23,7 @@ public class NPCManager {
         npcList.add(new EventServerNPC());
         npcList.add(new TutorialNPC());
         npcList.add(new VanillaNPC());
+        npcList.add(new Survival_115NPC());
     }
 
     public void spawnForPlayer(final Player player) {

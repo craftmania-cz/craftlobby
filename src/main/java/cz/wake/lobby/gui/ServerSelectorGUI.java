@@ -38,8 +38,8 @@ public class ServerSelectorGUI implements InventoryProvider {
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTg2ZjcyYzE2YjFlOWZlNmUwOTllNzZiNWY3YTg4NGZiNzgyY2ZjYzU4OGM5NWM0ZTM4M2RjNTI3ZDFiODQifX19",
                 "§e§lVýběr serveru", "§7Zvol si server na kterém", "§7chceš hrát! Možnosti jsou velké!"), e -> {}));
 
-        contents.set(2, 1, ClickableItem.of(
-                new ItemBuilder(getRandomSurvivalIcon()).setName("§a§lSurvival §e[1.12]").hideAllFlags()
+        contents.set(3, 1, ClickableItem.of(
+                new ItemBuilder(Material.WOODEN_PICKAXE).setName("§a§lSurvival §e[1.12]").hideAllFlags()
                         .setLore("§8Survival, Economy, PVP, Fly", "", "§7Survival pro všechny milovníky", "§7velkých ekonomika, mnoha vylepšení", "§7a mnoha příkazy!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
                 }));
@@ -51,15 +51,21 @@ public class ServerSelectorGUI implements InventoryProvider {
                 }));
 
         contents.set(2, 3, ClickableItem.of(
-                new ItemBuilder(getRandomCreativeIcon()).setName("§c§lCreative §e[1.15]").hideAllFlags()
+                new ItemBuilder(getRandomCreativeIcon()).setGlowing().setName("§c§lCreative §e[1.15]").hideAllFlags()
                         .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }));
 
-        contents.set(3, 1, ClickableItem.of(
-                new ItemBuilder(Material.EMERALD).setName("§6§lVanilla §e[1.15]").hideAllFlags()
+        contents.set(3, 2, ClickableItem.of(
+                new ItemBuilder(Material.EMERALD).setGlowing().setName("§6§lVanilla §e[1.15]").hideAllFlags()
                         .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
+                }));
+
+        contents.set(2, 1, ClickableItem.of(
+                new ItemBuilder(Material.DIAMOND_PICKAXE).setGlowing().setName("§3§lSurvival §e[1.15]").hideAllFlags()
+                        .setLore("§8McMMO, Ekonomika, Fly, PVP", "", "§7Nový server, nový styl hraní,", "§7dokážeš se dostat až na žebříček", "§7těch nejlepších hráčů na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2");
                 }));
 
         contents.set(2, 5, ClickableItem.of(
