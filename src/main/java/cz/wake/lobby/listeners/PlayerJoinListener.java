@@ -30,17 +30,14 @@ public class PlayerJoinListener implements Listener {
         p.getInventory().setArmorContents(null);
         p.updateInventory();
 
-        if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
-            //Změnil jsem i toto, aby se mohli upravit hodnoty jen v configu; kdyby se měnilo lobby
-            p.teleport(new Location(
-                    Bukkit.getWorld(Main.getInstance().getConfig().getString("spawn-command.location.world-name")),
-                    Main.getInstance().getConfig().getDouble("spawn-command.location.x"),
-                    Main.getInstance().getConfig().getDouble("spawn-command.location.y"),
-                    Main.getInstance().getConfig().getDouble("spawn-command.location.z"),
-                    (float) Main.getInstance().getConfig().getDouble("spawn-command.location.yaw"),
-                    (float) Main.getInstance().getConfig().getDouble("spawn-command.location.pitch")
-            ));
-        }
+        p.teleport(new Location(
+                Bukkit.getWorld(Main.getInstance().getConfig().getString("spawn-command.location.world-name")),
+                Main.getInstance().getConfig().getDouble("spawn-command.location.x"),
+                Main.getInstance().getConfig().getDouble("spawn-command.location.y"),
+                Main.getInstance().getConfig().getDouble("spawn-command.location.z"),
+                (float) Main.getInstance().getConfig().getDouble("spawn-command.location.yaw"),
+                (float) Main.getInstance().getConfig().getDouble("spawn-command.location.pitch")
+        ));
 
         setupDefaultItems(p);
 
