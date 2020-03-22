@@ -37,6 +37,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 
@@ -83,6 +84,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.info("Nacitani databaze...");
         initDatabase();
 
+        // Id serveru
+        idServer = getConfig().getString("server");
+        Log.info("Server zaevidovany jako " + idServer);
+
         //Detekce TPS
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
 
@@ -109,10 +114,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             w.setGameRule(GameRule.SPECTATORS_GENERATE_CHUNKS, false);
             w.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
         }
-
-        // Id serveru
-        idServer = getConfig().getString("server");
-        Log.info("Server zaevidovany jako " + idServer);
 
         // Nastaveni specialnich eventu
         isChristmas = getConfig().getBoolean("seasons.christmas", false);
