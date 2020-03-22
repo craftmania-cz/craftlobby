@@ -2,6 +2,8 @@ package cz.wake.lobby.npc;
 
 import cz.wake.lobby.Main;
 import cz.wake.lobby.npc.list.*;
+import cz.wake.lobby.npc.list.minigames.BedWarsNPC;
+import cz.wake.lobby.npc.list.minigames.MurderNPC;
 import net.jitse.npclib.api.NPC;
 import net.jitse.npclib.api.skin.MineSkinFetcher;
 import org.bukkit.Bukkit;
@@ -15,15 +17,21 @@ public class NPCManager {
     private final SortedSet<String> ids = new TreeSet<>();
 
     public void loadNpcs() {
-        npcList.add(new SurvivalNPC());
-        npcList.add(new SkyblockNPC());
-        npcList.add(new OldDeprecatedServersNPC());
-        npcList.add(new GoldenPigNPC());
-        npcList.add(new CreativeNPC());
-        npcList.add(new EventServerNPC());
-        npcList.add(new TutorialNPC());
-        npcList.add(new VanillaNPC());
-        npcList.add(new Survival_115NPC());
+        if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
+            npcList.add(new SurvivalNPC());
+            npcList.add(new SkyblockNPC());
+            npcList.add(new OldDeprecatedServersNPC());
+            npcList.add(new GoldenPigNPC());
+            npcList.add(new CreativeNPC());
+            npcList.add(new EventServerNPC());
+            npcList.add(new TutorialNPC());
+            npcList.add(new VanillaNPC());
+            npcList.add(new Survival_115NPC());
+        }
+        if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
+            npcList.add(new BedWarsNPC());
+            npcList.add(new MurderNPC());
+        }
     }
 
     public void spawnForPlayer(final Player player) {
@@ -52,5 +60,17 @@ public class NPCManager {
 
     public List<IServerNPC> getNpcList() {
         return npcList;
+    }
+
+    public static String formatOnlinePlayers(int players) {
+        if (players >= 5) {
+            return "§f" + players + " §7 hráčů";
+        } else if (players >= 2) {
+            return "§f" + players + " §7 hráči";
+        } else if (players == 1) {
+            return "§f1 §7 hráč";
+        } else {
+            return "§7Nikdo nehraje!";
+        }
     }
 }
