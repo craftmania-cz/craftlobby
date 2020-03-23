@@ -79,6 +79,13 @@ public class ServerSelectorGUI implements InventoryProvider {
                     SmartInventory.builder().size(6, 9).title("Staré servery").provider(new DeprecatedServersGUI()).build().open(player);
                 }));
 
+        contents.set(3, 5, ClickableItem.of(
+                new ItemBuilder(Material.CHEST_MINECART).setName("§b§lMinigames").hideAllFlags()
+                    .setLore("§8PvP, Arcade, Team", "", "§eDostupné minihry:", "§8- §7BedWars", "§8- §7Murder", "", "§bKlikni k připojení na lobby").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "mg-lobby");
+                }
+                ));
+
         // Dolni radek
         contents.set(5,0, ClickableItem.of(colorGlass, e -> {}));
         contents.set(5,1, ClickableItem.of(colorGlass, e -> {}));

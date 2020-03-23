@@ -27,6 +27,7 @@ public class NPCManager {
             npcList.add(new TutorialNPC());
             npcList.add(new VanillaNPC());
             npcList.add(new Survival_115NPC());
+            npcList.add(new MinigamesNPC());
         }
         if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             npcList.add(new BedWarsNPC());
