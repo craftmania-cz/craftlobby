@@ -18,6 +18,7 @@ import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
 import net.jitse.npclib.NPCLib;
+import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.World;
@@ -28,6 +29,7 @@ import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.json.JSONArray;
@@ -62,6 +64,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private NPCManager npcManager;
     private BungeeAPI bungeeAPI;
     private long lastChangelogDate = 0L;
+    private LuckPerms luckPermsApi;
 
     public void onEnable() {
 
@@ -133,6 +136,17 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Setup last changelog
         this.lastChangelogDate = fetchLastChangelogDate();
+
+        if (this.getIdServer().equalsIgnoreCase("main")) {
+            // LuckPerms register
+            RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+            if (provider != null) {
+                luckPermsApi = provider.getProvider();
+            }
+
+            PluginManager pm = getServer().getPluginManager();
+            pm.registerEvents(new TagsConvertManager(), this);
+        }
     }
 
     public void onDisable() {
@@ -261,6 +275,10 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             return d.getTime();
         } catch (Exception ignored) {}
         return 0;
+    }
+
+    public LuckPerms getLuckPermsApi() {
+        return luckPermsApi;
     }
 
 }

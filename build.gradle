@@ -46,6 +46,7 @@ dependencies {
     compile group: "net.jitse", name: "npclib-api", version: "2.3-SNAPSHOT"
     compile group: 'org.json', name: 'json', version: '20190722'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile 'net.luckperms:api:5.0'
 
     // CM Plugins
     compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.2.3'

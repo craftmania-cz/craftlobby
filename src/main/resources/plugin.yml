@@ -3,7 +3,7 @@ main: cz.wake.lobby.Main
 version: "2.0"
 api-version: "1.14"
 author: MrWakeCZ
-softdepend: [RogueParkour]
+softdepend: [RogueParkour,LuckPerms]
 depend: [Multiverse-Core,CraftCore,NPCLibPlugin]
 commands:
   clobby:

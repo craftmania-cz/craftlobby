@@ -53,3 +53,6 @@ spawn-command:
     z: 212.5
     yaw: -90.0
     pitch: 0.0
+
+coinshop-tags:
+  - test
