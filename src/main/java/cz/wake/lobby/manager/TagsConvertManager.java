@@ -53,7 +53,11 @@ public class TagsConvertManager implements Listener {
 
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set craftlobby.settings.tags-converted");
         System.out.println("Hráč dostane: " + coins.get() + " CC, " + tokens.get() + " CT");
-        CraftCoinsAPI.giveCoins(player, coins.get());
-        CraftTokensAPI.giveTokens(player, tokens.get());
+        if (coins.get() > 0) {
+            CraftCoinsAPI.giveCoins(player, coins.get());
+        }
+        if (tokens.get() > 0) {
+            CraftTokensAPI.giveTokens(player, tokens.get());
+        }
     }
 }
