@@ -20,7 +20,7 @@ public class NPCManager {
         if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             npcList.add(new SurvivalNPC());
             npcList.add(new SkyblockNPC());
-            npcList.add(new OldDeprecatedServersNPC());
+            //npcList.add(new OldDeprecatedServersNPC());
             npcList.add(new GoldenPigNPC());
             npcList.add(new CreativeNPC());
             npcList.add(new EventServerNPC());
@@ -28,6 +28,7 @@ public class NPCManager {
             npcList.add(new VanillaNPC());
             npcList.add(new Survival_115NPC());
             npcList.add(new MinigamesNPC());
+            npcList.add(new SkyCloudNPC());
         }
         if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             npcList.add(new BedWarsNPC());

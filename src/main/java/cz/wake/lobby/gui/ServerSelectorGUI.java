@@ -62,6 +62,12 @@ public class ServerSelectorGUI implements InventoryProvider {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }));
 
+        contents.set(3, 3, ClickableItem.of(
+                new ItemBuilder(Material.CAKE).setGlowing().setName("§b§lSkyCloud §e[1.15]").hideAllFlags()
+                        .setLore("§8Vanilla, Ostrovy, Emerald ekonomika", "", "§7Vanilla ale jako skyblock?,", "§7I to je možné, nevěříš?", "§7Uvěříš...", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skycloud");
+                }));
+
         contents.set(2, 1, ClickableItem.of(
                 new ItemBuilder(Material.DIAMOND_PICKAXE).setGlowing().setName("§3§lSurvival §e[1.15]").hideAllFlags()
                         .setLore("§8McMMO, Ekonomika, Fly, PVP", "", "§7Nový server, nový styl hraní,", "§7dokážeš se dostat až na žebříček", "§7těch nejlepších hráčů na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
