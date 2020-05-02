@@ -31,7 +31,7 @@ public class CreativeNPC implements IServerNPC {
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
         list.add("§c§lCreative §e[1.15]");
-        list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("creative") +" §7hráčů");
+        list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("creative2") +" §7hráčů");
         return list;
     }
 
