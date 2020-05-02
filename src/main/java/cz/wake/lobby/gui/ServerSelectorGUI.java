@@ -76,7 +76,9 @@ public class ServerSelectorGUI implements InventoryProvider {
 
         contents.set(2, 5, ClickableItem.of(
                 new ItemBuilder(Material.CAMPFIRE).setName("§d§lEvent Server").hideAllFlags()
-                        .setLore("§7Server na kterém se konají", "§7eventy pro celý server!", "" , "§7Pokud bude nějaký event probíhat", "§7dozvíš se to v chatu!", "", "§c▸ Připojit se jde, pouze pokud je event").build(), e -> {}));
+                        .setLore("§7Server na kterém se konají", "§7eventy pro celý server!", "" , "§7Pokud bude nějaký event probíhat", "§7dozvíš se to v chatu!", "", "§c▸ Připojit se jde, pouze pokud je event").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "event-server");
+                }));
 
         contents.set(2, 6, ClickableItem.of(
                 new ItemBuilder(Material.RED_DYE).setName("§c§lStaré servery").hideAllFlags()

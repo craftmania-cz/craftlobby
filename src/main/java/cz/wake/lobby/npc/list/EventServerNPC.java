@@ -1,5 +1,6 @@
 package cz.wake.lobby.npc.list;
 
+import cz.wake.lobby.Main;
 import cz.wake.lobby.npc.IServerNPC;
 import net.jitse.npclib.api.events.NPCInteractEvent;
 import org.bukkit.Bukkit;
@@ -31,10 +32,13 @@ public class EventServerNPC implements IServerNPC {
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
         list.add("§b§lEvent Server");
-        list.add("§fSOON TM");
+        list.add("§7Lze se připojit pouze");
+        list.add("§7pokud je v chatu ohlášený event!");
         return list;
     }
 
     @Override
-    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {}
+    public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
+        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "event-server");
+    }
 }
