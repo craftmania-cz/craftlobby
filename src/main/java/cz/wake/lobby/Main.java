@@ -145,7 +145,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             }
 
             PluginManager pm = getServer().getPluginManager();
-            pm.registerEvents(new TagsConvertManager(), this);
+            //pm.registerEvents(new TagsConvertManager(), this);
         }
     }
 
