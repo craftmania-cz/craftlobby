@@ -21,10 +21,6 @@ commands:
     description: Server teleport
   vanilla:
     description: Server teleport
-  vanillasb:
-    description: Server teleport
-  oldcrafttokens:
-    description: Jjjj tokeny
   kalendar:
     description: Vanoce! :D
   link:
@@ -33,6 +29,8 @@ commands:
     description: Potvrdi precteni novinky
   spawn:
     description: Teleportuje hráče na spawn lobby
+  skycloud:
+    description: Server teleport
 
 
 permissions:
