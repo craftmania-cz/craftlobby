@@ -193,13 +193,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("creative").setExecutor(new Creative_command());
         getCommand("prison").setExecutor(new Prison_command());
         getCommand("vanilla").setExecutor(new Vanilla_command());
-        //getCommand("skycloud").setExecutor(new Skycloud_command());
+        getCommand("skycloud").setExecutor(new Skycloud_command());
         getCommand("link").setExecutor(new Link_Command());
         getCommand("precteno").setExecutor(new Seen_Command());
         getCommand("spawn").setExecutor(new Spawn_Command());
 
         Profile_Command.register();
-
 
         if(getConfig().getBoolean("seasons.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());
