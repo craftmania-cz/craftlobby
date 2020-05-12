@@ -3,7 +3,7 @@ package cz.wake.lobby.listeners;
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gui.ChangelogsGUI;
-import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.settings.SettingsMenuOld;
 import cz.wake.lobby.utils.SkullHeads;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
@@ -132,7 +132,7 @@ public class PlayerJoinListener implements Listener {
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
             }
 
-            String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
+            String joinMessage = SettingsMenuOld.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
             Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
                 onlinePlayer.sendMessage(joinMessage);
                 if ((p.hasPermission("craftlobby.vip.joinbroadcast-change-sound") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1))) {
@@ -212,7 +212,7 @@ public class PlayerJoinListener implements Listener {
 
         // Nastaveni skryti hracu
         if (Main.getInstance().getSQL().getSettings(p, "lobby_players") == 1) {
-            SettingsMenu.hiden.add(p);
+            SettingsMenuOld.hiden.add(p);
             for (Player p2 : Bukkit.getOnlinePlayers()) {
                 p.hidePlayer(p2);
             }
@@ -220,7 +220,7 @@ public class PlayerJoinListener implements Listener {
 
         // Skryti pokud nekdo ma nastaveny skryti
         for (Player p3 : Bukkit.getOnlinePlayers()) {
-            if (SettingsMenu.hiden.contains(p3)) {
+            if (SettingsMenuOld.hiden.contains(p3)) {
                 p3.hidePlayer(p);
             }
         }

@@ -1,7 +1,7 @@
 package cz.wake.lobby.listeners;
 
 import cz.wake.lobby.Main;
-import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.settings.SettingsMenuOld;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerQuitListener implements Listener {
 
-    private SettingsMenu sm = new SettingsMenu();
+    private SettingsMenuOld sm = new SettingsMenuOld();
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onLeave(final PlayerQuitEvent e) {
