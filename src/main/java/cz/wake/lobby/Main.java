@@ -75,7 +75,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Listeners
         Log.info("Nacitani listeneru...");
-        //loadListeners();
+        loadListeners();
         loadCommands();
 
         // Debug rezim
