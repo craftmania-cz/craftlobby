@@ -13,10 +13,11 @@ import cz.wake.lobby.commands.*;
 import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
-import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.settings.SettingsMenuOld;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
+import io.github.jorelali.commandapi.api.CommandAPI;
 import net.jitse.npclib.NPCLib;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
@@ -24,8 +25,6 @@ import org.bukkit.GameRule;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.ItemFrame;
-import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -39,7 +38,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 
@@ -77,7 +75,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // Listeners
         Log.info("Nacitani listeneru...");
-        loadListeners();
+        //loadListeners();
         loadCommands();
 
         // Debug rezim
@@ -167,7 +165,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
-        pm.registerEvents(new SettingsMenu(), this);
+        pm.registerEvents(new SettingsMenuOld(), this);
         pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new Profil(), this);
         pm.registerEvents(new TimedResetListener(), this);
@@ -186,6 +184,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     }
 
     private void loadCommands() {
+
         getCommand("clobby").setExecutor(new Craftlobby_Command());
         getCommand("cl").setExecutor(new Craftlobby_Command()); //TODO: Proc je tu alias?
         getCommand("vip").setExecutor(new VIP_Command());
@@ -194,10 +193,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         getCommand("creative").setExecutor(new Creative_command());
         getCommand("prison").setExecutor(new Prison_command());
         getCommand("vanilla").setExecutor(new Vanilla_command());
-        getCommand("skycloud").setExecutor(new Skycloud_command());
+        //getCommand("skycloud").setExecutor(new Skycloud_command());
         getCommand("link").setExecutor(new Link_Command());
         getCommand("precteno").setExecutor(new Seen_Command());
         getCommand("spawn").setExecutor(new Spawn_Command());
+
+        Profile_Command.register();
+
 
         if(getConfig().getBoolean("seasons.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());

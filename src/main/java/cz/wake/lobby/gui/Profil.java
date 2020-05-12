@@ -1,29 +1,9 @@
 package cz.wake.lobby.gui;
 
-import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
-import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
-import cz.craftmania.crafteconomy.api.CraftTokensAPI;
-import cz.craftmania.crafteconomy.api.VoteTokensAPI;
-import cz.wake.lobby.Main;
-import cz.wake.lobby.settings.SettingsMenu;
-import cz.wake.lobby.utils.TimeUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import cz.wake.lobby.settings.SettingsMenuOld;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashSet;
 
 public class Profil implements Listener {
@@ -35,7 +15,7 @@ public class Profil implements Listener {
     private static HashSet<Player> youtube_editor = new HashSet<>();
     private static HashSet<Player> steam_editor = new HashSet<>();
     private static HashSet<Player> web_editor = new HashSet<>();
-    private SettingsMenu settings = new SettingsMenu();
+    private SettingsMenuOld settings = new SettingsMenuOld();
 
     public void openMenu(Player p) {
 
