@@ -1,25 +1,30 @@
 package cz.wake.lobby.seasons.christmas;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.CommandHelp;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.Default;
+import co.aikar.commands.annotation.Description;
+import co.aikar.commands.annotation.HelpCommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Kalendar_command implements CommandExecutor {
-
+@CommandAlias("kalendar")
+@Description("Otevře vánoční kalendář")
+public class Kalendar_command extends BaseCommand {
     Kalendar k = new Kalendar();
 
-    @Override
-    public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
-        if ((Command.getName().equalsIgnoreCase("kalendar"))) {
-            if(Sender instanceof Player){
-                k.openKalendar(((Player) Sender).getPlayer());
-                return true;
+    @Default
+    public void defaultCommand(CommandSender sender) {
+            if(sender instanceof Player){
+                k.openKalendar(((Player) sender).getPlayer());
             } else {
-                Sender.sendMessage("No tak asi tady tezko :D");
-                return false;
+                sender.sendMessage("No tak asi tady tezko :D");
             }
-        }
-        return false;
+    }
+
+    @HelpCommand
+    public void helpCommand(CommandHelp help) {
+        help.showHelp();
     }
 }

@@ -205,7 +205,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new Vanilla_command());
 
         if(getConfig().getBoolean("seasons.christmas")){
-            getCommand("kalendar").setExecutor(new Kalendar_command());
+            manager.registerCommand(new Kalendar_command());
         }
     }
 
