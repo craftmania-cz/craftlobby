@@ -201,6 +201,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new Skyblock_command());
         manager.registerCommand(new Skycloud_command());
         manager.registerCommand(new Survival_command());
+        manager.registerCommand(new Survival2_command());
         manager.registerCommand(new Vanilla_command());
 
         if(getConfig().getBoolean("seasons.christmas")){
