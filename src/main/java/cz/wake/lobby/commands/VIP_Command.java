@@ -1,23 +1,25 @@
 package cz.wake.lobby.commands;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.CommandHelp;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.Default;
+import co.aikar.commands.annotation.Description;
+import co.aikar.commands.annotation.HelpCommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class VIP_Command implements CommandExecutor {
+@CommandAlias("vip")
+@Description("Zobrazí výhody VIP")
+public class VIP_Command extends BaseCommand {
+    @Default
+    public void defaultCommand(CommandSender sender, String args) {
+        if (!(sender instanceof Player)) return;
+        //vip.openVIPMenu(player);
+    }
 
-    @Override
-    public boolean onCommand(CommandSender Sender, Command Command, String String, String[] ArrayOfString) {
-        if (Sender instanceof Player) {
-            Player player = (Player) Sender;
-            if ((Command.getName().equalsIgnoreCase("vip"))) {
-                if (ArrayOfString.length == 0) {
-                    //vip.openVIPMenu(player);
-                    return true;
-                }
-            }
-        }
-        return false;
+    @HelpCommand
+    public void helpCommand(CommandHelp help) {
+        help.showHelp();
     }
 }

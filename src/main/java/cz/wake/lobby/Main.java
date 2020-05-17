@@ -1,5 +1,6 @@
 package cz.wake.lobby;
 
+import co.aikar.commands.PaperCommandManager;
 import cz.craftmania.craftcore.spigot.bungee.BungeeAPI;
 import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.npc.NPCInteractListener;
@@ -65,6 +66,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private BungeeAPI bungeeAPI;
     private long lastChangelogDate = 0L;
     private LuckPerms luckPermsApi;
+    private PaperCommandManager manager = new PaperCommandManager(this);
 
     public void onEnable() {
 
@@ -74,6 +76,9 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Config
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+
+        // Aikar command manager
+        manager.enableUnstableAPI("help");
 
         // Listeners
         Log.info("Nacitani listeneru...");
@@ -186,18 +191,17 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     }
 
     private void loadCommands() {
-        getCommand("clobby").setExecutor(new Craftlobby_Command());
-        getCommand("cl").setExecutor(new Craftlobby_Command()); //TODO: Proc je tu alias?
-        getCommand("vip").setExecutor(new VIP_Command());
-        getCommand("survival").setExecutor(new Survival_command());
-        getCommand("skyblock").setExecutor(new Skyblock_command());
-        getCommand("creative").setExecutor(new Creative_command());
-        getCommand("prison").setExecutor(new Prison_command());
-        getCommand("vanilla").setExecutor(new Vanilla_command());
-        getCommand("skycloud").setExecutor(new Skycloud_command());
-        getCommand("link").setExecutor(new Link_Command());
-        getCommand("precteno").setExecutor(new Seen_Command());
-        getCommand("spawn").setExecutor(new Spawn_Command());
+        manager.registerCommand(new Craftlobby_Command());
+        manager.registerCommand(new Link_Command());
+        manager.registerCommand(new Seen_Command());
+        manager.registerCommand(new Spawn_Command());
+        manager.registerCommand(new VIP_Command());
+        manager.registerCommand(new Creative_command());
+        manager.registerCommand(new Prison_command());
+        manager.registerCommand(new Skyblock_command());
+        manager.registerCommand(new Skycloud_command());
+        manager.registerCommand(new Survival_command());
+        manager.registerCommand(new Vanilla_command());
 
         if(getConfig().getBoolean("seasons.christmas")){
             getCommand("kalendar").setExecutor(new Kalendar_command());
