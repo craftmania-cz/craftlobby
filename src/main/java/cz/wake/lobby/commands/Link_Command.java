@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("link")
 @Description("Spáruje tvůj účet s Discordem")
 public class Link_Command extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;

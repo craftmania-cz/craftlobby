@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("spawn")
 @Description("Teleportuje tě na spawn")
 public class Spawn_Command extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;

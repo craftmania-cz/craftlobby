@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("precteno")
 @Description("Potvrdíš, že sis přečetl novinku")
 public class Seen_Command extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;

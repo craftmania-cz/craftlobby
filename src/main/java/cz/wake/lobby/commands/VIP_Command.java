@@ -12,6 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("vip")
 @Description("Zobrazí výhody VIP")
 public class VIP_Command extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender, String args) {
         if (!(sender instanceof Player)) return;
