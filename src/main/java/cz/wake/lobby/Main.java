@@ -66,7 +66,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private BungeeAPI bungeeAPI;
     private long lastChangelogDate = 0L;
     private LuckPerms luckPermsApi;
-    private PaperCommandManager manager = new PaperCommandManager(this);
+    private PaperCommandManager manager = null;
 
     public void onEnable() {
 
@@ -78,6 +78,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         saveDefaultConfig();
 
         // Aikar command manager
+        Log.info("Probíhá registrace příkazů pomocí Aikar commands!");
+        manager = new PaperCommandManager(this);
         manager.enableUnstableAPI("help");
 
         // Listeners
