@@ -6,7 +6,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'cz.wake.lobby'
-version = '2.0.1-aikar-commands'
+version = '2.0'
 
 description = """"""
 
