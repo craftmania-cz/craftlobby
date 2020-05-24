@@ -11,8 +11,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.text.DecimalFormat;
 
-@CommandAlias("clobby|cl")
+@CommandAlias("craftlobby|cl")
 public class Craftlobby_Command extends BaseCommand {
+
     @Subcommand("debug")
     @Description("Změní stav debugu")
     @CommandPermission("craftlobby.admin")
