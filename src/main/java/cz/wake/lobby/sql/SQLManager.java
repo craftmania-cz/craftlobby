@@ -1046,4 +1046,22 @@ public class SQLManager {
         }
         return false;
     }
+
+    public boolean isInDatabase(String nick, UUID uuid) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM autologin_players WHERE nick = ? AND uuid = ?;");
+            ps.setString(1, nick);
+            ps.setString(2, uuid.toString());
+            ps.executeQuery();
+            return ps.getResultSet().next();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            pool.close(conn, ps, null);
+        }
+    }
 }
