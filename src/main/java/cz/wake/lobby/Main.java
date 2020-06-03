@@ -198,6 +198,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new Seen_Command());
         manager.registerCommand(new Spawn_Command());
         manager.registerCommand(new VIP_Command());
+        manager.registerCommand(new Discord_Command());
+        manager.registerCommand(new Wiki_Command());
         manager.registerCommand(new Creative_command());
         manager.registerCommand(new Prison_command());
         manager.registerCommand(new Skyblock_command());
