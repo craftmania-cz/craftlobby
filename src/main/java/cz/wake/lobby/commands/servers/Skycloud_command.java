@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("skycloud")
 @Description("Teleportuje tě na server SkyCloud")
 public class Skycloud_command extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;

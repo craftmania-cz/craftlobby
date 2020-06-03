@@ -12,8 +12,7 @@ import org.bukkit.entity.Player;
 
 @CommandAlias("wiki")
 @Description("Pošle ti odkaz na naši Wiki")
-public
-class Wiki_Command extends BaseCommand {
+public class Wiki_Command extends BaseCommand {
 
     @HelpCommand
     public void helpCommand(CommandHelp help) {
@@ -25,7 +24,7 @@ class Wiki_Command extends BaseCommand {
         if(sender instanceof Player) {
             sender.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
             sender.sendMessage("");
-            sender.sendMessage("§eOdkaz na naši Wiki:");
+            sender.sendMessage("§bOdkaz na naši Wiki:");
             sender.sendMessage("§ehttps://wiki.craftmania.cz/");
             sender.sendMessage("");
             sender.sendMessage("§d▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
