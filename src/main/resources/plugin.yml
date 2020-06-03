@@ -5,35 +5,6 @@ api-version: "1.14"
 author: MrWakeCZ
 softdepend: [RogueParkour,LuckPerms]
 depend: [Multiverse-Core,CraftCore,NPCLibPlugin]
-commands:
-  clobby:
-    description: Info o profilu!
-    aliases: [cl]
-  vip:
-    description: Profil pro nakup VIP
-  survival:
-    description: Server teleport
-  skyblock:
-    description: Server teleport
-  creative:
-    description: Server teleport
-  prison:
-    description: Server teleport
-  vanilla:
-    description: Server teleport
-  vanillasb:
-    description: Server teleport
-  oldcrafttokens:
-    description: Jjjj tokeny
-  kalendar:
-    description: Vanoce! :D
-  link:
-    description: Prepojeni Discordu s MC
-  precteno:
-    description: Potvrdi precteni novinky
-  spawn:
-    description: Teleportuje hráče na spawn lobby
-
 
 permissions:
   craftlobby.pristup:
