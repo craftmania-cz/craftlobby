@@ -1,7 +1,6 @@
 package cz.wake.lobby.npc.list;
 
-import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
-import cz.wake.lobby.gui.DeprecatedServersGUI;
+import cz.wake.lobby.Main;
 import cz.wake.lobby.npc.IServerNPC;
 import net.jitse.npclib.api.events.NPCInteractEvent;
 import org.bukkit.Bukkit;
@@ -11,33 +10,33 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OldDeprecatedServersNPC implements IServerNPC {
+public class Skyblock115NPC implements IServerNPC {
 
     @Override
     public String getId() {
-        return "deprecated_servers";
+        return "skyblock2";
     }
 
     @Override
     public int getSkinId() {
-        return 10978463;
+        return 965686196;
     }
 
     @Override
     public Location getLocation() {
-        return new Location(Bukkit.getWorld("lobby_4"), 384.5, 75, 220.5, 142, 0);
+        return new Location(Bukkit.getWorld("lobby_4"), 388.5, 75, 205.5, 53, 0);
     }
 
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§3§lStaré servery");
-        list.add("§7Servery, na staré verzi MC");
+        list.add("§2§lSkyblock §e[1.15]");
+        list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("skyblock") +" §7hráčů");
         return list;
     }
 
     @Override
     public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
-        SmartInventory.builder().size(6, 9).title("Staré servery").provider(new DeprecatedServersGUI()).build().open(player);
+        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
     }
 }

@@ -38,31 +38,19 @@ public class ServerSelectorGUI implements InventoryProvider {
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTg2ZjcyYzE2YjFlOWZlNmUwOTllNzZiNWY3YTg4NGZiNzgyY2ZjYzU4OGM5NWM0ZTM4M2RjNTI3ZDFiODQifX19",
                 "§e§lVýběr serveru", "§7Zvol si server na kterém", "§7chceš hrát! Možnosti jsou velké!"), e -> {}));
 
-        contents.set(3, 1, ClickableItem.of(
-                new ItemBuilder(Material.WOODEN_PICKAXE).setName("§a§lSurvival §e[1.12]").hideAllFlags()
-                        .setLore("§8Survival, Economy, PVP, Fly", "", "§7Survival pro všechny milovníky", "§7velkých ekonomika, mnoha vylepšení", "§7a mnoha příkazy!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
-                }));
-
-        contents.set(2, 2, ClickableItem.of(
-                new ItemBuilder(getRandomSkyblockIcon()).setName("§b§lSkyblock §e[1.12]").hideAllFlags()
-                        .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Vybuduj impérium v ničem", "§7doslova okolo tebe nebude nic!", "",  "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
-                }));
-
         contents.set(2, 3, ClickableItem.of(
                 new ItemBuilder(getRandomCreativeIcon()).setGlowing().setName("§c§lCreative §e[1.15]").hideAllFlags()
                         .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }));
 
-        contents.set(3, 2, ClickableItem.of(
+        contents.set(3, 1, ClickableItem.of(
                 new ItemBuilder(Material.EMERALD).setGlowing().setName("§6§lVanilla §e[1.15]").hideAllFlags()
                         .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }));
 
-        contents.set(3, 3, ClickableItem.of(
+        contents.set(3, 2, ClickableItem.of(
                 new ItemBuilder(Material.CAKE).setGlowing().setName("§b§lSkyCloud §e[1.15]").hideAllFlags()
                         .setLore("§8Vanilla, Ostrovy, Emerald ekonomika", "", "§7Vanilla ale jako skyblock?,", "§7I to je možné, nevěříš?", "§7Uvěříš...", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skycloud");
@@ -87,12 +75,11 @@ public class ServerSelectorGUI implements InventoryProvider {
                     SmartInventory.builder().size(6, 9).title("Staré servery").provider(new DeprecatedServersGUI()).build().open(player);
                 }));
 
-        contents.set(3, 5, ClickableItem.of(
-                new ItemBuilder(Material.CHEST_MINECART).setName("§b§lMinigames").hideAllFlags()
-                    .setLore("§8PvP, Arcade, Team", "", "§eDostupné minihry:", "§8- §7BedWars", "§8- §7Murder", "", "§bKlikni k připojení na lobby").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "mg-lobby");
-                }
-                ));
+        contents.set(2, 2, ClickableItem.of(
+                new ItemBuilder(Material.NAUTILUS_SHELL).setGlowing().setName("§2§lSkyblock §e[1.15]").hideAllFlags()
+                        .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Nová verze přináší novou výzvu!,", "§7Dokážeš vybudovat ten nejlepší", "§7ostrov na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
+                }));
 
         // Dolni radek
         contents.set(5,0, ClickableItem.of(colorGlass, e -> {}));
