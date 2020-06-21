@@ -30,6 +30,7 @@ public class NPCManager {
             //npcList.add(new MinigamesNPC());
             npcList.add(new SkyCloudNPC());
             npcList.add(new Skyblock115NPC());
+            npcList.add(new HardcoreVanillaNPC());
         }
         if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             npcList.add(new BedWarsNPC());

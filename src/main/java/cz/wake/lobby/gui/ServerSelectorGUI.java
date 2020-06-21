@@ -81,6 +81,12 @@ public class ServerSelectorGUI implements InventoryProvider {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
                 }));
 
+        contents.set(3, 3, ClickableItem.of(
+                new ItemBuilder(Material.TOTEM_OF_UNDYING).setGlowing().setName("§c§lHardcore Vanilla §e[1.15]").hideAllFlags()
+                        .setLore("§8Vanilla, Hardcore, Bany za smrt", "", "§7True vanilla s bany,", "§7za smrt a bez jakychkoliv", "§7ochran? OK ZDE JE!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "hardcore-vanilla");
+                }));
+
         // Dolni radek
         contents.set(5,0, ClickableItem.of(colorGlass, e -> {}));
         contents.set(5,1, ClickableItem.of(colorGlass, e -> {}));
