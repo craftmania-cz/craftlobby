@@ -10,19 +10,19 @@ import cz.wake.lobby.Main;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("survival2")
-@Description("Teleportuje tě na server Survival 1.12")
-public class Survival2_command extends BaseCommand {
+@CommandAlias("skyblock2")
+@Description("Teleportuje tě na server SkyBlock 1.15")
+public class Skyblock2_command extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fSurvival 1.12");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2");
+            player.sendMessage("§eTeleportuji na server §fSkyblock 1.15");
+            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fSurvival 1.12 §cse nezdařil!");
+            player.sendMessage("§cTeleport na server §fSkyblock 1.15 §cse nezdařil!");
         }
     }
 
