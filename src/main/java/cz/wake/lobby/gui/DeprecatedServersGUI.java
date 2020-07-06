@@ -33,13 +33,13 @@ public class DeprecatedServersGUI implements InventoryProvider {
         contents.set(2, 2, ClickableItem.of(
                 new ItemBuilder(Material.WOODEN_PICKAXE).setName("§a§lSurvival §e[1.12]").hideAllFlags()
                         .setLore("§8Survival, Economy, PVP, Fly", "", "§7Survival pro všechny milovníky", "§7velkých ekonomika, mnoha vylepšení", "§7a mnoha příkazy!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2");
                 }));
 
         contents.set(2, 6, ClickableItem.of(
                 new ItemBuilder(Material.ACACIA_SAPLING).setName("§b§lSkyblock §e[1.12]").hideAllFlags()
                         .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Vybuduj impérium v ničem", "§7doslova okolo tebe nebude nic!", "",  "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
                 }));
 
         // Dolni radek

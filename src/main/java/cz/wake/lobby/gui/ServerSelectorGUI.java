@@ -59,7 +59,7 @@ public class ServerSelectorGUI implements InventoryProvider {
         contents.set(2, 1, ClickableItem.of(
                 new ItemBuilder(Material.DIAMOND_PICKAXE).setGlowing().setName("§3§lSurvival §e[1.15]").hideAllFlags()
                         .setLore("§8McMMO, Ekonomika, Fly, PVP", "", "§7Nový server, nový styl hraní,", "§7dokážeš se dostat až na žebříček", "§7těch nejlepších hráčů na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
                 }));
 
         contents.set(2, 5, ClickableItem.of(
@@ -78,7 +78,7 @@ public class ServerSelectorGUI implements InventoryProvider {
         contents.set(2, 2, ClickableItem.of(
                 new ItemBuilder(Material.NAUTILUS_SHELL).setGlowing().setName("§2§lSkyblock §e[1.15]").hideAllFlags()
                         .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Nová verze přináší novou výzvu!,", "§7Dokážeš vybudovat ten nejlepší", "§7ostrov na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
                 }));
 
         contents.set(3, 3, ClickableItem.of(

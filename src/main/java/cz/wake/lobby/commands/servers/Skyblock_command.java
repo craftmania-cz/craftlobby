@@ -11,18 +11,18 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("skyblock")
-@Description("Teleportuje tě na server SkyBlock 1.12")
+@Description("Teleportuje tě na server SkyBlock 1.15")
 public class Skyblock_command extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fSkyblock 1.12");
+            player.sendMessage("§eTeleportuji na server §fSkyblock 1.15");
             Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fSkyblock 1.12 §cse nezdařil!");
+            player.sendMessage("§cTeleport na server §fSkyblock 1.15 §cse nezdařil!");
         }
     }
 
