@@ -14,7 +14,7 @@ public class Skyblock115NPC implements IServerNPC {
 
     @Override
     public String getId() {
-        return "skyblock2";
+        return "skyblock";
     }
 
     @Override
@@ -37,6 +37,6 @@ public class Skyblock115NPC implements IServerNPC {
 
     @Override
     public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
-        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2");
+        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
     }
 }

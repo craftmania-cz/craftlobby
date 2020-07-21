@@ -14,7 +14,7 @@ public class Survival_115NPC implements IServerNPC {
 
     @Override
     public String getId() {
-        return "survival2";
+        return "survival";
     } // 1.15
 
     @Override
@@ -37,6 +37,6 @@ public class Survival_115NPC implements IServerNPC {
 
     @Override
     public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
-        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2");
+        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
     }
 }
