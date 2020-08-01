@@ -37,7 +37,7 @@ public class TutorialGUI implements InventoryProvider {
 
         contents.set(2, 2, ClickableItem.of(SkullHeads.createHead(
                 "server", "ea66bcbc-6c58-41b6-8f34-3f1f9cc2eb75", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2NhNDVlZjU4MjFhOGIxMDdjYmZiYTdkNjZlOTk3ZmI2YWJlNTUyMWMxNTVjZWUyZjI0YjM0YjNkOTFhNSJ9fX0=",
-                "§e§lInfo o serveru", "§7CraftMania se primárně zaměřovala a zaměřuje", "§7na Survival servery - Survival, Skyblock, Creative atd.", "§7Proto jich zde vždy najdeš", "§7od každého typu aspoň jeden!", "", "§7Aktuálně pracujeme na tom,", "§7aby všechny servery byly na §c1.14/1.15", "§7a kdo ví, na čem ještě více. :)"), e -> {}));
+                "§e§lInfo o serveru", "§7CraftMania se primárně zaměřovala a zaměřuje", "§7na Survival servery - Survival, Skyblock, Creative atd.", "§7Proto jich zde vždy najdeš", "§7od každého typu aspoň jeden!", "", "§7Aktuálně pracujeme na tom,", "§7aby všechny servery byly na §c1.15/1.16", "§7a kdo ví, na čem ještě více. :)"), e -> {}));
 
         contents.set(2, 3, ClickableItem.of(SkullHeads.createHead(
                 "problemy", "b5b0d222-3b12-488b-916f-55a97efb480f", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGMyMjhhZWFmOTZmNWUzNmFkMWY3NWI3NThlZDMwNDIxMTc1YmJmMGIwZDJhNjU1NWUzMDY5ZDE0MzQ0OWJkYSJ9fX0=",
@@ -53,7 +53,7 @@ public class TutorialGUI implements InventoryProvider {
 
         contents.set(2, 6, ClickableItem.of(SkullHeads.createHead(
                 "stranky", "d8941bd0-d9e9-4f1f-af18-65b7b9428c67", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjYzNmVhNWIzYmQ3OTRkNTE5ZGZkNWQzYjM1ZWU4ZmU3YjgzNWU3OTgzNGYxYzM5ZWUyYmY3NDk1ZDc4MDBkMyJ9fX0=",
-                "§d§lNaše stránky", "§7Hlavní IP: §fmc.craftmania.cz", "§7Hlavní web: §fhttps://craftmania.cz", "§7Banlist: §fhttps://banlist.craftmania.cz", "§7Store: §fhttps://store.craftmania.cz", "§7Wiki: §fhttps://wiki.craftmania.cz", "§7Statistiky: §fhttps://stats.craftmania.cz", "", "§eOdkazy na sociální sítě máš již", "§ev inventáři, stačí na ně kliknout! :)"), e -> {}));
+                "§d§lNaše služby", "§7Discord: §fdiscord.gg/craftmania", "§7Hlavní web: §fhttps://craftmania.cz", "§7Banlist: §fhttps://banlist.craftmania.cz", "§7Store: §fhttps://store.craftmania.cz", "§7Wiki: §fhttps://wiki.craftmania.cz", "§7Statistiky: §fhttps://stats.craftmania.cz", "", "§eOdkazy na sociální sítě máš již", "§ev inventáři, stačí na ně kliknout! :)"), e -> {}));
 
         contents.set(3, 3, ClickableItem.of(SkullHeads.createHead(
                 "lobby", "188ad16a-82a0-4497-92eb-371f6414d53c", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWY1MjQ5ZmQxZDdmZjI5YmFmYzZjMzdlMDNjNmU5NDE1ODU1OGZkNmNlZDdiMjk2ZGEyMDEwNmE2MjFjNTkwNSJ9fX0=",
