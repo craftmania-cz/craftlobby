@@ -30,7 +30,7 @@ public class SkyCloudNPC implements IServerNPC {
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§b§lSkyCloud §e[1.15]");
+        list.add("§b§lSkyCloud §e[1.16]");
         list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("skycloud") +" §7hráčů");
         return list;
     }

@@ -30,7 +30,7 @@ public class Survival_115NPC implements IServerNPC {
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§3§lSurvival §e[1.15]");
+        list.add("§3§lSurvival §e[1.16]");
         list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("survival2") +" §7hráčů");
         return list;
     }
