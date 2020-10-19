@@ -133,5 +133,9 @@ public class PlayerListener implements Listener {
                 p.teleport(new Location(Bukkit.getWorld("obw2"), -602.5, 111.5, 129.5, -180, 0));
             }
         }
+
+        if (Main.rulesAcceptionPending.contains(p.getUniqueId())) {
+            e.setCancelled(true);
+        }
     }
 }

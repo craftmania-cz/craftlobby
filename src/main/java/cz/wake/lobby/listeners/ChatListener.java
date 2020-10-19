@@ -1,5 +1,6 @@
 package cz.wake.lobby.listeners;
 
+import cz.craftmania.craftcore.spigot.messages.chat.ChatInfo;
 import cz.wake.lobby.Main;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,5 +38,9 @@ public class ChatListener implements Listener {
             }
         }
 
+        if (Main.rulesAcceptionPending.contains(p.getUniqueId())) {
+            ChatInfo.error(p, "Před psaním do chatu musíš potvrdit pravidla!");
+            e.setCancelled(true);
+        }
     }
 }

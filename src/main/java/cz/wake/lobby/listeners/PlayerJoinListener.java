@@ -1,9 +1,13 @@
 package cz.wake.lobby.listeners;
 
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
+import cz.craftmania.craftcore.spigot.messages.chat.ChatInfo;
+import cz.craftmania.craftlibs.utils.TextComponentBuilder;
+import cz.craftmania.craftlibs.utils.actions.ConfirmAction;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.settings.SettingsMenu;
+import cz.wake.lobby.utils.Log;
 import cz.wake.lobby.utils.SkullHeads;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
@@ -16,7 +20,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
 public class PlayerJoinListener implements Listener {
+
+    private List<UUID> rulesAcceptedPlayersCache = new ArrayList<>();
 
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -141,6 +151,63 @@ public class PlayerJoinListener implements Listener {
                 }
             });
         }
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (rulesAcceptedPlayersCache.contains(p.getUniqueId()))
+                    return;
+                boolean rulesAccepted = Main.getInstance().getSQL().getRulesAccepted(p.getName(), p.getUniqueId());
+                if (rulesAccepted) {
+                    rulesAcceptedPlayersCache.add(p.getUniqueId());
+                    return;
+                }
+                Main.rulesAcceptionPending.add(p.getUniqueId());
+                List<String> rules = Main.getInstance().getConfig().getStringList("rules");
+
+                p.sendMessage("");
+                p.sendMessage("§e§lPravidla na serveru CraftMania");
+
+                int counter = 1;
+                for (String rule : rules) {
+                    p.sendMessage(" §e§l" + counter + " §r§8- §7" + rule);
+                    counter++;
+                }
+
+                p.sendMessage("§7Pro zobrazení všech pravidel, podívej se na:\n§ehttps://wiki.craftmania.cz/pravidla-serveru/");
+                p.sendMessage("");
+                try {
+                    ConfirmAction.Action action = new ConfirmAction.Builder()
+                            .setPlayer(p)
+                            .generateIdentifier()
+                            .setDelay(600L)
+                            .addComponent(a -> new TextComponentBuilder("§e§l[*] §ePro potvrzení pravidel, klikni na §a[POTVRZUJI]§e.\n§cS potvzrení souhlasíš, že nebudeš porušovat žádná pravidla.")
+                                    .setPerformedCommand(a.getConfirmationCommand())
+                                    .setTooltip("§aKliknutím zde potvrdíš pravidla")
+                                    .getComponent())
+                            .setRunnable(a -> {
+                                if (Main.rulesAcceptionPending.contains(p.getUniqueId())) {
+                                    ChatInfo.info(p, "Potvrdil jsi pravidla serveru CraftMania.");
+                                    Main.rulesAcceptionPending.remove(p.getUniqueId());
+                                    Main.getInstance().getSQL().setRulesAccepted(p.getName(), p.getUniqueId(), true);
+                                    if (!rulesAcceptedPlayersCache.contains(p.getUniqueId())) {
+                                        rulesAcceptedPlayersCache.add(p.getUniqueId());
+                                    }
+                                } else {
+                                    ChatInfo.error(p, "Nastala podivná chyba. Pokud se nemůžeš hýbat, odpoj se a připoj!");
+                                }
+                            })
+                            .setExpireRunnable(a -> {
+                                p.kickPlayer("§cNepotvrdil jsi pravidla server CraftMania.\n§ePokud zde chceš hrát, musíš je potvrdit!");
+                            }).build();
+                    action.sendTextComponents();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.danger("Nastala chyba při dotazování hráče o potvrzení pravidel!");
+                    ChatInfo.error(p, "Nastala chyba při dotazování o potvrzení pravidel. Prosím, nahlaš tuto chybu na našem discordu v channelu #bugy_a_problemy!");
+                }
+            }
+        }.runTaskLaterAsynchronously(Main.getInstance(), 20L);
     }
 
     private static void setupDefaultItems(final Player p) {

@@ -1064,4 +1064,47 @@ public class SQLManager {
             pool.close(conn, ps, null);
         }
     }
+
+    public boolean getRulesAccepted(String nick, UUID uuid) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT rules_accepted FROM player_profile WHERE nick = ? AND uuid = ?;");
+            ps.setString(1, nick);
+            ps.setString(2, uuid.toString());
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getBoolean("rules_accepted");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return false;
+    }
+
+    public void setRulesAccepted(String nick, UUID uuid, boolean rulesAccepted) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET rules_accepted = ? WHERE nick = ? AND uuid = ?;");
+                    ps.setBoolean(1, rulesAccepted);
+                    ps.setString(2, nick);
+                    ps.setString(3, uuid.toString());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    //e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
 }
