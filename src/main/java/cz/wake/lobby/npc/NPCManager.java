@@ -31,6 +31,7 @@ public class NPCManager {
             npcList.add(new SkyCloudNPC());
             npcList.add(new Skyblock115NPC());
             npcList.add(new HardcoreVanillaNPC());
+            npcList.add(new Halloween2020NPC());
         }
         if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             npcList.add(new BedWarsNPC());

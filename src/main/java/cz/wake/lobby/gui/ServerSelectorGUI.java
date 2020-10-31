@@ -39,26 +39,26 @@ public class ServerSelectorGUI implements InventoryProvider {
                 "§e§lVýběr serveru", "§7Zvol si server na kterém", "§7chceš hrát! Možnosti jsou velké!"), e -> {}));
 
         contents.set(2, 3, ClickableItem.of(
-                new ItemBuilder(getRandomCreativeIcon()).setGlowing().setName("§c§lCreative §e[1.16]").hideAllFlags()
-                        .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                new ItemBuilder(getRandomCreativeIcon()).setName("§c§lCreative §e[1.16]").hideAllFlags()
+                        .setLore("§8Creative, pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
                 }));
 
         contents.set(3, 1, ClickableItem.of(
-                new ItemBuilder(Material.EMERALD).setGlowing().setName("§6§lVanilla §e[1.16]").hideAllFlags()
-                        .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                new ItemBuilder(Material.EMERALD).setName("§6§lVanilla §e[1.16]").hideAllFlags()
+                        .setLore("§8Vanilla, Lands, PVP, Bez ekonomiky", "", "§7Na tomto serveru poznáš,", "§7co to je přežít v divočině!", "§7Žádný příkaz a žádný shop ti nepomůže!", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }));
 
         contents.set(3, 2, ClickableItem.of(
-                new ItemBuilder(Material.CAKE).setGlowing().setName("§b§lSkyCloud §e[1.16]").hideAllFlags()
-                        .setLore("§8Vanilla, Ostrovy, Emerald ekonomika", "", "§7Vanilla ale jako skyblock?,", "§7I to je možné, nevěříš?", "§7Uvěříš...", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                new ItemBuilder(Material.CAKE).setName("§b§lSkyCloud §e[1.16]").hideAllFlags()
+                        .setLore("§8Vanilla, Ostrovy, Emerald ekonomika", "", "§7Vanilla ale jako skyblock?,", "§7I to je možné, nevěříš?", "§7Uvěříš...", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skycloud");
                 }));
 
         contents.set(2, 1, ClickableItem.of(
-                new ItemBuilder(Material.DIAMOND_PICKAXE).setGlowing().setName("§3§lSurvival §e[1.16]").hideAllFlags()
-                        .setLore("§8McMMO, Ekonomika, Fly, PVP", "", "§7Nový server, nový styl hraní,", "§7dokážeš se dostat až na žebříček", "§7těch nejlepších hráčů na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                new ItemBuilder(Material.DIAMOND_PICKAXE).setName("§3§lSurvival §e[1.16]").hideAllFlags()
+                        .setLore("§8McMMO, Ekonomika, Fly, PVP", "", "§7Nový server, nový styl hraní,", "§7dokážeš se dostat až na žebříček", "§7těch nejlepších hráčů na serveru?", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
                 }));
 
@@ -76,15 +76,21 @@ public class ServerSelectorGUI implements InventoryProvider {
                 }));
 
         contents.set(2, 2, ClickableItem.of(
-                new ItemBuilder(Material.NAUTILUS_SHELL).setGlowing().setName("§2§lSkyblock §e[1.16]").hideAllFlags()
-                        .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Nová verze přináší novou výzvu!,", "§7Dokážeš vybudovat ten nejlepší", "§7ostrov na serveru?", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                new ItemBuilder(Material.NAUTILUS_SHELL).setName("§2§lSkyblock §e[1.16]").hideAllFlags()
+                        .setLore("§8Survival, Economy, PVP, Ostrovy", "", "§7Nová verze přináší novou výzvu!,", "§7Dokážeš vybudovat ten nejlepší", "§7ostrov na serveru?", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
                 }));
 
         contents.set(3, 3, ClickableItem.of(
-                new ItemBuilder(Material.TOTEM_OF_UNDYING).setGlowing().setName("§c§lHardcore Vanilla §e[1.16]").hideAllFlags()
-                        .setLore("§8Vanilla, Hardcore, Bany za smrt", "", "§7True vanilla s bany,", "§7za smrt a bez jakychkoliv", "§7ochran? OK ZDE JE!", "", "§b▸ Kliknutim te portnu", "§f...").build(), e -> {
+                new ItemBuilder(Material.TOTEM_OF_UNDYING).setName("§c§lHardcore Vanilla §e[1.16]").hideAllFlags()
+                        .setLore("§8Vanilla, Hardcore, Bany za smrt", "", "§7True vanilla s bany,", "§7za smrt a bez jakychkoliv", "§7ochran? OK ZDE JE!", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "hardcore-vanilla");
+                }));
+
+        contents.set(3, 5, ClickableItem.of(
+           new ItemBuilder(Material.PUMPKIN).setName("§6§lHalloween Minihra 2020").hideAllFlags()
+                .setLore("§8Dead By Daylight", "", "§7Dokážeš přežít noc a utéct", "§7před zabijákem, co po tobě jde?", "§7Nebo budeš ty zabiják?!", "", "§b▸ Kliknutim te portnu").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().connectPlayer(player, "halloween-games");
                 }));
 
         // Dolni radek

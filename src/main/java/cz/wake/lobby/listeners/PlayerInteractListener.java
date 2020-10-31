@@ -160,7 +160,8 @@ public class PlayerInteractListener implements Listener {
                     || (b.getType() == Material.HOPPER)
                     || (b.getType() == Material.ITEM_FRAME)
                     || (b.getType() == Material.PAINTING)
-                    || (b.getType() == Material.FLOWER_POT)) {
+                    || (b.getType() == Material.FLOWER_POT
+                    || (b.getType() == Material.BARREL))) {
                 if (Main.getInstance().isDebug()) {
                     e.setCancelled(false);
                 } else {

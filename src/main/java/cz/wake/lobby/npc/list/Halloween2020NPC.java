@@ -10,35 +10,34 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventServerNPC implements IServerNPC {
+public class Halloween2020NPC implements IServerNPC {
 
     @Override
     public String getId() {
-        return "event_server";
+        return "halloween";
     }
 
     @Override
     public int getSkinId() {
-        //return 1517786801;
-        return 128714390;
+        return 204736032;
     }
 
     @Override
     public Location getLocation() {
-        return new Location(Bukkit.getWorld("lobby_4"), 377.5, 75, 203.5, 0, 0);
+        return new Location(Bukkit.getWorld("lobby_4"), 379.5, 75, 203.5, 0, 0);
     }
 
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§b§lEvent Server");
-        //list.add("§7Lze se připojit pouze");
-        //list.add("§7pokud je ohlášený event!");
+        list.add("§fHalloween Minihra");
+        list.add("§6§lDead By Daylight");
+        list.add("§7Klikni pro připojení do hry");
         return list;
     }
 
     @Override
     public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
-        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "event-server");
+        Main.getInstance().getCraftBalancerManager().connectPlayer(player, "halloween-games");
     }
 }
