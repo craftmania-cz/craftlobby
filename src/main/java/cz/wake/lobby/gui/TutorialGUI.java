@@ -53,7 +53,7 @@ public class TutorialGUI implements InventoryProvider {
 
         contents.set(2, 6, ClickableItem.of(SkullHeads.createHead(
                 "stranky", "d8941bd0-d9e9-4f1f-af18-65b7b9428c67", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjYzNmVhNWIzYmQ3OTRkNTE5ZGZkNWQzYjM1ZWU4ZmU3YjgzNWU3OTgzNGYxYzM5ZWUyYmY3NDk1ZDc4MDBkMyJ9fX0=",
-                "§d§lNaše služby", "§7Discord: §fdiscord.gg/craftmania", "§7Hlavní web: §fhttps://craftmania.cz", "§7Banlist: §fhttps://banlist.craftmania.cz", "§7Store: §fhttps://store.craftmania.cz", "§7Wiki: §fhttps://wiki.craftmania.cz", "§7Statistiky: §fhttps://stats.craftmania.cz", "", "§eOdkazy na sociální sítě máš již", "§ev inventáři, stačí na ně kliknout! :)"), e -> {}));
+                "§d§lNaše služby", "§7Discord: §fhttps://discord.gg/craftmania", "§7Hlavní web: §fhttps://craftmania.cz", "§7Banlist: §fhttps://banlist.craftmania.cz", "§7Store: §fhttps://store.craftmania.cz", "§7Wiki: §fhttps://wiki.craftmania.cz", "§7Statistiky: §fhttps://stats.craftmania.cz", "", "§eOdkazy na sociální sítě máš již", "§ev inventáři, stačí na ně kliknout! :)"), e -> {}));
 
         contents.set(3, 3, ClickableItem.of(SkullHeads.createHead(
                 "lobby", "188ad16a-82a0-4497-92eb-371f6414d53c", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWY1MjQ5ZmQxZDdmZjI5YmFmYzZjMzdlMDNjNmU5NDE1ODU1OGZkNmNlZDdiMjk2ZGEyMDEwNmE2MjFjNTkwNSJ9fX0=",
