@@ -87,6 +87,12 @@ public class ServerSelectorGUI implements InventoryProvider {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "hardcore-vanilla");
                 }));
 
+        contents.set(3, 4, ClickableItem.of(
+                new ItemBuilder(Material.IRON_BARS).setName("§9§lPrison §e[1.16]").hideAllFlags()
+                        .setLore("§8Economy, Ostrovy, Mining", "", "§7Prison je zpět a s ním,", "§7i tuna kopání a OP enchanty.", "§7Dokážeš se dostat co nejdál,", "§7a získat tak titul vítěze?", "", "§b▸ Kliknutim te portnu").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "prison");
+                }));
+
         contents.set(3, 5, ClickableItem.of(
            new ItemBuilder(Material.PUMPKIN).setName("§6§lHalloween Minihra 2020").hideAllFlags()
                 .setLore("§8Dead By Daylight", "", "§7Dokážeš přežít noc a utéct", "§7před zabijákem, co po tobě jde?", "§7Nebo budeš ty zabiják?!", "", "§b▸ Kliknutim te portnu").build(), e -> {

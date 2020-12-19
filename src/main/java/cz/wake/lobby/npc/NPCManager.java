@@ -20,7 +20,7 @@ public class NPCManager {
         if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
             //npcList.add(new SurvivalNPC());
             //npcList.add(new SkyblockNPC());
-            npcList.add(new OldDeprecatedServersNPC());
+            //npcList.add(new OldDeprecatedServersNPC());
             npcList.add(new GoldenPigNPC());
             npcList.add(new CreativeNPC());
             npcList.add(new EventServerNPC());
@@ -32,6 +32,7 @@ public class NPCManager {
             npcList.add(new Skyblock115NPC());
             npcList.add(new HardcoreVanillaNPC());
             npcList.add(new Halloween2020NPC());
+            npcList.add(new PrisonNPC());
         }
         if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
             npcList.add(new BedWarsNPC());
