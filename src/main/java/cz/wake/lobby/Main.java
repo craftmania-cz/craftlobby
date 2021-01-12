@@ -201,15 +201,15 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new Discord_Command());
         manager.registerCommand(new Wiki_Command());
         manager.registerCommand(new ChangePassword_Command());
+        manager.registerCommand(new TutorialCommand());
+        manager.registerCommand(new DailyRewardCommand());
 
         //Servers
         manager.registerCommand(new Creative_command());
         manager.registerCommand(new Prison_command());
         manager.registerCommand(new Skyblock_command());
-        manager.registerCommand(new Skyblock2_command());
         manager.registerCommand(new Skycloud_command());
         manager.registerCommand(new Survival_command());
-        manager.registerCommand(new Survival2_command());
         manager.registerCommand(new Vanilla_command());
 
         if(getConfig().getBoolean("seasons.christmas")){

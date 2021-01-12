@@ -18,11 +18,11 @@ public class Skyblock_command extends BaseCommand {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fSkyblock 1.15");
+            player.sendMessage("§eTeleportuji na server §fSkyblock");
             Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fSkyblock 1.15 §cse nezdařil!");
+            player.sendMessage("§cTeleport na server §fSkyblock §cse nezdařil!");
         }
     }
 
