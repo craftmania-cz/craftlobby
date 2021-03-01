@@ -24,7 +24,7 @@ public class PrisonNPC implements IServerNPC {
 
     @Override
     public Location getLocation() {
-        return new Location(Bukkit.getWorld("lobby_4"), 384.5, 75, 220.5, 142, 0);
+        return new Location(Bukkit.getWorld("lobby_4"), 390.5, 75, 216.5, 120, 0);
     }
 
     @Override

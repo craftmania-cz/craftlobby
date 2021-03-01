@@ -74,6 +74,14 @@ public class RewardsManager implements Listener {
             inv.setItem(21, vipOdmena);
         }
 
+        if (!p.hasPermission("craftmanager.hats.horse")) {
+            ItemStack cosmeticReward = new ItemBuilder(Material.HONEYCOMB).setName("§6§lCosmetic Reward 2021/1").setLore("§7Kliknutím si odemkneš na serverech:", "§8- §fKoňskou hlavu v §a/cosmetics", "§8- §f2,000 CraftCoins", "", "§eKlikni pro výběr odměny!").build();
+            inv.setItem(22, cosmeticReward);
+        } else {
+            ItemStack vipOdmena = new ItemBuilder(Material.BARRIER).setName("§c§lCosmetic Reward 2021/1").setLore("§7Odměnu jsi si již vybral(a).").build();
+            inv.setItem(22, vipOdmena);
+        }
+
         p.openInventory(inv);
     }
 
@@ -154,6 +162,17 @@ public class RewardsManager implements Listener {
                     }
                 } else {
                     p.sendMessage("§c§l[!] §cNa vyber teto odmeny musis mit zakoupene globalni VIP!");
+                }
+            }
+
+            if (e.getSlot() == 22) {
+                if (!p.hasPermission("craftmanager.hats.horse")) {
+                    CraftCoinsAPI.giveCoins(p, 2000);
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftmanager.hats.horse");
+                    p.sendMessage("§e§l[!] §eOdemkl jsi si Cosmetic Odměnu 2021/1!");
+                    p.closeInventory();
+                } else {
+                    p.sendMessage("§c§l[!] §cOdměnu jsi si již vybral(a).");
                 }
             }
         }

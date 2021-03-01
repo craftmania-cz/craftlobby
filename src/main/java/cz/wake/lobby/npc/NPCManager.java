@@ -28,7 +28,7 @@ public class NPCManager {
             npcList.add(new VanillaNPC());
             npcList.add(new Survival_115NPC());
             //npcList.add(new MinigamesNPC());
-            npcList.add(new SkyCloudNPC());
+            //npcList.add(new SkyCloudNPC());
             npcList.add(new Skyblock115NPC());
             npcList.add(new HardcoreVanillaNPC());
             //npcList.add(new Halloween2020NPC());
