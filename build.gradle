@@ -6,7 +6,7 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'cz.wake.lobby'
-version = '2.1'
+version = '2.2'
 
 description = """"""
 
@@ -39,8 +39,8 @@ repositories {
 
 dependencies {
     // Spigot
-    compileOnly name: 'spigot-1.15.2'
-    compileOnly ('org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT') {
+    compileOnly name: 'spigot-1.16.4'
+    compileOnly ('org.spigotmc:spigot-api:1.16.2-R0.1-SNAPSHOT') {
         exclude group: 'net.md-5'
     }
 
