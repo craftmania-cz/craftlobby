@@ -50,12 +50,6 @@ public class ServerSelectorGUI implements InventoryProvider {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
                 }));
 
-        /*contents.set(3, 2, ClickableItem.of(
-                new ItemBuilder(Material.CAKE).setName("§b§lSkyCloud §e[1.16]").hideAllFlags()
-                        .setLore("§8Vanilla, Ostrovy, Emerald ekonomika", "", "§7Vanilla ale jako skyblock?,", "§7I to je možné, nevěříš?", "§7Uvěříš...", "", "§b▸ Kliknutim te portnu").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skycloud");
-                }));*/
-
         contents.set(2, 1, ClickableItem.of(
                 new ItemBuilder(Material.DIAMOND_PICKAXE).setName("§3§lSurvival §e[1.16]").hideAllFlags()
                         .setLore("§8McMMO, Ekonomika, Fly, PVP", "", "§7Nový server, nový styl hraní,", "§7dokážeš se dostat až na žebříček", "§7těch nejlepších hráčů na serveru?", "", "§b▸ Kliknutim te portnu").build(), e -> {
@@ -82,15 +76,15 @@ public class ServerSelectorGUI implements InventoryProvider {
                 }));
 
         contents.set(3, 2, ClickableItem.of(
-                new ItemBuilder(Material.TOTEM_OF_UNDYING).setName("§c§lHardcore Vanilla §e[1.16]").hideAllFlags()
-                        .setLore("§8Vanilla, Hardcore, Bany za smrt", "", "§7True vanilla s bany,", "§7za smrt a bez jakychkoliv", "§7ochran? OK ZDE JE!", "", "§b▸ Kliknutim te portnu").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "hardcore-vanilla");
-                }));
-
-        contents.set(3, 3, ClickableItem.of(
                 new ItemBuilder(Material.IRON_BARS).setName("§9§lPrison §e[1.16]").hideAllFlags()
                         .setLore("§8Economy, Ostrovy, Mining", "", "§7Prison je zpět a s ním,", "§7i tuna kopání a OP enchanty.", "§7Dokážeš se dostat co nejdál,", "§7a získat tak titul vítěze?", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "prison");
+                }));
+
+        contents.set(3, 3, ClickableItem.of(
+                new ItemBuilder(Material.REDSTONE).setName("§c§lVanilla: Anarchy §e[1.16]").hideAllFlags()
+                    .setLore("§8Vanilla, žádná ochrana", "", "§7Tento server je určený pro náročné", "§7Vanilla hráče, kteří nechtějí ochrany", "§7a chtějí dělat bordel!", "", "§ePřístup na tento server lze zatím získat", "§epouze splněním 20 hlasů v VotePassu.", "", "§b▸ Kliknutim te portnu").build(), e -> {
+                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy");
                 }));
 
         contents.set(3, 5, ClickableItem.of(

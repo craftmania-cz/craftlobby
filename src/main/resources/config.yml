@@ -56,9 +56,3 @@ spawn-command:
 
 coinshop-tags:
   - test
-
-rules:
-  - "Buď hodná žabička"
-  - "A někdo zapomněl přepsat config.."
-  - "..takže je zde defaultní zpráva."
-  - "Pěkný den, přeji! - lilmayu"

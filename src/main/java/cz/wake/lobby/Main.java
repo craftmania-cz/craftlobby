@@ -25,6 +25,8 @@ import org.bukkit.GameRule;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -35,7 +37,10 @@ import org.json.JSONArray;
 
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Objects;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 
@@ -47,7 +52,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     public static ArrayList<Player> preQuest = new ArrayList();
     public static ArrayList<Player> inQuest = new ArrayList();
     private static ArrayList<Player> inPortal = new ArrayList();
-    public static ArrayList<UUID> rulesAcceptionPending = new ArrayList<>();
     private RewardsManager rm = new RewardsManager();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     public ArrayList<Player> at_list = new ArrayList<>();

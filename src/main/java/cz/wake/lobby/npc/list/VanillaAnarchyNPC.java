@@ -10,33 +10,33 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SkyCloudNPC implements IServerNPC {
+public class VanillaAnarchyNPC implements IServerNPC {
 
     @Override
     public String getId() {
-        return "skycloud";
+        return "anarchy";
     }
 
     @Override
     public int getSkinId() {
-        return 876462411;
+        return 1158454996;
     }
 
     @Override
     public Location getLocation() {
-        return new Location(Bukkit.getWorld("lobby_4"), 390.5, 75, 216.5, 120, 0);
+        return new Location(Bukkit.getWorld("lobby_4"), 384.5, 75, 220.5, 142, 0);
     }
 
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§b§lSkyCloud §e[1.16]");
-        list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("skycloud") +" §7hráčů");
+        list.add("§c§lVanilla: Anarchy §e[1.16]");
+        list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("anarchy") +" §7hráčů");
         return list;
     }
 
     @Override
     public void onClick(Player player, NPCInteractEvent.ClickType clickType) {
-        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skycloud");
+        Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy");
     }
 }
