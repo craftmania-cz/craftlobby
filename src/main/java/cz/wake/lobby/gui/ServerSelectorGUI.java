@@ -87,12 +87,6 @@ public class ServerSelectorGUI implements InventoryProvider {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy");
                 }));
 
-        contents.set(3, 5, ClickableItem.of(
-           new ItemBuilder(Material.PUMPKIN).setName("§6§lHalloween Minihra 2020").hideAllFlags()
-                .setLore("§8Dead By Daylight", "", "§7Dokážeš přežít noc a utéct", "§7před zabijákem, co po tobě jde?", "§7Nebo budeš ty zabiják?!", "", "§b▸ Kliknutim te portnu").build(), e -> {
-                    Main.getInstance().getCraftBalancerManager().connectPlayer(player, "halloween-games");
-                }));
-
         // Dolni radek
         contents.set(5,0, ClickableItem.of(colorGlass, e -> {}));
         contents.set(5,1, ClickableItem.of(colorGlass, e -> {}));

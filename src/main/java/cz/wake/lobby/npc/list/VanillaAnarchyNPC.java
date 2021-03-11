@@ -24,7 +24,7 @@ public class VanillaAnarchyNPC implements IServerNPC {
 
     @Override
     public Location getLocation() {
-        return new Location(Bukkit.getWorld("lobby_4"), 384.5, 75, 220.5, 142, 0);
+        return new Location(Bukkit.getWorld("lobby_4"), 388.5, 75, 219.5, 145, 0);
     }
 
     @Override

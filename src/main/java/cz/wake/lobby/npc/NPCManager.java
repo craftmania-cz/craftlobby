@@ -23,7 +23,6 @@ public class NPCManager {
             npcList.add(new VanillaNPC());
             npcList.add(new Survival_115NPC());
             npcList.add(new Skyblock115NPC());
-            npcList.add(new HardcoreVanillaNPC());
             npcList.add(new PrisonNPC());
             npcList.add(new VanillaAnarchyNPC());
         }
