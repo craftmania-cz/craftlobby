@@ -3,7 +3,6 @@ package cz.wake.lobby.listeners;
 import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gui.ChangelogsGUI;
-import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.utils.SkullHeads;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
@@ -16,7 +15,19 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.HashMap;
+
 public class PlayerJoinListener implements Listener {
+
+    public static HashMap<Integer, String> joinMessages = new HashMap<Integer, String>(){{
+        put(1, "{player} se pripojil na lobby");
+        put(2, "Pozor! {player} prave pristal na lobby");
+        put(3, "Tri! Dva! Jedna! {player} je tu!");
+        put(4, "{player} je tu! Podrzte mi pivo.");
+        put(5, "{player} prave prisel. Party zacala!");
+        put(6, "{player} je tu a ma s sebou pizzu!");
+        put(7, "{player} vas prisel znicit!");
+    }};
 
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerJoin(PlayerJoinEvent e) {
@@ -132,7 +143,7 @@ public class PlayerJoinListener implements Listener {
                 Main.getInstance().getSQL().updateSettings(p, "lobby_joinbroadcast_message", 1);
             }
 
-            String joinMessage = SettingsMenu.formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
+            String joinMessage = formatJoinMessage(Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_message"), p);
             Bukkit.getOnlinePlayers().forEach(onlinePlayer -> {
                 onlinePlayer.sendMessage(joinMessage);
                 if ((p.hasPermission("craftlobby.vip.joinbroadcast-change-sound") && (Main.getInstance().getSQL().getSettings(p, "lobby_joinbroadcast_sound_enabled") == 1))) {
@@ -149,7 +160,7 @@ public class PlayerJoinListener implements Listener {
 
         ItemStack playerProfile = new ItemBuilder(Material.PLAYER_HEAD).setSkullOwner(p).setName("§aProfil §7(Klikni pravym)").build();
 
-        ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hraci: §a§lVIDITELNY").build();
+        ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hráči: §a§lVIDITELNÝ").build();
 
         ItemStack lobbyList = new ItemBuilder(Material.CLOCK).setName("§eZměna lobby §7(Klikni pravým)").build();
 
@@ -210,7 +221,8 @@ public class PlayerJoinListener implements Listener {
             p.setFlying(false);
         }
 
-        // Nastaveni skryti hracu
+        //TODO: Fix
+        /*// Nastaveni skryti hracu
         if (Main.getInstance().getSQL().getSettings(p, "lobby_players") == 1) {
             SettingsMenu.hiden.add(p);
             for (Player p2 : Bukkit.getOnlinePlayers()) {
@@ -223,7 +235,7 @@ public class PlayerJoinListener implements Listener {
             if (SettingsMenu.hiden.contains(p3)) {
                 p3.hidePlayer(p);
             }
-        }
+        }*/
 
         // Lobby speed
         if (Main.getInstance().getSQL().getSettings(p, "lobby_speed") == 1) {
@@ -231,5 +243,13 @@ public class PlayerJoinListener implements Listener {
         } else {
             p.setWalkSpeed(0.2F);
         }
+    }
+
+    public static String formatJoinMessage(Integer i, Player p) {
+        String entry = joinMessages.get(i);
+        String message;
+        message = "§7" + entry;
+        message = message.replace("{player}", "§e§l" + p.getName() + "§7");
+        return message;
     }
 }

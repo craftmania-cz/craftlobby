@@ -9,12 +9,10 @@ import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.seasons.christmas.Kalendar_command;
 import cz.wake.lobby.seasons.christmas.SilvesterTask;
 import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
-import cz.wake.lobby.gui.Profil;
 import cz.wake.lobby.commands.*;
 import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
-import cz.wake.lobby.settings.SettingsMenu;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
@@ -23,10 +21,7 @@ import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.World;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.ItemFrame;
-import org.bukkit.entity.Painting;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -40,18 +35,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 
     private static Main instance;
-    private Profil m = new Profil();
     public boolean debug;
-    public HashMap<Block, String> _BlocksToRestore = new HashMap();
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
-    public static ArrayList<Player> preQuest = new ArrayList();
-    public static ArrayList<Player> inQuest = new ArrayList();
-    private static ArrayList<Player> inPortal = new ArrayList();
     private RewardsManager rm = new RewardsManager();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     public ArrayList<Player> at_list = new ArrayList<>();
@@ -150,9 +139,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             if (provider != null) {
                 luckPermsApi = provider.getProvider();
             }
-
-            PluginManager pm = getServer().getPluginManager();
-            //pm.registerEvents(new TagsConvertManager(), this);
         }
     }
 
@@ -174,9 +160,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
-        pm.registerEvents(new SettingsMenu(), this);
         pm.registerEvents(new ChatListener(), this);
-        pm.registerEvents(new Profil(), this);
         pm.registerEvents(new TimedResetListener(), this);
         pm.registerEvents(new RewardsManager(), this);
 
@@ -240,10 +224,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     @Override
     public void onPluginMessageReceived(String channel, Player player, byte[] message) {
         if (!channel.equalsIgnoreCase("BungeeCord")) return;
-    }
-
-    public Profil getMenu() {
-        return m;
     }
 
     private void initDatabase() {

@@ -36,7 +36,7 @@ public class PlayerInteractListener implements Listener {
         // Profil
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.PLAYER_HEAD) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§aProfil §7(Klikni pravym)"))) {
-            player.sendMessage("§c§l[!] §cTato funkce bude uveřejněná v pozdějším Lobby Content Updatu! :)");
+            player.performCommand("profile");
         }
 
         // Kompas
@@ -54,15 +54,15 @@ public class PlayerInteractListener implements Listener {
         // Changelogs
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.BOOK) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9Changelogs §7(Klikni pravým)"))) {
-            //player.sendMessage("§c§l[!] §cTato funkce bude uveřejněná v pozdějším Lobby Content Updatu! :)");
-            SmartInventory.builder().size(6, 9).title("Changelogs").provider(new ChangelogsGUI()).build().open(player);
+            player.sendMessage("§c§l[!] §cTato funkce je dočasně deaktivována.");
+            //SmartInventory.builder().size(6, 9).title("Changelogs").provider(new ChangelogsGUI()).build().open(player);
         }
 
 
         // Player hider
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
             if (!e.getHand().equals(EquipmentSlot.HAND)) return;
-            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.LIME_DYE && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §a§lVIDITELNY"))) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.LIME_DYE && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hráči: §a§lVIDITELNÝ"))) {
                 if (!this._time.containsKey(e.getPlayer())) {
                     this._time.put(e.getPlayer(), 8D + 0.1D);
                     e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BREAK, 2.0F, 2.0F);
@@ -70,12 +70,12 @@ public class PlayerInteractListener implements Listener {
                         e.getPlayer().hidePlayer(players);
                         ItemStack disable = new ItemStack(Material.RED_DYE);
                         ItemMeta im = disable.getItemMeta();
-                        im.setDisplayName("§7Hraci: §c§lNEVIDITELNY");
+                        im.setDisplayName("§7Hráči: §c§lNEVIDITELNÝ");
                         disable.setItemMeta(im);
                         e.getPlayer().getInventory().setItem(6, disable);
                         e.getPlayer().updateInventory();
                     }
-                    e.getPlayer().sendMessage(ChatColor.RED + "Vsechny aktualni hrace jsi zneviditelnil.");
+                    e.getPlayer().sendMessage(ChatColor.RED + "Všechny aktuální hráče, jsi zneviditelnil.");
                     this._cdRunnable.put(e.getPlayer(), new BukkitRunnable() {
                         @Override
                         public void run() {
@@ -93,7 +93,7 @@ public class PlayerInteractListener implements Listener {
                     return;
                 }
             } else {
-                if ((e.getPlayer().getItemInHand().getType() == Material.RED_DYE && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hraci: §c§lNEVIDITELNY")))) {
+                if ((e.getPlayer().getItemInHand().getType() == Material.RED_DYE && (e.getPlayer().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hráči: §c§lNEVIDITELNÝ")))) {
                     if (!e.getHand().equals(EquipmentSlot.HAND)) return;
                     if (!this._time.containsKey(e.getPlayer())) {
                         this._time.put(e.getPlayer(), 8D + 0.1D);
@@ -102,12 +102,12 @@ public class PlayerInteractListener implements Listener {
                             e.getPlayer().showPlayer(pl);
                             ItemStack enable = new ItemStack(Material.LIME_DYE, 1, (byte) 10);
                             ItemMeta im = enable.getItemMeta();
-                            im.setDisplayName("§7Hraci: §a§lVIDITELNY");
+                            im.setDisplayName("§7Hráči: §a§lVIDITELNÝ");
                             enable.setItemMeta(im);
                             e.getPlayer().getInventory().setItem(6, enable);
                             e.getPlayer().updateInventory();
                         }
-                        e.getPlayer().sendMessage(ChatColor.GREEN + "Vsechny hrace jsi zviditelnil.");
+                        e.getPlayer().sendMessage(ChatColor.GREEN + "Všechny hráče na lobby jsi zviditelnil.");
                         this._cdRunnable.put(e.getPlayer(), new BukkitRunnable() {
                             @Override
                             public void run() {
