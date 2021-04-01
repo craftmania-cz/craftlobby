@@ -131,7 +131,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         }
 
         // Setup last changelog
-        this.lastChangelogDate = fetchLastChangelogDate();
+        //this.lastChangelogDate = fetchLastChangelogDate();
 
         if (this.getIdServer().equalsIgnoreCase("main")) {
             // LuckPerms register

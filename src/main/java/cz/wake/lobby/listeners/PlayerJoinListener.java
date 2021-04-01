@@ -78,12 +78,12 @@ public class PlayerJoinListener implements Listener {
             Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
         }
 
-        int nonSeenChangelogs = ChangelogsGUI.countNonSeenChanges(e.getPlayer());
+        /*int nonSeenChangelogs = ChangelogsGUI.countNonSeenChanges(e.getPlayer());
         if (nonSeenChangelogs > 0) {
             p.sendMessage("");
             p.sendMessage("§bMáš nezobrazených §c§l" + nonSeenChangelogs + " §bzměn! Koukni na poslední změny pomocí knihy v inv.");
             p.sendMessage("");
-        }
+        }*/
 
         // News
         if(Main.getInstance().getSQL().isLatestNewsEnabled()) {
