@@ -83,7 +83,7 @@ public class ServerSelectorGUI implements InventoryProvider {
 
         contents.set(3, 3, ClickableItem.of(
                 new ItemBuilder(Material.REDSTONE).setName("§c§lVanilla: Anarchy §e[1.16]").hideAllFlags()
-                    .setLore("§8Vanilla, žádná ochrana", "", "§7Tento server je určený pro náročné", "§7Vanilla hráče, kteří nechtějí ochrany", "§7a chtějí dělat bordel!", "", "§ePřístup na tento server lze zatím získat", "§epouze splněním 20 hlasů v VotePassu.", "", "§b▸ Kliknutim te portnu").build(), e -> {
+                    .setLore("§8Vanilla, žádná ochrana", "", "§7Tento server je určený pro náročné", "§7Vanilla hráče, kteří nechtějí ochrany", "§7a chtějí dělat bordel!", "", "§b▸ Kliknutim te portnu").build(), e -> {
                     Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy");
                 }));
 
