@@ -56,6 +56,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private long lastChangelogDate = 0L;
     private LuckPerms luckPermsApi;
     private PaperCommandManager manager = null;
+    private boolean isNpcLibProvided = false;
 
     public void onEnable() {
 
@@ -100,9 +101,12 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         craftBalancerManager = new CraftBalancerManager(this);
 
         // Setup NPC
-        this.npclib = new NPCLib(this);
-        this.npcManager = new NPCManager();
-        this.npcManager.loadNpcs();
+        if (this.getServer().getPluginManager().isPluginEnabled("NPCLibPlugin")) {
+            this.isNpcLibProvided = true;
+            this.npclib = new NPCLib(this);
+            this.npcManager = new NPCManager();
+            this.npcManager.loadNpcs();
+        }
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
@@ -274,4 +278,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return luckPermsApi;
     }
 
+    public boolean isNpcLibProvided() {
+        return isNpcLibProvided;
+    }
 }

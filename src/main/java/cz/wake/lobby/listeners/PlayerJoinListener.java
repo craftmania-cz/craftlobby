@@ -78,13 +78,6 @@ public class PlayerJoinListener implements Listener {
             Main.getInstance().getSQL().updateAtLastActive(p, System.currentTimeMillis());
         }
 
-        /*int nonSeenChangelogs = ChangelogsGUI.countNonSeenChanges(e.getPlayer());
-        if (nonSeenChangelogs > 0) {
-            p.sendMessage("");
-            p.sendMessage("§bMáš nezobrazených §c§l" + nonSeenChangelogs + " §bzměn! Koukni na poslední změny pomocí knihy v inv.");
-            p.sendMessage("");
-        }*/
-
         // News
         if(Main.getInstance().getSQL().isLatestNewsEnabled()) {
             String message = Main.getInstance().getSQL().getLatestNews();
@@ -105,7 +98,9 @@ public class PlayerJoinListener implements Listener {
             }
         }
 
-        Main.getInstance().getNpcManager().spawnForPlayer(p);
+        if (Main.getInstance().isNpcLibProvided()) {
+            Main.getInstance().getNpcManager().spawnForPlayer(p);
+        }
 
         if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
@@ -162,10 +157,6 @@ public class PlayerJoinListener implements Listener {
 
         ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hráči: §a§lVIDITELNÝ").build();
 
-        ItemStack lobbyList = new ItemBuilder(Material.CLOCK).setName("§eZměna lobby §7(Klikni pravým)").build();
-
-        ItemStack changelogs = new ItemBuilder(Material.BOOK).setName("§9Changelogs §7(Klikni pravým)").build();
-
         ItemStack web = SkullHeads.createHead(
                 "§aWeb",
                 "c424243d-0421-4774-8aeb-2ddea957ed57",
@@ -179,13 +170,6 @@ public class PlayerJoinListener implements Listener {
                 "§9§lDiscord",
                 "§7Odkaz na náš Discord server:", "§fhttps://discord.gg/craftmania", "", "§eKliknutím zobrazíš odkaz v chatu");
 
-        ItemStack facebook = SkullHeads.createHead(
-                "§b§lFacebook",
-                "4ac1c429-e329-4861-b1d6-c4bde50022d9",
-                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGViNDYxMjY5MDQ0NjNmMDdlY2ZjOTcyYWFhMzczNzNhMjIzNTliNWJhMjcxODIxYjY4OWNkNTM2N2Y3NTc2MiJ9fX0=",
-                "§b§lFacebook",
-                "§7Odkaz na naší Facebook page:", "§fhttps://www.fb.com/craftmaniacz/", "", "§eKliknutím zobrazíš odkaz v chatu");
-
         ItemStack instagram = SkullHeads.createHead(
                 "§d§lInstagram",
                 "5e469ecf-80a4-40ae-8d9d-7c12bd2d3a3f",
@@ -194,15 +178,12 @@ public class PlayerJoinListener implements Listener {
                 "§7Odkaz na náš Instagram:", "§fhttps://www.instagram.com/craftmania.cz/", "", "§eKliknutím zobrazíš odkaz v chatu");
 
         p.getInventory().setItem(0, compass);
-        p.getInventory().setItem(1, playerProfile);
-        p.getInventory().setItem(5, changelogs);
+        p.getInventory().setItem(2, playerProfile);
         p.getInventory().setItem(6, hider);
-        p.getInventory().setItem(8, lobbyList);
 
-        p.getInventory().setItem(19, web);
-        p.getInventory().setItem(21, discord);
-        p.getInventory().setItem(23, facebook);
-        p.getInventory().setItem(25, instagram);
+        p.getInventory().setItem(20, web);
+        p.getInventory().setItem(22, discord);
+        p.getInventory().setItem(24, instagram);
     }
 
     private void setupPlayerOnJoin(final Player p) {

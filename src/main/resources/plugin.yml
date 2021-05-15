@@ -3,8 +3,8 @@ main: cz.wake.lobby.Main
 version: "2.0"
 api-version: "1.14"
 author: MrWakeCZ
-softdepend: [RogueParkour,LuckPerms]
-depend: [Multiverse-Core,CraftCore,NPCLibPlugin]
+softdepend: [RogueParkour,LuckPerms,NPCLibPlugin]
+depend: [Multiverse-Core,CraftCore]
 
 permissions:
   craftlobby.pristup:

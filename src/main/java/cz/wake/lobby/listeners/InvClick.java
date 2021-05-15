@@ -16,47 +16,7 @@ public class InvClick implements Listener {
             if (event.getCurrentItem() == null) {
                 return;
             }
-            //**************************** SERVERS MENU ****************************//
-            if (event.getView().getTitle().equals("Vyber serveru")) {
-                if (event.getSlot() == 10) {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
-                }
-                if (event.getSlot() == 11) {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
-                }
-                if (event.getSlot() == 12) {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
-                }
-                if (event.getSlot() == 15) {
-                    if (event.isLeftClick()) {
-                        Main.getInstance().getCraftBalancerManager().connectPlayer(player, "halloween-games");
-                    } else if (event.isRightClick()) {
-                        player.closeInventory();
-                        player.sendMessage("");
-                        player.sendMessage("§c▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                        player.sendMessage("");
-                        player.sendMessage("");
-                        player.sendMessage("§6Odkaz na Halloween Leaderboard:");
-                        player.sendMessage("§bhttps://stats.craftmania.cz/leaderboard/halloween");
-                        player.sendMessage("");
-                        player.sendMessage("§c▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                        player.sendMessage("");
-                    }
-                }
-                if (event.getSlot() == 13) {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
-                }
-                if (event.getSlot() == 22) {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla2");
-                }
-                if (event.getSlot() == 16) {
-                    player.sendMessage("§c§l[!] §cServer se aktualne predelava... O dalsich novinkach se brzo dozvis.");
-                }
-                if (event.getSlot() == 21) {
-                    Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative2");
-                }
-            }
-            if ((event.getSlot() == 19) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Web"))) {
+            if ((event.getSlot() == 20) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Web"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§a▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -69,7 +29,7 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 21) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))) {
+            if ((event.getSlot() == 22) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Discord"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§9▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
@@ -82,20 +42,7 @@ public class InvClick implements Listener {
                 player.sendMessage("");
                 player.closeInventory();
             }
-            if ((event.getSlot() == 23) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Facebook"))) {
-                player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
-                player.sendMessage("");
-                player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                player.sendMessage("");
-                player.sendMessage("");
-                player.sendMessage("§eOdkaz na naší Facebook page:");
-                player.sendMessage("§fhttps://www.fb.com/craftmaniacz/");
-                player.sendMessage("");
-                player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");
-                player.sendMessage("");
-                player.closeInventory();
-            }
-            if ((event.getSlot() == 25) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Instagram"))) {
+            if ((event.getSlot() == 24) && (event.getCurrentItem().getItemMeta().getDisplayName().contains("Instagram"))) {
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 13.0F, 1.0F);
                 player.sendMessage("");
                 player.sendMessage("§b▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃");

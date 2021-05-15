@@ -42,22 +42,8 @@ public class PlayerInteractListener implements Listener {
         // Kompas
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.COMPASS) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))) {
-            SmartInventory.builder().size(6, 9).title("Výběr serveru").provider(new ServerSelectorGUI()).build().open(player);
+            SmartInventory.builder().size(3, 9).title("Výběr serveru").provider(new ServerSelectorGUI()).build().open(player);
         }
-
-        // Lobby selector
-        if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.CLOCK) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§eZměna lobby §7(Klikni pravým)"))) {
-            SmartInventory.builder().size(6, 9).title("Změna lobby").provider(new LobbySelectorGUI()).build().open(player);
-        }
-
-        // Changelogs
-        if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
-                (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.BOOK) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§9Changelogs §7(Klikni pravým)"))) {
-            player.sendMessage("§c§l[!] §cTato funkce je dočasně deaktivována.");
-            //SmartInventory.builder().size(6, 9).title("Changelogs").provider(new ChangelogsGUI()).build().open(player);
-        }
-
 
         // Player hider
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
