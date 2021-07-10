@@ -30,7 +30,7 @@ public class VanillaAnarchyNPC implements IServerNPC {
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§c§lVanilla: Anarchy §e[1.16]");
+        list.add("§c§lVanilla: Anarchy §e[1.17]");
         list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("anarchy") +" §7hráčů");
         return list;
     }

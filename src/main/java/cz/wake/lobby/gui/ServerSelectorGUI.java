@@ -53,7 +53,7 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "prison")));
 
         contents.set(1, 3, ClickableItem.of(new ItemBuilder(Material.REDSTONE)
-                .setName(ChatColor.of("#CD0000") + "§lVanilla: Anarchy §8[1.16]")
+                .setName(ChatColor.of("#CD0000") + "§lVanilla: Anarchy §8[1.17]")
                 .setLore(ChatColor.of("#7D7D7D") + "Vanilla, žádná ochrana", "", "§7Tento server je určený pro náročné", "§7Vanilla hráče, kteří nechtějí ochrany", "§7a chtějí dělat bordel!", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy")));
