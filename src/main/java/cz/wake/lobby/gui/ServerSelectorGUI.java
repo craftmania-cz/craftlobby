@@ -41,7 +41,7 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative")));
 
         contents.set(1, 1, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100014)
-                .setName(ChatColor.of("#EEC900") + "§lVanilla: Lands §8[1.16]")
+                .setName(ChatColor.of("#EEC900") + "§lVanilla: Lands §8[1.17]")
                 .setLore(ChatColor.of("#7D7D7D") + "Ochrana chunků, PvP, Bez ekonomiky", "", "§7Prakticky Survival ale bez Ekonomiky.", "§7Dokážeš přežít bez pomoci", "§7a v klasickém světě?", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla")));
