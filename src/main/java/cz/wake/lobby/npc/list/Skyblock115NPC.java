@@ -30,7 +30,7 @@ public class Skyblock115NPC implements IServerNPC {
     @Override
     public List<String> getHologramLines() {
         List<String> list = new ArrayList<>();
-        list.add("§2§lSkyblock §e[1.16]");
+        list.add("§2§lSkyblock §e[1.17]");
         list.add("§f" + Main.getInstance().getSQL().getOnlinePlayers("skyblock") +" §7hráčů");
         return list;
     }
