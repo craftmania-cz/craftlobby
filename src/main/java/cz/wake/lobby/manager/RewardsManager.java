@@ -75,11 +75,11 @@ public class RewardsManager implements Listener {
             inv.setItem(21, vipOdmena);
         }
 
-        if (!p.hasPermission("craftmanager.hats.cowboy")) {
-            ItemStack cosmeticReward = new ItemBuilder(Material.HORSE_SPAWN_EGG).setName("§6§lCosmetic Reward 2021/4").setLore("§7Kliknutím si odemkneš na serverech:", "§8- §fCowboy čepici v §a/cosmetics", "", "§eKlikni pro výběr odměny!").build();
+        if (!p.hasPermission("craftmanager.hats.tiger_head")) {
+            ItemStack cosmeticReward = new ItemBuilder(Material.HORSE_SPAWN_EGG).setName("§6§lCosmetic Reward 2021/9").setLore("§7Kliknutím si odemkneš na serverech:", "§8- §fTiger čepici v §a/cosmetics", "", "§eKlikni pro výběr odměny!").build();
             inv.setItem(22, cosmeticReward);
         } else {
-            ItemStack vipOdmena = new ItemBuilder(Material.BARRIER).setName("§c§lCosmetic Reward 2021/4").setLore("§7Odměnu jsi si již vybral(a).").build();
+            ItemStack vipOdmena = new ItemBuilder(Material.BARRIER).setName("§c§lCosmetic Reward 2021/9").setLore("§7Odměnu jsi si již vybral(a).").build();
             inv.setItem(22, vipOdmena);
         }
 
@@ -167,9 +167,9 @@ public class RewardsManager implements Listener {
             }
 
             if (e.getSlot() == 22) {
-                if (!p.hasPermission("craftmanager.hats.cowboy")) {
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftmanager.hats.cowboy");
-                    p.sendMessage("§e§l[!] §eOdemkl jsi si Cosmetic Odměnu 2021/4!");
+                if (!p.hasPermission("craftmanager.hats.tiger_head")) {
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftmanager.hats.tiger_head");
+                    p.sendMessage("§e§l[!] §eOdemkl jsi si Cosmetic Odměnu 2021/9!");
                     p.closeInventory();
                 } else {
                     p.sendMessage("§c§l[!] §cOdměnu jsi si již vybral(a).");
