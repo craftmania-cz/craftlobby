@@ -1,6 +1,6 @@
 package cz.wake.lobby.listeners;
 
-import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
+import cz.craftmania.craftcore.inventory.builder.SmartInventory;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.gui.LobbySelectorGUI;

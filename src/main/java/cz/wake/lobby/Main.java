@@ -1,7 +1,6 @@
 package cz.wake.lobby;
 
 import co.aikar.commands.PaperCommandManager;
-import cz.craftmania.craftcore.spigot.bungee.BungeeAPI;
 import cz.wake.lobby.gui.ChangelogsGUI;
 import cz.wake.lobby.npc.NPCInteractListener;
 import cz.wake.lobby.npc.NPCManager;
@@ -34,7 +33,6 @@ import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 
@@ -52,7 +50,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private CraftBalancerManager craftBalancerManager;
     private NPCLib npclib;
     private NPCManager npcManager;
-    private BungeeAPI bungeeAPI;
     private long lastChangelogDate = 0L;
     private LuckPerms luckPermsApi;
     private PaperCommandManager manager = null;
@@ -95,8 +92,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.info("Nacitani plugin messages.");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
-
-        bungeeAPI = new BungeeAPI();
 
         craftBalancerManager = new CraftBalancerManager(this);
 
@@ -181,14 +176,14 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     }
 
     private void loadCommands() {
-        manager.registerCommand(new Craftlobby_Command());
-        manager.registerCommand(new Link_Command());
-        manager.registerCommand(new Seen_Command());
-        manager.registerCommand(new Spawn_Command());
-        manager.registerCommand(new VIP_Command());
-        manager.registerCommand(new Discord_Command());
-        manager.registerCommand(new Wiki_Command());
-        manager.registerCommand(new ChangePassword_Command());
+        manager.registerCommand(new CraftlobbyCommand());
+        manager.registerCommand(new LinkCommand());
+        manager.registerCommand(new SeenCommand());
+        manager.registerCommand(new SpawnCommand());
+        manager.registerCommand(new VIPCommand());
+        manager.registerCommand(new DiscordCommand());
+        manager.registerCommand(new WikiCommand());
+        manager.registerCommand(new ChangePasswordCommand());
         manager.registerCommand(new TutorialCommand());
         manager.registerCommand(new DailyRewardCommand());
 

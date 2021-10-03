@@ -1,9 +1,9 @@
 package cz.wake.lobby.gui;
 
-import cz.craftmania.craftcore.spigot.builders.items.ItemBuilder;
-import cz.craftmania.craftcore.spigot.inventory.builder.ClickableItem;
-import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryContents;
-import cz.craftmania.craftcore.spigot.inventory.builder.content.InventoryProvider;
+import cz.craftmania.craftcore.builders.items.ItemBuilder;
+import cz.craftmania.craftcore.inventory.builder.ClickableItem;
+import cz.craftmania.craftcore.inventory.builder.content.InventoryContents;
+import cz.craftmania.craftcore.inventory.builder.content.InventoryProvider;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.SkullHeads;
 import org.bukkit.Material;

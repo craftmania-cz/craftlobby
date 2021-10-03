@@ -1,10 +1,10 @@
 package cz.wake.lobby.utils;
 
-import net.minecraft.server.v1_16_R3.NBTTagCompound;
-import net.minecraft.server.v1_16_R3.NBTTagList;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_17_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -17,7 +17,7 @@ public class SkullHeads {
 
     public static ItemStack createHead(String name, String uuid, String textureData) {
         try {
-            net.minecraft.server.v1_16_R3.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_HEAD, 1));
+            net.minecraft.world.item.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_HEAD, 1));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
@@ -54,7 +54,7 @@ public class SkullHeads {
 
     public static ItemStack createHead(String name, String uuid, String textureData, String displayName, String... lore) {
         try {
-            net.minecraft.server.v1_16_R3.ItemStack sHead = CraftItemStack.asNMSCopy(new org.bukkit.inventory.ItemStack(Material.PLAYER_HEAD, 1));
+            net.minecraft.world.item.ItemStack sHead = CraftItemStack.asNMSCopy(new ItemStack(Material.PLAYER_HEAD, 1));
 
             NBTTagCompound tag = new NBTTagCompound();
             NBTTagCompound skullOwnerTag = new NBTTagCompound();
