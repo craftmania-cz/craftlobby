@@ -155,7 +155,7 @@ public class PlayerJoinListener implements Listener {
 
         ItemStack playerProfile = new ItemBuilder(Material.PLAYER_HEAD).setSkullOwner(p).setName("§aProfil §7(Klikni pravym)").build();
 
-        ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hráči: §a§lVIDITELNÝ").build();
+        ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hráči: §a§lVIDITELNÍ").build();
 
         ItemStack web = SkullHeads.createHead(
                 "§aWeb",

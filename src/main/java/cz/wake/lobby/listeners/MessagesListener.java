@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class MessagesListener {
 
     public static void messageCooldown(Player p, String time) {
-        p.sendMessage(ChatColor.GRAY + "Vyckej jeste " + ChatColor.AQUA + time + "s" + ChatColor.GRAY + " pred pouzitim.");
+        p.sendMessage(ChatColor.GRAY + "Vyčkej ještě " + ChatColor.AQUA + time + "s" + ChatColor.GRAY + " před dalším použitím.");
     }
 
     public void messageNoPerm(Player p, String gadget) {

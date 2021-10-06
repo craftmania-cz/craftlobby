@@ -48,7 +48,7 @@ public class PlayerInteractListener implements Listener {
         // Player hider
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK))) {
             if (!e.getHand().equals(EquipmentSlot.HAND)) return;
-            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.LIME_DYE && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hráči: §a§lVIDITELNÝ"))) {
+            if (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.LIME_DYE && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§7Hráči: §a§lVIDITELNÍ"))) {
                 if (!this._time.containsKey(e.getPlayer())) {
                     this._time.put(e.getPlayer(), 8D + 0.1D);
                     e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.BLOCK_WOOD_BREAK, 2.0F, 2.0F);
@@ -56,7 +56,7 @@ public class PlayerInteractListener implements Listener {
                         e.getPlayer().hidePlayer(players);
                         ItemStack disable = new ItemStack(Material.RED_DYE);
                         ItemMeta im = disable.getItemMeta();
-                        im.setDisplayName("§7Hráči: §c§lNEVIDITELNÝ");
+                        im.setDisplayName("§7Hráči: §c§lNEVIDITELNÍ");
                         disable.setItemMeta(im);
                         e.getPlayer().getInventory().setItem(6, disable);
                         e.getPlayer().updateInventory();
@@ -88,7 +88,7 @@ public class PlayerInteractListener implements Listener {
                             e.getPlayer().showPlayer(pl);
                             ItemStack enable = new ItemStack(Material.LIME_DYE, 1, (byte) 10);
                             ItemMeta im = enable.getItemMeta();
-                            im.setDisplayName("§7Hráči: §a§lVIDITELNÝ");
+                            im.setDisplayName("§7Hráči: §a§lVIDITELNÍ");
                             enable.setItemMeta(im);
                             e.getPlayer().getInventory().setItem(6, enable);
                             e.getPlayer().updateInventory();
