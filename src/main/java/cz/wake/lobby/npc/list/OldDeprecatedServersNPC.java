@@ -1,6 +1,6 @@
 package cz.wake.lobby.npc.list;
 
-import cz.craftmania.craftcore.spigot.inventory.builder.SmartInventory;
+import cz.craftmania.craftcore.inventory.builder.SmartInventory;
 import cz.wake.lobby.gui.DeprecatedServersGUI;
 import cz.wake.lobby.npc.IServerNPC;
 import net.jitse.npclib.api.events.NPCInteractEvent;
