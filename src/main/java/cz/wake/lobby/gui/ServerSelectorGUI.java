@@ -23,7 +23,7 @@ public class ServerSelectorGUI implements InventoryProvider {
         contents.set(2, 8, ClickableItem.empty(new ItemBuilder(Material.LIGHT_GRAY_STAINED_GLASS_PANE).setCustomModelData(100002).setName("§f").hideAllFlags().build()));
 
         contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.DIAMOND_PICKAXE)
-                .setName(ChatColor.of("#00CDCD") + "§lSurvival §8[1.16]")
+                .setName(ChatColor.of("#00CDCD") + "§lSurvival §8[1.17]")
                 .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP, McMMO", "", "§7Survival server založený na ekonomice,", "§7s shopy a farmami. Né každý ale", "§7může být ten nejbohatší.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival")));
