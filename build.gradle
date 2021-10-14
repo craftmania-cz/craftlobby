@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'java'
 
 group = 'cz.wake.lobby'
-version = '2.2'
+version = '2.3'
 
 description = """"""
 
