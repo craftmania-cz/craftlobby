@@ -1,8 +1,6 @@
 package cz.wake.lobby;
 
 import co.aikar.commands.PaperCommandManager;
-import cz.wake.lobby.gui.ChangelogsGUI;
-import cz.wake.lobby.npc.NPCInteractListener;
 import cz.wake.lobby.npc.NPCManager;
 import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.seasons.christmas.Kalendar_command;
@@ -27,12 +25,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.json.JSONArray;
 
 import java.io.ByteArrayOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
 
@@ -50,7 +45,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private CraftBalancerManager craftBalancerManager;
     private NPCLib npclib;
     private NPCManager npcManager;
-    private long lastChangelogDate = 0L;
     private LuckPerms luckPermsApi;
     private PaperCommandManager manager = null;
     private boolean isNpcLibProvided = false;
@@ -159,7 +153,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
-        pm.registerEvents(new ChatListener(), this);
         pm.registerEvents(new TimedResetListener(), this);
         pm.registerEvents(new RewardsManager(), this);
 
@@ -251,22 +244,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public NPCManager getNpcManager() {
         return npcManager;
-    }
-
-    public long getLastChangelogDate() {
-        return this.lastChangelogDate;
-    }
-
-    private long fetchLastChangelogDate() {
-        try {
-            JSONArray json = ChangelogsGUI.readJsonFromUrl("https://changelog-api.craftmania.cz/public/channels/servers");
-            String publishDate = json.getJSONObject(0).getString("publishDate");
-
-            SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            Date d = input.parse(publishDate);
-            return d.getTime();
-        } catch (Exception ignored) {}
-        return 0;
     }
 
     public LuckPerms getLuckPermsApi() {
