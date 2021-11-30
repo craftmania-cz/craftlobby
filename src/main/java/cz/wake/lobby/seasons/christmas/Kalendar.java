@@ -3,6 +3,8 @@ package cz.wake.lobby.seasons.christmas;
 import cz.craftmania.craftcore.builders.items.ItemBuilder;
 import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
 import cz.craftmania.crafteconomy.api.CraftTokensAPI;
+import cz.craftmania.crafteconomy.api.SeasonPointsAPI;
+import cz.craftmania.craftlibs.utils.ChatInfo;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.SkullHeads;
 import org.bukkit.Bukkit;
@@ -20,70 +22,67 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
-    //TODO: Questy
-    //TODO: Kocka hazejici rybu, sheep s oveckou, netopyr, parrot jako pet*, wake jako moprh, dog s dogem, kure kadici vejce
-
     public void openKalendar(final Player p) {
 
         if (Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(p, "played_time") < 180) {
-            p.sendMessage("§c§l[!] §cAby jsi si mohl vybrat odmenu, musis mit odehrane aspon 3 hodiny na serveru! :)");
+            ChatInfo.DANGER.send(p, "Aby jsi si mohl vybrat odměnu, musíš mít odehrané aspoň 3 hodiny na serveru! :)");
             return;
         }
 
         Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
 
-        inv.setItem(2, canOpen(p, 1, 1512082800000L)); //Den 1.
-        inv.setItem(40, canOpen(p, 2, 1512169200000L)); // Den 2.
-        inv.setItem(28, canOpen(p, 3, 1512255600000L)); // Den 3.
-        inv.setItem(9, canOpen(p, 4, 1512342000000L)); // Den 4
-        inv.setItem(50, canOpen(p, 5, 1512428400000L)); // Den 5.
-        inv.setItem(33, canOpen(p, 6, 1512514800000L));
-        inv.setItem(15, canOpen(p, 7, 1512601200000L));
-        inv.setItem(46, canOpen(p, 8, 1512687600000L));
-        inv.setItem(36, canOpen(p, 9, 1512774000000L));
-        inv.setItem(8, canOpen(p, 10, 1512860400000L));
-        inv.setItem(26, canOpen(p, 11, 1512946800000L));
-        inv.setItem(52, canOpen(p, 12, 1513033200000L));
-        inv.setItem(5, canOpen(p, 13, 1513033200000L));
-        inv.setItem(12, canOpen(p, 14, 1513206000000L));
-        inv.setItem(20, canOpen(p, 15, 1513292400000L));
-        inv.setItem(44, canOpen(p, 16, 1513378800000L));
-        inv.setItem(30, canOpen(p, 17, 1513465200000L));
-        inv.setItem(23, canOpen(p, 18, 1513551600000L));
-        inv.setItem(18, canOpen(p, 19, 1513638000000L));
-        inv.setItem(42, canOpen(p, 20, 1513724400000L));
-        inv.setItem(48, canOpen(p, 21, 1513810800000L));
-        inv.setItem(22, canOpen(p, 22, 1513897200000L));
-        inv.setItem(25, canOpen(p, 23, 1513983600000L));
-        inv.setItem(38, canOpen(p, 24, 1514070000000L));
+        inv.setItem(2, canOpen(p, 1, CalenderTimes.DAY_1.get()));
+        inv.setItem(40, canOpen(p, 2, CalenderTimes.DAY_2.get()));
+        inv.setItem(28, canOpen(p, 3, CalenderTimes.DAY_3.get()));
+        inv.setItem(9, canOpen(p, 4, CalenderTimes.DAY_4.get()));
+        inv.setItem(50, canOpen(p, 5, CalenderTimes.DAY_5.get()));
+        inv.setItem(33, canOpen(p, 6, CalenderTimes.DAY_6.get()));
+        inv.setItem(15, canOpen(p, 7, CalenderTimes.DAY_7.get()));
+        inv.setItem(46, canOpen(p, 8, CalenderTimes.DAY_8.get()));
+        inv.setItem(36, canOpen(p, 9, CalenderTimes.DAY_9.get()));
+        inv.setItem(8, canOpen(p, 10, CalenderTimes.DAY_10.get()));
+        inv.setItem(26, canOpen(p, 11, CalenderTimes.DAY_11.get()));
+        inv.setItem(52, canOpen(p, 12, CalenderTimes.DAY_12.get()));
+        inv.setItem(5, canOpen(p, 13, CalenderTimes.DAY_13.get()));
+        inv.setItem(12, canOpen(p, 14, CalenderTimes.DAY_14.get()));
+        inv.setItem(20, canOpen(p, 15, CalenderTimes.DAY_15.get()));
+        inv.setItem(44, canOpen(p, 16, CalenderTimes.DAY_16.get()));
+        inv.setItem(30, canOpen(p, 17, CalenderTimes.DAY_17.get()));
+        inv.setItem(23, canOpen(p, 18, CalenderTimes.DAY_18.get()));
+        inv.setItem(18, canOpen(p, 19, CalenderTimes.DAY_19.get()));
+        inv.setItem(42, canOpen(p, 20, CalenderTimes.DAY_20.get()));
+        inv.setItem(48, canOpen(p, 21, CalenderTimes.DAY_21.get()));
+        inv.setItem(22, canOpen(p, 22, CalenderTimes.DAY_22.get()));
+        inv.setItem(25, canOpen(p, 23, CalenderTimes.DAY_23.get()));
+        inv.setItem(38, canOpen(p, 24, CalenderTimes.DAY_24.get()));
+        inv.setItem(0, canOpen(p,25, CalenderTimes.DAY_25.get()));
+        inv.setItem(6, canOpen(p, 26, CalenderTimes.DAY_26.get()));
+        inv.setItem(16, canOpen(p, 27, CalenderTimes.DAY_27.get()));
+        inv.setItem(31, canOpen(p, 28, CalenderTimes.DAY_28.get()));
+        inv.setItem(43, canOpen(p, 29, CalenderTimes.DAY_29.get()));
+        inv.setItem(35, canOpen(p, 30, CalenderTimes.DAY_30.get()));
+        inv.setItem(47, canOpen(p, 31, CalenderTimes.DAY_31.get()));
 
-        inv.setItem(0, glass());
         inv.setItem(1, glass());
         inv.setItem(3, glass());
         inv.setItem(4, glass());
-        inv.setItem(6, glass());
         inv.setItem(7, glass());
         inv.setItem(10, glass());
         inv.setItem(11, glass());
         inv.setItem(13, glass());
         inv.setItem(14, glass());
-        inv.setItem(16, glass());
         inv.setItem(17, glass());
         inv.setItem(19, glass());
         inv.setItem(21, glass());
         inv.setItem(24, glass());
         inv.setItem(27, glass());
         inv.setItem(29, glass());
-        inv.setItem(31, glass());
         inv.setItem(32, glass());
         inv.setItem(34, glass());
-        inv.setItem(35, glass());
         inv.setItem(37, glass());
         inv.setItem(39, glass());
         inv.setItem(41, glass());
-        inv.setItem(43, glass());
         inv.setItem(45, glass());
-        inv.setItem(47, glass());
         inv.setItem(49, glass());
         inv.setItem(51, glass());
         inv.setItem(53, glass());
@@ -170,509 +169,452 @@ public class Kalendar implements Listener {
                 return;
             }
             if (e.getSlot() == 2) {
-                System.out.println("this?");
-                if (System.currentTimeMillis() >= 1543618800000L) { // 1.Den
-                    System.out.println("this 2?");
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_1.get()) { // 1.Den
                     if (Main.getInstance().getSQL().checkDay(p, 1) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 1);
-                        p.sendMessage("§eZiskal jsi: §bEnderman Pet + 100 CC");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bEnderman Pet + 100 CC");
-                        setPermission(p,"craftlobby.pets.enderman");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 100 CraftCoins");
                         CraftCoinsAPI.giveCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 40) {
-                if (System.currentTimeMillis() >= 1543705200000L) { // 2.Den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_2.get()) { // 2.Den
                     if (Main.getInstance().getSQL().checkDay(p, 2) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 2);
-                        p.sendMessage("§eZiskal jsi: §bSanta Heads + 150 CC");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Heads + 100CC");
-                        setPermission(p, "craftlobby.heads.vanocni.piratesanta");
-                        setPermission(p, "craftlobby.heads.vanocni.santa");
-                        CraftCoinsAPI.giveCoins(p, 150);
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Frontman Mask");
+                        setPermission(p, "craftmanager.hats.frontman_mask");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 28) {
-                if (System.currentTimeMillis() >= 1543791600000L) { // 3.Den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_3.get()) { // 3.Den
                     if (Main.getInstance().getSQL().checkDay(p, 3) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 3);
-                        p.sendMessage("§eZiskal jsi: §bSanta Cloak + 200 CC");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Cloak + 200 CC");
-                        setPermission(p, "craftlobby.cloaks.santa");
-                        CraftCoinsAPI.giveCoins(p, 200);
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Baseball Bat");
+                        ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Baseball Bat za SeasonPoints.");
+                        SeasonPointsAPI.giveSeasonPoints(p, 1);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 9) {
-                if (System.currentTimeMillis() >= 1543878000000L) { // 4.Den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_4.get()) { // 4.Den
                     if (Main.getInstance().getSQL().checkDay(p, 4) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 4);
-                        CraftCoinsAPI.giveCoins(p, 100);
-                        setPermission(p, "craftlobby.morphs.snowman");
-                        p.sendMessage("§eZiskal jsi: §b100 CC");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Morph + 100 CC");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Snowman");
+                        setPermission(p, "craftmanager.disguise.snowman");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 50) {
-                if (System.currentTimeMillis() >= 1543964400000L) { // 5.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_5.get()) { // 5.den
                     if (Main.getInstance().getSQL().checkDay(p, 5) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 5);
-                        p.sendMessage("§eZiskal jsi: §bElfBoy & ElfGirl Heads");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bElfBoy & ElfGirl Heads");
-                        setPermission(p, "craftlobby.heads.vanocni.elfboy");
-                        setPermission(p, "craftlobby.heads.vanocni.elfgirl");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Vánoční čepice");
+                        setPermission(p, "craftmanager.hats.santa_hat");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 33) {
-                if (System.currentTimeMillis() >= 1544050800000L) { // 6.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_6.get()) { // 6.den
                     if (Main.getInstance().getSQL().checkDay(p, 6) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 6);
-                        p.sendMessage("§eZiskal jsi: §bSnowman Pet");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowman Pet + 100 CC");
-                        setPermission(p,"craftlobby.pets.snowman");
-                        CraftCoinsAPI.giveCoins(p, 100);
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Chicken");
+                        setPermission(p, "craftmanager.disguise.chicken");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 15) {
-                if (System.currentTimeMillis() >= 1544137200000L) { // 7.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_7.get()) { // 7.den
                     if (Main.getInstance().getSQL().checkDay(p, 7) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 7);
-                        p.sendMessage("§eZiskal jsi: §bChicken Morph + 150 CC + 1 CT");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bChicken Morph + 150 CC + 1 CT");
-                        CraftCoinsAPI.giveCoins(p, 150);
-                        CraftTokensAPI.giveTokens(p, 1);
-                        setPermission(p, "craftlobby.morphs.chicken");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 100 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 100);
                         p.closeInventory();
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 46) {
-                if (System.currentTimeMillis() >= 1544223600000L) { // 8.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_8.get()) { // 8.den
                     if (Main.getInstance().getSQL().checkDay(p, 8) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 8);
-                        p.sendMessage("§eZiskal jsi: §bSnowglobe Heads");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSnowglobe Heads");
-                        setPermission(p, "craftlobby.heads.vanocni.snowglobe");
-                        setPermission(p, "craftlobby.heads.vanocni.snowglobe2");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Strider");
+                        setPermission(p, "craftmanager.disguise.strider");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 36) {
-                if (System.currentTimeMillis() >= 1544310000000L) { // 9.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_9.get()) { // 9.den
                     if (Main.getInstance().getSQL().checkDay(p, 9) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 9);
-                        p.sendMessage("§eZiskal jsi: §bPresent Heads + 200 CC");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPresent Heads + 200 CC");
-                        CraftCoinsAPI.giveCoins(p, 200);
-                        setPermission(p, "craftloby.heads.vanocni.blackpresent");
-                        setPermission(p, "craftlobby.heads.vanocni.bluepresent");
-                        setPermission(p, "craftlobby.heads.vanocni.greenpresent");
-                        setPermission(p, "craftlobby.heads.vanocni.goldpresent");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 250);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 8) {
-                if (System.currentTimeMillis() >= 1544396400000L) { // 10.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_10.get()) { // 10.den
                     if (Main.getInstance().getSQL().checkDay(p, 10) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 10);
-                        p.sendMessage("§eZiskal jsi: §bBlood Helix Particles");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bBlood Helix Particles");
-                        setPermission(p, "craftlobby.particles.bloodhelix");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Dear Hat");
+                        setPermission(p, "craftmanager.hats.dear_hat");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 26) {
-                if (System.currentTimeMillis() >= 1544482800000L) { // 11.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_11.get()) { // 11.den
                     if (Main.getInstance().getSQL().checkDay(p, 11) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 11);
-                        p.sendMessage("§eZiskal jsi: §bHorse White Pet");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bHorse White Pet");
-                        setPermission(p, "craftlobby.pets.horse.white");
-                        setPermission(p, "craftlobby.pets.horse.white.baby");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Fox");
+                        setPermission(p, "craftmanager.disguise.fox");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 52) {
-                if (System.currentTimeMillis() >= 1544569200000L) { // 12.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_12.get()) { // 12.den
                     if (Main.getInstance().getSQL().checkDay(p, 12) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 12);
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bIronGolem Morph + 200 CC");
-                        CraftCoinsAPI.giveCoins(p, 200);
-                        setPermission(p, "craftlobby.morphs.irongolem");
+                        //TODO: xxxx
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 5) {
-                if (System.currentTimeMillis() >= 1544655600000L) { // 13.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_13.get()) { // 13.den
                     if (Main.getInstance().getSQL().checkDay(p, 13) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 13);
-                        p.sendMessage("§eZiskal jsi: §bAngel Cloak");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAngel Cloak");
-                        setPermission(p, "craftlobby.cloaks.angel");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 1 CraftToken");
+                        CraftTokensAPI.giveTokens(p, 1);
                         p.closeInventory();
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 12) {
-                if (System.currentTimeMillis() >= 1544742000000L) { // 14.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_14.get()) { // 14.den
                     if (Main.getInstance().getSQL().checkDay(p, 14) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 14);
-                        p.sendMessage("§eZiskal jsi: §bVsechny Bannery v Gagdets");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bVsechny Bannery");
-                        setPermission(p, "craftlobby.banner.*");
+                        //TODO: xxxx
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 20) {
-                if (System.currentTimeMillis() >= 1544828400000L) { // 15.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_15.get()) { // 15.den
                     if (Main.getInstance().getSQL().checkDay(p, 15) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 15);
-                        p.sendMessage("§eZiskal jsi: §bAntiGravity Gadget");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bAntiGravity Gadget + 100 CC");
-                        setPermission(p, "craftlobby.gadget.antigravity");
-                        CraftCoinsAPI.giveCoins(p, 100);
+                        //TODO: xxxx
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 44) {
-                if (System.currentTimeMillis() >= 1544914800000L) { // 16.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_16.get()) { // 16.den
                     if (Main.getInstance().getSQL().checkDay(p, 16) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 16);
-                        p.sendMessage("§eZiskal jsi: §bSanta Hat Particles");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSanta Hat Particles");
-                        setPermission(p, "craftlobby.particles.santahat");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Ginger Pickaxe");
+                        ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Ginger Pickaxe za SeasonPoints.");
+                        SeasonPointsAPI.giveSeasonPoints(p, 1);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 30) {
-                if (System.currentTimeMillis() >= 1545001200000L) { // 17.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_17.get()) { // 17.den
                     if (Main.getInstance().getSQL().checkDay(p, 17) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 17);
-                        p.sendMessage("§eZiskal jsi: §6Evoker + Vex Pets");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§6Evoker + Vex Pets");
-                        setPermission(p, "craftlobby.pets.evoker");
-                        setPermission(p, "craftlobby.pets.vex");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 250);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 23) {
-                if (System.currentTimeMillis() >= 1545087600000L) { // 18.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_18.get()) { // 18.den
                     if (Main.getInstance().getSQL().checkDay(p, 18) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 18);
-                        p.sendMessage("§eZiskal jsi: §bCandy Cane Particles");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bCandy Cane Particles");
-                        setPermission(p, "craftlobby.particles.candycane");
+                        //TODO: xxxx
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 18) {
-                if (System.currentTimeMillis() >= 1545174000000L) { // 19.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_19.get()) { // 19.den
                     if (Main.getInstance().getSQL().checkDay(p, 19) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 19);
-                        p.sendMessage("§eZiskal jsi: §bPolar Bear Pet");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bPolar Bear Pet");
-                        setPermission(p, "craftlobby.pets.polarbear");
-                        setPermission(p, "craftlobby.pets.polarbear.baby");
+                        //TODO: xxxx
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 42) {
-                if (System.currentTimeMillis() >= 1545260400000L) { // 20.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_20.get()) { // 20.den
                     if (Main.getInstance().getSQL().checkDay(p, 20) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 20);
-                        p.sendMessage("§eZiskal jsi: §bDevil Cloak");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bDevil Cloak");
-                        setPermission(p, "craftlobby.cloaks.devil");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 250);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 48) {
-                if (System.currentTimeMillis() >= 1545346800000L) { // 21.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_21.get()) { // 21.den
                     if (Main.getInstance().getSQL().checkDay(p, 21) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 21);
-                        p.sendMessage("§eZiskal jsi: §bSob + CommandBlock + Snowman Head");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bSob + CommandBlock + Snowman Head");
-                        setPermission(p, "craftlobby.heads.vanocni.sob");
-                        setPermission(p, "craftlobby.heads.vanocni.snowman");
-                        setPermission(p, "craftlobby.heads.vanocni.commandblock");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 1 CraftToken");
+                        CraftTokensAPI.giveTokens(p, 1);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 22) {
-                if (System.currentTimeMillis() >= 1545433200000L) { // 22.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_22.get()) { // 22.den
                     if (Main.getInstance().getSQL().checkDay(p, 22) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 22);
-                        p.sendMessage("§eZiskal jsi: §cLlama Pets");
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§cLlama Pets");
-                        setPermission(p, "craftlobby.pets.llama.*");
+                        //TODO: xxxx
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 25) {
-                if (System.currentTimeMillis() >= 1545519600000L) { // 23.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_23.get()) { // 23.den
                     if (Main.getInstance().getSQL().checkDay(p, 23) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 23);
-                        p.sendMessage("§e§l[*] §eZiskal jsi: §b500CC + Vsechny Heads!");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 500 CraftCoins");
                         CraftCoinsAPI.giveCoins(p, 500);
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§b500 CC");
-                        setPermission(p, "craftlobby.heads.*");
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
             }
             if (e.getSlot() == 38) {
-                if (System.currentTimeMillis() >= 1545606000000L) { // 24.den
+                if (System.currentTimeMillis() >= CalenderTimes.DAY_24.get()) { // 24.den
                     if (Main.getInstance().getSQL().checkDay(p, 24) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 24);
-                        p.sendMessage("§e§l[*] §eZiskal jsi: §b3000CC + hoodne Pets!");
-                        CraftTokensAPI.giveTokens(p, 1);
-                        CraftCoinsAPI.giveCoins(p, 3000);
-                        //TitleAPI.sendFullTitlePlayer(p, 10, 70, 10, "§eNasel jsi", "§bHoodne Pets + 3 000 CC + 1 CT!");
-                        setPermission(p, "craftlobby.pets.slime.*");
-                        setPermission(p, "craftlobby.pets.slime");
-                        setPermission(p, "craftlobby.pets.zombie.*");
-                        setPermission(p, "craftlobby.pets.zombie");
-                        setPermission(p, "craftlobby.pets.cat.*");
-                        setPermission(p, "craftlobby.pets.villager.*");
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Frost Bow");
+                        ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Frost Bow za SeasonPoints.");
+                        SeasonPointsAPI.giveSeasonPoints(p, 1);
                         p.closeInventory();
                         return;
                     } else {
-                        p.sendMessage("§c§l[!] §cTuto odmenu jsi si jiz vybral/a!");
+                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                         p.closeInventory();
                         return;
                     }
                 } else {
-                    p.sendMessage("§c§l[!] §cNa vyber teto odmeny je prilis brzo!");
+                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
                     p.closeInventory();
                     return;
                 }
