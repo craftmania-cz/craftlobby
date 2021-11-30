@@ -46,3 +46,5 @@ module_craftlobby.xml
 .DS_Store
 
 lib/CraftChat.jar
+
+gradle.properties
