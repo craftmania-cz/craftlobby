@@ -98,10 +98,6 @@ public class PlayerJoinListener implements Listener {
             }
         }
 
-        if (Main.getInstance().isNpcLibProvided()) {
-            Main.getInstance().getNpcManager().spawnForPlayer(p);
-        }
-
         if (Main.getInstance().getIdServer().equalsIgnoreCase("main")) {
 
             // Registrace vanocniho kalendare

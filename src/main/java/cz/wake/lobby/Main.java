@@ -1,7 +1,6 @@
 package cz.wake.lobby;
 
 import co.aikar.commands.PaperCommandManager;
-import cz.wake.lobby.npc.NPCManager;
 import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.seasons.christmas.Kalendar_command;
 import cz.wake.lobby.seasons.christmas.SilvesterTask;
@@ -13,7 +12,6 @@ import cz.wake.lobby.manager.*;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
-import net.jitse.npclib.NPCLib;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
@@ -43,11 +41,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private boolean isChristmas;
     private boolean isHalloween;
     private CraftBalancerManager craftBalancerManager;
-    private NPCLib npclib;
-    private NPCManager npcManager;
     private LuckPerms luckPermsApi;
     private PaperCommandManager manager = null;
-    private boolean isNpcLibProvided = false;
 
     public void onEnable() {
 
@@ -89,14 +84,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         craftBalancerManager = new CraftBalancerManager(this);
 
-        // Setup NPC
-        if (this.getServer().getPluginManager().isPluginEnabled("NPCLibPlugin")) {
-            this.isNpcLibProvided = true;
-            this.npclib = new NPCLib(this);
-            this.npcManager = new NPCManager();
-            this.npcManager.loadNpcs();
-        }
-
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
         for (World w : Bukkit.getWorlds()) {
@@ -123,9 +110,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
             SilvesterTask.runLauncher();
         }
 
-        // Setup last changelog
-        //this.lastChangelogDate = fetchLastChangelogDate();
-
         if (this.getIdServer().equalsIgnoreCase("main")) {
             // LuckPerms register
             RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
@@ -145,7 +129,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
         // NEW
         pm.registerEvents(new PlayerJoinListener(), this);
-        pm.registerEvents(new NPCInteractListener(), this);
         pm.registerEvents(new PlayerInteractListener(), this);
         pm.registerEvents(new ItemFrameInteractListener(), this);
         pm.registerEvents(new PlayerQuitListener(), this);
@@ -238,19 +221,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         return craftBalancerManager;
     }
 
-    public NPCLib getNpclib() {
-        return npclib;
-    }
-
-    public NPCManager getNpcManager() {
-        return npcManager;
-    }
-
     public LuckPerms getLuckPermsApi() {
         return luckPermsApi;
-    }
-
-    public boolean isNpcLibProvided() {
-        return isNpcLibProvided;
     }
 }
