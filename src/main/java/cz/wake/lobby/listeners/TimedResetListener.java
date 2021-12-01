@@ -1,8 +1,8 @@
 package cz.wake.lobby.listeners;
 
-import cz.craftmania.craftcore.spigot.events.time.DayChangeEvent;
-import cz.craftmania.craftcore.spigot.events.time.MonthChangeEvent;
-import cz.craftmania.craftcore.spigot.events.time.WeekChangeEvent;
+import cz.craftmania.craftcore.events.time.DayChangeEvent;
+import cz.craftmania.craftcore.events.time.MonthChangeEvent;
+import cz.craftmania.craftcore.events.time.WeekChangeEvent;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.Log;
 import org.bukkit.event.EventHandler;

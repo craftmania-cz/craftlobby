@@ -665,7 +665,7 @@ public class SQLManager {
     public int checkDay(final Player p, final int day) {
         Connection conn = null;
         PreparedStatement ps = null;
-        String selector = "day" + day;
+        String selector = "day_" + day;
         try {
             conn = pool.getConnection();
             ps = conn.prepareStatement("SELECT " + selector + " FROM kalendar_vyber WHERE nick = '" + p.getName() + "';");
@@ -689,7 +689,7 @@ public class SQLManager {
                 PreparedStatement ps = null;
                 try {
                     conn = pool.getConnection();
-                    ps = conn.prepareStatement("INSERT INTO kalendar_vyber (Nick) VALUES (?) ON DUPLICATE KEY UPDATE Nick = ?;");
+                    ps = conn.prepareStatement("INSERT INTO kalendar_vyber (nick) VALUES (?) ON DUPLICATE KEY UPDATE nick = ?;");
                     ps.setString(1, p.getName());
                     ps.setString(2, p.getName());
                     ps.executeUpdate();
@@ -703,7 +703,7 @@ public class SQLManager {
     }
 
     public final void addCalendarDay(final Player p, final int day) {
-        String selector = "day" + String.valueOf(day);
+        String selector = "day_" + day;
         new BukkitRunnable() {
             @Override
             public void run() {

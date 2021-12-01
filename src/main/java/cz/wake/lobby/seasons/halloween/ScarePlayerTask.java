@@ -1,6 +1,6 @@
 package cz.wake.lobby.seasons.halloween;
 
-import cz.craftmania.craftcore.spigot.utils.PlayerUtils;
+import cz.craftmania.craftcore.utils.PlayerUtils;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.UtilMath;
 import org.bukkit.Bukkit;
