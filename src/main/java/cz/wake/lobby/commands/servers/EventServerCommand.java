@@ -10,20 +10,19 @@ import cz.wake.lobby.Main;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("skycloud")
-@Description("Teleportuje tě na server SkyCloud")
-public class Skycloud_command extends BaseCommand {
-
+@CommandAlias("events")
+@Description("Teleportuje tě na server Event Server")
+public class EventServerCommand extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            sender.sendMessage("§eTeleportuji na server §fSkyCloud");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skycloud");
+            player.sendMessage("§eTeleportuji na server §fEvent Server");
+            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "event-server");
         } catch (Exception e) {
             e.printStackTrace();
-            sender.sendMessage("§cTeleport na server §fSkyCloud §cse nezdařil!");
+            player.sendMessage("§cTeleport na server §fEvent Server §cse nezdařil!");
         }
     }
 

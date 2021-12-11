@@ -10,19 +10,19 @@ import cz.wake.lobby.Main;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("survival")
-@Description("Teleportuje tě na server Survival 1.15")
-public class Survival_command extends BaseCommand {
+@CommandAlias("anarchy")
+@Description("Teleportuje tě na server Anarchy")
+public class AnarchyCommand extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fSurvival");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
+            player.sendMessage("§eTeleportuji na server §fAnarchy");
+            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fSurvival §cse nezdařil!");
+            player.sendMessage("§cTeleport na server §fAnarchy §cse nezdařil!");
         }
     }
 

@@ -10,19 +10,19 @@ import cz.wake.lobby.Main;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("vanilla")
-@Description("Teleportuje tě na server Vanilla")
-public class Vanilla_command extends BaseCommand {
+@CommandAlias("creative")
+@Description("Teleportuje tě na server Creative")
+public class CreativeCommand extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fVanilla");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
+            player.sendMessage("§eTeleportuji na server §fCreative");
+            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fVanilla §cse nezdařil!");
+            player.sendMessage("§cTeleport na server §fCreative §cse nezdařil!");
         }
     }
 

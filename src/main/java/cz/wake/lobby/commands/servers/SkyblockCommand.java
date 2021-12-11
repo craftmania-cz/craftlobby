@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 @CommandAlias("skyblock")
 @Description("Teleportuje tě na server SkyBlock 1.15")
-public class Skyblock_command extends BaseCommand {
+public class SkyblockCommand extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;

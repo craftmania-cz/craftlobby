@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 @CommandAlias("prison")
 @Description("Teleportuje tě na server Prison")
-public class Prison_command extends BaseCommand {
+public class PrisonCommand extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;

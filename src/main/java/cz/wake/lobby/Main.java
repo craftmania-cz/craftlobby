@@ -164,12 +164,13 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new DailyRewardCommand());
 
         //Servers
-        manager.registerCommand(new Creative_command());
-        manager.registerCommand(new Prison_command());
-        manager.registerCommand(new Skyblock_command());
-        manager.registerCommand(new Skycloud_command());
-        manager.registerCommand(new Survival_command());
-        manager.registerCommand(new Vanilla_command());
+        manager.registerCommand(new CreativeCommand());
+        manager.registerCommand(new PrisonCommand());
+        manager.registerCommand(new SkyblockCommand());
+        manager.registerCommand(new SurvivalCommand());
+        manager.registerCommand(new VanillaCommand());
+        manager.registerCommand(new AnarchyCommand());
+        manager.registerCommand(new EventServerCommand());
 
         if(getConfig().getBoolean("seasons.christmas")){
             manager.registerCommand(new Kalendar_command());
