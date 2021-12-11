@@ -381,7 +381,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_12.get()) { // 12.den
                     if (Main.getInstance().getSQL().checkDay(p, 12) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 12);
-                        //TODO: xxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Cow");
+                        setPermission(p, "craftmanager.disguise.cow");
                         p.closeInventory();
                         return;
                     } else {
@@ -417,7 +418,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_14.get()) { // 14.den
                     if (Main.getInstance().getSQL().checkDay(p, 14) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 14);
-                        //TODO: xxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Goat");
+                        setPermission(p, "craftmanager.disguise.goat");
                         p.closeInventory();
                         return;
                     } else {
@@ -435,7 +437,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_15.get()) { // 15.den
                     if (Main.getInstance().getSQL().checkDay(p, 15) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 15);
-                        //TODO: xxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 100 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 100);
                         p.closeInventory();
                         return;
                     } else {
@@ -492,7 +495,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_18.get()) { // 18.den
                     if (Main.getInstance().getSQL().checkDay(p, 18) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 18);
-                        //TODO: xxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Magma Slime");
+                        setPermission(p, "craftmanager.disguise.magma_slime");
                         p.closeInventory();
                         return;
                     } else {
@@ -510,7 +514,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_19.get()) { // 19.den
                     if (Main.getInstance().getSQL().checkDay(p, 19) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 19);
-                        //TODO: xxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Snowman Hat");
+                        setPermission(p, "craftmanager.hats.snowman_hat");
                         p.closeInventory();
                         return;
                     } else {
@@ -547,8 +552,7 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_21.get()) { // 21.den
                     if (Main.getInstance().getSQL().checkDay(p, 21) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 21);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 1 CraftToken");
-                        CraftTokensAPI.giveTokens(p, 1);
+                        //TODO: xxxxx
                         p.closeInventory();
                         return;
                     } else {
