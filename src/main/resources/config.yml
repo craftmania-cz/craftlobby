@@ -31,16 +31,6 @@ seasons:
  # Efekty po lobby (ohnostroje)
  silvester: false
 
-server-utils:
- # Pokud ma lobby resetovat tydenni hlasy (default: false)
- reset-week-votes: false
-
- # Pokud ma lobby resetovat denni odmeny.
- reset-daily-rewards: false
-
- # Pokud ma lobby resetovat mesicni odmeny pro VIP
- reset-monthly-rewards: false
-
 ## Spawn Příkaz ##
 # Pouprav si to zde, podle toho, jak to je
 spawn-command:

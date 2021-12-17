@@ -413,44 +413,6 @@ public class SQLManager {
         return 0L;
     }
 
-    public final void resetDailyReward() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET lobby_daily_bonus = 0;");
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
-    public final void resetMonthlyReward() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE lobby_lobby_vipodmena SET vybrano = 0;");
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
     public final int getPlayerProfileDataInt(Player p, String data) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -757,25 +719,6 @@ public class SQLManager {
         return "";
     }
 
-    public final void resetWeekVotes() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                Connection conn = null;
-                PreparedStatement ps = null;
-                try {
-                    conn = pool.getConnection();
-                    ps = conn.prepareStatement("UPDATE player_profile SET week_votes = 0;");
-                    ps.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    pool.close(conn, ps, null);
-                }
-            }
-        }.runTaskAsynchronously(Main.getInstance());
-    }
-
     public final String getNameInATS(final String uuid) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -973,6 +916,24 @@ public class SQLManager {
         }.runTaskLaterAsynchronously(Main.getInstance(), 5 * 60 * 20);
     }
 
+    public final boolean isDiscordBooster(final Player p) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = pool.getConnection();
+            ps = conn.prepareStatement("SELECT discord_booster FROM player_profile WHERE uuid = ?;");
+            ps.setString(1, p.getUniqueId().toString());
+            ps.executeQuery();
+            if (ps.getResultSet().next()) {
+                return ps.getResultSet().getInt("discord_booster") == 1;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            pool.close(conn, ps, null);
+        }
+        return false;
+    }
 
     public final boolean sawLatestNews(final Player p) {
         Connection conn = null;
@@ -1063,5 +1024,45 @@ public class SQLManager {
         } finally {
             pool.close(conn, ps, null);
         }
+    }
+
+    public final void bonusClaim(final Player p, final String type) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET lobby_bonus_claimed_" + type + " = 1 WHERE uuid = ?;");
+                    ps.setString(1, p.getUniqueId().toString());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
+    }
+
+    public final void increaseBonusStreak(final Player p) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = pool.getConnection();
+                    ps = conn.prepareStatement("UPDATE player_profile SET lobby_bonus_streak = lobby_bonus_streak + 1 WHERE uuid = ?;");
+                    ps.setString(1, p.getUniqueId().toString());
+                    ps.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    pool.close(conn, ps, null);
+                }
+            }
+        }.runTaskAsynchronously(Main.getInstance());
     }
 }
