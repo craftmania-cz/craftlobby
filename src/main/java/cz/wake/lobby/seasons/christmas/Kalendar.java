@@ -552,7 +552,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_21.get()) { // 21.den
                     if (Main.getInstance().getSQL().checkDay(p, 21) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 21);
-                        //TODO: xxxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 250);
                         p.closeInventory();
                         return;
                     } else {
@@ -570,7 +571,8 @@ public class Kalendar implements Listener {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_22.get()) { // 22.den
                     if (Main.getInstance().getSQL().checkDay(p, 22) == 0) {
                         Main.getInstance().getSQL().addCalendarDay(p, 22);
-                        //TODO: xxxx
+                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
+                        CraftCoinsAPI.giveCoins(p, 250);
                         p.closeInventory();
                         return;
                     } else {
@@ -624,10 +626,157 @@ public class Kalendar implements Listener {
                 }
             }
         }
+        if (e.getSlot() == 0) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_25.get()) { // 25.den
+                if (Main.getInstance().getSQL().checkDay(p, 25) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(p, 25);
+                    if (p.hasPermission("group.gold") || p.hasPermission("group.diamond") || p.hasPermission("group.emerald") || p.hasPermission("group.obsidian")) {
+                        ChatInfo.INFO.send(p, "Jelikož již vlastníš nějaké VIP vyšší, nemůžeme ti aktivovat Gold VIP.");
+                        ChatInfo.INFO.send(p, "Naopak jsi dostal 2 CraftTokeny a 1.000 CraftCoins!");
+                        CraftCoinsAPI.giveCoins(p, 1000);
+                        CraftTokensAPI.giveTokens(p, 2);
+                        p.closeInventory();
+                        return;
+                    }
+                    ChatInfo.INFO.send(p, "Byl ti aktivován speciální dárek: Global Gold VIP na 7 dní!");
+                    setGlobalGold(p);
+                    ChatInfo.SUCCESS.send(p, "Global Gold VIP [7 dní] bylo aktivováno.");
+                    return;
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
+
+        if (e.getSlot() == 6) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_26.get()) { // 26.den
+                if (Main.getInstance().getSQL().checkDay(p, 26) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(p, 26);
+                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Frost Sword");
+                    ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Frost Sword za SeasonPoints.");
+                    SeasonPointsAPI.giveSeasonPoints(p, 1);
+                    p.closeInventory();
+                    return;
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
+
+        if (e.getSlot() == 16) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_27.get()) { // 27.den
+                if (Main.getInstance().getSQL().checkDay(p, 27) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(p, 27);
+                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Silvester Glasses 2021 Edition");
+                    setPermission(p, "craftmanager.hats.silvester_glasses_2021");
+                    p.closeInventory();
+                    return;
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
+
+        if (e.getSlot() == 31) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_28.get()) { // 28.den
+                if (Main.getInstance().getSQL().checkDay(p, 28) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(p, 28);
+                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 1 CraftToken");
+                    CraftTokensAPI.giveTokens(p, 1);
+                    p.closeInventory();
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
+
+        if (e.getSlot() == 43) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_29.get()) { // 29.den
+                if (Main.getInstance().getSQL().checkDay(p, 29) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(p, 29);
+                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 500 CraftCoins");
+                    CraftCoinsAPI.giveCoins(p, 500);
+                    p.closeInventory();
+                    return;
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
+
+        if (e.getSlot() == 35) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_30.get()) { // 30.den
+                if (Main.getInstance().getSQL().checkDay(p, 30) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(p, 30);
+                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Silvester Party Hat 2021 Edition");
+                    setPermission(p, "craftmanager.hats.silvester_party_hat_2021");
+                    p.closeInventory();
+                    return;
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
+
+        if (e.getSlot() == 47) {
+            if (System.currentTimeMillis() >= CalenderTimes.DAY_31.get()) { // 31.den
+                if (Main.getInstance().getSQL().checkDay(p, 31) == 0) {
+                    //TODO: Oznámení
+                } else {
+                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
+                    p.closeInventory();
+                    return;
+                }
+            } else {
+                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
+                p.closeInventory();
+                return;
+            }
+        }
     }
 
     private void setPermission(Player p, String permission){
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set " + permission + " true");
+    }
+
+    private void setGlobalGold(Player player) {
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent add gold 7d");
     }
 
 }
