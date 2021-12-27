@@ -757,7 +757,15 @@ public class Kalendar implements Listener {
         if (e.getSlot() == 47) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_31.get()) { // 31.den
                 if (Main.getInstance().getSQL().checkDay(p, 31) == 0) {
-                    //TODO: Oznámení
+                    p.sendMessage("");
+                    p.sendMessage("§b§lPoděkování za rok 2021:");
+                    p.sendMessage("§7Dnes je poslední den tohoto roku, pro všechny");
+                    p.sendMessage("§7to byl nepochybně těžký rok, stejně tak i pro nás.");
+                    p.sendMessage("§7Chtěli bychom ti poděkovat, že tu stále jsi a hraješ u nás");
+                    p.sendMessage("§7i přes to, že tento rok toho moc nového nebylo.");
+                    p.sendMessage("§7Příští rok to určitě zlepšíme, tak at je ten další rok lepší.");
+                    p.sendMessage("§eDěkujeme <3");
+                    p.sendMessage("");
                 } else {
                     ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
                     p.closeInventory();
@@ -776,7 +784,7 @@ public class Kalendar implements Listener {
     }
 
     private void setGlobalGold(Player player) {
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent add gold 7d");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent addtemp gold 7d");
     }
 
 }
