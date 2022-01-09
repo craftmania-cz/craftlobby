@@ -495,7 +495,7 @@ public class GoldenPigGUI implements InventoryProvider {
 
     // Hodinová měsíční Discord voice aktivita
     private int getDiscordVoiceActivityTime(Player p) {
-        return Main.getInstance().getSQL().getPlayerProfileDataInt(p, "month_discord_voice_activity") / 3600;
+        return Main.getInstance().getSQL().getPlayerProfileDataInt(p, "month_discord_voice_activity") / (3600 * 1000);
     }
 
     // Claimed
