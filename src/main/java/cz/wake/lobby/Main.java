@@ -32,7 +32,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private static Main instance;
     public boolean debug;
     public static ArrayList<Entity> noFallDamageEntities = new ArrayList();
-    private RewardsManager rm = new RewardsManager();
     private static ByteArrayOutputStream b = new ByteArrayOutputStream();
     public ArrayList<Player> at_list = new ArrayList<>();
     private String idServer;
@@ -136,8 +135,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // OLD
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
-        pm.registerEvents(new TimedResetListener(), this);
-        pm.registerEvents(new RewardsManager(), this);
+        pm.registerEvents(new ChatListener(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {
