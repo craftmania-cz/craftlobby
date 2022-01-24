@@ -38,7 +38,7 @@ public class GoldenPigGUI implements InventoryProvider {
         if (claimed(p, "daily")) {
             contents.set(0, 4, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lDenní odměna")
-                    .setLore("§7Každý den si můžeš vyzvednout odměnu!", "§cDnes ji máš vyzdenutou,", "§cpřijď si pro ni zase zítra!", "", "§7Dnešní den je " + ChatColor.of("#38ff49") + streak(p) + "§7. v řadě!", ChatColor.of("#ded86a") + "Získal jsi: " + rewardFromDay(dayStreak(p) - 1) + " CC" + dailyCraftTokenMessage(p))
+                    .setLore("§7Každý den si můžeš vyzvednout odměnu!", "§cDnes ji máš vyzvednutou,", "§cpřijď si pro ni zase zítra!", "", "§7Dnešní den je " + ChatColor.of("#38ff49") + streak(p) + "§7. v řadě!", ChatColor.of("#ded86a") + "Získal jsi: " + rewardFromDay(dayStreak(p) - 1) + " CC" + dailyCraftTokenMessage(p))
                     .hideAllFlags()
                     .build(), e -> {}
             ));
