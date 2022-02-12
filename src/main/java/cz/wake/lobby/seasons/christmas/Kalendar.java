@@ -1,9 +1,7 @@
 package cz.wake.lobby.seasons.christmas;
 
 import cz.craftmania.craftcore.builders.items.ItemBuilder;
-import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
-import cz.craftmania.crafteconomy.api.CraftTokensAPI;
-import cz.craftmania.crafteconomy.api.SeasonPointsAPI;
+import cz.craftmania.crafteconomy.api.EconomyAPI;
 import cz.craftmania.craftlibs.utils.ChatInfo;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.SkullHeads;
@@ -22,46 +20,46 @@ import java.util.Random;
 
 public class Kalendar implements Listener {
 
-    public void openKalendar(final Player p) {
+    public void openKalendar(final Player player) {
 
-        if (Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(p, "played_time") < 180) {
-            ChatInfo.DANGER.send(p, "Aby jsi si mohl vybrat odměnu, musíš mít odehrané aspoň 3 hodiny na serveru! :)");
+        if (Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(player, "played_time") < 180) {
+            ChatInfo.DANGER.send(player, "Aby jsi si mohl vybrat odměnu, musíš mít odehrané aspoň 3 hodiny na serveru! :)");
             return;
         }
 
         Inventory inv = Bukkit.createInventory(null, 54, "Kalendar");
 
-        inv.setItem(2, canOpen(p, 1, CalenderTimes.DAY_1.get()));
-        inv.setItem(40, canOpen(p, 2, CalenderTimes.DAY_2.get()));
-        inv.setItem(28, canOpen(p, 3, CalenderTimes.DAY_3.get()));
-        inv.setItem(9, canOpen(p, 4, CalenderTimes.DAY_4.get()));
-        inv.setItem(50, canOpen(p, 5, CalenderTimes.DAY_5.get()));
-        inv.setItem(33, canOpen(p, 6, CalenderTimes.DAY_6.get()));
-        inv.setItem(15, canOpen(p, 7, CalenderTimes.DAY_7.get()));
-        inv.setItem(46, canOpen(p, 8, CalenderTimes.DAY_8.get()));
-        inv.setItem(36, canOpen(p, 9, CalenderTimes.DAY_9.get()));
-        inv.setItem(8, canOpen(p, 10, CalenderTimes.DAY_10.get()));
-        inv.setItem(26, canOpen(p, 11, CalenderTimes.DAY_11.get()));
-        inv.setItem(52, canOpen(p, 12, CalenderTimes.DAY_12.get()));
-        inv.setItem(5, canOpen(p, 13, CalenderTimes.DAY_13.get()));
-        inv.setItem(12, canOpen(p, 14, CalenderTimes.DAY_14.get()));
-        inv.setItem(20, canOpen(p, 15, CalenderTimes.DAY_15.get()));
-        inv.setItem(44, canOpen(p, 16, CalenderTimes.DAY_16.get()));
-        inv.setItem(30, canOpen(p, 17, CalenderTimes.DAY_17.get()));
-        inv.setItem(23, canOpen(p, 18, CalenderTimes.DAY_18.get()));
-        inv.setItem(18, canOpen(p, 19, CalenderTimes.DAY_19.get()));
-        inv.setItem(42, canOpen(p, 20, CalenderTimes.DAY_20.get()));
-        inv.setItem(48, canOpen(p, 21, CalenderTimes.DAY_21.get()));
-        inv.setItem(22, canOpen(p, 22, CalenderTimes.DAY_22.get()));
-        inv.setItem(25, canOpen(p, 23, CalenderTimes.DAY_23.get()));
-        inv.setItem(38, canOpen(p, 24, CalenderTimes.DAY_24.get()));
-        inv.setItem(0, canOpen(p,25, CalenderTimes.DAY_25.get()));
-        inv.setItem(6, canOpen(p, 26, CalenderTimes.DAY_26.get()));
-        inv.setItem(16, canOpen(p, 27, CalenderTimes.DAY_27.get()));
-        inv.setItem(31, canOpen(p, 28, CalenderTimes.DAY_28.get()));
-        inv.setItem(43, canOpen(p, 29, CalenderTimes.DAY_29.get()));
-        inv.setItem(35, canOpen(p, 30, CalenderTimes.DAY_30.get()));
-        inv.setItem(47, canOpen(p, 31, CalenderTimes.DAY_31.get()));
+        inv.setItem(2, canOpen(player, 1, CalenderTimes.DAY_1.get()));
+        inv.setItem(40, canOpen(player, 2, CalenderTimes.DAY_2.get()));
+        inv.setItem(28, canOpen(player, 3, CalenderTimes.DAY_3.get()));
+        inv.setItem(9, canOpen(player, 4, CalenderTimes.DAY_4.get()));
+        inv.setItem(50, canOpen(player, 5, CalenderTimes.DAY_5.get()));
+        inv.setItem(33, canOpen(player, 6, CalenderTimes.DAY_6.get()));
+        inv.setItem(15, canOpen(player, 7, CalenderTimes.DAY_7.get()));
+        inv.setItem(46, canOpen(player, 8, CalenderTimes.DAY_8.get()));
+        inv.setItem(36, canOpen(player, 9, CalenderTimes.DAY_9.get()));
+        inv.setItem(8, canOpen(player, 10, CalenderTimes.DAY_10.get()));
+        inv.setItem(26, canOpen(player, 11, CalenderTimes.DAY_11.get()));
+        inv.setItem(52, canOpen(player, 12, CalenderTimes.DAY_12.get()));
+        inv.setItem(5, canOpen(player, 13, CalenderTimes.DAY_13.get()));
+        inv.setItem(12, canOpen(player, 14, CalenderTimes.DAY_14.get()));
+        inv.setItem(20, canOpen(player, 15, CalenderTimes.DAY_15.get()));
+        inv.setItem(44, canOpen(player, 16, CalenderTimes.DAY_16.get()));
+        inv.setItem(30, canOpen(player, 17, CalenderTimes.DAY_17.get()));
+        inv.setItem(23, canOpen(player, 18, CalenderTimes.DAY_18.get()));
+        inv.setItem(18, canOpen(player, 19, CalenderTimes.DAY_19.get()));
+        inv.setItem(42, canOpen(player, 20, CalenderTimes.DAY_20.get()));
+        inv.setItem(48, canOpen(player, 21, CalenderTimes.DAY_21.get()));
+        inv.setItem(22, canOpen(player, 22, CalenderTimes.DAY_22.get()));
+        inv.setItem(25, canOpen(player, 23, CalenderTimes.DAY_23.get()));
+        inv.setItem(38, canOpen(player, 24, CalenderTimes.DAY_24.get()));
+        inv.setItem(0, canOpen(player,25, CalenderTimes.DAY_25.get()));
+        inv.setItem(6, canOpen(player, 26, CalenderTimes.DAY_26.get()));
+        inv.setItem(16, canOpen(player, 27, CalenderTimes.DAY_27.get()));
+        inv.setItem(31, canOpen(player, 28, CalenderTimes.DAY_28.get()));
+        inv.setItem(43, canOpen(player, 29, CalenderTimes.DAY_29.get()));
+        inv.setItem(35, canOpen(player, 30, CalenderTimes.DAY_30.get()));
+        inv.setItem(47, canOpen(player, 31, CalenderTimes.DAY_31.get()));
 
         inv.setItem(1, glass());
         inv.setItem(3, glass());
@@ -87,16 +85,16 @@ public class Kalendar implements Listener {
         inv.setItem(51, glass());
         inv.setItem(53, glass());
 
-        p.openInventory(inv);
+        player.openInventory(inv);
     }
 
     private ItemStack glass() {
         return new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE).setName("§c ").build();
     }
 
-    private ItemStack canOpen(final Player p, final int day, final long time) {
+    private ItemStack canOpen(final Player player, final int day, final long time) {
         if (System.currentTimeMillis() > time) { // Kontrola zda muze otevrit tento den
-            if (Main.getInstance().getSQL().checkDay(p, day) == 0) { // Kontrola zda uz otevrel
+            if (Main.getInstance().getSQL().checkDay(player, day) == 0) { // Kontrola zda uz otevrel
                 ItemStack i = ranomHead("§e§l" + day + ". den");
                 ItemMeta iM = i.getItemMeta();
                 ArrayList<String> iMLore = new ArrayList();
@@ -155,625 +153,625 @@ public class Kalendar implements Listener {
     }
 
     @EventHandler
-    private void onClick(InventoryClickEvent e) {
-        final Player p = (Player) e.getWhoClicked();
-        if (e.getView().getTitle().equals("Kalendar")) {
-            e.setCancelled(true);
-            if (e.getCurrentItem() == null) {
+    private void onClick(InventoryClickEvent event) {
+        final Player player = (Player) event.getWhoClicked();
+        if (event.getView().getTitle().equals("Kalendar")) {
+            event.setCancelled(true);
+            if (event.getCurrentItem() == null) {
                 return;
             }
-            if (e.getCurrentItem().getType() == Material.AIR) {
+            if (event.getCurrentItem().getType() == Material.AIR) {
                 return;
             }
-            if (e.getCurrentItem().isSimilar(glass())) {
+            if (event.getCurrentItem().isSimilar(glass())) {
                 return;
             }
-            if (e.getSlot() == 2) {
+            if (event.getSlot() == 2) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_1.get()) { // 1.Den
-                    if (Main.getInstance().getSQL().checkDay(p, 1) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 1);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 100 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 100);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 1) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 1);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 100 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 100);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 40) {
+            if (event.getSlot() == 40) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_2.get()) { // 2.Den
-                    if (Main.getInstance().getSQL().checkDay(p, 2) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 2);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Frontman Mask");
-                        setPermission(p, "craftmanager.hats.frontman_mask");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 2) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 2);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Cosmetics - Frontman Mask");
+                        setPermission(player, "craftmanager.hats.frontman_mask");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 28) {
+            if (event.getSlot() == 28) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_3.get()) { // 3.Den
-                    if (Main.getInstance().getSQL().checkDay(p, 3) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 3);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Baseball Bat");
-                        ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Baseball Bat za SeasonPoints.");
-                        SeasonPointsAPI.giveSeasonPoints(p, 1);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 3) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 3);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Možný nákup -> Items - Baseball Bat");
+                        ChatInfo.INFO.send(player, "Pro získání odměny zajdi na vybraný server a v §event/cshop {c}v sekci sezoní odměny si zakup Baseball Bat za SeasonPoints.");
+                        EconomyAPI.SEASON_POINTS.give(player, 1);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 9) {
+            if (event.getSlot() == 9) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_4.get()) { // 4.Den
-                    if (Main.getInstance().getSQL().checkDay(p, 4) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 4);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Snowman");
-                        setPermission(p, "craftmanager.disguise.snowman");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 4) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 4);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Snowman");
+                        setPermission(player, "craftmanager.disguise.snowman");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 50) {
+            if (event.getSlot() == 50) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_5.get()) { // 5.den
-                    if (Main.getInstance().getSQL().checkDay(p, 5) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 5);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Vánoční čepice");
-                        setPermission(p, "craftmanager.hats.santa_hat");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 5) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 5);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Cosmetics - Vánoční čepice");
+                        setPermission(player, "craftmanager.hats.santa_hat");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 33) {
+            if (event.getSlot() == 33) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_6.get()) { // 6.den
-                    if (Main.getInstance().getSQL().checkDay(p, 6) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 6);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Chicken");
-                        setPermission(p, "craftmanager.disguise.chicken");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 6) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 6);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Chicken");
+                        setPermission(player, "craftmanager.disguise.chicken");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 15) {
+            if (event.getSlot() == 15) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_7.get()) { // 7.den
-                    if (Main.getInstance().getSQL().checkDay(p, 7) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 7);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 100 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 100);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 7) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 7);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 100 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 100);
+                        player.closeInventory();
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 46) {
+            if (event.getSlot() == 46) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_8.get()) { // 8.den
-                    if (Main.getInstance().getSQL().checkDay(p, 8) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 8);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Strider");
-                        setPermission(p, "craftmanager.disguise.strider");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 8) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 8);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Strider");
+                        setPermission(player, "craftmanager.disguise.strider");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 36) {
+            if (event.getSlot() == 36) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_9.get()) { // 9.den
-                    if (Main.getInstance().getSQL().checkDay(p, 9) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 9);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 250);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 9) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 9);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 250 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 250);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 8) {
+            if (event.getSlot() == 8) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_10.get()) { // 10.den
-                    if (Main.getInstance().getSQL().checkDay(p, 10) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 10);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Dear Hat");
-                        setPermission(p, "craftmanager.hats.dear_hat");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 10) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 10);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Cosmetics - Dear Hat");
+                        setPermission(player, "craftmanager.hats.dear_hat");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 26) {
+            if (event.getSlot() == 26) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_11.get()) { // 11.den
-                    if (Main.getInstance().getSQL().checkDay(p, 11) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 11);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Fox");
-                        setPermission(p, "craftmanager.disguise.fox");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 11) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 11);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Fox");
+                        setPermission(player, "craftmanager.disguise.fox");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 52) {
+            if (event.getSlot() == 52) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_12.get()) { // 12.den
-                    if (Main.getInstance().getSQL().checkDay(p, 12) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 12);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Cow");
-                        setPermission(p, "craftmanager.disguise.cow");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 12) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 12);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Cow");
+                        setPermission(player, "craftmanager.disguise.cow");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 5) {
+            if (event.getSlot() == 5) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_13.get()) { // 13.den
-                    if (Main.getInstance().getSQL().checkDay(p, 13) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 13);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 1 CraftToken");
-                        CraftTokensAPI.giveTokens(p, 1);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 13) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 13);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 1 CraftToken");
+                        EconomyAPI.CRAFT_TOKENS.give(player, 1);
+                        player.closeInventory();
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 12) {
+            if (event.getSlot() == 12) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_14.get()) { // 14.den
-                    if (Main.getInstance().getSQL().checkDay(p, 14) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 14);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Goat");
-                        setPermission(p, "craftmanager.disguise.goat");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 14) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 14);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Goat");
+                        setPermission(player, "craftmanager.disguise.goat");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 20) {
+            if (event.getSlot() == 20) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_15.get()) { // 15.den
-                    if (Main.getInstance().getSQL().checkDay(p, 15) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 15);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 100 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 100);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 15) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 15);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 100 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 100);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 44) {
+            if (event.getSlot() == 44) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_16.get()) { // 16.den
-                    if (Main.getInstance().getSQL().checkDay(p, 16) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 16);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Ginger Pickaxe");
-                        ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Ginger Pickaxe za SeasonPoints.");
-                        SeasonPointsAPI.giveSeasonPoints(p, 1);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 16) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 16);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Možný nákup -> Items - Ginger Pickaxe");
+                        ChatInfo.INFO.send(player, "Pro získání odměny zajdi na vybraný server a v §event/cshop {c}v sekci sezoní odměny si zakup Ginger Pickaxe za SeasonPoints.");
+                        EconomyAPI.SEASON_POINTS.give(player, 1);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 30) {
+            if (event.getSlot() == 30) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_17.get()) { // 17.den
-                    if (Main.getInstance().getSQL().checkDay(p, 17) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 17);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 250);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 17) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 17);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 250 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 250);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 23) {
+            if (event.getSlot() == 23) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_18.get()) { // 18.den
-                    if (Main.getInstance().getSQL().checkDay(p, 18) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 18);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Morph - Magma Slime");
-                        setPermission(p, "craftmanager.disguise.magma_slime");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 18) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 18);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Morph - Magma Slime");
+                        setPermission(player, "craftmanager.disguise.magma_slime");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 18) {
+            if (event.getSlot() == 18) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_19.get()) { // 19.den
-                    if (Main.getInstance().getSQL().checkDay(p, 19) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 19);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Snowman Hat");
-                        setPermission(p, "craftmanager.hats.snowman_hat");
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 19) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 19);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Cosmetics - Snowman Hat");
+                        setPermission(player, "craftmanager.hats.snowman_hat");
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 42) {
+            if (event.getSlot() == 42) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_20.get()) { // 20.den
-                    if (Main.getInstance().getSQL().checkDay(p, 20) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 20);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 250);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 20) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 20);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 250 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 250);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 48) {
+            if (event.getSlot() == 48) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_21.get()) { // 21.den
-                    if (Main.getInstance().getSQL().checkDay(p, 21) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 21);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 250);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 21) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 21);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 250 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 250);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 22) {
+            if (event.getSlot() == 22) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_22.get()) { // 22.den
-                    if (Main.getInstance().getSQL().checkDay(p, 22) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 22);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 250 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 250);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 22) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 22);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 250 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 250);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 25) {
+            if (event.getSlot() == 25) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_23.get()) { // 23.den
-                    if (Main.getInstance().getSQL().checkDay(p, 23) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 23);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 500 CraftCoins");
-                        CraftCoinsAPI.giveCoins(p, 500);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 23) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 23);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 500 CraftCoins");
+                        EconomyAPI.CRAFT_COINS.give(player, 500);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
-            if (e.getSlot() == 38) {
+            if (event.getSlot() == 38) {
                 if (System.currentTimeMillis() >= CalenderTimes.DAY_24.get()) { // 24.den
-                    if (Main.getInstance().getSQL().checkDay(p, 24) == 0) {
-                        Main.getInstance().getSQL().addCalendarDay(p, 24);
-                        ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Frost Bow");
-                        ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Frost Bow za SeasonPoints.");
-                        SeasonPointsAPI.giveSeasonPoints(p, 1);
-                        p.closeInventory();
+                    if (Main.getInstance().getSQL().checkDay(player, 24) == 0) {
+                        Main.getInstance().getSQL().addCalendarDay(player, 24);
+                        ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Možný nákup -> Items - Frost Bow");
+                        ChatInfo.INFO.send(player, "Pro získání odměny zajdi na vybraný server a v §event/cshop {c}v sekci sezoní odměny si zakup Frost Bow za SeasonPoints.");
+                        EconomyAPI.SEASON_POINTS.give(player, 1);
+                        player.closeInventory();
                         return;
                     } else {
-                        ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                        p.closeInventory();
+                        ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                        player.closeInventory();
                         return;
                     }
                 } else {
-                    ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                    p.closeInventory();
+                    ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                    player.closeInventory();
                     return;
                 }
             }
         }
-        if (e.getSlot() == 0) {
+        if (event.getSlot() == 0) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_25.get()) { // 25.den
-                if (Main.getInstance().getSQL().checkDay(p, 25) == 0) {
-                    Main.getInstance().getSQL().addCalendarDay(p, 25);
-                    if (p.hasPermission("group.gold") || p.hasPermission("group.diamond") || p.hasPermission("group.emerald") || p.hasPermission("group.obsidian")) {
-                        ChatInfo.INFO.send(p, "Jelikož již vlastníš nějaké VIP vyšší, nemůžeme ti aktivovat Gold VIP.");
-                        ChatInfo.INFO.send(p, "Naopak jsi dostal 2 CraftTokeny a 1.000 CraftCoins!");
-                        CraftCoinsAPI.giveCoins(p, 1000);
-                        CraftTokensAPI.giveTokens(p, 2);
-                        p.closeInventory();
+                if (Main.getInstance().getSQL().checkDay(player, 25) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(player, 25);
+                    if (player.hasPermission("group.gold") || player.hasPermission("group.diamond") || player.hasPermission("group.emerald") || player.hasPermission("group.obsidian")) {
+                        ChatInfo.INFO.send(player, "Jelikož již vlastníš nějaké VIP vyšší, nemůžeme ti aktivovat Gold VIP.");
+                        ChatInfo.INFO.send(player, "Naopak jsi dostal 2 CraftTokeny a 1.000 CraftCoins!");
+                        EconomyAPI.CRAFT_COINS.give(player, 1000);
+                        EconomyAPI.CRAFT_TOKENS.give(player, 2);
+                        player.closeInventory();
                         return;
                     }
-                    ChatInfo.INFO.send(p, "Byl ti aktivován speciální dárek: Global Gold VIP na 7 dní!");
-                    setGlobalGold(p);
-                    ChatInfo.SUCCESS.send(p, "Global Gold VIP [7 dní] bylo aktivováno.");
+                    ChatInfo.INFO.send(player, "Byl ti aktivován speciální dárek: Global Gold VIP na 7 dní!");
+                    setGlobalGold(player);
+                    ChatInfo.SUCCESS.send(player, "Global Gold VIP [7 dní] bylo aktivováno.");
                     return;
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }
 
-        if (e.getSlot() == 6) {
+        if (event.getSlot() == 6) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_26.get()) { // 26.den
-                if (Main.getInstance().getSQL().checkDay(p, 26) == 0) {
-                    Main.getInstance().getSQL().addCalendarDay(p, 26);
-                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Možný nákup -> Items - Frost Sword");
-                    ChatInfo.INFO.send(p, "Pro získání odměny zajdi na vybraný server a v §e/cshop {c}v sekci sezoní odměny si zakup Frost Sword za SeasonPoints.");
-                    SeasonPointsAPI.giveSeasonPoints(p, 1);
-                    p.closeInventory();
+                if (Main.getInstance().getSQL().checkDay(player, 26) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(player, 26);
+                    ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Možný nákup -> Items - Frost Sword");
+                    ChatInfo.INFO.send(player, "Pro získání odměny zajdi na vybraný server a v §event/cshop {c}v sekci sezoní odměny si zakup Frost Sword za SeasonPoints.");
+                    EconomyAPI.SEASON_POINTS.give(player, 1);
+                    player.closeInventory();
                     return;
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }
 
-        if (e.getSlot() == 16) {
+        if (event.getSlot() == 16) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_27.get()) { // 27.den
-                if (Main.getInstance().getSQL().checkDay(p, 27) == 0) {
-                    Main.getInstance().getSQL().addCalendarDay(p, 27);
-                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Silvester Glasses 2021 Edition");
-                    setPermission(p, "craftmanager.hats.silvester_glasses_2021");
-                    p.closeInventory();
+                if (Main.getInstance().getSQL().checkDay(player, 27) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(player, 27);
+                    ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Cosmetics - Silvester Glasses 2021 Edition");
+                    setPermission(player, "craftmanager.hats.silvester_glasses_2021");
+                    player.closeInventory();
                     return;
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }
 
-        if (e.getSlot() == 31) {
+        if (event.getSlot() == 31) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_28.get()) { // 28.den
-                if (Main.getInstance().getSQL().checkDay(p, 28) == 0) {
-                    Main.getInstance().getSQL().addCalendarDay(p, 28);
-                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 1 CraftToken");
-                    CraftTokensAPI.giveTokens(p, 1);
-                    p.closeInventory();
+                if (Main.getInstance().getSQL().checkDay(player, 28) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(player, 28);
+                    ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 1 CraftToken");
+                    EconomyAPI.CRAFT_TOKENS.give(player, 1);
+                    player.closeInventory();
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }
 
-        if (e.getSlot() == 43) {
+        if (event.getSlot() == 43) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_29.get()) { // 29.den
-                if (Main.getInstance().getSQL().checkDay(p, 29) == 0) {
-                    Main.getInstance().getSQL().addCalendarDay(p, 29);
-                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: 500 CraftCoins");
-                    CraftCoinsAPI.giveCoins(p, 500);
-                    p.closeInventory();
+                if (Main.getInstance().getSQL().checkDay(player, 29) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(player, 29);
+                    ChatInfo.SUCCESS.send(player, "Získal(a) jsi: 500 CraftCoins");
+                    EconomyAPI.CRAFT_COINS.give(player, 500);
+                    player.closeInventory();
                     return;
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }
 
-        if (e.getSlot() == 35) {
+        if (event.getSlot() == 35) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_30.get()) { // 30.den
-                if (Main.getInstance().getSQL().checkDay(p, 30) == 0) {
-                    Main.getInstance().getSQL().addCalendarDay(p, 30);
-                    ChatInfo.SUCCESS.send(p, "Získal(a) jsi: Cosmetics - Silvester Party Hat 2021 Edition");
-                    setPermission(p, "craftmanager.hats.silvester_party_hat_2021");
-                    p.closeInventory();
+                if (Main.getInstance().getSQL().checkDay(player, 30) == 0) {
+                    Main.getInstance().getSQL().addCalendarDay(player, 30);
+                    ChatInfo.SUCCESS.send(player, "Získal(a) jsi: Cosmetics - Silvester Party Hat 2021 Edition");
+                    setPermission(player, "craftmanager.hats.silvester_party_hat_2021");
+                    player.closeInventory();
                     return;
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }
 
-        if (e.getSlot() == 47) {
+        if (event.getSlot() == 47) {
             if (System.currentTimeMillis() >= CalenderTimes.DAY_31.get()) { // 31.den
-                if (Main.getInstance().getSQL().checkDay(p, 31) == 0) {
-                    p.sendMessage("");
-                    p.sendMessage("§b§lPoděkování za rok 2021:");
-                    p.sendMessage("§7Dnes je poslední den tohoto roku, pro všechny");
-                    p.sendMessage("§7to byl nepochybně těžký rok, stejně tak i pro nás.");
-                    p.sendMessage("§7Chtěli bychom ti poděkovat, že tu stále jsi a hraješ u nás");
-                    p.sendMessage("§7i přes to, že tento rok toho moc nového nebylo.");
-                    p.sendMessage("§7Příští rok to určitě zlepšíme, tak at je ten další rok lepší.");
-                    p.sendMessage("§eDěkujeme <3");
-                    p.sendMessage("");
+                if (Main.getInstance().getSQL().checkDay(player, 31) == 0) {
+                    player.sendMessage("");
+                    player.sendMessage("§b§lPoděkování za rok 2021:");
+                    player.sendMessage("§7Dnes je poslední den tohoto roku, pro všechny");
+                    player.sendMessage("§7to byl nepochybně těžký rok, stejně tak i pro nás.");
+                    player.sendMessage("§7Chtěli bychom ti poděkovat, že tu stále jsi a hraješ u nás");
+                    player.sendMessage("§7i přes to, že tento rok toho moc nového nebylo.");
+                    player.sendMessage("§7Příští rok to určitě zlepšíme, tak at je ten další rok lepší.");
+                    player.sendMessage("§eDěkujeme <3");
+                    player.sendMessage("");
                 } else {
-                    ChatInfo.DANGER.send(p, "Tuto odměnu jsi si již vybral(a).");
-                    p.closeInventory();
+                    ChatInfo.DANGER.send(player, "Tuto odměnu jsi si již vybral(a).");
+                    player.closeInventory();
                     return;
                 }
             } else {
-                ChatInfo.INFO.send(p, "Na výběr této odměny je příliš brzo.");
-                p.closeInventory();
+                ChatInfo.INFO.send(player, "Na výběr této odměny je příliš brzo.");
+                player.closeInventory();
                 return;
             }
         }

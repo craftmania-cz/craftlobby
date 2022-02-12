@@ -5,8 +5,7 @@ import cz.craftmania.craftcore.inventory.builder.ClickableItem;
 import cz.craftmania.craftcore.inventory.builder.content.InventoryContents;
 import cz.craftmania.craftcore.inventory.builder.content.InventoryProvider;
 import cz.craftmania.craftcore.xseries.messages.Titles;
-import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
-import cz.craftmania.crafteconomy.api.CraftTokensAPI;
+import cz.craftmania.crafteconomy.api.EconomyAPI;
 import cz.wake.lobby.Main;
 import cz.wake.lobby.utils.SkullHeads;
 import net.md_5.bungee.api.ChatColor;
@@ -19,15 +18,15 @@ import org.bukkit.inventory.ItemStack;
 public class GoldenPigGUI implements InventoryProvider {
 
     @Override
-    public void init(Player p, InventoryContents contents) {
+    public void init(Player player, InventoryContents contents) {
         // Item UI Menu
         contents.set(4, 8, ClickableItem.empty(new ItemBuilder(Material.LIGHT_GRAY_STAINED_GLASS_PANE).setCustomModelData(100003).setName("§f").hideAllFlags().build()));
 
         // About
         contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.PLAYER_HEAD)
-                .setSkullOwner(p)
+                .setSkullOwner(player)
                 .setName(ChatColor.of("#face4b") + "§lGoldenPig")
-                .setLore(ChatColor.of("#ded86a") + "Aktuální streak: " + ChatColor.of("#38ff49") + streak(p), "", "§7Denní odměna:", "§71. den " + ChatColor.of("#ded86a") + "10 CC", "§72. den " + ChatColor.of("#ded86a") + "20 CC", "§73. den " + ChatColor.of("#ded86a") + "30 CC", "§74. den " + ChatColor.of("#ded86a") + "40 CC", "§75. den " + ChatColor.of("#ded86a") + "50 CC", "§76. den " + ChatColor.of("#ded86a") + "60 CC", "§77. den " + ChatColor.of("#ded86a") + "10 CC", "§7Po 7. dni se vracíš zpátky na 1.", "", ChatColor.of("#ded86a") + "Každý 30. den + 1 CraftToken")
+                .setLore(ChatColor.of("#ded86a") + "Aktuální streak: " + ChatColor.of("#38ff49") + streak(player), "", "§7Denní odměna:", "§71. den " + ChatColor.of("#ded86a") + "10 CC", "§72. den " + ChatColor.of("#ded86a") + "20 CC", "§73. den " + ChatColor.of("#ded86a") + "30 CC", "§74. den " + ChatColor.of("#ded86a") + "40 CC", "§75. den " + ChatColor.of("#ded86a") + "50 CC", "§76. den " + ChatColor.of("#ded86a") + "60 CC", "§77. den " + ChatColor.of("#ded86a") + "10 CC", "§7Po 7. dni se vracíš zpátky na 1.", "", ChatColor.of("#ded86a") + "Každý 30. den + 1 CraftToken")
                 .hideAllFlags()
                 .build(), e -> {
         }));
@@ -35,40 +34,40 @@ public class GoldenPigGUI implements InventoryProvider {
         // Rewards
 
         // Daily
-        if (claimed(p, "daily")) {
+        if (claimed(player, "daily")) {
             contents.set(0, 4, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lDenní odměna")
-                    .setLore("§7Každý den si můžeš vyzvednout odměnu!", "§cDnes ji máš vyzvednutou,", "§cpřijď si pro ni zase zítra!", "", "§7Dnešní den je " + ChatColor.of("#38ff49") + streak(p) + "§7. v řadě!", ChatColor.of("#ded86a") + "Získal jsi: " + rewardFromDay(dayStreak(p) - 1) + " CC" + dailyCraftTokenMessage(p))
+                    .setLore("§7Každý den si můžeš vyzvednout odměnu!", "§cDnes ji máš vyzvednutou,", "§cpřijď si pro ni zase zítra!", "", "§7Dnešní den je " + ChatColor.of("#38ff49") + streak(player) + "§7. v řadě!", ChatColor.of("#ded86a") + "Získal jsi: " + rewardFromDay(dayStreak(player) - 1) + " CC" + dailyCraftTokenMessage(player))
                     .hideAllFlags()
                     .build(), e -> {}
             ));
         } else {
             contents.set(0, 4, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100014)
                     .setName(ChatColor.of("#face4b") + "§lDenní odměna")
-                    .setLore("§7Každý den si můžeš vyzvednout odměnu!", "", "§7Dnešní den je " + ChatColor.of("#38ff49") + (streak(p) + 1) + "§7. v řadě!", ChatColor.of("#ded86a") + "Dostaneš: " + rewardFromDay(dayStreak(p)) + " CC" + dailyCraftTokenMessage(p))
+                    .setLore("§7Každý den si můžeš vyzvednout odměnu!", "", "§7Dnešní den je " + ChatColor.of("#38ff49") + (streak(player) + 1) + "§7. v řadě!", ChatColor.of("#ded86a") + "Dostaneš: " + rewardFromDay(dayStreak(player)) + " CC" + dailyCraftTokenMessage(player))
                     .hideAllFlags()
                     .build(), (clickEvent) -> {
-                claim(p, "daily", "Vyzvednul jsi si denní odměnu!");
+                claim(player, "daily", "Vyzvednul jsi si denní odměnu!");
             }));
         }
 
         // VIP
-        if (p.hasPermission("craftlobby.vip.odmena")) {
-            if (claimed(p, "monthly_vip")) {
+        if (player.hasPermission("craftlobby.vip.odmena")) {
+            if (claimed(player, "monthly_vip")) {
                 contents.set(0, 5, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                         .setName(ChatColor.of("#face4b") + "§lVIP odměna")
-                        .setLore("§7VIP si může každý měsíc vyzvednout odměnu!", "§cTy už ji máš tento měsíc vyzvednutou,", "§cpočkej si na příšťí!", "", ChatColor.of("#ded86a") + "Získal jsi: " + monthlyVipCoins(p) + " CC")
+                        .setLore("§7VIP si může každý měsíc vyzvednout odměnu!", "§cTy už ji máš tento měsíc vyzvednutou,", "§cpočkej si na příšťí!", "", ChatColor.of("#ded86a") + "Získal jsi: " + monthlyVipCoins(player) + " CC")
                         .hideAllFlags()
                         .build(), e -> {
                 }));
             } else {
                 contents.set(0, 5, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100004)
                         .setName(ChatColor.of("#face4b") + "§lVIP odměna")
-                        .setLore("§7VIP si může každý měsíc vyzvednout odměnu!", "", ChatColor.of("#ded86a") + "Dostaneš: " + monthlyVipCoins(p) + " CC")
+                        .setLore("§7VIP si může každý měsíc vyzvednout odměnu!", "", ChatColor.of("#ded86a") + "Dostaneš: " + monthlyVipCoins(player) + " CC")
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "monthly_vip", "Vyzvednul jsi si VIP odměnu!");
-                    CraftCoinsAPI.giveCoins(p, monthlyVipCoins(p));
+                    claim(player, "monthly_vip", "Vyzvednul jsi si VIP odměnu!");
+                    EconomyAPI.CRAFT_COINS.give(player, monthlyVipCoins(player));
                 }));
             }
         } else { // Nemá VIP
@@ -81,7 +80,7 @@ public class GoldenPigGUI implements InventoryProvider {
         }
 
         // Extra
-        if (claimed(p, "extra")) {
+        if (claimed(player, "extra")) {
             contents.set(0, 6, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001) // Nepřenastavuj, zobrazuje se jako fajfka, že odmĚna je vyzvednuta
                     .setName(ChatColor.of("#face4b") + "§lExtra odměna")
                     .setLore("§7Extra odměna s extra nádechem!", "§cTuto odměnu jsi si již vyzvedl,", "§cpočkej si na další!", "", ChatColor.of("#ded86a") + "Získal jsi: Něco EXTRA") // Popis extra odměny (teď to je velice náhodné)
@@ -94,8 +93,8 @@ public class GoldenPigGUI implements InventoryProvider {
                     .setLore("§7Extra odměna s extra nádechem!", "", ChatColor.of("#ded86a") + "Dostaneš: Něco EXTRA") // Popis extra odměny (teď to je velice náhodné)
                     .hideAllFlags()
                     .build(), (clickEvent) -> {
-                claim(p, "extra", "Vyzvednul jsi si Extra odměnu!");
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftmanager.extra.reward"); // Příkaz, který se vykoná pro udělení odměny
+                claim(player, "extra", "Vyzvednul jsi si Extra odměnu!");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set craftmanager.extra.reward"); // Příkaz, který se vykoná pro udělení odměny
             }));*/
             contents.set(0, 6, ClickableItem.empty(new ItemBuilder(Material.BARRIER)
                     .setName("§c§lExtra odměna")
@@ -114,7 +113,7 @@ public class GoldenPigGUI implements InventoryProvider {
         }));
 
         // 1 den
-        if (claimed(p, "playtime_1d")) { // Pokud je odměna vyvzednuta
+        if (claimed(player, "playtime_1d")) { // Pokud je odměna vyvzednuta
             contents.set(2, 3, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lOdehraný den")
                     .setLore("§7Odměna za odehraných", "§724 hodin na serveru.", "§cTuto odměnu jsi si již vyzvedl!", "", ChatColor.of("#ded86a") + "Získal jsi: 200 CC")
@@ -122,19 +121,19 @@ public class GoldenPigGUI implements InventoryProvider {
                     .build(), e -> {
             }));
         } else {
-            if (getPlaytime(p) >= 24) {
+            if (getPlaytime(player) >= 24) {
                 contents.set(2, 3, ClickableItem.of(new ItemBuilder(Material.PAPER) //TODO: Dočasné zobrazení odměny za playtime
                         .setName(ChatColor.of("#face4b") + "§lOdehraný den")
-                        .setLore("§7Odměna za odehraných", "§724 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 200 CC")
+                        .setLore("§7Odměna za odehraných", "§724 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 200 CC")
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "playtime_1d", "Vyzvednul jsi si odměnu za odehraný čas!");
-                    CraftCoinsAPI.giveCoins(p, 200);
+                    claim(player, "playtime_1d", "Vyzvednul jsi si odměnu za odehraný čas!");
+                    EconomyAPI.CRAFT_COINS.give(player, 200);
                 }));
             } else {
                 contents.set(2, 3, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                         .setName(ChatColor.of("#face4b") + "§lOdehraný den")
-                        .setLore("§7Odměna za odehraných", "§724 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 200 CC")
+                        .setLore("§7Odměna za odehraných", "§724 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 200 CC")
                         .hideAllFlags()
                         .build(), e -> {
                 }));
@@ -142,7 +141,7 @@ public class GoldenPigGUI implements InventoryProvider {
         }
 
         // Odehraný čas: týden
-        if (claimed(p, "playtime_7d")) { // Pokud je odměna vyvzednuta
+        if (claimed(player, "playtime_7d")) { // Pokud je odměna vyvzednuta
             contents.set(2, 4, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lOdehraný týden")
                     .setLore("§7Odměna za odehraných", "§7168 hodin na serveru.", "§cTuto odměnu jsi si již vyzvedl!", "", ChatColor.of("#ded86a") + "Získal jsi: 1,000 CC")
@@ -150,19 +149,19 @@ public class GoldenPigGUI implements InventoryProvider {
                     .build(), e -> {
             }));
         } else {
-            if (getPlaytime(p) >= 168) {
+            if (getPlaytime(player) >= 168) {
                 contents.set(2, 4, ClickableItem.of(new ItemBuilder(Material.PAPER)
                         .setName(ChatColor.of("#face4b") + "§lOdehraný týden")
-                        .setLore("§7Odměna za odehraných", "§7168 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 168h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
+                        .setLore("§7Odměna za odehraných", "§7168 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 168h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "playtime_7d", "Vyzvednul jsi si odměnu za odehraný čas!");
-                    CraftCoinsAPI.giveCoins(p, 1000);
+                    claim(player, "playtime_7d", "Vyzvednul jsi si odměnu za odehraný čas!");
+                    EconomyAPI.CRAFT_COINS.give(player, 1000);
                 }));
             } else {
                 contents.set(2, 4, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                         .setName(ChatColor.of("#face4b") + "§lOdehraný týden")
-                        .setLore("§7Odměna za odehraných", "§7168 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 168h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
+                        .setLore("§7Odměna za odehraných", "§7168 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 168h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
                         .hideAllFlags()
                         .build(), e -> {
                 }));
@@ -170,7 +169,7 @@ public class GoldenPigGUI implements InventoryProvider {
         }
 
         // odehraný čas: 2 týdny
-        if (claimed(p, "playtime_14d")) { // Pokud je odměna vyvzednuta
+        if (claimed(player, "playtime_14d")) { // Pokud je odměna vyvzednuta
             contents.set(2, 5, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lOdehrané 2 týdny")
                     .setLore("§7Odměna za odehraných", "§7336 hodin na serveru.", "§cTuto odměnu jsi si již vyzvedl!", "", ChatColor.of("#ded86a") + "Získal jsi: 2,500 CC, 1 CT")
@@ -178,20 +177,20 @@ public class GoldenPigGUI implements InventoryProvider {
                     .build(), e -> {
             }));
         } else {
-            /*if (getPlaytime(p) >= 336) {
+            /*if (getPlaytime(player) >= 336) {
                 contents.set(2, 5, ClickableItem.of(new ItemBuilder(Material.PAPER) // Dočasné zobrazení odměny za playtime
                         .setName(ChatColor.of("#face4b") + "§lOdehrané 2 týdny")
-                        .setLore("§7Odměna za odehraných", "§7336 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 336h", "", ChatColor.of("#ded86a") + "Dostaneš: 2,500 CC, 1 CT")
+                        .setLore("§7Odměna za odehraných", "§7336 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 336h", "", ChatColor.of("#ded86a") + "Dostaneš: 2,500 CC, 1 CT")
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "playtime_14d", "Vyzvednul jsi si odměnu za odehraný čas!");
-                    CraftCoinsAPI.giveCoins(p, 2500);
-                    CraftTokensAPI.giveTokens(p, 1);
+                    claim(player, "playtime_14d", "Vyzvednul jsi si odměnu za odehraný čas!");
+                    CraftCoinsAPI.giveCoins(player, 2500);
+                    CraftTokensAPI.giveTokens(player, 1);
                 }));
             } else {
                 contents.set(2, 5, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                         .setName(ChatColor.of("#face4b") + "§lOdehrané 2 týdny")
-                        .setLore("§7Odměna za odehraných", "§7336 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 336h", "", ChatColor.of("#ded86a") + "Dostaneš: 2,500 CC, 1 CT")
+                        .setLore("§7Odměna za odehraných", "§7336 hodin na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 336h", "", ChatColor.of("#ded86a") + "Dostaneš: 2,500 CC, 1 CT")
                         .hideAllFlags()
                         .build(), e -> {
                 }));
@@ -204,7 +203,7 @@ public class GoldenPigGUI implements InventoryProvider {
         }
 
         // měsíc
-        if (claimed(p, "playtime_30d")) { // Pokud je odměna vyvzednuta
+        if (claimed(player, "playtime_30d")) { // Pokud je odměna vyvzednuta
             contents.set(2, 6, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lOdehraný měsíc")
                     .setLore("§7Odměna za odehraných", "§7720 hodin (30 dní) na serveru.", "§cTuto odměnu jsi si již vyzvedl!", "", ChatColor.of("#ded86a") + "Získal jsi: 400 CC") // Popis extra odměny (teď to je velice náhodné)
@@ -213,19 +212,19 @@ public class GoldenPigGUI implements InventoryProvider {
             }));
         } else {
             //TODO: Leden update cosmetics
-            /*if (getPlaytime(p) >= 720) {
+            /*if (getPlaytime(player) >= 720) {
                 contents.set(2, 6, ClickableItem.of(new ItemBuilder(Material.PAPER) // Dočasné zobrazení odměny za playtime
                         .setName(ChatColor.of("#face4b") + "§lOdehraný měsíc")
-                        .setLore("§7Odměna za odehraných", "§7720 hodin (30 dní) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 336h", "", ChatColor.of("#ded86a") + "Dostaneš: 400 CC") // Odměny za odehraný čás úplně tak jako netuším no
+                        .setLore("§7Odměna za odehraných", "§7720 hodin (30 dní) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 336h", "", ChatColor.of("#ded86a") + "Dostaneš: 400 CC") // Odměny za odehraný čás úplně tak jako netuším no
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "playtime_30d", "Vyzvednul jsi si odměnu za odehraný čas!");
-                    CraftCoinsAPI.giveCoins(p, 400);
+                    claim(player, "playtime_30d", "Vyzvednul jsi si odměnu za odehraný čas!");
+                    CraftCoinsAPI.giveCoins(player, 400);
                 }));
             } else {
                 contents.set(2, 6, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                         .setName(ChatColor.of("#face4b") + "§lOdehraný měsíc")
-                        .setLore("§7Odměna za odehraných", "§7720 hodin (30 dní) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 720h", "", ChatColor.of("#ded86a") + "Dostaneš: 400 CC") // Odměny za odehraný čás úplně tak jako netuším no
+                        .setLore("§7Odměna za odehraných", "§7720 hodin (30 dní) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 720h", "", ChatColor.of("#ded86a") + "Dostaneš: 400 CC") // Odměny za odehraný čás úplně tak jako netuším no
                         .hideAllFlags()
                         .build(), e -> {
                 }));
@@ -238,7 +237,7 @@ public class GoldenPigGUI implements InventoryProvider {
         }
 
         // půlroku
-        if (claimed(p, "playtime_halfyear")) { // Pokud je odměna vyvzednuta
+        if (claimed(player, "playtime_halfyear")) { // Pokud je odměna vyvzednuta
             contents.set(2, 7, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                     .setName(ChatColor.of("#face4b") + "§lOdehraný půlrok")
                     .setLore("§7Odměna za odehraných", "§74380 hodin (182,5 dne) na serveru.", "§cTuto odměnu jsi si již vyzvedl!", "", ChatColor.of("#ded86a") + "Získal jsi: 500 CC") // Popis extra odměny (teď to je velice náhodné)
@@ -247,19 +246,19 @@ public class GoldenPigGUI implements InventoryProvider {
             }));
         } else {
             //TODO: Leden update cosmetics
-            /*if (getPlaytime(p) >= 4380) {
+            /*if (getPlaytime(player) >= 4380) {
                 contents.set(2, 7, ClickableItem.of(new ItemBuilder(Material.PAPER) // Dočasné zobrazení odměny za playtime
                         .setName(ChatColor.of("#face4b") + "§lOdehraný půlrok")
-                        .setLore("§7Odměna za odehraných", "§74380 hodin (182,5 dne) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 4380h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC") // Odměny za odehraný čás úplně tak jako netuším no
+                        .setLore("§7Odměna za odehraných", "§74380 hodin (182,5 dne) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 4380h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC") // Odměny za odehraný čás úplně tak jako netuším no
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "playtime_halfyear", "Vyzvednul jsi si odměnu za odehraný čas!");
-                    CraftCoinsAPI.giveCoins(p, 500);
+                    claim(player, "playtime_halfyear", "Vyzvednul jsi si odměnu za odehraný čas!");
+                    CraftCoinsAPI.giveCoins(player, 500);
                 }));
             } else {
                 contents.set(2, 7, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                         .setName(ChatColor.of("#face4b") + "§lOdehraný půlrok")
-                        .setLore("§7Odměna za odehraných", "§74380 hodin (182,5 dne) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(p) + "h z 4380h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC") // Odměny za odehraný čás úplně tak jako netuším no
+                        .setLore("§7Odměna za odehraných", "§74380 hodin (182,5 dne) na serveru.", "", "§7Odehráno: " + ChatColor.of("#38ff49") + getPlaytime(player) + "h z 4380h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC") // Odměny za odehraný čás úplně tak jako netuším no
                         .hideAllFlags()
                         .build(), e -> {
                 }));
@@ -288,9 +287,9 @@ public class GoldenPigGUI implements InventoryProvider {
         contents.set(3, 1, ClickableItem.empty(discord));
 
         // Propojení check
-        if (Main.getInstance().getSQL().isConnectedToDiscord(p)) {
+        if (Main.getInstance().getSQL().isConnectedToDiscord(player)) {
             //Propojení odměna
-            if (claimed(p, "discord_connect")) {
+            if (claimed(player, "discord_connect")) {
                 contents.set(3, 3, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                         .setName(ChatColor.of("#face4b") + "§lDiscord propojení")
                         .setLore("§7Odměna za to, že sis propojil", "§7Discord s Minecraftem.", "", ChatColor.of("#ded86a") + "Získal jsi: Wumpus Leaf [Čepice]")
@@ -303,14 +302,14 @@ public class GoldenPigGUI implements InventoryProvider {
                         .setLore("§7Odměna za to, že sis propojil", "§7Discord s Minecraftem.", "", ChatColor.of("#ded86a") + "Dostaneš: Wumpus Leaf [Čepice]")
                         .hideAllFlags()
                         .build(), (clickEvent) -> {
-                    claim(p, "discord_connect", "Čepici si můžeš nasadit na serverech v /cosmetics");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftmanager.hats.wumpus_leaf");
+                    claim(player, "discord_connect", "Čepici si můžeš nasadit na serverech v /cosmetics");
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set craftmanager.hats.wumpus_leaf");
                 }));
             }
 
             // Booster odměna
-            if (Main.getInstance().getSQL().isDiscordBooster(p)) {
-                if (claimed(p, "discord_booster")) {
+            if (Main.getInstance().getSQL().isDiscordBooster(player)) {
+                if (claimed(player, "discord_booster")) {
                     contents.set(3, 4, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                             .setName(ChatColor.of("#face4b") + "§lDiscord booster")
                             .setLore("§7Odměna za to, že boostíš", "§7náš Discord server.", "", ChatColor.of("#ded86a") + "Získal jsi: Mega Wumpus [Čepice]")
@@ -323,8 +322,8 @@ public class GoldenPigGUI implements InventoryProvider {
                             .setLore("§7Odměna za to, že boostíš", "§7náš Discord server.", "", ChatColor.of("#ded86a") + "Dostaneš: Mega Wumpus [Čepice]")
                             .hideAllFlags()
                             .build(), (clickEvent) -> {
-                        claim(p, "discord_booster", "Čepici si můžeš nasadit na serverech v /cosmetics!");
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + p.getName() + " permission set craftmanager.hats.wumpus");
+                        claim(player, "discord_booster", "Čepici si můžeš nasadit na serverech v /cosmetics!");
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set craftmanager.hats.wumpus");
                     }));
                 }
             } else {
@@ -338,7 +337,7 @@ public class GoldenPigGUI implements InventoryProvider {
 
             // Měsíční Discord volání
             //1h
-            if (claimed(p, "discord_voice_activity_1h")) { // Pokud je odměna vyvzednuta
+            if (claimed(player, "discord_voice_activity_1h")) { // Pokud je odměna vyvzednuta
                 contents.set(3, 5, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                         .setName(ChatColor.of("#face4b") + "§lMěsíční provolaná hodina")
                         .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "§cTy už ji máš tento měsíc vyzvednutou,", "§cpočkej si na příšťí!", "", ChatColor.of("#ded86a") + "Získal jsi: 100 CC")
@@ -346,26 +345,26 @@ public class GoldenPigGUI implements InventoryProvider {
                         .build(), e -> {
                 }));
             } else {
-                if (getDiscordVoiceActivityTime(p) >= 1) {
+                if (getDiscordVoiceActivityTime(player) >= 1) {
                     contents.set(3, 5, ClickableItem.of(new ItemBuilder(Material.PAPER)
                             .setName(ChatColor.of("#face4b") + "§lMěsíční provolaná hodina")
-                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(p) + "h z 1h", "", ChatColor.of("#ded86a") + "Dostaneš: 100 CC")
+                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(player) + "h z 1h", "", ChatColor.of("#ded86a") + "Dostaneš: 100 CC")
                             .hideAllFlags()
                             .build(), e -> {
-                        claim(p, "discord_voice_activity_1h", "Vyzvednul jsi si odměnu za provolaný čas!");
-                        CraftCoinsAPI.giveCoins(p, 100);
+                        claim(player, "discord_voice_activity_1h", "Vyzvednul jsi si odměnu za provolaný čas!");
+                        EconomyAPI.CRAFT_COINS.give(player, 100);
                     }));
                 } else {
                     contents.set(3, 5, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                             .setName(ChatColor.of("#face4b") + "§lMěsíční provolaná hodina")
-                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(p) + "h z 1h", "", ChatColor.of("#ded86a") + "Dostaneš: 100 CC")
+                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(player) + "h z 1h", "", ChatColor.of("#ded86a") + "Dostaneš: 100 CC")
                             .hideAllFlags()
                             .build(), e -> {
                     }));
                 }
             }
             //10h
-            if (claimed(p, "discord_voice_activity_10h")) { // Pokud je odměna vyvzednuta
+            if (claimed(player, "discord_voice_activity_10h")) { // Pokud je odměna vyvzednuta
                 contents.set(3, 6, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                         .setName(ChatColor.of("#face4b") + "§lMěsíčně provolaných 10 hodin")
                         .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "§cTy už ji máš tento měsíc vyzvednutou,", "§cpočkej si na příšťí!", "", ChatColor.of("#ded86a") + "Získal jsi: 500 CC")
@@ -373,26 +372,26 @@ public class GoldenPigGUI implements InventoryProvider {
                         .build(), e -> {
                 }));
             } else {
-                if (getDiscordVoiceActivityTime(p) >= 10) {
+                if (getDiscordVoiceActivityTime(player) >= 10) {
                     contents.set(3, 6, ClickableItem.of(new ItemBuilder(Material.PAPER)
                             .setName(ChatColor.of("#face4b") + "§lMěsíčně provolaných 10 hodin")
-                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(p) + "h z 10h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC")
+                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(player) + "h z 10h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC")
                             .hideAllFlags()
                             .build(), e -> {
-                        claim(p, "discord_voice_activity_10h", "Vyzvednul jsi si odměnu za provolaný čas!");
-                        CraftCoinsAPI.giveCoins(p, 500);
+                        claim(player, "discord_voice_activity_10h", "Vyzvednul jsi si odměnu za provolaný čas!");
+                        EconomyAPI.CRAFT_COINS.give(player, 500);
                     }));
                 } else {
                     contents.set(3, 6, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                             .setName(ChatColor.of("#face4b") + "§lMěsíčně provolaných 10 hodin")
-                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(p) + "h z 10h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC")
+                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(player) + "h z 10h", "", ChatColor.of("#ded86a") + "Dostaneš: 500 CC")
                             .hideAllFlags()
                             .build(), e -> {
                     }));
                 }
             }
             //24h
-            if (claimed(p, "discord_voice_activity_24h")) { // Pokud je odměna vyvzednuta
+            if (claimed(player, "discord_voice_activity_24h")) { // Pokud je odměna vyvzednuta
                 contents.set(3, 7, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100001)
                         .setName(ChatColor.of("#face4b") + "§lMěsíčně provolaný den")
                         .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "§cTy už ji máš tento měsíc vyzvednutou,", "§cpočkej si na příšťí!", "", ChatColor.of("#ded86a") + "Získal jsi: 1,000 CC")
@@ -400,19 +399,19 @@ public class GoldenPigGUI implements InventoryProvider {
                         .build(), e -> {
                 }));
             } else {
-                if (getDiscordVoiceActivityTime(p) >= 24) {
+                if (getDiscordVoiceActivityTime(player) >= 24) {
                     contents.set(3, 7, ClickableItem.of(new ItemBuilder(Material.PAPER)
                             .setName(ChatColor.of("#face4b") + "§lMěsíčně provolaný den")
-                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(p) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
+                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(player) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
                             .hideAllFlags()
                             .build(), e -> {
-                        claim(p, "discord_voice_activity_24h", "Vyzvednul jsi si odměnu za provolaný čas!");
-                        CraftCoinsAPI.giveCoins(p, 1000);
+                        claim(player, "discord_voice_activity_24h", "Vyzvednul jsi si odměnu za provolaný čas!");
+                        EconomyAPI.CRAFT_COINS.give(player, 1000);
                     }));
                 } else {
                     contents.set(3, 7, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                             .setName(ChatColor.of("#face4b") + "§lMěsíčně provolaný den")
-                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(p) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
+                            .setLore("§7Odměnu za provolaný čas", "§7si můžeš vyzvednout každý měsíc.", "", "§7Provoláno: " + ChatColor.of("#38ff49") + getDiscordVoiceActivityTime(player) + "h z 24h", "", ChatColor.of("#ded86a") + "Dostaneš: 1,000 CC")
                             .hideAllFlags()
                             .build(), e -> {
                     }));
@@ -429,7 +428,7 @@ public class GoldenPigGUI implements InventoryProvider {
     }
 
     @Override
-    public void update(Player p, InventoryContents contents) {
+    public void update(Player player, InventoryContents contents) {
     }
 
     private int rewardFromDay(int day) {
@@ -445,30 +444,30 @@ public class GoldenPigGUI implements InventoryProvider {
         };
     }
 
-    private int streak(Player p) {
-        return Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(p, "lobby_bonus_streak");
+    private int streak(Player player) {
+        return Main.getInstance().getSQL().getPlayerProfileDataIntNoUUID(player, "lobby_bonus_streak");
     }
 
     // Ziskání denního streaku (1-7. den)
-    private int dayStreak(Player p) {
-        int rawStreak = Main.getInstance().getSQL().getPlayerProfileDataInt(p, "lobby_bonus_streak");
+    private int dayStreak(Player player) {
+        int rawStreak = Main.getInstance().getSQL().getPlayerProfileDataInt(player, "lobby_bonus_streak");
         while (rawStreak > 6) {
             rawStreak = rawStreak - 7;
         }
         return rawStreak;
     }
 
-    private boolean dailyCraftToken(Player p) {
-        if (claimed(p, "daily")) {
-            return streak(p) % 30 == 0;
+    private boolean dailyCraftToken(Player player) {
+        if (claimed(player, "daily")) {
+            return streak(player) % 30 == 0;
         } else {
-            return (streak(p) + 1) % 30 == 0;
+            return (streak(player) + 1) % 30 == 0;
         }
 
     }
 
-    private String dailyCraftTokenMessage(Player p) {
-        if (dailyCraftToken(p)) {
+    private String dailyCraftTokenMessage(Player player) {
+        if (dailyCraftToken(player)) {
             return " + 1 CT";
         } else {
             return "";
@@ -476,12 +475,12 @@ public class GoldenPigGUI implements InventoryProvider {
     }
 
     // VIP odměny
-    private int monthlyVipCoins(Player p) {
-        if (p.hasPermission("craftlobby.vip.odmena.obsidian")) {
+    private int monthlyVipCoins(Player player) {
+        if (player.hasPermission("craftlobby.vip.odmena.obsidian")) {
             return 2000;
-        } else if (p.hasPermission("craftlobby.vip.odmena.emerald")) {
+        } else if (player.hasPermission("craftlobby.vip.odmena.emerald")) {
             return 1500;
-        } else if (p.hasPermission("craftlobby.vip.odmena.diamond")) {
+        } else if (player.hasPermission("craftlobby.vip.odmena.diamond")) {
             return 1000;
         } else {
             return 500;
@@ -489,31 +488,31 @@ public class GoldenPigGUI implements InventoryProvider {
     }
 
     // Hodinový playtime
-    private int getPlaytime(Player p) {
-        return Main.getInstance().getSQL().getPlayerProfileDataInt(p, "played_time") / 60;
+    private int getPlaytime(Player player) {
+        return Main.getInstance().getSQL().getPlayerProfileDataInt(player, "played_time") / 60;
     }
 
     // Hodinová měsíční Discord voice aktivita
-    private int getDiscordVoiceActivityTime(Player p) {
-        return Main.getInstance().getSQL().getPlayerProfileDataInt(p, "month_discord_voice_activity") / (3600 * 1000);
+    private int getDiscordVoiceActivityTime(Player player) {
+        return Main.getInstance().getSQL().getPlayerProfileDataInt(player, "month_discord_voice_activity") / (3600 * 1000);
     }
 
     // Claimed
-    private boolean claimed(Player p, String type) {
-        return Main.getInstance().getSQL().getPlayerProfileDataInt(p, "lobby_bonus_claimed_" + type) == 1;
+    private boolean claimed(Player player, String type) {
+        return Main.getInstance().getSQL().getPlayerProfileDataInt(player, "lobby_bonus_claimed_" + type) == 1;
     }
 
-    private void claim(Player p, String type, String message) {
+    private void claim(Player player, String type, String message) {
         if (type == "daily") {
-            CraftCoinsAPI.giveCoins(p, rewardFromDay(dayStreak(p)));
-            if (dailyCraftToken(p)) {
-                CraftTokensAPI.giveTokens(p, 1);
+            EconomyAPI.CRAFT_COINS.give(player, rewardFromDay(dayStreak(player)));
+            if (dailyCraftToken(player)) {
+                EconomyAPI.CRAFT_TOKENS.give(player, 1);
             }
-            Main.getInstance().getSQL().increaseBonusStreak(p);
+            Main.getInstance().getSQL().increaseBonusStreak(player);
         }
-        Main.getInstance().getSQL().bonusClaim(p, type);
-        p.closeInventory();
-        p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 13.0F, 1.0F);
-        p.sendTitle(ChatColor.of("#face4b") + "GoldenPig", ChatColor.of("#ded86a") + message, 5, 40, 5);
+        Main.getInstance().getSQL().bonusClaim(player, type);
+        player.closeInventory();
+        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 13.0F, 1.0F);
+        player.sendTitle(ChatColor.of("#face4b") + "GoldenPig", ChatColor.of("#ded86a") + message, 5, 40, 5);
     }
 }

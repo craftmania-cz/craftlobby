@@ -1,7 +1,6 @@
 package cz.wake.lobby.manager;
 
-import cz.craftmania.crafteconomy.api.CraftCoinsAPI;
-import cz.craftmania.crafteconomy.api.CraftTokensAPI;
+import cz.craftmania.crafteconomy.api.EconomyAPI;
 import cz.wake.lobby.Main;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
@@ -54,10 +53,10 @@ public class TagsConvertManager implements Listener {
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set craftlobby.settings.tags-converted");
         System.out.println("Hráč dostane: " + coins.get() + " CC, " + tokens.get() + " CT");
         if (coins.get() > 0) {
-            CraftCoinsAPI.giveCoins(player, coins.get());
+            EconomyAPI.CRAFT_COINS.give(player, coins.get());
         }
         if (tokens.get() > 0) {
-            CraftTokensAPI.giveTokens(player, tokens.get());
+            EconomyAPI.CRAFT_TOKENS.give(player, tokens.get());
         }
     }
 }
