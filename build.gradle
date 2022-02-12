@@ -30,24 +30,14 @@ repositories {
     maven { url "https://oss.sonatype.org/content/groups/public/" }
     maven { url "https://repo.aikar.co/content/groups/aikar/" }
     maven {
-        url "https://maven.pkg.github.com/craftmania-cz/craftcore"
-        credentials {
-            username = GPR_USER
-            password = GPR_TOKEN
+        url "https://gitlab.com/api/v4/groups/craftmania/-/packages/maven"
+        name "GitLab"
+        credentials(HttpHeaderCredentials) {
+            name = 'Private-Token'
+            value = GITLAB_TOKEN
         }
-    }
-    maven {
-        url "https://maven.pkg.github.com/craftmania-cz/craftpack"
-        credentials {
-            username = GPR_USER
-            password = GPR_TOKEN
-        }
-    }
-    maven {
-        url "https://maven.pkg.github.com/craftmania-cz/craftlibs"
-        credentials {
-            username = GPR_USER
-            password = GPR_TOKEN
+        authentication {
+            header(HttpHeaderAuthentication)
         }
     }
 }
@@ -73,7 +63,7 @@ dependencies {
     compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.6.2.1'
     compileOnly group: 'cz.craftmania.craftlibs', name: 'craftlibs', version: '1.1.9'
     compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '1.5.2'
-    compileOnly group: 'cz.craftmania.craftpack', name: 'craftpack', version: '1.4.0'
+    compileOnly group: 'cz.craftmania.craftpack', name: 'craftpack', version: '1.4.5'
 }
 
 shadowJar {
