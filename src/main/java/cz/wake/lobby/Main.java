@@ -169,6 +169,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new VanillaCommand());
         manager.registerCommand(new AnarchyCommand());
         manager.registerCommand(new EventServerCommand());
+        manager.registerCommand(new Survival2Command());
 
         if(getConfig().getBoolean("seasons.christmas")){
             manager.registerCommand(new Kalendar_command());

@@ -22,11 +22,11 @@ public class ServerSelectorGUI implements InventoryProvider {
         // Item UI Menu
         contents.set(2, 8, ClickableItem.empty(new ItemBuilder(Material.LIGHT_GRAY_STAINED_GLASS_PANE).setCustomModelData(100002).setName("§f").hideAllFlags().build()));
 
-        contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.DIAMOND_PICKAXE)
+        contents.set(1, 2, ClickableItem.of(new ItemBuilder(Material.DIAMOND_PICKAXE)
                 .setName(ChatColor.of("#00CDCD") + "§lSurvival §8[1.17]")
                 .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP, McMMO", "", "§7Survival server založený na ekonomice,", "§7s shopy a farmami. Né každý ale", "§7může být ten nejbohatší.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
-                .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival")));
+                .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2")));
 
         contents.set(0, 2, ClickableItem.of(new ItemBuilder(Material.NAUTILUS_SHELL)
                 .setName(ChatColor.of("#3D9140") + "§lSkyblock §8[1.17]")
@@ -45,6 +45,12 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .setLore(ChatColor.of("#7D7D7D") + "Ochrana chunků, PvP, Bez ekonomiky", "", "§7Prakticky Survival ale bez Ekonomiky.", "§7Dokážeš přežít bez pomoci", "§7a v klasickém světě?", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla")));
+
+        contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.NETHERITE_SWORD)
+                .setName(ChatColor.of("#00CDCD") + "§lSurvival: Lands §8[1.18]")
+                .setLore(ChatColor.of("#7D7D7D") + "Ochrana chunků, PvP, Hard Ekonomika", "", "§7Zcela nový Survival.", "§7S těžší ekonomikou, custom", "§7bloky a tunou vylepšení...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
+                .hideAllFlags()
+                .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival")));
 
         contents.set(0, 6, ClickableItem.of(new ItemBuilder(Material.CAKE)
                 .setName(ChatColor.of("#EE30A7") + "§lEvent Server")
