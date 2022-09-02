@@ -12,7 +12,7 @@ public class TutorialGUI implements InventoryProvider {
     @Override
     public void init(Player player, InventoryContents contents) {
         // Horni radek
-        contents.set(0,0, ClickableItem.of(new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName("§c ").build(), e -> {}));
+        /*contents.set(0,0, ClickableItem.of(new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName("§c ").build(), e -> {}));
         contents.set(0,1, ClickableItem.of(new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName("§c ").build(), e -> {}));
         contents.set(0,2, ClickableItem.of(new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName("§c ").build(), e -> {}));
         contents.set(0,3, ClickableItem.of(new ItemBuilder(Material.BLUE_STAINED_GLASS_PANE).setName("§c ").build(), e -> {}));
@@ -62,7 +62,8 @@ public class TutorialGUI implements InventoryProvider {
         contents.set(3, 5, ClickableItem.of(SkullHeads.createHead(
                 "prikazy", "1786c62b-dd50-4fe8-af99-0c4b5c035f03", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFmYjE5NWNjNzVmMzFiNjE5YTA3N2I3ODUzNjUzMjU0YWMxOGYyMjBkYzMyZDE0MTI5ODJmZjQzN2I0ZDU3YSJ9fX0=",
                 "§b§lPár základních příkazů", "§7Teleport do lobby: §f/lobby", "§7Teleport mezi servery: §f/survival, /skyblock atd.", "§7Friends: §f/friends §7nebo §f/fr", "§7Spawn: §f/spawn"
-        ), e -> {}));
+        ), e -> {}));*/
+        player.sendMessage("§c§l[!] §cTutorial je dočasně nedostupný. Pracujeme již na opravě.");
     }
 
     @Override

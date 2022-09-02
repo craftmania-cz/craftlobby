@@ -268,12 +268,12 @@ public class GoldenPigGUI implements InventoryProvider {
 
         // Discord
         // Ikonka kategorie
-        ItemStack discord = SkullHeads.createHead(
-                ChatColor.of("#face4b") + "§lDiscord",
-                "de431cd1-ae1d-49f6-9339-a96daeacc32b",
-                "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19",
-                ChatColor.of("#face4b") + "§lDiscord",
-                "§7Podívej se doprava na odměny,", "§7které můžeš získat za aktivity", "§7spojené s Discordem.");
+        ItemStack discord = new ItemBuilder(Material.BLUE_ICE).setName(
+                ChatColor.of("#face4b") + "§lDiscord")
+                //"de431cd1-ae1d-49f6-9339-a96daeacc32b",
+                //"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzg3M2MxMmJmZmI1MjUxYTBiODhkNWFlNzVjNzI0N2NiMzlhNzVmZjFhODFjYmU0YzhhMzliMzExZGRlZGEifX19",
+                //ChatColor.of("#face4b") + "§lDiscord",
+                .setLore("§7Podívej se doprava na odměny,", "§7které můžeš získat za aktivity", "§7spojené s Discordem.").build();
         ItemStack needToConnect = new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100008)
                 .setName(ChatColor.of("#face4b") + "§lZamčená Discord odměna")
                 .setLore("§cPro zobrazení této odměny", "§csi musíš nejprve propojit", "§cDiscord s Minecraftem." + ChatColor.of("#ded86a") + " /link")

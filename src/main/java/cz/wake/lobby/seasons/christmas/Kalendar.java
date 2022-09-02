@@ -121,7 +121,7 @@ public class Kalendar implements Listener {
 
     private ItemStack ranomHead(String name) {
         int sance = randRange(1, 100);
-        if ((sance >= 1) && (sance <= 10)) { // Indigo
+        /*if ((sance >= 1) && (sance <= 10)) { // Indigo
             return SkullHeads.createHead(name, "ce936179-5016-4926-8889-2c1705ef70d7", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmYyZDE4OTVmZmY0YjFiYjkxMTZjOGE5ZTIyOTU5N2Y2OWYzZWVlODgxMjI3NzZlNWY5NzMzNTdlNmIifX19");
         } else if ((sance >= 11) && (sance <= 20)) { // Light Blue
             return SkullHeads.createHead(name, "54a219b4-9a5f-45ed-80ff-8766d501588b", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODRlMWM0MmYxMTM4M2I5ZGM4ZTY3ZjI4NDZmYTMxMWIxNjMyMGYyYzJlYzdlMTc1NTM4ZGJmZjFkZDk0YmI3In19fQ==");
@@ -141,7 +141,7 @@ public class Kalendar implements Listener {
             return SkullHeads.createHead(name, "c04fdca4-1221-49b2-b29d-f6622478dbbc", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTBjNzVhMDViMzQ0ZWEwNDM4NjM5NzRjMTgwYmE4MTdhZWE2ODY3OGNiZWE1ZTRiYTM5NWY3NGQ0ODAzZDFkIn19fQ==");
         } else if ((sance >= 91) && (sance <= 100)) { // Dark Orange
             return SkullHeads.createHead(name, "13e135fb-348f-4c6a-99e3-e6e3aa385e73", "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTI4ZTY5MmQ4NmUyMjQ0OTc5MTVhMzk1ODNkYmUzOGVkZmZkMzljYmJhNDU3Y2M5NWE3YWMzZWEyNWQ0NDUifX19");
-        }
+        }*/
         return null;
     }
 

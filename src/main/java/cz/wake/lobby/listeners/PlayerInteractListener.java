@@ -2,8 +2,6 @@ package cz.wake.lobby.listeners;
 
 import cz.craftmania.craftcore.inventory.builder.SmartInventory;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.gui.ChangelogsGUI;
-import cz.wake.lobby.gui.LobbySelectorGUI;
 import cz.wake.lobby.gui.ServerSelectorGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

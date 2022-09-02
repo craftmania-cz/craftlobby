@@ -151,7 +151,7 @@ public class PlayerJoinListener implements Listener {
 
         ItemStack hider = new ItemBuilder(Material.LIME_DYE).setName("§7Hráči: §a§lVIDITELNÍ").build();
 
-        ItemStack web = SkullHeads.createHead(
+        /*ItemStack web = SkullHeads.createHead(
                 "§aWeb",
                 "c424243d-0421-4774-8aeb-2ddea957ed57",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTY5MzZkNGYwZDFiOTNmZWY3NzViMWZiZDE5MjgxYjcwYzZmODg0NzViYjVhNDFiZjM3MmMxMmYxZjhhMjIifX19",
@@ -169,15 +169,15 @@ public class PlayerJoinListener implements Listener {
                 "5e469ecf-80a4-40ae-8d9d-7c12bd2d3a3f",
                 "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjViM2YyY2ZhMDczOWM0ZTgyODMxNmYzOWY5MGIwNWJjMWY0ZWQyN2IxZTM1ODg4NTExZjU1OGQ0Njc1In19fQ==",
                 "§d§lInstagram",
-                "§7Odkaz na náš Instagram:", "§fhttps://www.instagram.com/craftmania.cz/", "", "§eKliknutím zobrazíš odkaz v chatu");
+                "§7Odkaz na náš Instagram:", "§fhttps://www.instagram.com/craftmania.cz/", "", "§eKliknutím zobrazíš odkaz v chatu");*/
 
         p.getInventory().setItem(0, compass);
         p.getInventory().setItem(2, playerProfile);
         p.getInventory().setItem(6, hider);
 
-        p.getInventory().setItem(20, web);
-        p.getInventory().setItem(22, discord);
-        p.getInventory().setItem(24, instagram);
+        //p.getInventory().setItem(20, web);
+        //p.getInventory().setItem(22, discord);
+        //p.getInventory().setItem(24, instagram);
     }
 
     private void setupPlayerOnJoin(final Player p) {
