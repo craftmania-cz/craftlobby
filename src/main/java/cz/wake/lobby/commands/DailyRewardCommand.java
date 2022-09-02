@@ -14,9 +14,8 @@ import org.bukkit.entity.Player;
 public class DailyRewardCommand extends BaseCommand {
     @Default
     public void defaultCommand(CommandSender sender) {
-        if (!(sender instanceof Player)) return;
-        Player player = (Player) sender;
-        SmartInventory.builder().size(5, 9).title("GoldenPig").provider(new GoldenPigGUI()).build().open(player);
+        if (!(sender instanceof Player player)) return;
+        SmartInventory.builder().size(5, 9).title(":offset_-18::golden_pig:").provider(new GoldenPigGUI()).build().open(player);
 
     }
 }

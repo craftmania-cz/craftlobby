@@ -19,9 +19,6 @@ public class GoldenPigGUI implements InventoryProvider {
 
     @Override
     public void init(Player player, InventoryContents contents) {
-        // Item UI Menu
-        contents.set(4, 8, ClickableItem.empty(new ItemBuilder(Material.LIGHT_GRAY_STAINED_GLASS_PANE).setCustomModelData(100003).setName("§f").hideAllFlags().build()));
-
         // About
         contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.PLAYER_HEAD)
                 .setSkullOwner(player)

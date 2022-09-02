@@ -19,9 +19,6 @@ public class ServerSelectorGUI implements InventoryProvider {
     @Override
     public void init(Player player, InventoryContents contents) {
 
-        // Item UI Menu
-        contents.set(2, 8, ClickableItem.empty(new ItemBuilder(Material.LIGHT_GRAY_STAINED_GLASS_PANE).setCustomModelData(100002).setName("§f").hideAllFlags().build()));
-
         contents.set(1, 2, ClickableItem.of(new ItemBuilder(Material.DIAMOND_PICKAXE)
                 .setName(ChatColor.of("#00CDCD") + "§lSurvival §8[1.17]")
                 .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP, McMMO", "", "§7Survival server založený na ekonomice,", "§7s shopy a farmami. Né každý ale", "§7může být ten nejbohatší.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")

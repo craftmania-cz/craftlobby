@@ -42,7 +42,7 @@ public class PlayerInteractListener implements Listener {
         // Kompas
         if (((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) &&
                 (e.getPlayer().getInventory().getItemInMainHand().getType() == Material.COMPASS) && (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§bVyber serveru §7(Klikni pravym)"))) {
-            SmartInventory.builder().size(3, 9).title("Výběr serveru").provider(new ServerSelectorGUI()).build().open(player);
+            SmartInventory.builder().size(3, 9).title(":offset_-18::server_selector:").provider(new ServerSelectorGUI()).build().open(player);
         }
 
         // Player hider
