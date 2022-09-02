@@ -2,8 +2,6 @@ package cz.wake.lobby.listeners;
 
 import cz.craftmania.craftcore.builders.items.ItemBuilder;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.gui.ChangelogsGUI;
-import cz.wake.lobby.utils.SkullHeads;
 import cz.wake.lobby.utils.UtilTablist;
 import org.bukkit.*;
 import org.bukkit.entity.Player;

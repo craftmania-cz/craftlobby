@@ -4,7 +4,6 @@ import cz.craftmania.craftcore.builders.items.ItemBuilder;
 import cz.craftmania.crafteconomy.api.EconomyAPI;
 import cz.craftmania.craftlibs.utils.ChatInfo;
 import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.SkullHeads;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

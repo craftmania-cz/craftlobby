@@ -4,8 +4,6 @@ import cz.craftmania.craftcore.builders.items.ItemBuilder;
 import cz.craftmania.craftcore.inventory.builder.ClickableItem;
 import cz.craftmania.craftcore.inventory.builder.content.InventoryContents;
 import cz.craftmania.craftcore.inventory.builder.content.InventoryProvider;
-import cz.wake.lobby.Main;
-import cz.wake.lobby.utils.SkullHeads;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 

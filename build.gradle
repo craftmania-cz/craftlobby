@@ -10,8 +10,8 @@ version = '2.3'
 
 description = """"""
 
-sourceCompatibility = 16
-targetCompatibility = 16
+sourceCompatibility = 17
+targetCompatibility = 17
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -23,7 +23,7 @@ clean { delete "./build" }
 repositories {
     flatDir {dirs 'lib'}
     mavenCentral()
-    maven { url "https://papermc.io/repo/repository/maven-public/" }
+    maven { url "https://repo.papermc.io/repository/maven-public/" }
     maven { url "https://repo.dmulloy2.net/nexus/repository/public/" }
     maven { url "https://jitpack.io" }
     maven { url "https://repo.maven.apache.org/maven2" }
@@ -44,9 +44,7 @@ repositories {
 
 dependencies {
     // Spigot
-    compileOnly ('io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT')
-
-    compileOnly name: 'spigot-1.17.1'
+    compileOnly ('io.papermc.paper:paper-api:1.18.2-R0.1-20220703.182221-166')
 
     // Commands
     implementation 'co.aikar:acf-paper:0.5.0-SNAPSHOT'
