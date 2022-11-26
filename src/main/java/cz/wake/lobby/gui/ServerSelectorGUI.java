@@ -32,19 +32,19 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock")));
 
         contents.set(0, 3, ClickableItem.of(new ItemBuilder(Material.LAVA_BUCKET)
-                .setName(ChatColor.of("#F4A460") + "§lCreative §8[1.18]")
+                .setName(ChatColor.of("#F4A460") + "§lCreative §8[1.19]")
                 .setLore(ChatColor.of("#7D7D7D") + "Pozemky, WorldEdit", "", "§7Svět, ve kterém můžeš prakticky", "§7dělat co chceš. Stavět, budovat,", "§7nebo se prostě zlepšovat.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative")));
 
         contents.set(1, 1, ClickableItem.of(new ItemBuilder(Material.IRON_NUGGET).setCustomModelData(100014)
-                .setName(ChatColor.of("#EEC900") + "§lVanilla: Lands §8[1.18]")
+                .setName(ChatColor.of("#EEC900") + "§lVanilla: Lands §8[1.19]")
                 .setLore(ChatColor.of("#7D7D7D") + "Ochrana chunků, PvP, Bez ekonomiky", "", "§7Prakticky Survival ale bez Ekonomiky.", "§7Dokážeš přežít bez pomoci", "§7a v klasickém světě?", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla")));
 
         contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.NETHERITE_SWORD)
-                .setName(ChatColor.of("#00CDCD") + "§lSurvival: Lands §8[1.18]")
+                .setName(ChatColor.of("#00CDCD") + "§lSurvival: Lands §8[1.19]")
                 .setLore(ChatColor.of("#7D7D7D") + "Ochrana chunků, PvP, Hard Ekonomika", "", "§7Zcela nový Survival.", "§7S těžší ekonomikou, custom", "§7bloky a tunou vylepšení...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival")));
@@ -66,12 +66,6 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .setLore("§7Lobby server pro všechny hráče.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "lobby2")));
-
-        contents.set(2, 7, ClickableItem.of(new ItemBuilder(Buttons.EARTH.getPureItemStack())
-                .setName(ChatColor.of("#4876FF") + "§lLobby [3]")
-                .setLore("§7Lobby server pro všechny hráče.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
-                .hideAllFlags()
-                .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "ohub")));
 
     }
 
