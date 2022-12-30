@@ -25,7 +25,13 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival2")));
 
-        contents.set(0, 2, ClickableItem.of(new ItemBuilder(Material.NAUTILUS_SHELL)
+        contents.set(0, 2, ClickableItem.of(new ItemBuilder(Material.HEART_OF_THE_SEA)
+                .setName(ChatColor.of("#3D9140") + "§lSkyblock §8[1.19]")
+                .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP", "", "§7Dokážeš z prázdného ostrova postavit", "§7něco, co bude mít hodnotu?", "§7Jedině tak přežiješ...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
+                .hideAllFlags()
+                .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2")));
+
+        contents.set(1, 3, ClickableItem.of(new ItemBuilder(Material.NAUTILUS_SHELL)
                 .setName(ChatColor.of("#3D9140") + "§lSkyblock §8[1.17]")
                 .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP, McMMO", "", "§7Dokážeš z prázdného ostrova postavit", "§7něco, co bude mít hodnotu?", "§7Jedině tak přežiješ...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
@@ -44,7 +50,7 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla")));
 
         contents.set(0, 1, ClickableItem.of(new ItemBuilder(Material.NETHERITE_SWORD)
-                .setName(ChatColor.of("#00CDCD") + "§lSurvival: Lands §8[1.19]")
+                .setName(ChatColor.of("#00CDCD") + "§lSurvival §8[1.19]")
                 .setLore(ChatColor.of("#7D7D7D") + "Ochrana chunků, PvP, Hard Ekonomika", "", "§7Zcela nový Survival.", "§7S těžší ekonomikou, custom", "§7bloky a tunou vylepšení...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival")));

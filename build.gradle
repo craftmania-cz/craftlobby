@@ -24,7 +24,7 @@ repositories {
     flatDir {dirs 'lib'}
     mavenCentral()
     maven { url "https://repo.papermc.io/repository/maven-public/" }
-    maven { url "https://repo.dmulloy2.net/nexus/repository/public/" }
+    maven { url "https://repo.dmulloy2.net/repository/public/" }
     maven { url "https://jitpack.io" }
     maven { url "https://repo.maven.apache.org/maven2" }
     maven { url "https://oss.sonatype.org/content/groups/public/" }
