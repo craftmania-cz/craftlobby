@@ -29,12 +29,6 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .setName(ChatColor.of("#3D9140") + "§lSkyblock §8[1.19]")
                 .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP", "", "§7Dokážeš z prázdného ostrova postavit", "§7něco, co bude mít hodnotu?", "§7Jedině tak přežiješ...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
                 .hideAllFlags()
-                .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock2")));
-
-        contents.set(1, 3, ClickableItem.of(new ItemBuilder(Material.NAUTILUS_SHELL)
-                .setName(ChatColor.of("#3D9140") + "§lSkyblock §8[1.17]")
-                .setLore(ChatColor.of("#7D7D7D") + "Economy, PvP, McMMO", "", "§7Dokážeš z prázdného ostrova postavit", "§7něco, co bude mít hodnotu?", "§7Jedině tak přežiješ...", "", ChatColor.of("#FFD39B") + "Klikni pro připojení na server")
-                .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock")));
 
         contents.set(0, 3, ClickableItem.of(new ItemBuilder(Material.LAVA_BUCKET)
