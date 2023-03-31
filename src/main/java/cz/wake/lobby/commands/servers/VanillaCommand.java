@@ -19,7 +19,7 @@ public class VanillaCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fVanilla");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "vanilla");
+            Main.getInstance().sendToServer(player, "vanilla");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fVanilla §cse nezdařil!");

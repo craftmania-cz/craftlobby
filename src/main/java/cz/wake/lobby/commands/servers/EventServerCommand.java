@@ -19,7 +19,7 @@ public class EventServerCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fEvent Server");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "event-server");
+            Main.getInstance().sendToServer(player, "event-server");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fEvent Server §cse nezdařil!");

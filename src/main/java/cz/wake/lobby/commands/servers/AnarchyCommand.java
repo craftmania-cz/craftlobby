@@ -19,7 +19,7 @@ public class AnarchyCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fAnarchy");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "anarchy");
+            Main.getInstance().sendToServer(player, "anarchy");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fAnarchy §cse nezdařil!");

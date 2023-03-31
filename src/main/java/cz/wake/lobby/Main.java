@@ -25,6 +25,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.util.ArrayList;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
@@ -199,6 +200,18 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     @Override
     public void onPluginMessageReceived(String channel, Player player, byte[] message) {
         if (!channel.equalsIgnoreCase("BungeeCord")) return;
+    }
+
+    public void sendToServer(Player player, String target) {
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        DataOutputStream out = new DataOutputStream(b);
+        try {
+            out.writeUTF("Connect");
+            out.writeUTF(target);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());
     }
 
     private void initDatabase() {

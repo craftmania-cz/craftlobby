@@ -19,7 +19,7 @@ public class CreativeCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fCreative");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "creative");
+            Main.getInstance().sendToServer(player, "creative");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fCreative §cse nezdařil!");

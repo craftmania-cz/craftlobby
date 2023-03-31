@@ -19,7 +19,7 @@ public class SkyblockCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fSkyblock");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "skyblock");
+            Main.getInstance().sendToServer(player, "skyblock");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fSkyblock §cse nezdařil!");

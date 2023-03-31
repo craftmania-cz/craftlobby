@@ -19,7 +19,7 @@ public class SurvivalCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fSurvival");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "survival");
+            Main.getInstance().sendToServer(player, "survival");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fSurvival §cse nezdařil!");

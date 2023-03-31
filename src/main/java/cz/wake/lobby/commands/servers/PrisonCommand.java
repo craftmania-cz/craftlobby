@@ -19,7 +19,7 @@ public class PrisonCommand extends BaseCommand {
         Player player = (Player) sender;
         try {
             player.sendMessage("§eTeleportuji na server §fPrison");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "prison");
+            Main.getInstance().sendToServer(player, "prison");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fPrison §cse nezdařil!");
