@@ -10,7 +10,6 @@ import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.listeners.*;
 import cz.wake.lobby.manager.*;
 import cz.wake.lobby.sql.SQLManager;
-import cz.wake.lobby.utils.CraftBalancerManager;
 import cz.wake.lobby.utils.Log;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
@@ -40,7 +39,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
     private boolean isSilvester;
     private boolean isChristmas;
     private boolean isHalloween;
-    private CraftBalancerManager craftBalancerManager;
     private LuckPerms luckPermsApi;
     private PaperCommandManager manager = null;
 
@@ -81,8 +79,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         Log.info("Nacitani plugin messages.");
         Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         Bukkit.getMessenger().registerIncomingPluginChannel(this, "BungeeCord", this);
-
-        craftBalancerManager = new CraftBalancerManager(this);
 
         // Deaktivace fire + bezpecnostni odebrani vsech entit
         Log.info("Preventivni nastavovani svetu pro lobby.");
@@ -228,10 +224,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public boolean isChristmas() {
         return isChristmas;
-    }
-
-    public CraftBalancerManager getCraftBalancerManager() {
-        return craftBalancerManager;
     }
 
     public LuckPerms getLuckPermsApi() {

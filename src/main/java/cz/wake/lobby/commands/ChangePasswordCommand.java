@@ -25,7 +25,7 @@ public class ChangePasswordCommand extends BaseCommand {
 
         try {
             player.sendMessage("§eTeleportuji na server §fwhub-change");
-            Main.getInstance().getCraftBalancerManager().bypassConnect(player, "whub-change");
+            Main.getInstance().sendToServer(player, "whub-change");
         } catch (Exception e) {
             e.printStackTrace();
             player.sendMessage("§cTeleport na server §fwhub-change §cse nezdařil!");
