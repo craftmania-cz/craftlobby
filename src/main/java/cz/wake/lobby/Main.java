@@ -8,7 +8,6 @@ import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
 import cz.wake.lobby.commands.*;
 import cz.wake.lobby.commands.servers.*;
 import cz.wake.lobby.listeners.*;
-import cz.wake.lobby.manager.*;
 import cz.wake.lobby.sql.SQLManager;
 import cz.wake.lobby.utils.Log;
 import net.luckperms.api.LuckPerms;
@@ -71,9 +70,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         // Id serveru
         idServer = getConfig().getString("server");
         Log.info("Server zaevidovany jako " + idServer);
-
-        //Detekce TPS
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new LagManager(), 100L, 1L);
 
         // Plugin Mesages
         Log.info("Nacitani plugin messages.");
@@ -187,10 +183,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 
     public static Plugin getPlugin() {
         return Bukkit.getPluginManager().getPlugin("CraftLobby");
-    }
-
-    public double getTPS() {
-        return LagManager.getTPS();
     }
 
     @Override
