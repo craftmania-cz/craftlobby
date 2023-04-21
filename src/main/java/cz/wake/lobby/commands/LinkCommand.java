@@ -33,7 +33,7 @@ public class LinkCommand extends BaseCommand {
         String code = RandomStringUtils.randomAlphanumeric(8).toUpperCase();
         Main.getInstance().getSQL().createConnectionRequest(p, code);
         p.sendMessage("§6Zahájil jsi propojování s Discord účtem!");
-        p.sendMessage("§eZajdi na náš Discord server (discord.gg/craftmania) a do #bot_prikazy a zadej příkaz §6,link " + code);
+        p.sendMessage("§eZajdi na náš Discord server (discord.gg/craftmania) a do #bot_prikazy a zadej příkaz §6/link " + code);
         p.sendMessage("§eNásledně se ti propojí tvůj Minecraft účet s Discord účtem a budeš mit jednodušší přístup ke všem statistikám. Tvůj kód expiruje za 5 minut.");
     }
 
