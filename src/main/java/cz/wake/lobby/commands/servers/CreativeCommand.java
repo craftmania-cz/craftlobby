@@ -6,6 +6,7 @@ import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Description;
 import co.aikar.commands.annotation.HelpCommand;
+import cz.craftmania.craftlibs.utils.ChatInfo;
 import cz.wake.lobby.Main;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -13,16 +14,17 @@ import org.bukkit.entity.Player;
 @CommandAlias("creative")
 @Description("Teleportuje tě na server Creative")
 public class CreativeCommand extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fCreative");
+            ChatInfo.INFO.send(player,"Teleportuji tě na server §fCreative");
             Main.getInstance().sendToServer(player, "creative");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fCreative §cse nezdařil!");
+            ChatInfo.DANGER.send(player,"Teleport na server Creative se nezdařil!");
         }
     }
 

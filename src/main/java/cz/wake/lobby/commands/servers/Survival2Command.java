@@ -6,23 +6,25 @@ import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import co.aikar.commands.annotation.Description;
 import co.aikar.commands.annotation.HelpCommand;
+import cz.craftmania.craftlibs.utils.ChatInfo;
 import cz.wake.lobby.Main;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("survival2")
-@Description("Teleportuje tě na server Survival 1.17")
+@Description("Teleportuje tě na server Survival: Classic")
 public class Survival2Command extends BaseCommand {
+
     @Default
     public void defaultCommand(CommandSender sender) {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            player.sendMessage("§eTeleportuji na server §fSurvival");
+            ChatInfo.INFO.send(player, "Teleportuji tě na server §fSurvival: Classic");
             Main.getInstance().sendToServer(player, "survival2");
         } catch (Exception e) {
             e.printStackTrace();
-            player.sendMessage("§cTeleport na server §fSurvival §cse nezdařil!");
+            ChatInfo.DANGER.send(player, "Teleport na server Survival: Classic se nezdařil!");
         }
     }
 
