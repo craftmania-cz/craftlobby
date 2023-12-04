@@ -30,14 +30,24 @@ repositories {
     maven { url "https://oss.sonatype.org/content/groups/public/" }
     maven { url "https://repo.aikar.co/content/groups/aikar/" }
     maven {
-        url "https://gitlab.com/api/v4/groups/craftmania/-/packages/maven"
-        name "GitLab"
-        credentials(HttpHeaderCredentials) {
-            name = 'Private-Token'
-            value = GITLAB_TOKEN
+        url "https://maven.pkg.github.com/craftmania-cz/craftcore"
+        credentials {
+            username = GPR_USER
+            password = GPR_TOKEN
         }
-        authentication {
-            header(HttpHeaderAuthentication)
+    }
+    maven {
+        url "https://maven.pkg.github.com/craftmania-cz/craftpack"
+        credentials {
+            username = GPR_USER
+            password = GPR_TOKEN
+        }
+    }
+    maven {
+        url "https://maven.pkg.github.com/craftmania-cz/craftlibs"
+        credentials {
+            username = GPR_USER
+            password = GPR_TOKEN
         }
     }
 }
@@ -58,9 +68,9 @@ dependencies {
     implementation 'net.luckperms:api:5.3'
 
     // CM Plugins
-    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.6.2.1'
-    compileOnly group: 'cz.craftmania.craftlibs', name: 'craftlibs', version: '1.1.9'
-    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '2.0.1'
+    compileOnly group: 'cz.craftmania.craftcore', name: 'craftcore', version: '2.11'
+    compileOnly group: 'cz.craftmania.craftlibs', name: 'craftlibs', version: '1.1.17'
+    compileOnly group: 'cz.craftmania.crafteconomy', name: 'crafteconomy', version: '2.1.1'
     compileOnly group: 'cz.craftmania.craftpack', name: 'craftpack', version: '1.4.5'
 }
 
