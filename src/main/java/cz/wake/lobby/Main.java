@@ -1,7 +1,6 @@
 package cz.wake.lobby;
 
 import co.aikar.commands.PaperCommandManager;
-import cz.wake.lobby.seasons.christmas.Kalendar;
 import cz.wake.lobby.seasons.christmas.Kalendar_command;
 import cz.wake.lobby.seasons.christmas.SilvesterTask;
 import cz.wake.lobby.seasons.halloween.ScarePlayerTask;
@@ -134,11 +133,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
                 && pm.isPluginEnabled("RogueParkour")) {
             Log.info("Detekce a aktivace Parkour pluginu.");
             pm.registerEvents(new ParkourListener(), this);
-        }
-
-        if(getConfig().getBoolean("seasons.christmas")){
-            pm.registerEvents(new Kalendar(), this);
-            Log.info("Aktivace Vanocnich eventu pro lobby.");
         }
     }
 
