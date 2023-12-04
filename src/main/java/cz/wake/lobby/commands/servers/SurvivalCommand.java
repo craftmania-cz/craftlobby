@@ -12,7 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("survival")
-@Description("Teleportuje tě na server Survival: Lite")
+@Description("Teleportuje tě na server Survival: Classic")
 public class SurvivalCommand extends BaseCommand {
 
     @Default
@@ -20,11 +20,11 @@ public class SurvivalCommand extends BaseCommand {
         if (!(sender instanceof Player)) return;
         Player player = (Player) sender;
         try {
-            ChatInfo.INFO.send(player,"Teleportuji tě na server §fSurvival: Lite");
-            Main.getInstance().sendToServer(player, "survival");
+            ChatInfo.INFO.send(player,"Teleportuji tě na server §fSurvival: Classic");
+            Main.getInstance().sendToServer(player, "survival2");
         } catch (Exception e) {
             e.printStackTrace();
-            ChatInfo.DANGER.send(player,"Teleport na server Survival: Lite se nezdařil!");
+            ChatInfo.DANGER.send(player,"Teleport na server Survival: Classic se nezdařil!");
         }
     }
 
