@@ -37,12 +37,6 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().sendToServer(player, "creative")));
 
-        contents.set(1, 1, ClickableItem.of(new ItemBuilder(Material.NETHERITE_SWORD)
-                .setName("§f쇭") // Survival: Lite
-                .setLore("§8Doporučená verze: §f1.19+", "", "§8• §7Ekonomika & shopy", "§8• §7Ochrana chunků: Lands", "§8• §7Náročnější ekonomika, poplatky a jiné", "§8• §7Odměny za práci: Jobs", "§8• §7Ranked odměny", "§8• §7Questy & challange", "§8• §7Nové recepty a itemy", "§8• §7Nové variace bloků", "§8• §7DynMapa", "" , ChatColor.of("#FFD39B") + "Klikni pro připojení")
-                .hideAllFlags()
-                .build(), (clickEvent) -> Main.getInstance().sendToServer(player, "survival")));
-
         contents.set(0, 6, ClickableItem.of(new ItemBuilder(Material.CAKE)
                 .setName("§f⼪") // Event Server
                 .setLore("§8Doporučená verze: §f1.19+", "", "§7Server na kterém se konají", "§7eventy pro celý server!", "", "§7Na server se dá dostat pouze", "§7při konání eventu.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
