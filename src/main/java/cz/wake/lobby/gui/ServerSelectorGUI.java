@@ -27,7 +27,7 @@ public class ServerSelectorGUI implements InventoryProvider {
 
         contents.set(0, 2, ClickableItem.of(new ItemBuilder(Material.HEART_OF_THE_SEA)
                 .setName("§f쇯") // OneBlock
-                .setLore("§8Doporučená verze: §f1.19+", "", "§8• §7Ekonomika & shopy", "§8• §7Ostrovy s postupným rozšiřováním", "§8• §7PvP Arény §8(v přípravě)", "§8• §7Odměny za práci: Jobs", "§8• §7Ranked odměny", "§8• §7Questy & challange", "§8• §7Nové recepty, itemy a bloky", "§8• §7DynMapa", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
+                .setLore("§8Doporučená verze: §f1.20+", "", "§8• §7Ekonomika & shopy", "§8• §7Ostrovy s postupným rozšiřováním", "§8• §7PvP Arény §8(v přípravě)", "§8• §7Odměny za práci: Jobs", "§8• §7Ranked odměny", "§8• §7Questy & challange", "§8• §7Nové recepty, itemy a bloky", "§8• §7DynMapa", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().sendToServer(player, "skyblock")));
 
