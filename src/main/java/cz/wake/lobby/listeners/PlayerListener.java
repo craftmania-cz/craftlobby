@@ -128,9 +128,9 @@ public class PlayerListener implements Listener {
         Player p = e.getPlayer();
 
         // Teleport na spawn
-        if (p.getLocation().getY() <= 0) {
+        if (p.getLocation().getY() <= 20) {
             if (Main.getInstance().getIdServer().equalsIgnoreCase("bedwars")) {
-                p.teleport(new Location(Bukkit.getWorld("obw2"), -602.5, 111.5, 129.5, -180, 0));
+                p.teleport(new Location(Bukkit.getWorld("obw"), -608.5, 100.5, 128.5, 180, 0));
             }
         }
     }
