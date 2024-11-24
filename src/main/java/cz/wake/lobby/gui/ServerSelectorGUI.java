@@ -37,6 +37,18 @@ public class ServerSelectorGUI implements InventoryProvider {
                 .hideAllFlags()
                 .build(), (clickEvent) -> Main.getInstance().sendToServer(player, "creative")));
 
+        contents.set(1, 1, ClickableItem.of(new ItemBuilder(Material.RED_BED)
+                .setName("§cBedWars: 2015") // Creative
+                .setLore("§8Doporučená verze: §f??", "", "§8Starý dobrý BedWars na mapách", "§8Moon, Sahara a Mushrooms!", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
+                .hideAllFlags()
+                .build(), (clickEvent) -> Main.getInstance().sendToServer(player, "blobby")));
+
+        contents.set(1, 2, ClickableItem.of(new ItemBuilder(Material.IRON_BARS)
+                .setName("§9Prison 3.0 (2021)") // Creative
+                .setLore("§8Doporučená verze: §f??", "", "§8Starý Prison 3.0 je zpět dočasně, lol?!", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")
+                .hideAllFlags()
+                .build(), (clickEvent) -> Main.getInstance().sendToServer(player, "prison")));
+
         contents.set(0, 6, ClickableItem.of(new ItemBuilder(Material.CAKE)
                 .setName("§f⼪") // Event Server
                 .setLore("§8Doporučená verze: §f1.19+", "", "§7Server na kterém se konají", "§7eventy pro celý server!", "", "§7Na server se dá dostat pouze", "§7při konání eventu.", "", ChatColor.of("#FFD39B") + "Klikni pro připojení")

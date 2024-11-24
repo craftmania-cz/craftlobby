@@ -128,6 +128,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         pm.registerEvents(new PlayerListener(this), this);
         pm.registerEvents(new InvClick(), this);
         pm.registerEvents(new ChatListener(), this);
+        pm.registerEvents(new SignInteractListener(), this);
 
         if (getConfig().getString("server").equalsIgnoreCase("main")
                 && pm.isPluginEnabled("RogueParkour")) {
@@ -147,6 +148,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new ChangePasswordCommand());
         manager.registerCommand(new TutorialCommand());
         manager.registerCommand(new DailyRewardCommand());
+        manager.registerCommand(new LegacyLobbyCommand());
 
         //Servers
         manager.registerCommand(new CreativeCommand());
@@ -154,6 +156,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
         manager.registerCommand(new SurvivalCommand());
         manager.registerCommand(new OneblockCommand());
         manager.registerCommand(new EventServerCommand());
+        manager.registerCommand(new BedwarsCommand());
 
         if(getConfig().getBoolean("seasons.christmas")){
             manager.registerCommand(new Kalendar_command());
